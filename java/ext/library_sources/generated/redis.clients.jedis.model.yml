@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["redis.clients.jedis", "ScanParams", True, "match", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["redis.clients.jedis", "Jedis", True, "sendCommand", "(ProtocolCommand,String[])", "", "Parameter[1]", "remote", "manual"]

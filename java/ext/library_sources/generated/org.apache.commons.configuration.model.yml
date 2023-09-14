@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.configuration", "Configuration", True, "addProperty", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.configuration", "Configuration", True, "clearProperty", "(String)", "", "Parameter[0]", "remote", "manual"]

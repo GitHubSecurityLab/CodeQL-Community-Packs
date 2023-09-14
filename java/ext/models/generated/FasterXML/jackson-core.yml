@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["com.fasterxml.jackson.core", "JsonFactory", true, "createJsonParser", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.fasterxml.jackson.core", "JsonFactory", true, "createJsonParser", "(URL)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.fasterxml.jackson.core", "TokenStreamFactory", true, "createParser", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.fasterxml.jackson.core", "TokenStreamFactory", true, "createParser", "(URL)", "", "Argument[0]", "open-url", "generated"]
+

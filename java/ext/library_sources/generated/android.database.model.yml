@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.database", "Cursor", True, "setNotificationUri", "(ContentResolver,Uri)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.database", "MatrixCursor", True, "addRow", "(Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["android.database", "MatrixCursor$RowBuilder", True, "add", "(Object)", "", "Parameter[0]", "remote", "manual"]

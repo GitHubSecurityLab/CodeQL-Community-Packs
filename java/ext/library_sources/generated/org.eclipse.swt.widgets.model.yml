@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.swt.widgets", "Text", True, "setText", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.swt.widgets", "TableItem", True, "setText", "(int,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.eclipse.swt.widgets", "Label", True, "setText", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.swt.widgets", "Widget", True, "setData", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.swt.widgets", "Text", True, "append", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.swt.widgets", "Link", True, "setText", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.swt.widgets", "MessageBox", True, "setMessage", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.swt.widgets", "List", True, "setItems", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.swt.widgets", "Item", True, "setText", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.swt.widgets", "Group", True, "setText", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.swt.widgets", "DirectoryDialog", True, "setFilterPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.swt.widgets", "Decorations", True, "setText", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.swt.widgets", "Button", True, "setText", "(String)", "", "Parameter[0]", "remote", "manual"]

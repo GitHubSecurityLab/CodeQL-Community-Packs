@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.slack.api.methods.request.chat", "ChatPostMessageRequest$ChatPostMessageRequestBuilder", True, "text", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.slack.api.methods.request.chat", "ChatPostMessageRequest$ChatPostMessageRequestBuilder", True, "channel", "(String)", "", "Parameter[0]", "remote", "manual"]

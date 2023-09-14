@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dataease.plugins.xpack.ldap.service", "LdapXpackService", True, "testConn", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.ldap.service", "LdapXpackService", True, "save", "(List)", "", "Parameter[0]", "remote", "manual"]

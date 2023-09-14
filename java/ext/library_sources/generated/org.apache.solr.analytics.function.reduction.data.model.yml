@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.solr.analytics.function.reduction.data", "ReductionDataCollector<?>", True, "dataIO", "(ReductionData)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.analytics.function.reduction.data", "ReductionDataCollector<?>", True, "addCollectTarget", "(ReductionData)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.analytics.function.reduction.data", "SortedListCollector<String>", True, "importNext", "(String)", "", "Parameter[0]", "remote", "manual"]

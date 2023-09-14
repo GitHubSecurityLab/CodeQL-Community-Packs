@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.ektorp", "CouchDbConnector", True, "find", "(Class,String)", "", "Parameter[1]", "remote", "manual"]

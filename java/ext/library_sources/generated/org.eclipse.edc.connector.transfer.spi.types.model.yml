@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.edc.connector.transfer.spi.types", "ProvisionedResource$Builder<HttpProvisionedContentResource,Builder>", True, "resourceDefinitionId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.edc.connector.transfer.spi.types", "ProvisionedResource$Builder<HttpProvisionedContentResource,Builder>", True, "hasToken", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.edc.connector.transfer.spi.types", "ProvisionedDataAddressResource$Builder<HttpProvisionedContentResource,Builder>", True, "dataAddress", "(DataAddress)", "", "Parameter[0]", "remote", "manual"]

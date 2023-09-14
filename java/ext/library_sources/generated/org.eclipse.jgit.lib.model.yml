@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.jgit.lib", "Repository", True, "resolve", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.lib", "ObjectBuilder", True, "setMessage", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.lib", "Config", True, "setString", "(String,String,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.eclipse.jgit.lib", "ObjectId", True, "fromString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.lib", "Repository", True, "isValidRefName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.lib", "ObjectInserter", True, "insert", "(int,byte[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.eclipse.jgit.lib", "Repository", True, "updateRef", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.lib", "Repository", True, "findRef", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.lib", "BaseRepositoryBuilder<FileRepositoryBuilder,Repository>", True, "setWorkTree", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.lib", "ObjectId", True, "isId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.lib", "BaseRepositoryBuilder<RepositoryBuilder,Repository>", True, "findGitDir", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.lib", "BaseRepositoryBuilder<FileRepositoryBuilder,Repository>", True, "setGitDir", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.lib", "BaseRepositoryBuilder<FileRepositoryBuilder,Repository>", True, "findGitDir", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.lib", "RefUpdate", True, "link", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.lib", "RepositoryCache$FileKey", True, "resolve", "(File,FS)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.lib", "Repository", True, "shortenRefName", "(String)", "", "Parameter[0]", "remote", "manual"]

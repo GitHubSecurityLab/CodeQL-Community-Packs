@@ -1,0 +1,27 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.lucene.util", "NumericUtils", False, "intToSortableBytes", "(int,byte[],int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "FixedBitSet", False, "or", "(FixedBitSet)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "FixedBitSet", False, "and", "(FixedBitSet)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "RamUsageEstimator", False, "sizeOfObject", "(Object,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "NumericUtils", False, "floatToSortableInt", "(float)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "NumericUtils", False, "doubleToSortableLong", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "FixedBitSet", False, "ensureCapacity", "(FixedBitSet,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "FixedBitSet", False, "andNot", "(FixedBitSet)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "BytesRefBuilder", True, "copyChars", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "BitUtil", False, "nextHighestPowerOfTwo", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "CharsRefBuilder", True, "copyUTF8Bytes", "(BytesRef)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "FixedBitSet", False, "andNotCount", "(FixedBitSet,FixedBitSet)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "Version", False, "parseLeniently", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "SloppyMath", True, "haversinMeters", "(double,double,double,double)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.lucene.util", "SloppyMath", True, "haversinMeters", "(double,double,double,double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "RamUsageEstimator", False, "sizeOfObject", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "QueryBuilder", True, "createPhraseQuery", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "IOUtils", False, "getDecodingReader", "(InputStream,Charset)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "FixedBitSet", False, "intersects", "(FixedBitSet)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "FixedBitSet", False, "intersectionCount", "(FixedBitSet,FixedBitSet)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.lucene.util", "FixedBitSet", False, "intersectionCount", "(FixedBitSet,FixedBitSet)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.util", "FixedBitSet", False, "andNotCount", "(FixedBitSet,FixedBitSet)", "", "Parameter[1]", "remote", "manual"]

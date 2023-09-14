@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.jpress.model.base", "BaseUtm<Utm>", True, "setActionQuery", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.jpress.model.base", "BaseUtm<Utm>", True, "setActionKey", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.owasp.esapi", "Encoder", True, "encodeForHTML", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.owasp.esapi", "HTTPUtilities", True, "addHeader", "(HttpServletResponse,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.owasp.esapi", "Validator", True, "isValidRedirectLocation", "(String,String,boolean)", "", "Parameter[1]", "remote", "manual"]

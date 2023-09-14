@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.lyncode.xoai.util", "Base64Utils", True, "encode", "(String)", "", "Parameter[0]", "remote", "manual"]

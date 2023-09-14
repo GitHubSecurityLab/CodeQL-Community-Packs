@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.stripe.net", "Webhook", False, "constructEvent", "(String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.stripe.net", "Webhook", False, "constructEvent", "(String,String,String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.gradle.tooling", "GradleConnector", True, "forProjectDirectory", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gradle.tooling", "GradleConnector", True, "useInstallation", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gradle.tooling", "GradleConnector", True, "useDistribution", "(URI)", "", "Parameter[0]", "remote", "manual"]

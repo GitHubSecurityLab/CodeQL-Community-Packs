@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.fs", "FileSystem", True, "listStatus", "(Path,PathFilter)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.fs", "FileSystem", True, "setReplication", "(Path,short)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.fs", "FileSystem", True, "create", "(Path,short)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.fs", "FileSystem", True, "get", "(Configuration)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.fs", "FileSystem", True, "get", "(URI,Configuration)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.fs", "Path", True, "getFileSystem", "(Configuration)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.fs", "FileSystemLinkResolver<FileStatus[]>", True, "resolve", "(FileSystem,Path)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.fs", "FileSystemLinkResolver<FileStatus[]>", True, "resolve", "(FileSystem,Path)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.fs", "FileSystemLinkResolver<FileStatus>", True, "resolve", "(FileSystem,Path)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.fs", "FileSystemLinkResolver<FileStatus>", True, "resolve", "(FileSystem,Path)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.fs", "FileSystemLinkResolver<FSDataInputStream>", True, "resolve", "(FileSystem,Path)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.fs", "FileSystemLinkResolver<ContentSummary>", True, "resolve", "(FileSystem,Path)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.fs", "FileSystemLinkResolver<ContentSummary>", True, "resolve", "(FileSystem,Path)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.fs", "FileSystem", True, "open", "(Path)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.fs", "FileSystem", True, "exists", "(Path)", "", "Parameter[0]", "remote", "manual"]

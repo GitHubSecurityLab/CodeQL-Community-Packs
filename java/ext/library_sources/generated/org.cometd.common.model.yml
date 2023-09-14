@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.cometd.common", "JSONContext<Mutable>", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.cometd.common", "JSONContext<Mutable>", True, "parse", "(Reader)", "", "Parameter[0]", "remote", "manual"]

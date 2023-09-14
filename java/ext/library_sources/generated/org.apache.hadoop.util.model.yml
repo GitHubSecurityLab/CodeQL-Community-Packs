@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.util", "JsonSerialization<Endpoint>", True, "toString", "(Endpoint)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.util", "StringUtils", True, "toUpperCase", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.util", "StringUtils", True, "toLowerCase", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.util", "StringUtils", True, "simpleHostname", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.util", "JsonSerialization<T>", True, "fromJson", "(String)", "", "Parameter[0]", "remote", "manual"]

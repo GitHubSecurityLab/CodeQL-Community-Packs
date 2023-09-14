@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.dcache.util.collector", "ListenableFutureWrapper<T>", True, "setKey", "(String)", "", "Parameter[0]", "remote", "manual"]

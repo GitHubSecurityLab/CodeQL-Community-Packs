@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.maven.artifact.repository", "ArtifactRepositoryFactory", True, "createArtifactRepository", "(String,String,ArtifactRepositoryLayout,ArtifactRepositoryPolicy,ArtifactRepositoryPolicy)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.maven.artifact.repository", "ArtifactRepository", True, "pathOf", "(Artifact)", "", "Parameter[0]", "remote", "manual"]

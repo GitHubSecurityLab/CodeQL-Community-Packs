@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["me.xdrop.fuzzywuzzy", "FuzzySearch", True, "ratio", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["me.xdrop.fuzzywuzzy", "FuzzySearch", True, "ratio", "(String,String)", "", "Parameter[1]", "remote", "manual"]

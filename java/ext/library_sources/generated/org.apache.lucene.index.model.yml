@@ -1,0 +1,27 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.lucene.index", "MultiTerms", False, "getTerms", "(IndexReader,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.index", "DocValues", False, "getSorted", "(LeafReader,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.index", "DocValues", False, "getSorted", "(LeafReader,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.lucene.index", "IndexWriterConfig", False, "setRAMPerThreadHardLimitMB", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.index", "IndexWriterConfig", False, "setCodec", "(Codec)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.index", "FieldInfos", True, "getMergedFieldInfos", "(IndexReader)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.index", "FieldInfos", True, "fieldInfo", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.index", "DirectoryReader", True, "openIfChanged", "(DirectoryReader,IndexWriter,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.lucene.index", "DirectoryReader", True, "open", "(IndexWriter)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.index", "DirectoryReader", True, "open", "(Directory)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.index", "ConcurrentMergeScheduler", True, "setMaxMergesAndThreads", "(int,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.lucene.index", "ConcurrentMergeScheduler", True, "setMaxMergesAndThreads", "(int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.index", "PointValues", True, "getMaxPackedValue", "(IndexReader,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.index", "MultiTerms", False, "getTerms", "(IndexReader,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.lucene.index", "MultiDocValues", True, "getSortedNumericValues", "(IndexReader,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.lucene.index", "MultiDocValues", True, "getNumericValues", "(IndexReader,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.lucene.index", "MultiDocValues", True, "getBinaryValues", "(IndexReader,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.lucene.index", "MultiBits", False, "getLiveDocs", "(IndexReader)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.index", "IndexWriterConfig", False, "setSimilarity", "(Similarity)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.index", "IndexWriterConfig", False, "setMaxFullFlushMergeWaitMillis", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.index", "IndexWriterConfig", False, "setInfoStream", "(InfoStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.index", "IndexWriterConfig", False, "setIndexDeletionPolicy", "(IndexDeletionPolicy)", "", "Parameter[0]", "remote", "manual"]

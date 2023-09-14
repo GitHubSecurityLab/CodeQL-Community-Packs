@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.sohu.cache.task.entity", "TaskQueue", True, "setImportantInfo", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.sohu.cache.task.entity", "TaskQueue", True, "setAppId", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.sohu.cache.task.entity", "RedisServerNode", True, "setIp", "(String)", "", "Parameter[0]", "remote", "manual"]

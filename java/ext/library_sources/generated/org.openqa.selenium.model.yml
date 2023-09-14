@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.openqa.selenium", "WebDriver$Navigation", True, "to", "(URL)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openqa.selenium", "WebDriver$Navigation", True, "to", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openqa.selenium", "JavascriptExecutor", True, "executeScript", "(String,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.openqa.selenium", "By", True, "className", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openqa.selenium", "By", True, "cssSelector", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openqa.selenium", "By", True, "id", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openqa.selenium", "By", True, "linkText", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openqa.selenium", "By", True, "name", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openqa.selenium", "By", True, "tagName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openqa.selenium", "By", True, "xpath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openqa.selenium", "JavascriptExecutor", True, "executeScript", "(String,Object[])", "", "Parameter[0]", "remote", "manual"]

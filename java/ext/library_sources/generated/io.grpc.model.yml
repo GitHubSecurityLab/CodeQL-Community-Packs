@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.grpc", "Status", False, "withDescription", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.grpc", "Metadata", False, "put", "(Key,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.grpc", "ManagedChannelBuilder", True, "forTarget", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.grpc", "ManagedChannelBuilder", True, "forAddress", "(String,int)", "", "Parameter[0]", "remote", "manual"]

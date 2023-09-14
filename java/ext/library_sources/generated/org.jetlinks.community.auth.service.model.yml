@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jetlinks.community.auth.service", "OrganizationService", True, "unbindUser", "(String,List)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jetlinks.community.auth.service", "OrganizationService", True, "bindUser", "(String,List)", "", "Parameter[0]", "remote", "manual"]

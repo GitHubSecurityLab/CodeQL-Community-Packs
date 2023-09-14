@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.dropbox.core.v2.files", "DbxUserFilesRequests", True, "moveV2", "(String,String)", "", "Parameter[1]", "remote", "manual"]

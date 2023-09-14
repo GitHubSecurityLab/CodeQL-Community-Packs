@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.cloud.skipper.client", "SkipperClient", True, "manifest", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.client", "SkipperClient", True, "history", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.client", "SkipperClient", True, "manifest", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.client", "SkipperClient", True, "manifest", "(String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.client", "SkipperClient", True, "packageDelete", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.client", "SkipperClient", True, "postToActuator", "(String,String,String,ActuatorPostRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.client", "SkipperClient", True, "postToActuator", "(String,String,String,ActuatorPostRequest)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.client", "SkipperClient", True, "postToActuator", "(String,String,String,ActuatorPostRequest)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.client", "SkipperClient", True, "scale", "(String,ScaleRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.client", "SkipperClient", True, "getLog", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.client", "SkipperClient", True, "getLog", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.client", "SkipperClient", True, "getLog", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.client", "SkipperClient", True, "getFromActuator", "(String,String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.client", "SkipperClient", True, "getFromActuator", "(String,String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.client", "SkipperClient", True, "getFromActuator", "(String,String,String,String)", "", "Parameter[3]", "remote", "manual"]

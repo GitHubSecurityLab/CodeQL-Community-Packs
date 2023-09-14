@@ -1,0 +1,24 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.codahale.metrics", "MetricRegistry", True, "name", "(String,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.codahale.metrics", "MetricRegistry", True, "register", "(String,Metric)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.codahale.metrics", "MetricRegistry", True, "timer", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.codahale.metrics", "MetricRegistry", True, "counter", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.codahale.metrics", "MetricRegistry", True, "timer", "(String,MetricSupplier)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.codahale.metrics", "MetricRegistry", True, "meter", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.codahale.metrics", "MetricRegistry", True, "counter", "(String,MetricSupplier)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.codahale.metrics", "MetricRegistry", True, "gauge", "(String,MetricSupplier)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.codahale.metrics", "MetricRegistry", True, "counter", "(String,MetricSupplier)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.codahale.metrics", "CsvReporter$Builder", True, "build", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.codahale.metrics", "CsvReporter", True, "forRegistry", "(MetricRegistry)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.codahale.metrics", "Meter", True, "mark", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.codahale.metrics", "MetricRegistry", True, "timer", "(String,MetricSupplier)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.codahale.metrics", "ScheduledReporter", True, "start", "(long,TimeUnit)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.codahale.metrics", "SharedMetricRegistries", True, "getOrCreate", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.codahale.metrics", "SharedMetricRegistries", True, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.codahale.metrics", "Timer", True, "update", "(long,TimeUnit)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.codahale.metrics", "MetricRegistry", True, "meter", "(String,MetricSupplier)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.codahale.metrics", "MetricRegistry", True, "name", "(String,String[])", "", "Parameter[1]", "remote", "manual"]

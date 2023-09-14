@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.fasterxml.jackson.module.kotlin", "ExtensionsKt", False, "readValue", "(ObjectMapper,InputStream)", "", "Parameter[1]", "remote", "manual"]

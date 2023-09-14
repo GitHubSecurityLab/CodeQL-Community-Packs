@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["de.fraunhofer.iais.eis", "DescriptionRequestMessageBuilder", True, "_recipientConnector_", "(List)", "", "Parameter[0]", "remote", "manual"]

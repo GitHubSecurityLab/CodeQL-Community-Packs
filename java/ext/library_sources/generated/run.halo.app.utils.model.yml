@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["run.halo.app.utils", "ImageUtils", True, "getImageFromFile", "(InputStream,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["run.halo.app.utils", "ImageUtils", True, "getImageReaderFromFile", "(InputStream,String)", "", "Parameter[0]", "remote", "manual"]

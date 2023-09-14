@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.aexp.nodes.graphql", "GraphQLRequestEntity$RequestBuilder", True, "headers", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.aexp.nodes.graphql", "InputObject$Builder", True, "put", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

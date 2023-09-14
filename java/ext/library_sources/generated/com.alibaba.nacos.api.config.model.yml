@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alibaba.nacos.api.config", "ConfigService", True, "getConfig", "(String,String,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.nacos.api.config", "ConfigService", True, "getConfig", "(String,String,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.alibaba.nacos.api.config", "ConfigService", True, "publishConfig", "(String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.nacos.api.config", "ConfigService", True, "publishConfig", "(String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.alibaba.nacos.api.config", "ConfigService", True, "publishConfig", "(String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.alibaba.nacos.api.config", "ConfigService", True, "publishConfig", "(String,String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.nacos.api.config", "ConfigService", True, "publishConfig", "(String,String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.alibaba.nacos.api.config", "ConfigService", True, "publishConfig", "(String,String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.alibaba.nacos.api.config", "ConfigService", True, "removeConfig", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.nacos.api.config", "ConfigService", True, "removeConfig", "(String,String)", "", "Parameter[1]", "remote", "manual"]

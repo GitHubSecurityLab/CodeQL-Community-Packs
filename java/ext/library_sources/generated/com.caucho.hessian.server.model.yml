@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.caucho.hessian.server", "HessianSkeleton", True, "invoke", "(InputStream,OutputStream,SerializerFactory)", "", "Parameter[0]", "remote", "manual"]

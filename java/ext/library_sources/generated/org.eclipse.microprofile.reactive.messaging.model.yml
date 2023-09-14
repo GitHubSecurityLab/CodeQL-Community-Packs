@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.microprofile.reactive.messaging", "Emitter<T>", True, "send", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.microprofile.reactive.messaging", "Emitter<String>", True, "send", "(String)", "", "Parameter[0]", "remote", "manual"]

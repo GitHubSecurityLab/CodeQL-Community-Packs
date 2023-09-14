@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.xbmc.kore.jsonrpc", "ApiMethod<String>", True, "addParameterToRequest", "(String,String)", "", "Parameter[1]", "remote", "manual"]

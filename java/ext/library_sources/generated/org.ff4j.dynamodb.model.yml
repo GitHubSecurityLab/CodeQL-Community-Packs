@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.ff4j.dynamodb", "DynamoDBClient<Feature,DynamoDbFeature>", True, "getItem", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.ff4j.dynamodb", "DynamoDBClient<Property<?>,DynamoDbProperty>", True, "getItem", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.ff4j.dynamodb", "DynamoDBClient<Property<?>,DynamoDbProperty>", True, "deleteItem", "(String)", "", "Parameter[0]", "remote", "manual"]

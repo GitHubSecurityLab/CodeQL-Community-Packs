@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.math3.stat.inference", "TTest", True, "tTest", "(double[],double[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.math3.stat.inference", "TTest", True, "tTest", "(double[],double[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.stat.inference", "TTest", True, "tTest", "(double,double[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.math3.stat.inference", "TTest", True, "tTest", "(double,double[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.stat.inference", "TTest", True, "pairedTTest", "(double[],double[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.math3.stat.inference", "TTest", True, "pairedTTest", "(double[],double[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.stat.inference", "KolmogorovSmirnovTest", True, "kolmogorovSmirnovStatistic", "(RealDistribution,double[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.stat.inference", "GTest", True, "gTestDataSetsComparison", "(long[],long[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.math3.stat.inference", "GTest", True, "gTestDataSetsComparison", "(long[],long[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.stat.inference", "ChiSquareTest", True, "chiSquareTestDataSetsComparison", "(long[],long[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.math3.stat.inference", "ChiSquareTest", True, "chiSquareTestDataSetsComparison", "(long[],long[])", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.datasketches.hll", "Union", True, "update", "(HllSketch)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.hll", "HllSketch", True, "heapify", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.hll", "BaseHllSketch", True, "update", "(char[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.hll", "Union", True, "getMaxSerializationBytes", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.hll", "HllSketch", True, "getMaxUpdatableSerializationBytes", "(int,TgtHllType)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.hll", "HllSketch", True, "wrap", "(Memory)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.hll", "BaseHllSketch", True, "update", "(long[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.hll", "BaseHllSketch", True, "update", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.hll", "BaseHllSketch", True, "update", "(int[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.hll", "BaseHllSketch", True, "update", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.hll", "BaseHllSketch", True, "update", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.hll", "BaseHllSketch", True, "update", "(String)", "", "Parameter[0]", "remote", "manual"]

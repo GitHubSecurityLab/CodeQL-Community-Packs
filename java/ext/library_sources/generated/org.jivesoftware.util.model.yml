@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jivesoftware.util", "LinkedList<K>", True, "addFirst", "(Serializable)", "", "Parameter[0]", "remote", "manual"]

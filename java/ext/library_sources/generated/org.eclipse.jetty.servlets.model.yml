@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.jetty.servlets", "EventSource$Emitter", True, "event", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.eclipse.jetty.servlets", "EventSource$Emitter", True, "event", "(String,String)", "", "Parameter[0]", "remote", "manual"]

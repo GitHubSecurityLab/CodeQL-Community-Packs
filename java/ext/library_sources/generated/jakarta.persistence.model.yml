@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jakarta.persistence", "EntityManager", True, "find", "(Class,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["jakarta.persistence", "EntityManager", True, "persist", "(Object)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.flume.event", "EventBuilder", True, "withBody", "(byte[],Map)", "", "Parameter[1]", "remote", "manual"]

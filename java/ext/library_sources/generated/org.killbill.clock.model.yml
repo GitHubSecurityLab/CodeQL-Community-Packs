@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.killbill.clock", "ClockUtil", True, "toUTCDateTime", "(LocalDate,LocalTime,DateTimeZone)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.killbill.clock", "ClockMock", True, "addYears", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.killbill.clock", "ClockMock", True, "addWeeks", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.killbill.clock", "ClockMock", True, "addMonths", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.killbill.clock", "ClockMock", True, "addDays", "(int)", "", "Parameter[0]", "remote", "manual"]

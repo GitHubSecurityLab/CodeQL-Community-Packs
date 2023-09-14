@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.tools.ant.helper", "ProjectHelper2", True, "parseUnknownElement", "(Project,URL)", "", "Parameter[1]", "remote", "manual"]

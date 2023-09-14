@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.sakaiproject.tool.assessment.ui.bean.author", "AssessmentBean", True, "updateRandomPoolQuestions", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.sakaiproject.tool.assessment.ui.bean.author", "SearchQuestionBean", True, "searchQuestionsByTag", "(String[],boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.sakaiproject.tool.assessment.ui.bean.author", "SectionBean", True, "setSectionId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.sakaiproject.tool.assessment.ui.bean.author", "TemplateBean", True, "setIdString", "(String)", "", "Parameter[0]", "remote", "manual"]

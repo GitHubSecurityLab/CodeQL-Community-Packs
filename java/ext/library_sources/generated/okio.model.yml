@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["okio", "Okio", False, "source", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["okio", "ByteString", True, "of", "(byte[])", "", "Parameter[0]", "remote", "manual"]

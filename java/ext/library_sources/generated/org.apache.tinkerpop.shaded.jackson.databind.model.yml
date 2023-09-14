@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.tinkerpop.shaded.jackson.databind", "ObjectMapper", True, "readValue", "(InputStream,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.tinkerpop.shaded.jackson.databind", "ObjectMapper", True, "readValue", "(InputStream,TypeReference)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.tinkerpop.shaded.jackson.databind", "ObjectReader", True, "readValue", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.tinkerpop.shaded.jackson.databind", "ObjectMapper", True, "writeValueAsString", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.tinkerpop.shaded.jackson.databind", "ObjectMapper", True, "readValue", "(String,Class)", "", "Parameter[0]", "remote", "manual"]

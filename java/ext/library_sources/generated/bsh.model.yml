@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["bsh", "Interpreter", True, "set", "(String,long)", "", "Parameter[1]", "remote", "manual"]

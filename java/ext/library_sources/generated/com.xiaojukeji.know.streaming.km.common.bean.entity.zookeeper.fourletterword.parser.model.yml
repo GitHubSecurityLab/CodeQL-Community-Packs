@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.xiaojukeji.know.streaming.km.common.bean.entity.zookeeper.fourletterword.parser", "FourLetterWordDataParser<T>", True, "parseAndInitData", "(Long,String,int,String)", "", "Parameter[3]", "remote", "manual"]

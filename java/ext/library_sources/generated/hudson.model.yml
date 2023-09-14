@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["hudson", "Util", True, "fixNull", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["hudson", "Util", True, "fixNull", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["hudson", "Util", True, "fixEmptyAndTrim", "(String)", "", "Parameter[0]", "remote", "manual"]

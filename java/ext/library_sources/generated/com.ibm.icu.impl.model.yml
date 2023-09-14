@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.ibm.icu.impl", "Utility", False, "hex", "(long,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.impl", "Utility", False, "unescape", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.impl", "Utility", False, "hex", "(long)", "", "Parameter[0]", "remote", "manual"]

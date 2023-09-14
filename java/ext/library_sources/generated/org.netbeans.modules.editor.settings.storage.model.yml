@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.editor.settings.storage", "StorageImpl<K,V>", False, "save", "(MimePath,String,boolean,Map)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.netbeans.modules.editor.settings.storage", "StorageImpl<K,V>", False, "load", "(MimePath,String,boolean)", "", "Parameter[1]", "remote", "manual"]

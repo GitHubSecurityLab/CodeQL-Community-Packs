@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.submarine.commons.utils", "AbstractUniqueIdGenerator<NotebookId>", True, "setServerTimestamp", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.submarine.commons.utils", "AbstractUniqueIdGenerator<NotebookId>", True, "setId", "(int)", "", "Parameter[0]", "remote", "manual"]

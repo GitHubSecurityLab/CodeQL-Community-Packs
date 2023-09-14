@@ -1,0 +1,31 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["ch.qos.logback.classic.net", "SimpleSocketServer", true, "configureLC", "(LoggerContext,String)", "", "Argument[1]", "read-file", "generated"]
+      - ["ch.qos.logback.classic.util", "ContextInitializer", true, "configureByResource", "(URL)", "", "Argument[0]", "open-url", "generated"]
+      - ["ch.qos.logback.classic.util", "DefaultJoranConfigurator", true, "configureByResource", "(URL)", "", "Argument[0]", "open-url", "generated"]
+      - ["ch.qos.logback.core.joran", "GenericXMLConfigurator", true, "doConfigure", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["ch.qos.logback.core.joran", "GenericXMLConfigurator", true, "doConfigure", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["ch.qos.logback.core.joran", "GenericXMLConfigurator", true, "doConfigure", "(URL)", "", "Argument[0]", "open-url", "generated"]
+      - ["ch.qos.logback.core.recovery", "ResilientFileOutputStream", true, "ResilientFileOutputStream", "(File,boolean,long)", "", "Argument[0]", "create-file", "generated"]
+      - ["ch.qos.logback.core.rolling.helper", "Compressor", true, "compress", "(String,String,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["ch.qos.logback.core.rolling.helper", "RenameUtil", true, "rename", "(String,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["ch.qos.logback.core.rolling.helper", "RenameUtil", true, "renameByCopying", "(String,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["ch.qos.logback.core.rolling", "RollingPolicy", true, "rollover", "()", "", "Argument[-1]", "create-file", "generated"]
+      - ["ch.qos.logback.core.spi", "LifeCycle", true, "start", "()", "", "Argument[-1]", "create-file", "generated"]
+      - ["ch.qos.logback.core.testUtil", "FileToBufferUtil", true, "gzFileReadIntoList", "(File,List)", "", "Argument[0]", "read-file", "generated"]
+      - ["ch.qos.logback.core.testUtil", "FileToBufferUtil", true, "readIntoList", "(File,List)", "", "Argument[0]", "read-file", "generated"]
+      - ["ch.qos.logback.core.testUtil", "FileToBufferUtil", true, "regularReadIntoList", "(File,List)", "", "Argument[0]", "read-file", "generated"]
+      - ["ch.qos.logback.core.util", "FileUtil", true, "copy", "(String,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["ch.qos.logback.core.util", "JNDIUtil", true, "lookupObject", "(Context,String)", "", "Argument[1]", "jndi-injection", "generated"]
+      - ["ch.qos.logback.core.util", "JNDIUtil", true, "lookupString", "(Context,String)", "", "Argument[1]", "jndi-injection", "generated"]
+      - ["ch.qos.logback.core", "FileAppender", true, "openFile", "(String)", "", "Argument[0]", "create-file", "generated"]
+
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sourceModel
+    data:
+      - ["ch.qos.logback.core.util", "FileUtil", true, "resourceAsString", "(ClassLoader,String)", "", "ReturnValue", "remote", "generated"]
+

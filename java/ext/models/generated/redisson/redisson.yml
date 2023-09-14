@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.redisson.config", "Config", true, "fromJSON", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.redisson.config", "Config", true, "fromJSON", "(File,ClassLoader)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.redisson.config", "Config", true, "fromJSON", "(URL)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.redisson.config", "Config", true, "fromYAML", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.redisson.config", "Config", true, "fromYAML", "(File,ClassLoader)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.redisson.config", "Config", true, "fromYAML", "(URL)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.redisson.config", "ConfigSupport", true, "fromJSON", "(File,Class)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.redisson.config", "ConfigSupport", true, "fromJSON", "(File,Class,ClassLoader)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.redisson.config", "ConfigSupport", true, "fromJSON", "(URL,Class)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.redisson.config", "ConfigSupport", true, "fromYAML", "(File,Class)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.redisson.config", "ConfigSupport", true, "fromYAML", "(File,Class,ClassLoader)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.redisson.config", "ConfigSupport", true, "fromYAML", "(URL,Class)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.redisson.config", "RedissonNodeFileConfig", true, "fromJSON", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.redisson.config", "RedissonNodeFileConfig", true, "fromYAML", "(File)", "", "Argument[0]", "read-file", "generated"]
+

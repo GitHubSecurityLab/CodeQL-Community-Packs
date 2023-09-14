@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.iotdb.commons.path", "PathPatternNode<Void,VoidSerializer>", True, "serialize", "(DataOutputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.iotdb.commons.path", "PathPatternNode<Void,VoidSerializer>", True, "getChildren", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.iotdb.commons.path", "PathPatternNode<V,VSerializer>", True, "deleteValue", "(Object,BiConsumer)", "", "Parameter[0]", "remote", "manual"]

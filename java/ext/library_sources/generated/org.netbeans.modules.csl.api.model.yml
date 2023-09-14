@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.csl.api", "HintSeverity", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.csl.api", "Modifier", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

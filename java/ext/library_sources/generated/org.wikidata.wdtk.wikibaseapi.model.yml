@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.wikidata.wdtk.wikibaseapi", "BasicApiConnection", True, "login", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.wikidata.wdtk.wikibaseapi", "BasicApiConnection", True, "login", "(String,String)", "", "Parameter[0]", "remote", "manual"]

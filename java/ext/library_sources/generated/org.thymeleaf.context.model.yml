@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.thymeleaf.context", "AbstractContext", True, "setVariable", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.thymeleaf.context", "AbstractContext", True, "setVariables", "(Map)", "", "Parameter[0]", "remote", "manual"]

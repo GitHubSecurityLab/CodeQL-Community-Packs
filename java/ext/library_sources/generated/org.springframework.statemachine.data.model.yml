@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.statemachine.data", "StateRepository<? extends RepositoryState>", True, "findByMachineId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.statemachine.data", "TransitionRepository<? extends RepositoryTransition>", True, "findByMachineId", "(String)", "", "Parameter[0]", "remote", "manual"]

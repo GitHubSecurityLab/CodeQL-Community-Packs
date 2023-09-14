@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.upokecenter.numbers", "EInteger", False, "Add", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.upokecenter.numbers", "EInteger", False, "FromInt64", "(long)", "", "Parameter[0]", "remote", "manual"]

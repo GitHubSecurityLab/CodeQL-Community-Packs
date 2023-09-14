@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.netflix.kayenta.canary", "ExecutionMapper", True, "buildJudgeComparisonExecution", "(String,String,String,CanaryConfig,String,String,String,Double,Double,String,String)", "", "Parameter[8]", "remote", "manual"]
+      - ["com.netflix.kayenta.canary", "ExecutionMapper", True, "buildJudgeComparisonExecution", "(String,String,String,CanaryConfig,String,String,String,Double,Double,String,String)", "", "Parameter[7]", "remote", "manual"]
+      - ["com.netflix.kayenta.canary", "ExecutionMapper", True, "buildJudgeComparisonExecution", "(String,String,String,CanaryConfig,String,String,String,Double,Double,String,String)", "", "Parameter[6]", "remote", "manual"]
+      - ["com.netflix.kayenta.canary", "ExecutionMapper", True, "buildJudgeComparisonExecution", "(String,String,String,CanaryConfig,String,String,String,Double,Double,String,String)", "", "Parameter[5]", "remote", "manual"]
+      - ["com.netflix.kayenta.canary", "ExecutionMapper", True, "buildJudgeComparisonExecution", "(String,String,String,CanaryConfig,String,String,String,Double,Double,String,String)", "", "Parameter[4]", "remote", "manual"]
+      - ["com.netflix.kayenta.canary", "ExecutionMapper", True, "buildJudgeComparisonExecution", "(String,String,String,CanaryConfig,String,String,String,Double,Double,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.netflix.kayenta.canary", "CanaryMetricConfig$CanaryMetricConfigBuilder", True, "name", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.netflix.kayenta.canary", "CanaryClassifierThresholdsConfig$CanaryClassifierThresholdsConfigBuilder", True, "pass", "(Double)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.netflix.kayenta.canary", "CanaryClassifierThresholdsConfig$CanaryClassifierThresholdsConfigBuilder", True, "marginal", "(Double)", "", "Parameter[0]", "remote", "manual"]

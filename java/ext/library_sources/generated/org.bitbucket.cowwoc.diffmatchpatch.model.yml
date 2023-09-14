@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.bitbucket.cowwoc.diffmatchpatch", "DiffMatchPatch", False, "patchApply", "(LinkedList,String)", "", "Parameter[1]", "remote", "manual"]

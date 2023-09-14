@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dataease.plugins.xpack.oidc.service", "OidcXpackService", True, "save", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.oidc.service", "OidcXpackService", True, "requestSsoToken", "(Map,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.oidc.service", "OidcXpackService", True, "requestSsoToken", "(Map,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.oidc.service", "OidcXpackService", True, "logout", "(String)", "", "Parameter[0]", "remote", "manual"]

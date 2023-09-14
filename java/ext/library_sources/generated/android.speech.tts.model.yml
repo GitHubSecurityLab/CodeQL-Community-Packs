@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.speech.tts", "TextToSpeech", True, "speak", "(CharSequence,int,Bundle,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.speech.tts", "TextToSpeech", True, "speak", "(String,int,HashMap)", "", "Parameter[0]", "remote", "manual"]

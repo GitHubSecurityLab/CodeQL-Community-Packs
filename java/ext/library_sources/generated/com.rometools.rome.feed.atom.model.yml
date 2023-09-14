@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.rometools.rome.feed.atom", "Link", True, "setHref", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.rometools.rome.feed.atom", "Feed", True, "setIcon", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.rometools.rome.feed.atom", "Feed", True, "setCopyright", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.rometools.rome.feed.atom", "Content", True, "setValue", "(String)", "", "Parameter[0]", "remote", "manual"]

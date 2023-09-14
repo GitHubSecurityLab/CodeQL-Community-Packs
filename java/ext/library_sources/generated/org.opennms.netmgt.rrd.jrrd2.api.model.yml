@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opennms.netmgt.rrd.jrrd2.api", "JRrd2", True, "xport", "(long,long,long,long,String[])", "", "Parameter[3]", "remote", "manual"]
+      - ["org.opennms.netmgt.rrd.jrrd2.api", "JRrd2", True, "xport", "(long,long,long,long,String[])", "", "Parameter[4]", "remote", "manual"]

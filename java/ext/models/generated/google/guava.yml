@@ -1,0 +1,34 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["com.google.common.io", "ByteSink", true, "openStream", "()", "", "Argument[-1]", "create-file", "generated"]
+      - ["com.google.common.io", "ByteSource", true, "openStream", "()", "", "Argument[-1]", "open-url", "generated"]
+      - ["com.google.common.io", "ByteSource", true, "openStream", "()", "", "Argument[-1]", "read-file", "generated"]
+      - ["com.google.common.io", "Files", false, "copy", "(File,File)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.google.common.io", "Files", false, "copy", "(File,File)", "", "Argument[1]", "create-file", "generated"]
+      - ["com.google.common.io", "Files", false, "equal", "(File,File)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.google.common.io", "Files", false, "equal", "(File,File)", "", "Argument[1]", "read-file", "generated"]
+      - ["com.google.common.io", "Files", false, "map", "(File)", "", "Argument[0]", "create-file", "generated"]
+      - ["com.google.common.io", "Files", false, "map", "(File,MapMode)", "", "Argument[0]", "create-file", "generated"]
+      - ["com.google.common.io", "Files", false, "map", "(File,MapMode,long)", "", "Argument[0]", "create-file", "generated"]
+      - ["com.google.common.io", "Files", false, "move", "(File,File)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.google.common.io", "Files", false, "move", "(File,File)", "", "Argument[1]", "create-file", "generated"]
+      - ["com.google.common.io", "Files", false, "newReader", "(File,Charset)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.google.common.io", "Files", false, "newWriter", "(File,Charset)", "", "Argument[0]", "create-file", "generated"]
+      - ["com.google.common.io", "Files", false, "readBytes", "(File,ByteProcessor)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.google.common.io", "Files", false, "toByteArray", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.google.common.io", "Files", false, "write", "(byte[],File)", "", "Argument[1]", "create-file", "generated"]
+      - ["com.google.common.io", "MoreFiles", false, "createParentDirectories", "(Path,FileAttribute[])", "", "Argument[0]", "create-file", "generated"]
+      - ["com.google.common.io", "MoreFiles", false, "touch", "(Path)", "", "Argument[0]", "create-file", "generated"]
+      - ["com.google.common.io", "Resources", false, "asCharSource", "(URL,Charset)", "", "Argument[0]", "url-open-stream", "generated"]
+      - ["com.google.common.io", "Resources", false, "copy", "(URL,OutputStream)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.google.common.io", "Resources", false, "copy", "(URL,OutputStream)", "", "Argument[0]", "url-open-stream", "generated"]
+      - ["com.google.common.io", "Resources", false, "getResource", "(Class,String)", "", "Argument[1]", "read-file", "generated"]
+      - ["com.google.common.io", "Resources", false, "readLines", "(URL,Charset)", "", "Argument[0]", "url-open-stream", "generated"]
+      - ["com.google.common.io", "Resources", false, "readLines", "(URL,Charset,LineProcessor)", "", "Argument[0]", "url-open-stream", "generated"]
+      - ["com.google.common.io", "Resources", false, "toByteArray", "(URL)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.google.common.io", "Resources", false, "toByteArray", "(URL)", "", "Argument[0]", "url-open-stream", "generated"]
+      - ["com.google.common.io", "Resources", false, "toString", "(URL,Charset)", "", "Argument[0]", "url-open-stream", "generated"]
+

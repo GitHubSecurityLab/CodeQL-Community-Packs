@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.jetbrains.kotlin.cli.jvm.compiler", "CompileEnvironmentUtil", true, "writeToJar", "(File,boolean,boolean,boolean,FqName,OutputFileCollection,MessageCollector)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.jetbrains.kotlin.codegen", "GeneratedClassLoader", true, "GeneratedClassLoader", "(ClassFileFactory,ClassLoader,URL[])", "", "Argument[2]", "open-url", "generated"]
+      - ["org.jetbrains.kotlin.preloading", "ClassPreloadingUtils", true, "preloadClasses", "(Collection,int,ClassLoader,ClassCondition)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.jetbrains.kotlin.preloading", "ClassPreloadingUtils", true, "preloadClasses", "(Collection,int,ClassLoader,ClassCondition)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.jetbrains.kotlin.preloading", "ClassPreloadingUtils", true, "preloadClasses", "(Collection,int,ClassLoader,ClassCondition,ClassHandler)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.jetbrains.kotlin.preloading", "ClassPreloadingUtils", true, "preloadClasses", "(Collection,int,ClassLoader,ClassCondition,ClassHandler)", "", "Argument[0]", "read-file", "generated"]
+

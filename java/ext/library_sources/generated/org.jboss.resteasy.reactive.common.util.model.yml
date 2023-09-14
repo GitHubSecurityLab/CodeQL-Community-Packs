@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jboss.resteasy.reactive.common.util", "QuarkusMultivaluedMap<Class<?>,ResourceReader>", True, "addAll", "(MultivaluedMap)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jboss.resteasy.reactive.common.util", "QuarkusMultivaluedMap<Class<?>,ResourceWriter>", True, "addAll", "(MultivaluedMap)", "", "Parameter[0]", "remote", "manual"]

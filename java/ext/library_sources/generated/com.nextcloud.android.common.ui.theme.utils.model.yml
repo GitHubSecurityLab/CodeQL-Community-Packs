@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.nextcloud.android.common.ui.theme.utils", "AndroidXViewThemeUtils", False, "themeActionBar", "(Context,ActionBar,String,Drawable)", "", "Parameter[2]", "remote", "manual"]

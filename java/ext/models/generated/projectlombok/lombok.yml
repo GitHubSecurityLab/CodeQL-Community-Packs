@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["lombok.website", "CompileChangelog", true, "getHtml", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["lombok.website", "CompileChangelog", true, "getHtmlForEdge", "(File,String)", "", "Argument[0]", "read-file", "generated"]
+      - ["lombok.website", "CompileChangelog", true, "getHtmlForLatest", "(File,String)", "", "Argument[0]", "read-file", "generated"]
+      - ["lombok.website", "CompileChangelog", true, "getHtmlStartingAtSection", "(File,String)", "", "Argument[0]", "read-file", "generated"]
+      - ["lombok.website", "WebsiteMaker$HtmlMaker", true, "convert", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["lombok.website", "WebsiteMaker$HtmlMaker", true, "post", "(String)", "", "Argument[-1]", "read-file", "generated"]
+      - ["lombok.website", "WebsiteMaker$HtmlMaker", true, "post", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["lombok.website", "WebsiteMaker$HtmlMaker", true, "pre", "(String)", "", "Argument[-1]", "read-file", "generated"]
+      - ["lombok.website", "WebsiteMaker$HtmlMaker", true, "pre", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["lombok.website", "WebsiteMaker", true, "buildChangelog", "(File)", "", "Argument[0]", "create-file", "generated"]
+      - ["lombok.website", "WebsiteMaker", true, "buildChangelogLatest", "(File)", "", "Argument[0]", "create-file", "generated"]
+      - ["lombok.website", "WebsiteMaker", true, "buildDownloadEdge", "(File)", "", "Argument[0]", "create-file", "generated"]
+      - ["lombok.website", "WebsiteMaker", true, "buildHtAccess", "(File)", "", "Argument[0]", "create-file", "generated"]
+      - ["lombok.website", "WebsiteMaker", true, "buildWebsite", "(Domain,boolean)", "", "Argument[-1]", "create-file", "generated"]
+      - ["lombok.website", "WebsiteMaker", true, "readFully", "(File)", "", "Argument[0]", "read-file", "generated"]
+

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.wso2.carbon.registry.core.pagination", "PaginationContext", True, "init", "(int,int,String,String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.wso2.carbon.registry.core.pagination", "PaginationContext", True, "init", "(int,int,String,String,int)", "", "Parameter[1]", "remote", "manual"]

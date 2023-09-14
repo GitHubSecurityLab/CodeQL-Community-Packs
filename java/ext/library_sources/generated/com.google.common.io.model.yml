@@ -1,0 +1,19 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.common.io", "Files", False, "asByteSink", "(File,FileWriteMode[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.io", "Resources", False, "getResource", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.io", "Closeables", False, "closeQuietly", "(Closeable)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.io", "Files", False, "toByteArray", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.io", "Files", False, "copy", "(File,File)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.io", "Resources", False, "getResource", "(Class,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.common.io", "MoreFiles", False, "deleteRecursively", "(Path,RecursiveDeleteOption[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.io", "Files", False, "write", "(byte[],File)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.common.io", "Files", False, "map", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.io", "Files", False, "asByteSource", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.io", "CharSink", True, "write", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.io", "ByteStreams", False, "skipFully", "(InputStream,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.common.io", "ByteStreams", False, "exhaust", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.io", "ByteSink", True, "writeFrom", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

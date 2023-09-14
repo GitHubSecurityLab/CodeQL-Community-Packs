@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.amulyakhare.textdrawable", "TextDrawable$IShapeBuilder", True, "buildRound", "(String,int)", "", "Parameter[0]", "remote", "manual"]

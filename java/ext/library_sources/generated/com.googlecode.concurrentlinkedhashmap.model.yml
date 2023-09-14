@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.googlecode.concurrentlinkedhashmap", "ConcurrentLinkedHashMap$Builder<>", False, "maximumWeightedCapacity", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.googlecode.concurrentlinkedhashmap", "ConcurrentLinkedHashMap$Builder<String,ODatabasePoolInternal>", False, "maximumWeightedCapacity", "(long)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.cybozu.labs.langdetect", "Detector", True, "append", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.cybozu.labs.langdetect", "Detector", True, "setMaxTextLength", "(int)", "", "Parameter[0]", "remote", "manual"]

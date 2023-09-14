@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.saml.websso", "AbstractProfileBase", True, "getIssuer", "(String)", "", "Parameter[0]", "remote", "manual"]

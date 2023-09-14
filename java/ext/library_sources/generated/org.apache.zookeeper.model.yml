@@ -1,0 +1,31 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.zookeeper", "ZooKeeper", True, "setData", "(String,byte[],int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "exists", "(String,Watcher)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "setData", "(String,byte[],int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "exists", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.zookeeper", "Op", True, "delete", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "getData", "(String,boolean,Stat)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "getData", "(String,Watcher,Stat)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "getChildren", "(String,Watcher)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "create", "(String,byte[],List,CreateMode)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "create", "(String,byte[],List,CreateMode)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "create", "(String,byte[],List,CreateMode)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "delete", "(String,int,VoidCallback,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "delete", "(String,int,VoidCallback,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "delete", "(String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "delete", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "create", "(String,byte[],List,CreateMode,Stat,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "create", "(String,byte[],List,CreateMode,Stat,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.zookeeper", "Op", True, "create", "(String,byte[],List,CreateMode)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.zookeeper", "Op", True, "check", "(String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.zookeeper", "Op", True, "check", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.zookeeper", "KeeperException", True, "create", "(Code,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.zookeeper", "CreateMode", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "getChildren", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "sync", "(String,VoidCallback,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "setData", "(String,byte[],int)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.zookeeper", "ZooKeeper", True, "getData", "(String,Watcher,DataCallback,Object)", "", "Parameter[0]", "remote", "manual"]

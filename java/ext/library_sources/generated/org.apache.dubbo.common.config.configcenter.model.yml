@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.dubbo.common.config.configcenter", "DynamicConfiguration", True, "removeConfig", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.dubbo.common.config.configcenter", "DynamicConfiguration", True, "publishConfig", "(String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.dubbo.common.config.configcenter", "DynamicConfiguration", True, "publishConfig", "(String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.dubbo.common.config.configcenter", "DynamicConfiguration", True, "getConfig", "(String,String)", "", "Parameter[0]", "remote", "manual"]

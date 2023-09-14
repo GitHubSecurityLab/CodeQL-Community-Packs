@@ -1,0 +1,22 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.yahoo.elide", "Elide", True, "post", "(String,String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[6]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "post", "(String,String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[3]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "post", "(String,String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "post", "(String,String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "patch", "(String,String,String,String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[8]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "patch", "(String,String,String,String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[5]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "patch", "(String,String,String,String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[4]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "patch", "(String,String,String,String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[3]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "patch", "(String,String,String,String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "patch", "(String,String,String,String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "get", "(String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[5]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "get", "(String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "get", "(String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "delete", "(String,String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[6]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "delete", "(String,String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[3]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "delete", "(String,String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.yahoo.elide", "Elide", True, "delete", "(String,String,String,MultivaluedMap,Map,User,String,UUID)", "", "Parameter[1]", "remote", "manual"]

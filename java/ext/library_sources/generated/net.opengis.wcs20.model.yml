@@ -1,0 +1,29 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.opengis.wcs20", "DimensionSubsetType", True, "setDimension", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "DimensionSubsetType", True, "setCRS", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "ExtensionItemType", True, "setObjectContent", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "ExtensionItemType", True, "setSimpleContent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "ScalingType", True, "setScaleToSize", "(ScaleToSizeType)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "ScalingType", True, "setScaleAxesByFactor", "(ScaleAxisByFactorType)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "ScaleByFactorType", True, "setScaleFactor", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "ScaleAxisType", True, "setScaleFactor", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "ScaleAxisType", True, "setAxis", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "RangeItemType", True, "setRangeComponent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "RangeIntervalType", True, "setStartComponent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "RangeIntervalType", True, "setEndComponent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "InterpolationMethodType", True, "setInterpolationMethod", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "InterpolationAxisType", True, "setInterpolationMethod", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "InterpolationAxisType", True, "setAxis", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "DimensionTrimType", True, "setTrimLow", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "DimensionTrimType", True, "setTrimHigh", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "DimensionSliceType", True, "setSlicePoint", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "ScalingType", True, "setScaleToExtent", "(ScaleToExtentType)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "TargetAxisExtentType", True, "setAxis", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "TargetAxisExtentType", True, "setHigh", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "TargetAxisSizeType", True, "setTargetSize", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "TargetAxisSizeType", True, "setAxis", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs20", "TargetAxisExtentType", True, "setLow", "(double)", "", "Parameter[0]", "remote", "manual"]

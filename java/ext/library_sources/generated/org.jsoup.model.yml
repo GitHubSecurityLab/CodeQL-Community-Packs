@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jsoup", "Jsoup", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jsoup", "Jsoup", True, "parse", "(String,String,Parser)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jsoup", "Jsoup", True, "parse", "(InputStream,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jsoup", "Jsoup", True, "clean", "(String,String,Safelist,OutputSettings)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jsoup", "Jsoup", True, "clean", "(String,Safelist)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jsoup", "Jsoup", True, "clean", "(String,String,Safelist)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jsoup", "Jsoup", True, "clean", "(String,String,Safelist)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.jsoup", "Jsoup", True, "parseBodyFragment", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jsoup", "Jsoup", True, "parse", "(InputStream,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.jsoup", "Jsoup", True, "connect", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jsoup", "Jsoup", True, "clean", "(String,Whitelist)", "", "Parameter[0]", "remote", "manual"]

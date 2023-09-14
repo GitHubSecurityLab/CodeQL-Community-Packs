@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.dv8tion.jda.api.entities", "Icon", True, "from", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

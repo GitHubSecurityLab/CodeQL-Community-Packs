@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.kafka.streams.state", "ReadOnlyKeyValueStore<String,byte[]>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.kafka.streams.state", "ReadOnlyKeyValueStore<String,Long>", True, "range", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.kafka.streams.state", "ReadOnlyKeyValueStore<String,Long>", True, "range", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.kafka.streams.state", "ReadOnlyKeyValueStore<Integer,Long>", True, "get", "(Integer)", "", "Parameter[0]", "remote", "manual"]

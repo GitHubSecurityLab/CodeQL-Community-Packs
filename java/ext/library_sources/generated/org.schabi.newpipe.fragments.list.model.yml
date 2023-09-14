@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.schabi.newpipe.fragments.list", "BaseListInfoFragment<CommentsInfoItem,CommentsInfo>", True, "setInitialData", "(int,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.schabi.newpipe.fragments.list", "BaseListInfoFragment<CommentsInfoItem,CommentsInfo>", True, "setInitialData", "(int,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.schabi.newpipe.fragments.list", "BaseListInfoFragment<StreamInfoItem,ChannelInfo>", True, "setInitialData", "(int,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.schabi.newpipe.fragments.list", "BaseListInfoFragment<StreamInfoItem,ChannelInfo>", True, "setInitialData", "(int,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.schabi.newpipe.fragments.list", "BaseListInfoFragment<StreamInfoItem,PlaylistInfo>", True, "setInitialData", "(int,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.schabi.newpipe.fragments.list", "BaseListInfoFragment<StreamInfoItem,PlaylistInfo>", True, "setInitialData", "(int,String,String)", "", "Parameter[2]", "remote", "manual"]

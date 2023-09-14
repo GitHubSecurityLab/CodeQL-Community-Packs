@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.xmlpull.v1", "XmlSerializer", True, "endTag", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.xmlpull.v1", "XmlSerializer", True, "cdsect", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.xmlpull.v1", "XmlSerializer", True, "comment", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.xmlpull.v1", "XmlSerializer", True, "docdecl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.xmlpull.v1", "XmlSerializer", True, "endTag", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.xmlpull.v1", "XmlSerializer", True, "entityRef", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.xmlpull.v1", "XmlSerializer", True, "ignorableWhitespace", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.xmlpull.v1", "XmlSerializer", True, "processingInstruction", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.xmlpull.v1", "XmlSerializer", True, "startTag", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.xmlpull.v1", "XmlSerializer", True, "startTag", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.xmlpull.v1", "XmlSerializer", True, "text", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.xmlpull.v1", "XmlPullParser", True, "setInput", "(InputStream,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.xmlpull.v1", "XmlPullParser", True, "setInput", "(Reader)", "", "Parameter[0]", "remote", "manual"]

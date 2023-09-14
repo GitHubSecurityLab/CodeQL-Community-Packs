@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.bytebuddy.agent", "ByteBuddyAgent", True, "attach", "(File,String,String,AttachmentProvider)", "", "Parameter[0]", "remote", "manual"]

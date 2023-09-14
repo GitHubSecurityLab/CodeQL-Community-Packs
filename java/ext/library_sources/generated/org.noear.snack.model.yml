@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.noear.snack", "ONode", True, "deserialize", "(String,Type)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.noear.snack", "ONode", True, "load", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.noear.snack", "ONode", True, "loadStr", "(String,Options)", "", "Parameter[0]", "remote", "manual"]

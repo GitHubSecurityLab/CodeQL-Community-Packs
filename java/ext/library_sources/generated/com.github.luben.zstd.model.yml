@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.github.luben.zstd", "Zstd", True, "decompressDirectByteBuffer", "(ByteBuffer,int,int,ByteBuffer,int,int)", "", "Parameter[5]", "remote", "manual"]
+      - ["com.github.luben.zstd", "Zstd", True, "decompressByteArray", "(byte[],int,int,byte[],int,int)", "", "Parameter[5]", "remote", "manual"]

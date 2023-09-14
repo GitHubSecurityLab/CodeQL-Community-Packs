@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.ctrip.framework.apollo.openapi.dto", "OpenItemDTO", True, "setKey", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ctrip.framework.apollo.openapi.dto", "OpenItemDTO", True, "setValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ctrip.framework.apollo.openapi.dto", "OpenNamespaceLockDTO", True, "setLockedBy", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ctrip.framework.apollo.openapi.dto", "OpenNamespaceLockDTO", True, "setNamespaceName", "(String)", "", "Parameter[0]", "remote", "manual"]

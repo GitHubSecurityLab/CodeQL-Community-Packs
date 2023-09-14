@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.github.pagehelper.page", "PageMethod", True, "startPage", "(int,int,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.github.pagehelper.page", "PageMethod", True, "startPage", "(int,int,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.pagehelper.page", "PageMethod", True, "startPage", "(int,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.github.pagehelper.page", "PageMethod", True, "startPage", "(int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.pagehelper.page", "PageMethod", True, "startPage", "(int,int,boolean,Boolean,Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.pagehelper.page", "PageMethod", True, "startPage", "(int,int,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.github.pagehelper.page", "PageMethod", True, "startPage", "(int,int,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.github.pagehelper.page", "PageMethod", True, "startPage", "(int,int,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.pagehelper.page", "PageMethod", True, "orderBy", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.rdf4j.query.parser", "QueryParserUtil", True, "parseQuery", "(QueryLanguage,String,String)", "", "Parameter[1]", "remote", "manual"]

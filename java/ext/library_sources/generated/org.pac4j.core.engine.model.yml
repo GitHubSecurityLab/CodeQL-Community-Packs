@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.pac4j.core.engine", "LogoutLogic", True, "perform", "(WebContext,SessionStore,Config,HttpActionAdapter,String,String,Boolean,Boolean,Boolean)", "", "Parameter[4]", "remote", "manual"]

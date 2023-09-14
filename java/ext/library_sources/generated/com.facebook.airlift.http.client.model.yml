@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.facebook.airlift.http.client", "Request$Builder", False, "addHeader", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.facebook.airlift.http.client", "Request$Builder", False, "setUri", "(URI)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.facebook.airlift.http.client", "HttpUriBuilder", True, "replacePath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.facebook.airlift.http.client", "StaticBodyGenerator", True, "createStaticBodyGenerator", "(String,Charset)", "", "Parameter[0]", "remote", "manual"]

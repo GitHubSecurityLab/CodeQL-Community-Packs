@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.huaban.analysis.jieba", "JiebaSegmenter", True, "process", "(String,SegMode)", "", "Parameter[0]", "remote", "manual"]

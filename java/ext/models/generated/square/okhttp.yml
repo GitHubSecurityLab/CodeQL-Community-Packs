@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["okhttp3.internal.cache2", "Relay$Companion", false, "edit", "(File,Source,ByteString,long)", "", "Argument[0]", "create-file", "generated"]
+      - ["okhttp3.internal.cache2", "Relay$Companion", false, "read", "(File)", "", "Argument[0]", "create-file", "generated"]
+      - ["okhttp3.sample", "Crawler", false, "fetch", "(HttpUrl)", "", "Argument[0]", "open-url", "generated"]
+      - ["okhttp3.slack", "RtmSession", false, "open", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["okhttp3.slack", "SlackApi", false, "exchangeCode", "(String,HttpUrl)", "", "Argument[-1]", "open-url", "generated"]
+      - ["okhttp3.slack", "SlackApi", false, "exchangeCode", "(String,HttpUrl)", "", "Argument[0]", "open-url", "generated"]
+      - ["okhttp3.slack", "SlackApi", false, "rtm", "(HttpUrl,WebSocketListener)", "", "Argument[0]", "open-url", "generated"]
+      - ["okhttp3.slack", "SlackApi", false, "rtmStart", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["okhttp3", "Request$Builder", true, "build", "()", "", "Argument[-1]", "open-url", "generated"]
+      - ["okhttp3", "Request", false, "Request", "(HttpUrl,Headers,String,RequestBody)", "", "Argument[0]", "open-url", "generated"]
+      - ["okhttp3", "Request", false, "Request", "(HttpUrl,Headers,String,RequestBody,int,DefaultConstructorMarker)", "", "Argument[0]", "open-url", "generated"]
+

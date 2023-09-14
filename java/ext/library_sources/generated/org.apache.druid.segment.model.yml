@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.druid.segment", "SortedDimensionDictionary<ActualType>", True, "getSortedIdFromUnsortedId", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.segment", "RowWalker<RowType>", True, "skipToDateTime", "(DateTime,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.druid.segment", "DimensionDictionary<String>", True, "add", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.segment", "DimensionDictionary<ActualType>", True, "getValue", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.segment", "DimensionDictionary<ActualType>", True, "getId", "(Comparable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.segment", "DictionaryEncodedColumnIndexer<int[],String>", True, "getEncodedValue", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.segment", "DictionaryEncodedColumnIndexer<int[],String>", True, "getActualValue", "(int,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.segment", "ComparatorDimensionDictionary<String>", True, "add", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.segment", "ComparatorDimensionDictionary<Long>", True, "add", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.segment", "ComparatorDimensionDictionary<Double>", True, "add", "(Double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.segment", "ColumnSelectorFactory", True, "makeDimensionSelector", "(DimensionSpec)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.segment", "ColumnSelectorFactory", True, "makeColumnValueSelector", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.segment", "ColumnInspector", True, "getColumnCapabilities", "(String)", "", "Parameter[0]", "remote", "manual"]

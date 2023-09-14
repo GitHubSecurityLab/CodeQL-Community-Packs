@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.pool2", "KeyedObjectPool<K,V>", True, "borrowObject", "(Object)", "", "Parameter[0]", "remote", "manual"]

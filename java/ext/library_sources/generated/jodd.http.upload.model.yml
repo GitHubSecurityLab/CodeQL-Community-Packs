@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jodd.http.upload", "MultipartStreamParser", True, "parseRequestStream", "(InputStream,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jodd.http.upload", "MultipartStreamParser", True, "putParameters", "(String,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["jodd.http.upload", "MultipartStreamParser", True, "putParameters", "(String,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["jodd.http.upload", "MultipartStreamParser", True, "getParameterValues", "(String)", "", "Parameter[0]", "remote", "manual"]

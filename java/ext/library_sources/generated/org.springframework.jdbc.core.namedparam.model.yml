@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.jdbc.core.namedparam", "MapSqlParameterSource", True, "addValue", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.jdbc.core.namedparam", "MapSqlParameterSource", True, "addValue", "(String,Object,int)", "", "Parameter[1]", "remote", "manual"]

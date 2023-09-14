@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.pentaho.platform.util", "RepositoryPathEncoder", True, "decodeRepositoryPath", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.thirdparty.com.google.common.base", "Joiner", True, "join", "(Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.base", "Splitter", False, "split", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.base", "Joiner", True, "join", "(Iterable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.base", "Strings", False, "isNullOrEmpty", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.base", "Joiner", True, "join", "(Object,Object,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.base", "CharMatcher", True, "countIn", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]

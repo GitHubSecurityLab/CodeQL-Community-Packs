@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.druid.segment.join.table", "IndexedTableJoinMatcher$LruLoadingHashMap<DimensionSelector,Int2IntSortedSetMap>", True, "getAndLoadIfAbsent", "(DimensionSelector)", "", "Parameter[0]", "remote", "manual"]

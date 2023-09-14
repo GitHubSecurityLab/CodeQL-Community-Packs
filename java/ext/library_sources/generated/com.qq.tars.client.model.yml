@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.qq.tars.client", "Communicator", False, "stringToProxy", "(Class,String)", "", "Parameter[1]", "remote", "manual"]

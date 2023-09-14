@@ -1,0 +1,22 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.helix", "HelixAdmin", True, "getResourceIdealState", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.helix", "BaseDataAccessor<ZNRecord>", True, "get", "(String,Stat,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix", "BaseDataAccessor<ZNRecord>", True, "getChildNames", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix", "HelixAdmin", True, "getResourceExternalView", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.helix", "PropertyKey$Builder", True, "idealStates", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix", "PropertyKey$Builder", True, "instanceConfig", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix", "BaseDataAccessor<ZNRecord>", True, "getChildren", "(String,List,int,int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix", "BaseDataAccessor<ZNRecord>", True, "getStat", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix", "PropertyKey$Builder", True, "instance", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix", "HelixAdmin", True, "resetResource", "(String,List)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.helix", "HelixAdmin", True, "removeConfig", "(HelixConfigScope,List)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.helix", "BaseDataAccessor<ZNRecord>", True, "set", "(String,ZNRecord,int,int)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.apache.helix", "BaseDataAccessor<ZNRecord>", True, "set", "(String,ZNRecord,int,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.helix", "BaseDataAccessor<ZNRecord>", True, "set", "(String,ZNRecord,int,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.helix", "BaseDataAccessor<ZNRecord>", True, "set", "(String,ZNRecord,int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix", "BaseDataAccessor<ZNRecord>", True, "remove", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix", "BaseDataAccessor<ZNRecord>", True, "getStats", "(List,int)", "", "Parameter[0]", "remote", "manual"]

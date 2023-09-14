@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.iotdb.tsfile.file.metadata.enums", "TSDataType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

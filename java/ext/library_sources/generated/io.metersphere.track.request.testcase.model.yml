@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.metersphere.track.request.testcase", "IssuesRequest", True, "setCaseResourceId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.track.request.testcase", "IssuesRequest", True, "setPlanId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.track.request.testcase", "IssuesRequest", True, "setRefType", "(String)", "", "Parameter[0]", "remote", "manual"]

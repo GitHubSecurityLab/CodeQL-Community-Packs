@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.rsocket.util", "ByteBufPayload", False, "create", "(ByteBuf,ByteBuf)", "", "Parameter[0]", "remote", "manual"]

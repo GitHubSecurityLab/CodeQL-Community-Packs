@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.mylyn.tasks.core.data", "TaskAttribute", False, "setValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.mylyn.tasks.core.data", "TaskAttribute", False, "setValues", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.mylyn.tasks.core.data", "AbstractTaskDataHandler", True, "getMultiTaskData", "(TaskRepository,Set,TaskDataCollector,IProgressMonitor)", "", "Parameter[1]", "remote", "manual"]

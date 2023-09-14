@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.jetty.websocket.client", "WebSocketClient", True, "connect", "(Object,URI,ClientUpgradeRequest,UpgradeListener)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.pushbullet.android.extension", "MessagingExtension", True, "mirrorMessage", "(Context,String,String,String,Bitmap,String,int)", "", "Parameter[3]", "remote", "manual"]

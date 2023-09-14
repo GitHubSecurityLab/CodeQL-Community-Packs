@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.wicket.markup.html.form", "FormComponent", True, "getModelObject", "", "", "ReturnValue", "remote", "manual"]
+

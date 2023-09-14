@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.log4j", "Category", True, "debug", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.log4j", "Logger", True, "trace", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.log4j", "Category", True, "error", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.log4j", "Category", True, "info", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.log4j", "Category", True, "warn", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.log4j", "Category", True, "log", "(String,Priority,Object,Throwable)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.log4j", "Category", True, "error", "(Object,Throwable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.log4j", "Category", True, "log", "(Priority,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.log4j", "Category", True, "warn", "(Object,Throwable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.log4j", "Logger", True, "getLogger", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.log4j", "Category", True, "debug", "(Object,Throwable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.log4j", "MDC", True, "put", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.log4j", "LogManager", True, "getLogger", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.log4j", "Level", True, "toLevel", "(String,Level)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.log4j", "Category", True, "callAppenders", "(LoggingEvent)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.serotonin.mango.vo.dataSource.modbus", "ModbusIpDataSourceVO$TransportType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource.modbus", "ModbusDataSourceVO<ModbusIpDataSourceVO>", True, "setUpdatePeriods", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource.modbus", "ModbusDataSourceVO<ModbusIpDataSourceVO>", True, "setUpdatePeriodType", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource.modbus", "ModbusDataSourceVO<ModbusIpDataSourceVO>", True, "setTimeout", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource.modbus", "ModbusDataSourceVO<ModbusIpDataSourceVO>", True, "setRetries", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource.modbus", "ModbusDataSourceVO<ModbusIpDataSourceVO>", True, "setQuantize", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource.modbus", "ModbusDataSourceVO<ModbusIpDataSourceVO>", True, "setMaxWriteRegisterCount", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource.modbus", "ModbusDataSourceVO<ModbusIpDataSourceVO>", True, "setMaxReadRegisterCount", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource.modbus", "ModbusDataSourceVO<ModbusIpDataSourceVO>", True, "setMaxReadBitCount", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource.modbus", "ModbusDataSourceVO<ModbusIpDataSourceVO>", True, "setContiguousBatches", "(boolean)", "", "Parameter[0]", "remote", "manual"]

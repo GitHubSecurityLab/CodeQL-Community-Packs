@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.api.lexer", "TokenHierarchy<?>", False, "tokenSequence", "(Language)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.api.lexer", "TokenSequence<XMLTokenId>", False, "createEmbedding", "(Language,int,int,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.api.lexer", "TokenSequence<XMLTokenId>", False, "createEmbedding", "(Language,int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.api.lexer", "TokenHierarchy<Document>", False, "tokenSequence", "(Language)", "", "Parameter[0]", "remote", "manual"]

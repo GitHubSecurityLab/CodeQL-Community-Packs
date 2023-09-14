@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.pulsar.common.util.collections", "ConcurrentOpenHashMap<String,NonPersistentSubscription>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.util.collections", "ConcurrentOpenHashMap$Section<K,V>", False, "get", "(Object,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.util.collections", "ConcurrentLongHashMap<CompletableFuture<ReadHandle>>", True, "remove", "(long,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.util.collections", "ConcurrentLongHashMap<CompletableFuture<ReadHandle>>", True, "computeIfAbsent", "(long,LongFunction)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.util.collections", "ConcurrentLongHashMap$Section<V>", False, "remove", "(long,Object,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.util.collections", "ConcurrentLongHashMap$Section<V>", False, "put", "(long,Object,int,boolean,LongFunction)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.util.collections", "ConcurrentLongHashMap$Section<V>", False, "get", "(long,int)", "", "Parameter[0]", "remote", "manual"]

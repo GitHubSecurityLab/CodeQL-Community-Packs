@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.azure.resourcemanager.datafactory.models", "Pipelines", True, "listByFactory", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.azure.resourcemanager.datafactory.models", "Pipelines", True, "listByFactory", "(String,String)", "", "Parameter[1]", "remote", "manual"]

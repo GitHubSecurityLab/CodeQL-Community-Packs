@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.api.services.storage", "Storage$Objects", True, "get", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.api.services.storage", "Storage$Objects$Insert", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]

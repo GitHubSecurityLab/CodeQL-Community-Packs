@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.sling.api.resource", "ResourceResolver", True, "getResource", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.sling.api.resource", "ResourceResolver", True, "findResources", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.sling.api.resource", "ResourceUtil", True, "getOrCreateResource", "(ResourceResolver,String,Map,String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.sling.api.resource", "ResourceResolver", True, "resolve", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.sling.api.resource", "ResourceResolver", True, "map", "(HttpServletRequest,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.sling.api.resource", "ResourceResolver", True, "create", "(Resource,String,Map)", "", "Parameter[2]", "remote", "manual"]

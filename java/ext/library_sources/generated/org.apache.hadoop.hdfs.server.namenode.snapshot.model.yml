@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.hdfs.server.namenode.snapshot", "AbstractINodeDiffList<INodeDirectory,INodeDirectoryAttributes,DirectoryDiff>", True, "getPrior", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.hdfs.server.namenode.snapshot", "AbstractINodeDiffList<INodeFile,INodeFileAttributes,FileDiff>", True, "getPrior", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.hdfs.server.namenode.snapshot", "AbstractINodeDiffList<INodeFile,INodeFileAttributes,FileDiff>", True, "getSnapshotById", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.hdfs.server.namenode.snapshot", "AbstractINodeDiffList<INodeDirectory,INodeDirectoryAttributes,DirectoryDiff>", True, "getDiffById", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.hdfs.server.namenode.snapshot", "AbstractINodeDiffList<INodeFile,INodeFileAttributes,FileDiff>", True, "getSnapshotINode", "(int,INodeFileAttributes)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.hdfs.server.namenode.snapshot", "AbstractINodeDiffList<INodeFile,INodeFileAttributes,FileDiff>", True, "getSnapshotINode", "(int,INodeFileAttributes)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.hdfs.server.namenode.snapshot", "AbstractINodeDiffList<INodeFile,INodeFileAttributes,FileDiff>", True, "getDiffById", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.hdfs.server.namenode.snapshot", "AbstractINodeDiffList<INodeFile,INodeFileAttributes,FileDiff>", True, "deleteSnapshotDiff", "(ReclaimContext,int,int,INodeFile)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.apache.hadoop.hdfs.server.namenode.snapshot", "AbstractINodeDiffList<INodeDirectory,INodeDirectoryAttributes,DirectoryDiff>", True, "saveSelf2Snapshot", "(int,INodeDirectory,INodeDirectoryAttributes)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.hdfs.server.namenode.snapshot", "AbstractINodeDiffList<INodeDirectory,INodeDirectoryAttributes,DirectoryDiff>", True, "getSnapshotINode", "(int,INodeDirectoryAttributes)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.hdfs.server.namenode.snapshot", "AbstractINodeDiffList<INodeDirectory,INodeDirectoryAttributes,DirectoryDiff>", True, "getSnapshotINode", "(int,INodeDirectoryAttributes)", "", "Parameter[0]", "remote", "manual"]

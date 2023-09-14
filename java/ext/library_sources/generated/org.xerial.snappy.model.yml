@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.xerial.snappy", "Snappy", True, "compress", "(ByteBuffer,ByteBuffer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.xerial.snappy", "Snappy", True, "compress", "(ByteBuffer,ByteBuffer)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.xerial.snappy", "Snappy", True, "uncompress", "(ByteBuffer,ByteBuffer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.xerial.snappy", "Snappy", True, "uncompress", "(ByteBuffer,ByteBuffer)", "", "Parameter[1]", "remote", "manual"]

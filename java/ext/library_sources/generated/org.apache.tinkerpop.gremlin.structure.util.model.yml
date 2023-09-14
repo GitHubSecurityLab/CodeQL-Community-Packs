@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.tinkerpop.gremlin.structure.util", "ElementHelper", False, "validateLabel", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.tinkerpop.gremlin.structure.util", "ElementHelper", False, "attachProperties", "(Element,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.tinkerpop.gremlin.structure.util", "ElementHelper", False, "attachProperties", "(Vertex,Object[])", "", "Parameter[1]", "remote", "manual"]

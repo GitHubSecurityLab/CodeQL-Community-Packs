@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.java.html.boot.fx", "FXBrowsers", False, "load", "(WebView,URL,Runnable,ClassLoader,Object[])", "", "Parameter[3]", "remote", "manual"]

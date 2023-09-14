@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.timgroup.statsd", "StatsDClient", True, "count", "(String,long,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.timgroup.statsd", "StatsDClient", True, "time", "(String,long,String[])", "", "Parameter[2]", "remote", "manual"]
+      - ["com.timgroup.statsd", "StatsDClient", True, "time", "(String,long,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.timgroup.statsd", "StatsDClient", True, "recordHistogramValue", "(String,long,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.timgroup.statsd", "StatsDClient", True, "recordHistogramValue", "(String,double,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.timgroup.statsd", "StatsDClient", True, "recordGaugeValue", "(String,long,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.timgroup.statsd", "StatsDClient", True, "recordGaugeValue", "(String,double,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.timgroup.statsd", "StatsDClient", True, "gauge", "(String,long,String[])", "", "Parameter[2]", "remote", "manual"]
+      - ["com.timgroup.statsd", "StatsDClient", True, "gauge", "(String,long,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.timgroup.statsd", "StatsDClient", True, "gauge", "(String,double,String[])", "", "Parameter[2]", "remote", "manual"]
+      - ["com.timgroup.statsd", "StatsDClient", True, "gauge", "(String,double,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.timgroup.statsd", "StatsDClient", True, "count", "(String,long,String[])", "", "Parameter[2]", "remote", "manual"]
+      - ["com.timgroup.statsd", "StatsDClient", True, "count", "(String,double,String[])", "", "Parameter[2]", "remote", "manual"]
+      - ["com.timgroup.statsd", "StatsDClient", True, "count", "(String,double,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.timgroup.statsd", "ServiceCheck$Builder", True, "withName", "(String)", "", "Parameter[0]", "remote", "manual"]

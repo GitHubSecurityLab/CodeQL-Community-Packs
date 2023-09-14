@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.auth0.jwt", "JWT", True, "decode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.auth0.jwt", "JWTCreator$Builder", True, "withClaim", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.auth0.jwt", "JWTVerifier", False, "verify", "(String)", "", "Parameter[0]", "remote", "manual"]

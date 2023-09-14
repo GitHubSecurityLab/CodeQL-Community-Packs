@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["uk.ac.cam.caret.sakai.rwiki.utils", "NameHelper", True, "globaliseName", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["uk.ac.cam.caret.sakai.rwiki.utils", "NameHelper", True, "globaliseName", "(String,String)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gravitee.elasticsearch.templating.freemarker", "FreeMarkerComponent", True, "generateFromTemplate", "(String,Map)", "", "Parameter[1]", "remote", "manual"]

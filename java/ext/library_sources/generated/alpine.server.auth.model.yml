@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["alpine.server.auth", "PasswordService", False, "matches", "(char[],ManagedUser)", "", "Parameter[0]", "remote", "manual"]
+      - ["alpine.server.auth", "PasswordService", False, "createHash", "(char[])", "", "Parameter[0]", "remote", "manual"]

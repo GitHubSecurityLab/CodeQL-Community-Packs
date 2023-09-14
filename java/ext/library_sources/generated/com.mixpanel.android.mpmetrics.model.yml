@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.mixpanel.android.mpmetrics", "MixpanelAPI", True, "track", "(String,JSONObject)", "", "Parameter[1]", "remote", "manual"]

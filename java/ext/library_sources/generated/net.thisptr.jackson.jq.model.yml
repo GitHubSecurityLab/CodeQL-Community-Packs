@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.thisptr.jackson.jq", "JsonQuery", True, "apply", "(JsonNode)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.thisptr.jackson.jq", "JsonQuery", True, "compile", "(String)", "", "Parameter[0]", "remote", "manual"]

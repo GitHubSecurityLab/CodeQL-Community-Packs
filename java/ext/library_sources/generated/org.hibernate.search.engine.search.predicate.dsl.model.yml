@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.hibernate.search.engine.search.predicate.dsl", "MatchPredicateMatchingStep", True, "matching", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate.search.engine.search.predicate.dsl", "PhrasePredicateMatchingStep", True, "matching", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate.search.engine.search.predicate.dsl", "MatchPredicateFieldStep<?>", True, "fields", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate.search.engine.search.predicate.dsl", "PhrasePredicateFieldStep<?>", True, "fields", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate.search.engine.search.predicate.dsl", "PhrasePredicateFieldStep<?>", True, "field", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate.search.engine.search.predicate.dsl", "MatchPredicateFieldStep<?>", True, "field", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate.search.engine.search.predicate.dsl", "SimpleQueryStringPredicateMatchingStep", True, "matching", "(Object,String)", "", "Parameter[0]", "remote", "manual"]

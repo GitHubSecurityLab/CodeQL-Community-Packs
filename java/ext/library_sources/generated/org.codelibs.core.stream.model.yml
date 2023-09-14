@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.codelibs.core.stream", "StreamUtil", True, "stream", "(Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.codelibs.core.stream", "StreamUtil", True, "stream", "(Map)", "", "Parameter[0]", "remote", "manual"]

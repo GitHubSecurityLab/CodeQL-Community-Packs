@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opengis.feature.simple", "SimpleFeatureType", True, "getType", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.opengis.feature.simple", "SimpleFeatureType", True, "indexOf", "(String)", "", "Parameter[0]", "remote", "manual"]

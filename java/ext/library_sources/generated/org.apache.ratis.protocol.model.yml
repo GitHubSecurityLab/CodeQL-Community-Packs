@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.ratis.protocol", "RaftPeer$Builder", True, "setAdminAddress", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.ratis.protocol", "RaftPeerId", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.ratis.protocol", "RaftPeer$Builder", True, "setClientAddress", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.ratis.protocol", "RaftPeer$Builder", True, "setDataStreamAddress", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.ratis.protocol", "RaftGroupId", False, "valueOf", "(UUID)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.ratis.protocol", "RaftPeer$Builder", True, "setAddress", "(InetSocketAddress)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.ratis.protocol", "RaftPeer$Builder", True, "setAddress", "(String)", "", "Parameter[0]", "remote", "manual"]

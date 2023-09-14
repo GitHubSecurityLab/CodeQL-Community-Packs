@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.lang3.math", "NumberUtils", True, "isDigits", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.math", "NumberUtils", True, "toLong", "(String,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.math", "NumberUtils", True, "toInt", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.math", "NumberUtils", True, "toInt", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.math", "NumberUtils", True, "toDouble", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.math", "NumberUtils", True, "toLong", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.math", "NumberUtils", True, "toFloat", "(String,float)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.math", "NumberUtils", True, "isCreatable", "(String)", "", "Parameter[0]", "remote", "manual"]

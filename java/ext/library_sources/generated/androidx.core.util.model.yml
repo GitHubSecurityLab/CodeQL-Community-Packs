@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.core.util", "ObjectsCompat", True, "equals", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.util", "Preconditions", False, "checkNotNull", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]

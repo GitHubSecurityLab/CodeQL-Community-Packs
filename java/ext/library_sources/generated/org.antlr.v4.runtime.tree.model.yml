@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.antlr.v4.runtime.tree", "ParseTreeVisitor<? extends T>", True, "visitChildren", "(RuleNode)", "", "Parameter[0]", "remote", "manual"]

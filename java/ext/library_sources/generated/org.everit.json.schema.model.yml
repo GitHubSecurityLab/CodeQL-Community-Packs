@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.everit.json.schema", "Schema", True, "validate", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.everit.json.schema", "Schema", True, "definesProperty", "(String)", "", "Parameter[0]", "remote", "manual"]

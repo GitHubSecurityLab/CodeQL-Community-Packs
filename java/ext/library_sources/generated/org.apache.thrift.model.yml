@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.thrift", "EncodingUtils", True, "testBit", "(byte,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.thrift", "TBaseHelper", False, "byteBufferToByteArray", "(ByteBuffer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.thrift", "EncodingUtils", True, "testBit", "(short,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.thrift", "EncodingUtils", True, "setBit", "(byte,int,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.thrift", "TBaseHelper", False, "copyBinary", "(ByteBuffer)", "", "Parameter[0]", "remote", "manual"]

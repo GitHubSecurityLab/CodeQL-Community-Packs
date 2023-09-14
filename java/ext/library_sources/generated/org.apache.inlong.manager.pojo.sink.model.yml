@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.inlong.manager.pojo.sink", "SinkField", True, "setFieldType", "(String)", "", "Parameter[0]", "remote", "manual"]

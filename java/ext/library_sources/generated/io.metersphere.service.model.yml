@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.metersphere.service", "NodeTreeService<TestCaseNodeDTO>", True, "sort", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.service", "NodeTreeService<ApiScenarioModuleDTO>", True, "sort", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.service", "NodeTreeService<ApiModuleDTO>", True, "sort", "(List)", "", "Parameter[0]", "remote", "manual"]

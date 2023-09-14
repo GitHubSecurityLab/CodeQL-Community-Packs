@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.onedev.commons.utils.command", "Commandline", True, "execute", "(OutputStream,OutputStream,InputStream)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.onedev.commons.utils.command", "Commandline", True, "execute", "(OutputStream,LineConsumer,InputStream)", "", "Parameter[2]", "remote", "manual"]

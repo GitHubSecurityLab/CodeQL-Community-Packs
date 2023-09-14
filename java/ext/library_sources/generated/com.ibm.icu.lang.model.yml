@@ -1,0 +1,19 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.ibm.icu.lang", "UScript", False, "getCodeFromName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.lang", "UCharacter", False, "toUpperCase", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.lang", "UCharacter", False, "toTitleCase", "(ULocale,String,BreakIterator)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.ibm.icu.lang", "UCharacter", False, "toLowerCase", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.lang", "UCharacter", False, "getUnicodeNumericValue", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.lang", "UCharacter", False, "getType", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.lang", "UCharacter", False, "getName", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.lang", "UCharacter", False, "getName1_0", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.lang", "UCharacter", False, "getMirror", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.lang", "UCharacter", False, "getISOComment", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.lang", "UCharacter", False, "getAge", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.lang", "UCharacter", False, "foldCase", "(int,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.lang", "UCharacter", False, "toTitleCase", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.lang", "UScript", False, "getScriptExtensions", "(int,BitSet)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.haulmont.yarg.loaders.impl", "JsonDataLoader", True, "extractScriptResult", "(String,String,ReportQuery)", "", "Parameter[0]", "remote", "manual"]

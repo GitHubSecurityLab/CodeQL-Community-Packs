@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.lwjgl.opengl", "GL20", True, "glShaderSource", "(int,CharSequence[])", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.common.net", "InetAddresses", False, "forString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.net", "HostAndPort", False, "fromString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.net", "InetAddresses", False, "isInetAddress", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.net", "HostAndPort", False, "fromParts", "(String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.common.net", "HostAndPort", False, "fromParts", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.net", "InternetDomainName", False, "isValid", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.net", "InetAddresses", False, "forUriString", "(String)", "", "Parameter[0]", "remote", "manual"]

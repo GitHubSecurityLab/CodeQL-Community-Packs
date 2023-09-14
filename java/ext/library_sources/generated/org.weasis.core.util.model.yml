@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.weasis.core.util", "FileUtil", False, "writeStreamWithIOException", "(InputStream,File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.weasis.core.util", "FileUtil", False, "writeStream", "(InputStream,File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.weasis.core.util", "FileUtil", False, "safeClose", "(AutoCloseable)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.openide.nodes", "Children$Keys<Node>", True, "setKeys", "(Node[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openide.nodes", "Children$Keys<Node>", True, "setKeys", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openide.nodes", "Children$Keys<>", True, "setKeys", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openide.nodes", "Children$Keys<>", True, "setKeys", "(Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openide.nodes", "Children$Keys<Node>", True, "refreshKey", "(Node)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openide.nodes", "Children$Dupl<T>", True, "updateList", "(Object[],Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openide.nodes", "Children$Dupl<T>", True, "updateList", "(Collection,Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openide.nodes", "Children$Keys<String>", True, "setKeys", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openide.nodes", "Children$Keys<Key>", True, "setKeys", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openide.nodes", "Children$Keys<NbMavenProjectImpl>", True, "setKeys", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openide.nodes", "Children$Keys<SourceGroup>", True, "refreshKey", "(SourceGroup)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openide.nodes", "Children$Keys<SourceGroup>", True, "setKeys", "(Collection)", "", "Parameter[0]", "remote", "manual"]

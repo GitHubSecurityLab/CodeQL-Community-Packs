@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opensaml.core.xml.util", "XMLObjectSupport", False, "unmarshallFromInputStream", "(ParserPool,InputStream)", "", "Parameter[1]", "remote", "manual"]

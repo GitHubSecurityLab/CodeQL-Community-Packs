@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.mozilla.javascript", "Context", True, "compileFunction", "(Scriptable,String,String,int,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.mozilla.javascript", "Context", True, "evaluateString", "(Scriptable,String,String,int,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.mozilla.javascript", "Context", True, "javaToJS", "(Object,Scriptable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.mozilla.javascript", "Parser", True, "parse", "(String,String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.mozilla.javascript", "Kit", True, "readReader", "(Reader)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.mozilla.javascript", "Context", True, "newArray", "(Scriptable,Object[])", "", "Parameter[1]", "remote", "manual"]

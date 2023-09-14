@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.metersphere.plugin.core", "MsTestElement", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.plugin.core", "MsTestElement", True, "setProjectId", "(String)", "", "Parameter[0]", "remote", "manual"]

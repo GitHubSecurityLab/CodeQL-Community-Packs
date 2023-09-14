@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["cat.ereza.customactivityoncrash", "CustomActivityOnCrash", False, "getAllErrorDetailsFromIntent", "(Context,Intent)", "", "Parameter[1]", "remote", "manual"]
+      - ["cat.ereza.customactivityoncrash", "CustomActivityOnCrash", False, "getConfigFromIntent", "(Intent)", "", "Parameter[0]", "remote", "manual"]

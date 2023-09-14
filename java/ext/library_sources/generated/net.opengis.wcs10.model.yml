@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.opengis.wcs10", "TypedLiteralType", True, "setValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs10", "InterpolationMethodType", False, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs10", "GetCoverageType", True, "setSourceCoverage", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs10", "GetCoverageType", True, "setInterpolationMethod", "(InterpolationMethodType)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs10", "DomainSubsetType", True, "setTemporalSubset", "(TimeSequenceType)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs10", "GetCapabilitiesType", True, "setVersion", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs10", "CapabilitiesSectionType", False, "get", "(String)", "", "Parameter[0]", "remote", "manual"]

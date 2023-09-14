@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jodd.io", "IOUtil", True, "readBytes", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["jodd.io", "IOUtil", True, "copy", "(Reader,Writer)", "", "Parameter[0]", "remote", "manual"]
+      - ["jodd.io", "IOUtil", True, "close", "(Closeable)", "", "Parameter[0]", "remote", "manual"]

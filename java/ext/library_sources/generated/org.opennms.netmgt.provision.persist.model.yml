@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opennms.netmgt.provision.persist", "DirectoryWatcher<ForeignSource>", True, "getContents", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.opennms.netmgt.provision.persist", "DirectoryWatcher<Requisition>", True, "getContents", "(String)", "", "Parameter[0]", "remote", "manual"]

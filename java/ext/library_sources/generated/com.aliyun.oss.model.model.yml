@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.aliyun.oss.model", "GetObjectRequest", True, "setRange", "(long,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss.model", "ObjectMetadata", True, "setContentType", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss.model", "CannedAccessControlList", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss.model", "DeleteObjectsRequest", True, "setKeys", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss.model", "ListObjectsRequest", True, "setMaxKeys", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss.model", "ListObjectsRequest", True, "setPrefix", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss.model", "ListObjectsV2Request", True, "setMaxKeys", "(Integer)", "", "Parameter[0]", "remote", "manual"]

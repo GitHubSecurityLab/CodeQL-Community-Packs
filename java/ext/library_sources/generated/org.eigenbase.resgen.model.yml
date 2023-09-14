@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eigenbase.resgen", "ResourceDefinition", True, "instantiate", "(ResourceBundle,Object[])", "", "Parameter[1]", "remote", "manual"]

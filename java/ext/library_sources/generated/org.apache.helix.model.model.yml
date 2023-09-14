@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.helix.model", "IdealState", True, "setInstanceGroupTag", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.model", "Message", True, "setResourceName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.model", "Message", True, "setPartitionName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.model", "InstanceConfig", True, "removeTag", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.model", "InstanceConfig", True, "addTag", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.model", "IdealState", True, "setReplicas", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.model", "IdealState$IdealStateModeProperty", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.model", "ExternalView", True, "getStateMap", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.model", "CurrentState", True, "getState", "(String)", "", "Parameter[0]", "remote", "manual"]

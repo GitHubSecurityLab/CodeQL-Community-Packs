@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.postgresql.replication", "PGReplicationConnection", true, "dropReplicationSlot", "(String)", "", "Argument[0]", "sql", "generated"]
+

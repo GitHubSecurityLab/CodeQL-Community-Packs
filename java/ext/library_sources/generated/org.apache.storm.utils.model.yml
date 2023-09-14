@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.storm.utils", "TimeCacheMap<String,OutputStream>", True, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.storm.utils", "TimeCacheMap<String,BufferInputStream>", True, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.storm.utils", "RotatingMap<K,V>", True, "put", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.storm.utils", "RotatingMap<K,V>", True, "put", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.storm.utils", "RotatingMap<K,V>", True, "get", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.storm.utils", "RotatingMap<K,V>", True, "remove", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.storm.utils", "RotatingMap<String,Set<String>>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.storm.utils", "RotatingMap<String,Set<String>>", True, "put", "(String,Set)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.storm.utils", "TimeCacheMap<String,WritableByteChannel>", True, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.storm.utils", "TimeCacheMap<String,WritableByteChannel>", True, "put", "(String,WritableByteChannel)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.storm.utils", "TimeCacheMap<String,OutputStream>", True, "put", "(String,OutputStream)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.storm.utils", "TimeCacheMap<String,OutputStream>", True, "put", "(String,OutputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.storm.utils", "TimeCacheMap<String,BufferInputStream>", True, "put", "(String,BufferInputStream)", "", "Parameter[0]", "remote", "manual"]

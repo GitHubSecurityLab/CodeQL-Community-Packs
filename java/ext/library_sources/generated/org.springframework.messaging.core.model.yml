@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.messaging.core", "MessageSendingOperations<String>", True, "convertAndSend", "(String,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.messaging.core", "MessageSendingOperations<String>", True, "convertAndSend", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

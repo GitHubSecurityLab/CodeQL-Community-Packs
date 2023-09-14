@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jboss.web.tomcat.security.login", "WebAuthentication", True, "login", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.jboss.web.tomcat.security.login", "WebAuthentication", True, "login", "(String,Object)", "", "Parameter[0]", "remote", "manual"]

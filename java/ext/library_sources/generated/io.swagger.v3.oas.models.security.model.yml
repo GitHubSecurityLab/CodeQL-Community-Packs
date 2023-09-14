@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.swagger.v3.oas.models.security", "OAuthFlow", True, "setScopes", "(Scopes)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.swagger.v3.oas.models.security", "OAuthFlow", True, "addExtension", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

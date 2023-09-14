@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.quarkus.mongodb.panache.reactive", "ReactivePanacheMongoRepositoryBase<Person,Long>", True, "findById", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.quarkus.mongodb.panache.reactive", "ReactivePanacheMongoRepositoryBase<Person,Long>", True, "update", "(Person)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.quarkus.mongodb.panache.reactive", "ReactivePanacheMongoRepositoryBase<Person,Long>", True, "persist", "(Person)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.quarkus.mongodb.panache.reactive", "ReactivePanacheMongoRepositoryBase<Person,Long>", True, "persist", "(Iterable)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.quarkus.mongodb.panache.reactive", "ReactivePanacheMongoRepositoryBase<Book,ObjectId>", True, "update", "(Book)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.quarkus.mongodb.panache.reactive", "ReactivePanacheMongoRepositoryBase<Book,ObjectId>", True, "persist", "(Book)", "", "Parameter[0]", "remote", "manual"]

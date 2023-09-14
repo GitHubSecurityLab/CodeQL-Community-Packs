@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.nimbusds.openid.connect.sdk.op", "OIDCProviderMetadata", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.aliyun.oss", "ClientConfiguration", True, "setMaxConnections", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss", "ClientConfiguration", True, "setMaxErrorRetry", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss", "ClientConfiguration", True, "setConnectionTimeout", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss", "OSS", True, "doesObjectExist", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.aliyun.oss", "ClientConfiguration", True, "setProxyDomain", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss", "ClientConfiguration", True, "setProxyHost", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss", "ClientConfiguration", True, "setProxyPassword", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss", "ClientConfiguration", True, "setProxyPort", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss", "ClientConfiguration", True, "setProxyUsername", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss", "ClientConfiguration", True, "setProxyWorkstation", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss", "ClientConfiguration", True, "setSocketTimeout", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss", "ClientConfiguration", True, "setUserAgent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.aliyun.oss", "OSS", True, "doesObjectExist", "(String,String)", "", "Parameter[0]", "remote", "manual"]

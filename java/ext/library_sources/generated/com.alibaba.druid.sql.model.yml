@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alibaba.druid.sql", "SQLUtils", True, "parseStatements", "(String,DbType)", "", "Parameter[0]", "remote", "manual"]

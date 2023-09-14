@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["cz.msebera.android.httpclient.client.methods", "HttpRequestBase", True, "setURI", "(URI)", "", "Parameter[0]", "remote", "manual"]

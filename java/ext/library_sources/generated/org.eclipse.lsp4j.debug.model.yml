@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.lsp4j.debug", "Source", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.lsp4j.debug", "SourceResponse", True, "setContent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.lsp4j.debug", "OutputEventArguments", True, "setOutput", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.lsp4j.debug", "Variable", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]

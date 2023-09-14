@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.cloud.spanner", "Value", True, "float64", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.spanner", "Value", True, "int64", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.spanner", "Value", True, "string", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.spanner", "Statement", False, "newBuilder", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.spanner", "Key", False, "of", "(Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.spanner", "Key$Builder", True, "append", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.orcid.jaxb.model.record_v2", "ResearcherUrls", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.record_v2", "ResearcherUrl", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.record_v2", "Person", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.record_v2", "PersonExternalIdentifier", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.record_v2", "PersonExternalIdentifiers", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.record_v2", "PersonalDetails", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.record_v2", "Record", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.record_v2", "OtherNames", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.record_v2", "OtherName", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.record_v2", "Address", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.record_v2", "Addresses", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.record_v2", "Biography", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.record_v2", "Emails", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.record_v2", "Keyword", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.record_v2", "Keywords", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.record_v2", "Activity", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]

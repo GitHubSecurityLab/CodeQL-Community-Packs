@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.kafka.streams", "StoreQueryParameters", True, "fromNameAndType", "(String,QueryableStoreType)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.kafka.streams", "KafkaStreams", True, "queryMetadataForKey", "(String,Object,Serializer)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.kafka.streams", "KafkaStreams", True, "allMetadataForStore", "(String)", "", "Parameter[0]", "remote", "manual"]

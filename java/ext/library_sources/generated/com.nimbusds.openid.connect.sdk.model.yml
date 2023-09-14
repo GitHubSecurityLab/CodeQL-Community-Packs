@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.nimbusds.openid.connect.sdk", "AuthenticationResponseParser", True, "parse", "(URI,Map)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.nimbusds.openid.connect.sdk", "AuthenticationResponseParser", True, "parse", "(URI,Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.nimbusds.openid.connect.sdk", "AuthenticationResponseParser", True, "parse", "(URI)", "", "Parameter[0]", "remote", "manual"]

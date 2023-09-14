@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.owncloud.android.files.services", "IndexedForest<UploadFileOperation>", True, "putIfAbsent", "(String,String,UploadFileOperation)", "", "Parameter[1]", "remote", "manual"]

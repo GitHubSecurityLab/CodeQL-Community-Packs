@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.javaswift.joss.model", "StoredObject", True, "uploadObject", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.javaswift.joss.model", "ListHolder<StoredObject>", True, "getPaginationMap", "(String,int)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.californium.elements.util", "LeastRecentlyUsedCache<String,Resource>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]

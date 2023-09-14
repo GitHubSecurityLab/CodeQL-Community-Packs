@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.gluu.oxeleven.model", "VerifySignatureRequestParam", True, "setSigningInput", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gluu.oxeleven.model", "VerifySignatureRequestParam", True, "setSignature", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gluu.oxeleven.model", "VerifySignatureRequestParam", True, "setAlias", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gluu.oxeleven.model", "SignRequestParam", True, "setSigningInput", "(String)", "", "Parameter[0]", "remote", "manual"]

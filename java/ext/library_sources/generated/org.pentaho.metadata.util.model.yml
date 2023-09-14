@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.pentaho.metadata.util", "RowLevelSecurityHelper", True, "getOpenFormulaSecurityConstraint", "(RowLevelSecurity,String,List)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.palantir.logsafe", "SafeArg", False, "of", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.palantir.logsafe", "Preconditions", False, "checkNotNull", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.palantir.logsafe", "UnsafeArg", False, "of", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.tika", "Tika", True, "detect", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.tika", "Tika", True, "detect", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.tika", "Tika", True, "detect", "(InputStream,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.tika", "Tika", True, "detect", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.tika", "Tika", True, "detect", "(InputStream,String)", "", "Parameter[0]", "remote", "manual"]

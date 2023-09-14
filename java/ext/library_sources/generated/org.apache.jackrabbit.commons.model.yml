@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.jackrabbit.commons", "JcrUtils", True, "putFile", "(Node,String,String,InputStream)", "", "Parameter[3]", "remote", "manual"]

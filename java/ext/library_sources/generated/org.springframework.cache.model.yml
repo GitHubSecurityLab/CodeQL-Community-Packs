@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.cache", "Cache", True, "get", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cache", "Cache", True, "evict", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cache", "CacheManager", True, "getCache", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cache", "Cache", True, "evictIfPresent", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cache", "Cache", True, "get", "(Object,Class)", "", "Parameter[0]", "remote", "manual"]

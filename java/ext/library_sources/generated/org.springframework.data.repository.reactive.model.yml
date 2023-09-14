@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.data.repository.reactive", "ReactiveCrudRepository<Folder,String>", True, "deleteAllById", "(Iterable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.repository.reactive", "ReactiveCrudRepository<Folder,String>", True, "save", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.repository.reactive", "ReactiveCrudRepository<LibraryQuery,String>", True, "deleteById", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.repository.reactive", "ReactiveCrudRepository<LibraryQuery,String>", True, "save", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.repository.reactive", "ReactiveCrudRepository<LibraryQueryRecord,String>", True, "deleteById", "(String)", "", "Parameter[0]", "remote", "manual"]

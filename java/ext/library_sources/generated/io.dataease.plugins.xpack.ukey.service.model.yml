@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dataease.plugins.xpack.ukey.service", "UkeyXpackService", True, "switchStatus", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.ukey.service", "UkeyXpackService", True, "getUserKey", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.ukey.service", "UkeyXpackService", True, "deleteUserKey", "(Long)", "", "Parameter[0]", "remote", "manual"]

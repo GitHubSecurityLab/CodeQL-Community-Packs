@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.tools.ant.types", "PatternSet$NameEntry", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.tools.ant.types", "AbstractFileSet", True, "setDir", "(File)", "", "Parameter[0]", "remote", "manual"]

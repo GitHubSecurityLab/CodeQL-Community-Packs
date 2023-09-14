@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hbase.thirdparty.com.google.common.cache", "Cache<Integer,ResultScannerWrapper>", True, "put", "(Integer,ResultScannerWrapper)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hbase.thirdparty.com.google.common.cache", "Cache<Integer,ResultScannerWrapper>", True, "invalidate", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hbase.thirdparty.com.google.common.cache", "Cache<Integer,ResultScannerWrapper>", True, "getIfPresent", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hbase.thirdparty.com.google.common.cache", "Cache<Integer,ResultScanner>", True, "invalidate", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hbase.thirdparty.com.google.common.cache", "Cache<Integer,ResultScanner>", True, "getIfPresent", "(Object)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.webkit", "WebView", True, "loadUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.webkit", "MimeTypeMap", True, "getExtensionFromMimeType", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.webkit", "WebView", True, "evaluateJavascript", "(String,ValueCallback)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.webkit", "URLUtil", False, "isValidUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.webkit", "MimeTypeMap", True, "getMimeTypeFromExtension", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.webkit", "MimeTypeMap", True, "getFileExtensionFromUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.webkit", "CookieManager", True, "getCookie", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.webkit", "WebView", True, "loadUrl", "(String,Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.webkit", "URLUtil", False, "guessUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.webkit", "URLUtil", False, "isContentUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.webkit", "HttpAuthHandler", True, "proceed", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.webkit", "JsPromptResult", True, "confirm", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.webkit", "HttpAuthHandler", True, "proceed", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.webkit", "URLUtil", False, "guessFileName", "(String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.webkit", "MimeTypeMap", True, "getMimeTypeFromExtension", "(Object,String)", "", "Parameter[0]", "remote", "manual"]

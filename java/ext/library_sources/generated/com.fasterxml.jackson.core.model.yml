@@ -1,0 +1,25 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeStringField", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonFactory", True, "createJsonParser", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonParser$Feature", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeBinary", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeStringField", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeObject", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeNumber", "(short)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeFieldName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonFactory", True, "createJsonParser", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeBinary", "(byte[],int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeUTF8String", "(byte[],int,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeStringField", "(Object,String,Object,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeString", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeRaw", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeNumberField", "(String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeNumberField", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeNumberField", "(Object,String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeBooleanField", "(String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.core", "JsonGenerator", True, "writeBooleanField", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]

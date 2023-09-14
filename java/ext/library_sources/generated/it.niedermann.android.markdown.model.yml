@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["it.niedermann.android.markdown", "MarkdownUtil", True, "removeMarkdown", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.niedermann.android.markdown", "MarkdownUtil", True, "replaceCheckboxesWithEmojis", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.niedermann.android.markdown", "MarkdownUtil", True, "getMarkdownLink", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["it.niedermann.android.markdown", "MarkdownUtil", True, "getMarkdownLink", "(String,String)", "", "Parameter[0]", "remote", "manual"]

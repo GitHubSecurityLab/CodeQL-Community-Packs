@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alibaba.excel", "EasyExcelFactory", True, "read", "(InputStream,Class,ReadListener)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.excel", "EasyExcelFactory", True, "read", "(InputStream,ReadListener)", "", "Parameter[0]", "remote", "manual"]

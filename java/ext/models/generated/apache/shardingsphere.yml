@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.apache.shardingsphere.data.pipeline.spi.ddlgenerator", "CreateTableSQLGenerator", true, "generate", "(DataSource,String,String)", "", "Argument[1]", "sql", "generated"]
+      - ["org.apache.shardingsphere.data.pipeline.spi.ddlgenerator", "CreateTableSQLGenerator", true, "generate", "(DataSource,String,String)", "", "Argument[2]", "sql", "generated"]
+      - ["org.apache.shardingsphere.globalclock.core.executor", "GlobalClockTransactionExecutor", true, "sendCommitTimestamp", "(Collection,long)", "", "Argument[1]", "sql", "generated"]
+      - ["org.apache.shardingsphere.globalclock.core.executor", "GlobalClockTransactionExecutor", true, "sendSnapshotTimestamp", "(Collection,long)", "", "Argument[1]", "sql", "generated"]
+      - ["org.apache.shardingsphere.infra.metadata.data.collector", "ShardingSphereTableDataCollectorUtils", false, "collectRowData", "(ShardingSphereDatabase,String,ShardingSphereTable,Collection)", "", "Argument[1]", "sql", "generated"]
+      - ["org.apache.shardingsphere.infra.metadata.database.schema.loader.metadata", "DialectSchemaMetaDataLoader", true, "load", "(DataSource,Collection,String)", "", "Argument[1]", "sql", "generated"]
+      - ["org.apache.shardingsphere.sqltranslator.spi", "SQLTranslator", true, "translate", "(String,SQLStatement,DatabaseType,DatabaseType)", "", "Argument[0]", "sql", "generated"]
+

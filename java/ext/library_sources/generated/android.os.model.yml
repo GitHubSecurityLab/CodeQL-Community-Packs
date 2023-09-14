@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.os", "BaseBundle", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.os", "ParcelFileDescriptor", True, "open", "(File,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.os", "Bundle", False, "putFloat", "(String,float)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.os", "BaseBundle", True, "putInt", "(String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.os", "AsyncTask<String,Void,List<PlaylistGroup>>", True, "execute", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["android.os", "BaseBundle", True, "getString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.os", "BaseBundle", True, "putBoolean", "(String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.os", "AsyncTask<Object,Void,Object>", True, "executeOnExecutor", "(Executor,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["android.os", "UserManager", True, "getSerialNumberForUser", "(UserHandle)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.os", "AsyncTask", True, "execute", "(Object[])", "", "Parameter[0]", "remote", "manual"]

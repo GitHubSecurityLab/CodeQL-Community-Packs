@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["eu.emi.security.authn.x509.impl", "CertificateUtils", True, "loadCertificateChain", "(InputStream,Encoding)", "", "Parameter[0]", "remote", "manual"]

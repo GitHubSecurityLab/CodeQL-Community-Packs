@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.flink.types", "Either$Right<L,R>", True, "setValue", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.flink.types", "Either$Left<L,R>", True, "setValue", "(Object)", "", "Parameter[0]", "remote", "manual"]

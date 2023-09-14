@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.http.conn.routing", "HttpRoutePlanner", True, "determineRoute", "(HttpHost,HttpRequest,HttpContext)", "", "Parameter[0]", "remote", "manual"]

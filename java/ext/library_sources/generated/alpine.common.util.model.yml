@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["alpine.common.util", "UuidUtil", False, "isValidUUID", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["alpine.common.util", "BooleanUtil", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.text", "StringEscapeUtils", True, "escapeHtml4", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.text", "StringEscapeUtils", True, "escapeXml11", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.text", "StringEscapeUtils", True, "unescapeHtml4", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.text", "StringEscapeUtils", True, "escapeJava", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.text", "StringEscapeUtils", True, "escapeEcmaScript", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.text", "StringEscapeUtils", True, "unescapeXml", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.text", "StringEscapeUtils", True, "unescapeJson", "(String)", "", "Parameter[0]", "remote", "manual"]

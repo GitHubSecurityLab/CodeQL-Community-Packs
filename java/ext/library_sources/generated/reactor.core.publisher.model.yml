@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["reactor.core.publisher", "Mono", True, "just", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["reactor.core.publisher", "Flux", True, "range", "(int,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["reactor.core.publisher", "SynchronousSink<ByteBuffer>", True, "next", "(ByteBuffer)", "", "Parameter[0]", "remote", "manual"]

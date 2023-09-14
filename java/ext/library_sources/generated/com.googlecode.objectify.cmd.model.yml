@@ -1,0 +1,23 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.googlecode.objectify.cmd", "Query<FeedbackResponse>", True, "filter", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "Query<CourseStudent>", True, "filter", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "Query<FeedbackResponseComment>", True, "filter", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "Query<Instructor>", True, "filter", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "Query<FeedbackQuestion>", True, "filter", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "Query<DeadlineExtension>", True, "filter", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "Query<FeedbackSession>", True, "filter", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "Query<AccountRequest>", True, "filter", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "Query<Account>", True, "filter", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "LoadIds<Notification>", True, "id", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "LoadIds<Instructor>", True, "id", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "LoadIds<FeedbackSession>", True, "id", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "LoadIds<FeedbackResponseComment>", True, "id", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "LoadIds<DeadlineExtension>", True, "id", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "LoadIds<CourseStudent>", True, "id", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "LoadIds<Course>", True, "id", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "LoadIds<AccountRequest>", True, "id", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.googlecode.objectify.cmd", "LoadIds<Account>", True, "id", "(String)", "", "Parameter[0]", "remote", "manual"]

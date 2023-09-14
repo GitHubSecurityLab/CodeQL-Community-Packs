@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["run.halo.app.handler.migrate", "MigrateHandlers", True, "upload", "(MultipartFile,MigrateType)", "", "Parameter[0]", "remote", "manual"]

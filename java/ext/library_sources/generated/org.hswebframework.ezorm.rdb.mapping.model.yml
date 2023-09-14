@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.hswebframework.ezorm.rdb.mapping", "ReactiveRepository<DeviceInstanceEntity,String>", True, "findById", "(String)", "", "Parameter[0]", "remote", "manual"]

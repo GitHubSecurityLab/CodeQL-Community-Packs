@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.influxdb.dto", "Point", True, "measurement", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.influxdb.dto", "Point$Builder", False, "tag", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.influxdb.dto", "Point$Builder", False, "tag", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.influxdb.dto", "Point$Builder", False, "addField", "(String,double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.influxdb.dto", "BoundParameterQuery$QueryBuilder", True, "bind", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.influxdb.dto", "BatchPoints$Builder", False, "retentionPolicy", "(String)", "", "Parameter[0]", "remote", "manual"]

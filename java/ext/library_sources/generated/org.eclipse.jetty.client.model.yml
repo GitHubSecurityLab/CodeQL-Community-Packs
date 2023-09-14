@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.jetty.client", "HttpClient", True, "newRequest", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.client", "HttpClient", True, "setMaxConnectionsPerDestination", "(int)", "", "Parameter[0]", "remote", "manual"]

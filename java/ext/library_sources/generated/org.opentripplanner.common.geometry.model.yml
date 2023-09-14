@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opentripplanner.common.geometry", "HashGridSpatialIndex<>", True, "insert", "(LineString,Object)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.hibernate.jpa.boot.spi", "Bootstrap", False, "getEntityManagerFactoryBuilder", "(PersistenceUnitDescriptor,Map)", "", "Parameter[1]", "remote", "manual"]

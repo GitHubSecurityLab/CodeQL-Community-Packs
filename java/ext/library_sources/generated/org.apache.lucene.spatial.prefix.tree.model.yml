@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.lucene.spatial.prefix.tree", "NumberRangePrefixTree", True, "parseShape", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.spatial.prefix.tree", "DateRangePrefixTree", True, "parseCalendar", "(String)", "", "Parameter[0]", "remote", "manual"]

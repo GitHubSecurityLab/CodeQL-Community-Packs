@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.metersphere.controller.request", "BaseQueryRequest", True, "setProjectId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.controller.request", "BaseQueryRequest", True, "setWorkspaceId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.controller.request", "ProjectRequest", True, "setWorkspaceId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.controller.request", "BaseQueryRequest", True, "setVersionId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.controller.request", "BaseQueryRequest", True, "setRefId", "(String)", "", "Parameter[0]", "remote", "manual"]

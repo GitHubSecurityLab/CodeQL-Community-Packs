@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.wso2.carbon.identity.application.common.model", "IdentityProviderProperty", True, "setValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.wso2.carbon.identity.application.common.model", "IdentityProvider", True, "setAlias", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.wso2.carbon.identity.application.common.model", "IdentityProvider", True, "setCertificate", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.wso2.carbon.identity.application.common.model", "IdentityProvider", True, "setDisplayName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.wso2.carbon.identity.application.common.model", "IdentityProvider", True, "setEnable", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.wso2.carbon.identity.application.common.model", "IdentityProvider", True, "setIdentityProviderDescription", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.wso2.carbon.identity.application.common.model", "IdentityProvider", True, "setIdentityProviderName", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["it.unimi.dsi.fastutil.ints", "IntCollection", True, "add", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.unimi.dsi.fastutil.ints", "Int2ObjectLinkedOpenHashMap<IntSortedSet>", True, "putAndMoveToFirst", "(int,IntSortedSet)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.unimi.dsi.fastutil.ints", "Int2ObjectLinkedOpenHashMap<ExprEval<>>", True, "putAndMoveToFirst", "(int,ExprEval)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.unimi.dsi.fastutil.ints", "Int2ObjectFunction<Interval>", True, "put", "(int,Interval)", "", "Parameter[1]", "remote", "manual"]
+      - ["it.unimi.dsi.fastutil.ints", "Int2ObjectFunction<Interval>", True, "put", "(int,Interval)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.unimi.dsi.fastutil.ints", "Int2ObjectFunction<CounterSnapshots>", True, "put", "(int,CounterSnapshots)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.unimi.dsi.fastutil.ints", "Int2ObjectMap<Int2ObjectMap<CounterSnapshots>>", True, "computeIfAbsent", "(int,Int2ObjectFunction)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.unimi.dsi.fastutil.ints", "Int2ObjectMap<List<PartitionLocation>>", True, "computeIfAbsent", "(int,Int2ObjectFunction)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.unimi.dsi.fastutil.ints", "IntIterators", False, "wrap", "(int[],int,int)", "", "Parameter[0]", "remote", "manual"]

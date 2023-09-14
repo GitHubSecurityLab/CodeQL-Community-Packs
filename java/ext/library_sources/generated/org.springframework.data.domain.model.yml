@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.data.domain", "PageRequest", True, "of", "(int,int,Sort)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.domain", "PageRequest", True, "of", "(int,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.data.domain", "PageRequest", True, "of", "(int,int,Sort)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.data.domain", "PageRequest", True, "of", "(int,int,Sort)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.springframework.data.domain", "PageRequest", True, "of", "(int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.domain", "Sort", True, "by", "(Direction,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.domain", "Sort$Direction", False, "fromString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.domain", "PageRequest", True, "of", "(int,int,Direction,Object[],String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.data.domain", "PageRequest", True, "of", "(int,int,Direction,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.data.domain", "PageRequest", True, "of", "(int,int,Direction,Object[],String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.domain", "PageRequest", True, "of", "(int,int,Direction,String[])", "", "Parameter[0]", "remote", "manual"]

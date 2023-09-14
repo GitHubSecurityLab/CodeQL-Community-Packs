@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.jboot.utils", "StrUtil", True, "urlEncode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.jboot.utils", "StrUtil", True, "urlDecode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.jboot.utils", "StrUtil", True, "queryStringToMap", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.jboot.utils", "ObjectUtil", True, "convert", "(Object,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.jboot.utils", "ArrayUtil", True, "toString", "(Object[],String)", "", "Parameter[0]", "remote", "manual"]

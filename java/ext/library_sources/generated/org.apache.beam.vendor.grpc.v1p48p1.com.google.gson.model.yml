@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.beam.vendor.grpc.v1p48p1.com.google.gson", "Gson", False, "fromJson", "(String,Class)", "", "Parameter[0]", "remote", "manual"]

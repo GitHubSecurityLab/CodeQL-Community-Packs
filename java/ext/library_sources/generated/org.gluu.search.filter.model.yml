@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.gluu.search.filter", "Filter", True, "createEqualityFilter", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.gluu.search.filter", "Filter", True, "createEqualityFilter", "(String,Object)", "", "Parameter[0]", "remote", "manual"]

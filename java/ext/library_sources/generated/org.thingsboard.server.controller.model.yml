@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.thingsboard.server.controller", "BaseController", True, "createTimePageLink", "(int,int,String,String,String,Long,Long)", "", "Parameter[5]", "remote", "manual"]
+      - ["org.thingsboard.server.controller", "BaseController", True, "createTimePageLink", "(int,int,String,String,String,Long,Long)", "", "Parameter[4]", "remote", "manual"]
+      - ["org.thingsboard.server.controller", "BaseController", True, "createTimePageLink", "(int,int,String,String,String,Long,Long)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.thingsboard.server.controller", "BaseController", True, "createTimePageLink", "(int,int,String,String,String,Long,Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.thingsboard.server.controller", "BaseController", True, "createTimePageLink", "(int,int,String,String,String,Long,Long)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.thingsboard.server.controller", "BaseController", True, "createTimePageLink", "(int,int,String,String,String,Long,Long)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.thingsboard.server.controller", "BaseController", True, "createTimePageLink", "(int,int,String,String,String,Long,Long)", "", "Parameter[6]", "remote", "manual"]
+      - ["org.thingsboard.server.controller", "BaseController", True, "toUUID", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.thingsboard.server.controller", "BaseController", True, "checkNotNull", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.thingsboard.server.controller", "BaseController", True, "checkComponentDescriptorByClazz", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.thingsboard.server.controller", "BaseController", True, "checkNotNull", "(Object,String)", "", "Parameter[1]", "remote", "manual"]

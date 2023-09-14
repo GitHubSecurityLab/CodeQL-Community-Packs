@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.orcid.jaxb.model.v3.release.groupid", "GroupIdRecord", True, "setGroupId", "(String)", "", "Parameter[0]", "remote", "manual"]

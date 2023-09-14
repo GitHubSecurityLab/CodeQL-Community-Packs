@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.compress.utils", "IOUtils", False, "toByteArray", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.compress.utils", "IOUtils", False, "copy", "(InputStream,OutputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.compress.utils", "IOUtils", False, "closeQuietly", "(Closeable)", "", "Parameter[0]", "remote", "manual"]

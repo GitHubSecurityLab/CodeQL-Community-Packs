@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hbase.thirdparty.com.google.common.io", "Closeables", False, "closeQuietly", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

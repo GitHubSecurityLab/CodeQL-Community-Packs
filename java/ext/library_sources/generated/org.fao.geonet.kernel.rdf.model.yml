@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.fao.geonet.kernel.rdf", "QueryBuilder<KeywordBean>", True, "limit", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.fao.geonet.kernel.rdf", "QueryBuilder<KeywordBean>", True, "offset", "(int)", "", "Parameter[0]", "remote", "manual"]

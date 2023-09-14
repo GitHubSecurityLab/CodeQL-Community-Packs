@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.glassfish.jersey.uri", "UriTemplate", True, "match", "(CharSequence,Map)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.api.services.monitoring.v3.model", "MonitoredResource", False, "setLabels", "(Map)", "", "Parameter[0]", "remote", "manual"]

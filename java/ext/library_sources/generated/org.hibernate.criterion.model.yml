@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.hibernate.criterion", "Restrictions", True, "eq", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.hibernate.criterion", "Restrictions", True, "ilike", "(String,String,MatchMode)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.hibernate.criterion", "Restrictions", True, "sqlRestriction", "(String,Object,Type)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.hibernate.criterion", "Restrictions", True, "ilike", "(String,String,MatchMode)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate.criterion", "Restrictions", True, "sqlRestriction", "(String,Object[],Type[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.hibernate.criterion", "Restrictions", True, "sqlRestriction", "(String,Object,Type)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate.criterion", "Restrictions", True, "ilike", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.hibernate.criterion", "Restrictions", True, "idEq", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate.criterion", "Restrictions", True, "eq", "(String,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate.criterion", "Order", True, "desc", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate.criterion", "Order", True, "asc", "(String)", "", "Parameter[0]", "remote", "manual"]

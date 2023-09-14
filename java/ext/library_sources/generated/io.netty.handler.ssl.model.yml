@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.netty.handler.ssl", "SslContext", True, "newEngine", "(ByteBufAllocator,String,int)", "", "Parameter[1]", "remote", "manual"]

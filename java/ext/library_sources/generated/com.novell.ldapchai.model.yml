@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.novell.ldapchai", "ChaiEntry", True, "compareStringAttribute", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.novell.ldapchai", "ChaiEntryFactory", False, "newChaiUser", "(String)", "", "Parameter[0]", "remote", "manual"]

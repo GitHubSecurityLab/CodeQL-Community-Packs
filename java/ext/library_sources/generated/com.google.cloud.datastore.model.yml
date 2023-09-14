@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.cloud.datastore", "KeyFactory", False, "newKey", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.datastore", "Blob", False, "copyFrom", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.datastore", "BaseEntity$Builder<Key,Builder>", True, "set", "(String,String)", "", "Parameter[1]", "remote", "manual"]

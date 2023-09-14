@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.nebhale.jsonpath", "JsonPath", False, "compile", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.nebhale.jsonpath", "JsonPath", False, "read", "(String,Class)", "", "Parameter[0]", "remote", "manual"]

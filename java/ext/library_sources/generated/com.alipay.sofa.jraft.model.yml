@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alipay.sofa.jraft", "CliService", True, "changePeers", "(String,Configuration,Configuration)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alipay.sofa.jraft", "CliService", True, "removePeer", "(String,Configuration,PeerId)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alipay.sofa.jraft", "CliService", True, "resetPeer", "(String,PeerId,Configuration)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alipay.sofa.jraft", "CliService", True, "snapshot", "(String,PeerId)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alipay.sofa.jraft", "CliService", True, "transferLeader", "(String,Configuration,PeerId)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alipay.sofa.jraft", "JRaftUtils", False, "getConfiguration", "(String)", "", "Parameter[0]", "remote", "manual"]

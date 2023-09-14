@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.github.sardine", "Sardine", True, "put", "(String,byte[])", "", "Parameter[1]", "remote", "manual"]
+      - ["com.github.sardine", "Sardine", True, "put", "(String,byte[])", "", "Parameter[0]", "remote", "manual"]

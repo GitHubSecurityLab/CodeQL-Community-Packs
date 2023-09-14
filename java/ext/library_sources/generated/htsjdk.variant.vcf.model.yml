@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["htsjdk.variant.vcf", "VCFHeaderVersion", False, "getHeaderVersion", "(String)", "", "Parameter[0]", "remote", "manual"]

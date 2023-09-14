@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["kotlin.sequences", "SequencesKt", False, "asSequence", "(Enumeration)", "", "Parameter[0]", "remote", "manual"]

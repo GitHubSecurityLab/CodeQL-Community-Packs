@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.quarkus.rest.client.reactive.runtime", "ResteasyReactiveResponseExceptionMapper<>", True, "toThrowable", "(Response,RestClientRequestContext)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.quarkus.rest.client.reactive.runtime", "ResteasyReactiveResponseExceptionMapper<>", True, "toThrowable", "(Response,RestClientRequestContext)", "", "Parameter[0]", "remote", "manual"]

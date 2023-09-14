@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.opengl", "GLES20", True, "glShaderSource", "(int,String)", "", "Parameter[1]", "remote", "manual"]

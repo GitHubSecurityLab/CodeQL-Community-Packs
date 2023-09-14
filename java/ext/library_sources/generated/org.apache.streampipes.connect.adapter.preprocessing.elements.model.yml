@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.streampipes.connect.adapter.preprocessing.elements", "SendToBrokerAdapterSink<NatsTransportProtocol>", True, "changeTransportProtocol", "(NatsTransportProtocol)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.streampipes.connect.adapter.preprocessing.elements", "SendToBrokerAdapterSink<KafkaTransportProtocol>", True, "changeTransportProtocol", "(KafkaTransportProtocol)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.streampipes.connect.adapter.preprocessing.elements", "SendToBrokerAdapterSink<JmsTransportProtocol>", True, "changeTransportProtocol", "(JmsTransportProtocol)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.streampipes.connect.adapter.preprocessing.elements", "SendToBrokerAdapterSink<MqttTransportProtocol>", True, "changeTransportProtocol", "(MqttTransportProtocol)", "", "Parameter[0]", "remote", "manual"]

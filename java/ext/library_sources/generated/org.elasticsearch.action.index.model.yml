@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.elasticsearch.action.index", "IndexRequest", True, "source", "(byte[],XContentType)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.elasticsearch.action.index", "IndexRequest", True, "id", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.elasticsearch.action.index", "IndexRequest", True, "id", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.elasticsearch.action.index", "IndexRequestBuilder", True, "setSource", "(Map)", "", "Parameter[0]", "remote", "manual"]

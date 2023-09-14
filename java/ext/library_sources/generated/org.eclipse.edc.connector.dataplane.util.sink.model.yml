@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.edc.connector.dataplane.util.sink", "ParallelSink$Builder<Builder,HttpDataSink>", True, "requestId", "(String)", "", "Parameter[0]", "remote", "manual"]

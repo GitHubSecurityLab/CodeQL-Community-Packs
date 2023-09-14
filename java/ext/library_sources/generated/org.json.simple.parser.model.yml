@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.json.simple.parser", "JSONParser", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.json.simple.parser", "JSONParser", True, "parse", "(Reader)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.json.simple.parser", "JSONParser", True, "parse", "(String,ContainerFactory)", "", "Parameter[0]", "remote", "manual"]

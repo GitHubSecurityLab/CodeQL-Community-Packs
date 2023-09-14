@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.keycloak.models.map.common", "StringKeyConverter<K>", True, "fromStringSafe", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.models.map.common", "StringKeyConverter<UUID>", True, "fromStringSafe", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.models.map.common", "AbstractMapProviderFactory<MapUserSessionProvider,MapUserSessionEntity,UserSessionModel>", True, "getStorage", "(KeycloakSession)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.models.map.common", "AbstractMapProviderFactory<MapUserProvider,MapUserEntity,UserModel>", True, "getStorage", "(KeycloakSession)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.models.map.common", "AbstractMapProviderFactory<MapUserLoginFailureProvider,MapUserLoginFailureEntity,UserLoginFailureModel>", True, "getStorage", "(KeycloakSession)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.models.map.common", "AbstractMapProviderFactory<MapSingleUseObjectProvider,MapSingleUseObjectEntity,SingleUseObjectValueModel>", True, "getStorage", "(KeycloakSession)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.models.map.common", "AbstractMapProviderFactory<MapRootAuthenticationSessionProvider,MapRootAuthenticationSessionEntity,RootAuthenticationSessionModel>", True, "getStorage", "(KeycloakSession)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.models.map.common", "AbstractMapProviderFactory<MapRoleProvider,MapRoleEntity,RoleModel>", True, "getStorage", "(KeycloakSession)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.models.map.common", "AbstractMapProviderFactory<MapRealmProvider,MapRealmEntity,RealmModel>", True, "getStorage", "(KeycloakSession)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.models.map.common", "AbstractMapProviderFactory<MapGroupProvider,MapGroupEntity,GroupModel>", True, "getStorage", "(KeycloakSession)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.models.map.common", "AbstractMapProviderFactory<MapClientScopeProvider,MapClientScopeEntity,ClientScopeModel>", True, "getStorage", "(KeycloakSession)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.models.map.common", "AbstractMapProviderFactory<MapClientProvider,MapClientEntity,ClientModel>", True, "getStorage", "(KeycloakSession)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.models.map.common", "AbstractMapProviderFactory<GlobalLockProvider,MapLockEntity,MapLockEntity>", True, "getStorage", "(KeycloakSession)", "", "Parameter[0]", "remote", "manual"]

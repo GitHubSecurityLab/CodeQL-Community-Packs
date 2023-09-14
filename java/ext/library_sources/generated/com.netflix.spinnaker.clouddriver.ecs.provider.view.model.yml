@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.netflix.spinnaker.clouddriver.ecs.provider.view", "EcsClusterProvider", True, "getEcsClusterDescriptions", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.netflix.spinnaker.clouddriver.ecs.provider.view", "EcsClusterProvider", True, "getEcsClusterDescriptions", "(String,String)", "", "Parameter[0]", "remote", "manual"]

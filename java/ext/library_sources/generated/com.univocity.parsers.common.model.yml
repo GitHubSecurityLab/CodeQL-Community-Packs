@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.univocity.parsers.common", "AbstractParser<TsvParserSettings>", True, "beginParsing", "(InputStream,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.univocity.parsers.common", "AbstractParser<?>", True, "beginParsing", "(Reader)", "", "Parameter[0]", "remote", "manual"]

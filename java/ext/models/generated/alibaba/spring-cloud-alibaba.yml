@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["com.alibaba.cloud.commons.io", "FileUtils", false, "openInputStream", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.alibaba.cloud.commons.io", "FileUtils", false, "readFileToString", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.alibaba.cloud.commons.io", "FileUtils", false, "readFileToString", "(File,Charset)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.alibaba.cloud.commons.io", "FileUtils", false, "readFileToString", "(File,String)", "", "Argument[0]", "read-file", "generated"]
+

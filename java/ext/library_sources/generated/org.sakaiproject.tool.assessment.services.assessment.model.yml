@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.sakaiproject.tool.assessment.services.assessment", "AssessmentService", True, "getSection", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.sakaiproject.tool.assessment.services.assessment", "AssessmentService", True, "getBasicInfoOfAnAssessmentFromSectionId", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.sakaiproject.tool.assessment.services.assessment", "PublishedAssessmentService", True, "getPublishedAssessment", "(String)", "", "Parameter[0]", "remote", "manual"]

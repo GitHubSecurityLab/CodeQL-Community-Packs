@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.mindrot.jbcrypt", "BCrypt", True, "hashpw", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.mindrot.jbcrypt", "BCrypt", True, "checkpw", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.mindrot.jbcrypt", "BCrypt", True, "checkpw", "(String,String)", "", "Parameter[1]", "remote", "manual"]

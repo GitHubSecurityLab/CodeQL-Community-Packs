@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.flatbuffers", "Table", True, "__reset", "(int,ByteBuffer)", "", "Parameter[1]", "remote", "manual"]

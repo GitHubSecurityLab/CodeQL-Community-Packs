@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.opentelemetry.instrumentation.api.instrumenter", "Instrumenter<ClientRequestContext,ClientResponseContext>", True, "end", "(Context,ClientRequestContext,ClientResponseContext,Throwable)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.opentelemetry.instrumentation.api.instrumenter", "Instrumenter<ClientRequestContext,ClientResponseContext>", True, "end", "(Context,ClientRequestContext,ClientResponseContext,Throwable)", "", "Parameter[0]", "remote", "manual"]

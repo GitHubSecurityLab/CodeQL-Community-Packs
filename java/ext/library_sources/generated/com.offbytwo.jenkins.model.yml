@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.offbytwo.jenkins", "JenkinsServer", True, "getJob", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.offbytwo.jenkins", "JenkinsServer", True, "updateJob", "(String,String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.offbytwo.jenkins", "JenkinsServer", True, "getJobXml", "(FolderJob,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.offbytwo.jenkins", "JenkinsServer", True, "updateJob", "(FolderJob,String,String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.offbytwo.jenkins", "JenkinsServer", True, "getJobXml", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.offbytwo.jenkins", "JenkinsServer", True, "getJob", "(FolderJob,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.offbytwo.jenkins", "JenkinsServer", True, "createJob", "(FolderJob,String,String,Boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.offbytwo.jenkins", "JenkinsServer", True, "createFolder", "(String,Boolean)", "", "Parameter[0]", "remote", "manual"]

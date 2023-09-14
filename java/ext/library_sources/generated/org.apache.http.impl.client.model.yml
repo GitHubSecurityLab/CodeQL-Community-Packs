@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.http.impl.client", "HttpClientBuilder", True, "setConnectionManager", "(HttpClientConnectionManager)", "", "Parameter[0]", "remote", "manual"]

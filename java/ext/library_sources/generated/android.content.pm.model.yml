@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.content.pm", "PackageManager", True, "getUserBadgedIcon", "(Drawable,UserHandle)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.content.pm", "PackageManager", True, "resolveContentProvider", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.content.pm", "LauncherApps", True, "startShortcut", "(String,String,Rect,Bundle,UserHandle)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.content.pm", "LauncherApps", True, "getPinItemRequest", "(Intent)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.content.pm", "PackageManager", True, "getUserBadgedLabel", "(CharSequence,UserHandle)", "", "Parameter[1]", "remote", "manual"]

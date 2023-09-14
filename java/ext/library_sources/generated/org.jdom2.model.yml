@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jdom2", "Element", True, "setAttribute", "(String,String)", "", "Parameter[1]", "remote", "manual"]

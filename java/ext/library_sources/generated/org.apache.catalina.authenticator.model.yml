@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.catalina.authenticator", "AuthenticatorBase", True, "register", "(Request,HttpServletResponse,Principal,String,String,String)", "", "Parameter[3]", "remote", "manual"]

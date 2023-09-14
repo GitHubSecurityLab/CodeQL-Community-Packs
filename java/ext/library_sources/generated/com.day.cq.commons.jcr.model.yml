@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.day.cq.commons.jcr", "JcrUtil", True, "createValidName", "(String)", "", "Parameter[0]", "remote", "manual"]

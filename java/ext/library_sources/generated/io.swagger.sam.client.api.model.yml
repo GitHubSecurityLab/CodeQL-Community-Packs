@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.swagger.sam.client.api", "ResourcesApi", True, "removeUserFromPolicy", "(String,String,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["io.swagger.sam.client.api", "ResourcesApi", True, "addUserToPolicy", "(String,String,String,String)", "", "Parameter[3]", "remote", "manual"]

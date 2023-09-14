@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jodd.lagarto", "Tag", True, "setAttribute", "(CharSequence,CharSequence)", "", "Parameter[1]", "remote", "manual"]

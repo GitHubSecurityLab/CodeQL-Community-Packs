@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opensaml.saml.common.binding", "SAMLBindingSupport", False, "setRelayState", "(MessageContext,String)", "", "Parameter[1]", "remote", "manual"]

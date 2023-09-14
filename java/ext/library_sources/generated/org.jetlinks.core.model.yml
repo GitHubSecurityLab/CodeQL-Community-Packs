@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jetlinks.core", "Configurable", True, "setConfig", "(ConfigKey,Object)", "", "Parameter[1]", "remote", "manual"]

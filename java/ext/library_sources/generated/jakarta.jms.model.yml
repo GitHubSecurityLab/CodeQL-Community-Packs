@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jakarta.jms", "ObjectMessage", True, "setObject", "(Serializable)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.jms", "BytesMessage", True, "writeBytes", "(byte[])", "", "Parameter[0]", "remote", "manual"]

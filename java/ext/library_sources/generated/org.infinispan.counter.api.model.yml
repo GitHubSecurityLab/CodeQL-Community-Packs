@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.infinispan.counter.api", "Storage", False, "valueOf", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.infinispan.counter.api", "CounterType", False, "valueOf", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.infinispan.counter.api", "CounterManager", True, "getWeakCounter", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.infinispan.counter.api", "CounterManager", True, "getStrongCounter", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.infinispan.counter.api", "CounterManager", True, "defineCounter", "(Object,String,CounterConfiguration)", "", "Parameter[0]", "remote", "manual"]

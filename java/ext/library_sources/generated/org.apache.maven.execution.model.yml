@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.maven.execution", "MavenExecutionRequest", True, "setUserProperties", "(Properties)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.maven.execution", "MavenExecutionRequest", True, "addActiveProfiles", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.maven.execution", "MavenExecutionRequest", True, "setGlobalSettingsFile", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.maven.execution", "MavenExecutionRequest", True, "setPom", "(File)", "", "Parameter[0]", "remote", "manual"]

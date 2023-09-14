@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.github.muntashirakon.io.fs", "VirtualFileSystem$Node<ZipEntry>", True, "getLastChild", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.github.muntashirakon.io.fs", "VirtualFileSystem$Node<T>", True, "getChild", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.github.muntashirakon.io.fs", "VirtualFileSystem$Node<ClassDef>", True, "getLastChild", "(Object,String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.pulsar.broker.service.persistent", "PersistentTopic", True, "getPersistentReplicator", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.broker.service.persistent", "PersistentTopic", True, "triggerOffload", "(MessageIdImpl)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.broker.service.persistent", "PersistentTopic", True, "getPositionAfterN", "(PositionImpl,long)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.snmp4j", "Target", True, "setTimeout", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.snmp4j", "Target", True, "setRetries", "(int)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jrobin.data", "DataProcessor", True, "addDatasource", "(String,String,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.jrobin.data", "DataProcessor", True, "addDatasource", "(String,String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.jrobin.data", "DataProcessor", True, "addDatasource", "(String,String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jrobin.data", "DataProcessor", True, "setPixelCount", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jrobin.data", "DataProcessor", True, "getValues", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jrobin.data", "DataProcessor", True, "getPercentile", "(String,double)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.jrobin.data", "DataProcessor", True, "getPercentile", "(String,double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jrobin.data", "DataProcessor", True, "addDatasource", "(String,String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.jrobin.data", "DataProcessor", True, "addDatasource", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.jrobin.data", "DataProcessor", True, "addDatasource", "(String,String)", "", "Parameter[0]", "remote", "manual"]

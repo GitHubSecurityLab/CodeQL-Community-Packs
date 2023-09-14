@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.orcid.jaxb.model.clientgroup", "MemberType", False, "fromValue", "(String)", "", "Parameter[0]", "remote", "manual"]

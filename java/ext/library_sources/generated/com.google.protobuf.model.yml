@@ -1,0 +1,27 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.protobuf", "SingleFieldBuilderV3<FileSystemMasterCommonPOptions,Builder,FileSystemMasterCommonPOptionsOrBuilder>", True, "mergeFrom", "(FileSystemMasterCommonPOptions)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "ByteString", True, "copyFrom", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "ByteString", True, "copyFrom", "(String,Charset)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "MapField<String,ByteString>", True, "mergeFrom", "(MapField)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "SingleFieldBuilderV3<PMode,Builder,PModeOrBuilder>", True, "mergeFrom", "(PMode)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "SingleFieldBuilderV3<TripDescriptor,Builder,TripDescriptorOrBuilder>", True, "mergeFrom", "(TripDescriptor)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "SingleFieldBuilderV3<TripDescriptor,Builder,TripDescriptorOrBuilder>", True, "setMessage", "(TripDescriptor)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "AbstractMessageLite$Builder", True, "addAll", "(Iterable,List)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "ByteString", True, "copyFromUtf8", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "GeneratedMessageLite", True, "parseFrom", "(GeneratedMessageLite,InputStream)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.protobuf", "SingleFieldBuilderV3<VehicleDescriptor,Builder,VehicleDescriptorOrBuilder>", True, "mergeFrom", "(VehicleDescriptor)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "SingleFieldBuilderV3<TripProperties,Builder,TripPropertiesOrBuilder>", True, "mergeFrom", "(TripProperties)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "SingleFieldBuilderV3<S3SyntaxOptions,Builder,S3SyntaxOptionsOrBuilder>", True, "mergeFrom", "(S3SyntaxOptions)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "SingleFieldBuilderV3<FsOpPId,Builder,FsOpPIdOrBuilder>", True, "mergeFrom", "(FsOpPId)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "SingleFieldBuilderV3<Any,Builder,AnyOrBuilder>", True, "setMessage", "(Any)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "RepeatedFieldBuilderV3<TemporaryExposureKey,Builder,TemporaryExposureKeyOrBuilder>", True, "addAllMessages", "(Iterable)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "MapField<String,String>", True, "mergeFrom", "(MapField)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "Int32Value", False, "of", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.protobuf", "GeneratedMessageV3", True, "parseWithIOException", "(Parser,InputStream)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.protobuf", "GeneratedMessageLite", True, "parseFrom", "(GeneratedMessageLite,ByteString)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.protobuf", "CodedInputStream", True, "readRawVarint32", "(int,InputStream)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.protobuf", "ByteString", True, "readFrom", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

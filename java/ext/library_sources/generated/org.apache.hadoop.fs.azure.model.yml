@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.fs.azure", "CachingAuthorizer<CachedSASKeyEntry,URI>", True, "init", "(Configuration)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.fs.azure", "CachingAuthorizer<CachedAuthorizerEntry,Boolean>", True, "init", "(Configuration)", "", "Parameter[0]", "remote", "manual"]

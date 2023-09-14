@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.productivity.java.syslog4j", "SyslogIF", True, "alert", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.productivity.java.syslog4j", "SyslogIF", True, "critical", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.productivity.java.syslog4j", "SyslogIF", True, "debug", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.productivity.java.syslog4j", "SyslogIF", True, "emergency", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.productivity.java.syslog4j", "SyslogIF", True, "error", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.productivity.java.syslog4j", "SyslogIF", True, "info", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.productivity.java.syslog4j", "SyslogIF", True, "notice", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.productivity.java.syslog4j", "SyslogIF", True, "warn", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.amazonaws.services.s3", "AmazonS3", True, "getObject", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.amazonaws.services.s3", "AmazonS3", True, "doesObjectExist", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.amazonaws.services.s3", "AmazonS3", True, "listObjectsV2", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.amazonaws.services.s3", "AmazonS3", True, "putObject", "(String,String,InputStream,ObjectMetadata)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.amazonaws.services.s3", "AmazonS3", True, "getObjectMetadata", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.amazonaws.services.s3", "AmazonS3", True, "doesObjectExist", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.s3", "AmazonS3", True, "putObject", "(String,String,File)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.amazonaws.services.s3", "AmazonS3", True, "putObject", "(String,String,InputStream,ObjectMetadata)", "", "Parameter[1]", "remote", "manual"]

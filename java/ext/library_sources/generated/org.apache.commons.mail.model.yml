@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.mail", "Email", True, "setSubject", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.mail", "Email", True, "setMsg", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.mail", "Email", True, "setContent", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.mail", "HtmlEmail", True, "setTextMsg", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.mail", "HtmlEmail", True, "setHtmlMsg", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.mail", "EmailAttachment", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.mail", "Email", True, "setFrom", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.mail", "Email", True, "setFrom", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.mail", "Email", True, "setBounceAddress", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.mail", "Email", True, "addTo", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.mail", "Email", True, "addTo", "(String,String)", "", "Parameter[0]", "remote", "manual"]

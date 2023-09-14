@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["freemarker.template", "Template", True, "process", "(Object,Writer)", "", "Parameter[0]", "remote", "manual"]
+      - ["freemarker.template", "ObjectWrapper", True, "wrap", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["freemarker.template", "Configuration", True, "getTemplate", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["freemarker.template", "Template", True, "createProcessingEnvironment", "(Object,Writer,ObjectWrapper)", "", "Parameter[0]", "remote", "manual"]
+      - ["freemarker.template", "Configuration", True, "setDirectoryForTemplateLoading", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["freemarker.template", "Configuration", True, "removeTemplateFromCache", "(String,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["freemarker.template", "Configuration", True, "getTemplate", "(String,Locale)", "", "Parameter[0]", "remote", "manual"]

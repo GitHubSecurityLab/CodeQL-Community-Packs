@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.dcache.vehicles.billing", "BillingDataRequestMessage$SeriesType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.dcache.vehicles.billing", "BillingDataRequestMessage$SeriesDataType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

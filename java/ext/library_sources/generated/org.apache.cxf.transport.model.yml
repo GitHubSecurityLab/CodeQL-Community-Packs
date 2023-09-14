@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.cxf.transport", "TransportFinder<DestinationFactory>", True, "findTransportForURI", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.cxf.transport", "TransportFinder<ConduitInitiator>", True, "findTransportForURI", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.googlecode.objectify", "Key", True, "create", "(Class,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.googlecode.objectify", "Key", True, "create", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.googlecode.objectify", "Key", True, "create", "(Class,long)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.schmizz.sshj", "SSHClient", True, "authPublickey", "(String,KeyProvider[])", "", "Parameter[0]", "remote", "manual"]
+      - ["net.schmizz.sshj", "SSHClient", True, "loadKeys", "(String,char[])", "", "Parameter[1]", "remote", "manual"]
+      - ["net.schmizz.sshj", "SSHClient", True, "authPublickey", "(String,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["net.schmizz.sshj", "SSHClient", True, "authPassword", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["net.schmizz.sshj", "SSHClient", True, "authPassword", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.schmizz.sshj", "SSHClient", True, "auth", "(String,Iterable)", "", "Parameter[0]", "remote", "manual"]

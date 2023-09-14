@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.java.sip.communicator.service.protocol", "AbstractOperationSetPersistentPresence<ProtocolProviderServiceSipImpl>", True, "fireContactPropertyChangeEvent", "(String,Contact,Object,Object)", "", "Parameter[3]", "remote", "manual"]
+      - ["net.java.sip.communicator.service.protocol", "AbstractOperationSetPersistentPresence<ProtocolProviderServiceJabberImpl>", True, "fireContactPropertyChangeEvent", "(String,Contact,Object,Object)", "", "Parameter[3]", "remote", "manual"]

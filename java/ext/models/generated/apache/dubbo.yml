@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.apache.dubbo.common.cache", "FileCacheStore", true, "refreshCache", "(Map,String,long)", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.dubbo.common.cache", "FileCacheStoreFactory", false, "getInstance", "(String,String)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.dubbo.common.cache", "FileCacheStoreFactory", false, "getInstance", "(String,String,boolean)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.dubbo.common.utils", "IOUtils", true, "appendLines", "(File,String[])", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.dubbo.common.utils", "IOUtils", true, "writeLines", "(File,String[])", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.dubbo.config", "SslConfig", true, "getClientKeyCertChainPathStream", "()", "", "Argument[-1]", "open-url", "generated"]
+      - ["org.apache.dubbo.config", "SslConfig", true, "getClientPrivateKeyPathStream", "()", "", "Argument[-1]", "open-url", "generated"]
+      - ["org.apache.dubbo.config", "SslConfig", true, "getClientTrustCertCollectionPathStream", "()", "", "Argument[-1]", "open-url", "generated"]
+      - ["org.apache.dubbo.config", "SslConfig", true, "getServerKeyCertChainPathStream", "()", "", "Argument[-1]", "open-url", "generated"]
+      - ["org.apache.dubbo.config", "SslConfig", true, "getServerPrivateKeyPathStream", "()", "", "Argument[-1]", "open-url", "generated"]
+      - ["org.apache.dubbo.config", "SslConfig", true, "getServerTrustCertCollectionPathStream", "()", "", "Argument[-1]", "open-url", "generated"]
+      - ["org.apache.dubbo.registry.support", "AbstractRegistry", true, "doSaveProperties", "(long)", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.dubbo.test.check", "DubboTestChecker", true, "init", "(Properties)", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.dubbo.test.check", "DubboTestChecker", true, "init", "(Properties)", "", "Argument[0]", "create-file", "generated"]
+

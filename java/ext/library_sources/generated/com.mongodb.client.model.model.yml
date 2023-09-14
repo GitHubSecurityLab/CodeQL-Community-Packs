@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.mongodb.client.model", "Filters", False, "eq", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.mongodb.client.model", "Filters", False, "eq", "(Object,String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.mongodb.client.model", "Filters", False, "lte", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.mongodb.client.model", "Filters", False, "gte", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

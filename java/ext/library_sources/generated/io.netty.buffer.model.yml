@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.netty.buffer", "ByteBuf", True, "readBytes", "(byte[],int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.netty.buffer", "Unpooled", False, "wrappedBuffer", "(ByteBuffer)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.netty.buffer", "Unpooled", False, "wrappedBuffer", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["io.netty.buffer", "ByteBuf", True, "writeBytes", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["io.netty.buffer", "ByteBuf", True, "writeInt", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.netty.buffer", "ByteBuf", True, "readBytes", "(ByteBuffer)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.dubbo.rpc", "RpcContext", True, "setAttachment", "(String,String)", "", "Parameter[1]", "remote", "manual"]

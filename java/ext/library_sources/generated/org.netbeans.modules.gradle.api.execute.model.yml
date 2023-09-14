@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.gradle.api.execute", "GradleCommandLine$StackTrace", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.gradle.api.execute", "GradleCommandLine$LogLevel", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

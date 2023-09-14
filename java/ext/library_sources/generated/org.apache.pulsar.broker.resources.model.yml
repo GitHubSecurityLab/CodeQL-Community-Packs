@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.pulsar.broker.resources", "TenantResources", True, "getListOfNamespaces", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.broker.resources", "TenantResources", True, "getTenantAsync", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.broker.resources", "NamespaceResources", True, "createPolicies", "(NamespaceName,Policies)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.pulsar.broker.resources", "ClusterResources", True, "getClusterAsync", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.broker.resources", "BaseResources", True, "create", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

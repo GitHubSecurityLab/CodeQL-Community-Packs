@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.cloudfoundry.identity.uaa.resources.jdbc", "AbstractQueryable<ScimUser>", True, "validateOrderBy", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.cloudfoundry.identity.uaa.resources.jdbc", "AbstractQueryable<ScimGroup>", True, "validateOrderBy", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.cloudfoundry.identity.uaa.resources.jdbc", "AbstractQueryable<ClientDetails>", True, "validateOrderBy", "(String,String)", "", "Parameter[0]", "remote", "manual"]

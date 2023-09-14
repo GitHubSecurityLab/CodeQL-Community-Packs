@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.configuration2", "Configuration", True, "addProperty", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.configuration2", "ImmutableConfiguration", True, "getStringArray", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.configuration2", "ImmutableConfiguration", True, "getString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.configuration2", "ImmutableConfiguration", True, "getShort", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.configuration2", "ImmutableConfiguration", True, "getProperty", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.configuration2", "ImmutableConfiguration", True, "getLong", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.configuration2", "ImmutableConfiguration", True, "getList", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.configuration2", "ImmutableConfiguration", True, "getInt", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.configuration2", "ImmutableConfiguration", True, "getFloat", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.configuration2", "ImmutableConfiguration", True, "getDouble", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.configuration2", "ImmutableConfiguration", True, "getByte", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.configuration2", "ImmutableConfiguration", True, "getBoolean", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.configuration2", "ImmutableConfiguration", True, "getBigDecimal", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.configuration2", "ImmutableConfiguration", True, "getBigInteger", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.configuration2", "ImmutableConfiguration", True, "containsKey", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.configuration2", "Configuration", True, "setProperty", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

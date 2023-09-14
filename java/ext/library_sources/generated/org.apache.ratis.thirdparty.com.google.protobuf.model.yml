@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.ratis.thirdparty.com.google.protobuf", "RepeatedFieldBuilderV3<KeyValue,Builder,KeyValueOrBuilder>", True, "addAllMessages", "(Iterable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.ratis.thirdparty.com.google.protobuf", "SingleFieldBuilderV3<ChecksumData,Builder,ChecksumDataOrBuilder>", True, "mergeFrom", "(ChecksumData)", "", "Parameter[0]", "remote", "manual"]

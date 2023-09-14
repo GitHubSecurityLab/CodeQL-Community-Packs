@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["htsjdk.samtools", "SamInputResource", True, "of", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["htsjdk.samtools", "SamInputResource", True, "of", "(URI)", "", "Parameter[0]", "remote", "manual"]
+      - ["htsjdk.samtools", "SamInputResource", True, "of", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["htsjdk.samtools", "SamInputResource", True, "index", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["htsjdk.samtools", "SAMRecord", True, "getAttribute", "(String)", "", "Parameter[0]", "remote", "manual"]

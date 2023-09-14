@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.killbill.billing.jaxrs.resources", "SubscriptionResource$EntitlementCallCompletion<Response>", True, "withSynchronization", "(EntitlementCallCompletionCallback,long,boolean,CallContext)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.killbill.billing.jaxrs.resources", "SubscriptionResource$EntitlementCallCompletion<Response>", True, "withSynchronization", "(EntitlementCallCompletionCallback,long,boolean,CallContext)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.killbill.billing.jaxrs.resources", "SubscriptionResource$EntitlementCallCompletion<List<UUID>>", True, "withSynchronization", "(EntitlementCallCompletionCallback,long,boolean,CallContext)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.killbill.billing.jaxrs.resources", "SubscriptionResource$EntitlementCallCompletion<List<UUID>>", True, "withSynchronization", "(EntitlementCallCompletionCallback,long,boolean,CallContext)", "", "Parameter[1]", "remote", "manual"]

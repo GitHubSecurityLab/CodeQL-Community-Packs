@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["run.halo.app.controller.content.auth", "ContentAuthenticationRequest", True, "of", "(Integer,String,String)", "", "Parameter[1]", "remote", "manual"]

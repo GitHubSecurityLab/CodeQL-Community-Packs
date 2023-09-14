@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.yarolegovich.mp.io", "UserInputModule$Listener<String>", True, "onInput", "(String)", "", "Parameter[0]", "remote", "manual"]

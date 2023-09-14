@@ -1,0 +1,27 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.quartz", "JobKey", False, "jobKey", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.quartz", "TriggerKey", False, "triggerKey", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.quartz", "CronScheduleBuilder", True, "cronSchedule", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.quartz", "CronExpression", False, "isValidExpression", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.quartz", "JobBuilder", True, "withIdentity", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.quartz", "JobKey", False, "jobKey", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.quartz", "JobKey", False, "jobKey", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.quartz", "Scheduler", True, "addCalendar", "(String,Calendar,boolean,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.quartz", "TriggerUtils", True, "makeSecondlyTrigger", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.quartz", "Scheduler", True, "deleteJob", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.quartz", "Scheduler", True, "getJobDetail", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.quartz", "Scheduler", True, "getTriggerState", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.quartz", "Scheduler", True, "getTriggerState", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.quartz", "Scheduler", True, "getTriggersOfJob", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.quartz", "Scheduler", True, "pauseJob", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.quartz", "Scheduler", True, "rescheduleJob", "(String,String,Trigger)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.quartz", "Scheduler", True, "rescheduleJob", "(String,String,Trigger)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.quartz", "Scheduler", True, "resumeJob", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.quartz", "Scheduler", True, "triggerJob", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.quartz", "Trigger", True, "setCalendarName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.quartz", "Trigger", True, "setEndTime", "(Date)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.quartz", "TriggerKey", False, "triggerKey", "(String,String)", "", "Parameter[1]", "remote", "manual"]

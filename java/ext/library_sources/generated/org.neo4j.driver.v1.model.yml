@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.neo4j.driver.v1", "StatementRunner", True, "run", "(String,Map)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.neo4j.driver.v1", "StatementRunner", True, "runAsync", "(String,Map)", "", "Parameter[1]", "remote", "manual"]

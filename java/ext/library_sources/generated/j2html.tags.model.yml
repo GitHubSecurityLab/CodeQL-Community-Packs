@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["j2html.tags", "Tag<EmptyTag>", True, "withValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["j2html.tags", "Tag<ContainerTag>", True, "withValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["j2html.tags", "Tag<ContainerTag>", True, "withHref", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.pulsar.client.api", "DeadLetterPolicy$DeadLetterPolicyBuilder", True, "deadLetterTopic", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.client.api", "ConsumerBuilder<byte[]>", True, "subscriptionName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.client.api", "ClientBuilder", True, "tlsTrustCertsFilePath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.client.api", "ClientBuilder", True, "serviceUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.client.api", "AuthenticationFactory", False, "token", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.client.api", "PulsarClient", True, "getPartitionsForTopic", "(String)", "", "Parameter[0]", "remote", "manual"]

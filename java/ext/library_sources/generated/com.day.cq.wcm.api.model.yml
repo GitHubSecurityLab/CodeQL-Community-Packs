@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.day.cq.wcm.api", "PageManager", True, "create", "(String,String,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["com.day.cq.wcm.api", "PageManager", True, "create", "(String,String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.day.cq.wcm.api", "PageManager", True, "create", "(String,String,String,String)", "", "Parameter[1]", "remote", "manual"]

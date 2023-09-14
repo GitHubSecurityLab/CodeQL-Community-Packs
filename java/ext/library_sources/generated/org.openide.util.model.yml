@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.openide.util", "NbBundle", True, "getMessage", "(Class,String,Object,Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.openide.util", "WeakSet$SharedKeyWeakHashMap<E,Boolean>", False, "putIfAbsent", "(Object,boolean[])", "", "Parameter[0]", "remote", "manual"]

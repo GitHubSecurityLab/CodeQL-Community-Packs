@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.squareup.moshi", "JsonAdapter<T>", True, "fromJson", "(String)", "", "Parameter[0]", "remote", "manual"]

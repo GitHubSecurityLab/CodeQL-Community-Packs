@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.linuxforhealth.fhir.persistence", "SingleResourceResult$Builder<T>", True, "resource", "(Resource)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.linuxforhealth.fhir.persistence", "ResourceResult$Builder<T>", True, "resource", "(Resource)", "", "Parameter[0]", "remote", "manual"]

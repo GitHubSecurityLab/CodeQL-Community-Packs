@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.apitable.internal.vo", "InternalSpaceInfoVo", True, "setSpaceId", "(String)", "", "Parameter[0]", "remote", "manual"]

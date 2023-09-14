@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.fabric8.kubernetes.client.dsl", "Nameable<ScalableResource<Job>>", True, "withName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.client.dsl", "Namespaceable<NonNamespaceOperation<Pod,PodList,PodResource>>", True, "inNamespace", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.client.dsl", "Namespaceable<>", True, "inNamespace", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.client.dsl", "Nameable<>", True, "withName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.client.dsl", "Loadable", True, "load", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.client.dsl", "Filterable<>", True, "withoutLabels", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.client.dsl", "Filterable<>", True, "withLabels", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.client.dsl", "Namespaceable<NonNamespaceOperation<Route,RouteList,Resource<Route>>>", True, "inNamespace", "(Object,String)", "", "Parameter[0]", "remote", "manual"]

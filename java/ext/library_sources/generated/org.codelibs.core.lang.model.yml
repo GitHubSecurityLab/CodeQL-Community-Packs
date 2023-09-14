@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.codelibs.core.lang", "StringUtil", True, "isNotBlank", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.codelibs.core.lang", "StringUtil", True, "isBlank", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.elasticsearch.index.query", "QueryBuilders", False, "termQuery", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.elasticsearch.index.query", "QueryBuilders", False, "queryStringQuery", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.elasticsearch.index.query", "QueryBuilders", False, "matchQuery", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.elasticsearch.index.query", "QueryBuilders", False, "wildcardQuery", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.elasticsearch.index.query", "QueryBuilders", False, "termsQuery", "(String,Collection)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.elasticsearch.index.query", "QueryBuilders", False, "matchPhraseQuery", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.elasticsearch.index.query", "RangeQueryBuilder", True, "lt", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.elasticsearch.index.query", "RangeQueryBuilder", True, "gt", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.elasticsearch.index.query", "QueryBuilders", False, "prefixQuery", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.elasticsearch.index.query", "QueryBuilders", False, "moreLikeThisQuery", "(String[],String[],Item[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.elasticsearch.index.query", "QueryBuilders", False, "matchQuery", "(Object,String,Object)", "", "Parameter[1]", "remote", "manual"]

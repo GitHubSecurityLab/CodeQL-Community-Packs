@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["groovy.lang", "GroovyClassLoader", True, "parseClass", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["groovy.lang", "GroovyShell", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["groovy.lang", "GroovyShell", True, "evaluate", "(String)", "", "Parameter[0]", "remote", "manual"]

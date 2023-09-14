@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.druid.common.guava", "SettableSupplier<ResultRow>", True, "set", "(ResultRow)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.common.guava", "CombiningSequence$CombiningYieldingAccumulator<OutType,T>", True, "setRetVal", "(Object)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.mongodb.reactivestreams.client", "MongoCollection<T>", True, "replaceOne", "(Bson,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.mongodb.reactivestreams.client", "MongoCollection<T>", True, "insertOne", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.mongodb.reactivestreams.client", "MongoCollection<T>", True, "insertMany", "(List)", "", "Parameter[0]", "remote", "manual"]

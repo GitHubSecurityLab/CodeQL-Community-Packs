@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.enonic.xp.repo.impl.elasticsearch.snapshot", "AbstractSnapshotExecutor$Builder<Builder>", True, "snapshotName", "(String)", "", "Parameter[0]", "remote", "manual"]

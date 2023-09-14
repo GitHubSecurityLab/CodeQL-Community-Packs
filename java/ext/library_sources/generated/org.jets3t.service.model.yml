@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jets3t.service", "Jets3tProperties", True, "setProperty", "(String,String)", "", "Parameter[1]", "remote", "manual"]

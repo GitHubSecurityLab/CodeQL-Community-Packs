@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jitsi.xmpp.extensions.colibri2", "ConferenceModifyIQ$Builder", False, "setMeetingId", "(String)", "", "Parameter[0]", "remote", "manual"]

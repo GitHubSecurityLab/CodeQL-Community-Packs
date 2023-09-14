@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.quarkus.mongodb.panache.common.reactive.runtime", "ReactiveMongoOperations<ReactivePanacheQuery<?>,ReactivePanacheUpdate>", True, "persist", "(Iterable)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.quarkus.mongodb.panache.common.reactive.runtime", "ReactiveMongoOperations<>", True, "bindFilter", "(Class,Object,String,Object[])", "", "Parameter[2]", "remote", "manual"]

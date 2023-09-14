@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.php.editor", "Cache<FileObject,PhpLanguageProperties>", True, "save", "(FileObject,PhpLanguageProperties)", "", "Parameter[1]", "remote", "manual"]

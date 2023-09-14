@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.realm", "RealmQuery<RealmToken>", True, "like", "(String,String,Case)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.realm", "Realm", True, "createObject", "(Class,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.realm", "Realm", True, "getInstance", "(RealmConfiguration)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.realm", "RealmQuery<Realm1559Gas>", True, "equalTo", "(String,Long)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.realm", "RealmQuery<RealmAuxData>", True, "equalTo", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.realm", "RealmQuery<RealmTokenTicker>", True, "equalTo", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.realm", "RealmQuery<RealmTokenScriptData>", True, "equalTo", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.realm", "RealmQuery<RealmToken>", True, "equalTo", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.realm", "RealmQuery<RealmKeyType>", True, "equalTo", "(String,String,Case)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.realm", "RealmQuery<RealmGasSpread>", True, "equalTo", "(String,Long)", "", "Parameter[1]", "remote", "manual"]

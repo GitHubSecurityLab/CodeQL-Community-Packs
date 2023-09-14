@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.orcid.jaxb.model.common", "Iso3166Country", False, "fromValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.common", "Relationship", False, "fromValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.common", "FundingType", False, "fromValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.common", "WorkType", False, "fromValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.common", "SequenceType", False, "fromValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.common", "ContributorRole", False, "fromValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.common", "CitationType", False, "fromValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.common", "AvailableLocales", False, "fromValue", "(String)", "", "Parameter[0]", "remote", "manual"]

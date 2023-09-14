@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.versioning.util.common", "VCSCommitPanel<GitLocalFileNode>", True, "setupProgress", "(String,JComponent)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.netbeans.modules.versioning.util.common", "VCSCommitPanel<QFileNode>", True, "setupProgress", "(String,JComponent)", "", "Parameter[1]", "remote", "manual"]

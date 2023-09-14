@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.geotools.styling", "Style", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.styling", "StyledLayer", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.styling", "StyleFactory", True, "createExternalGraphic", "(URL,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.styling", "FeatureTypeStyle", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]

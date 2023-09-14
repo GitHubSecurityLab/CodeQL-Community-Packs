@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.thirdparty.com.google.common.cache", "Cache<String,PathState>", True, "put", "(String,PathState)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.cache", "LoadingCache<String,KeyVersion>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.cache", "Cache<String,Metadata>", True, "invalidate", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.cache", "LoadingCache<String,Set<String>>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.cache", "LoadingCache<String,Metadata>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.cache", "CacheBuilder<Object,Object>", False, "maximumSize", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.cache", "CacheBuilder<Object,Object>", False, "expireAfterWrite", "(long,TimeUnit)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.cache", "CacheBuilder<Object,Object>", False, "expireAfterAccess", "(long,TimeUnit)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.cache", "Cache<String,URI>", True, "put", "(String,URI)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.cache", "Cache<String,PathLocation>", True, "get", "(String,Callable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.cache", "Cache<String,AuditEvent>", True, "invalidate", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.cache", "Cache<String,AuditEvent>", True, "get", "(String,Callable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.thirdparty.com.google.common.cache", "Cache<K,V>", True, "put", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]

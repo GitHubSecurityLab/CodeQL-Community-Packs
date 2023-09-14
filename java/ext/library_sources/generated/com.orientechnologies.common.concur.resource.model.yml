@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.orientechnologies.common.concur.resource", "OResourcePoolFactory<String,ScriptEngine>", True, "setMaxPoolSize", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.common.concur.resource", "OResourcePoolFactory<String,ScriptEngine>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]

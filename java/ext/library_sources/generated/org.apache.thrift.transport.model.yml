@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.thrift.transport", "TSaslServerTransport$Factory", True, "addServerDefinition", "(String,String,String,Map,CallbackHandler)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.thrift.transport", "TSSLTransportFactory", True, "getClientSocket", "(String,int,int,TSSLTransportParameters)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.thrift.transport", "TSSLTransportFactory", True, "getClientSocket", "(String,int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.thrift.transport", "TMemoryInputTransport", False, "reset", "(byte[],int,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.thrift.transport", "TMemoryInputTransport", False, "reset", "(byte[],int,int)", "", "Parameter[0]", "remote", "manual"]

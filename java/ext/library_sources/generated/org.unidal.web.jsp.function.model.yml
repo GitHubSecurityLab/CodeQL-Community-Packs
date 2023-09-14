@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.unidal.web.jsp.function", "CodecFunction", True, "urlEncode", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.broad.igv.feature.tribble", "UCSCCodec<BasicFeature>", True, "readHeaderLine", "(String)", "", "Parameter[0]", "remote", "manual"]

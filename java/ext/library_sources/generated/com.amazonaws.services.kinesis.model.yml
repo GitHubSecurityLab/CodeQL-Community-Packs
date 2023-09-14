@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.amazonaws.services.kinesis", "AmazonKinesis", True, "getShardIterator", "(String,String,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["com.amazonaws.services.kinesis", "AmazonKinesis", True, "getShardIterator", "(String,String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.amazonaws.services.kinesis", "AmazonKinesis", True, "getShardIterator", "(String,String,String,String)", "", "Parameter[0]", "remote", "manual"]

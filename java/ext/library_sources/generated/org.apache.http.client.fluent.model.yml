@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.http.client.fluent", "Request", True, "bodyString", "(String,ContentType)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.http.client.fluent", "Request", True, "Get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.http.client.fluent", "Request", True, "Put", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.http.client.fluent", "Request", True, "Post", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.http.client.fluent", "Request", True, "Delete", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.http.client.fluent", "Executor", True, "auth", "(HttpHost,String,String)", "", "Parameter[2]", "remote", "manual"]

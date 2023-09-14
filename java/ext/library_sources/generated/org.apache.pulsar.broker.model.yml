@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.pulsar.broker", "PulsarService", True, "createManagedLedgerOffloader", "(OffloadPoliciesImpl)", "", "Parameter[0]", "remote", "manual"]

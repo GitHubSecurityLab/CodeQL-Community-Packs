@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.keycloak.common.util", "MultivaluedHashMap<String,String>", True, "add", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.keycloak.common.util", "MultivaluedHashMap<String,String>", True, "putSingle", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.keycloak.common.util", "MultivaluedHashMap<String,String>", True, "add", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.common.util", "MultivaluedHashMap<String,ComponentModel>", True, "getList", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.common.util", "Encode", True, "decode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.common.util", "PathMatcher<PathConfig>", True, "buildUriFromTemplate", "(String,String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.keycloak.common.util", "MultivaluedHashMap<String,String>", True, "addAll", "(MultivaluedHashMap)", "", "Parameter[0]", "remote", "manual"]

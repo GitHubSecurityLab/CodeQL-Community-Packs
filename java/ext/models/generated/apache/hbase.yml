@@ -1,0 +1,57 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.apache.hadoop.hbase.coprocessor", "CoprocessorHost", true, "load", "(Path,String,int,Configuration,String[])", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.hadoop.hbase.io.hfile.bucket", "BucketCache", true, "BucketCache", "(String,long,int,int[],int,int,String)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.hadoop.hbase.io.hfile.bucket", "BucketCache", true, "BucketCache", "(String,long,int,int[],int,int,String)", "", "Argument[6]", "read-file", "generated"]
+      - ["org.apache.hadoop.hbase.io.hfile.bucket", "BucketCache", true, "BucketCache", "(String,long,int,int[],int,int,String,int,Configuration)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.hadoop.hbase.io.hfile.bucket", "BucketCache", true, "BucketCache", "(String,long,int,int[],int,int,String,int,Configuration)", "", "Argument[6]", "read-file", "generated"]
+      - ["org.apache.hadoop.hbase.io.hfile.bucket", "ExclusiveMemoryMmapIOEngine", true, "ExclusiveMemoryMmapIOEngine", "(String,long)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.hadoop.hbase.io.hfile.bucket", "FileIOEngine", true, "FileIOEngine", "(long,boolean,String[])", "", "Argument[2]", "create-file", "generated"]
+      - ["org.apache.hadoop.hbase.io.hfile.bucket", "FileMmapIOEngine", true, "FileMmapIOEngine", "(String,long)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.hadoop.hbase.io.hfile.bucket", "SharedMemoryMmapIOEngine", true, "SharedMemoryMmapIOEngine", "(String,long)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.hadoop.hbase.io.hfile", "PrefetchExecutor", false, "persistToFile", "(String)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.hadoop.hbase.io.hfile", "PrefetchExecutor", false, "retrieveFromFile", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.apache.hadoop.hbase.mapreduce", "JarFinder", false, "jarDir", "(File,String,ZipOutputStream)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "delete", "(Cluster,String)", "", "Argument[1]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "delete", "(Cluster,String,Header)", "", "Argument[1]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "delete", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "delete", "(String,Header)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "execute", "(Cluster,HttpUriRequest,Header[],String)", "", "Argument[3]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "executePathOnly", "(Cluster,HttpUriRequest,Header[],String)", "", "Argument[3]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "get", "(Cluster,String)", "", "Argument[1]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "get", "(Cluster,String,Header[])", "", "Argument[1]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "get", "(Cluster,String,String)", "", "Argument[1]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "get", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "get", "(String,Header[])", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "get", "(String,String)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "head", "(Cluster,String,Header[])", "", "Argument[1]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "head", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "post", "(Cluster,String,Header[],byte[])", "", "Argument[1]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "post", "(Cluster,String,String,byte[])", "", "Argument[1]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "post", "(Cluster,String,String,byte[],Header)", "", "Argument[1]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "post", "(String,Header[],byte[])", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "post", "(String,String,byte[])", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "post", "(String,String,byte[],Header)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "put", "(Cluster,String,Header[],byte[])", "", "Argument[1]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "put", "(Cluster,String,String,byte[])", "", "Argument[1]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "put", "(Cluster,String,String,byte[],Header)", "", "Argument[1]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "put", "(String,Header[],byte[])", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "put", "(String,String,byte[])", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.client", "Client", true, "put", "(String,String,byte[],Header)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.rest.filter", "RestCsrfPreventionFilter$HttpInteraction", true, "sendError", "(int,String)", "", "Argument[1]", "information-leak", "generated"]
+      - ["org.apache.hadoop.hbase.thrift.generated", "Hbase$Iface", true, "scannerGetList", "(int,int)", "", "Argument[1]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.thrift2.generated", "THBaseService$Iface", true, "getScannerResults", "(ByteBuffer,TScan,int)", "", "Argument[2]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.thrift2.generated", "THBaseService$Iface", true, "getScannerRows", "(int,int)", "", "Argument[1]", "open-url", "generated"]
+      - ["org.apache.hadoop.hbase.util", "CoprocessorClassLoader", true, "getClassLoader", "(Path,ClassLoader,String,Configuration)", "", "Argument[2]", "create-file", "generated"]
+
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.hbase.http", "ProxyUserAuthenticationFilter", true, "getDoasFromHeader", "(HttpServletRequest)", "", "ReturnValue", "remote", "generated"]
+      - ["org.apache.hadoop.hbase.rest.filter", "RestCsrfPreventionFilter$HttpInteraction", true, "getHeader", "(String)", "", "ReturnValue", "remote", "generated"]
+      - ["org.apache.hadoop.hbase.zookeeper", "ZKDump", false, "dump", "(ZKWatcher)", "", "ReturnValue", "remote", "generated"]
+

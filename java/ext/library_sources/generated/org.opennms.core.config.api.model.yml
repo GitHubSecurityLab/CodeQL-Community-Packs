@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opennms.core.config.api", "JaxbListWrapper<ApplicationDTO>", True, "setOffset", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.opennms.core.config.api", "JaxbListWrapper<BusinessServiceDTO>", True, "setOffset", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.opennms.core.config.api", "JaxbListWrapper<NodeDTO>", True, "setOffset", "(Integer)", "", "Parameter[0]", "remote", "manual"]

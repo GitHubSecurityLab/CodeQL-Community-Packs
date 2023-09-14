@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["alpine.server.resources", "AlpineResource", True, "logSecurityEvent", "(Logger,Marker,String)", "", "Parameter[2]", "remote", "manual"]

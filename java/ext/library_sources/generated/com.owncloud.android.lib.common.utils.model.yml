@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.owncloud.android.lib.common.utils", "Log_OC", True, "d", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.owncloud.android.lib.common.utils", "Log_OC", True, "e", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.owncloud.android.lib.common.utils", "Log_OC", True, "w", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.owncloud.android.lib.common.utils", "Log_OC", True, "v", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.owncloud.android.lib.common.utils", "Log_OC", True, "e", "(String,String,Throwable)", "", "Parameter[1]", "remote", "manual"]

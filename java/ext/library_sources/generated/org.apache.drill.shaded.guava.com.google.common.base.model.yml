@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.drill.shaded.guava.com.google.common.base", "Preconditions", False, "checkArgument", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.drill.shaded.guava.com.google.common.base", "Preconditions", False, "checkNotNull", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.drill.shaded.guava.com.google.common.base", "Preconditions", False, "checkNotNull", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.drill.shaded.guava.com.google.common.base", "CharMatcher", True, "trimTrailingFrom", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.drill.shaded.guava.com.google.common.base", "CaseFormat", False, "to", "(CaseFormat,String)", "", "Parameter[1]", "remote", "manual"]

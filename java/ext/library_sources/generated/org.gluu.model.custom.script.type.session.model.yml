@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.gluu.model.custom.script.type.session", "ApplicationSessionType", True, "startSession", "(Object,Object,Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gluu.model.custom.script.type.session", "ApplicationSessionType", True, "endSession", "(Object,Object,Map)", "", "Parameter[0]", "remote", "manual"]

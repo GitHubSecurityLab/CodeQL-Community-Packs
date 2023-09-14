@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.rdf4j.common.lang.service", "ServiceRegistry<String,TransactionSettingFactory>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.rdf4j.common.lang.service", "FileFormatServiceRegistry<QueryResultFormat,TupleQueryResultWriterFactory>", True, "getFileFormatForMIMEType", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.rdf4j.common.lang.service", "FileFormatServiceRegistry<QueryResultFormat,TupleQueryResultParserFactory>", True, "getFileFormatForMIMEType", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.rdf4j.common.lang.service", "FileFormatServiceRegistry<QueryResultFormat,BooleanQueryResultWriterFactory>", True, "getFileFormatForMIMEType", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.rdf4j.common.lang.service", "FileFormatServiceRegistry<QueryResultFormat,BooleanQueryResultParserFactory>", True, "getFileFormatForMIMEType", "(String)", "", "Parameter[0]", "remote", "manual"]

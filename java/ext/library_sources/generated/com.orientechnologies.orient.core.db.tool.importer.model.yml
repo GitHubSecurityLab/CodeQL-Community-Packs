@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.orientechnologies.orient.core.db.tool.importer", "OAbstractCollectionConverter<Set<>>", True, "convertSingleValue", "(Object,ResultCallback,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.db.tool.importer", "OAbstractCollectionConverter<ORidBag>", True, "convertSingleValue", "(Object,ResultCallback,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.db.tool.importer", "OAbstractCollectionConverter<Map<>>", True, "convertSingleValue", "(Object,ResultCallback,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.db.tool.importer", "OAbstractCollectionConverter<List<>>", True, "convertSingleValue", "(Object,ResultCallback,boolean)", "", "Parameter[0]", "remote", "manual"]

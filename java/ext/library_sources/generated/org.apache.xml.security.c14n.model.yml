@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.xml.security.c14n", "Canonicalizer", True, "canonicalize", "(byte[])", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.chemistry.opencmis.client.api", "CmisObject", True, "updateProperties", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.chemistry.opencmis.client.api", "ObjectFactory", True, "createContentStream", "(String,long,String,InputStream)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.apache.chemistry.opencmis.client.api", "Document", True, "checkIn", "(boolean,Map,ContentStream,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.chemistry.opencmis.client.api", "Folder", True, "createDocument", "(Map,ContentStream,VersioningState,List,List,List,OperationContext)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.chemistry.opencmis.client.api", "Folder", True, "createFolder", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.chemistry.opencmis.client.api", "Session", True, "getObjectByPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.chemistry.opencmis.client.api", "CmisObject", True, "updateProperties", "(Map,boolean)", "", "Parameter[0]", "remote", "manual"]

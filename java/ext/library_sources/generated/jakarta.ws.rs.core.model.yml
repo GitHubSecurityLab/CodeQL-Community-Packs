@@ -1,0 +1,19 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jakarta.ws.rs.core", "Response", True, "created", "(URI)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.core", "MediaType", True, "isCompatible", "(MediaType)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.core", "MultivaluedMap<String,Object>", True, "add", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["jakarta.ws.rs.core", "Link", True, "valueOf", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.core", "Response$ResponseBuilder", True, "location", "(URI)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.core", "Response$Status$Family", False, "familyOf", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.core", "Response", True, "seeOther", "(URI)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.core", "Response", True, "status", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.core", "Response", True, "temporaryRedirect", "(URI)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.core", "Response$ResponseBuilder", True, "header", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["jakarta.ws.rs.core", "MultivaluedMap<String,String>", True, "putSingle", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["jakarta.ws.rs.core", "MediaType", True, "withCharset", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.core", "Link", True, "fromLink", "(Link)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.core", "EntityTag", True, "valueOf", "(Object,String)", "", "Parameter[0]", "remote", "manual"]

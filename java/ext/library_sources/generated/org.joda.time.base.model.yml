@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.joda.time.base", "AbstractInterval", True, "contains", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time.base", "AbstractInstant", True, "isBefore", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time.base", "AbstractInstant", True, "isAfter", "(long)", "", "Parameter[0]", "remote", "manual"]

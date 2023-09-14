@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.logging.log4j.core.config", "Configuration", True, "getLoggerConfig", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.cloud.storage", "Storage", True, "get", "(String,String,BlobGetOption[])", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.cloud.storage", "Storage", True, "create", "(BlobInfo,byte[],BlobTargetOption[])", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.cloud.storage", "Storage$BlobListOption", True, "prefix", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.storage", "Bucket", True, "create", "(String,InputStream,BlobWriteOption[])", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.cloud.storage", "BlobInfo", True, "newBuilder", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.cloud.storage", "BlobInfo", True, "newBuilder", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.storage", "BlobInfo$Builder", True, "setContentDisposition", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.storage", "BlobId", False, "of", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.cloud.storage", "Blob", True, "downloadTo", "(Path)", "", "Parameter[0]", "remote", "manual"]

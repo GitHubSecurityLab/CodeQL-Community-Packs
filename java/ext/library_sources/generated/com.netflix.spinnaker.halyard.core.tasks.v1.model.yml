@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.netflix.spinnaker.halyard.core.tasks.v1", "TaskRepository", True, "getTask", "(String)", "", "Parameter[0]", "remote", "manual"]

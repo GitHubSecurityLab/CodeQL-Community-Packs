@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.xiaojukeji.know.streaming.km.common.bean.vo.job", "JobTrafficBrokerVO", True, "setId", "(Long)", "", "Parameter[0]", "remote", "manual"]

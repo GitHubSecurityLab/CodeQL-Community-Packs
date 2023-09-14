@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gravitee.rest.api.model.api", "UpdateApiEntity", True, "setVersion", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model.api", "UpdateApiEntity", True, "setPathMappings", "(Set)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model.api", "UpdateApiEntity", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model.api", "UpdateApiEntity", True, "setGroups", "(Set)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model.api", "UpdateApiEntity", True, "setGraviteeDefinitionVersion", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model.api", "UpdateApiEntity", True, "setFlows", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model.api", "UpdateApiEntity", True, "setFlowMode", "(FlowMode)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model.api", "UpdateApiEntity", True, "setDescription", "(String)", "", "Parameter[0]", "remote", "manual"]

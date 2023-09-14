@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jakarta.persistence.criteria", "CriteriaBuilder", True, "equal", "(Expression,Object)", "", "Parameter[1]", "remote", "manual"]

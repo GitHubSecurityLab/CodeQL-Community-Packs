@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.xingyuv.captcha.service", "CaptchaService", True, "check", "(CaptchaVO)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.xingyuv.captcha.service", "CaptchaService", True, "get", "(CaptchaVO)", "", "Parameter[0]", "remote", "manual"]

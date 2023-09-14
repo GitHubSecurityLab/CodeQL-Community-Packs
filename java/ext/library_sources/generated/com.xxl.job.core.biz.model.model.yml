@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.xxl.job.core.biz.model", "ReturnT<String>", True, "setMsg", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.xxl.job.core.biz.model", "ReturnT<String>", True, "setContent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.xxl.job.core.biz.model", "TriggerParam", True, "setExecutorParams", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.collection", "LruCache<String,CacheData>", True, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.collection", "LruCache<String,CacheData>", True, "put", "(String,CacheData)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.collection", "LruCache<String,CacheData<?>>", True, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]

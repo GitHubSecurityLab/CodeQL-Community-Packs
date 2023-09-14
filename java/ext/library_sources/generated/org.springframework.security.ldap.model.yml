@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.ldap", "SpringSecurityLdapTemplate", True, "searchForSingleEntry", "(String,String,Object[])", "", "Parameter[2]", "remote", "manual"]
+      - ["org.springframework.security.ldap", "SpringSecurityLdapTemplate", True, "searchForSingleAttributeValues", "(String,String,Object[],String)", "", "Parameter[2]", "remote", "manual"]

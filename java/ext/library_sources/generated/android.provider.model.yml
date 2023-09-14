@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.provider", "DocumentsContract", False, "getDocumentId", "(Uri)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.provider", "DocumentsContract", False, "getTreeDocumentId", "(Uri)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.provider", "MediaStore$Audio$Playlists$Members", False, "getContentUri", "(String,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.provider", "MediaStore$Audio", False, "keyFor", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.provider", "DocumentsContract", False, "renameDocument", "(ContentResolver,Uri,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["android.provider", "UserDictionary$Words", True, "addWord", "(Context,String,int,String,Locale)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.provider", "UserDictionary$Words", True, "addWord", "(Context,String,int,String,Locale)", "", "Parameter[3]", "remote", "manual"]

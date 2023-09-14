@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["cn.hutool.core.io", "FileUtil", True, "writeFromStream", "(InputStream,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["cn.hutool.core.io", "IoUtil", True, "read", "(InputStream,boolean)", "", "Parameter[0]", "remote", "manual"]

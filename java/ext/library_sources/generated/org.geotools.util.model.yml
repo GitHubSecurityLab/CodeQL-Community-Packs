@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.geotools.util", "Converters", False, "convert", "(Object,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.util", "CanonicalSet<String>", True, "unique", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.util", "DateTimeParser", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.util", "NumberRange<Double>", True, "contains", "(Number)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.util", "URLs", True, "urlToFile", "(URL)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.util", "URLs", True, "fileToUrl", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.util", "NumberRange", True, "create", "(double,double)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.geotools.util", "NumberRange", True, "create", "(double,double)", "", "Parameter[0]", "remote", "manual"]

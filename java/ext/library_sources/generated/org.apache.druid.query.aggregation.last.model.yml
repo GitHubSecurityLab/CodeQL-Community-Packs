@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.druid.query.aggregation.last", "NumericLastBufferAggregator<BaseLongColumnValueSelector>", True, "updateTimeWithValue", "(ByteBuffer,int,long)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.druid.query.aggregation.last", "NumericLastBufferAggregator<BaseLongColumnValueSelector>", True, "updateTimeWithNull", "(ByteBuffer,int,long)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.druid.query.aggregation.last", "NumericLastBufferAggregator<BaseFloatColumnValueSelector>", True, "updateTimeWithValue", "(ByteBuffer,int,long)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.druid.query.aggregation.last", "NumericLastBufferAggregator<BaseFloatColumnValueSelector>", True, "updateTimeWithNull", "(ByteBuffer,int,long)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.druid.query.aggregation.last", "NumericLastBufferAggregator<BaseDoubleColumnValueSelector>", True, "updateTimeWithValue", "(ByteBuffer,int,long)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.druid.query.aggregation.last", "NumericLastBufferAggregator<BaseDoubleColumnValueSelector>", True, "updateTimeWithNull", "(ByteBuffer,int,long)", "", "Parameter[2]", "remote", "manual"]

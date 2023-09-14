@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.mitre.dsmiley.httpproxy", "ProxyServlet", True, "rewriteQueryStringFromRequest", "(HttpServletRequest,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.mitre.dsmiley.httpproxy", "ProxyServlet", True, "encodeUriQuery", "(CharSequence,boolean)", "", "Parameter[0]", "remote", "manual"]

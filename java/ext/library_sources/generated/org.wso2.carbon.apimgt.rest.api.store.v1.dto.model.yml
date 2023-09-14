@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.wso2.carbon.apimgt.rest.api.store.v1.dto", "ApplicationKeyDTO$KeyTypeEnum", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.wso2.carbon.apimgt.rest.api.store.v1.dto", "ApplicationKeyDTO$ModeEnum", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.wso2.carbon.apimgt.rest.api.store.v1.dto", "ThrottlingPolicyDTO$PolicyLevelEnum", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

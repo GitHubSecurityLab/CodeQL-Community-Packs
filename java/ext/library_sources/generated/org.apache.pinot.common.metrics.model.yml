@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.pinot.common.metrics", "AbstractMetrics<QueryPhase,ControllerMeter,ControllerGauge,ControllerTimer>", True, "addMeteredTableValue", "(String,ControllerMeter,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pinot.common.metrics", "AbstractMetrics<QueryPhase,ControllerMeter,ControllerGauge,ControllerTimer>", True, "setValueOfTableGauge", "(String,ControllerGauge,long)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.erudika.para.client", "ParaClient", False, "read", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.client", "ParaClient", False, "findQuery", "(String,String,Pager[])", "", "Parameter[1]", "remote", "manual"]
+      - ["com.erudika.para.client", "ParaClient", False, "read", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.erudika.para.client", "ParaClient", False, "readAll", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.client", "ParaClient", False, "findTagged", "(String,String[],Pager[])", "", "Parameter[1]", "remote", "manual"]
+      - ["com.erudika.para.client", "ParaClient", False, "signIn", "(String,String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.erudika.para.client", "ParaClient", False, "read", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.client", "ParaClient", False, "me", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.client", "ParaClient", False, "signIn", "(String,String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.client", "ParaClient", False, "setAccessToken", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.client", "ParaClient", False, "findQuery", "(String,String,Pager[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.client", "ParaClient", False, "findTags", "(String,Pager[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.client", "ParaClient", False, "findTermInList", "(String,String,List,Pager[])", "", "Parameter[2]", "remote", "manual"]

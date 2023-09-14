@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.jgit.revwalk", "FollowFilter", True, "create", "(String,DiffConfig)", "", "Parameter[0]", "remote", "manual"]

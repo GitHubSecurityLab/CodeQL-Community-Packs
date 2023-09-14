@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.geowebcache.demo", "Demo", True, "makeMap", "(TileLayerDispatcher,GridSetBroker,String,HttpServletRequest,HttpServletResponse)", "", "Parameter[2]", "remote", "manual"]

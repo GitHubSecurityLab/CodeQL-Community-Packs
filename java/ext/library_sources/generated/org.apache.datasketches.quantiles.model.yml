@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.datasketches.quantiles", "DoublesUnion", True, "update", "(DoublesSketch)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.quantiles", "UpdateDoublesSketch", True, "update", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.quantiles", "DoublesSketch", True, "getUpdatableStorageBytes", "(int,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.quantiles", "DoublesUnionBuilder", True, "setMaxK", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.quantiles", "DoublesUnion", True, "update", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.quantiles", "DoublesSketchBuilder", True, "setK", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.quantiles", "DoublesSketch", True, "getUpdatableStorageBytes", "(int,long)", "", "Parameter[1]", "remote", "manual"]

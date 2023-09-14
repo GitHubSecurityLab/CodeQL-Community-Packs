@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.validator.routines", "EmailValidator", True, "isValid", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.validator.routines", "DomainValidator", True, "isValid", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.validator.routines", "CreditCardValidator", True, "isValid", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.validator.routines", "UrlValidator", True, "isValid", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.validator.routines", "InetAddressValidator", True, "isValidInet6Address", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.validator.routines", "InetAddressValidator", True, "isValidInet4Address", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.validator.routines", "IBANValidator", True, "isValid", "(String)", "", "Parameter[0]", "remote", "manual"]

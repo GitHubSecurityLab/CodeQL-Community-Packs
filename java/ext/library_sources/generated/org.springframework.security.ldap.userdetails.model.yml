@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.ldap.userdetails", "LdapUserDetailsImpl$Essence", True, "setDn", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.security.ldap.userdetails", "Person$Essence", True, "setSn", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.security.ldap.userdetails", "InetOrgPerson$Essence", True, "setUid", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.security.ldap.userdetails", "InetOrgPerson$Essence", True, "setDisplayName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.security.ldap.userdetails", "InetOrgPerson$Essence", True, "setMail", "(String)", "", "Parameter[0]", "remote", "manual"]

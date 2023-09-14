@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.oltu.oauth2.client.response", "OAuthClientResponseFactory", True, "createCustomResponse", "(InputStream,String,int,Map,Class)", "", "Parameter[0]", "remote", "manual"]

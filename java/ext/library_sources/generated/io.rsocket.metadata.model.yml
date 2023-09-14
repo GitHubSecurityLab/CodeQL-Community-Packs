@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.rsocket.metadata", "TaggingMetadataCodec", True, "createTaggingContent", "(ByteBufAllocator,Collection)", "", "Parameter[1]", "remote", "manual"]

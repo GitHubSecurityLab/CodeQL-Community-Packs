@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.text.util", "Rfc822Tokenizer", True, "tokenize", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text.util", "Rfc822Tokenizer", True, "tokenize", "(CharSequence,Collection)", "", "Parameter[0]", "remote", "manual"]

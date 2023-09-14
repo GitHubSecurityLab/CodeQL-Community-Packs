@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.location", "Geocoder", False, "getFromLocationName", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.location", "Location", True, "setBearing", "(float)", "", "Parameter[0]", "remote", "manual"]

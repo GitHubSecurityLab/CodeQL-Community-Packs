@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["software.amazon.awssdk.services.kinesis.model", "ListShardsRequest$Builder", True, "streamName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["software.amazon.awssdk.services.kinesis.model", "ShardIteratorType", False, "fromValue", "(String)", "", "Parameter[0]", "remote", "manual"]

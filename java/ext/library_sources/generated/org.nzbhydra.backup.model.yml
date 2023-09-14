@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.nzbhydra.backup", "BackupAndRestore", True, "restoreFromFile", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.nzbhydra.backup", "BackupAndRestore", True, "restore", "(String)", "", "Parameter[0]", "remote", "manual"]

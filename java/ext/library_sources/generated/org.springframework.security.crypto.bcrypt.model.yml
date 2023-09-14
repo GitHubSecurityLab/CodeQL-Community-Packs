@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.crypto.bcrypt", "BCrypt", True, "hashpw", "(String,String)", "", "Parameter[0]", "remote", "manual"]

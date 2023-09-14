@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dataease.plugins.xpack.email.service", "EmailXpackService", True, "taskForm", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.email.service", "EmailXpackService", True, "print", "(String,String,XpackPixelEntity)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.email.service", "EmailXpackService", True, "taskInstanceGrid", "(XpackGridRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.email.service", "EmailXpackService", True, "taskGrid", "(XpackGridRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.email.service", "EmailXpackService", True, "stop", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.email.service", "EmailXpackService", True, "start", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.email.service", "EmailXpackService", True, "printPdf", "(String,String,XpackPixelEntity,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.email.service", "EmailXpackService", True, "instanceForm", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.email.service", "EmailXpackService", True, "delete", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.email.service", "EmailXpackService", True, "batchDel", "(List)", "", "Parameter[0]", "remote", "manual"]

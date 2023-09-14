@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.hibernate.validator.constraintvalidation", "HibernateConstraintValidatorContext", True, "addExpressionVariable", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

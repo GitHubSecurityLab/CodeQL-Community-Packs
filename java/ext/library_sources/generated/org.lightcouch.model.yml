@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.lightcouch", "CouchDbClientBase", True, "update", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.lightcouch", "CouchDbClientBase", True, "find", "(Class,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.lightcouch", "CouchDbClientBase", True, "find", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.lightcouch", "View", True, "skip", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.lightcouch", "View", True, "limit", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.lightcouch", "CouchDbClientBase", True, "save", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.lightcouch", "CouchDbClientBase", True, "findDocs", "(String,Class)", "", "Parameter[0]", "remote", "manual"]

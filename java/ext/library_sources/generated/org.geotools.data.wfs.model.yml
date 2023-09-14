@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.geotools.data.wfs", "WFSDataStore", True, "addStoredQuery", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.data.wfs", "WFSDataStoreFactory", True, "getHttpClient", "(Map)", "", "Parameter[0]", "remote", "manual"]

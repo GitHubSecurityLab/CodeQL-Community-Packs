@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.netflix.metacat.common", "QualifiedName", False, "ofTable", "(String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.netflix.metacat.common", "QualifiedName", False, "ofTable", "(String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.netflix.metacat.common", "QualifiedName", False, "ofTable", "(String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.netflix.metacat.common", "QualifiedName", False, "ofView", "(String,String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.netflix.metacat.common", "QualifiedName", False, "ofView", "(String,String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.netflix.metacat.common", "QualifiedName", False, "ofView", "(String,String,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["com.netflix.metacat.common", "QualifiedName", False, "ofView", "(String,String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.netflix.metacat.common", "QualifiedName", False, "fromString", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.mylyn.internal.tasks.core", "AbstractTask", True, "setNotes", "(String)", "", "Parameter[0]", "remote", "manual"]

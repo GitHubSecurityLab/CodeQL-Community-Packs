@@ -1,0 +1,24 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.erudika.para.core.utils", "Pager", True, "setSortby", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "ParaObjectUtils", False, "setAnnotatedFields", "(ParaObject,Map,Class)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Utils", False, "stripAndTrim", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Utils", False, "base64dec", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Utils", False, "bcrypt", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Utils", False, "abbreviate", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "ParaObjectUtils", False, "setAnnotatedFields", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Utils", False, "markdownToHtml", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Config", True, "renderConfigDocumentation", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Pager", True, "setLastKey", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Pager", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Pager", True, "setPage", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Pager", True, "setSelect", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Config", True, "getConfigValue", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Utils", False, "bcryptMatches", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Utils", False, "stripAndTrim", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Utils", False, "stripAndTrim", "(String,String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Utils", False, "urlDecode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core.utils", "Utils", False, "urlEncode", "(String)", "", "Parameter[0]", "remote", "manual"]

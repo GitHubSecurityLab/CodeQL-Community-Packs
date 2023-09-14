@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.wso2.carbon.ganalytics.publisher", "GoogleAnalyticsData$DataBuilder", True, "setDocumentHostName", "(String)", "", "Parameter[0]", "remote", "manual"]

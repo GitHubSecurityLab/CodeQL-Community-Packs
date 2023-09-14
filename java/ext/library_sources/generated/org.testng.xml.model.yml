@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.testng.xml", "SuiteGenerator", True, "createSuite", "(String,Collection,Map,Collection,Map,String,int)", "", "Parameter[0]", "remote", "manual"]

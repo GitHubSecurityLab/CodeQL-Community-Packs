@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.sufficientlysecure.keychain", "UserPacketsModel$Factory<UserPacket>", False, "selectUserIdStatusByEmailLike", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.sufficientlysecure.keychain", "AutocryptPeersModel$Factory<AutocryptPeer>", False, "selectAutocryptKeyStatus", "(String,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.sufficientlysecure.keychain", "UserPacketsModel$Factory<UserPacket>", False, "selectUserIdStatusByEmail", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.sufficientlysecure.keychain", "AutocryptPeersModel$Factory<AutocryptPeer>", False, "selectAutocryptKeyStatus", "(String,String[])", "", "Parameter[0]", "remote", "manual"]

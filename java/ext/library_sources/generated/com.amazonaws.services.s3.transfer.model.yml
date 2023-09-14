@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.amazonaws.services.s3.transfer", "TransferManager", True, "upload", "(String,String,InputStream,ObjectMetadata)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.amazonaws.services.s3.transfer", "TransferManager", True, "upload", "(String,String,File)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.amazonaws.services.s3.transfer", "TransferManager", True, "upload", "(String,String,InputStream,ObjectMetadata)", "", "Parameter[1]", "remote", "manual"]

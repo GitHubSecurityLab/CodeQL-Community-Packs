@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["hudson.remoting", "Capability", False, "fromASCII", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["hudson.remoting", "Base64", False, "decode", "(String)", "", "Parameter[0]", "remote", "manual"]

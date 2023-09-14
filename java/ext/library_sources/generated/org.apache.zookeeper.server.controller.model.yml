@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.zookeeper.server.controller", "ControlCommand$Action", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

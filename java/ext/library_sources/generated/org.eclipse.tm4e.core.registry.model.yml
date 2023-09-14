@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.tm4e.core.registry", "Registry", True, "loadGrammarFromPathSync", "(String,InputStream)", "", "Parameter[1]", "remote", "manual"]

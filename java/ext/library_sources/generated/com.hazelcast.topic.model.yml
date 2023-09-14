@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.hazelcast.topic", "ITopic<Object>", True, "publish", "(Object)", "", "Parameter[0]", "remote", "manual"]

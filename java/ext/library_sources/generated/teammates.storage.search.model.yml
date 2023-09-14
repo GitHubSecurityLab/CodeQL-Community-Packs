@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["teammates.storage.search", "SearchManager<AccountRequestAttributes>", True, "deleteDocuments", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["teammates.storage.search", "SearchManager<AccountRequestAttributes>", True, "getBasicQuery", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["teammates.storage.search", "SearchManager<InstructorAttributes>", True, "getBasicQuery", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["teammates.storage.search", "SearchManager<StudentAttributes>", True, "getBasicQuery", "(String)", "", "Parameter[0]", "remote", "manual"]

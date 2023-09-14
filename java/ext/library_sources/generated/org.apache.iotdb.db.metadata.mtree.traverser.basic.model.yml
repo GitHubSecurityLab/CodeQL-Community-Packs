@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.iotdb.db.metadata.mtree.traverser.basic", "MNodeTraverser<Void,IConfigMNode>", True, "setTargetLevel", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.iotdb.db.metadata.mtree.traverser.basic", "EntityTraverser<Void,IMemMNode>", True, "setSchemaTemplateFilter", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.iotdb.db.metadata.mtree.traverser.basic", "EntityTraverser<Void,ICachedMNode>", True, "setSchemaTemplateFilter", "(int)", "", "Parameter[0]", "remote", "manual"]

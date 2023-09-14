@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.trimou", "Mustache", True, "render", "(Appendable,Object)", "", "Parameter[1]", "remote", "manual"]

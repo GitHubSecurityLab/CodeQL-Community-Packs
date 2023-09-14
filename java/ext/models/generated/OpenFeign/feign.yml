@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["feign", "Client$Default", true, "getConnection", "(URL)", "", "Argument[0]", "open-url", "generated"]
+
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sourceModel
+    data:
+      - ["feign.codec", "Decoder", true, "decode", "(Response,Type)", "", "ReturnValue", "remote", "generated"]
+      - ["feign.codec", "ErrorDecoder", true, "decode", "(String,Response)", "", "ReturnValue", "remote", "generated"]
+      - ["feign", "InvocationContext", true, "proceed", "()", "", "ReturnValue", "remote", "generated"]
+      - ["feign", "InvocationHandlerFactory$MethodHandler", true, "invoke", "(Object[])", "", "ReturnValue", "remote", "generated"]
+      - ["feign", "Response$Body", true, "asInputStream", "()", "", "ReturnValue", "remote", "generated"]
+      - ["feign", "Response$Body", true, "asReader", "()", "", "ReturnValue", "remote", "generated"]
+      - ["feign", "Response$Body", true, "asReader", "(Charset)", "", "ReturnValue", "remote", "generated"]
+      - ["feign", "ResponseHandler", true, "handleResponse", "(String,Response,Type,long)", "", "ReturnValue", "remote", "generated"]
+

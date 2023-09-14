@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alipay.sofa.jraft.entity", "PeerId", True, "parsePeer", "(String)", "", "Parameter[0]", "remote", "manual"]

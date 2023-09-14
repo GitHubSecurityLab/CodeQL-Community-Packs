@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.metrics2.lib", "Interns$CacheWith2Keys<String,String,MetricsInfo>", True, "add", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.metrics2.lib", "Interns$CacheWith2Keys<MetricsInfo,String,MetricsTag>", True, "add", "(MetricsInfo,String)", "", "Parameter[1]", "remote", "manual"]

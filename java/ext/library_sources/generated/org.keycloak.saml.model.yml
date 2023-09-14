@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.keycloak.saml", "BaseSAML2BindingBuilder<JaxrsSAML2BindingBuilder>", True, "signWith", "(String,PrivateKey,PublicKey,X509Certificate)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.saml", "BaseSAML2BindingBuilder<JaxrsSAML2BindingBuilder>", True, "signWith", "(String,PrivateKey,PublicKey,X509Certificate)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.keycloak.saml", "BaseSAML2BindingBuilder<JaxrsSAML2BindingBuilder>", True, "signWith", "(String,PrivateKey,PublicKey,X509Certificate)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.keycloak.saml", "BaseSAML2BindingBuilder<JaxrsSAML2BindingBuilder>", True, "signWith", "(String,PrivateKey,PublicKey,X509Certificate)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.keycloak.saml", "SignatureAlgorithm", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.saml", "BaseSAML2BindingBuilder<JaxrsSAML2BindingBuilder>", True, "relayState", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.saml", "BaseSAML2BindingBuilder<>", True, "relayState", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.saml", "BaseSAML2BindingBuilder<>", True, "generateRedirectUri", "(String,String,Document)", "", "Parameter[1]", "remote", "manual"]

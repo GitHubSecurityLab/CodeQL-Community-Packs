@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.smallrye.jwt.auth.principal", "JWTParser", True, "parse", "(Object,String,JWTAuthContextInfo)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.smallrye.jwt.auth.principal", "JWTParser", True, "parse", "(Object,String)", "", "Parameter[0]", "remote", "manual"]

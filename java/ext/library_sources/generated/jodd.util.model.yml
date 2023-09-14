@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jodd.util", "StringUtil", True, "toStringArray", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["jodd.util", "Base64", True, "decode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jodd.util", "Wildcard", True, "matchPathOne", "(String,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["jodd.util", "StringUtil", True, "toString", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["jodd.util", "StringUtil", True, "splitc", "(String,char)", "", "Parameter[0]", "remote", "manual"]
+      - ["jodd.util", "StringUtil", True, "convertCharset", "(String,Charset,Charset)", "", "Parameter[0]", "remote", "manual"]
+      - ["jodd.util", "Base64", True, "decodeToString", "(String)", "", "Parameter[0]", "remote", "manual"]

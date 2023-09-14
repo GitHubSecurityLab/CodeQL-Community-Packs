@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.stringtemplate.v4", "ST", True, "add", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

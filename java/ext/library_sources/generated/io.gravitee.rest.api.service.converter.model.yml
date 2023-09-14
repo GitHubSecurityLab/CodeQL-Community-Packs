@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gravitee.rest.api.service.converter", "FlowConverter", True, "toRepositoryUpdate", "(Flow,Flow,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.rest.api.service.converter", "FlowConverter", True, "toRepository", "(Flow,FlowReferenceType,String,int)", "", "Parameter[0]", "remote", "manual"]

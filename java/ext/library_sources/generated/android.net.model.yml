@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.net", "Uri", True, "getQueryParameter", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.net", "UrlQuerySanitizer", True, "parseUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.net", "InetAddresses", True, "isNumericAddress", "(String)", "", "Parameter[0]", "remote", "manual"]

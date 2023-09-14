@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.java.source.util", "Factory<T,P>", True, "create", "(Object)", "", "Parameter[0]", "remote", "manual"]

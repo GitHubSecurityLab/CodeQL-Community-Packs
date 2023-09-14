@@ -1,0 +1,19 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.erudika.para.core", "Sysprop", True, "addProperty", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.erudika.para.core", "User", True, "setIdentifier", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core", "Address", True, "setCountry", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core", "Address", True, "setLatlng", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core", "Address", True, "setAddress", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core", "Sysprop", True, "setProperties", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core", "Tag", True, "setCount", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core", "User", True, "setEmail", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core", "Webhook", True, "setTypeFilter", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core", "Webhook", True, "setUrlEncoded", "(Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core", "Webhook", True, "setCustomPayload", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core", "User", True, "setPassword", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core", "User", True, "setPicture", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.erudika.para.core", "Webhook", True, "setCustomEvents", "(List)", "", "Parameter[0]", "remote", "manual"]

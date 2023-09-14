@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.slf4j.helpers", "MessageFormatter", False, "arrayFormat", "(String,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.slf4j.helpers", "MessageFormatter", False, "format", "(String,Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.slf4j.helpers", "MessageFormatter", False, "format", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.slf4j.helpers", "MessageFormatter", False, "arrayFormat", "(String,Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.slf4j.helpers", "MessageFormatter", False, "format", "(String,Object,Object)", "", "Parameter[2]", "remote", "manual"]

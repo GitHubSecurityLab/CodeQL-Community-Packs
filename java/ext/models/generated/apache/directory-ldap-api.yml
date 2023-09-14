@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.apache.directory.api.ldap.schema.loader", "SingleLdifSchemaLoader", true, "SingleLdifSchemaLoader", "(URL)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.directory.ldap.client.api", "LdapConnection", true, "search", "(Dn,String,SearchScope,String[])", "", "Argument[0]", "ldap", "generated"]
+      - ["org.apache.directory.ldap.client.api", "LdapConnection", true, "search", "(Dn,String,SearchScope,String[])", "", "Argument[1]", "ldap", "generated"]
+      - ["org.apache.directory.ldap.client.api", "LdapConnection", true, "search", "(Dn,String,SearchScope,String[])", "", "Argument[2]", "ldap", "generated"]
+      - ["org.apache.directory.ldap.client.api", "LdapConnection", true, "search", "(SearchRequest)", "", "Argument[0]", "ldap", "generated"]
+      - ["org.apache.directory.ldap.client.api", "LdapConnection", true, "search", "(String,String,SearchScope,String[])", "", "Argument[0]", "ldap", "generated"]
+      - ["org.apache.directory.ldap.client.api", "LdapConnection", true, "search", "(String,String,SearchScope,String[])", "", "Argument[1]", "ldap", "generated"]
+      - ["org.apache.directory.ldap.client.api", "LdapConnection", true, "search", "(String,String,SearchScope,String[])", "", "Argument[2]", "ldap", "generated"]
+      - ["org.apache.directory.ldap.client.template", "LdapConnectionOperations", true, "authenticate", "(SearchRequest,char[])", "", "Argument[0]", "ldap", "generated"]
+      - ["org.apache.directory.ldap.client.template", "LdapConnectionOperations", true, "search", "(SearchRequest,EntryMapper)", "", "Argument[0]", "ldap", "generated"]
+      - ["org.apache.directory.ldap.client.template", "LdapConnectionOperations", true, "searchFirst", "(SearchRequest,EntryMapper)", "", "Argument[0]", "ldap", "generated"]
+

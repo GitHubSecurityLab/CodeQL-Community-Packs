@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.tinkerpop.shaded.kryo", "Kryo", True, "writeClassAndObject", "(Output,Object)", "", "Parameter[1]", "remote", "manual"]

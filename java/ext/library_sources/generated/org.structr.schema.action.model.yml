@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.structr.schema.action", "Function<Object,Object>", True, "logParameterError", "(Object,Object[],String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.structr.schema.action", "Function<Object,Object>", True, "logParameterError", "(Object,Object[],boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.structr.schema.action", "Function<Object,Object>", True, "logException", "(Object,Throwable,Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.structr.schema.action", "Function<Object,Object>", True, "logException", "(Throwable,String,Object[])", "", "Parameter[2]", "remote", "manual"]
+      - ["org.structr.schema.action", "Function<Object,Object>", True, "getSandboxFileName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.structr.schema.action", "Function<Object,Object>", True, "valueEquals", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.structr.schema.action", "Function<Object,Object>", True, "encodeURL", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.structr.schema.action", "Function<Object,Object>", True, "logParameterError", "(Object,Object[],boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.structr.schema.action", "Function<Object,Object>", True, "logException", "(Object,Throwable,Object[])", "", "Parameter[2]", "remote", "manual"]

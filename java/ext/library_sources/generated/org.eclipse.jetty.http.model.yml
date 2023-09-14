@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.jetty.http", "MimeTypes", True, "getContentTypeWithoutCharset", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.http", "HttpURI", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.http", "HttpScheme", False, "is", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.http", "HttpFields", True, "put", "(HttpHeader,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.eclipse.jetty.http", "HttpCookie", True, "getCommentWithoutAttributes", "(String)", "", "Parameter[0]", "remote", "manual"]

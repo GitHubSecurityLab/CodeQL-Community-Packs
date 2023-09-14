@@ -1,0 +1,19 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.onedev.commons.utils", "StringUtils", True, "splitAndTrim", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.onedev.commons.utils", "LockUtils", True, "read", "(String,Callable)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.onedev.commons.utils", "PathUtils", True, "substituteSelfOrAncestor", "(String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.onedev.commons.utils", "PathUtils", True, "substituteSelfOrAncestor", "(String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.onedev.commons.utils", "FileUtils", True, "deleteFile", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.onedev.commons.utils", "StringUtils", True, "parseQuoteTokens", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.onedev.commons.utils", "StringUtils", True, "escape", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.onedev.commons.utils", "PathUtils", True, "normalizeDots", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.onedev.commons.utils", "PathUtils", True, "isCurrent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.onedev.commons.utils", "LockUtils", True, "write", "(String,Callable)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.onedev.commons.utils", "LockUtils", True, "getReadWriteLock", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.onedev.commons.utils", "FileUtils", True, "untar", "(InputStream,File,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.onedev.commons.utils", "FileUtils", True, "tar", "(File,Collection,Collection,OutputStream,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.onedev.commons.utils", "StringUtils", True, "join", "(Collection)", "", "Parameter[0]", "remote", "manual"]

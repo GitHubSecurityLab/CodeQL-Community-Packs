@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.github.dockerjava.api.model", "ExposedPort", True, "tcp", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api.model", "Ports$Binding", True, "bindPort", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api.model", "HostConfig", True, "withShmSize", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api.model", "ExposedPort", True, "udp", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api.model", "Capability", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

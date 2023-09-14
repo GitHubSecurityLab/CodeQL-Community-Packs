@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gravitee.repository.healthcheck.query", "AbstractQueryBuilder<AvailabilityQueryBuilder,AvailabilityQuery>", True, "api", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.healthcheck.query", "AbstractQueryBuilder<AverageResponseTimeQueryBuilder,AverageResponseTimeQuery>", True, "api", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.healthcheck.query", "AbstractQueryBuilder<LogsQueryBuilder,LogsQuery>", True, "query", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.healthcheck.query", "AbstractQueryBuilder<LogsQueryBuilder,LogsQuery>", True, "api", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.healthcheck.query", "AbstractQueryBuilder<DateHistogramQueryBuilder,DateHistogramQuery>", True, "root", "(String,String)", "", "Parameter[1]", "remote", "manual"]

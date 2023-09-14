@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.drools.mvel.expr", "MvelEvaluator<T>", True, "internalEvaluate", "(Object,VariableResolverFactory)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.drools.mvel.expr", "MvelEvaluator<Void>", True, "evaluate", "(Object)", "", "Parameter[0]", "remote", "manual"]

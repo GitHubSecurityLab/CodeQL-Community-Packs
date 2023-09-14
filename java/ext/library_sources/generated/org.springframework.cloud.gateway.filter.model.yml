@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.cloud.gateway.filter", "FilterDefinition", True, "setArgs", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.gateway.filter", "FilterDefinition", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]

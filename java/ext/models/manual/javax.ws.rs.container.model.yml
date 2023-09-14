@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["javax.ws.rs.container", "ContainerRequestContext", True, "getRequest", "", "", "ReturnValue", "remote", "manual"]

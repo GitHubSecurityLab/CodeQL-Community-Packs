@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.codelibs.fess.suggest.request.suggest", "SuggestRequestBuilder", True, "setSize", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.codelibs.fess.suggest.request.suggest", "SuggestRequestBuilder", True, "setQuery", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.codelibs.fess.suggest.request.suggest", "SuggestRequestBuilder", True, "addRole", "(String)", "", "Parameter[0]", "remote", "manual"]

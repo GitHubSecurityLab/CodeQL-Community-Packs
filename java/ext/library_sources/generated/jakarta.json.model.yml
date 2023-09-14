@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jakarta.json", "Json", False, "createParser", "(Reader)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json", "JsonBuilderFactory", True, "createArrayBuilder", "(JsonArray)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json", "Json", False, "createParser", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json", "JsonBuilderFactory", True, "createArrayBuilder", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json", "JsonBuilderFactory", True, "createObjectBuilder", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json", "JsonWriterFactory", True, "createWriter", "(OutputStream,Charset)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json", "JsonObjectBuilder", True, "add", "(String,JsonValue)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json", "JsonObject", True, "getJsonObject", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json", "JsonBuilderFactory", True, "createObjectBuilder", "(JsonObject)", "", "Parameter[0]", "remote", "manual"]

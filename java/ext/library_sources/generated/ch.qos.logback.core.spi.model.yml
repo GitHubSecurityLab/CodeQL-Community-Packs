@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["ch.qos.logback.core.spi", "AppenderAttachableImpl<ILoggingEvent>", True, "appendLoopOnAppenders", "(ILoggingEvent)", "", "Parameter[0]", "remote", "manual"]

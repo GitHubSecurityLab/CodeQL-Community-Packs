@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.openapitools.codegen.config", "CodegenConfigurator", True, "setGeneratorName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openapitools.codegen.config", "CodegenConfigurator", True, "setOutputDir", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.vertx.core.json", "JsonObject", True, "put", "(Object,String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.vertx.core.json", "JsonObject", True, "mapFrom", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core.json", "JsonObject", True, "put", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.vertx.core.json", "Json", True, "encodeToBuffer", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core.json", "Json", True, "decodeValue", "(String,Class)", "", "Parameter[0]", "remote", "manual"]

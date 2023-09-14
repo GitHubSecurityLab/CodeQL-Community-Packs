@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.openblocks.api.util", "BusinessEventPublisher", True, "publishApplicationCommonEvent", "(String,String,EventType)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.openblocks.api.util", "BusinessEventPublisher", True, "publishApplicationCommonEvent", "(String,String,EventType)", "", "Parameter[1]", "remote", "manual"]

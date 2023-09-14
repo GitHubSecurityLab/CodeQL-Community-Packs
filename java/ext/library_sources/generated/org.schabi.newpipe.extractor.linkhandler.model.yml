@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.schabi.newpipe.extractor.linkhandler", "LinkHandlerFactory", True, "getId", "(String)", "", "Parameter[0]", "remote", "manual"]

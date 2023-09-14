@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.github.pagehelper", "PageInfo<BaseTree<DeviceChannel>>", True, "setPageNum", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.pagehelper", "PageInfo<DeviceChannel>", True, "setPageNum", "(int)", "", "Parameter[0]", "remote", "manual"]

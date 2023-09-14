@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.dspace.content.dao", "DSpaceObjectLegacySupportDAO<EPerson>", True, "findByLegacyId", "(Context,int,Class)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.dspace.content.dao", "DSpaceObjectLegacySupportDAO<Bitstream>", True, "findByLegacyId", "(Context,int,Class)", "", "Parameter[1]", "remote", "manual"]

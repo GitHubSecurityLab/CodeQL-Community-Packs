@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.pentaho.platform.web.http.api.resources.utils", "FileUtils", True, "idToPath", "(String)", "", "Parameter[0]", "remote", "manual"]

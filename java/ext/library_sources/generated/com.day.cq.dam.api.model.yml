@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.day.cq.dam.api", "AssetManager", True, "createAsset", "(String,InputStream,String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.day.cq.dam.api", "Asset", True, "addRendition", "(String,InputStream,String)", "", "Parameter[1]", "remote", "manual"]

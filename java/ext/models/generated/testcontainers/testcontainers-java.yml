@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.testcontainers.containers", "SolrClientUtils", true, "createCollection", "(String,int,String,String)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.testcontainers.containers", "SolrClientUtils", true, "createCollection", "(String,int,String,String)", "", "Argument[1]", "open-url", "generated"]
+      - ["org.testcontainers.containers", "SolrClientUtils", true, "uploadConfiguration", "(String,int,String,URL,URL)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.testcontainers.containers", "SolrClientUtils", true, "uploadConfiguration", "(String,int,String,URL,URL)", "", "Argument[1]", "open-url", "generated"]
+      - ["org.testcontainers.containers", "SolrClientUtils", true, "uploadConfiguration", "(String,int,String,URL,URL)", "", "Argument[3]", "open-url", "generated"]
+      - ["org.testcontainers.containers", "SolrClientUtils", true, "uploadConfiguration", "(String,int,String,URL,URL)", "", "Argument[4]", "open-url", "generated"]
+

@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.logging", "Log", True, "debug", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.logging", "Log", True, "trace", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.logging", "Log", True, "info", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.logging", "Log", True, "error", "(Object,Throwable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.logging", "Log", True, "error", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.logging", "Log", True, "warn", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.logging", "Log", True, "warn", "(Object,Throwable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.logging", "Log", True, "debug", "(Object,Throwable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.logging", "Log", True, "fatal", "(Object)", "", "Parameter[0]", "remote", "manual"]

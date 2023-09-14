@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.xmlrpc.common", "XmlRpcHttpRequestConfigImpl", True, "setBasicUserName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.xmlrpc.common", "XmlRpcHttpRequestConfigImpl", True, "setBasicPassword", "(String)", "", "Parameter[0]", "remote", "manual"]

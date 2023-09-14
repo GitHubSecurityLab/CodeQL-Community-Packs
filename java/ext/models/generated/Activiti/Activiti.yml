@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.activiti.bpmn.converter.util", "InputStreamProvider", true, "getInputStream", "()", "", "Argument[-1]", "open-url", "generated"]
+      - ["org.activiti.engine.impl.cfg", "ProcessEngineConfigurationImpl", true, "initDataSource", "()", "", "Argument[-1]", "jndi-injection", "generated"]
+      - ["org.activiti.engine.impl.cfg", "ProcessEngineConfigurationImpl", true, "initIdGenerator", "()", "", "Argument[-1]", "jndi-injection", "generated"]
+      - ["org.activiti.engine.impl.persistence.entity", "TableDataManager", true, "getTableMetaData", "(String)", "", "Argument[0]", "sql", "generated"]
+      - ["org.activiti.engine", "ProcessEngines", true, "retry", "(String)", "", "Argument[0]", "open-url", "generated"]
+

@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.mercedesbenz.sechub.sharedkernel.validation", "AbstractValidation<ProductExecutorConfigSetup>", True, "validateNotNull", "(ValidationContext,Object,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.mercedesbenz.sechub.sharedkernel.validation", "AbstractValidation<ProductExecutorConfigSetup>", True, "validateMaxLength", "(ValidationContext,String,int,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.mercedesbenz.sechub.sharedkernel.validation", "AbstractValidation<ProductExecutorConfig>", True, "validateNotNull", "(ValidationContext,Object,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.mercedesbenz.sechub.sharedkernel.validation", "AbstractValidation<String>", True, "addErrorMessage", "(ValidationContext,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.mercedesbenz.sechub.sharedkernel.validation", "ValidationContext<?>", True, "addError", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.mercedesbenz.sechub.sharedkernel.validation", "AbstractValidation<String>", True, "validateMaxLength", "(ValidationContext,String,int,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.mercedesbenz.sechub.sharedkernel.validation", "AbstractValidation<ProductExecutorConfigSetup>", True, "validateMaxSize", "(ValidationContext,Collection,int,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.mercedesbenz.sechub.sharedkernel.validation", "AbstractValidation<ProductExecutorConfig>", True, "validateMinLength", "(ValidationContext,String,int,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.mercedesbenz.sechub.sharedkernel.validation", "AbstractValidation<FalsePositiveJobDataList>", True, "validateContainsExpectedOnly", "(ValidationContext,String,Object,Object[])", "", "Parameter[2]", "remote", "manual"]
+      - ["com.mercedesbenz.sechub.sharedkernel.validation", "AbstractValidation<FalsePositiveJobData>", True, "validateMaxLength", "(ValidationContext,String,int,String)", "", "Parameter[1]", "remote", "manual"]

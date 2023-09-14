@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.kohsuke.stapler", "StaplerResponse", True, "sendRedirect2", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.kohsuke.stapler", "HttpResponses", True, "errorWithoutStack", "(int,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.kohsuke.stapler", "HttpResponses", True, "error", "(int,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.kohsuke.stapler", "StaplerResponse", True, "serveFile", "(StaplerRequest,InputStream,long,long,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.kohsuke.stapler", "StaplerResponse", True, "sendRedirect", "(int,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.kohsuke.stapler", "StaplerRequest", True, "getView", "(Object,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.kohsuke.stapler", "HttpResponses", True, "redirectTo", "(String)", "", "Parameter[0]", "remote", "manual"]

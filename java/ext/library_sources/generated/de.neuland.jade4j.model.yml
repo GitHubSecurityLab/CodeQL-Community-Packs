@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["de.neuland.jade4j", "JadeConfiguration", True, "renderTemplate", "(JadeTemplate,Map,Writer)", "", "Parameter[1]", "remote", "manual"]

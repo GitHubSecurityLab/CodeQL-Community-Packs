@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.view", "MenuItem", True, "setEnabled", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.view", "MotionEvent", False, "obtain", "(long,long,int,float,float,int)", "", "Parameter[3]", "remote", "manual"]
+      - ["android.view", "MotionEvent", False, "obtain", "(long,long,int,float,float,int)", "", "Parameter[4]", "remote", "manual"]
+      - ["android.view", "View", True, "announceForAccessibility", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.view", "View", True, "setTag", "(Object)", "", "Parameter[0]", "remote", "manual"]

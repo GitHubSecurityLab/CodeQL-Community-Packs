@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.orientechnologies.orient.core.storage.index.sbtree.singlevalue.v1", "CellBTreeBucketSingleValueV1<K>", False, "removeLeafEntry", "(int,byte[],byte[])", "", "Parameter[1]", "remote", "manual"]

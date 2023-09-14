@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["cn.iocoder.yudao.framework.ip.core.utils", "IPUtils", True, "getArea", "(String)", "", "Parameter[0]", "remote", "manual"]

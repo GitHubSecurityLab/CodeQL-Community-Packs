@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alibaba.csp.sentinel.util.function", "Tuple2", True, "of", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.csp.sentinel.util.function", "Tuple2", True, "of", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]

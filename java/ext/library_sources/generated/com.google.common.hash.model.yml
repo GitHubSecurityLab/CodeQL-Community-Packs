@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.common.hash", "HashFunction", True, "hashString", "(CharSequence,Charset)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.hash", "HashCode", True, "fromString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.hash", "HashFunction", True, "hashUnencodedChars", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.hash", "HashFunction", True, "hashLong", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.hash", "HashFunction", True, "hashBytes", "(byte[])", "", "Parameter[0]", "remote", "manual"]

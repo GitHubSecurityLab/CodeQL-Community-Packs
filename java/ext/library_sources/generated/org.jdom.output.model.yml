@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jdom.output", "Format", True, "setEncoding", "(String)", "", "Parameter[0]", "remote", "manual"]

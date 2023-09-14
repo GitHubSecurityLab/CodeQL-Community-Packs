@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.amazonaws.services.rds.auth", "GetIamAuthTokenRequest$Builder", True, "hostname", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.rds.auth", "GetIamAuthTokenRequest$Builder", True, "port", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.rds.auth", "GetIamAuthTokenRequest$Builder", True, "userName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.rds.auth", "RdsIamAuthTokenGenerator$Builder", True, "credentials", "(AWSCredentialsProvider)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.rds.auth", "RdsIamAuthTokenGenerator$Builder", True, "region", "(String)", "", "Parameter[0]", "remote", "manual"]

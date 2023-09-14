@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.tika.parser", "Parser", True, "parse", "(InputStream,ContentHandler,Metadata,ParseContext)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.tika.parser", "ParseContext", True, "set", "(Class,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.tika.parser", "ParseContext", True, "set", "(Class,Object)", "", "Parameter[0]", "remote", "manual"]

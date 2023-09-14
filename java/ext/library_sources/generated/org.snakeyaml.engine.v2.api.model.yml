@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.snakeyaml.engine.v2.api", "Load", True, "loadAllFromInputStream", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

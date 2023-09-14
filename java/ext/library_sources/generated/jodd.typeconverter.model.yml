@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jodd.typeconverter", "TypeConverterManager", True, "convertType", "(Object,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["jodd.typeconverter", "Converter", True, "toBooleanValue", "(Object,boolean)", "", "Parameter[0]", "remote", "manual"]

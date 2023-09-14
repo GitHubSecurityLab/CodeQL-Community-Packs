@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.kyori.adventure.text.minimessage", "MiniMessage", True, "deserialize", "(String,TagResolver)", "", "Parameter[0]", "remote", "manual"]

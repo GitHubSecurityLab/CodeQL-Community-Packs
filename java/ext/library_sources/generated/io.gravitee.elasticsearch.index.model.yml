@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gravitee.elasticsearch.index", "IndexNameGenerator", True, "getIndexName", "(Type,long,long,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.elasticsearch.index", "IndexNameGenerator", True, "getIndexName", "(Type,long,long,String[])", "", "Parameter[2]", "remote", "manual"]

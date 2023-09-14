@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.wildfly.security.http", "HttpServerResponse", True, "addResponseHeader", "(String,String)", "", "Parameter[1]", "remote", "manual"]

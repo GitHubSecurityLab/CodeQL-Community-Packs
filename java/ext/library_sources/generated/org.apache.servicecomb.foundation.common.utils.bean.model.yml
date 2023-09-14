@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.servicecomb.foundation.common.utils.bean", "FloatSetter<>", True, "set", "(Object,float)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.servicecomb.foundation.common.utils.bean", "DoubleSetter<>", True, "set", "(Object,double)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.servicecomb.foundation.common.utils.bean", "CharSetter<>", True, "set", "(Object,char)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.servicecomb.foundation.common.utils.bean", "ByteSetter<>", True, "set", "(Object,byte)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.servicecomb.foundation.common.utils.bean", "BoolSetter<>", True, "set", "(Object,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.servicecomb.foundation.common.utils.bean", "ShortSetter<>", True, "set", "(Object,short)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.servicecomb.foundation.common.utils.bean", "LongSetter<>", True, "set", "(Object,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.servicecomb.foundation.common.utils.bean", "IntSetter<>", True, "set", "(Object,int)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.keycloak.models.sessions.infinispan", "InfinispanKeycloakTransaction$CacheTaskWithValue<V>", True, "setValue", "(Object)", "", "Parameter[0]", "remote", "manual"]

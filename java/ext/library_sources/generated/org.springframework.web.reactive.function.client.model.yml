@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.web.reactive.function.client", "ClientRequest$Builder", True, "header", "(String,String[])", "", "Parameter[0]", "remote", "manual"]

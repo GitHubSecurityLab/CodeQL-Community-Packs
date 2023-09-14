@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jakarta.xml.bind", "Unmarshaller", True, "unmarshal", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.xml.bind", "Unmarshaller", True, "unmarshal", "(Source,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.xml.bind", "Marshaller", True, "marshal", "(Object,OutputStream)", "", "Parameter[1]", "remote", "manual"]
+      - ["jakarta.xml.bind", "Marshaller", True, "marshal", "(Object,OutputStream)", "", "Parameter[0]", "remote", "manual"]

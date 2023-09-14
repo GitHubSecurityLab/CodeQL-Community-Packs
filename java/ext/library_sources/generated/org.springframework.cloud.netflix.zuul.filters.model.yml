@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.cloud.netflix.zuul.filters", "ZuulProperties$ZuulRoute", True, "setRetryable", "(Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.netflix.zuul.filters", "ZuulProperties$ZuulRoute", True, "setSensitiveHeaders", "(Set)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.netflix.zuul.filters", "ZuulProperties$ZuulRoute", True, "setServiceId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.netflix.zuul.filters", "ZuulProperties$ZuulRoute", True, "setStripPrefix", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.netflix.zuul.filters", "ZuulProperties$ZuulRoute", True, "setUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.netflix.zuul.filters", "ZuulProperties$ZuulRoute", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.netflix.zuul.filters", "ZuulProperties$ZuulRoute", True, "setCustomSensitiveHeaders", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.netflix.zuul.filters", "ZuulProperties$ZuulRoute", True, "setId", "(String)", "", "Parameter[0]", "remote", "manual"]

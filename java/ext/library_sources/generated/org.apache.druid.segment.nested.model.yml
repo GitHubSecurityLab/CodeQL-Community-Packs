@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.druid.segment.nested", "GlobalDictionaryEncodedFieldColumnWriter<?>", True, "addValue", "(int,Object)", "", "Parameter[1]", "remote", "manual"]

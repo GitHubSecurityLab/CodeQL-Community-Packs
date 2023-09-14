@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dataease.plugins.xpack.dept.service", "DeptXpackService", True, "update", "(XpackCreateDept)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.dept.service", "DeptXpackService", True, "unBindUsers", "(XpackDeptBindRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.dept.service", "DeptXpackService", True, "searchTree", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.dept.service", "DeptXpackService", True, "queryBinded", "(XpackDeptUserRequest,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.dept.service", "DeptXpackService", True, "nodesTreeByCondition", "(XpackGridRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.dept.service", "DeptXpackService", True, "nodesByPid", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.dept.service", "DeptXpackService", True, "move", "(XpackMoveDept)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.dept.service", "DeptXpackService", True, "bindUser", "(XpackDeptBindRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.dept.service", "DeptXpackService", True, "batchDelete", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.dept.service", "DeptXpackService", True, "add", "(XpackCreateDept)", "", "Parameter[0]", "remote", "manual"]

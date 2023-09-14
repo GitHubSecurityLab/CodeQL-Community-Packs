@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.biojava.nbio.core.sequence.io", "GenericGenbankHeaderParser<S,C>", True, "setAccession", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.biojava.nbio.core.sequence.io", "GenericGenbankHeaderParser<S,C>", True, "setComment", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.biojava.nbio.core.sequence.io", "GenericGenbankHeaderParser<S,C>", True, "setVersion", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.biojava.nbio.core.sequence.io", "GenericGenbankHeaderParser<S,C>", True, "setIdentifier", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.biojava.nbio.core.sequence.io", "GenericGenbankHeaderParser<S,C>", True, "setDescription", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["de.tum.in.www1.artemis.domain", "Lecture$LectureSearchColumn", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["de.tum.in.www1.artemis.domain", "LearningGoalRelation$RelationType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["de.tum.in.www1.artemis.domain", "LearningGoal$LearningGoalSearchColumn", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["de.tum.in.www1.artemis.domain", "GradingScale$GradingScaleSearchColumn", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["de.tum.in.www1.artemis.domain", "Exercise$ExerciseSearchColumn", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

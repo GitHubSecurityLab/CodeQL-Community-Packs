@@ -1,0 +1,24 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["us.codecraft.webmagic.downloader", "Downloader", true, "download", "(Request,Task)", "", "Argument[0]", "open-url", "generated"]
+      - ["us.codecraft.webmagic.downloader", "HttpUriRequestConverter", true, "convert", "(Request,Site,Proxy)", "", "Argument[0]", "open-url", "generated"]
+      - ["us.codecraft.webmagic.pipeline", "Pipeline", true, "process", "(ResultItems,Task)", "", "Argument[-1]", "create-file", "generated"]
+      - ["us.codecraft.webmagic.samples.pipeline", "OneFilePipeline", true, "OneFilePipeline", "(String)", "", "Argument[0]", "create-file", "generated"]
+      - ["us.codecraft.webmagic.selector", "Xpath2Selector", true, "Xpath2Selector", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["us.codecraft.webmagic.selector", "Xpath2Selector", true, "newInstance", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["us.codecraft.webmagic", "SimpleHttpClient", true, "get", "(Request)", "", "Argument[0]", "open-url", "generated"]
+      - ["us.codecraft.webmagic", "SimpleHttpClient", true, "get", "(Request,Class)", "", "Argument[0]", "open-url", "generated"]
+      - ["us.codecraft.webmagic", "SimpleHttpClient", true, "get", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["us.codecraft.webmagic", "SimpleHttpClient", true, "get", "(String,Class)", "", "Argument[0]", "open-url", "generated"]
+      - ["us.codecraft.webmagic", "Spider", true, "addRequest", "(Request[])", "", "Argument[0]", "create-file", "generated"]
+      - ["us.codecraft.webmagic", "Spider", true, "addRequest", "(Request[])", "", "Argument[0]", "read-file", "generated"]
+      - ["us.codecraft.webmagic", "Spider", true, "addUrl", "(String[])", "", "Argument[0]", "create-file", "generated"]
+      - ["us.codecraft.webmagic", "Spider", true, "addUrl", "(String[])", "", "Argument[0]", "read-file", "generated"]
+      - ["us.codecraft.webmagic", "Spider", true, "get", "(String)", "", "Argument[0]", "create-file", "generated"]
+      - ["us.codecraft.webmagic", "Spider", true, "get", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["us.codecraft.webmagic", "Spider", true, "getAll", "(Collection)", "", "Argument[0]", "create-file", "generated"]
+      - ["us.codecraft.webmagic", "Spider", true, "getAll", "(Collection)", "", "Argument[0]", "read-file", "generated"]
+

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.oro.text.regex", "Util", False, "substitute", "(PatternMatcher,Pattern,Substitution,String,int)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.apache.oro.text.regex", "PatternMatcherInput", False, "setInput", "(String)", "", "Parameter[0]", "remote", "manual"]

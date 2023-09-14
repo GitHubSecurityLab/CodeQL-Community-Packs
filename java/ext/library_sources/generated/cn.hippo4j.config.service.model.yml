@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["cn.hippo4j.config.service", "ConfigCacheService", True, "isUpdateData", "(String,String,String)", "", "Parameter[2]", "remote", "manual"]

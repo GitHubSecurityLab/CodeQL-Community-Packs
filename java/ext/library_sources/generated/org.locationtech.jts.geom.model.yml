@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.locationtech.jts.geom", "Geometry", True, "setUserData", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.locationtech.jts.geom", "Geometry", True, "buffer", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.locationtech.jts.geom", "Envelope", True, "init", "(double,double,double,double)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.locationtech.jts.geom", "Envelope", True, "init", "(double,double,double,double)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.locationtech.jts.geom", "Envelope", True, "init", "(double,double,double,double)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.locationtech.jts.geom", "Envelope", True, "init", "(double,double,double,double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.locationtech.jts.geom", "Envelope", True, "contains", "(double,double)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.locationtech.jts.geom", "Envelope", True, "contains", "(double,double)", "", "Parameter[0]", "remote", "manual"]

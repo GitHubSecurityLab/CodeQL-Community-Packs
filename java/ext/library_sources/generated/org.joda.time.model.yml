@@ -1,0 +1,32 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.joda.time", "DateTime", False, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "DateTimeField", True, "roundFloor", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "Chronology", True, "add", "(ReadablePeriod,long,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.joda.time", "DurationField", True, "add", "(long,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "DurationField", True, "add", "(long,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "Chronology", True, "add", "(ReadablePeriod,long,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "Chronology", True, "add", "(ReadablePeriod,long,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.joda.time", "LocalDate", False, "parse", "(String,DateTimeFormatter)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "DateTime", False, "plus", "(ReadablePeriod)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "DateTime", False, "parse", "(String,DateTimeFormatter)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "DateTimeZone", True, "forID", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "DateTimeField", True, "set", "(long,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "DateTime", False, "plusMillis", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "DateTime", False, "plusDays", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "DateTime", False, "plus", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "DateTime", False, "plus", "(ReadableDuration)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "DateTime", False, "minusSeconds", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "YearMonth", False, "parse", "(String,DateTimeFormatter)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "Period", False, "years", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "Period", False, "weeks", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "Period", False, "seconds", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "Period", False, "months", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "Period", False, "minutes", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "Period", False, "millis", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "Period", False, "hours", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "Period", False, "days", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time", "LocalDateTime", False, "plusMinutes", "(int)", "", "Parameter[0]", "remote", "manual"]

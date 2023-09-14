@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.nustaq.serialization", "FSTConfiguration", True, "asByteArray", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.nustaq.serialization", "FSTConfiguration", True, "asObject", "(byte[])", "", "Parameter[0]", "remote", "manual"]

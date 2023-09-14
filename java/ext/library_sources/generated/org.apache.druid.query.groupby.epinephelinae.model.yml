@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.druid.query.groupby.epinephelinae", "GroupByQueryEngineV2$GroupByEngineIterator<IntKey>", True, "getSingleValue", "(IndexedInts)", "", "Parameter[0]", "remote", "manual"]

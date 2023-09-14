@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.joda.time.format", "DateTimeFormatter", True, "parseDateTime", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time.format", "DateTimeFormatter", True, "parseLocalDateTime", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time.format", "DateTimeFormatter", True, "print", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time.format", "DateTimeFormatter", True, "parseLocalDate", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time.format", "PeriodFormatter", True, "parsePeriod", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.joda.time.format", "DateTimeFormat", True, "forPattern", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.oauth2.provider.endpoint", "TokenEndpoint", True, "getAccessToken", "(Principal,Map)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.security.oauth2.provider.endpoint", "TokenEndpoint", True, "postAccessToken", "(Principal,Map)", "", "Parameter[1]", "remote", "manual"]

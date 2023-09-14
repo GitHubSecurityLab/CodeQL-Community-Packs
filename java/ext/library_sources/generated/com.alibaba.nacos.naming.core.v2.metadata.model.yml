@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alibaba.nacos.naming.core.v2.metadata", "MetadataOperation<InstanceMetadata>", True, "setTag", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.nacos.naming.core.v2.metadata", "MetadataOperation<T>", True, "setGroup", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.nacos.naming.core.v2.metadata", "MetadataOperation<T>", True, "setNamespace", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.nacos.naming.core.v2.metadata", "MetadataOperation<T>", True, "setServiceName", "(String)", "", "Parameter[0]", "remote", "manual"]

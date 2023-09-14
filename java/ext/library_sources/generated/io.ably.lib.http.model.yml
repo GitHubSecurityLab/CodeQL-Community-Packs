@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.ably.lib.http", "HttpScheduler$AsyncRequest<T>", True, "setResult", "(Object)", "", "Parameter[0]", "remote", "manual"]

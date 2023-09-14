@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.cloudfoundry.identity.uaa.scim", "ScimCore<ScimUser>", True, "setVersion", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.cloudfoundry.identity.uaa.scim", "ScimCore<ScimGroup>", True, "setVersion", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.cloudfoundry.identity.uaa.scim", "ScimGroupMember<>", True, "setOrigin", "(String)", "", "Parameter[0]", "remote", "manual"]

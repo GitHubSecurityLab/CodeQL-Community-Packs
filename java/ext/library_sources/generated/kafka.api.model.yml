@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["kafka.api", "FetchRequestBuilder", True, "minBytes", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["kafka.api", "FetchRequestBuilder", True, "maxWait", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["kafka.api", "FetchRequestBuilder", True, "addFetch", "(String,int,long,int)", "", "Parameter[3]", "remote", "manual"]

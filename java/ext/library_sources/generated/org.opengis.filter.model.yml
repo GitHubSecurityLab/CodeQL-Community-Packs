@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opengis.filter", "FilterFactory", True, "literal", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.opengis.filter", "FilterFactory", True, "featureId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.opengis.filter", "FilterFactory", True, "like", "(Expression,String,String,String,String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.opengis.filter", "FilterFactory", True, "bbox", "(String,BoundingBox3D)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.opengis.filter", "FilterFactory", True, "sort", "(String,SortOrder)", "", "Parameter[0]", "remote", "manual"]

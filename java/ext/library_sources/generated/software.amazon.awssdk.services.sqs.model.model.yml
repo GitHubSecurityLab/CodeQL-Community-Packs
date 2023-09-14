@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["software.amazon.awssdk.services.sqs.model", "MessageAttributeValue$Builder", True, "stringValue", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["br.org.scadabr.vo.scripting", "ScriptVO<ContextualizedScriptVO>", True, "setId", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["br.org.scadabr.vo.scripting", "ScriptVO<ContextualizedScriptVO>", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["br.org.scadabr.vo.scripting", "ScriptVO<ContextualizedScriptVO>", True, "setScript", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["br.org.scadabr.vo.scripting", "ScriptVO<ContextualizedScriptVO>", True, "setXid", "(String)", "", "Parameter[0]", "remote", "manual"]

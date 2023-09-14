@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.fcrepo.storage.ocfl.cache", "Cache<String,FedoraOcflMapping>", True, "invalidate", "(String)", "", "Parameter[0]", "remote", "manual"]

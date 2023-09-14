@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["cn.binarywang.wx.miniapp.bean", "WxMaMessage", True, "fromXml", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

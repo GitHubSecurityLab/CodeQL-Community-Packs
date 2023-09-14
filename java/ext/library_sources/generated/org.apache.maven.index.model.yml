@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.maven.index", "Indexer", True, "createIndexingContext", "(String,String,File,File,String,String,boolean,boolean,List)", "", "Parameter[5]", "remote", "manual"]
+      - ["org.apache.maven.index", "Indexer", True, "createIndexingContext", "(String,String,File,File,String,String,boolean,boolean,List)", "", "Parameter[4]", "remote", "manual"]
+      - ["org.apache.maven.index", "Indexer", True, "createIndexingContext", "(String,String,File,File,String,String,boolean,boolean,List)", "", "Parameter[2]", "remote", "manual"]

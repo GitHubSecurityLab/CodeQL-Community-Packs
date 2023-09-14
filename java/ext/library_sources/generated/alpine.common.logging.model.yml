@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["alpine.common.logging", "Logger", False, "debug", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["alpine.common.logging", "Logger", False, "error", "(String)", "", "Parameter[0]", "remote", "manual"]

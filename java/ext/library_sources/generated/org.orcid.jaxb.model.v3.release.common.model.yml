@@ -1,0 +1,19 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.orcid.jaxb.model.v3.release.common", "Visibility", False, "fromValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.common", "OrcidIdBase", True, "setUri", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.common", "DisambiguatedOrganization", True, "setDisambiguatedOrganizationIdentifier", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.common", "Organization", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.common", "OrganizationAddress", True, "setCity", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.common", "OrganizationAddress", True, "setRegion", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.common", "TranslatedTitle", True, "setContent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.common", "TranslatedTitle", True, "setLanguageCode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.common", "DisambiguatedOrganization", True, "setDisambiguationSource", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.common", "OrcidIdBase", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.common", "Subtitle", True, "setContent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.common", "Amount", True, "setContent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.common", "Amount", True, "setCurrencyCode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.common", "CreditName", True, "setContent", "(String)", "", "Parameter[0]", "remote", "manual"]

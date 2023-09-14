@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.fdroid.database", "AppDaoInt$DefaultImpls", False, "getAppListItems", "(AppDaoInt,PackageManager,String,String,AppListSortOrder)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.fdroid.database", "AppDaoInt$DefaultImpls", False, "getAppListItems", "(AppDaoInt,PackageManager,String,String,AppListSortOrder)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.fdroid.database", "AppDaoInt$DefaultImpls", False, "getAppListItems", "(AppDaoInt,PackageManager,String,AppListSortOrder)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.fdroid.database", "RepositoryDaoInt$DefaultImpls", False, "insertEmptyRepo", "(RepositoryDaoInt,String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.fdroid.database", "AppPrefsDaoInt$DefaultImpls", False, "getAppPrefs", "(AppPrefsDaoInt,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.fdroid.database", "RepositoryDaoInt$DefaultImpls", False, "insertEmptyRepo", "(RepositoryDaoInt,String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.fdroid.database", "RepositoryDaoInt$DefaultImpls", False, "insertEmptyRepo", "(RepositoryDaoInt,String,String,String)", "", "Parameter[3]", "remote", "manual"]

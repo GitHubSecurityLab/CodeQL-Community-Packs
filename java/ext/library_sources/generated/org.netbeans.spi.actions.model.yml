@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.spi.actions", "ContextAction<T>", True, "change", "(Collection,Action)", "", "Parameter[1]", "remote", "manual"]

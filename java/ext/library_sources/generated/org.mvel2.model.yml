@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.mvel2", "MVEL", True, "executeExpression", "(Object,Object,VariableResolverFactory)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.mvel2", "MVEL", True, "executeDebugger", "(CompiledExpression,Object,VariableResolverFactory)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.mvel2", "MVEL", True, "eval", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

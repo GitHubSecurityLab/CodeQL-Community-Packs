@@ -1,0 +1,19 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.lang3.builder", "EqualsBuilder", True, "append", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.builder", "CompareToBuilder", True, "append", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.builder", "EqualsBuilder", True, "append", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.lang3.builder", "CompareToBuilder", True, "append", "(long,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.lang3.builder", "ToStringBuilder", True, "reflectionToString", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.builder", "HashCodeBuilder", True, "append", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.builder", "EqualsBuilder", True, "append", "(int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.builder", "EqualsBuilder", True, "append", "(boolean,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.builder", "DiffBuilder<?>", True, "append", "(String,Object,Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.commons.lang3.builder", "DiffBuilder<?>", True, "append", "(String,Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.lang3.builder", "DiffBuilder<?>", True, "append", "(String,Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.builder", "CompareToBuilder", True, "append", "(long,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.builder", "CompareToBuilder", True, "append", "(int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.builder", "CompareToBuilder", True, "append", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]

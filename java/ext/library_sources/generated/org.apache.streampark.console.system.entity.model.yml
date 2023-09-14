@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.streampark.console.system.entity", "User", True, "setPassword", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.streampark.console.system.entity", "User", True, "setNickName", "(String)", "", "Parameter[0]", "remote", "manual"]

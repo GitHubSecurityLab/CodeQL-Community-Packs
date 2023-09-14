@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jasig.cas.client.util", "CommonUtils", False, "urlEncode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jasig.cas.client.util", "CommonUtils", False, "constructRedirectUrl", "(String,String,String,boolean,boolean,String)", "", "Parameter[2]", "remote", "manual"]

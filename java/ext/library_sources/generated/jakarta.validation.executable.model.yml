@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jakarta.validation.executable", "ExecutableValidator", True, "validateParameters", "(Object,Method,Object[],Class[])", "", "Parameter[2]", "remote", "manual"]

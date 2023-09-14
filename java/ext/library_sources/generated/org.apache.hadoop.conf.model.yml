@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.conf", "Configuration", True, "set", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.conf", "Configuration", True, "setInt", "(String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.conf", "Configuration", True, "setFloat", "(String,float)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.conf", "Configuration", True, "setLong", "(String,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.conf", "Configuration", True, "set", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.conf", "Configuration", True, "writeXml", "(String,Writer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.conf", "Configuration", True, "dumpConfiguration", "(Configuration,String,Writer)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.conf", "Configuration", True, "addResource", "(URL)", "", "Parameter[0]", "remote", "manual"]

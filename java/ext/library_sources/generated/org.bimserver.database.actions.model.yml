@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.bimserver.database.actions", "BimDatabaseAction<Set<Revision>>", True, "getProjectByPoid", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.bimserver.database.actions", "BimDatabaseAction<List<Checkout>>", True, "getProjectByPoid", "(long)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.nimbusds.jose.jwk.gen", "JWKGenerator<RSAKey>", True, "keyID", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.nimbusds.jose.jwk.gen", "JWKGenerator<OctetSequenceKey>", True, "keyID", "(String)", "", "Parameter[0]", "remote", "manual"]

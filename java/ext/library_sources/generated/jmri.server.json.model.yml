@@ -1,0 +1,30 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jmri.server.json", "JsonNamedBeanHttpService<Block>", True, "deleteBean", "(Block,String,String,JsonNode,JsonRequest)", "", "Parameter[2]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNamedBeanHttpService<Block>", True, "deleteBean", "(Block,String,String,JsonNode,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNamedBeanHttpService<IdTag>", True, "deleteBean", "(IdTag,String,String,JsonNode,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNamedBeanHttpService<IdTag>", True, "deleteBean", "(IdTag,String,String,JsonNode,JsonRequest)", "", "Parameter[2]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNonProvidedNamedBeanHttpService<Turnout>", True, "getNamedBean", "(Turnout,String,String,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNonProvidedNamedBeanHttpService<T>", True, "doGetList", "(Manager,String,JsonNode,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNonProvidedNamedBeanHttpService<SignalMast>", True, "getNamedBean", "(SignalMast,String,String,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNonProvidedNamedBeanHttpService<SignalHead>", True, "getNamedBean", "(SignalHead,String,String,JsonRequest)", "", "Parameter[2]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNonProvidedNamedBeanHttpService<SignalHead>", True, "getNamedBean", "(SignalHead,String,String,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNonProvidedNamedBeanHttpService<Sensor>", True, "getNamedBean", "(Sensor,String,String,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNonProvidedNamedBeanHttpService<Route>", True, "getNamedBean", "(Route,String,String,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNonProvidedNamedBeanHttpService<Reporter>", True, "getNamedBean", "(Reporter,String,String,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNonProvidedNamedBeanHttpService<OBlock>", True, "getNamedBean", "(OBlock,String,String,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNonProvidedNamedBeanHttpService<Light>", True, "getNamedBean", "(Light,String,String,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNonProvidedNamedBeanHttpService<LayoutBlock>", True, "getNamedBean", "(LayoutBlock,String,String,JsonRequest)", "", "Parameter[2]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNonProvidedNamedBeanHttpService<LayoutBlock>", True, "getNamedBean", "(LayoutBlock,String,String,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNonProvidedNamedBeanHttpService<IdTag>", True, "getNamedBean", "(IdTag,String,String,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNamedBeanHttpService<Turnout>", True, "deleteBean", "(Turnout,String,String,JsonNode,JsonRequest)", "", "Parameter[2]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNamedBeanHttpService<Turnout>", True, "deleteBean", "(Turnout,String,String,JsonNode,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNamedBeanHttpService<Sensor>", True, "deleteBean", "(Sensor,String,String,JsonNode,JsonRequest)", "", "Parameter[2]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNamedBeanHttpService<Sensor>", True, "deleteBean", "(Sensor,String,String,JsonNode,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNamedBeanHttpService<Reporter>", True, "deleteBean", "(Reporter,String,String,JsonNode,JsonRequest)", "", "Parameter[2]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNamedBeanHttpService<Reporter>", True, "deleteBean", "(Reporter,String,String,JsonNode,JsonRequest)", "", "Parameter[1]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNamedBeanHttpService<OBlock>", True, "deleteBean", "(OBlock,String,String,JsonNode,JsonRequest)", "", "Parameter[2]", "remote", "manual"]
+      - ["jmri.server.json", "JsonNamedBeanHttpService<OBlock>", True, "deleteBean", "(OBlock,String,String,JsonNode,JsonRequest)", "", "Parameter[1]", "remote", "manual"]

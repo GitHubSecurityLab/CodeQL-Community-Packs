@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hbase.thirdparty.com.google.protobuf", "UnsafeByteOperations", False, "unsafeWrap", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hbase.thirdparty.com.google.protobuf", "ByteString", True, "copyFromUtf8", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hbase.thirdparty.com.google.protobuf", "Parser<Filter>", True, "parseFrom", "(byte[])", "", "Parameter[0]", "remote", "manual"]

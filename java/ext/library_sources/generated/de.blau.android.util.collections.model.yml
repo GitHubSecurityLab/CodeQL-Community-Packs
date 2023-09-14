@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["de.blau.android.util.collections", "MRUList<String>", True, "push", "(String)", "", "Parameter[0]", "remote", "manual"]

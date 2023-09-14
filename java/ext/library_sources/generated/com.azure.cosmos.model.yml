@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.azure.cosmos", "CosmosContainer", True, "replaceItem", "(Object,String,PartitionKey,CosmosItemRequestOptions)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.azure.cosmos", "CosmosContainer", True, "queryItems", "(String,CosmosQueryRequestOptions,Class)", "", "Parameter[0]", "remote", "manual"]

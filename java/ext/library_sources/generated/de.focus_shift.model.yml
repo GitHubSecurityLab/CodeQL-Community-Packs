@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["de.focus_shift", "HolidayManager", True, "getHolidays", "(LocalDate,LocalDate,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["de.focus_shift", "HolidayManager", True, "getHolidays", "(LocalDate,LocalDate,String[])", "", "Parameter[0]", "remote", "manual"]

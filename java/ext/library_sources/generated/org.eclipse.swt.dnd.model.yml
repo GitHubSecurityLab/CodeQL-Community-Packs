@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.swt.dnd", "Clipboard", True, "setContents", "(Object[],Transfer[])", "", "Parameter[0]", "remote", "manual"]

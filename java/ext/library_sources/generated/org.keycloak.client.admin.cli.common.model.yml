@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.keycloak.client.admin.cli.common", "CmdStdinContext<JsonNode>", True, "setResult", "(JsonNode)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.client.admin.cli.common", "CmdStdinContext<JsonNode>", True, "setContent", "(String)", "", "Parameter[0]", "remote", "manual"]

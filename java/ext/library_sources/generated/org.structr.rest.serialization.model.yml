@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.structr.rest.serialization", "StreamingWriter$Serializer<Iterable<>>", True, "serializeRoot", "(RestWriter,Object,String,int,Set)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.structr.rest.serialization", "GraphQLWriter$Serializer<GraphObject>", True, "getPredicate", "(GraphQLQuery,String,PropertyKey)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.structr.rest.serialization", "GraphQLWriter$Serializer<>", True, "serializeRoot", "(RestWriter,PropertyKey,Object,GraphQLQuery,String)", "", "Parameter[4]", "remote", "manual"]
+      - ["org.structr.rest.serialization", "GraphQLWriter$Serializer<>", True, "serializeRoot", "(RestWriter,PropertyKey,Object,GraphQLQuery,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.structr.rest.serialization", "GraphQLWriter$Serializer<GraphObject>", True, "serializeProperty", "(RestWriter,PropertyKey,Object,GraphQLQuery,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.structr.rest.serialization", "StreamingWriter$Serializer<Map<String,Object>>", True, "serializeRoot", "(RestWriter,Object,String,int,Set)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.structr.rest.serialization", "StreamingWriter$Serializer<Iterable<>>", True, "serializeRoot", "(RestWriter,Object,String,int,Set)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.structr.rest.serialization", "GraphQLWriter$Serializer<GraphObject>", True, "serializeProperty", "(RestWriter,PropertyKey,Object,GraphQLQuery,String)", "", "Parameter[4]", "remote", "manual"]
+      - ["org.structr.rest.serialization", "StreamingWriter$Serializer<GraphObject>", True, "serializeRoot", "(RestWriter,Object,String,int,Set)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.structr.rest.serialization", "StreamingWriter$Serializer<GraphObject>", True, "serializeProperty", "(RestWriter,PropertyKey,Object,String,int,Set)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.structr.rest.serialization", "GraphQLWriter$Serializer<PropertyMap>", True, "serializeProperty", "(RestWriter,PropertyKey,Object,GraphQLQuery,String)", "", "Parameter[4]", "remote", "manual"]
+      - ["org.structr.rest.serialization", "GraphQLWriter$Serializer<Iterable<>>", True, "serializeRoot", "(RestWriter,PropertyKey,Object,GraphQLQuery,String)", "", "Parameter[2]", "remote", "manual"]

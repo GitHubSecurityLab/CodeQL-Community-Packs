@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.ruoyi.common.utils.poi", "ExcelUtil<SysUser>", True, "importExcel", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ruoyi.common.utils.poi", "ExcelUtil<UserOperateModel>", True, "importExcel", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

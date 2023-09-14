@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.jetty.util", "TypeUtil", True, "convertHexDigit", "(byte)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.util", "MultiMap<String>", True, "getValues", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.util", "URIUtil", True, "encodePath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.util", "URIUtil", True, "canonicalPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.util", "URIUtil", True, "addPaths", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.eclipse.jetty.util", "URIUtil", True, "addPaths", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.util", "StringUtil", True, "isBlank", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.util", "StringUtil", True, "csvSplit", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.util", "MultiMap<String>", True, "getValue", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.util", "MultiMap<String>", True, "addValues", "(String,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.eclipse.jetty.util", "IncludeExcludeSet<Entry,String>", True, "isIncludedAndNotExcluded", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.util", "Fields", True, "add", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.eclipse.jetty.util", "BufferUtil", True, "append", "(ByteBuffer,byte[],int,int)", "", "Parameter[1]", "remote", "manual"]

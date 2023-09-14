@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alipay.easysdk.payment.wap", "Client", True, "pay", "(String,String,String,String,String)", "", "Parameter[4]", "remote", "manual"]

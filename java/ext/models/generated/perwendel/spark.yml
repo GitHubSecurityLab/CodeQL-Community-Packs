@@ -1,0 +1,52 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["spark.resource", "InputStreamResource", true, "getInputStream", "()", "", "Argument[-1]", "read-file", "generated"]
+      - ["spark.resource", "Resource", true, "exists", "()", "", "Argument[-1]", "read-file", "generated"]
+      - ["spark.resource", "Resource", true, "getURL", "()", "", "Argument[-1]", "read-file", "generated"]
+      - ["spark", "Response", true, "cookie", "(String,String)", "", "Argument[0]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "cookie", "(String,String)", "", "Argument[1]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "cookie", "(String,String,String,String,int,boolean,boolean)", "", "Argument[2]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "cookie", "(String,String,String,String,int,boolean,boolean)", "", "Argument[3]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "cookie", "(String,String,String,int,boolean)", "", "Argument[1]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "cookie", "(String,String,String,int,boolean)", "", "Argument[2]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "cookie", "(String,String,String,int,boolean,boolean)", "", "Argument[1]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "cookie", "(String,String,String,int,boolean,boolean)", "", "Argument[2]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "cookie", "(String,String,int)", "", "Argument[0]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "cookie", "(String,String,int)", "", "Argument[1]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "cookie", "(String,String,int,boolean)", "", "Argument[0]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "cookie", "(String,String,int,boolean)", "", "Argument[1]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "cookie", "(String,String,int,boolean,boolean)", "", "Argument[0]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "cookie", "(String,String,int,boolean,boolean)", "", "Argument[1]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "header", "(String,String)", "", "Argument[0]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "header", "(String,String)", "", "Argument[1]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "redirect", "(String,int)", "", "Argument[0]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "removeCookie", "(String)", "", "Argument[0]", "header-splitting", "generated"]
+      - ["spark", "Response", true, "removeCookie", "(String,String)", "", "Argument[1]", "header-splitting", "generated"]
+
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sourceModel
+    data:
+      - ["spark", "Request", true, "body", "()", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "bodyAsBytes", "()", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "cookie", "(String)", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "cookies", "()", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "headers", "()", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "headers", "(String)", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "host", "()", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "pathInfo", "()", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "queryMap", "(String)", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "queryParamOrDefault", "(String,String)", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "queryParams", "()", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "queryParams", "(String)", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "queryParamsSafe", "(String)", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "queryParamsValues", "(String)", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "queryString", "()", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "uri", "()", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "url", "()", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Request", true, "userAgent", "()", "", "ReturnValue", "remote", "generated"]
+      - ["spark", "Route", true, "handle", "(Request,Response)", "", "ReturnValue", "remote", "generated"]
+

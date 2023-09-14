@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.common.math", "LongMath", False, "pow", "(long,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.math", "LongMath", False, "divide", "(long,long,RoundingMode)", "", "Parameter[1]", "remote", "manual"]

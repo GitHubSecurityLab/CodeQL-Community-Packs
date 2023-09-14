@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["kafka.zk", "KafkaZkClient", True, "apply", "(String,boolean,int,int,int,Time,String,String,Option,Option)", "", "Parameter[7]", "remote", "manual"]
+      - ["kafka.zk", "KafkaZkClient", True, "apply", "(String,boolean,int,int,int,Time,String,String,Option,Option)", "", "Parameter[6]", "remote", "manual"]

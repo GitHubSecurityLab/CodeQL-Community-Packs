@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.olap4j.impl", "IdentifierParser", True, "parseIdentifier", "(String)", "", "Parameter[0]", "remote", "manual"]

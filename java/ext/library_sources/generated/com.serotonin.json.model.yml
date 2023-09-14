@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.serotonin.json", "JsonWriter", True, "write", "(Object)", "", "Parameter[0]", "remote", "manual"]

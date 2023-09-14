@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.keycloak.models.map.storage.tree", "TreeStorageNodeInstance<V>", True, "isPrimarySourceFor", "(Enum,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.keycloak.models.map.storage.tree", "TreeStorageNodeInstance<V>", True, "isCacheFor", "(EntityField,Object)", "", "Parameter[1]", "remote", "manual"]

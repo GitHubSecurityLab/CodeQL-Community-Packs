@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jitsi.util.xml", "XMLUtils", True, "createDocument", "(String)", "", "Parameter[0]", "remote", "manual"]

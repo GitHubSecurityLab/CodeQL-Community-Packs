@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.orientechnologies.orient.core.storage.index.hashindex.local.v2", "HashIndexBucketV2<K,V>", False, "find", "(Object,long,OEncryption,OBinarySerializer,OBinarySerializer)", "", "Parameter[0]", "remote", "manual"]

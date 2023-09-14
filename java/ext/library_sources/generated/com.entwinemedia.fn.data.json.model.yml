@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.entwinemedia.fn.data.json", "Jsons", False, "v", "(Object,JValue)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.entwinemedia.fn.data.json", "Jsons", False, "v", "(Number)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.entwinemedia.fn.data.json", "Jsons", False, "v", "(String)", "", "Parameter[0]", "remote", "manual"]

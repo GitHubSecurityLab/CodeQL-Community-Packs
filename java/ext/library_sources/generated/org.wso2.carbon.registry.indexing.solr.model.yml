@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.wso2.carbon.registry.indexing.solr", "SolrClient", True, "query", "(String,int,Map)", "", "Parameter[0]", "remote", "manual"]

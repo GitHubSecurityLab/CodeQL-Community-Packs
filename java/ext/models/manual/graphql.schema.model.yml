@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      # https://www.graphql-java.com/documentation/data-fetching/
+      - ["graphql.schema", "DataFetchingEnvironment", True, "getArgument", "", "", "ReturnValue", "remote", "manual"]
+      - ["graphql.schema", "DataFetchingEnvironment", True, "getArguments", "", "", "ReturnValue", "remote", "manual"]
+      - ["graphql.schema", "DataFetchingEnvironment", True, "getContext", "", "", "ReturnValue", "remote", "manual"]
+      - ["graphql.schema", "DataFetchingEnvironment", True, "getLocalContext", "", "", "ReturnValue", "remote", "manual"]
+      - ["graphql.schema", "DataFetchingEnvironment", True, "getSource", "", "", "ReturnValue", "remote", "manual"]
+      - ["graphql.schema", "DataFetchingEnvironment", True, "getVariables", "", "", "ReturnValue", "remote", "manual"]
+      - ["graphql.schema", "DataFetchingEnvironment", True, "getRoot", "", "", "ReturnValue", "remote", "manual"]
+

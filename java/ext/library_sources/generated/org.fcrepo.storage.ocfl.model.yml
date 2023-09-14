@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.fcrepo.storage.ocfl", "ResourceHeaders$Builder", True, "withParent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.fcrepo.storage.ocfl", "ResourceHeaders$Builder", True, "withId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.fcrepo.storage.ocfl", "ResourceHeaders$Builder", True, "withArchivalGroupId", "(String)", "", "Parameter[0]", "remote", "manual"]

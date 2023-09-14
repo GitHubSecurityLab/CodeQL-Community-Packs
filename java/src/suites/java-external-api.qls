@@ -1,0 +1,10 @@
+- description: "GitHub's Community Packs Java External API Suite"
+
+- import: codeql-suites/java-security-extended.qls
+  from: codeql/java-queries
+
+- queries: '.'
+  from: codeql/java-queries
+- include:
+    id:
+      - java/untrusted-data-to-external-api

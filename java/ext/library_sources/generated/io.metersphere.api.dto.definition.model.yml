@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.metersphere.api.dto.definition", "ApiTestCaseRequest", True, "setPlanId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.api.dto.definition", "ApiTestCaseRequest", True, "setId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.api.dto.definition", "ApiDefinitionRequest", True, "setProtocol", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.api.dto.definition", "ApiDefinitionRequest", True, "setId", "(String)", "", "Parameter[0]", "remote", "manual"]

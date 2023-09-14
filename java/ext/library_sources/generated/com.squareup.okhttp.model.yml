@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.squareup.okhttp", "FormEncodingBuilder", False, "add", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.squareup.okhttp", "Request$Builder", True, "addHeader", "(String,String)", "", "Parameter[1]", "remote", "manual"]

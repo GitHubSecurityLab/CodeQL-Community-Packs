@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.apicurio.datamodels.openapi.v3.models", "Oas30Document", True, "addServer", "(String,String)", "", "Parameter[0]", "remote", "manual"]

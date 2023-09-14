@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.streampipes.resource.management", "AbstractPipelineElementResourceManager<IDataStreamStorage,SpDataStream,SpDataStream>", True, "delete", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.streampipes.resource.management", "AbstractPipelineElementResourceManager<IDataSinkStorage,DataSinkDescription,DataSinkInvocation>", True, "delete", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.streampipes.resource.management", "AbstractPipelineElementResourceManager<IDataProcessorStorage,DataProcessorDescription,DataProcessorInvocation>", True, "delete", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.streampipes.resource.management", "AbstractPipelineElementResourceManager<IDataStreamStorage,SpDataStream,SpDataStream>", True, "findAsInvocation", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.streampipes.resource.management", "AbstractPipelineElementResourceManager<IDataStreamStorage,SpDataStream,SpDataStream>", True, "find", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.streampipes.resource.management", "AbstractPipelineElementResourceManager<IDataSinkStorage,DataSinkDescription,DataSinkInvocation>", True, "findAsInvocation", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.streampipes.resource.management", "AbstractPipelineElementResourceManager<IDataProcessorStorage,DataProcessorDescription,DataProcessorInvocation>", True, "findAsInvocation", "(String)", "", "Parameter[0]", "remote", "manual"]

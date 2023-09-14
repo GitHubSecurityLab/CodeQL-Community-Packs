@@ -1,0 +1,26 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.testng.internal.protocols", "Processor", true, "process", "(Input,URL)", "", "Argument[1]", "open-url", "generated"]
+      - ["org.testng.internal", "Utils", false, "openWriter", "(String,String)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.testng.internal", "Utils", false, "openWriter", "(String,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.testng.internal", "Utils", false, "writeFile", "(String,String,String)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.testng.internal", "Utils", false, "writeFile", "(String,String,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.testng.internal", "Utils", false, "writeResourceToFile", "(File,String,Class)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.testng.internal", "Utils", false, "writeUtf8File", "(String,String,String)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.testng.internal", "Utils", false, "writeUtf8File", "(String,String,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.testng.internal", "Utils", false, "writeUtf8File", "(String,String,XMLStringBuffer,String)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.testng.internal", "Utils", false, "writeUtf8File", "(String,String,XMLStringBuffer,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.testng.internal", "Yaml", false, "parse", "(String,InputStream,boolean)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.testng.reporters", "HtmlHelper", true, "generateStylesheet", "(String)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.testng.reporters", "IBuffer", true, "append", "(CharSequence)", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.testng.reporters", "IBuffer", true, "toWriter", "(Writer)", "", "Argument[-1]", "read-file", "generated"]
+      - ["org.testng.reporters", "TestHTMLReporter", true, "generateLog", "(ITestContext,String,String,Collection,Collection,Collection,Collection,Collection,Collection)", "", "Argument[2]", "create-file", "generated"]
+      - ["org.testng.xml.internal", "Parser", true, "parse", "()", "", "Argument[-1]", "read-file", "generated"]
+      - ["org.testng.xml.internal", "Parser", true, "parse", "(String,IPostProcessor)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.testng.xml", "LaunchSuite", true, "save", "(File)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.testng", "IReporter", true, "generateReport", "(List,List,String)", "", "Argument[2]", "create-file", "generated"]
+      - ["org.testng", "TestNG", true, "initializeSuitesAndJarFile", "()", "", "Argument[-1]", "read-file", "generated"]
+

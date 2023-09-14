@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.submarine.server.utils.response", "JsonResponse$Builder<TeamEntity>", True, "result", "(TeamEntity)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.submarine.server.utils.response", "JsonResponse$Builder<SysUserEntity>", True, "result", "(SysUserEntity)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.submarine.server.utils.response", "JsonResponse$Builder<SysDeptEntity>", True, "result", "(SysDeptEntity)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.submarine.server.utils.response", "JsonResponse$Builder<ProjectEntity>", True, "result", "(ProjectEntity)", "", "Parameter[0]", "remote", "manual"]

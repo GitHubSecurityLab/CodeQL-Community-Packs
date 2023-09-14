@@ -1,0 +1,27 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jmri", "Manager<Turnout>", True, "validateIntegerSystemNameFormat", "(String,int,int,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Light>", True, "validateIntegerSystemNameFormat", "(String,int,int,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Sensor>", True, "validateIntegerSystemNameFormat", "(String,int,int,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Turnout>", True, "validateSystemNameFormatOnlyNumeric", "(String,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Sensor>", True, "validateTrimmedMin1NumberSystemNameFormat", "(String,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<?>", True, "validateSystemNamePrefix", "(String,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Reporter>", True, "validateSystemNameFormatOnlyNumeric", "(String,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Reporter>", True, "validateTrimmedMin1NumberSystemNameFormat", "(String,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Sensor>", True, "validateSystemNameFormatOnlyNumeric", "(String,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Sensor>", True, "validateSystemNamePrefix", "(String,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Sensor>", True, "validateSystemNameFormat", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Reporter>", True, "validateIntegerSystemNameFormat", "(String,int,int,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Reporter>", True, "makeSystemName", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Light>", True, "validateSystemNameFormat", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Light>", True, "validateNmraAccessorySystemNameFormat", "(String,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Light>", True, "makeSystemName", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<?>", True, "validateIntegerSystemNameFormat", "(String,int,int,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Sensor>", True, "validateTrimmedSystemNameFormat", "(String,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Turnout>", True, "makeSystemName", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Turnout>", True, "validateTrimmedMin1NumberSystemNameFormat", "(String,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Turnout>", True, "validateSystemNamePrefix", "(String,Locale)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri", "Manager<Turnout>", True, "validateNmraAccessorySystemNameFormat", "(String,Locale)", "", "Parameter[0]", "remote", "manual"]

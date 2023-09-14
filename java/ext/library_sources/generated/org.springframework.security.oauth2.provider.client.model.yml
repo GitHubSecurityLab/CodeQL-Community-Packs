@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.oauth2.provider.client", "BaseClientDetails", True, "addAdditionalInformation", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

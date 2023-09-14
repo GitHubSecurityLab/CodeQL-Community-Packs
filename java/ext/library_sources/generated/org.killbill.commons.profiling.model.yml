@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.killbill.commons.profiling", "ProfilingData", True, "addStart", "(ProfilingFeatureType,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.killbill.commons.profiling", "ProfilingData", True, "addEnd", "(ProfilingFeatureType,String)", "", "Parameter[1]", "remote", "manual"]

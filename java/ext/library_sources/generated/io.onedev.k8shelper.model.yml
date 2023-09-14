@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.onedev.k8shelper", "CacheAllocationRequest", True, "fromString", "(String)", "", "Parameter[0]", "remote", "manual"]

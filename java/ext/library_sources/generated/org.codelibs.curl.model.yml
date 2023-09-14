@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.codelibs.curl", "CurlRequest", True, "param", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.codelibs.curl", "CurlRequest", True, "param", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.codelibs.curl", "CurlRequest", True, "header", "(String,String)", "", "Parameter[1]", "remote", "manual"]

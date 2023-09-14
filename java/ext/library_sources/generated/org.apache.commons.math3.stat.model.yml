@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.math3.stat", "StatUtils", False, "variance", "(double[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.stat", "StatUtils", False, "sumSq", "(double[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.stat", "StatUtils", False, "normalize", "(double[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.stat", "StatUtils", False, "mode", "(double[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.stat", "StatUtils", False, "mean", "(double[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.stat", "Frequency", True, "addValue", "(long)", "", "Parameter[0]", "remote", "manual"]

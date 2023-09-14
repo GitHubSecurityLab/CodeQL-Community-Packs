@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["tech.allegro.schema.json2avro.converter", "JsonAvroConverter", True, "convertToAvro", "(byte[],Schema)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["it.unimi.dsi.fastutil.longs", "Long2IntFunction", True, "get", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.unimi.dsi.fastutil.longs", "Long2ObjectMap<Aggregator[]>", True, "computeIfAbsent", "(long,Long2ObjectFunction)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.unimi.dsi.fastutil.longs", "Long2ObjectLinkedOpenHashMap<ExprEval<>>", True, "putAndMoveToFirst", "(long,ExprEval)", "", "Parameter[0]", "remote", "manual"]

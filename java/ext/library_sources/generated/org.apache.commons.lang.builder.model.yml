@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.lang.builder", "ToStringBuilder", True, "append", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.lang.builder", "EqualsBuilder", True, "append", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.lang.builder", "HashCodeBuilder", True, "append", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang.builder", "ReflectionToStringBuilder", True, "toString", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang.builder", "ToStringBuilder", True, "append", "(String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.lang.builder", "EqualsBuilder", True, "append", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]

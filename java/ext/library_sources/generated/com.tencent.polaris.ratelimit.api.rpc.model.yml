@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.tencent.polaris.ratelimit.api.rpc", "QuotaRequest", True, "setMethod", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.tencent.polaris.ratelimit.api.rpc", "QuotaRequest", True, "setLabels", "(Map)", "", "Parameter[0]", "remote", "manual"]

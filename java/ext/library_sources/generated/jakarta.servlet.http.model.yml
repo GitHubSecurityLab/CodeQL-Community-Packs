@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jakarta.servlet.http", "HttpSession", True, "getAttribute", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.servlet.http", "HttpSession", True, "setAttribute", "(String,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.servlet.http", "HttpSession", True, "removeAttribute", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.servlet.http", "HttpServletResponse", True, "setHeader", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["jakarta.servlet.http", "HttpServletResponse", True, "setHeader", "(Object,String,Object,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["jakarta.servlet.http", "HttpServletResponse", True, "addHeader", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["jakarta.servlet.http", "HttpServletResponse", True, "addHeader", "(Object,String,Object,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["jakarta.servlet.http", "HttpServletRequest", True, "getHeaders", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.servlet.http", "Cookie", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.servlet.http", "Cookie", True, "setDomain", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.servlet.http", "HttpSession", True, "setAttribute", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

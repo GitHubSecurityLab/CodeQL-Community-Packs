@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.aspectj.util", "FileUtil", True, "copyStream", "(InputStream,OutputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.aspectj.util", "FileUtil", True, "copyDir", "(File,File)", "", "Parameter[0]", "remote", "manual"]

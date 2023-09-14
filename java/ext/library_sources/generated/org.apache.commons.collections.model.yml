@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.collections", "CollectionUtils", True, "isEmpty", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.collections", "CollectionUtils", True, "isNotEmpty", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.collections", "MapUtils", True, "isEmpty", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.collections", "MapUtils", True, "isNotEmpty", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.collections", "CollectionUtils", True, "subtract", "(Collection,Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.collections", "CollectionUtils", True, "select", "(Collection,Predicate,Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.collections", "CollectionUtils", True, "get", "(Object,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.collections", "CollectionUtils", True, "exists", "(Collection,Predicate)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.collections", "CollectionUtils", True, "containsAny", "(Collection,Collection)", "", "Parameter[1]", "remote", "manual"]

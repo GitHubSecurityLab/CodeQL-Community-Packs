@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["alluxio.collections", "LockPool<String>", True, "get", "(String,LockMode)", "", "Parameter[0]", "remote", "manual"]
+      - ["alluxio.collections", "TwoKeyConcurrentMap<Long,String,Long,SortedMap<String,Long>>", True, "addInnerValue", "(Long,String,Long)", "", "Parameter[1]", "remote", "manual"]
+      - ["alluxio.collections", "TwoKeyConcurrentMap<Long,String,Long,SortedMap<String,Long>>", True, "removeInnerValue", "(Long,String)", "", "Parameter[1]", "remote", "manual"]

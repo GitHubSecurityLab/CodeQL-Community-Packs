@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.lettuce.core.api.sync", "RedisStringCommands<String,String>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.lettuce.core.api.sync", "RedisSortedSetCommands<String,String>", True, "zrangebyscore", "(String,double,double,long,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.lettuce.core.api.sync", "RedisSortedSetCommands<String,String>", True, "zrangebyscore", "(String,double,double,long,long)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.lettuce.core.api.sync", "RedisStringCommands<String,String>", True, "set", "(String,String)", "", "Parameter[1]", "remote", "manual"]

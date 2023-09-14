@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.thoughtworks.go.domain", "AccessToken", True, "isValidToken", "(String)", "", "Parameter[0]", "remote", "manual"]

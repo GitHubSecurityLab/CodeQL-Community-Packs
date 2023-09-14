@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.jms.support.destination", "DestinationResolver", True, "resolveDestinationName", "(Session,String,boolean)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.grpc.health.v1", "HealthCheckRequest$Builder", False, "setService", "(String)", "", "Parameter[0]", "remote", "manual"]

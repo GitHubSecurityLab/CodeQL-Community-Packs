@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.lib.editor.util", "PriorityListenerList<DocumentListener>", True, "remove", "(DocumentListener,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.lib.editor.util", "PriorityListenerList<DocumentListener>", True, "add", "(DocumentListener,int)", "", "Parameter[0]", "remote", "manual"]

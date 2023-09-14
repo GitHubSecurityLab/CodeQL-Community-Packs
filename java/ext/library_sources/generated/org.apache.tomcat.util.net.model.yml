@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.tomcat.util.net", "SocketWrapperBase<?>", True, "write", "(boolean,byte[],int,int)", "", "Parameter[1]", "remote", "manual"]

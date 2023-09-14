@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.mockito.internal.util.io", "IOUtil", false, "writeText", "(String,File)", "", "Argument[1]", "create-file", "generated"]
+

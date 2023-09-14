@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.undertow.websockets.core", "WebSockets", True, "sendText", "(ByteBuffer,WebSocketChannel,WebSocketCallback)", "", "Parameter[0]", "remote", "manual"]

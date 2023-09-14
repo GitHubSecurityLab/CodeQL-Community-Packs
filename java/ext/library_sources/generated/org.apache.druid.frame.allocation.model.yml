@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.druid.frame.allocation", "MemoryRange<Memory>", True, "set", "(Memory,long,long)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.druid.frame.allocation", "MemoryRange<Memory>", True, "set", "(Memory,long,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.druid.frame.allocation", "MemoryRange<Memory>", True, "set", "(Memory,long,long)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.hswebframework.web.crud.service", "ReactiveTreeSortEntityService<OrganizationEntity,String>", True, "queryIncludeChildrenTree", "(QueryParamEntity)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hswebframework.web.crud.service", "ReactiveTreeSortEntityService<OrganizationEntity,String>", True, "queryIncludeChildren", "(QueryParamEntity)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hswebframework.web.crud.service", "ReactiveCrudService<OrganizationEntity,String>", True, "query", "(Mono)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hswebframework.web.crud.service", "ReactiveCrudService<NotifyTemplateEntity,String>", True, "findById", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hswebframework.web.crud.service", "ReactiveCrudService<DeviceProductEntity,String>", True, "findById", "(String)", "", "Parameter[0]", "remote", "manual"]

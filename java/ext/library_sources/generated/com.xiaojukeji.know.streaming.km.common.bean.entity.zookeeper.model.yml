@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.xiaojukeji.know.streaming.km.common.bean.entity.zookeeper", "Znode", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]

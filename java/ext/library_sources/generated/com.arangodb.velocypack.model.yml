@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.arangodb.velocypack", "VPackParser", True, "fromJson", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.arangodb.velocypack", "VPack", True, "serialize", "(Object,SerializeOptions)", "", "Parameter[0]", "remote", "manual"]

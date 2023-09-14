@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jetlinks.core.things", "ThingMetadata", True, "getProperty", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jetlinks.core.things", "ThingMetadata", True, "getEvent", "(String)", "", "Parameter[0]", "remote", "manual"]

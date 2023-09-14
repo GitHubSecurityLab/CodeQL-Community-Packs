@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.web.util", "RedirectUrlBuilder", True, "setPathInfo", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.security.web.util", "RedirectUrlBuilder", True, "setQuery", "(String)", "", "Parameter[0]", "remote", "manual"]

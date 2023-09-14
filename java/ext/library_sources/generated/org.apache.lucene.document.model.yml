@@ -1,0 +1,30 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.lucene.document", "Document", False, "getField", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "NumericDocValuesField", True, "newSlowRangeQuery", "(String,long,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "SortedSetDocValuesField", True, "newSlowRangeQuery", "(String,BytesRef,BytesRef,boolean,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "SortedNumericDocValuesField", True, "newSlowRangeQuery", "(String,long,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "NumericDocValuesField", True, "newSlowRangeQuery", "(String,long,long)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.lucene.document", "NumericDocValuesField", True, "newSlowRangeQuery", "(String,long,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.lucene.document", "LongPoint", False, "newSetQuery", "(String,long[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "LongPoint", False, "newRangeQuery", "(String,long,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "LongPoint", False, "newExactQuery", "(String,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "LongPoint", False, "encodeDimension", "(long,byte[],int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "IntPoint", False, "newSetQuery", "(String,int[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "IntPoint", False, "newRangeQuery", "(String,int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "IntPoint", False, "newExactQuery", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "IntPoint", False, "encodeDimension", "(int,byte[],int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "FloatPoint", False, "newSetQuery", "(String,float[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "FloatPoint", False, "newRangeQuery", "(String,float,float)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "FloatPoint", False, "newExactQuery", "(String,float)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "FloatPoint", False, "encodeDimension", "(float,byte[],int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "DoublePoint", False, "newSetQuery", "(String,double[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "DoublePoint", False, "newRangeQuery", "(String,double,double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "DoublePoint", False, "newExactQuery", "(String,double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "DoublePoint", False, "encodeDimension", "(double,byte[],int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.document", "SortedNumericDocValuesField", True, "newSlowRangeQuery", "(String,long,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.lucene.document", "SortedNumericDocValuesField", True, "newSlowRangeQuery", "(String,long,long)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.lucene.document", "Document", False, "add", "(IndexableField)", "", "Parameter[0]", "remote", "manual"]

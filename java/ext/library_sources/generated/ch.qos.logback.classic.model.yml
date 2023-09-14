@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["ch.qos.logback.classic", "Level", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["ch.qos.logback.classic", "Level", False, "toLevel", "(String)", "", "Parameter[0]", "remote", "manual"]

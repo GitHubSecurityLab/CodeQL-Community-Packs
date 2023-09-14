@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.net.ftp", "FTPClient", True, "login", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.net.ftp", "FTPFile", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.net.ftp", "FTPClient", True, "storeFile", "(String,InputStream)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.net.ftp", "FTPClient", True, "setControlKeepAliveTimeout", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.net.ftp", "FTPClient", True, "sendSiteCommand", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.net.ftp", "FTPClient", True, "login", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.net.ftp", "FTPClient", True, "changeWorkingDirectory", "(String)", "", "Parameter[0]", "remote", "manual"]

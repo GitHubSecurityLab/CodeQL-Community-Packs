@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.api.services.drive.model", "File", False, "setDescription", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.api.services.drive.model", "File", False, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]

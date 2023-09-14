@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.cloud", "ReadChannel", True, "seek", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud", "ServiceOptions$Builder<Storage,StorageOptions,Builder>", True, "setProjectId", "(String)", "", "Parameter[0]", "remote", "manual"]

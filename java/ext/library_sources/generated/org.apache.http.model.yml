@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.http", "HttpMessage", True, "setHeader", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.http", "HttpMessage", True, "setHeader", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.http", "HttpMessage", True, "addHeader", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.http", "HttpHost", False, "create", "(String)", "", "Parameter[0]", "remote", "manual"]

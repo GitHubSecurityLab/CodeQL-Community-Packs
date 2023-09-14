@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.flink.shaded.netty4.io.netty.handler.ssl", "SslContext", True, "newEngine", "(ByteBufAllocator,String,int)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["brave.internal.extra", "MapExtra<BaggageField,String,BaggageFields,Factory>", True, "put", "(BaggageField,String)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.api.services.sheets.v4", "Sheets$Spreadsheets", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]

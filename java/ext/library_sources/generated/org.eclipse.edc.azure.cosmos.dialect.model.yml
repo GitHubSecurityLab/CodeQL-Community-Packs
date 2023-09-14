@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.edc.azure.cosmos.dialect", "SqlStatement<ContractNegotiationDocument>", True, "orderBy", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.edc.azure.cosmos.dialect", "SqlStatement<ContractNegotiationDocument>", True, "offset", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.edc.azure.cosmos.dialect", "SqlStatement<ContractNegotiationDocument>", True, "limit", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.edc.azure.cosmos.dialect", "SqlStatement<PolicyDocument>", True, "offset", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.edc.azure.cosmos.dialect", "SqlStatement<TransferProcessDocument>", True, "orderBy", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.edc.azure.cosmos.dialect", "SqlStatement<TransferProcessDocument>", True, "offset", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.edc.azure.cosmos.dialect", "SqlStatement<TransferProcessDocument>", True, "limit", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.edc.azure.cosmos.dialect", "SqlStatement<PolicyDocument>", True, "orderBy", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.edc.azure.cosmos.dialect", "SqlStatement<PolicyDocument>", True, "limit", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.edc.azure.cosmos.dialect", "SqlStatement<AssetDocument>", True, "orderBy", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.edc.azure.cosmos.dialect", "SqlStatement<AssetDocument>", True, "offset", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.edc.azure.cosmos.dialect", "SqlStatement<AssetDocument>", True, "limit", "(Integer)", "", "Parameter[0]", "remote", "manual"]

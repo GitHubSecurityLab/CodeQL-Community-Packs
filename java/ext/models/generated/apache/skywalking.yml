@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.apache.skywalking.oap.meter.analyzer.dsl", "DSL", false, "parse", "(String)", "", "Argument[0]", "groovy", "generated"]
+

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.sonatype.ossindex.service.api.cvss", "Cvss3Severity", False, "of", "(Float)", "", "Parameter[0]", "remote", "manual"]

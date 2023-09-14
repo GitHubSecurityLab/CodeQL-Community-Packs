@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.storm.thrift", "TSerializer", True, "serialize", "(TBase)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.storm.thrift", "TDeserializer", True, "deserialize", "(TBase,byte[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.storm.thrift", "EncodingUtils", True, "testBit", "(byte,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.storm.thrift", "TBaseHelper", False, "toString", "(Collection,StringBuilder)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.storm.thrift", "EncodingUtils", True, "setBit", "(byte,int,boolean)", "", "Parameter[0]", "remote", "manual"]

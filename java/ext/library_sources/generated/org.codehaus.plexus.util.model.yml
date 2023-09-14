@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.codehaus.plexus.util", "IOUtil", False, "close", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.codehaus.plexus.util", "FileUtils", True, "deleteDirectory", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.codehaus.plexus.util", "Base64", True, "encodeBase64", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.codehaus.plexus.util", "StringUtils", True, "split", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.codehaus.plexus.util", "IOUtil", False, "close", "(OutputStream)", "", "Parameter[0]", "remote", "manual"]

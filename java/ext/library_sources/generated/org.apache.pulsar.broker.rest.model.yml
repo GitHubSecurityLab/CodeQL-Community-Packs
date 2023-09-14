@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.pulsar.broker.rest", "TopicsBase", True, "publishMessages", "(AsyncResponse,ProducerMessages,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.pulsar.broker.rest", "TopicsBase", True, "publishMessages", "(AsyncResponse,ProducerMessages,boolean)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.pulsar.broker.rest", "TopicsBase", True, "publishMessagesToPartition", "(AsyncResponse,ProducerMessages,boolean,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.pulsar.broker.rest", "TopicsBase", True, "publishMessagesToPartition", "(AsyncResponse,ProducerMessages,boolean,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.pulsar.broker.rest", "TopicsBase", True, "publishMessagesToPartition", "(AsyncResponse,ProducerMessages,boolean,int)", "", "Parameter[3]", "remote", "manual"]

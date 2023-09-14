@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.math3.util", "MathArrays", True, "normalizeArray", "(double[],double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.util", "Pair", True, "create", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.util", "Precision", True, "round", "(double,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.util", "Precision", True, "round", "(double,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.math3.util", "MathArrays", True, "sequence", "(int,int,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.commons.math3.util", "MathArrays", True, "sequence", "(int,int,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.math3.util", "MathArrays", True, "sequence", "(int,int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.util", "MathArrays", True, "normalizeArray", "(double[],double)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.math3.util", "MathArrays", True, "scale", "(double,double[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.util", "CombinatoricsUtils", False, "factorialDouble", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.util", "CombinatoricsUtils", False, "binomialCoefficient", "(int,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.math3.util", "CombinatoricsUtils", False, "binomialCoefficient", "(int,int)", "", "Parameter[0]", "remote", "manual"]

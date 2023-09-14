@@ -1,0 +1,37 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["com.xxl.job.admin.core.route", "ExecutorRouter", true, "route", "(TriggerParam,List)", "", "Argument[1]", "open-url", "generated"]
+      - ["com.xxl.job.admin.core.trigger", "XxlJobTrigger", true, "runExecutor", "(TriggerParam,String)", "", "Argument[1]", "open-url", "generated"]
+      - ["com.xxl.job.admin.core.trigger", "XxlJobTrigger", true, "trigger", "(int,TriggerTypeEnum,int,String,String,String)", "", "Argument[5]", "open-url", "generated"]
+      - ["com.xxl.job.admin.core.util", "CookieUtil", true, "remove", "(HttpServletRequest,HttpServletResponse,String)", "", "Argument[2]", "header-splitting", "generated"]
+      - ["com.xxl.job.admin.core.util", "CookieUtil", true, "set", "(HttpServletResponse,String,String,boolean)", "", "Argument[1]", "header-splitting", "generated"]
+      - ["com.xxl.job.admin.core.util", "CookieUtil", true, "set", "(HttpServletResponse,String,String,boolean)", "", "Argument[2]", "header-splitting", "generated"]
+      - ["com.xxl.job.core.biz", "AdminBiz", true, "callback", "(List)", "", "Argument[-1]", "open-url", "generated"]
+      - ["com.xxl.job.core.biz", "AdminBiz", true, "registry", "(RegistryParam)", "", "Argument[-1]", "open-url", "generated"]
+      - ["com.xxl.job.core.biz", "AdminBiz", true, "registryRemove", "(RegistryParam)", "", "Argument[-1]", "open-url", "generated"]
+      - ["com.xxl.job.core.biz", "ExecutorBiz", true, "beat", "()", "", "Argument[-1]", "open-url", "generated"]
+      - ["com.xxl.job.core.biz", "ExecutorBiz", true, "idleBeat", "(IdleBeatParam)", "", "Argument[-1]", "open-url", "generated"]
+      - ["com.xxl.job.core.biz", "ExecutorBiz", true, "kill", "(KillParam)", "", "Argument[-1]", "open-url", "generated"]
+      - ["com.xxl.job.core.biz", "ExecutorBiz", true, "log", "(LogParam)", "", "Argument[-1]", "open-url", "generated"]
+      - ["com.xxl.job.core.biz", "ExecutorBiz", true, "run", "(TriggerParam)", "", "Argument[-1]", "open-url", "generated"]
+      - ["com.xxl.job.core.executor", "XxlJobExecutor", true, "start", "()", "", "Argument[-1]", "create-file", "generated"]
+      - ["com.xxl.job.core.glue", "GlueFactory", true, "loadNewInstance", "(String)", "", "Argument[0]", "groovy", "generated"]
+      - ["com.xxl.job.core.log", "XxlJobFileAppender", true, "appendLog", "(String,String)", "", "Argument[0]", "create-file", "generated"]
+      - ["com.xxl.job.core.log", "XxlJobFileAppender", true, "initLogPath", "(String)", "", "Argument[0]", "create-file", "generated"]
+      - ["com.xxl.job.core.log", "XxlJobFileAppender", true, "readLines", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.xxl.job.core.log", "XxlJobFileAppender", true, "readLog", "(String,int)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.xxl.job.core.util", "FileUtil", true, "readFileContent", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.xxl.job.core.util", "FileUtil", true, "writeFileContent", "(File,byte[])", "", "Argument[0]", "create-file", "generated"]
+      - ["com.xxl.job.core.util", "ScriptUtil", true, "execToFile", "(String,String,String,String[])", "", "Argument[2]", "create-file", "generated"]
+      - ["com.xxl.job.core.util", "ScriptUtil", true, "markScriptFile", "(String,String)", "", "Argument[0]", "create-file", "generated"]
+      - ["com.xxl.job.core.util", "XxlJobRemotingUtil", true, "postBody", "(String,String,int,Object,Class)", "", "Argument[0]", "open-url", "generated"]
+
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sourceModel
+    data:
+      - ["com.xxl.job.admin.core.util", "CookieUtil", true, "getValue", "(HttpServletRequest,String)", "", "ReturnValue", "remote", "generated"]
+

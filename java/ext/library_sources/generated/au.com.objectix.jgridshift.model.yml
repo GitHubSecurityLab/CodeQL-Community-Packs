@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["au.com.objectix.jgridshift", "GridShiftFile", True, "loadGridShiftFile", "(InputStream,boolean)", "", "Parameter[0]", "remote", "manual"]

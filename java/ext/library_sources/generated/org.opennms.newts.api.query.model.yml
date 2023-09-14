@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opennms.newts.api.query", "ResultDescriptor", True, "datasource", "(String,String,long,AggregationFunction)", "", "Parameter[2]", "remote", "manual"]

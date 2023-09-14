@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jasypt.encryption", "StringEncryptor", True, "encrypt", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jasypt.encryption", "StringEncryptor", True, "decrypt", "(String)", "", "Parameter[0]", "remote", "manual"]

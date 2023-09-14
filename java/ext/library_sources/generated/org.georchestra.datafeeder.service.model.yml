@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.georchestra.datafeeder.service", "UploadPackage", True, "unpack", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.georchestra.datafeeder.service", "DatasetsService", True, "getFeature", "(Path,String,Charset,int,String,String)", "", "Parameter[5]", "remote", "manual"]
+      - ["org.georchestra.datafeeder.service", "DatasetsService", True, "getFeature", "(Path,String,Charset,int,String,String)", "", "Parameter[4]", "remote", "manual"]
+      - ["org.georchestra.datafeeder.service", "DatasetsService", True, "getFeature", "(Path,String,Charset,int,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.georchestra.datafeeder.service", "DatasetsService", True, "getFeature", "(Path,String,Charset,int,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.georchestra.datafeeder.service", "DatasetsService", True, "getBounds", "(Path,String,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.georchestra.datafeeder.service", "DatasetsService", True, "getBounds", "(Path,String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.georchestra.datafeeder.service", "DatasetsService", True, "getBounds", "(Path,String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.georchestra.datafeeder.service", "DataPublishingService", True, "publish", "(UUID,PublishRequest,UserInfo)", "", "Parameter[1]", "remote", "manual"]

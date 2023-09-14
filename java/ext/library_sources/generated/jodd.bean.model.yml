@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jodd.bean", "BeanUtil", True, "setProperty", "(Object,String,Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["jodd.bean", "BeanUtil", True, "setProperty", "(Object,String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["jodd.bean", "BeanUtil", True, "getProperty", "(Object,String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.ehcache", "Cache<String,List<WorkGroupingSuggestion>>", True, "put", "(String,List)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.ehcache", "Cache<String,String>", True, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.ehcache", "Cache<String,SessionData>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.ehcache", "Cache<String,ResponseState>", True, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.ehcache", "Cache<String,ResponseState>", True, "put", "(String,ResponseState)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.ehcache", "Cache<String,ResponseState>", True, "put", "(String,ResponseState)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.ehcache", "Cache<String,ResponseState>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.ehcache", "Cache<String,RequestState>", True, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.ehcache", "Cache<String,RequestState>", True, "put", "(String,RequestState)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.ehcache", "Cache<String,RequestState>", True, "put", "(String,RequestState)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.ehcache", "Cache<String,List<WorkGroupingSuggestion>>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]

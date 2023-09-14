@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.netflix.metacat.main.services", "MetadataService", True, "deleteDefinitionMetadata", "(QualifiedName,boolean,MetacatRequestContext)", "", "Parameter[1]", "remote", "manual"]

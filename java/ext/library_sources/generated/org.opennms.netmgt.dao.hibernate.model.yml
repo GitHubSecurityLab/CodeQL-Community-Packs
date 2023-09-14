@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opennms.netmgt.dao.hibernate", "AbstractCachingDaoHibernate<OnmsCategory,Integer,String>", True, "findByCacheKey", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.opennms.netmgt.dao.hibernate", "AbstractCachingDaoHibernate<OnmsServiceType,Integer,String>", True, "findByCacheKey", "(String,String)", "", "Parameter[1]", "remote", "manual"]

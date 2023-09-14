@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.sohu.cache.web.util", "AppEmailUtil", True, "sendSystemConfigDifEmail", "(AppUser,Map,SuccessEnum)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.sohu.cache.web.util", "AppEmailUtil", True, "noticeBecomeContributor", "(String,String,AppUser)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.sohu.cache.web.util", "AppEmailUtil", True, "noticeBecomeContributor", "(String,String,AppUser)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.sohu.cache.web.util", "AppEmailUtil", True, "noticeAllUser", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.media3.common", "MediaItem$SubtitleConfiguration$Builder", False, "setLabel", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.media3.common", "MediaItem$SubtitleConfiguration$Builder", False, "setLanguage", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jetlinks.community.device.service", "LocalDeviceInstanceService", True, "checkCyclicDependency", "(String,String)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.sonar.db.protobuf", "DbProjectBranches$PullRequestData$Builder", False, "setUrl", "(String)", "", "Parameter[0]", "remote", "manual"]

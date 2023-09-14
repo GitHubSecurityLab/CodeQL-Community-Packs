@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gravitee.rest.api.model", "NewSubscriptionEntity", True, "setPlan", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model", "NewSubscriptionEntity", True, "setApplication", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model", "UpdateSubscriptionConfigurationEntity", True, "setSubscriptionId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model", "UpdateSubscriptionEntity", True, "setId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model", "UpdateSubscriptionConfigurationEntity", True, "setFilter", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model", "UpdateSubscriptionConfigurationEntity", True, "setConfiguration", "(JsonNode)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model", "NewSubscriptionEntity", True, "setRequest", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model", "NewSubscriptionEntity", True, "setMetadata", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model", "NewSubscriptionEntity", True, "setGeneralConditionsAccepted", "(Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model", "NewSubscriptionEntity", True, "setFilter", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model", "NewSubscriptionEntity", True, "setConfiguration", "(JsonNode)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model", "NewEventEntity$NewEventEntityBuilder", True, "properties", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model", "MembershipReferenceType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

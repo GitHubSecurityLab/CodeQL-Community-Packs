@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.ratis.thirdparty.io.grpc.netty", "NettyChannelBuilder", False, "forAddress", "(String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.ratis.thirdparty.io.grpc.netty", "NettyChannelBuilder", False, "forAddress", "(String,int)", "", "Parameter[0]", "remote", "manual"]

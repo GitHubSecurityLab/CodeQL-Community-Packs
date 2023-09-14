@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gravitee.rest.api.model.v4.plan", "NewPlanEntity", True, "setApiId", "(String)", "", "Parameter[0]", "remote", "manual"]

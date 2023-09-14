@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.hbase.util", "Bytes", True, "toBytes", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.hbase.util", "Bytes", True, "toBytes", "(long)", "", "Parameter[0]", "remote", "manual"]

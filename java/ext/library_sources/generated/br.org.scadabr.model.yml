@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["br.org.scadabr", "OPCMaster", True, "setDataSourceXid", "(String)", "", "Parameter[0]", "remote", "manual"]

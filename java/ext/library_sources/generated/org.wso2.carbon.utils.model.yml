@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.wso2.carbon.utils", "CarbonUtils", True, "setBasicAccessSecurityHeaders", "(String,String,boolean,ServiceClient)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.wso2.carbon.utils", "CarbonUtils", True, "setBasicAccessSecurityHeaders", "(String,String,boolean,ServiceClient)", "", "Parameter[1]", "remote", "manual"]

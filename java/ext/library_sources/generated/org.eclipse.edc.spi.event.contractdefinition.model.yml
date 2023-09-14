@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.edc.spi.event.contractdefinition", "ContractDefinitionEvent$Builder<ContractDefinitionUpdated,Builder>", True, "contractDefinitionId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.edc.spi.event.contractdefinition", "ContractDefinitionEvent$Builder<ContractDefinitionCreated,Builder>", True, "contractDefinitionId", "(String)", "", "Parameter[0]", "remote", "manual"]

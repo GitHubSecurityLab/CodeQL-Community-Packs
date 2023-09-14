@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.editor.settings.storage.api", "EditorSettingsStorage<Collection<KeyStroke>,MultiKeyBinding>", False, "load", "(MimePath,String,boolean)", "", "Parameter[1]", "remote", "manual"]

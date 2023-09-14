@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.gitblit.utils", "ObjectCache<String>", True, "getObject", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.gitblit.utils", "ObjectCache<Long>", True, "getObject", "(String)", "", "Parameter[0]", "remote", "manual"]

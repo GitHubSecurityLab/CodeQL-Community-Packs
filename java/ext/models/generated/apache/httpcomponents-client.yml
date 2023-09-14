@@ -1,0 +1,22 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.apache.hc.client5.http.cache", "ResourceFactory", true, "copy", "(String,Resource)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.hc.client5.http.cache", "ResourceFactory", true, "generate", "(String,byte[])", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.hc.client5.http.cache", "ResourceFactory", true, "generate", "(String,byte[],int,int)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.hc.client5.http.classic", "ExecChainHandler", true, "execute", "(ClassicHttpRequest,Scope,ExecChain)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.hc.client5.http.classic", "ExecChainHandler", true, "execute", "(ClassicHttpRequest,Scope,ExecChain)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.apache.hc.client5.http.entity.mime", "ContentBody", true, "writeTo", "(OutputStream)", "", "Argument[-1]", "read-file", "generated"]
+      - ["org.apache.hc.client5.http.entity.mime", "FileBody", true, "getInputStream", "()", "", "Argument[-1]", "read-file", "generated"]
+      - ["org.apache.hc.client5.http.fluent", "Request", true, "body", "(HttpEntity)", "", "Argument[0]", "xss", "generated"]
+      - ["org.apache.hc.client5.http.fluent", "Request", true, "bodyByteArray", "(byte[])", "", "Argument[0]", "xss", "generated"]
+      - ["org.apache.hc.client5.http.fluent", "Request", true, "bodyByteArray", "(byte[],ContentType)", "", "Argument[0]", "xss", "generated"]
+      - ["org.apache.hc.client5.http.fluent", "Request", true, "bodyByteArray", "(byte[],int,int)", "", "Argument[0]", "xss", "generated"]
+      - ["org.apache.hc.client5.http.fluent", "Request", true, "bodyByteArray", "(byte[],int,int,ContentType)", "", "Argument[0]", "xss", "generated"]
+      - ["org.apache.hc.client5.http.fluent", "Request", true, "bodyString", "(String,ContentType)", "", "Argument[0]", "xss", "generated"]
+      - ["org.apache.hc.client5.http.fluent", "Response", true, "saveContent", "(File)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.hc.client5.http.psl", "PublicSuffixMatcherLoader", false, "load", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.apache.hc.client5.http.psl", "PublicSuffixMatcherLoader", false, "load", "(URL)", "", "Argument[0]", "open-url", "generated"]
+

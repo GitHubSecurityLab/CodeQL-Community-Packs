@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.usthe.common.entity.dto", "Field$FieldBuilder", True, "name", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.usthe.common.entity.dto", "MetricsHistoryData$MetricsHistoryDataBuilder", True, "metric", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.usthe.common.entity.dto", "MetricsHistoryData$MetricsHistoryDataBuilder", True, "id", "(Long)", "", "Parameter[0]", "remote", "manual"]

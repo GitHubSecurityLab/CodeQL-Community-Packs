@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.httpclient", "HttpParser", True, "readLine", "(InputStream,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.httpclient", "HttpParser", True, "parseHeaders", "(InputStream,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.httpclient", "HttpMethod", True, "setRequestHeader", "(String,String)", "", "Parameter[1]", "remote", "manual"]

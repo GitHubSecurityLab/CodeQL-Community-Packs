@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.oauth2.core.endpoint", "OAuth2AuthorizationRequest$Builder", False, "additionalParameters", "(Map)", "", "Parameter[0]", "remote", "manual"]

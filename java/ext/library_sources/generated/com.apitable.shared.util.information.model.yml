@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.apitable.shared.util.information", "ClientOriginInfo", True, "setUserAgent", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.netflix.spinnaker.orca.pipeline.persistence", "ExecutionRepository", True, "retrieve", "(ExecutionType,String)", "", "Parameter[1]", "remote", "manual"]

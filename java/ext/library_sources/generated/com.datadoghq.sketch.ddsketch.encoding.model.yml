@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.datadoghq.sketch.ddsketch.encoding", "ByteArrayInput", False, "wrap", "(byte[])", "", "Parameter[0]", "remote", "manual"]

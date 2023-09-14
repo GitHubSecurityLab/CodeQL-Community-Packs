@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.pulsar.broker.service", "Topic", True, "getSubscription", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.broker.service", "BrokerService", True, "getAllTopicsFromNamespaceBundle", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.pulsar.broker.service", "Topic", True, "createSubscription", "(String,InitialPosition,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.broker.service", "BrokerService", True, "getTopic", "(String,boolean,Map)", "", "Parameter[2]", "remote", "manual"]

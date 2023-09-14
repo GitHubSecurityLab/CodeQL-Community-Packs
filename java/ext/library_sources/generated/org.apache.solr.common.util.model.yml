@@ -1,0 +1,24 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.solr.common.util", "NamedList<Object>", True, "add", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "NamedList<Object>", True, "add", "(String,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "NamedList<String>", True, "add", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "NamedList<Object>", True, "addAll", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "NamedList<SimpleOrderedMap<String>>", True, "add", "(String,SimpleOrderedMap)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "NamedList<NamedList<?>>", True, "add", "(String,NamedList)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "PathTrie<Api>", True, "remove", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "NamedList<String>", True, "add", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "NamedList<Integer>", True, "add", "(String,Integer)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "NamedList<Integer>", True, "add", "(String,Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "NamedList<NamedList<Object>>", True, "add", "(String,NamedList)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "NamedList<Object>", True, "addAll", "(NamedList)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "NamedList<RTimerTree>", True, "add", "(String,RTimerTree)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "NamedList<SimpleOrderedMap<NamedList<Object>>>", True, "add", "(String,SimpleOrderedMap)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "NamedList<String>", True, "addAll", "(NamedList)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "NamedList<Explanation>", True, "add", "(String,Explanation)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "NamedList<Throwable>", True, "add", "(String,Throwable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "PathTrie<Api>", True, "lookup", "(String,Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.util", "PathTrie<Api>", True, "lookup", "(String,Map)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.jme3.util", "IntMap<Integer>", False, "put", "(int,Integer)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.jme3.util", "IntMap<Integer>", False, "put", "(int,Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jme3.util", "IntMap<BitmapCharacter>", False, "put", "(int,BitmapCharacter)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jme3.util", "IntMap<BitmapCharacter>", False, "get", "(int)", "", "Parameter[0]", "remote", "manual"]

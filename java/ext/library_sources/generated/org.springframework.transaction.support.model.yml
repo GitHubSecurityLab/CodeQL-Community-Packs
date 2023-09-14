@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.transaction.support", "DefaultTransactionDefinition", True, "setTimeout", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.transaction.support", "DefaultTransactionDefinition", True, "setIsolationLevelName", "(String)", "", "Parameter[0]", "remote", "manual"]

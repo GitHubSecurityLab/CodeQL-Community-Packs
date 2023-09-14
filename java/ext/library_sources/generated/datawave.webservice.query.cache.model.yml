@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["datawave.webservice.query.cache", "AbstractQueryCache<CachedRunningQuery>", True, "put", "(String,CachedRunningQuery)", "", "Parameter[0]", "remote", "manual"]
+      - ["datawave.webservice.query.cache", "AbstractQueryCache<CachedRunningQuery>", True, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["datawave.webservice.query.cache", "AbstractQueryCache<CachedRunningQuery>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]

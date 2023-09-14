@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jenkins.scm.api.metadata", "AvatarMetadataAction", True, "getAvatarImageOf", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.pulsar.broker.namespace", "LookupOptions$LookupOptionsBuilder", True, "authoritative", "(boolean)", "", "Parameter[0]", "remote", "manual"]

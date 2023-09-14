@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.amazonaws.services.s3.model", "ObjectMetadata", True, "setContentLength", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.s3.model", "ListObjectsV2Request", True, "withPrefix", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.s3.model", "GetObjectRequest", True, "withRange", "(long,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.s3.model", "GetObjectRequest", True, "setRange", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.s3.model", "ListObjectsRequest", True, "withPrefix", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.s3.model", "UploadPartRequest", True, "withInputStream", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.s3.model", "UploadPartRequest", True, "withKey", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.s3.model", "UploadPartRequest", True, "withPartNumber", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.s3.model", "UploadPartRequest", True, "withUploadId", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.vladsch.flexmark.html2md.converter", "FlexmarkHtmlConverter", True, "convert", "(String)", "", "Parameter[0]", "remote", "manual"]

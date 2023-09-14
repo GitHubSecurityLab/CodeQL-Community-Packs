@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.streampipes.wrapper.params.runtime", "RuntimeParams<T,DataSinkInvocation,EventSinkRuntimeContext>", True, "makeEvent", "(Map,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.streampipes.wrapper.params.runtime", "RuntimeParams<T,DataProcessorInvocation,EventProcessorRuntimeContext>", True, "makeEvent", "(Map,String)", "", "Parameter[0]", "remote", "manual"]

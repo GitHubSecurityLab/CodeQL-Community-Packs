@@ -1,0 +1,24 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["com.github.binarywang.wxpay.service", "WxPayService", true, "deleteV3", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.github.binarywang.wxpay.service", "WxPayService", true, "downloadV3", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.github.binarywang.wxpay.service", "WxPayService", true, "getV3", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.github.binarywang.wxpay.service", "WxPayService", true, "getV3WithWechatPaySerial", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.github.binarywang.wxpay.service", "WxPayService", true, "patchV3", "(String,String)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.github.binarywang.wxpay.service", "WxPayService", true, "post", "(String,String,boolean)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.github.binarywang.wxpay.service", "WxPayService", true, "postForBytes", "(String,String,boolean)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.github.binarywang.wxpay.service", "WxPayService", true, "postV3", "(String,String)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.github.binarywang.wxpay.service", "WxPayService", true, "postV3WithWechatpaySerial", "(String,String)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.github.binarywang.wxpay.service", "WxPayService", true, "putV3", "(String,String)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.github.binarywang.wxpay.v3", "WechatPayUploadHttpPost$Builder", true, "build", "()", "", "Argument[-1]", "open-url", "generated"]
+      - ["me.chanjar.weixin.common.util.fs", "FileUtils", true, "createTmpFile", "(InputStream,String,String,File)", "", "Argument[3]", "create-file", "generated"]
+
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sourceModel
+    data:
+      - ["com.github.binarywang.wxpay.service", "WxPayService", true, "downloadV3", "(String)", "", "ReturnValue", "remote", "generated"]
+

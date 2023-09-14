@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jose4j.jwt", "JwtClaims", True, "setClaim", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.jose4j.jwt", "JwtClaims", True, "setClaim", "(Object,String,Object)", "", "Parameter[1]", "remote", "manual"]

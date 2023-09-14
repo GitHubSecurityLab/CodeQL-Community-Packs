@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.beanutils", "BeanUtils", True, "getProperty", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.beanutils", "BeanUtils", True, "setProperty", "(Object,String,Object)", "", "Parameter[2]", "remote", "manual"]

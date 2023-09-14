@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["me.zhyd.oauth.config", "AuthConfig$AuthConfigBuilder", True, "redirectUri", "(String)", "", "Parameter[0]", "remote", "manual"]

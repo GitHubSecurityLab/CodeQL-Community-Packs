@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["software.amazon.awssdk.core.client.builder", "SdkClientBuilder<KinesisClientBuilder,KinesisClient>", True, "endpointOverride", "(URI)", "", "Parameter[0]", "remote", "manual"]
+      - ["software.amazon.awssdk.core.client.builder", "SdkClientBuilder<S3ClientBuilder,S3Client>", True, "endpointOverride", "(URI)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dataease.plugins.common.request.datasource", "DatasourceRequest", True, "setQuery", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.common.request.datasource", "DatasourceRequest", True, "setPage", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.common.request.datasource", "DatasourceRequest", True, "setPageSize", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.common.request.datasource", "DatasourceRequest", True, "setRealSize", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.common.request.datasource", "DatasourceRequest", True, "setDatasource", "(Datasource)", "", "Parameter[0]", "remote", "manual"]

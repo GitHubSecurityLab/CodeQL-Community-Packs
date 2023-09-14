@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.web3j.crypto", "Keys", True, "toChecksumAddress", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.web3j.crypto", "Hash", True, "sha3", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.web3j.crypto", "ECKeyPair", True, "create", "(BigInteger,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.web3j.crypto", "Hash", True, "sha3String", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.web3j.crypto", "WalletUtils", True, "isValidAddress", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.web3j.crypto", "Wallet", True, "decrypt", "(String,WalletFile)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.web3j.crypto", "Wallet", True, "decrypt", "(String,WalletFile)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.web3j.crypto", "WalletUtils", True, "isValidAddress", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.web3j.crypto", "WalletUtils", True, "isValidPrivateKey", "(String)", "", "Parameter[0]", "remote", "manual"]

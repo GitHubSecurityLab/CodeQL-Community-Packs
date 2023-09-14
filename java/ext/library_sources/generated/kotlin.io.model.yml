@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["kotlin.io", "FilesKt", False, "writeText$default", "(File,String,Charset,int,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["kotlin.io", "ConsoleKt", False, "println", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["kotlin.io", "FilesKt", False, "outputStream", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["kotlin.io", "FilesKt", False, "inputStream", "(File)", "", "Parameter[0]", "remote", "manual"]

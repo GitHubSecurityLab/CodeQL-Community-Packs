@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.github.scribejava.core.oauth", "OAuth20Service", True, "getAccessToken", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.scribejava.core.oauth", "AuthorizationUrlBuilder", True, "state", "(String)", "", "Parameter[0]", "remote", "manual"]

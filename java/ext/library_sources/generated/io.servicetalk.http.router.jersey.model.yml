@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.servicetalk.http.router.jersey", "AbstractMessageBodyReaderWriter<Publisher<>,Buffer,Publisher<Buffer>,PublisherSource<Buffer>>", True, "readFrom", "(InputStream,BiFunction,Function)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.servicetalk.http.router.jersey", "AbstractMessageBodyReaderWriter<Single<>,Buffer,Single<Buffer>,SingleSource<Buffer>>", True, "readFrom", "(InputStream,BiFunction,Function)", "", "Parameter[0]", "remote", "manual"]

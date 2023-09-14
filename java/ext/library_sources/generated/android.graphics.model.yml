@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.graphics", "Color", True, "parseColor", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.graphics", "BitmapFactory", True, "decodeStream", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.graphics", "BitmapFactory", True, "decodeStream", "(InputStream,Rect,Options)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.graphics", "Color", True, "argb", "(int,int,int,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["android.graphics", "Color", True, "argb", "(int,int,int,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.graphics", "Color", True, "argb", "(int,int,int,int)", "", "Parameter[3]", "remote", "manual"]
+      - ["android.graphics", "Paint", True, "measureText", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.graphics", "BitmapFactory", True, "decodeResource", "(Resources,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.graphics", "Color", True, "argb", "(int,int,int,int)", "", "Parameter[0]", "remote", "manual"]

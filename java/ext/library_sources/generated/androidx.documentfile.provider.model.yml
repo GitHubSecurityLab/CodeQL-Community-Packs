@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.documentfile.provider", "DocumentFile", True, "createFile", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["androidx.documentfile.provider", "DocumentFile", True, "fromSingleUri", "(Context,Uri)", "", "Parameter[1]", "remote", "manual"]
+      - ["androidx.documentfile.provider", "DocumentFile", True, "fromTreeUri", "(Context,Uri)", "", "Parameter[1]", "remote", "manual"]
+      - ["androidx.documentfile.provider", "DocumentFile", True, "findFile", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.documentfile.provider", "DocumentFile", True, "createDirectory", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.documentfile.provider", "DocumentFile", True, "fromFile", "(File)", "", "Parameter[0]", "remote", "manual"]

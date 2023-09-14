@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.jetty.util.resource", "Resource", True, "addPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.util.resource", "Resource", True, "newResource", "(File)", "", "Parameter[0]", "remote", "manual"]

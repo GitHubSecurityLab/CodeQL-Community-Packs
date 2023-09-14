@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.curator.x.discovery", "ServiceInstanceBuilder<Void>", True, "sslPort", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.curator.x.discovery", "ServiceInstanceBuilder<Void>", True, "port", "(int)", "", "Parameter[0]", "remote", "manual"]

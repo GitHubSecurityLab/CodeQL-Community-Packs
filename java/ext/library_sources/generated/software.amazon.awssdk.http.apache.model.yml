@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["software.amazon.awssdk.http.apache", "ProxyConfiguration$Builder", True, "endpoint", "(URI)", "", "Parameter[0]", "remote", "manual"]
+      - ["software.amazon.awssdk.http.apache", "ProxyConfiguration$Builder", True, "useSystemPropertyValues", "(Boolean)", "", "Parameter[0]", "remote", "manual"]

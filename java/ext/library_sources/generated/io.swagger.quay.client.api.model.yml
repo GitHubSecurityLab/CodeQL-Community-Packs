@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.swagger.quay.client.api", "RepositoryApi", True, "getRepo", "(String,Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.swagger.quay.client.api", "BuildApi", True, "getRepoBuilds", "(String,Integer,Integer)", "", "Parameter[0]", "remote", "manual"]

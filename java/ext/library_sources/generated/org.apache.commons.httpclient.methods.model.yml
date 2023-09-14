@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.httpclient.methods", "PostMethod", True, "addParameter", "(String,String)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.codec.binary", "BaseNCodec", True, "decode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.binary", "StringUtils", True, "getBytesUtf8", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.binary", "Hex", True, "encodeHex", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.binary", "Hex", True, "encodeHexString", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.binary", "Hex", True, "decodeHex", "(char[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.binary", "StringUtils", True, "newStringUtf8", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.binary", "Hex", True, "decodeHex", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.binary", "Base64", True, "isBase64", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.schabi.newpipe.extractor.utils", "Utils", False, "decodeUrlUtf8", "(String)", "", "Parameter[0]", "remote", "manual"]

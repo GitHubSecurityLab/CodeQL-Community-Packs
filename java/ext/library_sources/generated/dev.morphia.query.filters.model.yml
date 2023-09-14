@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["dev.morphia.query.filters", "Filters", False, "eq", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["dev.morphia.query.filters", "RegexFilter", True, "pattern", "(String)", "", "Parameter[0]", "remote", "manual"]

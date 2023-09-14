@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.keen.client.java", "KeenClient", True, "addEventAsync", "(String,Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.keen.client.java", "KeenClient", True, "addEventAsync", "(String,Map)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jakarta.json.stream", "JsonGenerator", True, "write", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["jakarta.json.stream", "JsonGenerator", True, "write", "(String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["jakarta.json.stream", "JsonGenerator", True, "write", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json.stream", "JsonGenerator", True, "write", "(BigDecimal)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json.stream", "JsonGenerator", True, "write", "(String,BigDecimal)", "", "Parameter[1]", "remote", "manual"]
+      - ["jakarta.json.stream", "JsonGenerator", True, "write", "(String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["jakarta.json.stream", "JsonGenerator", True, "write", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json.stream", "JsonGenerator", True, "write", "(int)", "", "Parameter[0]", "remote", "manual"]

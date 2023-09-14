@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.gitlab4j.api", "UserApi", True, "updateUser", "(User,CharSequence)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.gitlab4j.api", "UserApi", True, "getUser", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gitlab4j.api", "UserApi", True, "createUser", "(User,CharSequence,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.gitlab4j.api", "ProjectApi", True, "getProjects", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gitlab4j.api", "ProjectApi", True, "createVariable", "(Object,String,String,Type,Boolean,Boolean)", "", "Parameter[5]", "remote", "manual"]
+      - ["org.gitlab4j.api", "ProjectApi", True, "addHook", "(Object,String,ProjectHook,boolean,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.gitlab4j.api", "PipelineApi", True, "triggerPipeline", "(Object,Trigger,String,List)", "", "Parameter[2]", "remote", "manual"]

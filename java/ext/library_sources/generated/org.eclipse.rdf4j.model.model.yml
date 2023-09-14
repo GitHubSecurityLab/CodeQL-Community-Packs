@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.rdf4j.model", "ValueFactory", True, "createURI", "(String)", "", "Parameter[0]", "remote", "manual"]

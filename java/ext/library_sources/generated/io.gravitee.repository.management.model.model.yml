@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gravitee.repository.management.model", "NotificationReferenceType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.management.model", "UserStatus", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.management.model", "LifecycleState", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.management.model", "ApplicationType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.management.model", "Api", True, "setId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.management.model", "Plan$PlanSecurityType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

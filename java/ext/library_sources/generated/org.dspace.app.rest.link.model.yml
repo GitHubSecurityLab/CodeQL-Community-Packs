@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.dspace.app.rest.link", "HalLinkFactory<SubmissionCCLicenseUrlResource,RestResourceController>", True, "buildLink", "(String,String)", "", "Parameter[1]", "remote", "manual"]

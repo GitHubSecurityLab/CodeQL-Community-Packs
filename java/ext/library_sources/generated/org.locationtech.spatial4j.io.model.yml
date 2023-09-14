@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.locationtech.spatial4j.io", "WKTReader", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.locationtech.spatial4j.io", "SupportedFormats", True, "read", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.locationtech.spatial4j.io", "ShapeWriter", True, "write", "(Writer,Shape)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.locationtech.spatial4j.io", "ShapeWriter", True, "write", "(Writer,Shape)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.locationtech.spatial4j.io", "ShapeWriter", True, "toString", "(Shape)", "", "Parameter[0]", "remote", "manual"]

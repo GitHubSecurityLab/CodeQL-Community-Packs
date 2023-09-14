@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.accumulo.core.fate", "Fate<Manager>", True, "seedTransaction", "(String,long,Repo,boolean,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.apache.accumulo.core.fate", "Fate<Manager>", True, "seedTransaction", "(String,long,Repo,boolean,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.accumulo.core.fate", "Fate<Manager>", True, "seedTransaction", "(String,long,Repo,boolean,String)", "", "Parameter[4]", "remote", "manual"]
+      - ["org.apache.accumulo.core.fate", "Fate<Manager>", True, "getReturn", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.accumulo.core.fate", "Fate<Manager>", True, "getException", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.accumulo.core.fate", "Fate<Manager>", True, "delete", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.accumulo.core.fate", "Fate<Manager>", True, "cancel", "(long)", "", "Parameter[0]", "remote", "manual"]

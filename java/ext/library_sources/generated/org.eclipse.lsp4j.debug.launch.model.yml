@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.lsp4j.debug.launch", "DSPLauncher", False, "createServerLauncher", "(IDebugProtocolServer,InputStream,OutputStream,ExecutorService,Function)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.eclipse.lsp4j.debug.launch", "DSPLauncher", False, "createServerLauncher", "(IDebugProtocolServer,InputStream,OutputStream,ExecutorService,Function)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.eclipse.lsp4j.debug.launch", "DSPLauncher", False, "createServerLauncher", "(IDebugProtocolServer,InputStream,OutputStream)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.eclipse.lsp4j.debug.launch", "DSPLauncher", False, "createClientLauncher", "(IDebugProtocolClient,InputStream,OutputStream)", "", "Parameter[1]", "remote", "manual"]

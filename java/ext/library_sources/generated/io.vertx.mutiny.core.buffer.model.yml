@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.vertx.mutiny.core.buffer", "Buffer", True, "buffer", "(byte[])", "", "Parameter[0]", "remote", "manual"]

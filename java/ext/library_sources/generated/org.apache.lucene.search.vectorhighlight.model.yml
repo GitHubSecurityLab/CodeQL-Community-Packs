@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.lucene.search.vectorhighlight", "BaseFragmentsBuilder", True, "setMultiValuedSeparator", "(char)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.search.vectorhighlight", "FastVectorHighlighter", True, "getBestFragments", "(FieldQuery,IndexReader,int,String,int,int,FragListBuilder,FragmentsBuilder,String[],String[],Encoder)", "", "Parameter[9]", "remote", "manual"]
+      - ["org.apache.lucene.search.vectorhighlight", "FastVectorHighlighter", True, "getBestFragments", "(FieldQuery,IndexReader,int,String,int,int,FragListBuilder,FragmentsBuilder,String[],String[],Encoder)", "", "Parameter[8]", "remote", "manual"]

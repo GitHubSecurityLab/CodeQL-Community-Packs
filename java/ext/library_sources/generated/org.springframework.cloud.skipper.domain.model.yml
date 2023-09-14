@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.cloud.skipper.domain", "ScaleRequest", True, "of", "(String,Integer,Map)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.domain", "UpgradeRequest", True, "setAppNames", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.domain", "UpgradeRequest", True, "setForce", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.domain", "UpgradeRequest", True, "setPackageIdentifier", "(PackageIdentifier)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.domain", "CommonProperties", True, "setReleaseName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.domain", "RollbackRequest", True, "setReleaseName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.domain", "RollbackRequest", True, "setVersion", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.domain", "ScaleRequest", True, "of", "(String,Integer,Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.skipper.domain", "ScaleRequest", True, "of", "(String,Integer,Map)", "", "Parameter[1]", "remote", "manual"]

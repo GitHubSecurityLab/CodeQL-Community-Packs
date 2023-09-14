@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.dspace.scripts", "DSpaceRunnable<>", True, "initialize", "(String[],DSpaceRunnableHandler,EPerson)", "", "Parameter[0]", "remote", "manual"]

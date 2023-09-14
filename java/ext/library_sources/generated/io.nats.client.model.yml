@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.nats.client", "Nats", True, "connect", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.nats.client", "Dispatcher", True, "subscribe", "(String,MessageHandler)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.nats.client", "Connection", True, "publish", "(String,byte[])", "", "Parameter[1]", "remote", "manual"]

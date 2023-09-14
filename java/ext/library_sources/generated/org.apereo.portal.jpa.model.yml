@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apereo.portal.jpa", "BaseJpaDao$NaturalIdQuery<PortletDefinitionImpl>", False, "using", "(Attribute,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apereo.portal.jpa", "BaseJpaDao$NaturalIdQuery<PortalCookieImpl>", False, "using", "(Attribute,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apereo.portal.jpa", "BaseJpaDao$NaturalIdQuery<PermissionOwnerImpl>", False, "using", "(Attribute,Object)", "", "Parameter[1]", "remote", "manual"]

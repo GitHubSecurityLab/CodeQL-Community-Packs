@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.openide.filesystems", "ListenerList<FileChangeListener>", True, "add", "(FileChangeListener)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openide.filesystems", "ListenerList<FileChangeListener>", True, "remove", "(FileChangeListener)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openide.filesystems", "XMLFileSystem$FileObjRef<>", True, "createAbsoluteUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openide.filesystems", "XMLFileSystem$FileObjRef<>", True, "readAttribute", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.openide.filesystems", "XMLFileSystem$FileObjRef<>", True, "setUrlContext", "(URL[])", "", "Parameter[0]", "remote", "manual"]

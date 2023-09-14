@@ -1,0 +1,47 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      # from https://github.com/github/codeql/blob/f68083872df27bb83e777bb335c4624696bc5638/java/ql/lib/ext/play.mvc.model.yml 
+      # but with subclass support to account for Http$Request methods
+      - ["play.mvc", "Http$RequestHeader", True, "getHeader", "", "", "ReturnValue", "remote", "manual"] # probably a typo, should be getHeaders? added below
+      - ["play.mvc", "Http$RequestHeader", True, "getQueryString", "", "", "ReturnValue", "remote", "manual"]
+      - ["play.mvc", "Http$RequestHeader", True, "header", "", "", "ReturnValue", "remote", "manual"]
+      - ["play.mvc", "Http$RequestHeader", True, "queryString", "", "", "ReturnValue", "remote", "manual"]
+      # new ones
+      - ["play.mvc", "Http$RequestHeader", True, "cookie", "", "", "ReturnValue", "remote", "manual"]
+      - ["play.mvc", "Http$RequestHeader", True, "cookies", "", "", "ReturnValue", "remote", "manual"]
+      - ["play.mvc", "Http$RequestHeader", True, "getCookie", "", "", "ReturnValue", "remote", "manual"]
+      - ["play.mvc", "Http$RequestHeader", True, "flash", "", "", "ReturnValue", "remote", "manual"]
+      - ["play.mvc", "Http$RequestHeader", True, "getHeaders", "", "", "ReturnValue", "remote", "manual"]
+      - ["play.mvc", "Http$RequestHeader", True, "host", "", "", "ReturnValue", "remote", "manual"]
+      - ["play.mvc", "Http$RequestHeader", True, "path", "", "", "ReturnValue", "remote", "manual"]
+      - ["play.mvc", "Http$RequestHeader", True, "uri", "", "", "ReturnValue", "remote", "manual"]
+      - ["play.mvc", "Http$RequestHeader", True, "	remoteAddress", "", "", "ReturnValue", "remote", "manual"]
+      # Http$Request
+      - ["play.mvc", "Http$Request", False, "body", "", "", "ReturnValue", "remote", "manual"]
+  - addsTo:
+      pack: codeql/java-all
+      extensible: summaryModel
+    data:
+      - ["play.mvc", "Http$RequestBody", True, "as", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$RequestBody", True, "asBytes", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$RequestBody", True, "asJson", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$RequestBody", True, "asMultipartFormData", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$RequestBody", True, "asRaw", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$RequestBody", True, "asText", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$RequestBody", True, "asXml", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$RequestBody", True, "parseJson", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$MultipartFormData", True, "asFormUrlEncoded", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$MultipartFormData", True, "getFile", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$MultipartFormData$FilePart", True, "getContentType", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$MultipartFormData$FilePart", True, "getDispositionType", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$MultipartFormData$FilePart", True, "getFilename", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$MultipartFormData$FilePart", True, "getKey", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$MultipartFormData$FilePart", True, "getRef", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$RawBuffer", True, "asBytes", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$RawBuffer", True, "asFile", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$Cookie", True, "value", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+      - ["play.mvc", "Http$Cookies", True, "get", "", "", "Argument[-1]", "ReturnValue", "taint", "manual"]
+

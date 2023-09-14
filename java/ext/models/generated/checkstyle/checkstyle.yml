@@ -1,0 +1,24 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["com.puppycrawl.tools.checkstyle.api", "FileSetCheck", true, "process", "(File,FileText)", "", "Argument[0]", "create-file", "generated"]
+      - ["com.puppycrawl.tools.checkstyle.api", "RootModule", true, "process", "(List)", "", "Argument[0]", "create-file", "generated"]
+      - ["com.puppycrawl.tools.checkstyle.checks.imports", "ImportControlCheck", true, "setFile", "(URI)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.puppycrawl.tools.checkstyle.checks.imports", "ImportControlLoader", false, "load", "(URI)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.puppycrawl.tools.checkstyle.filters", "SuppressionsLoader", false, "loadSuppressions", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.puppycrawl.tools.checkstyle.filters", "SuppressionsLoader", false, "loadXpathSuppressions", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.puppycrawl.tools.checkstyle.utils", "CommonUtil", false, "getCheckstyleResource", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.puppycrawl.tools.checkstyle.utils", "CommonUtil", false, "getResourceFromClassPath", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.puppycrawl.tools.checkstyle.utils", "CommonUtil", false, "getUriByFilename", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.puppycrawl.tools.checkstyle.utils", "FilterUtil", false, "isFileExists", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.puppycrawl.tools.checkstyle.utils", "FilterUtil", false, "isFileExists", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.puppycrawl.tools.checkstyle", "ConfigurationLoader", false, "loadConfiguration", "(String,PropertyResolver)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.puppycrawl.tools.checkstyle", "ConfigurationLoader", false, "loadConfiguration", "(String,PropertyResolver,IgnoredModulesOptions)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.puppycrawl.tools.checkstyle", "ConfigurationLoader", false, "loadConfiguration", "(String,PropertyResolver,IgnoredModulesOptions,ThreadModeSettings)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.puppycrawl.tools.checkstyle", "ConfigurationLoader", false, "loadConfiguration", "(String,PropertyResolver,ThreadModeSettings)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.puppycrawl.tools.checkstyle", "PropertyCacheFile", false, "persist", "()", "", "Argument[-1]", "create-file", "generated"]
+      - ["com.puppycrawl.tools.checkstyle", "PropertyCacheFile", false, "putExternalResources", "(Set)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.puppycrawl.tools.checkstyle", "PropertyCacheFile", false, "putExternalResources", "(Set)", "", "Argument[0]", "read-file", "generated"]
+

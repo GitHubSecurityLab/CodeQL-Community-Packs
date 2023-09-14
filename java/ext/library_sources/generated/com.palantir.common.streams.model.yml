@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.palantir.common.streams", "KeyedStream", True, "of", "(Iterable)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.palantir.common.streams", "KeyedStream", True, "stream", "(Map)", "", "Parameter[0]", "remote", "manual"]

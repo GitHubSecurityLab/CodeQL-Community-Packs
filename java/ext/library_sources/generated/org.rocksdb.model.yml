@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.rocksdb", "RocksDB", True, "put", "(ColumnFamilyHandle,WriteOptions,byte[],byte[])", "", "Parameter[3]", "remote", "manual"]
+      - ["org.rocksdb", "RocksDB", True, "put", "(ColumnFamilyHandle,WriteOptions,ByteBuffer,ByteBuffer)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.rocksdb", "RocksDB", True, "get", "(ColumnFamilyHandle,byte[])", "", "Parameter[1]", "remote", "manual"]

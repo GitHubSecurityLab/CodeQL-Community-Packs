@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.airsonic.player.domain", "TranscodeScheme", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.airsonic.player.domain", "PlayerTechnology", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.airsonic.player.domain", "MusicFolder$Type", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

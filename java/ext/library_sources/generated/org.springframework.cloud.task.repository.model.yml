@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.cloud.task.repository", "TaskExplorer", True, "findTaskExecutionsByName", "(String,Pageable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.task.repository", "TaskExplorer", True, "getLatestTaskExecutionForTaskName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.task.repository", "TaskExplorer", True, "getTaskExecution", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.task.repository", "TaskRepository", True, "createTaskExecution", "(String)", "", "Parameter[0]", "remote", "manual"]

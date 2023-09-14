@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.ff4j.couchdb.document", "CouchDbFeature", True, "setFeature", "(String)", "", "Parameter[0]", "remote", "manual"]

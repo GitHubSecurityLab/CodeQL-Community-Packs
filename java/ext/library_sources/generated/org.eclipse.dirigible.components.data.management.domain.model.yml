@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.dirigible.components.data.management.domain", "DatabaseStructureTypes", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

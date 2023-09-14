@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.shiro.codec", "Base64", True, "decodeToString", "(String)", "", "Parameter[0]", "remote", "manual"]

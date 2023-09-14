@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.minidev.json.parser", "JSONParser", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.minidev.json.parser", "JSONParser", True, "parse", "(String,JsonReaderI)", "", "Parameter[0]", "remote", "manual"]

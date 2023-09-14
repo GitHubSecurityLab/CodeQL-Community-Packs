@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.rometools.modules.itunes", "ITunes", True, "setSummary", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.rometools.modules.itunes", "ITunes", True, "setAuthor", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jmri.jmrit.operations.rollingstock", "RollingStockManager<Engine>", True, "getById", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.jmrit.operations.rollingstock", "RollingStockManager<Car>", True, "getByTypeList", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.jmrit.operations.rollingstock", "RollingStockManager<Car>", True, "getById", "(String)", "", "Parameter[0]", "remote", "manual"]

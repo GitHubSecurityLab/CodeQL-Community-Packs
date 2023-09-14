@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.infinispan.commons.api", "AsyncCache<UUID,SessionEntityWrapper<AuthenticatedClientSessionEntity>>", True, "removeAsync", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.infinispan.commons.api", "BasicCache<K,V>", True, "replace", "(Object,Object,long,TimeUnit)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.infinispan.commons.api", "BasicCache<K,V>", True, "replace", "(Object,Object,long,TimeUnit)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.infinispan.commons.api", "BasicCache<K,V>", True, "put", "(Object,Object,long,TimeUnit)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.infinispan.commons.api", "BasicCache<K,V>", True, "put", "(Object,Object,long,TimeUnit)", "", "Parameter[0]", "remote", "manual"]

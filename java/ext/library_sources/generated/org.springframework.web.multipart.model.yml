@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.web.multipart", "MultipartFile", True, "transferTo", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.web.multipart", "MultipartFile", True, "transferTo", "(Path)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.web.multipart", "MultipartRequest", True, "getFile", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opencastproject.elasticsearch.impl", "AbstractElasticsearchQueryBuilder<SeriesSearchQuery>", True, "and", "(String,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.opencastproject.elasticsearch.impl", "AbstractElasticsearchQueryBuilder<SeriesSearchQuery>", True, "and", "(String,Date,Date)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.opencastproject.elasticsearch.impl", "AbstractElasticsearchQueryBuilder<SeriesSearchQuery>", True, "and", "(String,Date,Date)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.opencastproject.elasticsearch.impl", "AbstractElasticsearchQueryBuilder<EventSearchQuery>", True, "and", "(String,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.opencastproject.elasticsearch.impl", "AbstractElasticsearchQueryBuilder<ThemeSearchQuery>", True, "and", "(String,Object[])", "", "Parameter[1]", "remote", "manual"]

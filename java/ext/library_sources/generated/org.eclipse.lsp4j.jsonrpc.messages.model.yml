@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.lsp4j.jsonrpc.messages", "ResponseError", True, "setMessage", "(String)", "", "Parameter[0]", "remote", "manual"]

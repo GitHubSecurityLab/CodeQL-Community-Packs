@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.math3.fitting", "PolynomialCurveFitter", True, "create", "(int)", "", "Parameter[0]", "remote", "manual"]

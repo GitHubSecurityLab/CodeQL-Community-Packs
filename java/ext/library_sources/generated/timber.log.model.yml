@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["timber.log", "Timber", False, "d", "(String,Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["timber.log", "Timber$Tree", True, "i", "(String,Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["timber.log", "Timber", False, "v", "(String,Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["timber.log", "Timber", False, "e", "(Throwable,String,Object[])", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.android.material.snackbar", "Snackbar", True, "make", "(View,CharSequence,int)", "", "Parameter[1]", "remote", "manual"]

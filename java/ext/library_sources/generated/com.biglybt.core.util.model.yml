@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.biglybt.core.util", "ConcurrentHashMapWrapper<String,Object>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.biglybt.core.util", "ConcurrentHashMapWrapper<String,Object>", True, "containsKey", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.biglybt.core.util", "ConcurrentHashMapWrapper<String,Object>", True, "put", "(String,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.biglybt.core.util", "CopyOnWriteMap<String,SubscriptionImpl>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.biglybt.core.util", "ByteArrayHashMap<DownloadStubImpl>", True, "get", "(byte[])", "", "Parameter[0]", "remote", "manual"]

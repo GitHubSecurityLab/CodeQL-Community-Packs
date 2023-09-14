@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.mapreduce", "Job", True, "setJobName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.mapreduce", "Job", True, "getInstance", "(Configuration,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.mapreduce", "FileSystemCounter", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.mapreduce", "Job", True, "setNumReduceTasks", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.mapreduce", "Job", True, "getInstance", "(Configuration)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.web3j.protocol.core.methods.request", "Transaction", True, "createEthCallTransaction", "(String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.web3j.protocol.core.methods.request", "Transaction", True, "createEthCallTransaction", "(String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.web3j.protocol.core.methods.request", "Transaction", True, "createFunctionCallTransaction", "(String,BigInteger,Object,BigInteger,Object,BigInteger,Object,String,BigInteger,Object,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.web3j.protocol.core.methods.request", "Transaction", True, "createFunctionCallTransaction", "(String,BigInteger,Object,BigInteger,Object,BigInteger,Object,String,BigInteger,Object,String)", "", "Parameter[4]", "remote", "manual"]
+      - ["org.web3j.protocol.core.methods.request", "Transaction", True, "createFunctionCallTransaction", "(String,BigInteger,Object,BigInteger,Object,BigInteger,Object,String,BigInteger,Object,String)", "", "Parameter[5]", "remote", "manual"]
+      - ["org.web3j.protocol.core.methods.request", "Transaction", True, "createFunctionCallTransaction", "(String,BigInteger,Object,BigInteger,Object,BigInteger,Object,String,BigInteger,Object,String)", "", "Parameter[6]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.atlassian.bamboo.specs.builders.task", "CheckoutItem", True, "path", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.atlassian.bamboo.specs.builders.task", "ScriptTask", True, "inlineBody", "(String)", "", "Parameter[0]", "remote", "manual"]

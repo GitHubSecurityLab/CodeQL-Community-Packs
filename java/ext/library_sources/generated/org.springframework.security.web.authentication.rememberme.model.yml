@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.web.authentication.rememberme", "AbstractRememberMeServices", True, "setCookie", "(String[],int,HttpServletRequest,HttpServletResponse)", "", "Parameter[0]", "remote", "manual"]

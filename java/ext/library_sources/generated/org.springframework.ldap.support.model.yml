@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.ldap.support", "LdapEncoder", False, "filterEncode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.ldap.support", "LdapNameBuilder", False, "add", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

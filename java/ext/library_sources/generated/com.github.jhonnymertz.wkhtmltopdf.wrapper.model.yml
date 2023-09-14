@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.github.jhonnymertz.wkhtmltopdf.wrapper", "Pdf", True, "addPageFromUrl", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.apicurio.registry.storage.dto", "EditableArtifactMetaDataDto", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.apicurio.registry.storage.dto", "EditableArtifactMetaDataDto", True, "setProperties", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.apicurio.registry.storage.dto", "ArtifactMetaDataDto", True, "setId", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.cloudevents.core.builder", "CloudEventBuilder", True, "withExtension", "(String,URI)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.cloudevents.core.builder", "CloudEventBuilder", True, "withExtension", "(String,URI)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.cloudevents.core.builder", "CloudEventBuilder", True, "withExtension", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.cloudevents.core.builder", "CloudEventBuilder", True, "withExtension", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.cloudevents.core.builder", "CloudEventBuilder", True, "withExtension", "(String,Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.cloudevents.core.builder", "CloudEventBuilder", True, "withExtension", "(String,Boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.cloudevents.core.builder", "CloudEventBuilder", True, "withExtension", "(String,Number)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.cloudevents.core.builder", "CloudEventBuilder", True, "withExtension", "(String,Number)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.cloudevents.core.builder", "CloudEventBuilder", True, "withExtension", "(String,OffsetDateTime)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.cloudevents.core.builder", "CloudEventBuilder", True, "withExtension", "(String,OffsetDateTime)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.cloudevents.core.builder", "CloudEventBuilder", True, "withExtension", "(String,byte[])", "", "Parameter[1]", "remote", "manual"]
+      - ["io.cloudevents.core.builder", "CloudEventBuilder", True, "withExtension", "(String,byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["io.cloudevents.core.builder", "CloudEventBuilder", True, "withData", "(String,byte[])", "", "Parameter[1]", "remote", "manual"]

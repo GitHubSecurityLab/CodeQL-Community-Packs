@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.storm.shade.org.apache.zookeeper.server.auth", "DigestAuthenticationProvider", True, "generateDigest", "(String)", "", "Parameter[0]", "remote", "manual"]

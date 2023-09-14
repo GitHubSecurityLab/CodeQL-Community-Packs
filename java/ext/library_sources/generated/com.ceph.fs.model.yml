@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.ceph.fs", "CephMount", True, "lseek", "(int,long,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.ceph.fs", "CephMount", True, "lseek", "(int,long,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ceph.fs", "CephMount", True, "close", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ceph.fs", "CephMount", True, "read", "(int,byte[],long,long)", "", "Parameter[2]", "remote", "manual"]

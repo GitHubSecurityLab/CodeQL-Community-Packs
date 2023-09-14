@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.james.mime4j.parser", "MimeStreamParser", True, "parse", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

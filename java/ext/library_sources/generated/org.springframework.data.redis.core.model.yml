@@ -1,0 +1,25 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.data.redis.core", "ValueOperations<String,String>", True, "get", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "ValueOperations<String,String>", True, "set", "(String,String,long,TimeUnit)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "ValueOperations<String,String>", True, "set", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "ValueOperations<String,String>", True, "set", "(String,String,long,TimeUnit)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "ValueOperations<String,String>", True, "set", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "ValueOperations<String,Object>", True, "set", "(String,Object,long,TimeUnit)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "ValueOperations<String,Object>", True, "set", "(String,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "ValueOperations<String,Object>", True, "get", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "ValueOperations<String,byte[]>", True, "set", "(String,byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "ZSetOperations<>", True, "incrementScore", "(Object,Object,double)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "ValueOperations<String,byte[]>", True, "get", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "RedisOperations<String,String>", True, "keys", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "ScanOptions$ScanOptionsBuilder", True, "match", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "ValueOperations<>", True, "get", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "ValueOperations<>", True, "set", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "ValueOperations<>", True, "set", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "ValueOperations<>", True, "set", "(Object,Object,long,TimeUnit)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "HashOperations<String,String,String>", True, "get", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "HashOperations<String,String,String>", True, "get", "(String,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.redis.core", "HashOperations<String,String,String>", True, "delete", "(String,Object[])", "", "Parameter[0]", "remote", "manual"]

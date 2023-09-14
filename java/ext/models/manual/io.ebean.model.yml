@@ -1,0 +1,32 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sinkModel
+    data:
+      - ["io.ebean", "Query", True, "orderBy", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "Query", True, "setOrderBy", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "ExpressionList", True, "orderBy", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "ExpressionList", True, "setOrderBy", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "OrderBy", True, "add", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "OrderBy", True, "OrderBy", "(String)", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "OrderBy", True, "OrderBy", "(Query,String)", "", "Argument[1]", "sql", "manual"]
+      - ["io.ebean", "DB", True, "findDto", "", "", "Argument[1]", "sql", "manual"]
+      - ["io.ebean", "DB", True, "findNative", "", "", "Argument[1]", "sql", "manual"]
+      - ["io.ebean", "Database", True, "findDto", "", "", "Argument[1]", "sql", "manual"]
+      - ["io.ebean", "Database", True, "findNative", "", "", "Argument[1]", "sql", "manual"]
+      - ["io.ebean", "RawSqlBuilder", True, "parse", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "RawSqlBuilder", True, "unparsed", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "Expr", True, "raw", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "Expr", True, "rawOrEmpty", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "ExpressionList", True, "raw", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "ExpressionList", True, "rawOrEmpty", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "ExpressionFactory", True, "raw", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "ExpressionFactory", True, "rawOrEmpty", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "UpdateQuery", True, "setRaw", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "Database", True, "sqlQuery", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "Database", True, "sqlUpdate", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "DB", True, "sqlQuery", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "DB", True, "sqlUpdate", "", "", "Argument[0]", "sql", "manual"]
+      - ["io.ebean", "Database", True, "sort", "", "", "Argument[1]", "sql", "manual"]
+      - ["io.ebean", "DB", True, "sort", "", "", "Argument[1]", "sql", "manual"]
+      - ["io.ebean", "CallableSql", True, "setSql", "", "", "Argument[0]", "sql", "manual"]

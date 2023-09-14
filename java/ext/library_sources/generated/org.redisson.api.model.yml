@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.redisson.api", "RedissonClient", True, "getLock", "(String)", "", "Parameter[0]", "remote", "manual"]

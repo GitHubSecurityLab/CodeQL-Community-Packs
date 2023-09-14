@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.gluu.util", "StringHelper", False, "isNotEmpty", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gluu.util", "StringHelper", False, "equalsIgnoreCase", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gluu.util", "StringHelper", False, "toBoolean", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gluu.util", "StringHelper", False, "equals", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.gluu.util", "ArrayHelper", False, "isNotEmpty", "(Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gluu.util", "StringHelper", False, "toInteger", "(String,Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gluu.util", "StringHelper", False, "isEmpty", "(String)", "", "Parameter[0]", "remote", "manual"]

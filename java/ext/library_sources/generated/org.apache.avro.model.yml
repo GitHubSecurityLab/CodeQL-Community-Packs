@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.avro", "Schema$Parser", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.avro", "Schema", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["com.fasterxml.jackson.databind", "ObjectReader", true, "readValue", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.fasterxml.jackson.databind", "ObjectReader", true, "readValue", "(File,Class)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.fasterxml.jackson.databind", "ObjectReader", true, "readValue", "(URL)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.fasterxml.jackson.databind", "ObjectReader", true, "readValue", "(URL,Class)", "", "Argument[0]", "open-url", "generated"]
+      - ["com.fasterxml.jackson.databind", "ObjectReader", true, "readValues", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.fasterxml.jackson.databind", "ObjectReader", true, "readValues", "(URL)", "", "Argument[0]", "open-url", "generated"]
+

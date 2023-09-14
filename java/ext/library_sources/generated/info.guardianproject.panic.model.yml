@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["info.guardianproject.panic", "Panic", True, "isTriggerIntent", "(Intent)", "", "Parameter[0]", "remote", "manual"]

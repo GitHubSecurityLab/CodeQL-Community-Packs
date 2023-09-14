@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.usthe.warehouse.store", "AbstractRealTimeDataStorage", True, "getCurrentMetricsData", "(Long,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.usthe.warehouse.store", "AbstractRealTimeDataStorage", True, "getCurrentMetricsData", "(Long,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.usthe.warehouse.store", "AbstractHistoryDataStorage", True, "getHistoryMetricData", "(Long,String,String,String,String,String)", "", "Parameter[5]", "remote", "manual"]
+      - ["com.usthe.warehouse.store", "AbstractHistoryDataStorage", True, "getHistoryMetricData", "(Long,String,String,String,String,String)", "", "Parameter[4]", "remote", "manual"]
+      - ["com.usthe.warehouse.store", "AbstractHistoryDataStorage", True, "getHistoryMetricData", "(Long,String,String,String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.usthe.warehouse.store", "AbstractHistoryDataStorage", True, "getHistoryIntervalMetricData", "(Long,String,String,String,String,String)", "", "Parameter[5]", "remote", "manual"]
+      - ["com.usthe.warehouse.store", "AbstractHistoryDataStorage", True, "getHistoryIntervalMetricData", "(Long,String,String,String,String,String)", "", "Parameter[4]", "remote", "manual"]
+      - ["com.usthe.warehouse.store", "AbstractHistoryDataStorage", True, "getHistoryIntervalMetricData", "(Long,String,String,String,String,String)", "", "Parameter[1]", "remote", "manual"]

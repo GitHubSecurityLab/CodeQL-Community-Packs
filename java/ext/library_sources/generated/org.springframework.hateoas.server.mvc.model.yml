@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.hateoas.server.mvc", "WebMvcLinkBuilder", True, "linkTo", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.hateoas.server.mvc", "RepresentationModelAssemblerSupport<StreamDeployment,StreamDeploymentResource>", True, "createModelWithId", "(Object,StreamDeployment)", "", "Parameter[0]", "remote", "manual"]

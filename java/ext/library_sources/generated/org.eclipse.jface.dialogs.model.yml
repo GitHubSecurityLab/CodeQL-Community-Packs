@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.jface.dialogs", "MessageDialog", True, "openInformation", "(Shell,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.eclipse.jface.dialogs", "MessageDialog", True, "openQuestion", "(Shell,String,String)", "", "Parameter[2]", "remote", "manual"]

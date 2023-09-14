@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.thrift.protocol", "TProtocol", True, "writeString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.thrift.protocol", "TProtocol", True, "writeI64", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.thrift.protocol", "TProtocol", True, "writeI32", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.thrift.protocol", "TProtocol", True, "writeByte", "(byte)", "", "Parameter[0]", "remote", "manual"]

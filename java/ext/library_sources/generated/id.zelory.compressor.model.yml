@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["id.zelory.compressor", "Compressor", False, "compress$default", "(Compressor,Context,File,CoroutineContext,Function1,int,Object)", "", "Parameter[2]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.slf4j.migrator", "ProjectConverter", true, "convertProject", "(File)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.slf4j.migrator", "ProjectConverter", true, "convertProject", "(File)", "", "Argument[0]", "read-file", "generated"]
+

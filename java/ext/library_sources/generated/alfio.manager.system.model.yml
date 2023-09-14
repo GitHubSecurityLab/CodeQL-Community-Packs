@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["alfio.manager.system", "ExternalConfiguration", True, "getSingle", "(String)", "", "Parameter[0]", "remote", "manual"]

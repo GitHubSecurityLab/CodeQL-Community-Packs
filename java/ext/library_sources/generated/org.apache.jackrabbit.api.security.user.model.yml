@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.jackrabbit.api.security.user", "UserManager", True, "getAuthorizable", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.jackrabbit.api.security.user", "UserManager", True, "createUser", "(String,String,Principal,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.jackrabbit.api.security.user", "User", True, "changePassword", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.rdf4j.sail.shacl", "ShaclSail$TransactionSettings$PerformanceHint", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.rdf4j.sail.shacl", "ShaclSail$TransactionSettings$ValidationApproach", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.api.debugger", "Lookup$LookupList<T>", True, "add", "(Object,String)", "", "Parameter[1]", "remote", "manual"]

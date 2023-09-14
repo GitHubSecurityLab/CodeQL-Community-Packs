@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.http.client.methods", "RequestBuilder", True, "addHeader", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.http.client.methods", "RequestBuilder", True, "addParameter", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.http.client.methods", "HttpRequestBase", True, "setURI", "(URI)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.http.client.methods", "RequestBuilder", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.http.client.methods", "RequestBuilder", True, "get", "(URI)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.http.client.methods", "RequestBuilder", True, "setHeader", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.http.client.methods", "RequestBuilder", True, "addHeader", "(String,String)", "", "Parameter[0]", "remote", "manual"]

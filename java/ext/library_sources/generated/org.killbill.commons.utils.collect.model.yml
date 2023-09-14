@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.killbill.commons.utils.collect", "Iterables", False, "toStream", "(Iterable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.killbill.commons.utils.collect", "Iterables", False, "contains", "(Iterable,Object)", "", "Parameter[1]", "remote", "manual"]
