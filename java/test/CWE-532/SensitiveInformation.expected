@@ -1,0 +1,22 @@
+edges
+| SensitiveInformation.java:17:23:17:62 | (...)... : String | SensitiveInformation.java:18:26:18:55 | ... + ... |
+| SensitiveInformation.java:17:23:17:62 | (...)... : String | SensitiveInformation.java:19:28:19:31 | attr |
+| SensitiveInformation.java:17:23:17:62 | (...)... : String | SensitiveInformation.java:20:66:20:69 | attr : String |
+| SensitiveInformation.java:17:31:17:62 | getAttribute(...) : Object | SensitiveInformation.java:17:23:17:62 | (...)... : String |
+| SensitiveInformation.java:20:31:20:81 | encodeToString(...) : String | SensitiveInformation.java:26:19:26:30 | responseBody |
+| SensitiveInformation.java:20:66:20:69 | attr : String | SensitiveInformation.java:20:66:20:80 | getBytes(...) : byte[] |
+| SensitiveInformation.java:20:66:20:80 | getBytes(...) : byte[] | SensitiveInformation.java:20:31:20:81 | encodeToString(...) : String |
+nodes
+| SensitiveInformation.java:17:23:17:62 | (...)... : String | semmle.label | (...)... : String |
+| SensitiveInformation.java:17:31:17:62 | getAttribute(...) : Object | semmle.label | getAttribute(...) : Object |
+| SensitiveInformation.java:18:26:18:55 | ... + ... | semmle.label | ... + ... |
+| SensitiveInformation.java:19:28:19:31 | attr | semmle.label | attr |
+| SensitiveInformation.java:20:31:20:81 | encodeToString(...) : String | semmle.label | encodeToString(...) : String |
+| SensitiveInformation.java:20:66:20:69 | attr : String | semmle.label | attr : String |
+| SensitiveInformation.java:20:66:20:80 | getBytes(...) : byte[] | semmle.label | getBytes(...) : byte[] |
+| SensitiveInformation.java:26:19:26:30 | responseBody | semmle.label | responseBody |
+subpaths
+#select
+| SensitiveInformation.java:18:26:18:55 | ... + ... | SensitiveInformation.java:17:31:17:62 | getAttribute(...) : Object | SensitiveInformation.java:18:26:18:55 | ... + ... | Sensative data is being logged $@. | SensitiveInformation.java:17:31:17:62 | getAttribute(...) | user-provided value |
+| SensitiveInformation.java:19:28:19:31 | attr | SensitiveInformation.java:17:31:17:62 | getAttribute(...) : Object | SensitiveInformation.java:19:28:19:31 | attr | Sensative data is being logged $@. | SensitiveInformation.java:17:31:17:62 | getAttribute(...) | user-provided value |
+| SensitiveInformation.java:26:19:26:30 | responseBody | SensitiveInformation.java:17:31:17:62 | getAttribute(...) : Object | SensitiveInformation.java:26:19:26:30 | responseBody | Sensative data is being logged $@. | SensitiveInformation.java:17:31:17:62 | getAttribute(...) | user-provided value |

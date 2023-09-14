@@ -1,0 +1,12 @@
+edges
+| XXELocal.java:15:39:15:63 | new FileInputStream(...) : FileInputStream | XXELocal.java:16:51:16:61 | inputStream : FileInputStream |
+| XXELocal.java:16:35:16:62 | new InputSource(...) : InputSource | XXELocal.java:24:25:24:35 | inputSource |
+| XXELocal.java:16:51:16:61 | inputStream : FileInputStream | XXELocal.java:16:35:16:62 | new InputSource(...) : InputSource |
+nodes
+| XXELocal.java:15:39:15:63 | new FileInputStream(...) : FileInputStream | semmle.label | new FileInputStream(...) : FileInputStream |
+| XXELocal.java:16:35:16:62 | new InputSource(...) : InputSource | semmle.label | new InputSource(...) : InputSource |
+| XXELocal.java:16:51:16:61 | inputStream : FileInputStream | semmle.label | inputStream : FileInputStream |
+| XXELocal.java:24:25:24:35 | inputSource | semmle.label | inputSource |
+subpaths
+#select
+| XXELocal.java:24:25:24:35 | inputSource | XXELocal.java:15:39:15:63 | new FileInputStream(...) : FileInputStream | XXELocal.java:24:25:24:35 | inputSource | Unsafe parsing of XML file from $@. | XXELocal.java:15:39:15:63 | new FileInputStream(...) | user input |

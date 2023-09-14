@@ -1,0 +1,10 @@
+sources
+| HardcodedBase64Usage.java:4:32:4:49 | "VGVzdFBhc3N3b3Jk" |
+| HardcodedBase64Usage.java:5:33:6:17 | new byte[] |
+| HardcodedBase64Usage.java:39:58:39:71 | "U2VjcmV0S2V5" |
+sinks
+| HardcodedBase64Usage.java:9:58:9:66 | MyApp.KEY |
+| HardcodedBase64Usage.java:16:58:16:67 | MyApp.KEY2 |
+| HardcodedBase64Usage.java:24:58:24:60 | key |
+| HardcodedBase64Usage.java:32:58:32:60 | key |
+| HardcodedBase64Usage.java:39:58:39:71 | "U2VjcmV0S2V5" |
