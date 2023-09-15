@@ -1,10 +1,10 @@
 library: true
-name: githubsecuritylab/java-library-sources-extensions
-version: 0.0.1
+name: githubsecuritylab/codeql-java-library-sources
+version: 0.0.2
 extensionTargets:
   codeql/java-all: ^0.5.0
   codeql/java-queries: ^0.5.0
-  githubsecuritylab/java-queries: ^0.0.1
+  githubsecuritylab/codeql-java-queries: ^0.0.2
 dataExtensions:
   - manual/*.yml
   - generated/*.yml

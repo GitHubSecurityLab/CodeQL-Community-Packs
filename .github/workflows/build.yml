@@ -1,4 +1,4 @@
-name: Build CodeQL Queries 
+name: Build CodeQL Packs 
 
 on:
   pull_request:
@@ -88,7 +88,7 @@ jobs:
         run: |
           gh extension install github/gh-codeql
           gh codeql pack install "${{ matrix.language }}/ext/"
-          gh codeql pack install "${{ matrix.language }}/ext_library_sources/"
+          gh codeql pack install "${{ matrix.language }}/ext-library-sources/"
           gh codeql pack create "${{ matrix.language }}/ext/"
-          gh codeql pack create "${{ matrix.language }}/ext_library_sources/"
+          gh codeql pack create "${{ matrix.language }}/ext-library-sources/"
 
