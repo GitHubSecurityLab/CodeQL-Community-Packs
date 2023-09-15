@@ -1,0 +1,18 @@
+# Env's
+.env
+.venv
+
+# CodeQL related
+.codeql
+.cache
+*.testproj/
+*.actual
+*.class
+*/*.class
+
+# Test files / folders
+test.ql
+test-*.ql
+**/testing/**
+**/*.testproj/*
+*/test-output.txt
