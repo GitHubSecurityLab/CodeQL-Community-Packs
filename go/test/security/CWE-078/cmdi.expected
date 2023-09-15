@@ -1,10 +1,16 @@
 edges
+| main.go:11:13:11:19 | selection of URL | main.go:11:13:11:27 | call to Query |
+| main.go:11:13:11:27 | call to Query | main.go:12:22:12:28 | cmdName |
 | main.go:20:14:20:20 | selection of URL | main.go:20:14:20:28 | call to Query |
 | main.go:20:14:20:28 | call to Query | main.go:27:22:27:28 | cmdName |
 nodes
+| main.go:11:13:11:19 | selection of URL | semmle.label | selection of URL |
+| main.go:11:13:11:27 | call to Query | semmle.label | call to Query |
+| main.go:12:22:12:28 | cmdName | semmle.label | cmdName |
 | main.go:20:14:20:20 | selection of URL | semmle.label | selection of URL |
 | main.go:20:14:20:28 | call to Query | semmle.label | call to Query |
 | main.go:27:22:27:28 | cmdName | semmle.label | cmdName |
 subpaths
 #select
+| main.go:12:22:12:28 | cmdName | main.go:11:13:11:19 | selection of URL | main.go:12:22:12:28 | cmdName | This command depends on a $@. | main.go:11:13:11:19 | selection of URL | user-provided value |
 | main.go:27:22:27:28 | cmdName | main.go:20:14:20:20 | selection of URL | main.go:27:22:27:28 | cmdName | This command depends on a $@. | main.go:20:14:20:20 | selection of URL | user-provided value |
