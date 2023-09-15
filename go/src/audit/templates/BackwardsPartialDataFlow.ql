@@ -1,11 +1,9 @@
 /**
  * @name Backwards Partial Dataflow
  * @description Backwards Partial Dataflow
- * @kind problem
- * @precision low
- * @problem.severity error
- * @id seclab/backwards-partial-dataflow
- * @tags audit
+ * @kind table
+ * @id githubsecuritylab/backwards-partial-dataflow
+ * @tags template
  */
 
 import go
@@ -13,9 +11,7 @@ import semmle.go.dataflow.TaintTracking
 import PartialFlow::PartialPathGraph
 
 private module MyConfig implements DataFlow::ConfigSig {
-  predicate isSource(DataFlow::Node source) {
-    none()
-  }
+  predicate isSource(DataFlow::Node source) { none() }
 
   predicate isSink(DataFlow::Node sink) {
     // Define the sink to run the backwards partial dataflow from. Eg:
@@ -28,7 +24,9 @@ private module MyConfig implements DataFlow::ConfigSig {
 }
 
 private module MyFlow = TaintTracking::Global<MyConfig>; // or DataFlow::Global<..>
+
 int explorationLimit() { result = 10 }
+
 private module PartialFlow = MyFlow::FlowExploration<explorationLimit/0>;
 
 from PartialFlow::PartialPathNode n, int dist

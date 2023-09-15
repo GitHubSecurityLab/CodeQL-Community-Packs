@@ -1,21 +1,17 @@
 /**
  * @name Sink Hoisting to method parameter
  * @description Hoist a sink using partial dataflow
- * @kind problem
- * @precision low
- * @problem.severity error
- * @id seclab/sink-hoister
- * @tags audit
+ * @kind table
+ * @id githubsecuritylab/sink-hoister
+ * @tags template
  */
 
-import go 
+import go
 import semmle.go.dataflow.TaintTracking
 import PartialFlow::PartialPathGraph
 
 private module MyConfig implements DataFlow::ConfigSig {
-  predicate isSource(DataFlow::Node source) {
-    none()
-  }
+  predicate isSource(DataFlow::Node source) { none() }
 
   predicate isSink(DataFlow::Node sink) {
     // Define the sink to be hoisted here. eg:
@@ -27,11 +23,14 @@ private module MyConfig implements DataFlow::ConfigSig {
   }
 }
 
-private module MyFlow = TaintTracking::Make<MyConfig>; // or DataFlow::Make<..>
+private module MyFlow = TaintTracking::Global<MyConfig>; // or DataFlow::Make<..>
+
 int explorationLimit() { result = 10 }
+
 private module PartialFlow = MyFlow::FlowExploration<explorationLimit/0>;
 
 from PartialFlow::PartialPathNode n, int dist
-where PartialFlow::hasPartialFlowRev(n, _, dist) and
-  n.getNode() instanceof DataFlow::ParameterNode 
+where
+  PartialFlow::partialFlowRev(n, _, dist) and
+  n.getNode() instanceof DataFlow::ParameterNode
 select dist, n

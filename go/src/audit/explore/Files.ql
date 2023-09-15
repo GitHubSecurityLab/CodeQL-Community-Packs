@@ -1,3 +1,11 @@
+/**
+ * @name Files
+ * @description List of all files in the repository
+ * @kind table
+ * @id githubsecuritylab/files
+ * @tags audit
+ */
+
 import go
 
 from File f
