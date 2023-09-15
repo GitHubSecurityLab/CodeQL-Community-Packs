@@ -12,13 +12,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # language: [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby', 'swift' ]
-        language: [ 'java' ]
+        language: [ 'java', 'go' ]
 
     steps:
       - uses: actions/checkout@v3
-        # with:
-        #   submodules: true
 
       # Conditionally run actions based on files modified by PR, feature branch or pushed commits
       - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
@@ -66,7 +63,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # language: [ 'csharp', 'java', 'javascript' ]
         language: [ 'java' ]
 
     steps:
@@ -88,7 +84,34 @@ jobs:
         run: |
           gh extension install github/gh-codeql
           gh codeql pack install "${{ matrix.language }}/ext/"
-          gh codeql pack install "${{ matrix.language }}/ext-library-sources/"
           gh codeql pack create "${{ matrix.language }}/ext/"
+
+  library-sources:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'java' ]
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+        id: changes
+        with:
+          filters: |
+            src:
+              - '${{ matrix.language }}/ext-library-sources/**'
+
+      - name: Install CodeQL
+        if: steps.changes.outputs.src == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          gh extension install github/gh-codeql
+          gh codeql pack install "${{ matrix.language }}/ext-library-sources/"
           gh codeql pack create "${{ matrix.language }}/ext-library-sources/"
 
