@@ -1,0 +1,9 @@
+name: githubsecurtylab/codeql-go-tests
+groups: [go, test]
+dependencies:
+    codeql/go-all: '*'
+    codeql/go-queries: '*'
+    githubsecuritylab/codeql-go-queries: '*'
+    githubsecuritylab/codeql-go-libs: '*'
+extractor: go
+tests: .

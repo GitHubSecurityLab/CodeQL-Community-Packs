@@ -1,2 +1,3 @@
 provide:
 - java/**/qlpack.yml
+- go/**/qlpack.yml

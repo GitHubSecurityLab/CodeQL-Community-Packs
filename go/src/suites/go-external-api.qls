@@ -1,0 +1,10 @@
+- description: "GitHub's Community Packs Go External API Suite"
+
+- import: codeql-suites/go-security-extended.qls
+  from: codeql/go-queries
+
+- queries: '.'
+  from: codeql/go-queries
+- include:
+    id:
+      - go/untrusted-data-to-external-api
