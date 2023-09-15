@@ -13,7 +13,7 @@ for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
     # suite folder 
     if [[ "$file" == $LANGUAGE/suites/**.qls ]]; then
         echo "[+] Compiling Suite: $file"
-        gh codeql resolve queries "$file"
+        codeql resolve queries "$file"
 
     # qlpack file and lock file
     elif [[ "$file" == $LANGUAGE/qlpack.yml ]] || [[ "$file" == $LANGUAGE/codeql-pack.lock.yml ]]; then
@@ -22,18 +22,18 @@ for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
         fi 
         echo "[+] Compiling Pack: $LANGUAGE"
         # install deps
-        gh codeql pack install "$LANGUAGE"
+        codeql pack install "$LANGUAGE"
         # compile / create pack
-        gh codeql pack create "$LANGUAGE"
+        codeql pack create "$LANGUAGE"
 
         # if the version of the pack is changed, comment in the PR
-        PUBLISHED_VERSION=$(gh api /orgs/advanced-security/packages/container/codeql-"$LANGUAGE"/versions --jq '.[0].metadata.container.tags[0]')
+        PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-"$LANGUAGE"/versions --jq '.[0].metadata.container.tags[0]')
         CURRENT_VERSION=$(grep version "$LANGUAGE"/qlpack.yml | awk '{print $2}')
 
         if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
             echo "[+] New version of pack detected: $PUBLISHED_VERSION (pub) != $CURRENT_VERSION (cur)"
 
-            comment="New version of pack \`advanced-security/codeql-$LANGUAGE\` will be created on merge: \`$PUBLISHED_VERSION\`->\`$CURRENT_VERSION\`"
+            comment="New version of pack \`githubsecuritylab/codeql-$LANGUAGE\` will be created on merge: \`$PUBLISHED_VERSION\`->\`$CURRENT_VERSION\`"
 
             if [[ ! $(gh pr view "$PR_NUMBER" --json comments --jq '.comments.[].body' | grep "$comment") ]]; then
                 echo "[+] Commenting on PR"
