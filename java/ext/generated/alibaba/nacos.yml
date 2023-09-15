@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["com.alibaba.nacos.api.config", "ConfigService", true, "addListener", "(String,String,Listener)", "", "Argument[0]", "create-file", "generated"]
@@ -355,7 +355,7 @@ extensions:
       - ["com.alibaba.nacos.sys.utils", "DiskUtils", false, "writeFile", "(File,byte[],boolean)", "", "Argument[0]", "create-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["com.alibaba.nacos.api.naming", "NamingMaintainService", true, "deleteService", "(String)", "", "ReturnValue", "remote", "generated"]

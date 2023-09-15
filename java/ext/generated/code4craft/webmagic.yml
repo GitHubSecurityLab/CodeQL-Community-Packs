@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["us.codecraft.webmagic.downloader", "Downloader", true, "download", "(Request,Task)", "", "Argument[0]", "open-url", "generated"]

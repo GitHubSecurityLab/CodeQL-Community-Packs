@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["com.xxl.job.admin.core.route", "ExecutorRouter", true, "route", "(TriggerParam,List)", "", "Argument[1]", "open-url", "generated"]
@@ -30,7 +30,7 @@ extensions:
       - ["com.xxl.job.core.util", "XxlJobRemotingUtil", true, "postBody", "(String,String,int,Object,Class)", "", "Argument[0]", "open-url", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["com.xxl.job.admin.core.util", "CookieUtil", true, "getValue", "(HttpServletRequest,String)", "", "ReturnValue", "remote", "generated"]

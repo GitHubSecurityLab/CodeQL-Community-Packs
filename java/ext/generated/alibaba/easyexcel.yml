@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["com.alibaba.excel.util", "FileUtils", true, "openInputStream", "(File)", "", "Argument[0]", "read-file", "generated"]

@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.neo4j.cli", "AbstractCommand", true, "execute", "()", "", "Argument[-1]", "create-file", "generated"]
@@ -98,7 +98,7 @@ extensions:
       - ["org.neo4j.test", "Unzip", false, "unzip", "(Class,String,Path)", "", "Argument[2]", "create-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["org.neo4j.server.web", "HttpHeaderUtils", true, "getTransactionTimeout", "(HttpServletRequest,Log)", "", "ReturnValue", "remote", "generated"]

@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["io.restassured.internal.http", "CustomHttpMethod", true, "CustomHttpMethod", "(String,String)", "", "Argument[1]", "open-url", "generated"]
@@ -10,7 +10,7 @@ extensions:
       - ["io.restassured.module.spring.commons", "BodyHelper", true, "toByteArray", "(File)", "", "Argument[0]", "read-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["io.restassured.examples.springmvc.controller", "FileUploadController", true, "fileUpload2", "(MultipartFile)", "", "ReturnValue", "remote", "generated"]

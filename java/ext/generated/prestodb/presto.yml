@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["com.facebook.presto.benchmark", "BenchmarkSuite", true, "runAllBenchmarks", "()", "", "Argument[-1]", "create-file", "generated"]

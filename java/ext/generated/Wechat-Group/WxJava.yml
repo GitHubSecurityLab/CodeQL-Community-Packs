@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["com.github.binarywang.wxpay.service", "WxPayService", true, "deleteV3", "(String)", "", "Argument[0]", "open-url", "generated"]
@@ -17,7 +17,7 @@ extensions:
       - ["me.chanjar.weixin.common.util.fs", "FileUtils", true, "createTmpFile", "(InputStream,String,String,File)", "", "Argument[3]", "create-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["com.github.binarywang.wxpay.service", "WxPayService", true, "downloadV3", "(String)", "", "ReturnValue", "remote", "generated"]

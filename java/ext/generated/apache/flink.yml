@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.apache.flink.api.java.utils", "ParameterTool", true, "createPropertiesFile", "(String)", "", "Argument[0]", "create-file", "generated"]
@@ -80,7 +80,7 @@ extensions:
       - ["org.apache.flink.yarn.entrypoint", "YarnEntrypointUtils", true, "loadConfiguration", "(String,Configuration,Map)", "", "Argument[0]", "read-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["org.apache.flink.api.common.cache", "DistributedCache", true, "readFileInfoFromConfig", "(Configuration)", "", "ReturnValue", "remote", "generated"]

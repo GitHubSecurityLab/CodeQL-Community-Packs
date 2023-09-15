@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["csi.v1", "NodeGrpc$NodeImplBase", true, "nodePublishVolume", "(NodePublishVolumeRequest,StreamObserver)", "", "Argument[0]", "create-file", "generated"]
@@ -110,7 +110,7 @@ extensions:
       - ["org.hadoop.ozone.recon.codegen", "SqlDbUtils", false, "createNewDerbyDatabase", "(String,String)", "", "Argument[1]", "jdbc-url", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["org.apache.hadoop.ozone.admin.nssummary", "NSSummaryCLIUtils", false, "makeHttpCall", "(StringBuffer,String,boolean,ConfigurationSource)", "", "ReturnValue", "remote", "generated"]

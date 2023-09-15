@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.apache.jute.compiler.generated", "Rcc", true, "parseFile", "(File)", "", "Argument[0]", "create-file", "generated"]
@@ -56,7 +56,7 @@ extensions:
       - ["org.apache.zookeeper", "ZooKeeperMain", true, "ZooKeeperMain", "(String[])", "", "Argument[0]", "read-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["org.apache.zookeeper.client", "FourLetterWordMain", true, "send4LetterWord", "(String,int,String)", "", "ReturnValue", "remote", "generated"]

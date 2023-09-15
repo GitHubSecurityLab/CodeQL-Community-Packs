@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["java.lang", "AutoCloseable", true, "close", "()", "", "Argument[-1]", "create-file", "generated"]
@@ -3085,7 +3085,7 @@ extensions:
       - ["org.springframework.beans.factory", "InitializingBean", true, "afterPropertiesSet", "()", "", "Argument[-1]", "ldap", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["org.apache.activemq.broker.jmx", "DestinationViewMBean", true, "browseMessages", "()", "", "ReturnValue", "remote", "generated"]

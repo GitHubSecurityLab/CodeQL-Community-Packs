@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["io.dropwizard.configuration", "ConfigurationFactory", true, "build", "(File)", "", "Argument[0]", "read-file", "generated"]

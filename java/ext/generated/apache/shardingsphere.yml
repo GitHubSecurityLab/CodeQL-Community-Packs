@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.apache.shardingsphere.data.pipeline.spi.ddlgenerator", "CreateTableSQLGenerator", true, "generate", "(DataSource,String,String)", "", "Argument[1]", "sql", "generated"]

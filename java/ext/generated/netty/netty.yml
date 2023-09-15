@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["io.netty.buffer", "ByteBufHolder", true, "replace", "(ByteBuf)", "", "Argument[-1]", "create-file", "generated"]

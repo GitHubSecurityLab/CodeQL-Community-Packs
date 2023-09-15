@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.owasp.esapi.codecs", "Base64", true, "decodeFileToFile", "(String,String)", "", "Argument[1]", "create-file", "generated"]
@@ -38,7 +38,7 @@ extensions:
       - ["org.owasp.esapi", "SecurityConfiguration", true, "getResourceStream", "(String)", "", "Argument[0]", "read-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["org.owasp.esapi.filters", "SecurityWrapperRequest", true, "getParameter", "(String,boolean)", "", "ReturnValue", "remote", "generated"]

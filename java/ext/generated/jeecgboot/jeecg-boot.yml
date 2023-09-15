@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.jeecg.modules.cas.util", "CasServiceUtil", true, "getStValidate", "(String,String,String)", "", "Argument[0]", "open-url", "generated"]
@@ -8,7 +8,7 @@ extensions:
       - ["org.jeecg.modules.cas.util", "CasServiceUtil", true, "getStValidate", "(String,String,String)", "", "Argument[2]", "open-url", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["org.jeecg.common.system.util", "JwtUtil", true, "getUserSystemData", "(String,SysUserCacheInfo)", "", "ReturnValue", "remote", "generated"]

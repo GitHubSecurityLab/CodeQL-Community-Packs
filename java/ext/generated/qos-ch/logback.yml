@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["ch.qos.logback.classic.net", "SimpleSocketServer", true, "configureLC", "(LoggerContext,String)", "", "Argument[1]", "read-file", "generated"]
@@ -24,7 +24,7 @@ extensions:
       - ["ch.qos.logback.core", "FileAppender", true, "openFile", "(String)", "", "Argument[0]", "create-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["ch.qos.logback.core.util", "FileUtil", true, "resourceAsString", "(ClassLoader,String)", "", "ReturnValue", "remote", "generated"]

@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.openapitools.codegen.api", "TemplateProcessor", true, "write", "(Map,String,File)", "", "Argument[1]", "read-file", "generated"]

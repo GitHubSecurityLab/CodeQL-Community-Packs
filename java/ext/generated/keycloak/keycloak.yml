@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["cx.ath.matthew.debug", "Debug", true, "loadConfig", "(File)", "", "Argument[0]", "read-file", "generated"]
@@ -14381,7 +14381,7 @@ extensions:
       - ["org.keycloak.wellknown", "WellKnownProvider", true, "getConfig", "()", "", "Argument[-1]", "read-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["org.keycloak.adapters.authorization.cip.spi", "ClaimInformationPointProvider", true, "resolve", "(HttpRequest)", "", "ReturnValue", "remote", "generated"]

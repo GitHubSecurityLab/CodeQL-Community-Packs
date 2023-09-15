@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.apache.kafka.common.record", "FileRecords", true, "open", "(File)", "", "Argument[0]", "create-file", "generated"]
@@ -52,7 +52,7 @@ extensions:
       - ["org.apache.kafka.trogdor.task", "TaskWorker", true, "stop", "(Platform)", "", "Argument[-1]", "create-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["org.apache.kafka.common.security.oauthbearer.internals.secured", "HttpAccessTokenRetriever", true, "post", "(HttpURLConnection,Map,String,Integer,Integer)", "", "ReturnValue", "remote", "generated"]

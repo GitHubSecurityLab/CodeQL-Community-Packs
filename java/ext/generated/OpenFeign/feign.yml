@@ -1,12 +1,12 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["feign", "Client$Default", true, "getConnection", "(URL)", "", "Argument[0]", "open-url", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["feign.codec", "Decoder", true, "decode", "(Response,Type)", "", "ReturnValue", "remote", "generated"]

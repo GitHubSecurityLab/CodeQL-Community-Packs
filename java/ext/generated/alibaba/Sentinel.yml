@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["com.alibaba.csp.sentinel.dashboard.client", "SentinelApiClient", true, "fetchApis", "(String,String,int)", "", "Argument[2]", "open-url", "generated"]
@@ -62,7 +62,7 @@ extensions:
       - ["com.alibaba.csp.sentinel.node.metric", "MetricWriter", true, "write", "(long,List)", "", "Argument[-1]", "create-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["com.alibaba.csp.sentinel.adapter.gateway.common.param", "GatewayParamParser", true, "parseParameterFor", "(String,Object,Predicate)", "", "ReturnValue", "remote", "generated"]

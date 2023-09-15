@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["java.nio.channels", "ReadableByteChannel", true, "read", "(ByteBuffer)", "", "Argument[-1]", "create-file", "generated"]
@@ -12105,7 +12105,7 @@ extensions:
       - ["org.apache.hadoop.yarn.webapp", "WebApps$Builder", true, "build", "(WebApp)", "", "Argument[-1]", "open-url", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["java.nio.channels", "ReadableByteChannel", true, "read", "(ByteBuffer)", "", "ReturnValue", "remote", "generated"]

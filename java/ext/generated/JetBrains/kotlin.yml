@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.jetbrains.kotlin.cli.jvm.compiler", "CompileEnvironmentUtil", true, "writeToJar", "(File,boolean,boolean,boolean,FqName,OutputFileCollection,MessageCollector)", "", "Argument[0]", "create-file", "generated"]

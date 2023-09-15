@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.joda.time.base", "BaseDateTime", true, "BaseDateTime", "(Object,Chronology)", "", "Argument[0]", "read-file", "generated"]

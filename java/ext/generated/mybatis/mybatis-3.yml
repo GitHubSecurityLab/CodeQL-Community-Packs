@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.apache.ibatis.datasource", "DataSourceFactory", true, "setProperties", "(Properties)", "", "Argument[0]", "jndi-injection", "generated"]
@@ -42,7 +42,7 @@ extensions:
       - ["org.apache.ibatis.parsing", "XPathParser", true, "evalString", "(String)", "", "Argument[0]", "xpath", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["org.apache.ibatis.io", "Resources", true, "getUrlAsReader", "(String)", "", "ReturnValue", "remote", "generated"]

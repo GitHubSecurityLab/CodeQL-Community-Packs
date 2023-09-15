@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.apache.hadoop.hbase.coprocessor", "CoprocessorHost", true, "load", "(Path,String,int,Configuration,String[])", "", "Argument[-1]", "create-file", "generated"]
@@ -48,7 +48,7 @@ extensions:
       - ["org.apache.hadoop.hbase.util", "CoprocessorClassLoader", true, "getClassLoader", "(Path,ClassLoader,String,Configuration)", "", "Argument[2]", "create-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["org.apache.hadoop.hbase.http", "ProxyUserAuthenticationFilter", true, "getDoasFromHeader", "(HttpServletRequest)", "", "ReturnValue", "remote", "generated"]

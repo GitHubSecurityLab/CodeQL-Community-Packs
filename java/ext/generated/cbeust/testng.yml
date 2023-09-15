@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.testng.internal.protocols", "Processor", true, "process", "(Input,URL)", "", "Argument[1]", "open-url", "generated"]

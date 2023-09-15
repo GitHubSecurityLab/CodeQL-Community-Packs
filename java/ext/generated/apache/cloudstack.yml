@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["com.cloud.agent.api.storage", "OVFHelper", true, "rewriteOVFFileForSingleDisk", "(String,String,String)", "", "Argument[1]", "create-file", "generated"]
@@ -313,7 +313,7 @@ extensions:
       - ["org.apache.cloudstack.utils.cryptsetup", "KeyFile", true, "KeyFile", "(byte[])", "", "Argument[-1]", "create-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["com.cloud.utils", "HttpUtils", true, "findCookie", "(Cookie[],String)", "", "ReturnValue", "remote", "generated"]

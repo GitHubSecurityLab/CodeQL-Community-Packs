@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.apache.beam.examples.complete.kafkatopubsub.kafka.consumer", "Utils", true, "getKafkaCredentialsFromVault", "(String,String)", "", "Argument[0]", "open-url", "generated"]

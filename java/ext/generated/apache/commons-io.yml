@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.apache.commons.io.file", "FilesUncheck", true, "copy", "(InputStream,Path,CopyOption[])", "", "Argument[0]", "read-file", "generated"]

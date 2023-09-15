@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["com.fasterxml.jackson.core", "JsonFactory", true, "createJsonParser", "(File)", "", "Argument[0]", "read-file", "generated"]

@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["example.util", "ListWriter", true, "write", "(String[])", "", "Argument[-1]", "create-file", "generated"]

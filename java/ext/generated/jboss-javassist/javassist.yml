@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["javassist.bytecode", "Descriptor", true, "getParameterTypes", "(String,ClassPool)", "", "Argument[0]", "open-url", "generated"]
@@ -98,7 +98,7 @@ extensions:
       - ["javassist", "Translator", true, "onLoad", "(ClassPool,String)", "", "Argument[1]", "read-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["javassist.tools.rmi", "ObjectImporter", true, "call", "(int,int,Object[])", "", "ReturnValue", "remote", "generated"]

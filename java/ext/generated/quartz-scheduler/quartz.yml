@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.quartz.ee.jta", "UserTransactionHelper", true, "setUserTxLocation", "(String)", "", "Argument[0]", "jndi-injection", "generated"]

@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.h2.api", "Trigger", true, "init", "(Connection,String,String,String,boolean,int)", "", "Argument[3]", "sql", "generated"]
@@ -70,7 +70,7 @@ extensions:
       - ["org.h2.util", "Tool", true, "runTool", "(String[])", "", "Argument[0]", "sql", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["java.sql", "Blob", true, "getBinaryStream", "()", "", "ReturnValue", "remote", "generated"]

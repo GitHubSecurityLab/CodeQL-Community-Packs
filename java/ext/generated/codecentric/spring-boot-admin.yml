@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["de.codecentric.boot.admin.client.registration", "ApplicationRegistrator", true, "deregister", "()", "", "Argument[-1]", "open-url", "generated"]

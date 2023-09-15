@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["jakarta.persistence", "EntityManager", true, "createNativeQuery", "(String)", "", "Argument[0]", "sql", "generated"]

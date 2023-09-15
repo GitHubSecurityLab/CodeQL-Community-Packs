@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["org.apache.storm.blobstore", "BlobStore", true, "createBlob", "(String,InputStream,SettableBlobMeta,Subject)", "", "Argument[0]", "create-file", "generated"]
@@ -433,7 +433,7 @@ extensions:
       - ["org.apache.storm", "Testing", true, "getLocalCluster", "(Map)", "", "Argument[0]", "read-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["org.apache.storm.daemon.logviewer.webapp", "LogviewerResource", true, "deepSearch", "(String,HttpServletRequest)", "", "ReturnValue", "remote", "generated"]

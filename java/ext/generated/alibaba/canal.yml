@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sinkModel
     data:
       - ["com.alibaba.otter.canal.adapter.launcher.rest", "CommonRest", true, "etl", "(String,String,String)", "", "Argument[2]", "sql", "generated"]
@@ -35,7 +35,7 @@ extensions:
       - ["com.taobao.tddl.dbsync.binlog", "FileLogFetcher", false, "open", "(String,long)", "", "Argument[0]", "read-file", "generated"]
 
   - addsTo:
-      pack: codeql/java-queries
+      pack: codeql/java-all
       extensible: sourceModel
     data:
       - ["com.alibaba.otter.canal.admin.connector", "SimpleAdminConnectors", true, "execute", "(String,int,Function)", "", "ReturnValue", "remote", "generated"]
