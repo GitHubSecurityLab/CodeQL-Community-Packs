@@ -1,0 +1,112 @@
+name: "Create and publish the CodeQL Packs to the registry"
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+
+  queries:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["java"] 
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: "Check and publish LANG-queries (src) pack"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]')
+          CURRENT_VERSION=$(grep version ${{ matrix.language }}/src/qlpack.yml | awk '{print $2}')
+
+          if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
+            gh extension install github/gh-codeql
+            gh codeql pack install "${{ matrix.language }}/src"
+            gh codeql pack publish "${{ matrix.language }}/src"
+          fi
+
+  library:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["java"] 
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: "Check and publish LANG-lib (lib) pack"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/${{ matrix.language }}-lib/versions --jq '.[0].metadata.container.tags[0]')
+          CURRENT_VERSION=$(grep version ${{ matrix.language }}/lib/qlpack.yml | awk '{print $2}')
+
+          if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
+            gh extension install github/gh-codeql
+            gh codeql pack install "${{ matrix.language }}/lib"
+            gh codeql pack publish "${{ matrix.language }}/lib"
+          fi
+
+  extensions:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["java"]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check and publish LANG-extensions (ext) pack
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/${{ matrix.language }}-extensions/versions --jq '.[0].metadata.container.tags[0]')
+          CURRENT_VERSION=$(grep version ${{ matrix.language }}/ext/qlpack.yml | awk '{print $2}')
+
+          if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
+            gh extension install github/gh-codeql
+            gh codeql pack install "${{ matrix.language }}/ext"
+            gh codeql pack publish "${{ matrix.language }}/ext"
+          fi
+
+  library_sources_extensions:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["java"]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check and publish LANG-library_sources_extensions (ext_library_sources) pack
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/${{ matrix.language }}-library_sources_extensions/versions --jq '.[0].metadata.container.tags[0]')
+          CURRENT_VERSION=$(grep version ${{ matrix.language }}/ext_library_sources/qlpack.yml | awk '{print $2}')
+
+          if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
+            gh extension install github/gh-codeql
+            gh codeql pack install "${{ matrix.language }}/ext_library_sources"
+            gh codeql pack publish "${{ matrix.language }}/ext_library_sources"
+          fi
