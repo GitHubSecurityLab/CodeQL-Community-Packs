@@ -36,8 +36,6 @@ jobs:
           gh repo clone github/codeql
           gh extension install github/gh-codeql
           gh codeql pack download "codeql/${{ matrix.language }}-queries"
-          gh codeql pack install "${{ matrix.language }}/ext/"
-          gh codeql pack install "${{ matrix.language }}/ext_library_sources/"
           gh codeql pack install "${{ matrix.language }}/lib"
           gh codeql pack install "${{ matrix.language }}/src"
           gh codeql pack install "${{ matrix.language }}/test"
@@ -90,6 +88,8 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           gh extension install github/gh-codeql
-          gh codeql pack install "githubsecuritylab/${{ matrix.language }}-extensions"
-          gh codeql pack create "githubsecuritylab/${{ matrix.language }}-extensions"
+          gh codeql pack install "${{ matrix.language }}/ext/"
+          gh codeql pack install "${{ matrix.language }}/ext_library_sources/"
+          gh codeql pack create "${{ matrix.language }}/ext/"
+          gh codeql pack create "${{ matrix.language }}/ext_library_sources/"
 
