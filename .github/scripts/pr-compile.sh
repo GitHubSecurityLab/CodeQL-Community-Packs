@@ -9,8 +9,8 @@ LIBRARY_SCANNED=false
 echo "[+] Compiling all queries in $LANGUAGE"
 gh codeql query compile \
     --threads=0 --check-only \
-    --search-path=./codeql --additional-packs=./codeql:./codeql/misc \
     "./$LANGUAGE/"
+    # --search-path=./codeql --additional-packs=./codeql:./codeql/misc \
 
 for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
     if [[ ! -f "$file" ]]; then
@@ -25,8 +25,8 @@ for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
         gh codeql query compile  \
             --threads=0 --check-only \
             --warnings=error \
-            --search-path=./codeql --additional-packs=./codeql:./codeql/misc \
             "./$file"
+            # --search-path=./codeql --additional-packs=./codeql:./codeql/misc \
 
     # if lib folder is modified
     elif [[ "$file" == $LANGUAGE/lib/* ]] && [[ $LIBRARY_SCANNED == false ]]; then
@@ -34,8 +34,8 @@ for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
         gh codeql query compile \
             --threads=0 --check-only \
             --warnings=error \
-            --search-path=./codeql --additional-packs=./codeql:./codeql/misc \
             "./$LANGUAGE/"
+            # --search-path=./codeql --additional-packs=./codeql:./codeql/misc \
         # set LIBRARY_SCANNED to true to prevent recompiling
         LIBRARY_SCANNED=true
 

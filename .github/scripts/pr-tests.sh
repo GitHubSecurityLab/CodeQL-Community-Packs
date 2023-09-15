@@ -10,10 +10,8 @@ if [[ ! -d ./${LANGUAGE}/test/ ]]; then
 fi
 
 echo "[+] Compiling all queries in $LANGUAGE"
-gh codeql query compile \
-    --threads=0 --check-only \
-    --search-path=./codeql --additional-packs=./codeql:./codeql/misc \
-    "./$LANGUAGE/"
+gh codeql query compile --threads=0 --check-only "./$LANGUAGE/"
+    # --search-path=./codeql --additional-packs=./codeql:./codeql/misc \
 
 for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
     if [[ ! -f "$file" ]]; then
@@ -25,9 +23,8 @@ for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
         echo "[+] Test $file changed"
         TEST_DIR=$(dirname "$file")
         # run tests in the folder the change occured in
-        gh codeql test run \
-            --additional-packs=./ --additional-packs=./codeql \
-            "$TEST_DIR"
+        gh codeql test run "$TEST_DIR"
+        # --additional-packs=./ --additional-packs=./codeql \
             
     # if the files is a query file .ql or .qll
     elif [[ "$file" == $LANGUAGE/**.ql ]] || [[ "$file" == $LANGUAGE/**.qll ]] ; then
@@ -38,9 +35,8 @@ for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
         
         if [[ -d "$TEST_DIR" ]]; then
             echo "[+] Running tests for $file -> $TEST_DIR"
-            gh codeql test run \
-                --additional-packs=./ --additional-packs=./codeql \
-                "$TEST_DIR"
+            gh codeql test run "$TEST_DIR"
+            # --additional-packs=./ --additional-packs=./codeql \
 
         else
             echo "[!] No tests found at $TEST_DIR"
@@ -52,9 +48,8 @@ for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
 
         if [[ -d "$TEST_DIR" ]]; then
             echo "[+] Running tests for $file -> $TEST_DIR"
-            gh codeql test run \
-                --additional-packs=./ --additional-packs=./codeql \
-                "$TEST_DIR"
+            gh codeql test run "$TEST_DIR"
+            # --additional-packs=./ --additional-packs=./codeql \
         else
             echo "[!] No tests found for $file (in $LANGUAGE)"
         fi
