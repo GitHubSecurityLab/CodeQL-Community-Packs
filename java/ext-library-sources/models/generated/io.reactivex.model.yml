@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.reactivex", "Emitter<T>", True, "onNext", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.reactivex", "Single", True, "just", "(Object)", "", "Parameter[0]", "remote", "manual"]

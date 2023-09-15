@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alibaba.nacos.common.model", "RestResult<Boolean>", True, "setMessage", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.nacos.common.model", "RestResult<T>", True, "setMessage", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.nacos.common.model", "RestResult<T>", True, "setData", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.nacos.common.model", "RestResult$ResResultBuilder<T>", False, "withData", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.nacos.common.model", "RestResult$ResResultBuilder<T>", False, "withMsg", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.nacos.common.model", "RestResult<T>", True, "setCode", "(int)", "", "Parameter[0]", "remote", "manual"]

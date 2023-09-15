@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gravitee.repository.analytics.query", "AbstractQueryBuilder<TabularQueryBuilder,TabularQuery>", True, "query", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.analytics.query", "AbstractQueryBuilder<TabularQueryBuilder,TabularQuery>", True, "root", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.analytics.query", "AbstractQueryBuilder<StatsQueryBuilder,StatsQuery>", True, "root", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.analytics.query", "AbstractQueryBuilder<StatsQueryBuilder,StatsQuery>", True, "query", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.analytics.query", "AbstractQueryBuilder<GroupByQueryBuilder,GroupByQuery>", True, "root", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.analytics.query", "AbstractQueryBuilder<GroupByQueryBuilder,GroupByQuery>", True, "query", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.analytics.query", "AbstractQueryBuilder<DateHistogramQueryBuilder,DateHistogramQuery>", True, "root", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.analytics.query", "AbstractQueryBuilder<DateHistogramQueryBuilder,DateHistogramQuery>", True, "query", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.analytics.query", "AbstractQueryBuilder<CountQueryBuilder,CountQuery>", True, "root", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.analytics.query", "AbstractQueryBuilder<CountQueryBuilder,CountQuery>", True, "query", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.hswebframework.web.api.crud.entity", "PagerResult", True, "of", "(int,List,QueryParam)", "", "Parameter[2]", "remote", "manual"]

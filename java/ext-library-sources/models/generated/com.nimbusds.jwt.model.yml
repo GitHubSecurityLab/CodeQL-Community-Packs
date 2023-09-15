@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.nimbusds.jwt", "SignedJWT", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.nimbusds.jwt", "JWTParser", False, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.nimbusds.jwt", "JWTClaimsSet$Builder", True, "claim", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.nimbusds.jwt", "JWTClaimsSet$Builder", True, "audience", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.nimbusds.jwt", "EncryptedJWT", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gravitee.rest.api.service.search.query", "QueryBuilder<ApiEntity>", True, "addExplicitFilter", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.rest.api.service.search.query", "QueryBuilder<ApiEntity>", True, "setFilters", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.service.search.query", "Query<T>", True, "setFilters", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.service.search.query", "Query<>", True, "setQuery", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.service.search.query", "Query<T>", True, "setQuery", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.service.search.query", "QueryBuilder<ApiEntity>", True, "setQuery", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.service.search.query", "QueryBuilder<UserEntity>", True, "setQuery", "(String)", "", "Parameter[0]", "remote", "manual"]

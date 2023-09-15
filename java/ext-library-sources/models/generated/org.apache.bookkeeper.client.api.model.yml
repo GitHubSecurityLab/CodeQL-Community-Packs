@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.bookkeeper.client.api", "OpenBuilder", True, "withLedgerId", "(long)", "", "Parameter[0]", "remote", "manual"]

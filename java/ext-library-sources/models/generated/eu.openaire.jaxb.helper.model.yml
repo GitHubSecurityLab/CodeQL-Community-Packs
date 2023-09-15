@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["eu.openaire.jaxb.helper", "OpenAIREHandler", True, "unmarshal", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

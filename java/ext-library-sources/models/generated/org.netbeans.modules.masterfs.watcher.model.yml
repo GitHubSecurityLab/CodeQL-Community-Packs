@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.masterfs.watcher", "Watcher$Ext<?>", True, "unregister", "(FileObject)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.masterfs.watcher", "Watcher$Ext<?>", True, "register", "(FileObject)", "", "Parameter[0]", "remote", "manual"]

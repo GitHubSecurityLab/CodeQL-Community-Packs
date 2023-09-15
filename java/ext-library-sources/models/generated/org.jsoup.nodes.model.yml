@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jsoup.nodes", "Element", True, "select", "(String)", "", "Parameter[0]", "remote", "manual"]

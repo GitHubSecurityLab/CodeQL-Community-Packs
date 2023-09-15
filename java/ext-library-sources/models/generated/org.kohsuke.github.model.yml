@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.kohsuke.github", "GitHubBuilder", True, "withEndpoint", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.kohsuke.github", "GitHub", True, "getRepository", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.kohsuke.github", "GHRepository", True, "getRef", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.kohsuke.github", "GHEvent", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

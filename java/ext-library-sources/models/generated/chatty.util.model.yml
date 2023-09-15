@@ -1,0 +1,23 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["chatty.util", "CachedBulkManager<String,String>", True, "setResult", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<String,UserInfo>", True, "setNotFound", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<String,UserInfo>", True, "setError", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<String,UserInfo>", True, "makeAndSetRequested", "(Set,Set,Set,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<String,UserInfo>", True, "makeAndSetRequested", "(Set,Set,Set,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<String,UserInfo>", True, "makeAndSetRequested", "(Set,Set,Set,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<String,String>", True, "makeAndSetRequested", "(Set,Set,Set,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<String,String>", True, "makeAndSetRequested", "(Set,Set,Set,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<String,String>", True, "setRequested", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<String,String>", True, "setResult", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<Object,Boolean>", True, "makeAndSetRequested", "(Set,Set,Set,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<Object,Boolean>", True, "makeAndSetRequested", "(Set,Set,Set,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<Req,Boolean>", True, "makeAndSetRequested", "(Set,Set,Set,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<Req,Boolean>", True, "makeAndSetRequested", "(Set,Set,Set,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<Req,Boolean>", True, "makeAndSetRequested", "(Set,Set,Set,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<String,String>", True, "makeAndSetRequested", "(Set,Set,Set,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["chatty.util", "DelayedActionQueue<String>", True, "add", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["chatty.util", "CachedBulkManager<Object,Boolean>", True, "makeAndSetRequested", "(Set,Set,Set,int)", "", "Parameter[0]", "remote", "manual"]

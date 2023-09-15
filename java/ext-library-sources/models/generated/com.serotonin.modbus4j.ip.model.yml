@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.serotonin.modbus4j.ip", "IpParameters", True, "setPort", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.modbus4j.ip", "IpParameters", True, "setHost", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.modbus4j.ip", "IpParameters", True, "setEncapsulated", "(boolean)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.http.client", "ClientHttpRequestFactory", True, "createRequest", "(URI,HttpMethod)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.http.client", "HttpComponentsClientHttpRequestFactory", True, "setReadTimeout", "(int)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.jetty.client.api", "Request", True, "header", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.eclipse.jetty.client.api", "Request", True, "header", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.client.api", "Request", True, "timeout", "(long,TimeUnit)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.client.api", "Request", True, "onRequestQueued", "(QueuedListener)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.client.api", "Request", True, "onComplete", "(CompleteListener)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.client.api", "Request", True, "attribute", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.fragment.app", "Fragment", True, "setArguments", "(Bundle)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.fragment.app", "FragmentFactory", True, "instantiate", "(ClassLoader,String)", "", "Parameter[1]", "remote", "manual"]

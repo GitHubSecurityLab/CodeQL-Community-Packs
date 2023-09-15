@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.sforce.ws.parser", "XmlInputStream", False, "setInput", "(InputStream,String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["twitter4j.auth", "AsyncOAuthSupport", True, "getOAuthAccessTokenAsync", "(RequestToken,String)", "", "Parameter[1]", "remote", "manual"]

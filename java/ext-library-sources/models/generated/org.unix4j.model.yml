@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.unix4j", "Unix4j", False, "from", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

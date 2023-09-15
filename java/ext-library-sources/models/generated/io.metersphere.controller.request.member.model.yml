@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.metersphere.controller.request.member", "QueryMemberRequest", True, "setWorkspaceId", "(String)", "", "Parameter[0]", "remote", "manual"]

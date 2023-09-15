@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dataease.plugins.xpack.auth.service", "RowPermissionTreeService", True, "get", "(DataSetRowPermissionsTreeDTO)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.auth.service", "RowPermissionTreeService", True, "list", "(DatasetRowPermissionsTreeRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.auth.service", "RowPermissionService", True, "queryRowPermissions", "(XpackGridRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.auth.service", "RowPermissionService", True, "dataSetRowPermissionInfo", "(DataSetRowPermissionsDTO)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.auth.service", "RowPermissionService", True, "authObjs", "(DataSetRowPermissionsDTO)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.auth.service", "ColumnPermissionService", True, "searchPermissions", "(DataSetColumnPermissionsDTO)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.auth.service", "ColumnPermissionService", True, "save", "(DatasetColumnPermissions)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.auth.service", "ColumnPermissionService", True, "queryPermissions", "(XpackGridRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.auth.service", "ColumnPermissionService", True, "permissionInfo", "(DataSetColumnPermissionsDTO)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.auth.service", "ColumnPermissionService", True, "authObjs", "(DataSetColumnPermissionsDTO)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.auth.service", "AuthXpackService", True, "searchAuthModelTree", "(XpackBaseTreeRequest,Long,Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.auth.service", "AuthXpackService", True, "searchAuthDetails", "(XpackSysAuthRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.auth.service", "RowPermissionService", True, "searchRowPermissions", "(DataSetRowPermissionsDTO)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.auth.service", "RowPermissionService", True, "save", "(DatasetRowPermissions)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.auth.service", "RowPermissionTreeService", True, "save", "(DataSetRowPermissionsTreeDTO)", "", "Parameter[0]", "remote", "manual"]

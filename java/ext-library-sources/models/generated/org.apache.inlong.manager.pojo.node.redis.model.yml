@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.inlong.manager.pojo.node.redis", "RedisDataNodeDTO", True, "getFromRequest", "(RedisDataNodeRequest)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gravitee.alert.api.condition", "StringCondition", True, "equals", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.alert.api.condition", "RateCondition$DurationBuilder", True, "greaterThan", "(Double)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.alert.api.condition", "RateCondition$ComparisonBuilder", True, "duration", "(long,TimeUnit)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.alert.api.condition", "AggregationCondition$FunctionBuilder", True, "duration", "(long,TimeUnit)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.alert.api.condition", "AggregationCondition$DurationBuilder", True, "greaterThan", "(Double)", "", "Parameter[0]", "remote", "manual"]

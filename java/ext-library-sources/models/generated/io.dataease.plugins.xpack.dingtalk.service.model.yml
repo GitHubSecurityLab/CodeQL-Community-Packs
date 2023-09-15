@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dataease.plugins.xpack.dingtalk.service", "DingtalkXpackService", True, "userInfo", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.dingtalk.service", "DingtalkXpackService", True, "userInfoWithoutLogin", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.dingtalk.service", "DingtalkXpackService", True, "testConn", "(DingtalkInfo)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.dingtalk.service", "DingtalkXpackService", True, "save", "(List)", "", "Parameter[0]", "remote", "manual"]

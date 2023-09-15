@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.mail.javamail", "MimeMessageHelper", True, "setTo", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.mail.javamail", "JavaMailSenderImpl", True, "setPort", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.mail.javamail", "JavaMailSenderImpl", True, "setPassword", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.mail.javamail", "JavaMailSenderImpl", True, "setHost", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.mail.javamail", "JavaMailSenderImpl", True, "setUsername", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.mail.javamail", "MimeMessageHelper", True, "addAttachment", "(String,File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.mail.javamail", "MimeMessageHelper", True, "addAttachment", "(String,File)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.mail.javamail", "MimeMessageHelper", True, "setBcc", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.mail.javamail", "MimeMessageHelper", True, "setCc", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.mail.javamail", "MimeMessageHelper", True, "setSubject", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.mail.javamail", "MimeMessageHelper", True, "setText", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.mail.javamail", "MimeMessageHelper", True, "setTo", "(String[])", "", "Parameter[0]", "remote", "manual"]

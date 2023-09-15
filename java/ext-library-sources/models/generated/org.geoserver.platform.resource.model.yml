@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.geoserver.platform.resource", "Paths", True, "path", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geoserver.platform.resource", "Resources", True, "fromURL", "(Resource,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.geoserver.platform.resource", "Resource", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geoserver.platform.resource", "ResourceStore", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]

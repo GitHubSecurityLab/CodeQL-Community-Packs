@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.bosphere.filelogger", "FL", True, "e", "(String,Throwable)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.bosphere.filelogger", "FL", True, "v", "(String,Object[])", "", "Parameter[0]", "remote", "manual"]

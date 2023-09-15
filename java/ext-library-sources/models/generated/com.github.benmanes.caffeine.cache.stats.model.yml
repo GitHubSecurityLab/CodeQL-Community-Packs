@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.github.benmanes.caffeine.cache.stats", "CacheStats", False, "plus", "(CacheStats)", "", "Parameter[0]", "remote", "manual"]

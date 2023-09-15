@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.data.util", "Pair", False, "of", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]

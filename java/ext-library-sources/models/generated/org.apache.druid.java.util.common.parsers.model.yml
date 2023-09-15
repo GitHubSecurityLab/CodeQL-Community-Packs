@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.druid.java.util.common.parsers", "ObjectFlatteners$FlattenerMaker<T>", True, "toMap", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.java.util.common.parsers", "ObjectFlatteners$FlattenerMaker<OrcStruct>", True, "toPlainJavaType", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.java.util.common.parsers", "ObjectFlatteners$FlattenerMaker<Group>", True, "toPlainJavaType", "(Object)", "", "Parameter[0]", "remote", "manual"]

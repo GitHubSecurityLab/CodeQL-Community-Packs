@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jose4j.jwt.consumer", "JwtConsumer", True, "processToClaims", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jose4j.jwt.consumer", "JwtConsumerBuilder", True, "setExpectedIssuer", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jose4j.jwt.consumer", "JwtConsumerBuilder", True, "setExpectedAudience", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jose4j.jwt.consumer", "JwtConsumerBuilder", True, "setAllowedClockSkewInSeconds", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jose4j.jwt.consumer", "JwtConsumer", True, "process", "(String)", "", "Parameter[0]", "remote", "manual"]

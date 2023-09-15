@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["uk.org.ponder.rsf.viewstate.support", "StaticBaseURLProvider", True, "setBaseURL", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["uk.org.ponder.rsf.viewstate.support", "StaticBaseURLProvider", True, "setResourceBaseURL", "(String)", "", "Parameter[0]", "remote", "manual"]

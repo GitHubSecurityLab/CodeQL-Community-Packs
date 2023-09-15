@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.michaelrocks.libphonenumber.android", "PhoneNumberUtil", True, "normalizeDigitsOnly", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.michaelrocks.libphonenumber.android", "PhoneNumberUtil", True, "parse", "(CharSequence,String)", "", "Parameter[0]", "remote", "manual"]

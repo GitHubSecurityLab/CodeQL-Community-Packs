@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["teammates.storage.api", "EntitiesDb<FeedbackQuestion,FeedbackQuestionAttributes>", True, "makeKeyFromWebSafeString", "(String)", "", "Parameter[0]", "remote", "manual"]

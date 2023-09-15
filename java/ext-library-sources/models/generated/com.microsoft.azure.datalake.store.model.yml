@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.microsoft.azure.datalake.store", "ADLFileInputStream", True, "read", "(long,byte[],int,int)", "", "Parameter[3]", "remote", "manual"]
+      - ["com.microsoft.azure.datalake.store", "ADLFileInputStream", True, "read", "(long,byte[],int,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.microsoft.azure.datalake.store", "ADLFileInputStream", True, "seek", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.microsoft.azure.datalake.store", "ADLStoreClient", True, "enumerateDirectory", "(String,UserGroupRepresentation)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.microsoft.azure.datalake.store", "ADLStoreClient", True, "getDirectoryEntry", "(String,UserGroupRepresentation)", "", "Parameter[1]", "remote", "manual"]

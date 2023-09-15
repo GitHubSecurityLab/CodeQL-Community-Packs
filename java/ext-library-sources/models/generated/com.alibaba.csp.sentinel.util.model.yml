@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alibaba.csp.sentinel.util", "StringUtil", False, "isBlank", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.csp.sentinel.util", "AssertUtil", True, "isTrue", "(boolean,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.csp.sentinel.util", "StringUtil", False, "isEmpty", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.csp.sentinel.util", "AssertUtil", True, "notEmpty", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.csp.sentinel.util", "StringUtil", False, "isNotEmpty", "(String)", "", "Parameter[0]", "remote", "manual"]

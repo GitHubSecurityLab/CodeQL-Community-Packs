@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.gson.stream", "JsonWriter", True, "value", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson.stream", "JsonWriter", True, "name", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson.stream", "JsonWriter", True, "value", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson.stream", "JsonWriter", True, "value", "(Number)", "", "Parameter[0]", "remote", "manual"]

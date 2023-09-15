@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["crawlercommons.sitemaps", "SiteMapParser", True, "parseSiteMap", "(String,byte[],URL)", "", "Parameter[1]", "remote", "manual"]

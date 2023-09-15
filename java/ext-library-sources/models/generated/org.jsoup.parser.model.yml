@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jsoup.parser", "Parser", True, "parseXmlFragment", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jsoup.parser", "Parser", True, "parseInput", "(Reader,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jsoup.parser", "Parser", True, "parseFragment", "(String,Element,String)", "", "Parameter[0]", "remote", "manual"]

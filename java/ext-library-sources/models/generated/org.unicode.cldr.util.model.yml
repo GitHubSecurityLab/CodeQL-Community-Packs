@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.unicode.cldr.util", "Level", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.unicode.cldr.util", "Organization", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

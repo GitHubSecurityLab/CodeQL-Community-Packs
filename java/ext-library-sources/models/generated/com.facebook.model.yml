@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.facebook", "CallbackManager", True, "onActivityResult", "(int,int,Intent)", "", "Parameter[2]", "remote", "manual"]

@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.mercedesbenz.sechub.commons.model", "JSONable<SecHubMessagesList>", True, "fromJSON", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.mercedesbenz.sechub.commons.model", "JSONable<MappingData>", True, "fromJSON", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.mercedesbenz.sechub.commons.model", "JSONable<IntegrationTestEventHistory>", True, "fromJSON", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.mercedesbenz.sechub.commons.model", "JSONable<DeveloperProjectDetailInformation>", True, "fromJSON", "(String)", "", "Parameter[0]", "remote", "manual"]

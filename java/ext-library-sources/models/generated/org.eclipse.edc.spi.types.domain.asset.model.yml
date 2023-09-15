@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.edc.spi.types.domain.asset", "Asset$Builder<B>", True, "properties", "(Map)", "", "Parameter[0]", "remote", "manual"]

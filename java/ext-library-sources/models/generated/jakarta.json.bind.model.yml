@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jakarta.json.bind", "Jsonb", True, "fromJson", "(InputStream,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json.bind", "Jsonb", True, "fromJson", "(InputStream,Type)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json.bind", "Jsonb", True, "toJson", "(Object,Type,OutputStream)", "", "Parameter[2]", "remote", "manual"]
+      - ["jakarta.json.bind", "Jsonb", True, "toJson", "(Object,Type,OutputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json.bind", "Jsonb", True, "toJson", "(Object,OutputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json.bind", "Jsonb", True, "fromJson", "(String,Type)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.json.bind", "Jsonb", True, "fromJson", "(Object,String,Class)", "", "Parameter[0]", "remote", "manual"]

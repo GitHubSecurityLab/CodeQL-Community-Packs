@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.streampipes.manager.verification", "ElementVerifier<?>", True, "verifyAndAdd", "(String,boolean)", "", "Parameter[1]", "remote", "manual"]

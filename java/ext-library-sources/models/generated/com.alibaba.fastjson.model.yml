@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alibaba.fastjson", "JSON", True, "toJSONString", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.fastjson", "JSON", True, "parseObject", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.fastjson", "JSON", True, "parseObject", "(String,TypeReference,Feature[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.fastjson", "JSON", True, "parseObject", "(String,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.fastjson", "JSON", True, "parseArray", "(String,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.fastjson", "JSON", True, "parseArray", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.fastjson", "JSON", True, "parseObject", "(String,Class,Feature[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.fastjson", "JSON", True, "parseObject", "(String,Type,Feature[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.fastjson", "JSON", True, "toJSONString", "(Object,SerializeFilter,SerializerFeature[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.fastjson", "JSONValidator", True, "from", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.fastjson", "JSON", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]

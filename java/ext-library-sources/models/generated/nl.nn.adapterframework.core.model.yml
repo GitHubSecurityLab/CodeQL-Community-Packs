@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["nl.nn.adapterframework.core", "PipeLineSession", True, "setListenerParameters", "(Map,String,String,Date,Date)", "", "Parameter[2]", "remote", "manual"]
+      - ["nl.nn.adapterframework.core", "PipeLineSession", True, "setListenerParameters", "(Map,String,String,Date,Date)", "", "Parameter[1]", "remote", "manual"]

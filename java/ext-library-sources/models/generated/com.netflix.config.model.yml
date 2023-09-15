@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.netflix.config", "WatchedUpdateResult", True, "createIncremental", "(Map,Map,Map)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.netflix.config", "WatchedUpdateResult", True, "createIncremental", "(Map,Map,Map)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.netflix.config", "WatchedUpdateResult", True, "createIncremental", "(Map,Map,Map)", "", "Parameter[0]", "remote", "manual"]

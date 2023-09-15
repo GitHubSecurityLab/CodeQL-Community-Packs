@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.amazonaws.serverless.proxy.model", "AwsProxyRequest", True, "setMultiValueHeaders", "(Headers)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.serverless.proxy.model", "AwsProxyRequest", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]

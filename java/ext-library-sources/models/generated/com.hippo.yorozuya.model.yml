@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.hippo.yorozuya", "NumberUtils", False, "parseIntSafely", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.hippo.yorozuya", "NumberUtils", False, "parseLongSafely", "(String,long)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["alpine.persistence", "AbstractAlpineQueryManager", True, "getObjectByUuid", "(Class,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["alpine.persistence", "AbstractAlpineQueryManager", True, "getObjectByUuid", "(Class,UUID)", "", "Parameter[1]", "remote", "manual"]
+      - ["alpine.persistence", "AbstractAlpineQueryManager", True, "execute", "(Query,Map)", "", "Parameter[1]", "remote", "manual"]
+      - ["alpine.persistence", "AlpineQueryManager", True, "getPermission", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["alpine.persistence", "AlpineQueryManager", True, "getUserPrincipal", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["alpine.persistence", "AbstractAlpineQueryManager", True, "getObjectByUuid", "(Class,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["alpine.persistence", "AlpineQueryManager", True, "getApiKey", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["alpine.persistence", "AlpineQueryManager", True, "isMapped", "(Team,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["alpine.persistence", "AlpineQueryManager", True, "createMappedLdapGroup", "(Team,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["alpine.persistence", "AbstractAlpineQueryManager", True, "persist", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["alpine.persistence", "AbstractAlpineQueryManager", True, "getObjectById", "(Class,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["alpine.persistence", "AbstractAlpineQueryManager", True, "execute", "(Query,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["alpine.persistence", "AlpineQueryManager", True, "updateTeam", "(Team)", "", "Parameter[0]", "remote", "manual"]

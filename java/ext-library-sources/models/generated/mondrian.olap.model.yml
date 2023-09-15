@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["mondrian.olap", "MondrianServer", True, "getConnection", "(String,String,String,Properties)", "", "Parameter[1]", "remote", "manual"]

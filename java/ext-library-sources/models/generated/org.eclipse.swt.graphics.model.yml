@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.swt.graphics", "GC", False, "stringExtent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.swt.graphics", "GC", False, "textExtent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.swt.graphics", "TextLayout", False, "setText", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.swt.graphics", "GC", False, "drawText", "(String,int,int,boolean)", "", "Parameter[0]", "remote", "manual"]

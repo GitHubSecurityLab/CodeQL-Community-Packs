@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dockstore.webservice.resources", "AbstractWorkflowResource<Workflow>", True, "githubWebhookRelease", "(String,String,String,long,boolean)", "", "Parameter[3]", "remote", "manual"]
+      - ["io.dockstore.webservice.resources", "AbstractWorkflowResource<Workflow>", True, "updateDBWorkflowWithSourceControlWorkflow", "(Workflow,Workflow,User,Optional)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.dockstore.webservice.resources", "AbstractWorkflowResource<Workflow>", True, "publishWorkflow", "(Workflow,boolean,User)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.dockstore.webservice.resources", "AbstractWorkflowResource<Workflow>", True, "identifyGitReferencesToRelease", "(String,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.dockstore.webservice.resources", "AbstractWorkflowResource<Workflow>", True, "githubWebhookRelease", "(String,String,String,long,boolean)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.dockstore.webservice.resources", "AbstractWorkflowResource<Workflow>", True, "githubWebhookRelease", "(String,String,String,long,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.dockstore.webservice.resources", "AbstractWorkflowResource<Workflow>", True, "githubWebhookRelease", "(String,String,String,long,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.resources", "AbstractWorkflowResource<Workflow>", True, "githubWebhookDelete", "(String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.dockstore.webservice.resources", "AbstractWorkflowResource<Workflow>", True, "githubWebhookDelete", "(String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.dockstore.webservice.resources", "AbstractWorkflowResource<Workflow>", True, "githubWebhookDelete", "(String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.resources", "AbstractWorkflowResource<Workflow>", True, "getSourceCodeRepoInterface", "(String,User)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.resources", "AbstractHostedEntryResource<Workflow,WorkflowVersion,WorkflowDAO,WorkflowVersionDAO>", True, "saveVersion", "(User,Long,Workflow,WorkflowVersion,Set,Optional)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.dockstore.webservice.resources", "AbstractHostedEntryResource<Workflow,WorkflowVersion,WorkflowDAO,WorkflowVersionDAO>", True, "saveVersion", "(User,Long,Workflow,WorkflowVersion,Set,Optional)", "", "Parameter[0]", "remote", "manual"]

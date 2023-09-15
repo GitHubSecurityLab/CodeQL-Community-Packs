@@ -1,0 +1,28 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setIsGlobal", "(Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setSubscriptionDispatchRate", "(DispatchRateImpl)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setSubscribeRate", "(SubscribeRate)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setMaxSubscriptionsPerTopic", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setSchemaCompatibilityStrategy", "(SchemaCompatibilityStrategy)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setRetentionPolicies", "(RetentionPolicies)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setReplicatorDispatchRate", "(DispatchRateImpl)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setReplicationClusters", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setPublishRate", "(PublishRate)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setPersistence", "(PersistencePolicies)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setOffloadPolicies", "(OffloadPoliciesImpl)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setMessageTTLInSeconds", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setMaxUnackedMessagesOnSubscription", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setMaxUnackedMessagesOnConsumer", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setMaxProducerPerTopic", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setMaxMessageSize", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setMaxConsumersPerSubscription", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setMaxConsumerPerTopic", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setInactiveTopicPolicies", "(InactiveTopicPolicies)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setDispatchRate", "(DispatchRateImpl)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setDeduplicationSnapshotIntervalSeconds", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setDeduplicationEnabled", "(Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.pulsar.common.policies.data", "TopicPolicies", True, "setCompactionThreshold", "(Long)", "", "Parameter[0]", "remote", "manual"]

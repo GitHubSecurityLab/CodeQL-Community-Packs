@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.enonic.xp.web.impl.dispatch.mapping", "ResourceDefinitionImpl<Filter>", True, "matches", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.enonic.xp.web.impl.dispatch.mapping", "ResourceDefinitionImpl<Servlet>", True, "matches", "(String)", "", "Parameter[0]", "remote", "manual"]

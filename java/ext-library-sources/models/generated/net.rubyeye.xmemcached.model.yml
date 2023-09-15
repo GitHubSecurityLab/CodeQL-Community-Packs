@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.rubyeye.xmemcached", "MemcachedClient", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.rubyeye.xmemcached", "MemcachedClient", True, "delete", "(String)", "", "Parameter[0]", "remote", "manual"]

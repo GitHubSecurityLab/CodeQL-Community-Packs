@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.dubbo.rpc.service", "GenericService", True, "$invoke", "(String,String[],Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.dubbo.rpc.service", "GenericService", True, "$invoke", "(String,String[],Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.dubbo.rpc.service", "GenericService", True, "$invoke", "(String,String[],Object[])", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.dubbo.rpc.service", "GenericService", True, "$invokeAsync", "(String,String[],Object[])", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.dubbo.rpc.service", "GenericService", True, "$invokeAsync", "(String,String[],Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.dubbo.rpc.service", "GenericService", True, "$invokeAsync", "(String,String[],Object[])", "", "Parameter[0]", "remote", "manual"]

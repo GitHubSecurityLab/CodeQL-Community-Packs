@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.lightdev.app.shtm", "SHTMLPrefsChangeListener", True, "shtmlPrefChanged", "(String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.lightdev.app.shtm", "SHTMLPrefsChangeListener", True, "shtmlPrefChanged", "(String,String,String)", "", "Parameter[1]", "remote", "manual"]

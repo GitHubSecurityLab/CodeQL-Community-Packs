@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.jgit.treewalk.filter", "PathFilter", True, "create", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.treewalk.filter", "PathFilterGroup", True, "createFromStrings", "(Collection)", "", "Parameter[0]", "remote", "manual"]

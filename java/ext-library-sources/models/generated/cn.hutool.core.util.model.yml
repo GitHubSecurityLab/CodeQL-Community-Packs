@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["cn.hutool.core.util", "ObjectUtil", True, "notEqual", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["cn.hutool.core.util", "XmlUtil", True, "xmlToMap", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["cn.hutool.core.util", "ZipUtil", True, "unzip", "(String,String)", "", "Parameter[0]", "remote", "manual"]

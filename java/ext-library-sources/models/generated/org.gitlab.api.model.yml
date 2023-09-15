@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.gitlab.api", "GitlabAPI", True, "getProject", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gitlab.api", "GitlabAPI", True, "getProject", "(String,String)", "", "Parameter[1]", "remote", "manual"]

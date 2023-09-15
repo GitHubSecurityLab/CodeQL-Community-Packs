@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.bouncycastle.crypto", "Digest", True, "update", "(byte[],int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.bouncycastle.crypto", "PBEParametersGenerator", True, "PKCS5PasswordToBytes", "(char[])", "", "Parameter[0]", "remote", "manual"]

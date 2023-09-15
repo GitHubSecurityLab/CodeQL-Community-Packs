@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.web3j.utils", "Numeric", False, "hexStringToByteArray", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.web3j.utils", "Numeric", False, "cleanHexPrefix", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.web3j.utils", "Numeric", False, "toHexStringNoPrefix", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.web3j.utils", "Numeric", False, "toBigInt", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.web3j.utils", "Convert", False, "fromWei", "(BigDecimal,Unit)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.web3j.utils", "Convert", False, "toWei", "(BigDecimal,Unit)", "", "Parameter[0]", "remote", "manual"]

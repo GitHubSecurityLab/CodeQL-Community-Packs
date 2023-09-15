@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gravitee.rest.api.portal.rest.resource", "AbstractResource<>", True, "createListResponse", "(ExecutionContext,Collection,PaginationParam)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.gravitee.rest.api.portal.rest.resource", "AbstractResource<>", True, "createPictureResponse", "(Request,InlinePictureEntity)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.portal.rest.resource", "AbstractResource<>", True, "createMediaResponse", "(Request,String,MediaEntity)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.rest.api.portal.rest.resource", "AbstractResource<>", True, "createMediaResponse", "(Request,String,MediaEntity)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.portal.rest.resource", "AbstractResource<>", True, "createListResponse", "(ExecutionContext,Collection,PaginationParam,boolean)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.gravitee.rest.api.portal.rest.resource", "AbstractResource<>", True, "checkAndScaleImage", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.portal.rest.resource", "AbstractResource<>", True, "createListResponse", "(ExecutionContext,Collection,PaginationParam,Map,boolean)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.gravitee.rest.api.portal.rest.resource", "AbstractResource<>", True, "createListResponse", "(ExecutionContext,Collection,PaginationParam,Map,boolean)", "", "Parameter[4]", "remote", "manual"]
+      - ["io.gravitee.rest.api.portal.rest.resource", "AbstractResource<Application,String>", True, "createListResponse", "(ExecutionContext,Collection,PaginationParam)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.gravitee.rest.api.portal.rest.resource", "AbstractResource<Api,String>", True, "createListResponse", "(ExecutionContext,Collection,PaginationParam,Map)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.gravitee.rest.api.portal.rest.resource", "AbstractResource<Api,String>", True, "createListResponse", "(ExecutionContext,Collection,PaginationParam)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.gravitee.rest.api.portal.rest.resource", "AbstractResource<>", True, "hasPermission", "(ExecutionContext,RolePermission,String,RolePermissionAction[])", "", "Parameter[2]", "remote", "manual"]
+      - ["io.gravitee.rest.api.portal.rest.resource", "AbstractResource<>", True, "createListResponse", "(ExecutionContext,Collection,PaginationParam,boolean)", "", "Parameter[3]", "remote", "manual"]
+      - ["io.gravitee.rest.api.portal.rest.resource", "AbstractResource<>", True, "createDataResponse", "(ExecutionContext,Collection,PaginationParam,Map,boolean)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.gravitee.rest.api.portal.rest.resource", "AbstractResource<>", True, "checkImageFormat", "(String)", "", "Parameter[0]", "remote", "manual"]

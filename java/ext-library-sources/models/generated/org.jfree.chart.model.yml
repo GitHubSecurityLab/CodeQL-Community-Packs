@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jfree.chart", "ChartUtilities", True, "writeChartAsPNG", "(OutputStream,JFreeChart,int,int)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.jfree.chart", "ChartUtilities", True, "writeChartAsPNG", "(OutputStream,JFreeChart,int,int)", "", "Parameter[2]", "remote", "manual"]

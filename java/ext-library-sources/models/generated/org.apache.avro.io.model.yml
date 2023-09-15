@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.avro.io", "DecoderFactory", True, "binaryDecoder", "(InputStream,BinaryDecoder)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.avro.io", "DatumReader<T>", True, "read", "(Object,Decoder)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.avro.io", "DecoderFactory", True, "jsonDecoder", "(Schema,InputStream)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.avro.io", "DecoderFactory", True, "binaryDecoder", "(byte[],BinaryDecoder)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.avro.io", "DatumWriter<Object>", True, "write", "(Object,Encoder)", "", "Parameter[0]", "remote", "manual"]

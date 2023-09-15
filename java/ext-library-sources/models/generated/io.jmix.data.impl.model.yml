@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.jmix.data.impl", "JpqlQueryBuilder<JmixEclipseLinkQuery<?>>", True, "setQueryString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.jmix.data.impl", "JpqlQueryBuilder<JmixEclipseLinkQuery<?>>", True, "setId", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.jmix.data.impl", "JpqlQueryBuilder<>", True, "setQueryParameters", "(Map)", "", "Parameter[0]", "remote", "manual"]

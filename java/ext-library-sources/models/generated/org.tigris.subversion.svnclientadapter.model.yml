@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.tigris.subversion.svnclientadapter", "SVNUrl", True, "appendPath", "(String)", "", "Parameter[0]", "remote", "manual"]

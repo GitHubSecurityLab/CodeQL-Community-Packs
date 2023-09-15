@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.accumulo.core.client.mapreduce", "AccumuloOutputFormat", True, "setDefaultTableName", "(Job,String)", "", "Parameter[1]", "remote", "manual"]

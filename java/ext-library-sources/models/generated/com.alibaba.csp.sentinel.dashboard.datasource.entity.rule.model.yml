@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alibaba.csp.sentinel.dashboard.datasource.entity.rule", "RuleEntity", True, "setId", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.csp.sentinel.dashboard.datasource.entity.rule", "AbstractRuleEntity<AuthorityRule>", True, "setApp", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.csp.sentinel.dashboard.datasource.entity.rule", "AbstractRuleEntity<AuthorityRule>", True, "setIp", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.csp.sentinel.dashboard.datasource.entity.rule", "AbstractRuleEntity<AuthorityRule>", True, "setPort", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.csp.sentinel.dashboard.datasource.entity.rule", "AbstractRuleEntity<ParamFlowRule>", True, "setApp", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.csp.sentinel.dashboard.datasource.entity.rule", "AbstractRuleEntity<ParamFlowRule>", True, "setIp", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.csp.sentinel.dashboard.datasource.entity.rule", "AbstractRuleEntity<ParamFlowRule>", True, "setPort", "(Integer)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.android.gms.cast", "MediaInfo$Builder", True, "setContentUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.android.gms.cast", "MediaInfo$Builder", True, "setCustomData", "(JSONObject)", "", "Parameter[0]", "remote", "manual"]

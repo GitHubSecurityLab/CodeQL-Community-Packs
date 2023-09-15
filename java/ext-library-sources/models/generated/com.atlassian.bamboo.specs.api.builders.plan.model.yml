@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.atlassian.bamboo.specs.api.builders.plan", "Plan", True, "description", "(String)", "", "Parameter[0]", "remote", "manual"]

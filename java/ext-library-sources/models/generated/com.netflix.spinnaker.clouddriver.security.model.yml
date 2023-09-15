@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.netflix.spinnaker.clouddriver.security", "AccountDefinitionService", True, "updateAccount", "(CredentialsDefinition)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.netflix.spinnaker.clouddriver.security", "AccountDefinitionService", True, "saveAccount", "(CredentialsDefinition)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.netflix.spinnaker.clouddriver.security", "AccountDefinitionService", True, "listAccountDefinitionsByType", "(String,int,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.netflix.spinnaker.clouddriver.security", "AccountDefinitionService", True, "listAccountDefinitionsByType", "(String,int,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.netflix.spinnaker.clouddriver.security", "AccountDefinitionService", True, "getAccountHistory", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.netflix.spinnaker.clouddriver.security", "AccountDefinitionService", True, "deleteAccount", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.netflix.spinnaker.clouddriver.security", "AccountDefinitionService", True, "createAccount", "(CredentialsDefinition)", "", "Parameter[0]", "remote", "manual"]

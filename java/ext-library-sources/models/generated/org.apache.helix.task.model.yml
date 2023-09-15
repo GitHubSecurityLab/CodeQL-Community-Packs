@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.helix.task", "TaskDriver", True, "getWorkflowContext", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.task", "TaskDriver", True, "getJobConfig", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.task", "WorkflowContext", True, "getJobState", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.task", "TaskDriver", True, "stop", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.task", "TaskDriver", True, "resume", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.task", "TaskDriver", True, "getJobContext", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.task", "TaskDriver", True, "deleteJob", "(String,String,boolean)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.helix.task", "TaskDriver", True, "deleteJob", "(String,String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.helix.task", "TaskDriver", True, "deleteJob", "(String,String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.task", "TaskDriver", True, "delete", "(String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.helix.task", "TaskDriver", True, "delete", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.task", "TaskDriver", True, "cleanupQueue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.task", "JobConfig$Builder", True, "setInstanceGroupTag", "(String)", "", "Parameter[0]", "remote", "manual"]

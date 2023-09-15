@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.flywaydb.commandline.logging.file", "FileLogCreator", true, "FileLogCreator", "(CommandLineArguments)", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.flywaydb.core.internal.database.base", "Table", true, "lock", "()", "", "Argument[-1]", "sql", "generated"]
+      - ["org.flywaydb.core.internal.database.base", "Table", true, "unlock", "()", "", "Argument[-1]", "sql", "generated"]
+      - ["org.flywaydb.core.internal.jdbc", "JdbcTemplate", true, "execute", "(String,Object[])", "", "Argument[0]", "sql", "generated"]
+      - ["org.flywaydb.core.internal.jdbc", "JdbcTemplate", true, "executeStatement", "(String)", "", "Argument[0]", "sql", "generated"]
+      - ["org.flywaydb.core.internal.jdbc", "JdbcTemplate", true, "query", "(String,RowMapper,Object[])", "", "Argument[0]", "sql", "generated"]
+      - ["org.flywaydb.core.internal.jdbc", "JdbcTemplate", true, "queryForBoolean", "(String,String[])", "", "Argument[0]", "sql", "generated"]
+      - ["org.flywaydb.core.internal.jdbc", "JdbcTemplate", true, "queryForInt", "(String,String[])", "", "Argument[0]", "sql", "generated"]
+      - ["org.flywaydb.core.internal.jdbc", "JdbcTemplate", true, "queryForList", "(String,Object[])", "", "Argument[0]", "sql", "generated"]
+      - ["org.flywaydb.core.internal.jdbc", "JdbcTemplate", true, "queryForLong", "(String,String[])", "", "Argument[0]", "sql", "generated"]
+      - ["org.flywaydb.core.internal.jdbc", "JdbcTemplate", true, "queryForString", "(String,String[])", "", "Argument[0]", "sql", "generated"]
+      - ["org.flywaydb.core.internal.jdbc", "JdbcTemplate", true, "queryForStringList", "(String,String[])", "", "Argument[0]", "sql", "generated"]
+      - ["org.flywaydb.core.internal.jdbc", "JdbcTemplate", true, "update", "(String,Object[])", "", "Argument[0]", "sql", "generated"]
+      - ["org.flywaydb.core.internal.util", "HtmlUtils", true, "toHtmlFile", "(String,CompositeResult,Configuration)", "", "Argument[0]", "create-file", "generated"]
+

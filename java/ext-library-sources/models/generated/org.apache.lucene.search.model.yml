@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.lucene.search", "Sort", False, "rewrite", "(IndexSearcher)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.search", "TopFieldCollector", True, "populateScores", "(ScoreDoc[],IndexSearcher,Query)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.lucene.search", "SortField", True, "setMissingValue", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.search", "TopScoreDocCollector", True, "create", "(int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.search", "TopFieldCollector", True, "create", "(Sort,int,FieldDoc,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.lucene.search", "TopDocsCollector<ScoreDoc>", True, "topDocs", "(int,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.lucene.search", "SortField", True, "rewrite", "(IndexSearcher)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.search", "SortField$Type", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.search", "BooleanQuery$Builder", True, "add", "(Query,Occur)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.search", "IndexSearcher", True, "setSimilarity", "(Similarity)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.search", "IndexSearcher", True, "rewrite", "(Query)", "", "Parameter[0]", "remote", "manual"]

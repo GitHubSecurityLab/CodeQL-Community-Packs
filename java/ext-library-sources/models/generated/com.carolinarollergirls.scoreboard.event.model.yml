@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.carolinarollergirls.scoreboard.event", "ScoreBoardEventProvider", True, "set", "(Value,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.carolinarollergirls.scoreboard.event", "ScoreBoardEventProvider", True, "get", "(Child,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.carolinarollergirls.scoreboard.event", "ScoreBoardEventProvider", True, "set", "(Value,Object,Source,Flag)", "", "Parameter[1]", "remote", "manual"]

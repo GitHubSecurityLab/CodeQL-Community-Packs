@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.edc.connector.defaults.storage", "InMemoryStatefulEntityStore<TransferProcess>", True, "find", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.edc.connector.defaults.storage", "InMemoryStatefulEntityStore<ContractNegotiation>", True, "find", "(String)", "", "Parameter[0]", "remote", "manual"]

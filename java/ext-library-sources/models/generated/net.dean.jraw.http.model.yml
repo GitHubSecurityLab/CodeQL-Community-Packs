@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.dean.jraw.http", "HttpRequest$Builder", False, "path", "(String,String[])", "", "Parameter[0]", "remote", "manual"]

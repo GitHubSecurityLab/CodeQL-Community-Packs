@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.druid.query.aggregation", "SerializedStorage<SerializablePairLongString>", True, "store", "(SerializablePairLongString)", "", "Parameter[0]", "remote", "manual"]

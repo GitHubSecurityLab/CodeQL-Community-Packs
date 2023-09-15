@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.dcache.restful.util.admin", "ReadWriteData<String,PoolInfoWrapper>", True, "read", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.dcache.restful.util.admin", "SnapshotDataAccess<String,TransferInfo>", False, "getSnapshot", "(UUID,Integer,Integer,Predicate,Comparator)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.dcache.restful.util.admin", "SnapshotDataAccess<String,TransferInfo>", False, "getSnapshot", "(UUID,Integer,Integer,Predicate,Comparator)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.dcache.restful.util.admin", "SnapshotDataAccess<String,TransferInfo>", False, "getSnapshot", "(UUID,Integer,Integer,Predicate,Comparator)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.dcache.restful.util.admin", "SnapshotDataAccess<String,RestoreInfo>", False, "getSnapshot", "(UUID,Integer,Integer,Predicate,Comparator)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.dcache.restful.util.admin", "SnapshotDataAccess<String,RestoreInfo>", False, "getSnapshot", "(UUID,Integer,Integer,Predicate,Comparator)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.dcache.restful.util.admin", "SnapshotDataAccess<String,RestoreInfo>", False, "getSnapshot", "(UUID,Integer,Integer,Predicate,Comparator)", "", "Parameter[0]", "remote", "manual"]

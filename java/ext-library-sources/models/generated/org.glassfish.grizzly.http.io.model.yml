@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.glassfish.grizzly.http.io", "OutputBuffer", True, "writeChar", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.glassfish.grizzly.http.io", "OutputBuffer", True, "write", "(char[],int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.glassfish.grizzly.http.io", "OutputBuffer", True, "write", "(byte[],int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.glassfish.grizzly.http.io", "OutputBuffer", True, "write", "(String,int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.glassfish.grizzly.http.io", "InputBuffer", True, "read", "(char[],int,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.glassfish.grizzly.http.io", "InputBuffer", True, "read", "(char[],int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.glassfish.grizzly.http.io", "InputBuffer", True, "read", "(byte[],int,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.glassfish.grizzly.http.io", "InputBuffer", True, "read", "(byte[],int,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.glassfish.grizzly.http.io", "InputBuffer", True, "read", "(byte[],int,int)", "", "Parameter[0]", "remote", "manual"]

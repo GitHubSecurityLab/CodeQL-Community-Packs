@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.opentelemetry.context.propagation", "TextMapPropagator", True, "extract", "(Context,Object,TextMapGetter)", "", "Parameter[1]", "remote", "manual"]

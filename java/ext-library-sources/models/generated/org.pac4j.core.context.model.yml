@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.pac4j.core.context", "Cookie", False, "setComment", "(String)", "", "Parameter[0]", "remote", "manual"]

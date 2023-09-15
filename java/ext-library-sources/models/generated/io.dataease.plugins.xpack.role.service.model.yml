@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dataease.plugins.xpack.role.service", "RoleXpackService", True, "userItems", "(RoleUserRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.role.service", "RoleXpackService", True, "update", "(XpackRoleDto)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.role.service", "RoleXpackService", True, "save", "(XpackRoleDto)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.role.service", "RoleXpackService", True, "query", "(XpackGridRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.role.service", "RoleXpackService", True, "delete", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.role.service", "RoleXpackService", True, "batchDelUser", "(RoleUserMappingRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.role.service", "RoleXpackService", True, "addUser", "(RoleUserMappingRequest)", "", "Parameter[0]", "remote", "manual"]

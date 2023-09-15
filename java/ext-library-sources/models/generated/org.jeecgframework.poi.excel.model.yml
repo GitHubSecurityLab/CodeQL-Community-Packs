@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jeecgframework.poi.excel", "ExcelImportUtil", False, "importExcel", "(InputStream,Class,ImportParams)", "", "Parameter[0]", "remote", "manual"]

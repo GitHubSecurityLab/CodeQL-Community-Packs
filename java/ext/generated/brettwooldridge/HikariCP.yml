@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["com.zaxxer.hikari.hibernate", "HikariConfigurationUtil", true, "loadConfiguration", "(Map)", "", "Argument[0]", "jdbc-url", "generated"]
+      - ["com.zaxxer.hikari.util", "DriverDataSource", false, "DriverDataSource", "(String,String,Properties,String,String)", "", "Argument[1]", "read-file", "generated"]
+      - ["com.zaxxer.hikari.util", "UtilityElf", false, "createInstance", "(String,Class,Object[])", "", "Argument[0]", "read-file", "generated"]
+      - ["com.zaxxer.hikari", "HikariConfig", true, "HikariConfig", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.zaxxer.hikari", "HikariConfig", true, "setDriverClassName", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.zaxxer.hikari", "HikariConfig", true, "setExceptionOverrideClassName", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.zaxxer.hikari", "HikariConfig", true, "setHealthCheckRegistry", "(Object)", "", "Argument[0]", "jndi-injection", "generated"]
+      - ["com.zaxxer.hikari", "HikariConfig", true, "setMetricRegistry", "(Object)", "", "Argument[0]", "jndi-injection", "generated"]
+

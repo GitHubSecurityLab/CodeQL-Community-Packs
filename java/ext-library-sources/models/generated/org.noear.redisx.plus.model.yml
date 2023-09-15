@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.noear.redisx.plus", "RedisBucket", True, "store", "(String,String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.noear.redisx.plus", "RedisBucket", True, "store", "(String,String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.noear.redisx.plus", "RedisBucket", True, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.noear.redisx.plus", "RedisBucket", True, "delay", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.noear.redisx.plus", "RedisBucket", True, "ttl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.noear.redisx.plus", "RedisBucket", True, "storeAndSerialize", "(String,Object,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.noear.redisx.plus", "RedisBucket", True, "storeAndSerialize", "(String,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.noear.redisx.plus", "RedisBucket", True, "getAndDeserialize", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.noear.redisx.plus", "RedisBucket", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]

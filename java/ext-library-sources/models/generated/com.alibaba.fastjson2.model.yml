@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alibaba.fastjson2", "JSON", True, "toJSON", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.fastjson2", "JSON", True, "parse", "(String,Context)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.fastjson2", "JSON", True, "to", "(Class,Object)", "", "Parameter[1]", "remote", "manual"]

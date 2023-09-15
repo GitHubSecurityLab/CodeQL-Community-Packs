@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.hdfs.util", "EnumCounters<StorageType>", True, "get", "(StorageType)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.hdfs.util", "ReferenceCountMap<AclFeature>", True, "remove", "(AclFeature)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.hdfs.util", "ReferenceCountMap<AclFeature>", True, "put", "(AclFeature)", "", "Parameter[0]", "remote", "manual"]

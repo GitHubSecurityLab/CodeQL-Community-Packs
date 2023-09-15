@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.azure.storage.blob", "BlobContainerClient", False, "getBlobClient", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.azure.storage.blob", "BlobClient", True, "upload", "(InputStream,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.azure.storage.blob", "BlobClient", True, "upload", "(InputStream,long,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.azure.storage.blob", "BlobClient", True, "upload", "(InputStream,long,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.azure.storage.blob", "BlobContainerAsyncClient", False, "getBlobAsyncClient", "(String)", "", "Parameter[0]", "remote", "manual"]

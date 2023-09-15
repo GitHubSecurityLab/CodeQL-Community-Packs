@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.protostuff", "ProtostuffIOUtil", False, "mergeFrom", "(byte[],Object,Schema)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.protostuff", "JsonIOUtil", False, "writeTo", "(OutputStream,Object,Schema,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.protostuff", "JsonIOUtil", False, "mergeFrom", "(byte[],Object,Schema,boolean)", "", "Parameter[0]", "remote", "manual"]

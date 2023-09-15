@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.jayway.jsonpath", "JsonPath", True, "compile", "(String,Predicate[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jayway.jsonpath", "JsonPath", True, "read", "(Object,Configuration)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jayway.jsonpath", "ReadContext", True, "read", "(String,Predicate[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jayway.jsonpath", "JsonPath", True, "parse", "(String,Configuration)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jayway.jsonpath", "ParseContext", True, "parse", "(InputStream,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jayway.jsonpath", "JsonPath", True, "read", "(String,String,Predicate[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jayway.jsonpath", "WriteContext", True, "set", "(String,Object,Predicate[])", "", "Parameter[1]", "remote", "manual"]
+      - ["com.jayway.jsonpath", "JsonPath", True, "read", "(String,String,Predicate[])", "", "Parameter[1]", "remote", "manual"]
+      - ["com.jayway.jsonpath", "JsonPath", True, "parse", "(Object,Configuration)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jayway.jsonpath", "JsonPath", True, "parse", "(InputStream,Configuration)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jayway.jsonpath", "JsonPath", True, "parse", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

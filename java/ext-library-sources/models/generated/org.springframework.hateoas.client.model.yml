@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.hateoas.client", "Hop", False, "withParameter", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

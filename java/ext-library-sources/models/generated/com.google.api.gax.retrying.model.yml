@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.api.gax.retrying", "RetrySettings$Builder", True, "setRpcTimeoutMultiplier", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.api.gax.retrying", "RetrySettings$Builder", True, "setRetryDelayMultiplier", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.api.gax.retrying", "RetrySettings$Builder", True, "setMaxAttempts", "(int)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.braintreepayments.api", "BrowserSwitchOptions", True, "url", "(Uri)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.braintreepayments.api", "BrowserSwitchOptions", True, "metadata", "(JSONObject)", "", "Parameter[0]", "remote", "manual"]

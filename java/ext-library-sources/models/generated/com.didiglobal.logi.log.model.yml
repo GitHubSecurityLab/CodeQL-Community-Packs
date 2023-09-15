@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.didiglobal.logi.log", "ILog", True, "error", "(String,Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.didiglobal.logi.log", "ILog", True, "warn", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

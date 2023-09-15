@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["edu.cornell.mannlib.vitro.webapp.controller.freemarker", "FreemarkerHttpServlet", True, "writeTemplate", "(String,Map,HttpServletRequest,HttpServletResponse)", "", "Parameter[1]", "remote", "manual"]

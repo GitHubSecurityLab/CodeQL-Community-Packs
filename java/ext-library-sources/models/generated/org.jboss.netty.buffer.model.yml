@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jboss.netty.buffer", "ChannelBufferFactory", True, "getBuffer", "(byte[],int,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.jboss.netty.buffer", "ChannelBufferFactory", True, "getBuffer", "(byte[],int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jboss.netty.buffer", "ChannelBufferFactory", True, "getBuffer", "(ByteBuffer)", "", "Parameter[0]", "remote", "manual"]

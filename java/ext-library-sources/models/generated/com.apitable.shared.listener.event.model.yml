@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.apitable.shared.listener.event", "FieldPermissionEvent$Arg$ArgBuilder", True, "datasheetId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.apitable.shared.listener.event", "FieldPermissionEvent$Arg$ArgBuilder", True, "fieldId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.apitable.shared.listener.event", "AuditSpaceEvent$AuditSpaceArg$AuditSpaceArgBuilder", True, "nodeId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.apitable.shared.listener.event", "FieldPermissionEvent$Arg$ArgBuilder", True, "setting", "(FieldControlProp)", "", "Parameter[0]", "remote", "manual"]

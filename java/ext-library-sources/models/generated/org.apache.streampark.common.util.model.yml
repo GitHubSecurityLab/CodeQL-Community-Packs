@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.streampark.common.util", "CURLBuilder", True, "addFormData", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.streampark.common.util", "FileUtils", False, "isJarFileType", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

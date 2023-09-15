@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jdom.input", "SAXBuilder", True, "build", "(Reader)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jdom.input", "SAXBuilder", True, "build", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dropwizard.hibernate", "AbstractDAO<T>", True, "get", "(Serializable)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dropwizard.hibernate", "AbstractDAO<User>", True, "get", "(Serializable)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dropwizard.hibernate", "AbstractDAO<Token>", True, "get", "(Serializable)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dropwizard.hibernate", "AbstractDAO<T>", True, "persist", "(Version)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dropwizard.hibernate", "AbstractDAO<T>", True, "persist", "(Entry)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dropwizard.hibernate", "AbstractDAO<Organization>", True, "persist", "(Organization)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dropwizard.hibernate", "AbstractDAO<Notification>", True, "persist", "(Notification)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dropwizard.hibernate", "AbstractDAO<Organization>", True, "get", "(Serializable)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dropwizard.hibernate", "AbstractDAO<Notification>", True, "get", "(Serializable)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dropwizard.hibernate", "AbstractDAO<Collection>", True, "persist", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dropwizard.hibernate", "AbstractDAO<Collection>", True, "get", "(Serializable)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dropwizard.hibernate", "AbstractDAO<CloudInstance>", True, "get", "(Serializable)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dropwizard.hibernate", "AbstractDAO<Category>", True, "get", "(Serializable)", "", "Parameter[0]", "remote", "manual"]

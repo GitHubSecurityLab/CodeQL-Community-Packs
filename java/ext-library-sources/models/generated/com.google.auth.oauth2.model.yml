@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.auth.oauth2", "TokenVerifier", True, "verify", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.auth.oauth2", "TokenVerifier$Builder", True, "setAudience", "(String)", "", "Parameter[0]", "remote", "manual"]

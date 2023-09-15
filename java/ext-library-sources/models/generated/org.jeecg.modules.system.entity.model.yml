@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jeecg.modules.system.entity", "SysFormFile", True, "setTableDataId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jeecg.modules.system.entity", "SysFiles", True, "setUrl", "(String)", "", "Parameter[0]", "remote", "manual"]

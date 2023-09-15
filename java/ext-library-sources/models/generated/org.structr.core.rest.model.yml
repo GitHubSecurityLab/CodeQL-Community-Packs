@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.structr.core.rest", "GraphObjectGSONAdapter$Serializer<Iterable<>>", True, "serializeRoot", "(Object,String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.structr.core.rest", "GraphObjectGSONAdapter$Serializer<GraphObject>", True, "serializeRoot", "(Object,String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.structr.core.rest", "GraphObjectGSONAdapter$Serializer<GraphObject>", True, "serializeProperty", "(PropertyKey,Object,String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.structr.core.rest", "GraphObjectGSONAdapter$Serializer<>", True, "serializeRoot", "(Object,String,int)", "", "Parameter[0]", "remote", "manual"]

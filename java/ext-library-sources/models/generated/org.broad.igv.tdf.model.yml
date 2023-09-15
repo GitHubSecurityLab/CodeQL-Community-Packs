@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.broad.igv.tdf", "TDFTile$Type", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.broad.igv.tdf", "TDFDataset$DataType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

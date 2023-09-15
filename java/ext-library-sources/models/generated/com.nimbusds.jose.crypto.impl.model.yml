@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.nimbusds.jose.crypto.impl", "ECDSA", True, "transcodeSignatureToDER", "(byte[])", "", "Parameter[0]", "remote", "manual"]

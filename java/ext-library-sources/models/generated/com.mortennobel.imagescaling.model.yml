@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.mortennobel.imagescaling", "DimensionConstrain", True, "createMaxDimension", "(int,int,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.mortennobel.imagescaling", "DimensionConstrain", True, "createMaxDimension", "(int,int,boolean)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.metersphere.track.dto", "TestPlanSimpleReportDTO", True, "setLang", "(String)", "", "Parameter[0]", "remote", "manual"]

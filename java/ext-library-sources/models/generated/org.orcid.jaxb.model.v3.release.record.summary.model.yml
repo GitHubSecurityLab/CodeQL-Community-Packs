@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.orcid.jaxb.model.v3.release.record.summary", "Affiliations<? extends AffiliationSummary>", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.record.summary", "Works", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.record.summary", "ActivitiesSummary", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.record.summary", "Fundings", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.record.summary", "PeerReviews", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.record.summary", "ResearchResources", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]

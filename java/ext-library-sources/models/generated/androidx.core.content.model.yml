@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.core.content", "FileProvider", True, "getUriForFile", "(Context,String,File)", "", "Parameter[2]", "remote", "manual"]
+      - ["androidx.core.content", "ContextCompat", True, "startForegroundService", "(Context,Intent)", "", "Parameter[1]", "remote", "manual"]

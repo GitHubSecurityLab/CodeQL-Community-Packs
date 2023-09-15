@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["me.zhengjie.modules.security.security", "TokenProvider", True, "checkRenewal", "(String)", "", "Parameter[0]", "remote", "manual"]

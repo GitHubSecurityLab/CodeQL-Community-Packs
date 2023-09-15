@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.druid.query.operator", "OperatorSequence$MyReceiver<OutType>", True, "setRetVal", "(Object)", "", "Parameter[0]", "remote", "manual"]

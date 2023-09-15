@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.asciidoctor", "Asciidoctor", True, "render", "(String,Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.asciidoctor", "Asciidoctor", True, "convert", "(String,OptionsBuilder)", "", "Parameter[0]", "remote", "manual"]

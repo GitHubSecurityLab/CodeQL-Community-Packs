@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.swagger.parser", "SwaggerParser", True, "readWithInfo", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.swagger.parser", "OpenAPIParser", True, "readLocation", "(String,List,ParseOptions)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.swagger.parser", "OpenAPIParser", True, "readContents", "(String,List,ParseOptions)", "", "Parameter[0]", "remote", "manual"]

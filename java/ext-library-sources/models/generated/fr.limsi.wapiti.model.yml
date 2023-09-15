@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["fr.limsi.wapiti", "Wapiti", True, "labelFromModel", "(SWIGTYPE_p_mdl_t,String)", "", "Parameter[1]", "remote", "manual"]

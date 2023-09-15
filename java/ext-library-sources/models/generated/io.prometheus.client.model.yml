@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.prometheus.client", "CollectorRegistry", True, "register", "(Collector)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.prometheus.client", "CollectorRegistry", True, "filteredMetricFamilySamples", "(Set)", "", "Parameter[0]", "remote", "manual"]

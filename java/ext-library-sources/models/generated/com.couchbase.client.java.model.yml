@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.couchbase.client.java", "Bucket", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.couchbase.client.java", "Bucket", True, "exists", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.couchbase.client.java", "Bucket", True, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]

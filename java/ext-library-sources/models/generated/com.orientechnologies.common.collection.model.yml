@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.orientechnologies.common.collection", "OMultiCollectionIterator<OIdentifiable>", True, "add", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.common.collection", "OMultiCollectionIterator<Object>", True, "add", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.common.collection", "OMultiCollectionIterator<OVertex>", True, "add", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.common.collection", "OMultiCollectionIterator<Vertex>", True, "add", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.common.collection", "OMultiCollectionIterator<Edge>", True, "add", "(Object)", "", "Parameter[0]", "remote", "manual"]

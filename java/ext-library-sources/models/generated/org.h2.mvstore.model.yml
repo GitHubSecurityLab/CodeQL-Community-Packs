@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.h2.mvstore", "FileStore<?>", True, "readPage", "(MVMap,long)", "", "Parameter[0]", "remote", "manual"]

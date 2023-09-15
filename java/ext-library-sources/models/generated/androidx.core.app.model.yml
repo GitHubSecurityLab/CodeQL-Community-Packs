@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.core.app", "NotificationCompat$Builder", True, "setGroup", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.app", "NotificationCompat$Builder", True, "setContentTitle", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.app", "ShareCompat$IntentBuilder", True, "setText", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.app", "NotificationCompat$Builder", True, "setLights", "(int,int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.app", "NotificationCompat$Builder", True, "setVibrate", "(long[])", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.app", "NotificationCompat$Builder", True, "setVisibility", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.app", "NotificationCompat$Builder", True, "setColor", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.app", "NotificationCompat$BigPictureStyle", True, "setSummaryText", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.app", "NotificationCompat$Builder", True, "addAction", "(int,CharSequence,PendingIntent)", "", "Parameter[1]", "remote", "manual"]
+      - ["androidx.core.app", "TaskStackBuilder", False, "addNextIntentWithParentStack", "(Intent)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.app", "TaskStackBuilder", False, "addNextIntent", "(Intent)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.app", "NotificationCompat$InboxStyle", True, "setBigContentTitle", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.app", "ShareCompat$IntentBuilder", True, "setChooserTitle", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]

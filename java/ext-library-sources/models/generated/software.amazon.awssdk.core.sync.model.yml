@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["software.amazon.awssdk.core.sync", "RequestBody", False, "fromBytes", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["software.amazon.awssdk.core.sync", "RequestBody", False, "fromString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["software.amazon.awssdk.core.sync", "ResponseTransformer", True, "toFile", "(File)", "", "Parameter[0]", "remote", "manual"]

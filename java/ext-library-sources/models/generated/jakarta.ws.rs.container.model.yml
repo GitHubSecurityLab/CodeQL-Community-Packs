@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jakarta.ws.rs.container", "ContainerRequestContext", True, "setEntityStream", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.container", "ContainerRequestContext", True, "abortWith", "(Response)", "", "Parameter[0]", "remote", "manual"]

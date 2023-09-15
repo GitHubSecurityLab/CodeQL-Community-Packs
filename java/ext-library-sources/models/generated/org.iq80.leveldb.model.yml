@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.iq80.leveldb", "WriteBatch", True, "put", "(byte[],byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.iq80.leveldb", "WriteBatch", True, "put", "(byte[],byte[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.iq80.leveldb", "DB", True, "put", "(byte[],byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.iq80.leveldb", "DB", True, "get", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.iq80.leveldb", "DBIterator", True, "seek", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.iq80.leveldb", "DB", True, "delete", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.iq80.leveldb", "DB", True, "put", "(byte[],byte[],WriteOptions)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.iq80.leveldb", "DB", True, "put", "(byte[],byte[])", "", "Parameter[1]", "remote", "manual"]

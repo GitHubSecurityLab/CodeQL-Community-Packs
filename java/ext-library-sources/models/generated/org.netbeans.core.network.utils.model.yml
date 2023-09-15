@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.core.network.utils", "SimpleObjCache<URI,List<Proxy>>", True, "put", "(URI,List)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.velocity.app", "VelocityEngine", True, "mergeTemplate", "(String,Context,Writer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.velocity.app", "VelocityEngine", True, "getTemplate", "(String)", "", "Parameter[0]", "remote", "manual"]

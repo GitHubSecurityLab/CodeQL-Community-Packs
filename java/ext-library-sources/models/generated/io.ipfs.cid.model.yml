@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.ipfs.cid", "Cid", True, "decode", "(String)", "", "Parameter[0]", "remote", "manual"]

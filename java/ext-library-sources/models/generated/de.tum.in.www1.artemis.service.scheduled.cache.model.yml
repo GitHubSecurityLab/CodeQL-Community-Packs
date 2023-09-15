@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["de.tum.in.www1.artemis.service.scheduled.cache", "CacheHandler<Long>", True, "getReadCacheFor", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["de.tum.in.www1.artemis.service.scheduled.cache", "CacheHandler<Long>", True, "getTransientWriteCacheFor", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["de.tum.in.www1.artemis.service.scheduled.cache", "CacheHandler<Long>", True, "performCacheWriteIfPresent", "(Long,UnaryOperator)", "", "Parameter[0]", "remote", "manual"]
+      - ["de.tum.in.www1.artemis.service.scheduled.cache", "CacheHandler<Long>", True, "removeAndClear", "(Long)", "", "Parameter[0]", "remote", "manual"]

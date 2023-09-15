@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.druid.query.aggregation.post", "ExpressionPostAggregator$Ordering", True, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.query.aggregation.post", "ArithmeticPostAggregator$Ordering", True, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

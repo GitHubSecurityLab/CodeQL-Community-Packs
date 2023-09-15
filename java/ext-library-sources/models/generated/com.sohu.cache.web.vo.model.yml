@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.sohu.cache.web.vo", "AppRedisConfigCheckVo", True, "setVersionId", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.sohu.cache.web.vo", "AppRedisConfigCheckVo", True, "setExpectValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.sohu.cache.web.vo", "AppRedisConfigCheckVo", True, "setConfigName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.sohu.cache.web.vo", "AppRedisConfigCheckVo", True, "setAppId", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.sohu.cache.web.vo", "AppRedisCommandCheckVo", True, "setPodIp", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.sohu.cache.web.vo", "AppRedisCommandCheckVo", True, "setMinuteInternal", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.sohu.cache.web.vo", "AppRedisCommandCheckVo", True, "setMaxTry", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.sohu.cache.web.vo", "AppRedisCommandCheckVo", True, "setMachineIps", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.sohu.cache.web.vo", "AppRedisCommandCheckVo", True, "setInfoIndicate", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.sohu.cache.web.vo", "AppRedisCommandCheckVo", True, "setIndicateName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.sohu.cache.web.vo", "AppRedisCommandCheckVo", True, "setExpectValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.sohu.cache.web.vo", "AppRedisCommandCheckVo", True, "setCommand", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.sohu.cache.web.vo", "AppRedisCommandCheckVo", True, "setCheckType", "(Integer)", "", "Parameter[0]", "remote", "manual"]

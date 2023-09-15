@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.orientechnologies.orient.core.db.record", "OTrackedMap<OIdentifiable>", True, "putInternal", "(Object,OIdentifiable)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.db.record", "OTrackedMap<Object>", True, "putInternal", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.db.record", "OTrackedMap<Object>", True, "putInternal", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.db.record", "OTrackedMap<>", True, "putInternal", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.db.record", "OTrackedMap<>", True, "putInternal", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]

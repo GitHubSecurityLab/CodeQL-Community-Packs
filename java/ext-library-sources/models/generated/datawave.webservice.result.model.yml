@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["datawave.webservice.result", "BaseResponse", True, "addMessage", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["datawave.webservice.result", "GenericResponse<String>", True, "setResult", "(String)", "", "Parameter[0]", "remote", "manual"]

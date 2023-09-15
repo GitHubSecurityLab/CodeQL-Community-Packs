@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.hibernate.search.engine.search.query", "SearchFetchable", True, "fetch", "(Integer,Integer)", "", "Parameter[1]", "remote", "manual"]

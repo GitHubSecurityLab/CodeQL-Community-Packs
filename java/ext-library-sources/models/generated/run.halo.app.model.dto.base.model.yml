@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["run.halo.app.model.dto.base", "OutputConverter<UserDTO,User>", True, "convertFrom", "(User)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.editor.settings.storage.spi", "StorageWriter<String,AttributeSet>", True, "setRemoved", "(Set)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.editor.settings.storage.spi", "StorageWriter<String,AttributeSet>", True, "setAdded", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.editor.settings.storage.spi", "StorageWriter<K,V>", True, "setRemoved", "(Set)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.editor.settings.storage.spi", "StorageWriter<K,V>", True, "setAdded", "(Map)", "", "Parameter[0]", "remote", "manual"]

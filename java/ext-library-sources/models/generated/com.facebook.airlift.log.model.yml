@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.facebook.airlift.log", "Logger", True, "warn", "(Throwable,String)", "", "Parameter[1]", "remote", "manual"]

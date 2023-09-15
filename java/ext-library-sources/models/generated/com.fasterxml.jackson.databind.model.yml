@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.fasterxml.jackson.databind", "ObjectMapper", True, "readTree", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind", "ObjectMapper", True, "readTree", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind", "ObjectMapper", True, "writeValue", "(File,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind", "ObjectMapper", True, "readTree", "(Reader)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind", "ObjectReader", True, "readTree", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind", "ObjectWriter", True, "writeValue", "(OutputStream,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind", "JsonNode", True, "findValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind", "ObjectMapper", True, "readTree", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind", "ObjectMapper", True, "configure", "(Feature,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind", "InjectableValues$Std", True, "addValue", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind", "SequenceWriter", True, "write", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind", "ObjectMapper", True, "writeValue", "(Writer,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind", "JsonNode", True, "has", "(String)", "", "Parameter[0]", "remote", "manual"]

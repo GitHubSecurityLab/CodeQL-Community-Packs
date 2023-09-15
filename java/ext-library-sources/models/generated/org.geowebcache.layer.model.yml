@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.geowebcache.layer", "TileLayerDispatcher", True, "rename", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.geowebcache.layer", "TileLayerDispatcher", True, "layerExists", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geowebcache.layer", "TileLayerDispatcher", True, "getTileLayer", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geowebcache.layer", "TileLayerDispatcher", True, "getConfiguration", "(String)", "", "Parameter[0]", "remote", "manual"]

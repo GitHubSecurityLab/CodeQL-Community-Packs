@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jooq", "Field<String>", True, "eq", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jooq", "Field<Object>", True, "eq", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jooq", "SelectQuery<Record>", True, "addLimit", "(int)", "", "Parameter[0]", "remote", "manual"]

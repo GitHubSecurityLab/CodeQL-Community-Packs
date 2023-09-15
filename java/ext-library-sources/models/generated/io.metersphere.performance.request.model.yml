@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.metersphere.performance.request", "QueryProjectFileRequest", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.performance.request", "TestPlanRequest", True, "setVersionId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.performance.request", "TestPlanRequest", True, "setRefId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.performance.request", "TestPlanRequest", True, "setId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.performance.request", "QueryTestPlanRequest", True, "setWorkspaceId", "(String)", "", "Parameter[0]", "remote", "manual"]

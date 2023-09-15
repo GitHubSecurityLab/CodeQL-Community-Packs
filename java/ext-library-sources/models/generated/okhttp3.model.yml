@@ -1,0 +1,25 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["okhttp3", "Request$Builder", True, "url", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["okhttp3", "Request$Builder", True, "url", "(HttpUrl)", "", "Parameter[0]", "remote", "manual"]
+      - ["okhttp3", "FormBody$Builder", False, "add", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["okhttp3", "RequestBody", True, "create", "(String,MediaType)", "", "Parameter[0]", "remote", "manual"]
+      - ["okhttp3", "HttpUrl$Companion", False, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["okhttp3", "MultipartBody$Builder", False, "addFormDataPart", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["okhttp3", "Request$Builder", True, "addHeader", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["okhttp3", "RequestBody$Companion", False, "create", "(String,MediaType)", "", "Parameter[0]", "remote", "manual"]
+      - ["okhttp3", "HttpUrl$Companion", False, "get", "(URL)", "", "Parameter[0]", "remote", "manual"]
+      - ["okhttp3", "Cookie$Builder", False, "value", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["okhttp3", "FormBody$Builder", False, "add", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["okhttp3", "MultipartBody$Builder", False, "addFormDataPart", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["okhttp3", "MultipartBody$Builder", False, "addFormDataPart", "(String,String,RequestBody)", "", "Parameter[0]", "remote", "manual"]
+      - ["okhttp3", "RequestBody", True, "create", "(MediaType,byte[])", "", "Parameter[1]", "remote", "manual"]
+      - ["okhttp3", "RequestBody", True, "create", "(MediaType,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["okhttp3", "RequestBody", True, "create", "(MediaType,File)", "", "Parameter[1]", "remote", "manual"]
+      - ["okhttp3", "Request$Builder", True, "url", "(URL)", "", "Parameter[0]", "remote", "manual"]
+      - ["okhttp3", "Request$Builder", True, "addHeader", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["okhttp3", "MultipartBody$Part", False, "createFormData", "(String,String,RequestBody)", "", "Parameter[1]", "remote", "manual"]
+      - ["okhttp3", "MultipartBody$Builder", False, "addFormDataPart", "(String,String,RequestBody)", "", "Parameter[1]", "remote", "manual"]

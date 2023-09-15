@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.crypto.codec", "Utf8", False, "encode", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]

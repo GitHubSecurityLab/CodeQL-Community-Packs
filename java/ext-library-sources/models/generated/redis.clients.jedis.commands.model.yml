@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["redis.clients.jedis.commands", "JedisCommands", True, "exists", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["redis.clients.jedis.commands", "JedisCommands", True, "del", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.thoughtworks.go.server.service", "GoConfigService$XmlPartialSaver<>", True, "saveXml", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.thoughtworks.go.server.service", "GoConfigService$XmlPartialSaver<CruiseConfig>", True, "saveConfig", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.thoughtworks.go.server.service", "GoConfigService$XmlPartialSaver<CruiseConfig>", True, "saveConfig", "(String,String)", "", "Parameter[1]", "remote", "manual"]

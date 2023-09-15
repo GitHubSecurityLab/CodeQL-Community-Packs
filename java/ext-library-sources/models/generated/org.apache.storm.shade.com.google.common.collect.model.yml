@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.storm.shade.com.google.common.collect", "Maps", False, "transformEntries", "(Map,EntryTransformer)", "", "Parameter[0]", "remote", "manual"]

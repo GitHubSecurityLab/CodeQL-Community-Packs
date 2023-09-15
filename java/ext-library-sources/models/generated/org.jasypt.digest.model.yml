@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jasypt.digest", "StringDigester", True, "digest", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jasypt.digest", "StringDigester", True, "matches", "(String,String)", "", "Parameter[0]", "remote", "manual"]

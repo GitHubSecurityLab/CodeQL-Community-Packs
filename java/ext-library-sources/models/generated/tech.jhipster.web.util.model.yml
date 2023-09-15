@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["tech.jhipster.web.util", "HeaderUtil", False, "createEntityCreationAlert", "(String,boolean,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["tech.jhipster.web.util", "HeaderUtil", False, "createEntityUpdateAlert", "(String,boolean,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["tech.jhipster.web.util", "HeaderUtil", False, "createEntityDeletionAlert", "(String,boolean,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["tech.jhipster.web.util", "HeaderUtil", False, "createAlert", "(String,String,String)", "", "Parameter[2]", "remote", "manual"]

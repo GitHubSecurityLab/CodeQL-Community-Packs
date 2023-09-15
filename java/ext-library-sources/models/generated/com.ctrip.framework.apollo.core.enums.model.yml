@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.ctrip.framework.apollo.core.enums", "ConfigFileFormat", False, "fromString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ctrip.framework.apollo.core.enums", "ConfigFileFormat", False, "isValidFormat", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.hankcs.hanlp.tokenizer", "StandardTokenizer", True, "segment", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.hankcs.hanlp.tokenizer", "SpeedTokenizer", True, "segment", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.hankcs.hanlp.tokenizer", "NLPTokenizer", True, "segment", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.hankcs.hanlp.tokenizer", "IndexTokenizer", True, "segment", "(String)", "", "Parameter[0]", "remote", "manual"]

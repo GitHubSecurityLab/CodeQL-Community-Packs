@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.vertx.core", "MultiMap", True, "add", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.vertx.core", "MultiMap", True, "set", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.vertx.core", "MultiMap", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core", "MultiMap", True, "add", "(CharSequence,CharSequence)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.vertx.core", "MultiMap", True, "add", "(CharSequence,CharSequence)", "", "Parameter[0]", "remote", "manual"]

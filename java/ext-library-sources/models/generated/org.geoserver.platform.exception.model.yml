@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.geoserver.platform.exception", "GeoServerException", True, "setArgs", "(Object[])", "", "Parameter[0]", "remote", "manual"]

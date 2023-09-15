@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.netty.handler.codec.http", "HttpHeaders", True, "add", "(CharSequence,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.netty.handler.codec.http", "HttpHeaders", True, "set", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

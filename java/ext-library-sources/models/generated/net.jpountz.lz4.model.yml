@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.jpountz.lz4", "LZ4SafeDecompressor", True, "decompress", "(ByteBuffer,int,int,ByteBuffer,int,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["net.jpountz.lz4", "LZ4SafeDecompressor", True, "decompress", "(ByteBuffer,ByteBuffer)", "", "Parameter[1]", "remote", "manual"]
+      - ["net.jpountz.lz4", "LZ4SafeDecompressor", True, "decompress", "(ByteBuffer,ByteBuffer)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.jpountz.lz4", "LZ4Compressor", True, "compress", "(ByteBuffer,ByteBuffer)", "", "Parameter[1]", "remote", "manual"]
+      - ["net.jpountz.lz4", "LZ4Compressor", True, "compress", "(ByteBuffer,ByteBuffer)", "", "Parameter[0]", "remote", "manual"]

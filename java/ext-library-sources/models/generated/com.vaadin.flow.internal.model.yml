@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.vaadin.flow.internal", "UrlUtil", True, "encodeURI", "(String)", "", "Parameter[0]", "remote", "manual"]

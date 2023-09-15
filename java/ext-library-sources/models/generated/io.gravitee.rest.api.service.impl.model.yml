@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gravitee.rest.api.service.impl", "AbstractPluginService<T,ConnectorPluginEntity>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.service.impl", "AbstractPluginService<ServiceDiscoveryPlugin<?>,PlatformPluginEntity>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.service.impl", "AbstractPluginService<ResourcePlugin<?>,PlatformPluginEntity>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.service.impl", "AbstractPluginService<PolicyPlugin<?>,PolicyEntity>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.service.impl", "AbstractPluginService<FetcherPlugin<?>,FetcherEntity>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.service.impl", "AbstractPluginService<ConnectorPlugin<>,ConnectorPluginEntity>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]

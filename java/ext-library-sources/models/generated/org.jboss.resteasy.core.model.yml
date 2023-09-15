@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jboss.resteasy.core", "ResteasyContext", False, "pushContext", "(Class,Object)", "", "Parameter[1]", "remote", "manual"]

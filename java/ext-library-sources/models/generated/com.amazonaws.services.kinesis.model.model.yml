@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.amazonaws.services.kinesis.model", "DescribeStreamRequest", True, "setStreamName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.kinesis.model", "ListShardsRequest", True, "withStreamName", "(String)", "", "Parameter[0]", "remote", "manual"]

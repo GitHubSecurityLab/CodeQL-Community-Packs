@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.data.jpa.repository", "JpaRepository<Group,Integer>", True, "saveAndFlush", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.jpa.repository", "JpaRepository<Feedback,Long>", True, "saveAndFlush", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.jpa.repository", "JpaRepository<OnlineUnit,Long>", True, "saveAndFlush", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.jpa.repository", "JpaRepository<ProgrammingExercise,Long>", True, "saveAndFlush", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.jpa.repository", "JpaRepository<QuizExercise,Long>", True, "saveAndFlush", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.jpa.repository", "JpaRepository<TextUnit,Long>", True, "saveAndFlush", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.jpa.repository", "JpaRepository<VideoUnit,Long>", True, "saveAndFlush", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.jpa.repository", "JpaRepository<ExerciseUnit,Long>", True, "saveAndFlush", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.jpa.repository", "JpaRepository<Attachment,Long>", True, "saveAndFlush", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.jpa.repository", "JpaRepository<Country,Long>", True, "getOne", "(Long)", "", "Parameter[0]", "remote", "manual"]

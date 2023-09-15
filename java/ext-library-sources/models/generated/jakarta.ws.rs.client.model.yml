@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jakarta.ws.rs.client", "Entity", False, "entity", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.client", "Invocation$Builder", True, "header", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["jakarta.ws.rs.client", "WebTarget", True, "queryParam", "(String,Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.client", "WebTarget", True, "path", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.client", "Invocation$Builder", True, "headers", "(MultivaluedMap)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.client", "Entity", False, "json", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["jakarta.ws.rs.client", "ClientRequestContext", True, "setEntity", "(Object)", "", "Parameter[0]", "remote", "manual"]

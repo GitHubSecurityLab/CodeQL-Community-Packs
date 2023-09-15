@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: summaryModel
+    data:
+      - ["org.apache.wicket.util.crypt", "Base64", False, "decode", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.wicket.util.crypt", "Base64", False, "decodeBase64", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.wicket.util.crypt", "Base64", False, "encode", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.wicket.util.crypt", "Base64", False, "encodeBase64", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.wicket.util.crypt", "Base64", False, "encodeBase64Chunked", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.wicket.util.crypt", "Base64", False, "encodeBase64String", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.wicket.util.crypt", "Base64", False, "encodeBase64URLSafe", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.wicket.util.crypt", "Base64", False, "encodeBase64URLSafeString", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.wicket.util.crypt", "Base64", False, "encodeToString", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+

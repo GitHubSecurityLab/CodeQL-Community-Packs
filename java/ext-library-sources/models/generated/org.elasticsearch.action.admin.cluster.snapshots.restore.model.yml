@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.elasticsearch.action.admin.cluster.snapshots.restore", "RestoreSnapshotRequestBuilder", True, "setSnapshot", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.elasticsearch.action.admin.cluster.snapshots.restore", "RestoreSnapshotRequestBuilder", True, "setIndices", "(String[])", "", "Parameter[0]", "remote", "manual"]

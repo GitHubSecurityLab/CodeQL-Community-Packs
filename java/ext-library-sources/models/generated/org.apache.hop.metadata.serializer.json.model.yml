@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hop.metadata.serializer.json", "JsonMetadataParser<IHopMetadata>", True, "loadJsonObject", "(Class,JsonParser)", "", "Parameter[1]", "remote", "manual"]

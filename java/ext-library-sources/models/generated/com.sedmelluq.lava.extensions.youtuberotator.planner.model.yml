@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.sedmelluq.lava.extensions.youtuberotator.planner", "AbstractRoutePlanner", True, "freeAddress", "(InetAddress)", "", "Parameter[0]", "remote", "manual"]

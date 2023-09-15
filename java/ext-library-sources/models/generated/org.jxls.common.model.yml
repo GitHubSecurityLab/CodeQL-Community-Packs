@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jxls.common", "Context", True, "putVar", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

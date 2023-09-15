@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.geotools.xsd", "Parser", True, "parse", "(Reader)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.xsd", "EMFUtils", True, "set", "(List,String,List)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.geotools.xsd", "EMFUtils", True, "set", "(List,String,Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.geotools.xsd", "Parser", True, "parse", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.xsd", "EMFUtils", True, "has", "(EObject,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.xsd", "EMFUtils", True, "set", "(EObject,String,Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.geotools.xsd", "EMFUtils", True, "get", "(EObject,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.xsd", "EMFUtils", True, "add", "(EObject,String,Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.geotools.xsd", "Parser", True, "parse", "(InputSource)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.xsd", "EMFUtils", True, "set", "(EObject,String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.geotools.xsd", "EMFUtils", True, "set", "(EObject,String,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.xsd", "EMFUtils", True, "add", "(EObject,String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.geotools.xsd", "Parser", True, "validate", "(Reader)", "", "Parameter[0]", "remote", "manual"]

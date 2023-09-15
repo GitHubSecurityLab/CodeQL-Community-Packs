@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.geoserver.catalog.impl", "CatalogInfoLookup<StoreInfo>", True, "remove", "(StoreInfo)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geoserver.catalog.impl", "CatalogInfoLookup<ResourceInfo>", True, "remove", "(ResourceInfo)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geoserver.catalog.impl", "CatalogInfoLookup<LayerInfo>", True, "findById", "(String,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geoserver.catalog.impl", "CatalogInfoLookup<LayerGroupInfo>", True, "findById", "(String,Class)", "", "Parameter[0]", "remote", "manual"]

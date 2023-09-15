@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jdbi.v3.core.statement", "SqlStatement<Query>", True, "bind", "(int,String)", "", "Parameter[1]", "remote", "manual"]

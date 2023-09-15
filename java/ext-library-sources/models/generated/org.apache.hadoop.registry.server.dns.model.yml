@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.registry.server.dns", "BaseServiceRecordProcessor$RecordDescriptor<InetAddress>", True, "setTarget", "(InetAddress)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.registry.server.dns", "BaseServiceRecordProcessor$RecordDescriptor<List<String>>", True, "setTarget", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.registry.server.dns", "BaseServiceRecordProcessor$ApplicationRecordDescriptor<List<String>>", True, "getTextRecords", "(Endpoint)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.registry.server.dns", "BaseServiceRecordProcessor$ApplicationRecordDescriptor<InetAddress>", True, "getHost", "(Endpoint)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.registry.server.dns", "BaseServiceRecordProcessor$ApplicationRecordDescriptor<HostPortInfo>", True, "getPort", "(Endpoint)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.registry.server.dns", "BaseServiceRecordProcessor$ApplicationRecordDescriptor<HostPortInfo>", True, "getHost", "(Endpoint)", "", "Parameter[0]", "remote", "manual"]

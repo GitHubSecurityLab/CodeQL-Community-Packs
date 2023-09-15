@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.microsoft.aad.adal4j", "AuthenticationContext", True, "acquireTokenByAuthorizationCode", "(String,URI,ClientCredential,AuthenticationCallback)", "", "Parameter[1]", "remote", "manual"]

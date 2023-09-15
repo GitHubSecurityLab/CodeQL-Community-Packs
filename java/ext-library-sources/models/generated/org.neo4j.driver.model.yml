@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.neo4j.driver", "QueryRunner", True, "run", "(String,Map)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.neo4j.driver", "QueryRunner", True, "run", "(String,Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.neo4j.driver", "QueryRunner", True, "run", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.neo4j.driver", "GraphDatabase", True, "driver", "(String,AuthToken,Config)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.neo4j.driver", "AuthTokens", True, "basic", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.neo4j.driver", "AuthTokens", True, "basic", "(String,String)", "", "Parameter[0]", "remote", "manual"]

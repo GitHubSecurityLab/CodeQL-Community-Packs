@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.apache.beam.examples.complete.kafkatopubsub.kafka.consumer", "Utils", true, "getKafkaCredentialsFromVault", "(String,String)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.beam.runners.dataflow.worker.logging", "DataflowWorkerLoggingHandler", true, "DataflowWorkerLoggingHandler", "(String,long)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.beam.sdk.io.clickhouse", "ClickHouseIO", true, "getTableSchema", "(String,String)", "", "Argument[1]", "sql", "generated"]
+      - ["org.apache.beam.sdk.jmh.io", "TextSourceBenchmark$Data", true, "createFile", "()", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.beam.sdk.metrics", "MetricsSink", true, "writeMetrics", "(MetricQueryResults)", "", "Argument[-1]", "open-url", "generated"]
+      - ["org.apache.beam.sdk.util", "ZipFiles", false, "zipDirectory", "(File,File)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.apache.beam.sdk.util", "ZipFiles", false, "zipDirectoryOverwrite", "(File,File)", "", "Argument[1]", "create-file", "generated"]
+

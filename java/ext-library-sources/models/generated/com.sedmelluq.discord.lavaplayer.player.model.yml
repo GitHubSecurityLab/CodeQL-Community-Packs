@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.sedmelluq.discord.lavaplayer.player", "AudioPlayerManager", True, "loadItem", "(String,AudioLoadResultHandler)", "", "Parameter[0]", "remote", "manual"]

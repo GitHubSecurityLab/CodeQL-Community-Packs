@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.solr.common", "SolrInputDocument", True, "setField", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

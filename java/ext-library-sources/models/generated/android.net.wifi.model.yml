@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.net.wifi", "WifiEnterpriseConfig", True, "setIdentity", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.net.wifi", "WifiEnterpriseConfig", True, "setPassword", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opengis.parameter", "ParameterValue<?>", True, "setValue", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.opengis.parameter", "ParameterValue<String>", True, "setValue", "(Object)", "", "Parameter[0]", "remote", "manual"]

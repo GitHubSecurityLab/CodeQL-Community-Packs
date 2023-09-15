@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.time4j.format.expert", "ChronoFormatter", False, "ofPattern", "(String,PatternType,Locale,Chronology)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.time4j.format.expert", "ChronoFormatter$Builder<VietnameseCalendar>", False, "addPattern", "(String,PatternType)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.time4j.format.expert", "ChronoFormatter$Builder<ThaiSolarCalendar>", False, "addPattern", "(String,PatternType)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.time4j.format.expert", "ChronoFormatter$Builder<PersianCalendar>", False, "addPattern", "(String,PatternType)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.time4j.format.expert", "ChronoFormatter$Builder<KoreanCalendar>", False, "addPattern", "(String,PatternType)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.time4j.format.expert", "ChronoFormatter$Builder<EthiopianCalendar>", False, "addPattern", "(String,PatternType)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.time4j.format.expert", "ChronoFormatter$Builder<CopticCalendar>", False, "addPattern", "(String,PatternType)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.time4j.format.expert", "ChronoFormatter$Builder<ChineseCalendar>", False, "addPattern", "(String,PatternType)", "", "Parameter[0]", "remote", "manual"]

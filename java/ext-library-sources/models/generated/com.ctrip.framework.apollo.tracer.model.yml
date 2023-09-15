@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.ctrip.framework.apollo.tracer", "Tracer", True, "logEvent", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.ctrip.framework.apollo.tracer", "Tracer", True, "logEvent", "(String,String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.ctrip.framework.apollo.tracer", "Tracer", True, "logEvent", "(String,String,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["com.ctrip.framework.apollo.tracer", "Tracer", True, "logError", "(String,Throwable)", "", "Parameter[0]", "remote", "manual"]

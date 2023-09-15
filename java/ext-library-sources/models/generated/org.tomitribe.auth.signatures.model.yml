@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.tomitribe.auth.signatures", "Signature", True, "fromString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.tomitribe.auth.signatures", "Verifier", True, "verify", "(String,String,Map)", "", "Parameter[2]", "remote", "manual"]

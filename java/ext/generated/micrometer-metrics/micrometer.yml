@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["io.micrometer.core.ipc.http", "HttpSender$Request$Builder", true, "send", "()", "", "Argument[-1]", "open-url", "generated"]
+      - ["io.micrometer.core.samples.utils", "SampleRegistries", true, "stackdriver", "(String,String)", "", "Argument[0]", "read-file", "generated"]
+

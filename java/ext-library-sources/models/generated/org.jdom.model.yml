@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jdom", "Element", True, "setText", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jdom", "Element", True, "setAttribute", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.jdom", "Element", True, "addContent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jdom", "Element", True, "removeAttribute", "(String,Namespace)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jdom", "Element", True, "getChild", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jdom", "Element", True, "addContent", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jdom", "Attribute", True, "setValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jdom", "Namespace", False, "getNamespace", "(String,String)", "", "Parameter[0]", "remote", "manual"]

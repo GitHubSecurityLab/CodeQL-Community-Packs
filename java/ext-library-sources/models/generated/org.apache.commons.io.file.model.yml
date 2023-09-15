@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.io.file", "PathUtils", False, "deleteDirectory", "(Path)", "", "Parameter[0]", "remote", "manual"]

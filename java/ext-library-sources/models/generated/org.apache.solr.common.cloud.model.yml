@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.solr.common.cloud", "Replica$Type", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.common.cloud", "Replica$State", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

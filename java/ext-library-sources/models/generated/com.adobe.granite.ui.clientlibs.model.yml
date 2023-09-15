@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.adobe.granite.ui.clientlibs", "HtmlLibraryManager", True, "getLibrary", "(LibraryType,String)", "", "Parameter[1]", "remote", "manual"]

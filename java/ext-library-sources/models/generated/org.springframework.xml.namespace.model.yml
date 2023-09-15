@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.xml.namespace", "QNameUtils", True, "parseQNameString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.xml.namespace", "QNameUtils", True, "validateQName", "(String)", "", "Parameter[0]", "remote", "manual"]

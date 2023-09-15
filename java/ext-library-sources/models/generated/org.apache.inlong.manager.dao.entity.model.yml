@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.inlong.manager.dao.entity", "InlongGroupEntity", True, "setMqResource", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.inlong.manager.dao.entity", "InlongGroupEntity", True, "setInlongClusterTag", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.inlong.manager.dao.entity", "InlongClusterEntity", True, "setExtParams", "(String)", "", "Parameter[0]", "remote", "manual"]

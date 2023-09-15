@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.catalina", "WebResourceRoot", True, "getResource", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.catalina", "Context", True, "addServletMappingDecoded", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.catalina", "Context", True, "addServletMappingDecoded", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.catalina", "Container", True, "setParentClassLoader", "(ClassLoader)", "", "Parameter[0]", "remote", "manual"]

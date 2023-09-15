@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.solr.client.solrj.request", "CollectionAdminRequest<CollectionAdminResponse>", True, "addProperties", "(ModifiableSolrParams,Properties)", "", "Parameter[1]", "remote", "manual"]

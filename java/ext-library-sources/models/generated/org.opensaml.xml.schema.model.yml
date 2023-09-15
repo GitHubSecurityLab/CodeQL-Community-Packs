@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opensaml.xml.schema", "XSString", True, "setValue", "(String)", "", "Parameter[0]", "remote", "manual"]

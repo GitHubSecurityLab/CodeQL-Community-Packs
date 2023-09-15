@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.netty.handler.codec.http.cookie", "ServerCookieDecoder", False, "decode", "(String)", "", "Parameter[0]", "remote", "manual"]

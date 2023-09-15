@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.core.net", "UriKt", False, "toUri", "(String)", "", "Parameter[0]", "remote", "manual"]

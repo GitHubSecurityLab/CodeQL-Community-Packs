@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.wicket.request", "IRequestParameters", True, "getParameterNames", "", "", "ReturnValue", "remote", "manual"]
+      - ["org.apache.wicket.request", "IRequestParameters", True, "getParameterValue", "", "", "ReturnValue", "remote", "manual"]
+      - ["org.apache.wicket.request", "IRequestParameters", True, "getParameterValues", "", "", "ReturnValue", "remote", "manual"]
+

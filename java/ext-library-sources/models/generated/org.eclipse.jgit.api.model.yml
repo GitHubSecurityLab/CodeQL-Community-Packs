@@ -1,0 +1,22 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.jgit.api", "CloneCommand", True, "setURI", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "RmCommand", True, "addFilepattern", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "LogCommand", True, "addPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "InitCommand", True, "setDirectory", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "CreateBranchCommand", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "CloneCommand", True, "setDirectory", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "CheckoutCommand", True, "setStartPoint", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "CheckoutCommand", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "AddCommand", True, "addFilepattern", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "ResetCommand", True, "addPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "CommitCommand", True, "setMessage", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "CommitCommand", True, "setAuthor", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "CommitCommand", True, "setAuthor", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "CommitCommand", True, "setAll", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "CloneCommand", True, "setBranch", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "CheckoutCommand", True, "addPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jgit.api", "BlameCommand", True, "setFilePath", "(String)", "", "Parameter[0]", "remote", "manual"]

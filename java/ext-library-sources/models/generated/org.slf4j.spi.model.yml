@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.slf4j.spi", "LocationAwareLogger", True, "log", "(Marker,String,int,String,Object[],Throwable)", "", "Parameter[3]", "remote", "manual"]

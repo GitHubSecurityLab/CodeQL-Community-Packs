@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.netflix.spinnaker.clouddriver.lambda.cache.client", "AbstractCacheClient<LambdaFunction>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]

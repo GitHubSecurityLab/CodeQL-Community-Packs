@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.text.translate", "CharSequenceTranslator", True, "translate", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]

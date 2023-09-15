@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.atlassian.bamboo.specs.builders.repository.bitbucket.server", "BitbucketServerRepository", True, "projectKey", "(String)", "", "Parameter[0]", "remote", "manual"]

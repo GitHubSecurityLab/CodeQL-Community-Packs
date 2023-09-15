@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.paypal.checkout.createorder", "CreateOrderActions", False, "setBillingAgreementId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.paypal.checkout.createorder", "CreateOrderActions", False, "set", "(String)", "", "Parameter[0]", "remote", "manual"]

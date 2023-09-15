@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.hl7.fhir.r4.model", "AuditEvent$AuditEventAgentComponent", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]

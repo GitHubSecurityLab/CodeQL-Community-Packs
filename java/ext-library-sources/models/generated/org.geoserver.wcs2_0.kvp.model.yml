@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.geoserver.wcs2_0.kvp", "AbstractAxisValueKvpParser<TargetAxisSizeType>", True, "parseItem", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geoserver.wcs2_0.kvp", "AbstractAxisValueKvpParser<ScaleAxisType>", True, "parseItem", "(String)", "", "Parameter[0]", "remote", "manual"]

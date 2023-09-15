@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hugegraph.auth", "RelationshipManager<HugeAccess>", True, "list", "(Id,Directions,String,long)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.apache.hugegraph.auth", "RelationshipManager<HugeBelong>", True, "list", "(Id,Directions,String,long)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.apache.hugegraph.auth", "ResourceType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.auth", "RelationshipManager<HugeBelong>", True, "list", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.auth", "RelationshipManager<HugeAccess>", True, "list", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.auth", "HugePermission", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.auth", "EntityManager<HugeUser>", True, "query", "(String,Object,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hugegraph.auth", "EntityManager<HugeUser>", True, "list", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.auth", "EntityManager<HugeTarget>", True, "list", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.auth", "EntityManager<HugeProject>", True, "list", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.auth", "EntityManager<HugeGroup>", True, "list", "(long)", "", "Parameter[0]", "remote", "manual"]

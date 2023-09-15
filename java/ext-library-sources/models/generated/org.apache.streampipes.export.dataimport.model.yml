@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.streampipes.export.dataimport", "ImportGenerator<Void>", True, "generate", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.streampipes.export.dataimport", "ImportGenerator<Void>", True, "asString", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.streampipes.export.dataimport", "ImportGenerator<AssetExportConfiguration>", True, "generate", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.streampipes.export.dataimport", "ImportGenerator<AssetExportConfiguration>", True, "asString", "(byte[])", "", "Parameter[0]", "remote", "manual"]

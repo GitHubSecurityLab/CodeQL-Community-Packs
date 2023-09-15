@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.activity.result", "ActivityResultLauncher<Intent>", True, "launch", "(Intent)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.core.text", "TextUtilsCompat", False, "htmlEncode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.text", "HtmlCompat", False, "fromHtml", "(Object,String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.text", "HtmlCompat", False, "fromHtml", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.text", "HtmlCompat", False, "fromHtml", "(String,int,ImageGetter,TagHandler)", "", "Parameter[0]", "remote", "manual"]

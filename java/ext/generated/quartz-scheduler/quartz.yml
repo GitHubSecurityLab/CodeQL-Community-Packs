@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.quartz.ee.jta", "UserTransactionHelper", true, "setUserTxLocation", "(String)", "", "Argument[0]", "jndi-injection", "generated"]
+      - ["org.quartz.impl.jdbcjobstore", "Semaphore", true, "obtainLock", "(Connection,String)", "", "Argument[-1]", "sql", "generated"]
+      - ["org.quartz.spi", "SchedulerPlugin", true, "initialize", "(String,Scheduler,ClassLoadHelper)", "", "Argument[-1]", "read-file", "generated"]
+      - ["org.quartz.spi", "ThreadExecutor", true, "initialize", "()", "", "Argument[-1]", "jndi-injection", "generated"]
+      - ["org.quartz.utils", "ConnectionProvider", true, "getConnection", "()", "", "Argument[-1]", "jndi-injection", "generated"]
+      - ["org.quartz.utils", "HikariCpPoolingConnectionProvider", true, "HikariCpPoolingConnectionProvider", "(Properties)", "", "Argument[0]", "jdbc-url", "generated"]
+      - ["org.quartz.utils", "HikariCpPoolingConnectionProvider", true, "HikariCpPoolingConnectionProvider", "(String,String,String,String,int,String)", "", "Argument[1]", "jdbc-url", "generated"]
+      - ["org.quartz.utils", "JNDIConnectionProvider", true, "JNDIConnectionProvider", "(String,Properties,boolean)", "", "Argument[0]", "jndi-injection", "generated"]
+      - ["org.quartz.utils", "JNDIConnectionProvider", true, "JNDIConnectionProvider", "(String,boolean)", "", "Argument[0]", "jndi-injection", "generated"]
+      - ["org.quartz.xml", "XMLSchedulingDataProcessor", true, "processFileAndScheduleJobs", "(String,Scheduler)", "", "Argument[0]", "read-file", "generated"]
+

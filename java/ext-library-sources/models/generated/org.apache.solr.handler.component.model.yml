@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.solr.handler.component", "StatsValues", True, "addFacet", "(String,Map)", "", "Parameter[0]", "remote", "manual"]

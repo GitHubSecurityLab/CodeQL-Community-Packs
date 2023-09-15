@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.infinispan", "Cache<String,Revisioned>", True, "putForExternalRead", "(String,Revisioned)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.infinispan", "Cache<K,V>", True, "putForExternalRead", "(Serializable,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.infinispan", "Cache<String,Revisioned>", True, "putForExternalRead", "(String,Revisioned,long,TimeUnit)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.infinispan", "Cache<String,Revisioned>", True, "putForExternalRead", "(String,Revisioned,long,TimeUnit)", "", "Parameter[0]", "remote", "manual"]

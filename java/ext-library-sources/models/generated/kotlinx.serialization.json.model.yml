@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["kotlinx.serialization.json", "JvmStreamsKt", False, "encodeToStream", "(Json,SerializationStrategy,Object,OutputStream)", "", "Parameter[2]", "remote", "manual"]
+      - ["kotlinx.serialization.json", "JvmStreamsKt", False, "decodeFromStream", "(Json,DeserializationStrategy,InputStream)", "", "Parameter[2]", "remote", "manual"]
+      - ["kotlinx.serialization.json", "JvmStreamsKt", False, "encodeToStream", "(Json,SerializationStrategy,Object,OutputStream)", "", "Parameter[3]", "remote", "manual"]

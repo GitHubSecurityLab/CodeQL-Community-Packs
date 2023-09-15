@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.datasketches.theta", "SetOperationBuilder", True, "setNominalEntries", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.theta", "Union", True, "update", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.theta", "Union", True, "union", "(Memory)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.theta", "Sketches", False, "wrapSketch", "(Memory)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.theta", "Sketches", False, "heapifySketch", "(Memory)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.theta", "SetOperation", True, "getMaxUnionBytes", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.theta", "Union", True, "union", "(Sketch)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.theta", "Union", True, "update", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.theta", "Union", True, "update", "(long[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.theta", "Union", True, "update", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.theta", "Union", True, "update", "(int[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.theta", "Union", True, "update", "(double)", "", "Parameter[0]", "remote", "manual"]

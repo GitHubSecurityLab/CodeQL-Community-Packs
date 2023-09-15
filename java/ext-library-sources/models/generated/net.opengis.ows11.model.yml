@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.opengis.ows11", "CodeType", True, "setValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.ows11", "BoundingBoxType", True, "setUpperCorner", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.ows11", "BoundingBoxType", True, "setLowerCorner", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.ows11", "BoundingBoxType", True, "setCrs", "(String)", "", "Parameter[0]", "remote", "manual"]

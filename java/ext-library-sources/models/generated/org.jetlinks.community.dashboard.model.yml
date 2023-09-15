@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jetlinks.community.dashboard", "MeasurementParameter", True, "of", "(Map)", "", "Parameter[0]", "remote", "manual"]

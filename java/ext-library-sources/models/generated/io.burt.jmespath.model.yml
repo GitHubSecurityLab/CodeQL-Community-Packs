@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.burt.jmespath", "Expression<JsonNode>", True, "search", "(JsonNode)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["run.halo.app.model.entity", "BasePost", True, "setStatus", "(PostStatus)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.druid.indexing.seekablestream", "SettableByteEntity<KafkaRecordEntity>", True, "setEntity", "(KafkaRecordEntity)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.indexing.seekablestream", "SequenceMetadata<PartitionIdType,SequenceOffsetType>", True, "getCommitterSupplier", "(SeekableStreamIndexTaskRunner,String,Map)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.druid.indexing.seekablestream", "SequenceMetadata<PartitionIdType,SequenceOffsetType>", True, "getCommitterSupplier", "(SeekableStreamIndexTaskRunner,String,Map)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.druid.indexing.seekablestream", "SequenceMetadata<PartitionIdType,SequenceOffsetType>", True, "createPublisher", "(SeekableStreamIndexTaskRunner,TaskToolbox,boolean)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.druid.indexing.seekablestream", "SequenceMetadata<PartitionIdType,SequenceOffsetType>", True, "createPublisher", "(SeekableStreamIndexTaskRunner,TaskToolbox,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.druid.indexing.seekablestream", "SeekableStreamIndexTask<PartitionIdType,SequenceOffsetType,RecordType>", True, "withinMinMaxRecordTime", "(InputRow)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.indexing.seekablestream", "SeekableStreamIndexTask<PartitionIdType,SequenceOffsetType,RecordType>", True, "newDriver", "(Appenderator,TaskToolbox,FireDepartmentMetrics)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.indexing.seekablestream", "SeekableStreamIndexTask<PartitionIdType,SequenceOffsetType,RecordType>", True, "newAppenderator", "(TaskToolbox,FireDepartmentMetrics,RowIngestionMeters,ParseExceptionHandler)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.apache.druid.indexing.seekablestream", "SeekableStreamIndexTask<PartitionIdType,SequenceOffsetType,RecordType>", True, "newAppenderator", "(TaskToolbox,FireDepartmentMetrics,RowIngestionMeters,ParseExceptionHandler)", "", "Parameter[2]", "remote", "manual"]

@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.geotools.data", "DataAccessFactory", True, "createDataStore", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.data", "DataAccessFactory", True, "canProcess", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.data", "DataAccessFinder", False, "getDataStore", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.data", "Query", True, "setMaxFeatures", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.data", "DataAccessFactory$Param", True, "lookUp", "(Map)", "", "Parameter[0]", "remote", "manual"]

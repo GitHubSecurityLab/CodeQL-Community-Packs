@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["ch.digitalfondue.basicxlsx", "Cell", True, "cell", "(String)", "", "Parameter[0]", "remote", "manual"]

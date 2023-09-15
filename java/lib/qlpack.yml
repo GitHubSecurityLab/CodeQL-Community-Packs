@@ -1,5 +1,5 @@
 library: true 
-name: githubsecuritylab/java-lib
-version: 0.0.1 
+name: githubsecuritylab/codeql-java-libs
+version: 0.0.1
 dependencies:
   codeql/java-all: '*'

@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.datasketches.tuple.arrayofdoubles", "ArrayOfDoublesUnion", True, "union", "(ArrayOfDoublesSketch)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.tuple.arrayofdoubles", "ArrayOfDoublesSetOperationBuilder", True, "setNominalEntries", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.tuple.arrayofdoubles", "ArrayOfDoublesSetOperationBuilder", True, "setNumberOfValues", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.tuple.arrayofdoubles", "ArrayOfDoublesUpdatableSketch", True, "update", "(String,double[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.tuple.arrayofdoubles", "ArrayOfDoublesUpdatableSketchBuilder", True, "setNumberOfValues", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.tuple.arrayofdoubles", "ArrayOfDoublesUpdatableSketchBuilder", True, "setNominalEntries", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.tuple.arrayofdoubles", "ArrayOfDoublesUnion", True, "getMaxBytes", "(int,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.datasketches.tuple.arrayofdoubles", "ArrayOfDoublesUnion", True, "getMaxBytes", "(int,int)", "", "Parameter[0]", "remote", "manual"]

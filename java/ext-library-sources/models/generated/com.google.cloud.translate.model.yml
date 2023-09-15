@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.cloud.translate", "Translate", True, "translate", "(String,TranslateOption[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.translate", "Translate$TranslateOption", True, "targetLanguage", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.translate", "Translate$TranslateOption", True, "sourceLanguage", "(String)", "", "Parameter[0]", "remote", "manual"]

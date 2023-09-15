@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.jsonwebtoken", "JwtParser", True, "parseClaimsJws", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.jsonwebtoken", "JwtBuilder", True, "setClaims", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.jsonwebtoken", "JwtParser", True, "parseClaimsJwt", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.jsonwebtoken", "JwtBuilder", True, "claim", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.lucene.search.join", "JoinUtil", False, "createJoinQuery", "(String,boolean,String,Query,IndexSearcher,ScoreMode)", "", "Parameter[4]", "remote", "manual"]

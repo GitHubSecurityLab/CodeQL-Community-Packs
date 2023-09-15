@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.ctc.wstx.io", "StreamBootstrapper", False, "getInstance", "(String,SystemId,InputStream)", "", "Parameter[2]", "remote", "manual"]

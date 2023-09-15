@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opencastproject.adminui.endpoint", "JobEndpoint$JobSort", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.opencastproject.adminui.endpoint", "ServerEndpoint$Sort", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

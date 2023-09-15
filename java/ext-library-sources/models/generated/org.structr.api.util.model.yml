@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.structr.api.util", "FixedSizeCache<String,Identity>", True, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.structr.api.util", "FixedSizeCache<String,Identity>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.structr.api.util", "FixedSizeCache<String,Identity>", True, "put", "(String,Identity)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.structr.api.util", "FixedSizeCache<String,Boolean>", True, "put", "(String,Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.structr.api.util", "FixedSizeCache<String,Source>", True, "put", "(String,Source)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.structr.api.util", "FixedSizeCache<String,String>", True, "put", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.structr.api.util", "FixedSizeCache<String,String>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.structr.api.util", "FixedSizeCache<String,Source>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]

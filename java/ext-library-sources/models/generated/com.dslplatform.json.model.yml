@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.dslplatform.json", "JsonWriter", False, "writeString", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.dslplatform.json", "DslJson<Object>", True, "newReader", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.dslplatform.json", "DslJson<Object>", True, "newReader", "(InputStream,byte[])", "", "Parameter[0]", "remote", "manual"]

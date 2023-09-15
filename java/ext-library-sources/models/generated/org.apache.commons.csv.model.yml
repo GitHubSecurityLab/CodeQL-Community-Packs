@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.csv", "CSVFormat", False, "withIgnoreEmptyLines", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.csv", "CSVFormat", False, "withNullString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.csv", "QuoteMode", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.csv", "CSVPrinter", False, "printRecord", "(Iterable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.csv", "CSVFormat", False, "withSkipHeaderRecord", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.csv", "CSVFormat", False, "withRecordSeparator", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.csv", "CSVFormat", False, "withQuote", "(char)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.csv", "CSVFormat", False, "withQuote", "(Character)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.csv", "CSVFormat", False, "withIgnoreSurroundingSpaces", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.csv", "CSVFormat", False, "withHeader", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.csv", "CSVFormat", False, "withEscape", "(Character)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.csv", "CSVFormat", False, "withDelimiter", "(char)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.csv", "CSVFormat", False, "withCommentMarker", "(Character)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.csv", "CSVFormat", False, "withAllowMissingColumnNames", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.csv", "CSVFormat", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

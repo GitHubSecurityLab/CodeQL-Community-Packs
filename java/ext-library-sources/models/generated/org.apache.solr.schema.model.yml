@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.solr.schema", "AbstractSpatialFieldType<NumberRangePrefixTreeStrategy>", True, "getQueryFromSpatialArgs", "(QParser,SchemaField,SpatialArgs)", "", "Parameter[1]", "remote", "manual"]

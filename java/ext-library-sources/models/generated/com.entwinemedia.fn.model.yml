@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.entwinemedia.fn", "Fn2<String,String,Boolean>", True, "_2", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.entwinemedia.fn", "Stream", True, "$", "(Iterable)", "", "Parameter[0]", "remote", "manual"]

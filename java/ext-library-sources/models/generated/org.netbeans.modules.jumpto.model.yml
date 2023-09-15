@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.jumpto", "EntityComparator<FileDescriptor>", True, "compare", "(String,String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.netbeans.modules.jumpto", "EntityComparator<FileDescriptor>", True, "compare", "(String,String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.jumpto", "EntityComparator<TypeDescriptor>", True, "compareProjects", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.netbeans.modules.jumpto", "EntityComparator<TypeDescriptor>", True, "compareProjects", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.jumpto", "EntityComparator<SymbolDescriptor>", True, "compareProjects", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.netbeans.modules.jumpto", "EntityComparator<SymbolDescriptor>", True, "compareProjects", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.jumpto", "EntityComparator<FileDescriptor>", True, "compareProjects", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.netbeans.modules.jumpto", "EntityComparator<FileDescriptor>", True, "compareProjects", "(String,String)", "", "Parameter[0]", "remote", "manual"]

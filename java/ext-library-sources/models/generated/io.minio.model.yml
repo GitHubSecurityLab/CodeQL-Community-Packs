@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.minio", "ListObjectsArgs$Builder", False, "prefix", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.minio", "PutObjectArgs$Builder", False, "stream", "(InputStream,long,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.minio", "ObjectArgs$Builder<Builder,PutObjectArgs>", True, "object", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.minio", "ObjectArgs$Builder<Builder,GetObjectArgs>", True, "object", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.minio", "ObjectArgs$Builder<Builder,CopyObjectArgs>", True, "object", "(String)", "", "Parameter[0]", "remote", "manual"]

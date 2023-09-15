@@ -1,0 +1,23 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.common.base", "Objects", False, "equal", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.common.base", "Predicates", False, "equalTo", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.base", "Objects", False, "equal", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.base", "Objects$ToStringHelper", False, "add", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.common.base", "Splitter", False, "on", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.base", "Ascii", False, "equalsIgnoreCase", "(CharSequence,CharSequence)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.common.base", "Predicates", False, "in", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.base", "Splitter", False, "onPattern", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.base", "Objects$ToStringHelper", False, "add", "(String,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.common.base", "Enums", False, "getIfPresent", "(Class,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.common.base", "CharMatcher", True, "trimTrailingFrom", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.base", "CharMatcher", True, "trimLeadingFrom", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.base", "CharMatcher", True, "trimFrom", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.base", "CharMatcher", True, "retainFrom", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.base", "CharMatcher", True, "replaceFrom", "(CharSequence,CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.base", "CharMatcher", True, "matchesNoneOf", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.base", "CharMatcher", True, "matchesAllOf", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.base", "CharMatcher", True, "matches", "(char)", "", "Parameter[0]", "remote", "manual"]

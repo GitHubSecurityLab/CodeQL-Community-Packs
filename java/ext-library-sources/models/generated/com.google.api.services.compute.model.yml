@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.api.services.compute", "Compute$Instances", True, "get", "(String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.api.services.compute", "Compute$Firewalls", True, "list", "(String)", "", "Parameter[0]", "remote", "manual"]

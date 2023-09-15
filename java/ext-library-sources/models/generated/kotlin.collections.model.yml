@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["kotlin.collections", "CollectionsKt", False, "iterator", "(Enumeration)", "", "Parameter[0]", "remote", "manual"]
+      - ["kotlin.collections", "ArraysKt", False, "indexOf", "(char[],char)", "", "Parameter[1]", "remote", "manual"]
+      - ["kotlin.collections", "ArraysKt", False, "map", "(Object[],Function1)", "", "Parameter[0]", "remote", "manual"]
+      - ["kotlin.collections", "ArraysKt", False, "mapNotNull", "(Object[],Function1)", "", "Parameter[0]", "remote", "manual"]
+      - ["kotlin.collections", "CollectionsKt", False, "fold", "(Iterable,Object,Function2)", "", "Parameter[0]", "remote", "manual"]
+      - ["kotlin.collections", "CollectionsKt", False, "forEach", "(Iterable,Function1)", "", "Parameter[0]", "remote", "manual"]
+      - ["kotlin.collections", "ArraysKt", False, "isNotEmpty", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["kotlin.collections", "ArraysKt", False, "forEach", "(Object[],Function1)", "", "Parameter[0]", "remote", "manual"]
+      - ["kotlin.collections", "ArraysKt", False, "contentToStringNullable", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["kotlin.collections", "ArraysKt", False, "forEach", "(byte[],Function1)", "", "Parameter[0]", "remote", "manual"]
+      - ["kotlin.collections", "ArraysKt", False, "mapIndexed", "(Object[],Function2)", "", "Parameter[0]", "remote", "manual"]
+      - ["kotlin.collections", "ArraysKt___ArraysKt", True, "indexOf", "(Object[],Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["kotlin.collections", "CollectionsKt", False, "any", "(Iterable,Function1)", "", "Parameter[0]", "remote", "manual"]

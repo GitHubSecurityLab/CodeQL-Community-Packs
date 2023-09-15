@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.serotonin.modbus4j", "ModbusMaster", True, "setTimeout", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.modbus4j", "ModbusMaster", True, "setRetries", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.modbus4j", "Modbus", True, "setMaxWriteRegisterCount", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.modbus4j", "Modbus", True, "setMaxReadRegisterCount", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.modbus4j", "Modbus", True, "setMaxReadBitCount", "(int)", "", "Parameter[0]", "remote", "manual"]

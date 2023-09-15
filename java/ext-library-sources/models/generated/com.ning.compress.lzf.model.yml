@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.ning.compress.lzf", "LZFEncoder", True, "appendEncoded", "(byte[],int,int,byte[],int,BufferRecycler)", "", "Parameter[3]", "remote", "manual"]
+      - ["com.ning.compress.lzf", "LZFEncoder", True, "appendEncoded", "(byte[],int,int,byte[],int,BufferRecycler)", "", "Parameter[0]", "remote", "manual"]

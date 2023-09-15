@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.leangen.graphql.spqr.spring.web", "GraphQLController<NativeWebRequest>", True, "executeJsonPost", "(GraphQLRequest,GraphQLRequest,NativeWebRequest)", "", "Parameter[0]", "remote", "manual"]

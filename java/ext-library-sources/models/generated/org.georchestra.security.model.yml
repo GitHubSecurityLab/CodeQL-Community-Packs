@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.georchestra.security", "HeadersManagementStrategy", True, "copyResponseHeaders", "(HttpServletRequest,String,HttpResponse,HttpServletResponse,Map)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.georchestra.security", "HeadersManagementStrategy", True, "configureRequestHeaders", "(HttpServletRequest,HttpRequestBase,boolean,String)", "", "Parameter[3]", "remote", "manual"]

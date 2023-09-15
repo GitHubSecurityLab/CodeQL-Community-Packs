@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.registry.client.binding", "JsonSerDeser<ServiceRecord>", True, "fromBytes", "(String,byte[])", "", "Parameter[1]", "remote", "manual"]

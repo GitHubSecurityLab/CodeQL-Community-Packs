@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.flink.cep.nfa", "SharedBuffer<T>", True, "getNodeId", "(String,long,int,Object)", "", "Parameter[3]", "remote", "manual"]

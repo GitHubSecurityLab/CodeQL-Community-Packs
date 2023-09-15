@@ -1,0 +1,23 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.codec.digest", "DigestUtils", True, "md5Hex", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "DigestUtils", True, "sha256Hex", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "DigestUtils", True, "sha512Hex", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "DigestUtils", True, "md5Hex", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "DigestUtils", True, "sha1Hex", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "DigestUtils", True, "md5Hex", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "DigestUtils", True, "sha1Hex", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "DigestUtils", True, "sha256", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "DigestUtils", True, "sha256Hex", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "DigestUtils", True, "sha512Hex", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "HmacUtils", False, "hmacHex", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "DigestUtils", True, "shaHex", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "DigestUtils", True, "sha384Hex", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "DigestUtils", True, "sha256Hex", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "DigestUtils", True, "sha256", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "DigestUtils", True, "md2Hex", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "Crypt", True, "crypt", "(byte[],String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.codec.digest", "Crypt", True, "crypt", "(byte[])", "", "Parameter[0]", "remote", "manual"]

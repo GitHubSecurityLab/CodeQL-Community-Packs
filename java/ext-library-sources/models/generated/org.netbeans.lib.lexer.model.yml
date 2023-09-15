@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.lib.lexer", "TokenListList<TokenId>", False, "notifyChildAdded", "(Language)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.lib.lexer", "TokenHierarchyOperation<I,?>", False, "tokenSequence", "(Language)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.lib.lexer", "LanguageOperation<T>", False, "getEmbedding", "(int,int,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.netbeans.lib.lexer", "LanguageOperation<T>", False, "getEmbedding", "(int,int,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.lib.lexer", "EmbeddedJoinInfo<ET>", False, "dumpInfo", "(StringBuilder,EmbeddedTokenList)", "", "Parameter[1]", "remote", "manual"]

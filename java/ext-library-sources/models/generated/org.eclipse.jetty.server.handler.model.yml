@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.jetty.server.handler", "ErrorHandler", True, "writeErrorPageMessage", "(HttpServletRequest,Writer,int,String,String)", "", "Parameter[4]", "remote", "manual"]

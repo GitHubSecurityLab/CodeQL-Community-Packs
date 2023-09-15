@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.preference", "Preference", True, "setSummary", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.preference", "EditTextPreference", True, "setText", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.preference", "Preference", True, "setDefaultValue", "(Object)", "", "Parameter[0]", "remote", "manual"]

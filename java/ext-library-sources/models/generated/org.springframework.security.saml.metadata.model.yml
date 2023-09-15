@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.saml.metadata", "ExtendedMetadata", True, "setAlias", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.security.saml.metadata", "ExtendedMetadataDelegate", True, "setMetadataTrustCheck", "(boolean)", "", "Parameter[0]", "remote", "manual"]

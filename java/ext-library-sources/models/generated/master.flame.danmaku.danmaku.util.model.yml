@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["master.flame.danmaku.danmaku.util", "IOUtils", True, "closeQuietly", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

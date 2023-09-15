@@ -1,0 +1,24 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.app", "AlertDialog$Builder", True, "setMessage", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "AlertDialog$Builder", True, "setItems", "(CharSequence[],OnClickListener)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "Activity", True, "setTitle", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "Activity", True, "setIntent", "(Intent)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "ProgressDialog", True, "show", "(Context,CharSequence,CharSequence,boolean)", "", "Parameter[2]", "remote", "manual"]
+      - ["android.app", "NotificationChannel", False, "enableVibration", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "NotificationChannel", False, "enableLights", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "DownloadManager$Request", True, "setDestinationInExternalPublicDir", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.app", "AlertDialog$Builder", True, "setTitle", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "Activity", True, "startNextMatchingActivity", "(Intent)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "NotificationChannel", False, "setBypassDnd", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "NotificationChannel", False, "setDescription", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "NotificationManager", True, "getNotificationChannel", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "NotificationManager", True, "cancel", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "NotificationChannel", False, "setVibrationPattern", "(long[])", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "NotificationChannel", False, "setShowBadge", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "NotificationChannel", False, "setLockscreenVisibility", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "NotificationChannel", False, "setLightColor", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.app", "NotificationChannel", False, "setGroup", "(String)", "", "Parameter[0]", "remote", "manual"]

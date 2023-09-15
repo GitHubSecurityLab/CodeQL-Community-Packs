@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jmri.managers", "AbstractProvidingProxyManager<Turnout>", True, "provideNamedBean", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.managers", "AbstractProvidingProxyManager<Turnout>", True, "newNamedBean", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.managers", "AbstractProvidingProxyManager<Sensor>", True, "provideNamedBean", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.managers", "AbstractProvidingProxyManager<Sensor>", True, "newNamedBean", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.managers", "AbstractProvidingProxyManager<Reporter>", True, "provideNamedBean", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.managers", "AbstractProvidingProxyManager<Reporter>", True, "newNamedBean", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.managers", "AbstractProvidingProxyManager<Light>", True, "provideNamedBean", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.managers", "AbstractProvidingProxyManager<Light>", True, "newNamedBean", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.managers", "AbstractProvidingProxyManager<IdTag>", True, "provideNamedBean", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.managers", "AbstractProvidingProxyManager<IdTag>", True, "newNamedBean", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.managers", "AbstractManager<Sensor>", True, "getBySystemName", "(String,Comparator)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.managers", "AbstractManager<Route>", True, "updateAutoNumber", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.managers", "AbstractManager<Reporter>", True, "getBySystemName", "(String,Comparator)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.managers", "AbstractManager<OBlock>", True, "updateAutoNumber", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.managers", "AbstractManager<Memory>", True, "updateAutoNumber", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["jmri.managers", "AbstractManager<Block>", True, "updateAutoNumber", "(String)", "", "Parameter[0]", "remote", "manual"]

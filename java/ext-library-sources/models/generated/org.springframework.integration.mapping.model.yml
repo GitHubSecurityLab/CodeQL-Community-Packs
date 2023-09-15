@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.integration.mapping", "HeaderMapper<HttpHeaders>", True, "toHeaders", "(HttpHeaders)", "", "Parameter[0]", "remote", "manual"]

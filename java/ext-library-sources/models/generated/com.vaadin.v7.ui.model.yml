@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.vaadin.v7.ui", "AbstractSelect", True, "select", "(Object)", "", "Parameter[0]", "remote", "manual"]

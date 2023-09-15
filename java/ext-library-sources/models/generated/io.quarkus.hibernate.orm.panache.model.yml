@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.quarkus.hibernate.orm.panache", "PanacheEntityBase", True, "deleteById", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.quarkus.hibernate.orm.panache", "PanacheEntityBase", True, "findById", "(Object)", "", "Parameter[0]", "remote", "manual"]

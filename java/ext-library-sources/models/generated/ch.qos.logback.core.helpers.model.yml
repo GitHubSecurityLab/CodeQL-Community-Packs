@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["ch.qos.logback.core.helpers", "CyclicBuffer<E>", True, "add", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["ch.qos.logback.core.helpers", "CyclicBuffer<ILoggingEvent>", True, "add", "(ILoggingEvent)", "", "Parameter[0]", "remote", "manual"]

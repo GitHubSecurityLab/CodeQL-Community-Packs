@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.simplejavamail.api.email", "EmailPopulatingBuilder", True, "to", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.simplejavamail.api.email", "EmailPopulatingBuilder", True, "appendText", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.simplejavamail.api.email", "EmailPopulatingBuilder", True, "from", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.simplejavamail.api.email", "EmailPopulatingBuilder", True, "withSubject", "(String)", "", "Parameter[0]", "remote", "manual"]

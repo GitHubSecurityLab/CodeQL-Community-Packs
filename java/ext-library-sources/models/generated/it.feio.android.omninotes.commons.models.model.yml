@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["it.feio.android.omninotes.commons.models", "BaseNote", True, "setTitle", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.feio.android.omninotes.commons.models", "BaseNote", True, "setContent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.feio.android.omninotes.commons.models", "BaseAttachment", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.feio.android.omninotes.commons.models", "BaseNote", True, "setCategory", "(BaseCategory)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.feio.android.omninotes.commons.models", "BaseCategory", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.feio.android.omninotes.commons.models", "BaseCategory", True, "setDescription", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.feio.android.omninotes.commons.models", "BaseAttachment", True, "setUriPath", "(String)", "", "Parameter[0]", "remote", "manual"]

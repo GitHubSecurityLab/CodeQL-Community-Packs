@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.keycloak.crypto", "KeyUse", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.crypto", "ECDSASignatureProvider$ECDSA", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

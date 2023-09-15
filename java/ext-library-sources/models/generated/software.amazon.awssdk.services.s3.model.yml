@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["software.amazon.awssdk.services.s3", "S3Client", True, "putObject", "(PutObjectRequest,Path)", "", "Parameter[1]", "remote", "manual"]

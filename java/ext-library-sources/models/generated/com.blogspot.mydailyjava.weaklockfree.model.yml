@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.blogspot.mydailyjava.weaklockfree", "WeakConcurrentMap<K,V>", True, "put", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.blogspot.mydailyjava.weaklockfree", "WeakConcurrentMap<K,V>", True, "remove", "(Object)", "", "Parameter[0]", "remote", "manual"]

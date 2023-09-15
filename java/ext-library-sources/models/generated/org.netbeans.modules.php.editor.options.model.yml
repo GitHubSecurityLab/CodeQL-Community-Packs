@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.php.editor.options", "CodeCompletionPanel$VariablesScope", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.php.editor.options", "CodeCompletionPanel$CodeCompletionType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

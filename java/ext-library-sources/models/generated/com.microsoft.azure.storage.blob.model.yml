@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.microsoft.azure.storage.blob", "CloudBlobContainer", False, "getBlockBlobReference", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.microsoft.azure.storage.blob", "CloudBlobContainer", False, "setMetadata", "(HashMap)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.microsoft.azure.storage.blob", "CloudPageBlob", False, "downloadPageRanges", "(AccessCondition,BlobRequestOptions,OperationContext)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.microsoft.azure.storage.blob", "CloudBlob", True, "setStreamWriteSizeInBytes", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.microsoft.azure.storage.blob", "CloudBlob", True, "setStreamMinimumReadSizeInBytes", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.microsoft.azure.storage.blob", "CloudBlob", True, "downloadRange", "(long,Long,OutputStream,AccessCondition,BlobRequestOptions,OperationContext)", "", "Parameter[5]", "remote", "manual"]
+      - ["com.microsoft.azure.storage.blob", "CloudBlob", True, "downloadRange", "(long,Long,OutputStream,AccessCondition,BlobRequestOptions,OperationContext)", "", "Parameter[4]", "remote", "manual"]
+      - ["com.microsoft.azure.storage.blob", "CloudBlob", True, "downloadRange", "(long,Long,OutputStream,AccessCondition,BlobRequestOptions,OperationContext)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.microsoft.azure.storage.blob", "BlobRequestOptions", False, "setConcurrentRequestCount", "(Integer)", "", "Parameter[0]", "remote", "manual"]

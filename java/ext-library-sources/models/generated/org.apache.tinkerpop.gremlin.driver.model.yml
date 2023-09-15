@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.tinkerpop.gremlin.driver", "Client", True, "alias", "(Map)", "", "Parameter[0]", "remote", "manual"]

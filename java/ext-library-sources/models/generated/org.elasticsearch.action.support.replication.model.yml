@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.elasticsearch.action.support.replication", "ReplicationRequest<IndexRequest>", True, "index", "(String)", "", "Parameter[0]", "remote", "manual"]

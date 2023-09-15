@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.rometools.rome.feed.module", "DCModule", True, "setTitle", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.rometools.rome.feed.module", "DCModule", True, "setRights", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.rometools.rome.feed.module", "DCModule", True, "setDescription", "(String)", "", "Parameter[0]", "remote", "manual"]

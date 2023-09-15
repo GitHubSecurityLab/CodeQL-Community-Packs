@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: summaryModel
+    data:
+      - ["org.apache.commons.codec.binary", "BaseNCodec", True, "decode", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.commons.codec.binary", "BaseNCodec", True, "encode", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.commons.codec.binary", "BaseNCodec", True, "encodeAsString", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.commons.codec.binary", "BaseNCodec", True, "encodeToString", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.commons.codec.binary", "Base64", True, "decodeBase64", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.commons.codec.binary", "Base64", True, "encodeBase64", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.commons.codec.binary", "Base64", True, "encodeBase64Chunked", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.commons.codec.binary", "Base64", True, "encodeBase64String", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.commons.codec.binary", "Base64", True, "encodeBase64URLSafe", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]
+      - ["org.apache.commons.codec.binary", "Base64", True, "encodeBase64URLSafeString", "", "", "Argument[0]", "ReturnValue", "taint", "manual"]

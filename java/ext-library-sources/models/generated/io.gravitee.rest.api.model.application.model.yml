@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gravitee.rest.api.model.application", "ApplicationQuery", True, "setExcludeFilters", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model.application", "ApplicationQuery", True, "setStatus", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model.application", "ApplicationQuery", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model.application", "ApplicationQuery", True, "setIds", "(Set)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.rest.api.model.application", "ApplicationQuery", True, "setGroups", "(Set)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.netflix.spectator.atlas.impl", "QueryIndex<SubscriptionEntry>", False, "add", "(Query,SubscriptionEntry)", "", "Parameter[0]", "remote", "manual"]

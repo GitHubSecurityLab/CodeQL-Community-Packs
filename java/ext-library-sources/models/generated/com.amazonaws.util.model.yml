@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.amazonaws.util", "AwsHostNameUtils", True, "parseRegion", "(String,String)", "", "Parameter[0]", "remote", "manual"]

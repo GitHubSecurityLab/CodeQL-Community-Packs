@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.curator.framework.api", "PathAndBytesable<Stat>", True, "forPath", "(String,byte[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.curator.framework.api", "Pathable<Stat>", True, "forPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.curator.framework.api", "PathAndBytesable<String>", True, "forPath", "(String,byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.curator.framework.api", "PathAndBytesable<Stat>", True, "forPath", "(String,byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.curator.framework.api", "PathAndBytesable<String>", True, "forPath", "(String,byte[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.curator.framework.api", "Pathable<byte[]>", True, "forPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.curator.framework.api", "Pathable<Void>", True, "forPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.curator.framework.api", "PathAndBytesable<CuratorTransactionBridge>", True, "forPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.curator.framework.api", "PathAndBytesable<CuratorTransactionBridge>", True, "forPath", "(String,byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.curator.framework.api", "PathAndBytesable<CuratorTransactionBridge>", True, "forPath", "(String,byte[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.curator.framework.api", "PathAndBytesable<String>", True, "forPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.curator.framework.api", "Pathable<List<String>>", True, "forPath", "(String)", "", "Parameter[0]", "remote", "manual"]

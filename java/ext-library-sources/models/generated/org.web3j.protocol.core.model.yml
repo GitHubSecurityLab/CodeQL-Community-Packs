@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.web3j.protocol.core", "Ethereum", True, "ethGetTransactionCount", "(String,DefaultBlockParameter)", "", "Parameter[0]", "remote", "manual"]

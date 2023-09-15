@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.codehaus.plexus.util.xml.pull", "XmlPullParser", True, "setInput", "(Reader)", "", "Parameter[0]", "remote", "manual"]

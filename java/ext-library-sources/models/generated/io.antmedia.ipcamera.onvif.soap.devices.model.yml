@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.antmedia.ipcamera.onvif.soap.devices", "PtzDevices", True, "relativeMove", "(String,float,float,float)", "", "Parameter[3]", "remote", "manual"]
+      - ["io.antmedia.ipcamera.onvif.soap.devices", "PtzDevices", True, "relativeMove", "(String,float,float,float)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.antmedia.ipcamera.onvif.soap.devices", "PtzDevices", True, "relativeMove", "(String,float,float,float)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.antmedia.ipcamera.onvif.soap.devices", "PtzDevices", True, "continuousMove", "(String,float,float,float)", "", "Parameter[3]", "remote", "manual"]
+      - ["io.antmedia.ipcamera.onvif.soap.devices", "PtzDevices", True, "continuousMove", "(String,float,float,float)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.antmedia.ipcamera.onvif.soap.devices", "PtzDevices", True, "continuousMove", "(String,float,float,float)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.antmedia.ipcamera.onvif.soap.devices", "PtzDevices", True, "absoluteMove", "(String,float,float,float)", "", "Parameter[3]", "remote", "manual"]
+      - ["io.antmedia.ipcamera.onvif.soap.devices", "PtzDevices", True, "absoluteMove", "(String,float,float,float)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.antmedia.ipcamera.onvif.soap.devices", "PtzDevices", True, "absoluteMove", "(String,float,float,float)", "", "Parameter[1]", "remote", "manual"]

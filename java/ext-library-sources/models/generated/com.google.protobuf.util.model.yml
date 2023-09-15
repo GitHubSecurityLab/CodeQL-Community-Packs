@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.protobuf.util", "JsonFormat$Printer", True, "print", "(MessageOrBuilder)", "", "Parameter[0]", "remote", "manual"]

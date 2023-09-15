@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.cloud.utils.db", "SearchCriteria<K>", True, "setParameters", "(String,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["com.cloud.utils.db", "SearchCriteria<K>", True, "setParameters", "(HashMap)", "", "Parameter[0]", "remote", "manual"]

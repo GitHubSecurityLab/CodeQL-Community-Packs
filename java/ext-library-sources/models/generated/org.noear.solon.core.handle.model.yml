@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.noear.solon.core.handle", "Context", True, "headerAdd", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.noear.solon.core.handle", "Context", True, "redirect", "(String)", "", "Parameter[0]", "remote", "manual"]

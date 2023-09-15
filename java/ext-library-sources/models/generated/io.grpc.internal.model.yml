@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.grpc.internal", "ReadableBuffer", True, "readBytes", "(byte[],int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.grpc.internal", "ReadableBuffer", True, "readBytes", "(ByteBuffer)", "", "Parameter[0]", "remote", "manual"]

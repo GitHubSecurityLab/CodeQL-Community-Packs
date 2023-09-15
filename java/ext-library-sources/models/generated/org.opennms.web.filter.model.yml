@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opennms.web.filter", "BaseFilter<T>", True, "bindValue", "(PreparedStatement,int,Object)", "", "Parameter[2]", "remote", "manual"]

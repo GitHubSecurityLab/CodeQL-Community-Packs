@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.accumulo.core.data", "Mutation", True, "put", "(CharSequence,CharSequence,ColumnVisibility,long,Value)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.accumulo.core.data", "Mutation", True, "putDelete", "(CharSequence,CharSequence,ColumnVisibility,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.accumulo.core.data", "Mutation", True, "put", "(CharSequence,CharSequence,CharSequence)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.accumulo.core.data", "Mutation", True, "put", "(CharSequence,CharSequence,Value)", "", "Parameter[1]", "remote", "manual"]

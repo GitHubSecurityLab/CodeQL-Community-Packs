@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.didiglobal.logi.elasticsearch.client.request.query.query", "ESQueryRequest", True, "routing", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.didiglobal.logi.elasticsearch.client.request.query.query", "ESQueryRequest", True, "source", "(String)", "", "Parameter[0]", "remote", "manual"]

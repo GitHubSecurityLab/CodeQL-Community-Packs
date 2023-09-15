@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.javascript2.editor.formatter", "CodeStyle$WrapStyle", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.javascript2.editor.formatter", "CodeStyle$BracePlacement", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

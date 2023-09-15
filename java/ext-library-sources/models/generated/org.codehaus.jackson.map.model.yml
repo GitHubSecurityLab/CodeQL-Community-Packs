@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.codehaus.jackson.map", "ObjectMapper", True, "readValue", "(String,Class)", "", "Parameter[0]", "remote", "manual"]

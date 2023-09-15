@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["demo.webauthn", "WebAuthnServer", True, "startRegistration", "(String,String,Optional,ResidentKeyRequirement,Optional)", "", "Parameter[1]", "remote", "manual"]
+      - ["demo.webauthn", "WebAuthnServer", True, "startRegistration", "(String,String,Optional,ResidentKeyRequirement,Optional)", "", "Parameter[0]", "remote", "manual"]
+      - ["demo.webauthn", "WebAuthnServer", True, "deleteAccount", "(String,Supplier)", "", "Parameter[0]", "remote", "manual"]

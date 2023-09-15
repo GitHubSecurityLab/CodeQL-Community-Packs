@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alipay.api.internal.util", "AlipaySignature", True, "rsaCheckV1", "(Map,String,String,String)", "", "Parameter[0]", "remote", "manual"]

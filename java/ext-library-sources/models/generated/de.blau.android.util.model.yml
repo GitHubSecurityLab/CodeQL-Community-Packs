@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["de.blau.android.util", "ExecutorTask<String,Void,Void>", True, "execute", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["de.blau.android.util", "ExecutorTask<String,Void,String>", True, "execute", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["de.blau.android.util", "ExecutorTask<String,Void,Result>", True, "execute", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["de.blau.android.util", "ExecutorTask<String,Void,List<SearchResult>>", True, "execute", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["de.blau.android.util", "ExecutorTask<String,Void,LatLon>", True, "execute", "(String)", "", "Parameter[0]", "remote", "manual"]

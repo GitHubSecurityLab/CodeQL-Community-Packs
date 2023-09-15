@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.orientechnologies.common.factory", "OConfigurableStatelessFactory<String,ORecordConflictStrategy>", True, "getImplementation", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.common.factory", "OConfigurableStatefulFactory<String,OClusterSelectionStrategy>", True, "newInstance", "(String)", "", "Parameter[0]", "remote", "manual"]

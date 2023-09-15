@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.msgpack.core", "MessagePack$UnpackerConfig", True, "newUnpacker", "(byte[])", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dataease.service.panel", "ShareService", True, "removeSharesyPanel", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.service.panel", "ShareService", True, "removeShares", "(PanelShareRemoveRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.service.panel", "ShareService", True, "queryWithResource", "(PanelShareSearchRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.service.panel", "ShareService", True, "queryTargets", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.service.panel", "ShareService", True, "queryTree", "(BaseGridRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.service.panel", "ShareService", True, "fineSave", "(PanelShareFineDto)", "", "Parameter[0]", "remote", "manual"]

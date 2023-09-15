@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.orientechnologies.orient.core.iterator", "ORecordIteratorClusters<ORecord>", True, "setRange", "(ORID,ORID)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.iterator", "ORecordIteratorClusters<ORecord>", True, "setRange", "(ORID,ORID)", "", "Parameter[1]", "remote", "manual"]

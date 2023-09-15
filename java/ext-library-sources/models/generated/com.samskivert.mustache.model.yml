@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.samskivert.mustache", "Template", True, "execute", "(Object,Writer)", "", "Parameter[0]", "remote", "manual"]

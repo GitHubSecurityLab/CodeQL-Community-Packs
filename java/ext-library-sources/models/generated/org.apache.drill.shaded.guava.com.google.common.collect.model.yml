@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.drill.shaded.guava.com.google.common.collect", "Iterators", False, "limit", "(Iterator,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.drill.shaded.guava.com.google.common.collect", "Iterables", False, "limit", "(Iterable,int)", "", "Parameter[1]", "remote", "manual"]

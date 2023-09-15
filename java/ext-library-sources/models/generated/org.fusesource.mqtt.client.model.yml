@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.fusesource.mqtt.client", "MQTT", True, "setHost", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.fusesource.mqtt.client", "BlockingConnection", True, "publish", "(String,byte[],QoS,boolean)", "", "Parameter[1]", "remote", "manual"]

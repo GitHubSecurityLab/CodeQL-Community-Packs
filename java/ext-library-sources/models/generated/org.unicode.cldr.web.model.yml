@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.unicode.cldr.web", "IntHash<String>", True, "get", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.unicode.cldr.web", "IntHash<String>", True, "put", "(int,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.unicode.cldr.web", "UserRegistry$InfoType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

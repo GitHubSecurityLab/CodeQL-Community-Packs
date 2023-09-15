@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["io.restassured.internal.http", "CustomHttpMethod", true, "CustomHttpMethod", "(String,String)", "", "Argument[1]", "open-url", "generated"]
+      - ["io.restassured.internal.http", "CustomHttpMethod", true, "CustomHttpMethod", "(String,URI)", "", "Argument[1]", "open-url", "generated"]
+      - ["io.restassured.internal.http", "EncoderRegistry", true, "encodeStream", "(Object,Object)", "", "Argument[1]", "read-file", "generated"]
+      - ["io.restassured.internal.http", "HTTPBuilder", true, "request", "(Object,String,Object,boolean,Closure)", "", "Argument[0]", "open-url", "generated"]
+      - ["io.restassured.module.spring.commons", "BodyHelper", true, "toByteArray", "(File)", "", "Argument[0]", "read-file", "generated"]
+
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sourceModel
+    data:
+      - ["io.restassured.examples.springmvc.controller", "FileUploadController", true, "fileUpload2", "(MultipartFile)", "", "ReturnValue", "remote", "generated"]
+      - ["io.restassured.examples.springmvc.controller", "FileUploadController", true, "fileUpload", "(MultipartFile)", "", "ReturnValue", "remote", "generated"]
+      - ["io.restassured.examples.springmvc.controller", "FileUploadController", true, "fileUploadWithControlNameEqualToSomething", "(MultipartFile)", "", "ReturnValue", "remote", "generated"]
+      - ["io.restassured.examples.springmvc.controller", "FileUploadController", true, "fileUploadWithControlNameEqualToSomething", "(String,MultipartFile)", "", "ReturnValue", "remote", "generated"]
+

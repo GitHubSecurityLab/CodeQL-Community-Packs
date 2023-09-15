@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alibaba.csp.sentinel.dashboard.domain", "Result<R>", True, "setMsg", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.alibaba.csp.sentinel.dashboard.domain", "Result<R>", True, "setData", "(Object)", "", "Parameter[0]", "remote", "manual"]

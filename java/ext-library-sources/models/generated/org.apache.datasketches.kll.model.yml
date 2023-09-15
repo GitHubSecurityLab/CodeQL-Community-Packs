@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.datasketches.kll", "KllSketch", True, "merge", "(KllSketch)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.kll", "KllDoublesSketch", True, "update", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.kll", "KllFloatsSketch", True, "update", "(float)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.kll", "KllDoublesSketch", True, "newHeapInstance", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.kll", "KllFloatsSketch", True, "newHeapInstance", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.kll", "KllFloatsSketch", True, "getMaxSerializedSizeBytes", "(int,long,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.datasketches.kll", "KllFloatsSketch", True, "getMaxSerializedSizeBytes", "(int,long,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.kll", "KllDoublesSketch", True, "getMaxSerializedSizeBytes", "(int,long,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.datasketches.kll", "KllDoublesSketch", True, "getMaxSerializedSizeBytes", "(int,long,boolean)", "", "Parameter[0]", "remote", "manual"]

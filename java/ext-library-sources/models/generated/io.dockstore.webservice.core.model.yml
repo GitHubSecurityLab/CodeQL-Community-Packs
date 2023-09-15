@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dockstore.webservice.core", "OrganizationUser$Role", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.core", "Entry<Workflow,WorkflowVersion>", True, "setGitUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.core", "Entry<Tool,Tag>", True, "setGitUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.core", "Version<WorkflowVersion>", True, "updateByUser", "(Version)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.core", "Version<Tag>", True, "updateByUser", "(Version)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.core", "Entry<Workflow,WorkflowVersion>", True, "setTopicSelection", "(TopicSelection)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.core", "Entry<Workflow,WorkflowVersion>", True, "setTopicManual", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.core", "Entry<Workflow,WorkflowVersion>", True, "checkAndSetDefaultVersion", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.core", "Entry<Tool,Tag>", True, "setWorkflowVersions", "(Set)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.core", "Entry<Tool,Tag>", True, "setTopicSelection", "(TopicSelection)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.core", "Entry<Tool,Tag>", True, "setTopicManual", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.core", "Entry<Tool,Tag>", True, "checkAndSetDefaultVersion", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.core", "Entry<?,?>", True, "removeStarredUser", "(User)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.core", "Entry<?,?>", True, "addStarredUser", "(User)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.core", "Entry<>", True, "checkAndSetDefaultVersion", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dockstore.webservice.core", "Entry<>", True, "addStarredUser", "(User)", "", "Parameter[0]", "remote", "manual"]

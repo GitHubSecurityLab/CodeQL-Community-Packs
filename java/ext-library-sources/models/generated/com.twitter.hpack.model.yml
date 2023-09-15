@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.twitter.hpack", "Encoder", False, "encodeHeader", "(OutputStream,byte[],byte[],boolean)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.twitter.hpack", "Decoder", False, "decode", "(InputStream,HeaderListener)", "", "Parameter[0]", "remote", "manual"]

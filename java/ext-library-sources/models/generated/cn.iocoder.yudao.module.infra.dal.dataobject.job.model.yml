@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["cn.iocoder.yudao.module.infra.dal.dataobject.job", "JobDO$JobDOBuilder", True, "id", "(Long)", "", "Parameter[0]", "remote", "manual"]

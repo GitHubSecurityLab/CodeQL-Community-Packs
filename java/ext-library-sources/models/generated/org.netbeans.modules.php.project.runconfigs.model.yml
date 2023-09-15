@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.php.project.runconfigs", "BaseRunConfig<RunConfigLocal>", True, "setIndexParentDir", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.php.project.runconfigs", "BaseRunConfig<RunConfigScript>", True, "setIndexParentDir", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.php.project.runconfigs", "BaseRunConfig<RunConfigRemote>", True, "setIndexParentDir", "(File)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.php.project.runconfigs", "RunConfigWeb<RunConfigRemote>", True, "setUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.php.project.runconfigs", "RunConfigWeb<RunConfigLocal>", True, "setUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.php.project.runconfigs", "BaseRunConfig<RunConfigScript>", True, "setIndexRelativePath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.php.project.runconfigs", "BaseRunConfig<RunConfigScript>", True, "setArguments", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.php.project.runconfigs", "BaseRunConfig<RunConfigRemote>", True, "setIndexRelativePath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.php.project.runconfigs", "BaseRunConfig<RunConfigRemote>", True, "setArguments", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.php.project.runconfigs", "BaseRunConfig<RunConfigLocal>", True, "setIndexRelativePath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.php.project.runconfigs", "BaseRunConfig<RunConfigLocal>", True, "setArguments", "(String)", "", "Parameter[0]", "remote", "manual"]

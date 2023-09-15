@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.camel.util", "ObjectHelper", False, "isEqualToAny", "(Object,Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.camel.util", "ObjectHelper", False, "equal", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.camel.util", "ObjectHelper", False, "equal", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]

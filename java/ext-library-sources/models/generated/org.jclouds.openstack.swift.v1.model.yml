@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jclouds.openstack.swift.v1", "SwiftApi", True, "getObjectApi", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.jclouds.openstack.swift.v1", "SwiftApi", True, "getObjectApi", "(String,String)", "", "Parameter[0]", "remote", "manual"]

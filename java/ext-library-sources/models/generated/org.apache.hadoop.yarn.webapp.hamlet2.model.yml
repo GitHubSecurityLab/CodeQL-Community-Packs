@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.yarn.webapp.hamlet2", "HamletSpec$_Anchor", True, "a", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.yarn.webapp.hamlet2", "HamletImpl$EImp<T>", True, "_p", "(boolean,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.yarn.webapp.hamlet2", "HamletSpec$A", True, "$href", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.yarn.webapp.hamlet2", "HamletSpec$Heading", True, "h3", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.yarn.webapp.hamlet2", "HamletSpec$_Head", True, "title", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.yarn.webapp.hamlet2", "HamletSpec$Heading", True, "h1", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.yarn.webapp.hamlet2", "HamletSpec$_Tr", True, "td", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.yarn.webapp.hamlet2", "HamletSpec$_Content", True, "__", "(Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.yarn.webapp.hamlet2", "HamletImpl$EImp<T>", True, "addAttr", "(String,String)", "", "Parameter[1]", "remote", "manual"]

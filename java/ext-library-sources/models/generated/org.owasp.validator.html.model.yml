@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.owasp.validator.html", "AntiSamy", True, "scan", "(String,Policy)", "", "Parameter[0]", "remote", "manual"]

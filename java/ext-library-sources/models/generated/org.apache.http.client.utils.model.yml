@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.http.client.utils", "URIBuilder", True, "addParameter", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.http.client.utils", "URLEncodedUtils", True, "parse", "(String,Charset)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.http.client.utils", "URIBuilder", True, "setParameter", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.http.client.utils", "URIBuilder", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.http.client.utils", "URLEncodedUtils", True, "parse", "(URI,Charset)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.http.client.utils", "URIBuilder", True, "addParameter", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.http.client.utils", "URIUtils", True, "resolve", "(URI,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.http.client.utils", "URIUtils", True, "extractHost", "(URI)", "", "Parameter[0]", "remote", "manual"]

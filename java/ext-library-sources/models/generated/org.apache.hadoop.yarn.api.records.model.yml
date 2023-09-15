@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.yarn.api.records", "YarnApplicationState", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.yarn.api.records", "NodeState", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.yarn.api.records", "SignalContainerCommand", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.yarn.api.records", "ApplicationTimeoutType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

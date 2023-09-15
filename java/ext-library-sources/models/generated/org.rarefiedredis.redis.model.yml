@@ -1,0 +1,23 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.rarefiedredis.redis", "IRedisHash", True, "hset", "(String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisSet", True, "sadd", "(String,String,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisSet", True, "sadd", "(String,String,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisSet", True, "sadd", "(String,String,String[])", "", "Parameter[2]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisSet", True, "srem", "(String,String,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisSet", True, "srem", "(String,String,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisSet", True, "srem", "(String,String,String[])", "", "Parameter[2]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisSet", True, "sscan", "(String,long,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisString", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisHash", True, "hset", "(String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisHash", True, "hset", "(String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisHash", True, "hdel", "(String,String,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisHash", True, "hdel", "(String,String,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisHash", True, "hdel", "(String,String,String[])", "", "Parameter[2]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisHash", True, "hexists", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisHash", True, "hget", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisHash", True, "hget", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.rarefiedredis.redis", "IRedisHash", True, "hscan", "(String,long,String[])", "", "Parameter[0]", "remote", "manual"]

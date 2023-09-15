@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["nl.nn.adapterframework.testtool", "ListenerMessageHandler<>", True, "setTimeout", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["nl.nn.adapterframework.testtool", "ListenerMessageHandler<>", True, "getRequestMessage", "(long)", "", "Parameter[0]", "remote", "manual"]

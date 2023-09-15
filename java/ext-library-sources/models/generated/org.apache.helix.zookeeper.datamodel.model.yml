@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.helix.zookeeper.datamodel", "ZNRecord", True, "setSimpleField", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.helix.zookeeper.datamodel", "ZNRecord", True, "setMapField", "(String,Map)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.helix.zookeeper.datamodel", "ZNRecord", True, "setSimpleFields", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.zookeeper.datamodel", "ZNRecord", True, "setListField", "(String,List)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.helix.zookeeper.datamodel", "ZNRecord", True, "setListFields", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.zookeeper.datamodel", "ZNRecord", True, "setListField", "(String,List)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.zookeeper.datamodel", "ZNRecord", True, "setBooleanField", "(String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.helix.zookeeper.datamodel", "ZNRecord", True, "setMapFields", "(Map)", "", "Parameter[0]", "remote", "manual"]

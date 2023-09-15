@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.keycloak.broker.oidc", "AbstractOAuth2IdentityProvider<OIDCIdentityProviderConfig>", True, "exchangeExternalUserInfoValidationOnly", "(EventBuilder,MultivaluedMap)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.keycloak.broker.oidc", "AbstractOAuth2IdentityProvider<OIDCIdentityProviderConfig>", True, "exchangeExternalUserInfoValidationOnly", "(EventBuilder,MultivaluedMap)", "", "Parameter[0]", "remote", "manual"]

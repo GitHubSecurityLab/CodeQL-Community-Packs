@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.weasis.dicom.web", "Multipart", True, "parseMultipartRelated", "(String,InputStream,Handler)", "", "Parameter[1]", "remote", "manual"]

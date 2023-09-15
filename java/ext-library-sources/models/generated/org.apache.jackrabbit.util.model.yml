@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.jackrabbit.util", "Text", True, "unescapeIllegalJcrChars", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.jackrabbit.util", "Text", True, "escapeIllegalJcrChars", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.jackrabbit.util", "ISO9075", True, "encode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.jackrabbit.util", "ISO9075", True, "decode", "(String)", "", "Parameter[0]", "remote", "manual"]

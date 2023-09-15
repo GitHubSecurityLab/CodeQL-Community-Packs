@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jose4j.jwx", "JsonWebStructure", True, "fromCompactSerialization", "(String)", "", "Parameter[0]", "remote", "manual"]

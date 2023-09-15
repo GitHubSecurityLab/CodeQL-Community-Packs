@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.netflix.dyno.queues", "Message", True, "setTimeout", "(long,TimeUnit)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.netflix.dyno.queues", "Message", True, "setPriority", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.netflix.dyno.queues", "DynoQueue", True, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.netflix.dyno.queues", "DynoQueue", True, "pop", "(int,int,TimeUnit)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.netflix.dyno.queues", "DynoQueue", True, "pop", "(int,int,TimeUnit)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["ma.glasnost.orika", "MapperFacade", True, "map", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["ma.glasnost.orika", "MapperFacade", True, "map", "(Object,Class)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.cxf.endpoint", "ClientCallback", True, "handleResponse", "(Map,Object[])", "", "Parameter[1]", "remote", "manual"]

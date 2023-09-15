@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.flowable.engine.repository", "ProcessDefinitionQuery", True, "processDefinitionKey", "(String)", "", "Parameter[0]", "remote", "manual"]

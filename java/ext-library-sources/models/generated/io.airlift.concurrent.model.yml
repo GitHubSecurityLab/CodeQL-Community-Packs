@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.airlift.concurrent", "MoreFutures", False, "addTimeout", "(ListenableFuture,Callable,Duration,ScheduledExecutorService)", "", "Parameter[2]", "remote", "manual"]

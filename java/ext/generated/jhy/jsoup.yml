@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.jsoup.helper", "DataUtil", false, "load", "(File,String,String)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.jsoup.helper", "DataUtil", false, "load", "(File,String,String,Parser)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.jsoup.helper", "W3CDom", true, "selectXpath", "(String,Document)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.jsoup.helper", "W3CDom", true, "selectXpath", "(String,Node)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.jsoup.nodes", "Element", true, "selectXpath", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.jsoup.nodes", "Element", true, "selectXpath", "(String,Class)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.jsoup", "Jsoup", true, "parse", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.jsoup", "Jsoup", true, "parse", "(File,String)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.jsoup", "Jsoup", true, "parse", "(File,String,String)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.jsoup", "Jsoup", true, "parse", "(File,String,String,Parser)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.jsoup", "Jsoup", true, "parse", "(URL,int)", "", "Argument[0]", "open-url", "generated"]
+

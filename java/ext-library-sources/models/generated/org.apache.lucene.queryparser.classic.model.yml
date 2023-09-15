@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.lucene.queryparser.classic", "QueryParserBase", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.queryparser.classic", "QueryParserBase", True, "escape", "(String)", "", "Parameter[0]", "remote", "manual"]

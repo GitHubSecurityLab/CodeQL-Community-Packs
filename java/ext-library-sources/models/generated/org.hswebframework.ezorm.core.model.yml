@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.hswebframework.ezorm.core", "Conditional<Query<Object,QueryParamEntity>>", True, "is", "(StaticMethodReferenceColumn,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.hswebframework.ezorm.core", "NestConditional<Query<Object,QueryParamEntity>>", True, "is", "(StaticMethodReferenceColumn,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.hswebframework.ezorm.core", "Conditional<ReactiveUpdate<DeviceInstanceEntity>>", True, "where", "(StaticMethodReferenceColumn,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.hswebframework.ezorm.core", "Conditional<ReactiveQuery<DeviceInstanceEntity>>", True, "is", "(StaticMethodReferenceColumn,Object)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.shibboleth.utilities.java.support.primitive", "StringSupport", False, "trimOrNull", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.shibboleth.utilities.java.support.primitive", "StringSupport", False, "trim", "(String)", "", "Parameter[0]", "remote", "manual"]

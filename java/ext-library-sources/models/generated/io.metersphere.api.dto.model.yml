@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.metersphere.api.dto", "QueryAPITestRequest", True, "setWorkspaceId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.api.dto", "QueryAPITestRequest", True, "setProjectId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.api.dto", "QueryAPIReportRequest", True, "setWorkspaceId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.api.dto", "ApiTestImportRequest", True, "setFileName", "(String)", "", "Parameter[0]", "remote", "manual"]

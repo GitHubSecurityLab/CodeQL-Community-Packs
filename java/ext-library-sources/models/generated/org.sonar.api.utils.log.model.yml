@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.sonar.api.utils.log", "Logger", True, "debug", "(String,Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.sonar.api.utils.log", "Logger", True, "debug", "(String,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.sonar.api.utils.log", "Logger", True, "debug", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.sonar.api.utils.log", "Logger", True, "error", "(String,Throwable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.sonar.api.utils.log", "Logger", True, "trace", "(String,Object,Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.sonar.api.utils.log", "Logger", True, "warn", "(String,Throwable)", "", "Parameter[0]", "remote", "manual"]

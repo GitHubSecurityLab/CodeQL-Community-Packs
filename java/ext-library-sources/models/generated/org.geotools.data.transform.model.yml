@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.geotools.data.transform", "TransformFactory", True, "transform", "(SimpleFeatureSource,String,List)", "", "Parameter[1]", "remote", "manual"]

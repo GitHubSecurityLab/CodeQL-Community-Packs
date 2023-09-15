@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opentripplanner.ext.dataoverlay.api", "ParameterName", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.opentripplanner.ext.dataoverlay.api", "ParameterType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

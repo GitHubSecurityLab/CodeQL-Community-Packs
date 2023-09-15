@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["run.halo.app.model.params", "PostQuery", True, "setCategoryId", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["run.halo.app.model.params", "PostQuery", True, "setKeyword", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["run.halo.app.model.params", "LogParam", True, "setIpAddress", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.apache.iceberg.catalog", "Catalog", true, "initialize", "(String,Map)", "", "Argument[1]", "jdbc-url", "generated"]
+      - ["org.apache.iceberg.flink", "CatalogLoader", true, "loadCatalog", "()", "", "Argument[-1]", "jdbc-url", "generated"]
+      - ["org.apache.iceberg.io", "InputFile", true, "newStream", "()", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.iceberg.io", "OutputFile", true, "create", "()", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.iceberg.rest", "RESTClient", true, "post", "(String,RESTRequest,Class,Map,Consumer)", "", "Argument[1]", "xss", "generated"]
+      - ["org.apache.iceberg.rest", "RESTClient", true, "post", "(String,RESTRequest,Class,Map,Consumer,Consumer)", "", "Argument[1]", "xss", "generated"]
+      - ["org.apache.iceberg.rest", "RESTClient", true, "post", "(String,RESTRequest,Class,Supplier,Consumer)", "", "Argument[1]", "xss", "generated"]
+      - ["org.apache.iceberg.rest", "RESTClient", true, "postForm", "(String,Map,Class,Map,Consumer)", "", "Argument[1]", "xss", "generated"]
+      - ["org.apache.iceberg.rest", "RESTClient", true, "postForm", "(String,Map,Class,Supplier,Consumer)", "", "Argument[1]", "xss", "generated"]
+      - ["org.apache.iceberg", "CatalogUtil", true, "buildIcebergCatalog", "(String,Map,Object)", "", "Argument[1]", "jdbc-url", "generated"]
+      - ["org.apache.iceberg", "CatalogUtil", true, "loadCatalog", "(String,String,Map,Object)", "", "Argument[2]", "jdbc-url", "generated"]
+      - ["org.apache.iceberg", "TableMetadataParser", true, "read", "(FileIO,InputFile)", "", "Argument[1]", "create-file", "generated"]
+

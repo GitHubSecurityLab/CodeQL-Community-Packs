@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.common.flogger", "LoggingApi<Api>", True, "log", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.common.flogger", "LoggingApi<Api>", True, "log", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.flogger", "LoggingApi<Api>", True, "log", "(String,Object,Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.google.common.flogger", "LoggingApi<Api>", True, "log", "(String,Object,Object,Object,Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.common.flogger", "LoggingApi<Api>", True, "log", "(String,Object,Object,Object)", "", "Parameter[3]", "remote", "manual"]
+      - ["com.google.common.flogger", "LoggingApi<Api>", True, "log", "(String,Object,Object)", "", "Parameter[1]", "remote", "manual"]

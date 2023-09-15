@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["example.util", "ListWriter", true, "write", "(String[])", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.junit.platform.launcher.listeners", "OutputDir", true, "create", "(Optional)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.junit.platform.launcher.listeners", "OutputDir", true, "createFile", "(String,String)", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.junit.platform.launcher.listeners", "OutputDir", true, "createFile", "(String,String)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.junit.platform.launcher.listeners", "OutputDir", true, "createFile", "(String,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.junit.platform.launcher", "TestExecutionListener", true, "testPlanExecutionStarted", "(TestPlan)", "", "Argument[-1]", "create-file", "generated"]
+      - ["platform.tooling.support", "Helper", true, "loadAllJUnitModules", "(Path)", "", "Argument[0]", "create-file", "generated"]
+      - ["platform.tooling.support", "ThirdPartyJars", true, "copy", "(Path,String,String)", "", "Argument[0]", "create-file", "generated"]
+

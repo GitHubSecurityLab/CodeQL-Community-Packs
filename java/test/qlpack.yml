@@ -1,0 +1,9 @@
+name: githubsecurtylab/codeql-java-tests
+groups: [java, test]
+dependencies:
+    codeql/java-all: '*'
+    codeql/java-queries: '*'
+    githubsecuritylab/codeql-java-queries: '*'
+    githubsecuritylab/codeql-java-libs: '*'
+extractor: java
+tests: .

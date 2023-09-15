@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.swagger.v3.jaxrs2.integration", "JaxrsOpenApiContextBuilder<>", True, "application", "(Application)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.swagger.v3.jaxrs2.integration", "JaxrsOpenApiContext<>", True, "app", "(Application)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.swagger.v3.jaxrs2.integration", "ServletConfigContextUtils", True, "getContextIdFromServletConfig", "(ServletConfig)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.swagger.v3.jaxrs2.integration", "JaxrsOpenApiContextBuilder<>", True, "servletConfig", "(ServletConfig)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.swagger.v3.jaxrs2.integration", "XmlWebOpenApiContext<>", True, "servletConfig", "(ServletConfig)", "", "Parameter[0]", "remote", "manual"]

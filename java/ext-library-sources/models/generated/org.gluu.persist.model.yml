@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.gluu.persist", "PersistenceEntryManager", True, "authenticate", "(String,Class,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.gluu.persist", "PersistenceEntryManager", True, "remove", "(String,Class)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.jgit.treewalk", "TreeWalk", True, "forPath", "(Repository,String,RevTree)", "", "Parameter[1]", "remote", "manual"]

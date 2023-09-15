@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.xbill.DNS", "Name", True, "fromString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.xbill.DNS", "ReverseMap", False, "fromAddress", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.xbill.DNS", "TSIG", True, "verify", "(Message,byte[],int,TSIGRecord)", "", "Parameter[2]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.xiaojukeji.know.streaming.km.common.enums.health", "HealthCheckNameEnum", False, "getByDimensionCode", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.xiaojukeji.know.streaming.km.common.enums.health", "HealthCheckDimensionEnum", False, "getByCode", "(Integer)", "", "Parameter[0]", "remote", "manual"]

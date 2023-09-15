@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.infinispan.query.dsl", "QueryFactory", True, "create", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.infinispan.query.dsl", "FilterConditionEndContext", True, "like", "(Object,String)", "", "Parameter[0]", "remote", "manual"]

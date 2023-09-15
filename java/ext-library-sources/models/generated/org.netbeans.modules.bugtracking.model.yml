@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.bugtracking", "RepositoryImpl<>", False, "removePropertyChangeListener", "(PropertyChangeListener)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.bugtracking", "QueryImpl$IssueContainerIntern<>", True, "removePropertyChangeListener", "(PropertyChangeListener)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.bugtracking", "IssueImpl<>", False, "addComment", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.bugtracking", "RepositoryImpl<?,?,?>", False, "getIssueImpls", "(String[])", "", "Parameter[0]", "remote", "manual"]

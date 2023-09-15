@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.amazonaws", "ClientConfiguration", True, "setMaxErrorRetry", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws", "ClientConfiguration", True, "setMaxConnections", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws", "ClientConfiguration", True, "setConnectionTimeout", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws", "AmazonWebServiceResponse<T>", True, "setResult", "(Object)", "", "Parameter[0]", "remote", "manual"]

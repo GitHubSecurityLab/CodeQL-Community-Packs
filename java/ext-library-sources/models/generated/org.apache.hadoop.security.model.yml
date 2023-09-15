@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.security", "UserGroupInformation", True, "createRemoteUser", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.security", "SaslRpcServer$QualityOfProtection", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.security", "SecurityUtil", False, "getServerPrincipal", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.security", "SecurityUtil", False, "login", "(Configuration,String,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.apache.hadoop.security", "UserGroupInformation", True, "loginUserFromKeytab", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.security", "UserGroupInformation", True, "loginUserFromKeytab", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.security", "UserGroupInformation", True, "createProxyUser", "(String,UserGroupInformation)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.security", "RuleBasedLdapGroupsMapping$Rule", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

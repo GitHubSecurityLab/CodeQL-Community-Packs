@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.fabric8.kubernetes.client.dsl.internal", "AbstractWatchManager<T>", True, "onMessage", "(String,WatchRequestState)", "", "Parameter[0]", "remote", "manual"]

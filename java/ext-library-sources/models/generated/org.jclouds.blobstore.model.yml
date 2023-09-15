@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jclouds.blobstore", "BlobStore", True, "getBlob", "(String,String)", "", "Parameter[1]", "remote", "manual"]

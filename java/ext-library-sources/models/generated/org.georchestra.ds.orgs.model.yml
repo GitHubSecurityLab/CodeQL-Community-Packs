@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.georchestra.ds.orgs", "Org", True, "setLogo", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.georchestra.ds.orgs", "Org", True, "setDescription", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.georchestra.ds.orgs", "Org", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.georchestra.ds.orgs", "Org", True, "setOrgType", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.georchestra.ds.orgs", "Org", True, "setShortName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.georchestra.ds.orgs", "Org", True, "setUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.georchestra.ds.orgs", "Org", True, "setAddress", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.georchestra.ds.orgs", "Org", True, "setCities", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.georchestra.ds.orgs", "Org", True, "setId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.georchestra.ds.orgs", "OrgsDaoImpl$Extension<Org>", True, "findById", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.georchestra.ds.orgs", "Org", True, "setNote", "(String)", "", "Parameter[0]", "remote", "manual"]

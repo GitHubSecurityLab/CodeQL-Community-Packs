@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.ctrip.framework.apollo.core.utils", "StringUtils", True, "isBlank", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ctrip.framework.apollo.core.utils", "StringUtils", True, "isEmpty", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ctrip.framework.apollo.core.utils", "StringUtils", True, "isContainEmpty", "(String[])", "", "Parameter[0]", "remote", "manual"]

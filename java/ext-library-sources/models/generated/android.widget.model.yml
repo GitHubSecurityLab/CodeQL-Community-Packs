@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.widget", "TextView", True, "setText", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.widget", "Toast", True, "makeText", "(Context,CharSequence,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.widget", "Filter", True, "filter", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.widget", "AutoCompleteTextView", True, "performFiltering", "(CharSequence,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.widget", "MultiAutoCompleteTextView$Tokenizer", True, "findTokenEnd", "(CharSequence,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.widget", "RemoteViews", True, "setTextViewText", "(int,CharSequence)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.widget", "AutoCompleteTextView$Validator", True, "fixText", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.widget", "AutoCompleteTextView", True, "setText", "(CharSequence,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.widget", "ImageView", True, "setImageResource", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.widget", "TextView", True, "setTextSize", "(int,float)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.widget", "TextView", True, "setTextKeepState", "(CharSequence,BufferType)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.widget", "MultiAutoCompleteTextView$Tokenizer", True, "terminateToken", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.widget", "MultiAutoCompleteTextView$Tokenizer", True, "findTokenStart", "(CharSequence,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.widget", "RemoteViews", True, "setTextColor", "(int,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.widget", "TextView", True, "append", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.widget", "TextView", True, "setText", "(CharSequence,BufferType)", "", "Parameter[0]", "remote", "manual"]

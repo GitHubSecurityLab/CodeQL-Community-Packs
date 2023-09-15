@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.wso2.carbon.rest.api.service", "RestApiAdmin", True, "getAPIContent", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.wso2.carbon.rest.api.service", "RestApiAdmin", True, "getAPIContent", "(String,String)", "", "Parameter[1]", "remote", "manual"]

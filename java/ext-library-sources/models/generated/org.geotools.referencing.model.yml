@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.geotools.referencing", "CRS", False, "decode", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geotools.referencing", "CRS", False, "decode", "(String)", "", "Parameter[0]", "remote", "manual"]

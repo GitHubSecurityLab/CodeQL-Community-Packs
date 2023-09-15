@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.beam.vendor.guava.v26_0_jre.com.google.common.io", "CharStreams", False, "toString", "(Readable)", "", "Parameter[0]", "remote", "manual"]

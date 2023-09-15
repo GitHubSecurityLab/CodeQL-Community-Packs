@@ -1,0 +1,25 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.jcraft.jsch", "JSch", True, "getSession", "(String,String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jcraft.jsch", "JSch", True, "addIdentity", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jcraft.jsch", "JSch", True, "getSession", "(String,String,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.jcraft.jsch", "JSch", True, "getSession", "(String,String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.jcraft.jsch", "JSch", True, "getSession", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.jcraft.jsch", "JSch", True, "getSession", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jcraft.jsch", "JSch", True, "addIdentity", "(String,byte[],byte[],byte[])", "", "Parameter[3]", "remote", "manual"]
+      - ["com.jcraft.jsch", "JSch", True, "addIdentity", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.jcraft.jsch", "ChannelSftp", True, "stat", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jcraft.jsch", "ChannelSftp", True, "put", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jcraft.jsch", "ChannelSftp", True, "put", "(InputStream,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.jcraft.jsch", "ChannelSftp", True, "put", "(InputStream,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jcraft.jsch", "ChannelSftp", True, "lstat", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jcraft.jsch", "ChannelExec", True, "setCommand", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jcraft.jsch", "JSch", True, "setConfig", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jcraft.jsch", "ProxyHTTP", True, "setUserPasswd", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jcraft.jsch", "ProxySOCKS5", True, "setUserPasswd", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.jcraft.jsch", "Session", True, "setPortForwardingL", "(String,int,String,int)", "", "Parameter[3]", "remote", "manual"]
+      - ["com.jcraft.jsch", "Session", True, "setPortForwardingL", "(String,int,String,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.jcraft.jsch", "Session", True, "setPassword", "(String)", "", "Parameter[0]", "remote", "manual"]

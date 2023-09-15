@@ -1,0 +1,23 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hugegraph.util", "E", False, "checkArgument", "(boolean,String,Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "E", False, "checkArgumentNotNull", "(Object,String,Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "E", False, "checkState", "(boolean,String,Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "E", False, "checkArgument", "(boolean,String,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "CollectionUtil", False, "intersectWithModify", "(Collection,Collection)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "Bytes", False, "toHex", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "CollectionUtil", False, "toSet", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "Bytes", False, "toHex", "(byte)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "Bytes", False, "fromHex", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "CollectionUtil", False, "toList", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "DateUtil", False, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "NumericUtil", False, "numberToSortableBytes", "(Number)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "NumericUtil", False, "convertToNumber", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "NumericUtil", False, "compareNumber", "(Object,Number)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "NumericUtil", False, "compareNumber", "(Object,Number)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "LongEncoding", False, "encodeSignedB64", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "LongEncoding", False, "encodeNumber", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hugegraph.util", "InsertionOrderUtil", False, "newList", "(List)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.jeecg.modules.cas.util", "CasServiceUtil", true, "getStValidate", "(String,String,String)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.jeecg.modules.cas.util", "CasServiceUtil", true, "getStValidate", "(String,String,String)", "", "Argument[1]", "open-url", "generated"]
+      - ["org.jeecg.modules.cas.util", "CasServiceUtil", true, "getStValidate", "(String,String,String)", "", "Argument[2]", "open-url", "generated"]
+
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sourceModel
+    data:
+      - ["org.jeecg.common.system.util", "JwtUtil", true, "getUserSystemData", "(String,SysUserCacheInfo)", "", "ReturnValue", "remote", "generated"]
+      - ["org.jeecg.common.util", "IpUtils", true, "getIpAddr", "(HttpServletRequest)", "", "ReturnValue", "remote", "generated"]
+      - ["org.jeecg.common.util", "SpringContextUtils", true, "getDomain", "()", "", "ReturnValue", "remote", "generated"]
+      - ["org.jeecg.common.util", "SpringContextUtils", true, "getOrigin", "()", "", "ReturnValue", "remote", "generated"]
+      - ["org.jeecg.config.sign.util", "BodyReaderHttpServletRequestWrapper", true, "getBodyString", "(ServletRequest)", "", "ReturnValue", "remote", "generated"]
+      - ["org.jeecg.modules.cas.util", "CasServiceUtil", true, "getStValidate", "(String,String,String)", "", "ReturnValue", "remote", "generated"]
+

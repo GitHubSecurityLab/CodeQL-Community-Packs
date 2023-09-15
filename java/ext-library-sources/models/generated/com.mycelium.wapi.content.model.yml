@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.mycelium.wapi.content", "ContentResolver", False, "resolveUri", "(String)", "", "Parameter[0]", "remote", "manual"]

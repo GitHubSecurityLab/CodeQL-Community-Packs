@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.ctrip.framework.apollo.openapi.client", "ApolloOpenApiClient", True, "removeItem", "(String,String,String,String,String,String)", "", "Parameter[4]", "remote", "manual"]

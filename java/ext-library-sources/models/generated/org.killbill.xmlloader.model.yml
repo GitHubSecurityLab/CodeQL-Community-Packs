@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.killbill.xmlloader", "XMLLoader", True, "getObjectFromStream", "(InputStream,Class)", "", "Parameter[0]", "remote", "manual"]

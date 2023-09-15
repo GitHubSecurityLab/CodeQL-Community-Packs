@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["io.dropwizard.configuration", "ConfigurationFactory", true, "build", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["io.dropwizard.configuration", "ConfigurationSourceProvider", true, "open", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["io.dropwizard.configuration", "ConfigurationSourceProvider", true, "open", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["io.dropwizard.servlets.assets", "ResourceURL", true, "getLastModified", "(URL)", "", "Argument[0]", "open-url", "generated"]
+      - ["io.dropwizard.servlets.assets", "ResourceURL", true, "isDirectory", "(URL)", "", "Argument[0]", "open-url", "generated"]
+

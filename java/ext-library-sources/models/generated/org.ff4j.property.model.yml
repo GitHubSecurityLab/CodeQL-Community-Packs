@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.ff4j.property", "Property<?>", True, "setDescription", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.ff4j.property", "Property<?>", True, "setValueFromString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.ff4j.property", "Property<?>", True, "add2FixedValueFromString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.ff4j.property", "PropertyLogLevel$LogLevel", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

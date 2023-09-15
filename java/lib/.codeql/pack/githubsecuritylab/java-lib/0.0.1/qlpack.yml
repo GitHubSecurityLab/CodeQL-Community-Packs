@@ -1,0 +1,10 @@
+---
+library: true
+warnOnImplicitThis: false
+name: githubsecuritylab/java-lib
+version: 0.0.1
+buildMetadata:
+  sha: bb00eafbb36db1ec4d5c5ff42a10b533c46b4205
+  cliVersion: 2.14.4
+dependencies:
+  codeql/java-all: '*'

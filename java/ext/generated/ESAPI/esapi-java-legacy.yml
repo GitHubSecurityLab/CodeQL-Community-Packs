@@ -1,0 +1,52 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.owasp.esapi.codecs", "Base64", true, "decodeFileToFile", "(String,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.owasp.esapi.codecs", "Base64", true, "decodeFromFile", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.owasp.esapi.codecs", "Base64", true, "decodeToFile", "(String,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.owasp.esapi.codecs", "Base64", true, "encodeFileToFile", "(String,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.owasp.esapi.codecs", "Base64", true, "encodeFromFile", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.owasp.esapi.codecs", "Base64", true, "encodeToFile", "(byte[],String)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.owasp.esapi.configuration", "AbstractPrioritizedPropertyLoader", true, "AbstractPrioritizedPropertyLoader", "(String,int)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.owasp.esapi.configuration", "StandardEsapiPropertyLoader", true, "StandardEsapiPropertyLoader", "(String,int)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.owasp.esapi.configuration", "XmlEsapiPropertyLoader", true, "XmlEsapiPropertyLoader", "(String,int)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.owasp.esapi.filters", "SecurityWrapperResponse", true, "addReferer", "(String)", "", "Argument[0]", "header-splitting", "generated"]
+      - ["org.owasp.esapi.reference.crypto", "EncryptedPropertiesUtils", true, "loadProperties", "(String,Boolean)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.owasp.esapi.reference.crypto", "EncryptedPropertiesUtils", true, "storeProperties", "(String,Properties,String)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.owasp.esapi.reference", "FileBasedAuthenticator", true, "saveUsers", "()", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.owasp.esapi.waf.configuration", "ConfigurationParser", true, "readConfigurationFile", "(InputStream,String)", "", "Argument[1]", "read-file", "generated"]
+      - ["org.owasp.esapi.waf.rules", "BeanShellRule", true, "BeanShellRule", "(String,String,Pattern)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.owasp.esapi.waf.rules", "Rule", true, "check", "(HttpServletRequest,InterceptingHTTPServletResponse,HttpServletResponse)", "", "Argument[-1]", "header-splitting", "generated"]
+      - ["org.owasp.esapi.waf", "ESAPIWebApplicationFirewallFilter", true, "setConfiguration", "(String,String)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.owasp.esapi.waf", "ESAPIWebApplicationFirewallFilter", true, "setConfiguration", "(String,String)", "", "Argument[1]", "read-file", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "addCookie", "(Cookie)", "", "Argument[0]", "header-splitting", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "addCookie", "(HttpServletResponse,Cookie)", "", "Argument[1]", "header-splitting", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "addHeader", "(HttpServletResponse,String,String)", "", "Argument[1]", "header-splitting", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "addHeader", "(HttpServletResponse,String,String)", "", "Argument[2]", "header-splitting", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "addHeader", "(String,String)", "", "Argument[0]", "header-splitting", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "addHeader", "(String,String)", "", "Argument[1]", "header-splitting", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "getFileUploads", "(HttpServletRequest,File)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "getFileUploads", "(HttpServletRequest,File,List)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "killCookie", "(HttpServletRequest,HttpServletResponse,String)", "", "Argument[2]", "header-splitting", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "killCookie", "(String)", "", "Argument[0]", "header-splitting", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "setHeader", "(HttpServletResponse,String,String)", "", "Argument[1]", "header-splitting", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "setHeader", "(HttpServletResponse,String,String)", "", "Argument[2]", "header-splitting", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "setHeader", "(String,String)", "", "Argument[0]", "header-splitting", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "setHeader", "(String,String)", "", "Argument[1]", "header-splitting", "generated"]
+      - ["org.owasp.esapi", "SecurityConfiguration", true, "getResourceStream", "(String)", "", "Argument[0]", "read-file", "generated"]
+
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sourceModel
+    data:
+      - ["org.owasp.esapi.filters", "SecurityWrapperRequest", true, "getParameter", "(String,boolean)", "", "ReturnValue", "remote", "generated"]
+      - ["org.owasp.esapi.filters", "SecurityWrapperRequest", true, "getParameter", "(String,boolean,int)", "", "ReturnValue", "remote", "generated"]
+      - ["org.owasp.esapi.filters", "SecurityWrapperRequest", true, "getParameter", "(String,boolean,int,String)", "", "ReturnValue", "remote", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "getCookie", "(HttpServletRequest,String)", "", "ReturnValue", "remote", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "getCookie", "(String)", "", "ReturnValue", "remote", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "getHeader", "(HttpServletRequest,String)", "", "ReturnValue", "remote", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "getHeader", "(String)", "", "ReturnValue", "remote", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "getParameter", "(HttpServletRequest,String)", "", "ReturnValue", "remote", "generated"]
+      - ["org.owasp.esapi", "HTTPUtilities", true, "getParameter", "(String)", "", "ReturnValue", "remote", "generated"]

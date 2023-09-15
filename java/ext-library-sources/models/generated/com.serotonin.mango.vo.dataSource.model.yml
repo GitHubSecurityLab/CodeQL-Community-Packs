@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<VirtualDataSourceVO>", True, "setXid", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<VirtualDataSourceVO>", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<VirtualDataSourceVO>", True, "setId", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<VirtualDataSourceVO>", True, "setEnabled", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<SnmpDataSourceVO>", True, "setXid", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<SnmpDataSourceVO>", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<SnmpDataSourceVO>", True, "setId", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<SnmpDataSourceVO>", True, "setEnabled", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<ModbusIpDataSourceVO>", True, "setXid", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<ModbusIpDataSourceVO>", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<ModbusIpDataSourceVO>", True, "setId", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<ModbusIpDataSourceVO>", True, "setEnabled", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<MetaDataSourceVO>", True, "setXid", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<MetaDataSourceVO>", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<MetaDataSourceVO>", True, "setId", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.mango.vo.dataSource", "DataSourceVO<MetaDataSourceVO>", True, "setEnabled", "(boolean)", "", "Parameter[0]", "remote", "manual"]

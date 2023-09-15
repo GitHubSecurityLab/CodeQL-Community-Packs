@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["com.alibaba.excel.util", "FileUtils", true, "openInputStream", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.alibaba.excel.util", "FileUtils", true, "readFileToByteArray", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["com.alibaba.excel.util", "FileUtils", true, "setTempFilePrefix", "(String)", "", "Argument[0]", "create-file", "generated"]
+      - ["com.alibaba.excel.util", "FileUtils", true, "writeToFile", "(File,InputStream)", "", "Argument[0]", "create-file", "generated"]
+      - ["com.alibaba.excel.util", "FileUtils", true, "writeToFile", "(File,InputStream,boolean)", "", "Argument[0]", "create-file", "generated"]
+

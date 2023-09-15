@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.skife.jdbi.v2", "SQLStatement<Query<Map<String,Object>>>", True, "bind", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.skife.jdbi.v2", "SQLStatement<Update>", True, "bind", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.skife.jdbi.v2", "SQLStatement<Update>", True, "bind", "(String,byte[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.skife.jdbi.v2", "SQLStatement<Query<Map<String,Object>>>", True, "bind", "(int,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.skife.jdbi.v2", "SQLStatement<Query<Map<String,Object>>>", True, "bind", "(String,Integer)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.skife.jdbi.v2", "SQLStatement<Update>", True, "bind", "(String,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.skife.jdbi.v2", "Handle", True, "createQuery", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.skife.jdbi.v2", "Query<Map<String,Object>>", True, "setMaxRows", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.skife.jdbi.v2", "SQLStatement<Query<Map<String,Object>>>", True, "bind", "(String,long)", "", "Parameter[1]", "remote", "manual"]

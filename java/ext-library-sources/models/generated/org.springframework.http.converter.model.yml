@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.http.converter", "HttpMessageConverter<Object>", True, "write", "(Object,MediaType,HttpOutputMessage)", "", "Parameter[0]", "remote", "manual"]

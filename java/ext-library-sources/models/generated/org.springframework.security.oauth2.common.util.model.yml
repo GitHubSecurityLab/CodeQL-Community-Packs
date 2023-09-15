@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.oauth2.common.util", "OAuth2Utils", True, "parseParameterList", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.apicurio.registry.storage.metrics", "StorageMetricsStore", True, "resetArtifactVersionsCounter", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.apicurio.registry.storage.metrics", "StorageMetricsStore", True, "incrementArtifactVersionsCounter", "(String,String)", "", "Parameter[1]", "remote", "manual"]

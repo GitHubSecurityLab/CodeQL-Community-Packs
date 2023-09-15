@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["it.unimi.dsi.fastutil.objects", "Object2IntFunction<String>", True, "getInt", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.unimi.dsi.fastutil.objects", "Object2IntFunction<String>", True, "put", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["it.unimi.dsi.fastutil.objects", "Object2IntFunction<T>", True, "getInt", "(Object)", "", "Parameter[0]", "remote", "manual"]

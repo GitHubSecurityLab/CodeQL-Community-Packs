@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["nl.nn.adapterframework.management.web", "RequestMessageBuilder", True, "addHeader", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["nl.nn.adapterframework.management.web", "FrankApiBase", True, "getValue", "(Map,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["nl.nn.adapterframework.management.web", "FrankApiBase", True, "resolveStringWithEncoding", "(MultipartBody,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["nl.nn.adapterframework.management.web", "FrankApiBase", True, "resolveStringFromMap", "(MultipartBody,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["nl.nn.adapterframework.management.web", "FrankApiBase", True, "resolveTypeFromMap", "(MultipartBody,String,Class,Object)", "", "Parameter[3]", "remote", "manual"]
+      - ["nl.nn.adapterframework.management.web", "FrankApiBase", True, "getBooleanValue", "(Map,String)", "", "Parameter[0]", "remote", "manual"]

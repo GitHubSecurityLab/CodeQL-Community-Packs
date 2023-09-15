@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.grpc.netty.shaded.io.netty.handler.ssl", "SslContextBuilder", False, "trustManager", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.grpc.netty.shaded.io.netty.handler.ssl", "SslContextBuilder", False, "keyManager", "(InputStream,InputStream,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.grpc.netty.shaded.io.netty.handler.ssl", "SslContextBuilder", False, "keyManager", "(InputStream,InputStream,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.grpc.netty.shaded.io.netty.handler.ssl", "SslContextBuilder", False, "forServer", "(InputStream,InputStream,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.grpc.netty.shaded.io.netty.handler.ssl", "SslContextBuilder", False, "forServer", "(InputStream,InputStream,String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.cdap.cdap.proto", "ProgramRunStatus", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.cdap.cdap.proto", "EntityScope", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

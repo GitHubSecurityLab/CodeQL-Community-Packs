@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.xml.schema.model.impl.resolver", "MultivalueMap<I,I>", True, "get", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.xml.schema.model.impl.resolver", "MultivalueMap<I,I>", True, "put", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.netbeans.modules.xml.schema.model.impl.resolver", "MultivalueMap$BidirectionalGraph<SchemaModelImpl>", True, "getRoots", "(SchemaModelImpl,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.xml.schema.model.impl.resolver", "MultivalueMap$BidirectionalGraph<I>", True, "getTo", "(Object)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.termux.shared.logger", "Logger", True, "logStackTraceWithMessage", "(String,String,Throwable)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.termux.shared.logger", "Logger", True, "logDebug", "(String,String)", "", "Parameter[1]", "remote", "manual"]

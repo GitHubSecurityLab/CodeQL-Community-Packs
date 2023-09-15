@@ -1,0 +1,23 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.gson", "Gson", False, "fromJson", "(String,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson", "Gson", False, "fromJson", "(String,Type)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson", "Gson", False, "toJson", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson", "JsonParser", False, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson", "JsonObject", False, "addProperty", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.gson", "Gson", False, "fromJson", "(Reader,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson", "JsonObject", False, "addProperty", "(String,Boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.gson", "JsonParser", False, "parseString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson", "JsonParser", False, "parse", "(Reader)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson", "JsonObject", False, "addProperty", "(String,Number)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.gson", "Gson", False, "fromJson", "(Reader,Type)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson", "Gson", False, "toJsonTree", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson", "Gson", False, "toJsonTree", "(Object,Type)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson", "JsonParser", False, "parseReader", "(Reader)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson", "Gson", False, "toJson", "(Object,Type)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson", "Gson", False, "toJson", "(Object,Appendable)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson", "JsonObject", False, "add", "(String,JsonElement)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.gson", "JsonObject", False, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]

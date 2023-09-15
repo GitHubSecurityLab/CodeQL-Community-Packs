@@ -1,0 +1,28 @@
+# https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/
+
+- description: "GitHub's Community Packs Java/Kotlin Extended Suite"
+
+- queries: '.'
+  from: githubsecuritylab/java-queries
+
+# GitHub's Community Packs Java/Kotlin Suite
+- include:
+    kind:
+    - problem
+    - path-problem
+    precision:
+    - very-high
+    - high
+    - medium
+    - low
+
+# Remove debugging, and audit queries
+- exclude:
+    tags contain:
+      - debugging
+      - audit
+
+# Remove local testing folders
+- exclude:
+    query path:
+      - /testing\/.*/

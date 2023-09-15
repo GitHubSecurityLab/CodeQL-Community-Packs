@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.lucene.classification.document", "DocumentClassifier<BytesRef>", True, "getClasses", "(Document,int)", "", "Parameter[1]", "remote", "manual"]

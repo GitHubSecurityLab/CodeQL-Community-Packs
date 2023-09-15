@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.cdap.cdap.security.auth", "UserIdentity$IdentifierType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

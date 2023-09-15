@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["tk.mybatis.mapper.generator.formatter", "FreemarkerTemplateFormatter", true, "process", "(String,String,Map)", "", "Argument[1]", "ssti", "generated"]
+      - ["tk.mybatis.mapper.generator.formatter", "ListTemplateFormatter", true, "getFormattedContent", "(Set,Properties,String,String)", "", "Argument[3]", "ssti", "generated"]
+      - ["tk.mybatis.mapper.generator.formatter", "TemplateFormatter", true, "getFormattedContent", "(TableClass,Properties,String,String)", "", "Argument[3]", "ssti", "generated"]
+

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jakarta.xml.ws", "Service", True, "getPort", "(QName,Class,WebServiceFeature[])", "", "Parameter[2]", "remote", "manual"]

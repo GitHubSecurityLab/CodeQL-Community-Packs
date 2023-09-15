@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.fabric8.kubernetes.client", "Config", True, "setApiVersion", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.client", "Config", True, "setCaCertFile", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.client", "Config", True, "setNamespace", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.client", "Config", True, "setUsername", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.client", "Config", True, "setPassword", "(String)", "", "Parameter[0]", "remote", "manual"]

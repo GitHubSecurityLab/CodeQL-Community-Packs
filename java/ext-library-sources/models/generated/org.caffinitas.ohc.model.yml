@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.caffinitas.ohc", "OHCache<Id,Value>", True, "remove", "(Id)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.caffinitas.ohc", "OHCache<Id,Value>", True, "put", "(Id,Value,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.caffinitas.ohc", "OHCache<Id,Value>", True, "put", "(Id,Value)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.caffinitas.ohc", "OHCache<Id,Value>", True, "get", "(Id)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.caffinitas.ohc", "OHCache<Id,Value>", True, "containsKey", "(Id)", "", "Parameter[0]", "remote", "manual"]

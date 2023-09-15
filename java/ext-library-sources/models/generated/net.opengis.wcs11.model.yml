@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.opengis.wcs11", "OutputType", True, "setFormat", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs11", "GridCrsType", True, "setGridType", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs11", "GridCrsType", True, "setGridOrigin", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs11", "GridCrsType", True, "setGridOffsets", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs11", "GridCrsType", True, "setGridCS", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs11", "GridCrsType", True, "setGridBaseCRS", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs11", "DomainSubsetType", True, "setTemporalSubset", "(TimeSequenceType)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wcs11", "DomainSubsetType", True, "setBoundingBox", "(BoundingBoxType)", "", "Parameter[0]", "remote", "manual"]

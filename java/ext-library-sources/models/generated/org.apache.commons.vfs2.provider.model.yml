@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.vfs2.provider", "UriParser", False, "extractScheme", "(String,StringBuilder)", "", "Parameter[0]", "remote", "manual"]

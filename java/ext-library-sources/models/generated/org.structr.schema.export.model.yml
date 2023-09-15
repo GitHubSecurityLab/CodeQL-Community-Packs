@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.structr.schema.export", "StructrTypeDefinition<SchemaRelationshipNode>", True, "resolveSchemaNode", "(Map,App,URI)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.structr.schema.export", "StructrTypeDefinition<?>", True, "resolveTypeReferenceForOpenAPI", "(URI)", "", "Parameter[0]", "remote", "manual"]

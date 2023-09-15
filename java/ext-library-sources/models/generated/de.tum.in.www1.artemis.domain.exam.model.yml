@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["de.tum.in.www1.artemis.domain.exam", "Exam$ExamSearchColumn", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

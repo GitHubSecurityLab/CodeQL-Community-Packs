@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.github.dockerjava.api.command", "CreateContainerCmd", True, "withHostName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api.command", "CreateContainerCmd", True, "withEnv", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api.command", "CreateContainerCmd", True, "withEnv", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api.command", "CreateContainerCmd", True, "withDomainName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api.command", "CreateContainerCmd", True, "withCmd", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api.command", "BuildImageCmd", True, "withTags", "(Set)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api.command", "CreateContainerCmd", True, "withPortSpecs", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api.command", "CreateContainerCmd", True, "withName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api.command", "CreateContainerCmd", True, "withWorkingDir", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api.command", "PullImageCmd", True, "withRegistry", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api.command", "PullImageCmd", True, "withTag", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api.command", "PullImageCmd", True, "withRepository", "(String)", "", "Parameter[0]", "remote", "manual"]

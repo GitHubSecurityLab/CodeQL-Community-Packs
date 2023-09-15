@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.cloud.http", "HttpTransportOptions$Builder", True, "setReadTimeout", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.http", "HttpTransportOptions$Builder", True, "setConnectTimeout", "(int)", "", "Parameter[0]", "remote", "manual"]

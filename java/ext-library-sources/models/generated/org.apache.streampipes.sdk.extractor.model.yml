@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.streampipes.sdk.extractor", "AbstractParameterExtractor<DataSinkInvocation>", True, "getStaticPropertyByName", "(String,Class)", "", "Parameter[0]", "remote", "manual"]

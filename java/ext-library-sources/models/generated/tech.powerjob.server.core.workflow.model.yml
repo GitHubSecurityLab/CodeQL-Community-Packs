@@ -1,0 +1,30 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "fetchWorkflow", "(Long,Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "runWorkflow", "(Long,Long,String,Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "runWorkflow", "(Long,Long,String,Long)", "", "Parameter[1]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "runWorkflow", "(Long,Long,String,Long)", "", "Parameter[2]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "runWorkflow", "(Long,Long,String,Long)", "", "Parameter[3]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "saveWorkflow", "(SaveWorkflowRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "saveWorkflowNode", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "fetchWorkflow", "(Long,Long)", "", "Parameter[1]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "copyWorkflow", "(Long,Long)", "", "Parameter[1]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "deleteWorkflow", "(Long,Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "deleteWorkflow", "(Long,Long)", "", "Parameter[1]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "disableWorkflow", "(Long,Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "disableWorkflow", "(Long,Long)", "", "Parameter[1]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "enableWorkflow", "(Long,Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "enableWorkflow", "(Long,Long)", "", "Parameter[1]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowInstanceService", True, "fetchWfInstance", "(Long,Long)", "", "Parameter[1]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowInstanceService", True, "markNodeAsSuccess", "(Long,Long,Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowInstanceService", True, "markNodeAsSuccess", "(Long,Long,Long)", "", "Parameter[1]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowInstanceService", True, "markNodeAsSuccess", "(Long,Long,Long)", "", "Parameter[2]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowInstanceService", True, "retryWorkflowInstance", "(Long,Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowInstanceService", True, "retryWorkflowInstance", "(Long,Long)", "", "Parameter[1]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowInstanceService", True, "stopWorkflowInstanceEntrance", "(Long,Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowInstanceService", True, "stopWorkflowInstanceEntrance", "(Long,Long)", "", "Parameter[1]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowService", True, "copyWorkflow", "(Long,Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["tech.powerjob.server.core.workflow", "WorkflowInstanceService", True, "fetchWfInstance", "(Long,Long)", "", "Parameter[0]", "remote", "manual"]

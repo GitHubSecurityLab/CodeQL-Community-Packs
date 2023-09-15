@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.codehaus.jettison.json", "JSONObject", True, "put", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.codehaus.jettison.json", "JSONArray", True, "put", "(int,Object)", "", "Parameter[1]", "remote", "manual"]

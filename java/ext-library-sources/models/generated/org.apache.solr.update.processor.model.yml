@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.solr.update.processor", "ClassificationUpdateProcessorFactory$Algorithm", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

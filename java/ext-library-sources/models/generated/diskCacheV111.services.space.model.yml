@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["diskCacheV111.services.space", "SpaceState", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

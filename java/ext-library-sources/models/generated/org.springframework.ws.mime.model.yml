@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.ws.mime", "MimeMessage", True, "addAttachment", "(String,DataHandler)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.ws.mime", "MimeMessage", True, "addAttachment", "(String,InputStreamSource,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.ws.mime", "MimeMessage", True, "addAttachment", "(String,InputStreamSource,String)", "", "Parameter[2]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.hankcs.hanlp.seg", "Segment", True, "seg", "(String)", "", "Parameter[0]", "remote", "manual"]

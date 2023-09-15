@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.dbutils", "QueryRunner", True, "update", "(String,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.dbutils", "QueryRunner", True, "update", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.dbutils", "QueryRunner", True, "query", "(String,ResultSetHandler)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.dbutils", "QueryRunner", True, "update", "(String,Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.dbutils", "QueryRunner", True, "update", "(Connection,String,Object[])", "", "Parameter[2]", "remote", "manual"]

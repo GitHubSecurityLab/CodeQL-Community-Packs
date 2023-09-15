@@ -1,0 +1,61 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.apache.rocketmq.acl.common", "AclUtils", true, "writeDataObject", "(String,Object)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.rocketmq.acl.plain", "PlainPermissionManager", true, "deleteAccessConfig", "(String)", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.acl.plain", "PlainPermissionManager", true, "updateAccessConfig", "(PlainAccessConfig)", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.acl.plain", "PlainPermissionManager", true, "updateGlobalWhiteAddrsConfig", "(List)", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.acl.plain", "PlainPermissionManager", true, "updateGlobalWhiteAddrsConfig", "(List,String)", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.acl.plain", "PlainPermissionManager", true, "updateGlobalWhiteAddrsConfig", "(List,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.acl", "AccessValidator", true, "updateGlobalWhiteAddrsConfig", "(List,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.client.consumer.store", "OffsetStore", true, "persistAll", "(Set)", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.client.consumer.store", "OffsetStore", true, "persistAll", "(Set)", "", "Argument[-1]", "read-file", "generated"]
+      - ["org.apache.rocketmq.common.logging", "JoranConfiguratorExt", true, "doConfigure0", "(URL)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.rocketmq.common.namesrv", "DefaultTopAddressing", true, "fetchNSAddr", "(boolean,long)", "", "Argument[-1]", "open-url", "generated"]
+      - ["org.apache.rocketmq.common.utils", "CheckpointFile", true, "write", "(List)", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.common.utils", "CheckpointFile", true, "write", "(List)", "", "Argument[-1]", "read-file", "generated"]
+      - ["org.apache.rocketmq.common.utils", "HttpTinyClient", true, "httpGet", "(String,List,List,String,long)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.rocketmq.common.utils", "HttpTinyClient", true, "httpGet", "(String,List,List,String,long)", "", "Argument[2]", "open-url", "generated"]
+      - ["org.apache.rocketmq.common.utils", "HttpTinyClient", true, "httpPost", "(String,List,List,String,long)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.rocketmq.common.utils", "IOTinyUtils", true, "copyFile", "(String,String)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.apache.rocketmq.common.utils", "IOTinyUtils", true, "copyFile", "(String,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.common.utils", "IOTinyUtils", true, "writeStringToFile", "(File,String,String)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.rocketmq.common.utils", "ServiceProvider", true, "load", "(String,Class)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.apache.rocketmq.common.utils", "ServiceProvider", true, "loadClass", "(String,Class)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.apache.rocketmq.common", "MixAll", true, "file2String", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.apache.rocketmq.common", "MixAll", true, "file2String", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.apache.rocketmq.common", "MixAll", true, "file2String", "(URL)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.rocketmq.common", "MixAll", true, "string2File", "(String,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.common", "MixAll", true, "string2File", "(String,String)", "", "Argument[1]", "read-file", "generated"]
+      - ["org.apache.rocketmq.common", "MixAll", true, "string2FileNotSafe", "(String,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.store.ha.autoswitch", "MetadataFile", true, "readFromFile", "()", "", "Argument[-1]", "read-file", "generated"]
+      - ["org.apache.rocketmq.store.ha.autoswitch", "MetadataFile", true, "writeToFile", "()", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.store.ha.autoswitch", "MetadataFile", true, "writeToFile", "()", "", "Argument[-1]", "read-file", "generated"]
+      - ["org.apache.rocketmq.store.index", "IndexFile", true, "IndexFile", "(String,int,int,long,long)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.rocketmq.store.index", "IndexService", true, "getAndCreateLastIndexFile", "()", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.store.logfile", "DefaultMappedFile", true, "DefaultMappedFile", "(String,int)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.rocketmq.store.logfile", "DefaultMappedFile", true, "DefaultMappedFile", "(String,int,TransientStorePool)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.rocketmq.store.logfile", "MappedFile", true, "init", "(String,int,TransientStorePool)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.rocketmq.store.logfile", "MappedFile", true, "moveToParent", "()", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.store.logfile", "MappedFile", true, "renameTo", "(String)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.rocketmq.store.logfile", "MappedFile", true, "renameToDelete", "()", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.store.timer", "TimerCheckpoint", true, "TimerCheckpoint", "(String)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.rocketmq.store.timer", "TimerWheel", true, "TimerWheel", "(String,int,int)", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.store.timer", "TimerWheel", true, "TimerWheel", "(String,int,int)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.rocketmq.store", "MappedFileQueue", true, "tryCreateMappedFile", "(long)", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.store", "StoreCheckpoint", true, "StoreCheckpoint", "(String)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.rocketmq.test.schema", "SchemaTools", true, "write", "(Map,String,String)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.rocketmq.test.schema", "SchemaTools", true, "write", "(Map,String,String)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.test.schema", "SchemaTools", true, "write", "(Map,String,String)", "", "Argument[2]", "create-file", "generated"]
+      - ["org.apache.rocketmq.tieredstore.provider.posix", "PosixFileSegment", true, "PosixFileSegment", "(FileSegmentType,MessageQueue,long,TieredMessageStoreConfig)", "", "Argument[-1]", "create-file", "generated"]
+      - ["org.apache.rocketmq.tieredstore.provider.posix", "PosixFileSegment", true, "PosixFileSegment", "(FileSegmentType,MessageQueue,long,TieredMessageStoreConfig)", "", "Argument[0]", "create-file", "generated"]
+      - ["org.apache.rocketmq.tieredstore.provider", "TieredStoreProvider", true, "createFile", "()", "", "Argument[-1]", "create-file", "generated"]
+
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sourceModel
+    data:
+      - ["org.apache.rocketmq.common", "MixAll", true, "file2String", "(URL)", "", "ReturnValue", "remote", "generated"]
+

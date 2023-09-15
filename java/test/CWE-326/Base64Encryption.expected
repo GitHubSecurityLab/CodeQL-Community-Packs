@@ -1,0 +1,14 @@
+edges
+| Base64Encryption.java:17:23:17:62 | (...)... : String | Base64Encryption.java:18:66:18:69 | attr : String |
+| Base64Encryption.java:17:31:17:62 | getAttribute(...) : Object | Base64Encryption.java:17:23:17:62 | (...)... : String |
+| Base64Encryption.java:18:66:18:69 | attr : String | Base64Encryption.java:18:66:18:80 | getBytes(...) : byte[] |
+| Base64Encryption.java:18:66:18:80 | getBytes(...) : byte[] | Base64Encryption.java:18:31:18:81 | encodeToString(...) |
+nodes
+| Base64Encryption.java:17:23:17:62 | (...)... : String | semmle.label | (...)... : String |
+| Base64Encryption.java:17:31:17:62 | getAttribute(...) : Object | semmle.label | getAttribute(...) : Object |
+| Base64Encryption.java:18:31:18:81 | encodeToString(...) | semmle.label | encodeToString(...) |
+| Base64Encryption.java:18:66:18:69 | attr : String | semmle.label | attr : String |
+| Base64Encryption.java:18:66:18:80 | getBytes(...) : byte[] | semmle.label | getBytes(...) : byte[] |
+subpaths
+#select
+| Base64Encryption.java:18:31:18:81 | encodeToString(...) | Base64Encryption.java:17:31:17:62 | getAttribute(...) : Object | Base64Encryption.java:18:31:18:81 | encodeToString(...) | Sensitive data is being 'encrypted' with Base64 Encoding: $@ | Base64Encryption.java:17:31:17:62 | getAttribute(...) | user-provided value |

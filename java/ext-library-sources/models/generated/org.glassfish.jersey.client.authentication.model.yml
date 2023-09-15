@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.glassfish.jersey.client.authentication", "HttpAuthenticationFeature", True, "basic", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.glassfish.jersey.client.authentication", "HttpAuthenticationFeature", True, "basic", "(String,String)", "", "Parameter[0]", "remote", "manual"]

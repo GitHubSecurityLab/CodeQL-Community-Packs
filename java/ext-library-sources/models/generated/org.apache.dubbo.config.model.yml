@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.dubbo.config", "AbstractInterfaceConfig", True, "setInterface", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.dubbo.config", "AbstractInterfaceConfig", True, "setGroup", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.dubbo.config", "AbstractInterfaceConfig", True, "setVersion", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.dubbo.config", "ReferenceConfigBase<GenericService>", True, "setUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.dubbo.config", "ReferenceConfigBase<MetricsService>", True, "setUrl", "(String)", "", "Parameter[0]", "remote", "manual"]

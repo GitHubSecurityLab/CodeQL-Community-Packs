@@ -1,0 +1,30 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.text", "TextUtils", True, "isEmpty", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "Editable", True, "replace", "(int,int,CharSequence,int,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["android.text", "TextUtils", True, "join", "(CharSequence,Iterable)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.text", "Selection", True, "getSelectionEnd", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "Selection", True, "setSelection", "(Spannable,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "Editable", True, "replace", "(int,int,CharSequence)", "", "Parameter[2]", "remote", "manual"]
+      - ["android.text", "Html", True, "fromHtml", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "TextUtils", True, "equals", "(CharSequence,CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "Selection", True, "setSelection", "(Spannable,int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "Selection", True, "getSelectionStart", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "Html", True, "toHtml", "(Spanned)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "TextUtils", True, "equals", "(CharSequence,CharSequence)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.text", "TextUtils", True, "join", "(CharSequence,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["android.text", "Editable", True, "insert", "(int,CharSequence)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.text", "TextUtils", True, "copySpansFrom", "(Spanned,int,int,Class,Spannable,int)", "", "Parameter[4]", "remote", "manual"]
+      - ["android.text", "TextUtils", True, "ellipsize", "(CharSequence,TextPaint,float,TruncateAt)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "Selection", True, "removeSelection", "(Spannable)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "TextUtils", True, "isDigitsOnly", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "TextUtils", True, "getTrimmedLength", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "TextUtils", True, "getChars", "(CharSequence,int,int,char[],int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "TextUtils", True, "copySpansFrom", "(Spanned,int,int,Class,Spannable,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "StaticLayout$Builder", False, "obtain", "(CharSequence,int,int,TextPaint,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "TextUtils", True, "ellipsize", "(CharSequence,TextPaint,float,TruncateAt,boolean,EllipsizeCallback)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "Selection", True, "selectAll", "(Spannable)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.text", "TextUtils", True, "substring", "(CharSequence,int,int)", "", "Parameter[0]", "remote", "manual"]

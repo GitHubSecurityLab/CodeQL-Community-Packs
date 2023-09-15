@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.orbitz.consul", "KeyValueClient", True, "putValue", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.orbitz.consul", "KeyValueClient", True, "putValue", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orbitz.consul", "KeyValueClient", True, "getValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orbitz.consul", "KeyValueClient", True, "deleteKey", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orbitz.consul", "AgentClient", True, "deregister", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["edu.harvard.iq.dataverse.dataaccess", "StorageIO<T>", True, "setTemporarySwiftUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["edu.harvard.iq.dataverse.dataaccess", "StorageIO<T>", True, "setInputStream", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["edu.harvard.iq.dataverse.dataaccess", "StorageIO<T>", True, "setChannel", "(Channel)", "", "Parameter[0]", "remote", "manual"]
+      - ["edu.harvard.iq.dataverse.dataaccess", "S3AccessIO<DataFile>", True, "generateTemporaryS3UploadUrls", "(String,String,long)", "", "Parameter[2]", "remote", "manual"]

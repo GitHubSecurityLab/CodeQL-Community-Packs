@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.lucene.spatial.query", "SpatialArgsParser", True, "parse", "(String,SpatialContext)", "", "Parameter[1]", "remote", "manual"]

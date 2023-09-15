@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.web.servlet", "ModelAndView", True, "addObject", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.web.servlet", "ModelAndView", True, "setViewName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.web.servlet", "LocaleResolver", True, "setLocale", "(HttpServletRequest,HttpServletResponse,Locale)", "", "Parameter[2]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.wso2.carbon.utils.multitenancy", "MultitenantUtils", True, "getTenantDomain", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.wso2.carbon.utils.multitenancy", "MultitenantUtils", True, "getTenantAwareUsername", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.wso2.carbon.utils.multitenancy", "MultitenantUtils", True, "getTenantDomainFromUrl", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.wechat.pay.contrib.apache.httpclient.auth", "Verifier", True, "verify", "(String,byte[],String)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.wechat.pay.contrib.apache.httpclient.auth", "Verifier", True, "verify", "(String,byte[],String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.wechat.pay.contrib.apache.httpclient.auth", "Verifier", True, "verify", "(String,byte[],String)", "", "Parameter[0]", "remote", "manual"]

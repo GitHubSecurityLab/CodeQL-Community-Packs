@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.sakaiproject.signup.tool.entityproviders", "EventProcessHandler", True, "getMySignupEvents", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.sakaiproject.signup.tool.entityproviders", "EventProcessHandler", True, "getSignupEvents", "(String,String,String)", "", "Parameter[2]", "remote", "manual"]

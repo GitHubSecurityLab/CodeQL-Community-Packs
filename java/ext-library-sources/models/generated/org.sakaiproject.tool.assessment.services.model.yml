@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.sakaiproject.tool.assessment.services", "ItemService", True, "getItemsByKeyword", "(String)", "", "Parameter[0]", "remote", "manual"]

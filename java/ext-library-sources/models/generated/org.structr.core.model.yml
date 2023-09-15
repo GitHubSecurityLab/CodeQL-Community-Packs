@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.structr.core", "GraphObject", True, "setProperty", "(PropertyKey,Object)", "", "Parameter[1]", "remote", "manual"]

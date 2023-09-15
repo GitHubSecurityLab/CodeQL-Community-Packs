@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.osgi.util", "NLS", True, "bind", "(String,Object,Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.eclipse.osgi.util", "NLS", True, "bind", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

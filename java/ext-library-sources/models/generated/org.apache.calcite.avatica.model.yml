@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.calcite.avatica", "ColumnMetaData$Rep", False, "nonPrimitiveRepOf", "(SqlType)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.calcite.avatica", "AvaticaUtils", True, "readFullyToBytes", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

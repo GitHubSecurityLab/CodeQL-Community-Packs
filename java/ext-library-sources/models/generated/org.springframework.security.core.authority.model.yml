@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.core.authority", "AuthorityUtils", False, "createAuthorityList", "(String[])", "", "Parameter[0]", "remote", "manual"]

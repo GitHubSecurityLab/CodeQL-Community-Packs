@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.kie.kogito.process", "ProcessInstances<?>", True, "findById", "(String)", "", "Parameter[0]", "remote", "manual"]

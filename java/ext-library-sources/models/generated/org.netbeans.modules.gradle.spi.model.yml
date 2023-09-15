@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.gradle.spi", "GradleSettings$DownloadMiscRule", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.gradle.spi", "GradleSettings$GradleExecutionRule", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.gradle.spi", "GradleSettings$DownloadLibsRule", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

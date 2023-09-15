@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.gitlab4j.api.models", "Project", True, "withPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gitlab4j.api.models", "Project", True, "withName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gitlab4j.api.models", "Project", True, "setCiConfigPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gitlab4j.api.models", "Group", True, "withPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gitlab4j.api.models", "AbstractUser<User>", True, "withUsername", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gitlab4j.api.models", "AbstractUser<User>", True, "withName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gitlab4j.api.models", "AbstractUser<User>", True, "withEmail", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gitlab4j.api.models", "AbstractUser<User>", True, "setUsername", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gitlab4j.api.models", "AbstractUser<User>", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gitlab4j.api.models", "AbstractUser<User>", True, "setEmail", "(String)", "", "Parameter[0]", "remote", "manual"]

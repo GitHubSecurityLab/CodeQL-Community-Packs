@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["de.codecentric.boot.admin.client.registration", "ApplicationRegistrator", true, "deregister", "()", "", "Argument[-1]", "open-url", "generated"]
+      - ["de.codecentric.boot.admin.client.registration", "ApplicationRegistrator", true, "register", "()", "", "Argument[-1]", "open-url", "generated"]
+      - ["de.codecentric.boot.admin.client.registration", "RegistrationClient", true, "deregister", "(String,String)", "", "Argument[0]", "open-url", "generated"]
+      - ["de.codecentric.boot.admin.client.registration", "RegistrationClient", true, "deregister", "(String,String)", "", "Argument[1]", "open-url", "generated"]
+      - ["de.codecentric.boot.admin.client.registration", "RegistrationClient", true, "register", "(String,Application)", "", "Argument[0]", "open-url", "generated"]
+

@@ -1,0 +1,50 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.apache.ibatis.datasource", "DataSourceFactory", true, "setProperties", "(Properties)", "", "Argument[0]", "jndi-injection", "generated"]
+      - ["org.apache.ibatis.io", "ExternalResources", true, "copyExternalResource", "(File,File)", "", "Argument[0]", "read-file", "generated"]
+      - ["org.apache.ibatis.io", "ExternalResources", true, "copyExternalResource", "(File,File)", "", "Argument[1]", "create-file", "generated"]
+      - ["org.apache.ibatis.io", "Resources", true, "getUrlAsProperties", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.ibatis.io", "Resources", true, "getUrlAsReader", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.ibatis.io", "Resources", true, "getUrlAsStream", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.ibatis.io", "VFS", true, "list", "(URL,String)", "", "Argument[0]", "open-url", "generated"]
+      - ["org.apache.ibatis.jdbc", "ScriptRunner", true, "runScript", "(Reader)", "", "Argument[0]", "sql", "generated"]
+      - ["org.apache.ibatis.jdbc", "SqlRunner", true, "delete", "(String,Object[])", "", "Argument[0]", "sql", "generated"]
+      - ["org.apache.ibatis.jdbc", "SqlRunner", true, "insert", "(String,Object[])", "", "Argument[0]", "sql", "generated"]
+      - ["org.apache.ibatis.jdbc", "SqlRunner", true, "run", "(String)", "", "Argument[0]", "sql", "generated"]
+      - ["org.apache.ibatis.jdbc", "SqlRunner", true, "selectAll", "(String,Object[])", "", "Argument[0]", "sql", "generated"]
+      - ["org.apache.ibatis.jdbc", "SqlRunner", true, "selectOne", "(String,Object[])", "", "Argument[0]", "sql", "generated"]
+      - ["org.apache.ibatis.jdbc", "SqlRunner", true, "update", "(String,Object[])", "", "Argument[0]", "sql", "generated"]
+      - ["org.apache.ibatis.parsing", "XNode", true, "evalBoolean", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XNode", true, "evalDouble", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XNode", true, "evalNode", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XNode", true, "evalNodes", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XNode", true, "evalString", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalBoolean", "(Object,String)", "", "Argument[1]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalBoolean", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalDouble", "(Object,String)", "", "Argument[1]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalDouble", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalFloat", "(Object,String)", "", "Argument[1]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalFloat", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalInteger", "(Object,String)", "", "Argument[1]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalInteger", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalLong", "(Object,String)", "", "Argument[1]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalLong", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalNode", "(Object,String)", "", "Argument[1]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalNode", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalNodes", "(Object,String)", "", "Argument[1]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalNodes", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalShort", "(Object,String)", "", "Argument[1]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalShort", "(String)", "", "Argument[0]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalString", "(Object,String)", "", "Argument[1]", "xpath", "generated"]
+      - ["org.apache.ibatis.parsing", "XPathParser", true, "evalString", "(String)", "", "Argument[0]", "xpath", "generated"]
+
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sourceModel
+    data:
+      - ["org.apache.ibatis.io", "Resources", true, "getUrlAsReader", "(String)", "", "ReturnValue", "remote", "generated"]
+      - ["org.apache.ibatis.io", "Resources", true, "getUrlAsStream", "(String)", "", "ReturnValue", "remote", "generated"]
+

@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.lucene.analysis", "Analyzer", True, "tokenStream", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.analysis", "Tokenizer", True, "setReader", "(Reader)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.analysis", "Analyzer", True, "tokenStream", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.lucene.analysis", "TokenizerFactory", True, "lookupClass", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.analysis", "TokenFilterFactory", True, "lookupClass", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.analysis", "CharFilterFactory", True, "lookupClass", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.analysis", "Analyzer", True, "tokenStream", "(String,Reader)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.mailjet.client", "MailjetRequest", True, "property", "(String,Object)", "", "Parameter[1]", "remote", "manual"]

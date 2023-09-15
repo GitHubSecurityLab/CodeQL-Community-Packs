@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.neo4j.driver.reactive", "RxQueryRunner", True, "run", "(String,Map)", "", "Parameter[1]", "remote", "manual"]

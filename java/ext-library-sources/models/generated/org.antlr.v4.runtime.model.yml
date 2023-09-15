@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.antlr.v4.runtime", "CharStreams", False, "fromString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.antlr.v4.runtime", "CharStreams", False, "fromReader", "(Reader,String)", "", "Parameter[0]", "remote", "manual"]

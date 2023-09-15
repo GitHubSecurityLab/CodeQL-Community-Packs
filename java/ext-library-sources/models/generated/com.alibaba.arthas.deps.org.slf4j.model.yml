@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alibaba.arthas.deps.org.slf4j", "Logger", True, "info", "(String,Object,Object)", "", "Parameter[2]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.trilead.ssh2", "Connection", True, "getRemainingAuthMethods", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.trilead.ssh2", "Connection", True, "authenticateWithPublicKey", "(String,char[],String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.trilead.ssh2", "Connection", True, "authenticateWithPassword", "(String,String)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.orientechnologies.orient.server.distributed", "ODistributedConfiguration$ROLES", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.orient.server.distributed", "ODistributedConfiguration$NEW_NODE_STRATEGIES", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.openblocks.domain.datasource.model", "Datasource", True, "isSystemStaticId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.openblocks.domain.datasource.model", "Datasource", True, "isNotSystemStaticId", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.oauth2.provider", "OAuth2RequestFactory", True, "createAuthorizationRequest", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.security.oauth2.provider", "AuthorizationRequest", True, "setApprovalParameters", "(Map)", "", "Parameter[0]", "remote", "manual"]

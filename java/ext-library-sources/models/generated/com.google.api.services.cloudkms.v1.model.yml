@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.api.services.cloudkms.v1", "CloudKMS$Projects$Locations$KeyRings", True, "create", "(String,KeyRing)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.api.services.cloudkms.v1", "CloudKMS$Projects$Locations$KeyRings$CryptoKeys", True, "encrypt", "(String,EncryptRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.api.services.cloudkms.v1", "CloudKMS$Projects$Locations$KeyRings$CryptoKeys", True, "decrypt", "(String,DecryptRequest)", "", "Parameter[0]", "remote", "manual"]

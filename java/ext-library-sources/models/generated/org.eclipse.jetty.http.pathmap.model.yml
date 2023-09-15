@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.jetty.http.pathmap", "PathMappings<WebSocketNegotiator>", True, "getMatched", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.http.pathmap", "PathMappings<MappedServlet>", True, "getMatched", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.http.pathmap", "PathMappings<Map<String,RoleInfo>>", True, "getMatched", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.jetty.http.pathmap", "PathMappings<Boolean>", True, "getMatched", "(String)", "", "Parameter[0]", "remote", "manual"]

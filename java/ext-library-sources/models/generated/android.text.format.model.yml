@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.text.format", "DateUtils", True, "formatDateRange", "(Context,Formatter,long,long,int,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["android.text.format", "DateFormat", True, "format", "(CharSequence,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.text.format", "Time", True, "getJulianDay", "(long,long)", "", "Parameter[0]", "remote", "manual"]

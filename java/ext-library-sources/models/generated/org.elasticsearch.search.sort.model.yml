@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.elasticsearch.search.sort", "SortOrder", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.elasticsearch.search.sort", "SortOrder", False, "fromString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.elasticsearch.search.sort", "SortBuilders", True, "fieldSort", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["software.amazon.awssdk.services.sts.model", "AssumeRoleRequest$Builder", True, "durationSeconds", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["software.amazon.awssdk.services.sts.model", "AssumeRoleRequest$Builder", True, "externalId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["software.amazon.awssdk.services.sts.model", "AssumeRoleRequest$Builder", True, "roleArn", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["software.amazon.awssdk.services.sts.model", "AssumeRoleRequest$Builder", True, "roleSessionName", "(String)", "", "Parameter[0]", "remote", "manual"]

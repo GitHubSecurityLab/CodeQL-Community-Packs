@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.cloudevents.core.impl", "BaseCloudEventBuilder<CloudEventBuilder,CloudEventV1>", True, "withExtension", "(String,Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.cloudevents.core.impl", "BaseCloudEventBuilder<CloudEventBuilder,CloudEventV03>", True, "withExtension", "(String,Integer)", "", "Parameter[0]", "remote", "manual"]

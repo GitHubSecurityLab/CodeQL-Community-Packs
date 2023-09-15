@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.maven.model.building", "ModelBuildingRequest", True, "setPomFile", "(File)", "", "Parameter[0]", "remote", "manual"]

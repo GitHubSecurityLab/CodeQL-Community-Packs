@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.osgi.framework", "BundleContext", True, "installBundle", "(String,InputStream)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.osgi.framework", "Bundle", True, "getResource", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.osgi.framework", "BundleContext", True, "getServiceReferences", "(Class,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.osgi.framework", "BundleContext", True, "getServiceReferences", "(String,String)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["nl.nn.adapterframework.monitoring", "MonitorManager", True, "findMonitor", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["nl.nn.adapterframework.monitoring", "Monitor", True, "getTrigger", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["nl.nn.adapterframework.monitoring", "Monitor", True, "setDestinationSet", "(Set)", "", "Parameter[0]", "remote", "manual"]

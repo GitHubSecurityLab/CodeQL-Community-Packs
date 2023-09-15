@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.gluu.model.security", "Credentials", True, "setPassword", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gluu.model.security", "Credentials", True, "setUsername", "(String)", "", "Parameter[0]", "remote", "manual"]

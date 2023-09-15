@@ -1,0 +1,23 @@
+# This is the field security specialist audit pack
+
+- description: "GitHub's Community Packs Java Audit Suite"
+
+# Audit queries
+- queries: '.'
+  from: githubsecuritylab/java-queries
+
+- include:
+    kind:
+    - problem
+    - path-problem
+    - metric
+    - diagnostic
+    tags contain:
+    - audit
+
+# External API query
+- queries: '.'
+  from: codeql/java-queries
+- include:
+    id:
+      - java/untrusted-data-to-external-api

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.compose.material3", "TextKt", False, "Text", "(String,Modifier,Color,TextUnit,FontStyle,FontWeight,FontFamily,TextUnit,TextDecoration,TextAlign,TextUnit,TextOverflow,boolean,int,Function1,TextStyle,Composer,int,int,int)", "", "Parameter[0]", "remote", "manual"]

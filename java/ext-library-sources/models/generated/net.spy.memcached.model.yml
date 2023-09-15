@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.spy.memcached", "MemcachedClientIF", True, "add", "(String,int,Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["net.spy.memcached", "MemcachedClientIF", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.spy.memcached", "MemcachedClientIF", True, "add", "(String,int,Object)", "", "Parameter[0]", "remote", "manual"]

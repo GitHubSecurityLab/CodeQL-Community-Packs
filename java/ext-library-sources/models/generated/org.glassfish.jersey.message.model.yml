@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.glassfish.jersey.message", "MessageUtils", False, "getCharset", "(MediaType)", "", "Parameter[0]", "remote", "manual"]

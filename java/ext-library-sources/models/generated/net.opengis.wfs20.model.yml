@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.opengis.wfs20", "StoredQueryType", True, "setId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.wfs20", "ResultTypeType", False, "get", "(String)", "", "Parameter[0]", "remote", "manual"]

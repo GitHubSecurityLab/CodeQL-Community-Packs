@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opennms.web.rest.v2", "AbstractDaoRestServiceWithDTO<OnmsNode,OnmsNode,SearchBean,Integer,String>", True, "getException", "(Status,String,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.opennms.web.rest.v2", "AbstractDaoRestServiceWithDTO<OnmsMonitoredService,OnmsMonitoredService,OnmsMonitoredService,Integer,String>", True, "getException", "(Status,String,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.opennms.web.rest.v2", "AbstractDaoRestServiceWithDTO<OnmsIpInterface,OnmsIpInterface,OnmsIpInterface,Integer,String>", True, "getException", "(Status,String,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.opennms.web.rest.v2", "AbstractNodeDependentRestService<OnmsCategory,OnmsCategory,Integer,String>", True, "getNode", "(UriInfo)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.opennms.web.rest.v2", "AbstractNodeDependentRestService<OnmsIpInterface,OnmsIpInterface,Integer,String>", True, "getNode", "(UriInfo)", "", "Parameter[0]", "remote", "manual"]

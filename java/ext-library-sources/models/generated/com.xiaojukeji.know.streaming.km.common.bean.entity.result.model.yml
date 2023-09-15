@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.xiaojukeji.know.streaming.km.common.bean.entity.result", "Result", True, "buildFromRSAndMsg", "(ResultStatus,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.xiaojukeji.know.streaming.km.common.bean.entity.result", "PaginationResult", True, "buildFailure", "(PaginationResult,PaginationBaseDTO)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.xiaojukeji.know.streaming.km.common.bean.entity.result", "PaginationResult", True, "buildFailure", "(Result,PaginationBaseDTO)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.xiaojukeji.know.streaming.km.common.bean.entity.result", "PaginationResult", True, "buildSuc", "(PaginationBaseDTO)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.xiaojukeji.know.streaming.km.common.bean.entity.result", "PaginationResult", True, "buildFailure", "(String,PaginationBaseDTO)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.xiaojukeji.know.streaming.km.common.bean.entity.result", "PaginationResult", True, "buildFailure", "(String,PaginationBaseDTO)", "", "Parameter[0]", "remote", "manual"]

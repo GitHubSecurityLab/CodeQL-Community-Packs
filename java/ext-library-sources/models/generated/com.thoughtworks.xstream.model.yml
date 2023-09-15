@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.thoughtworks.xstream", "XStream", True, "fromXML", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.thoughtworks.xstream", "XStream", True, "toXML", "(Object,Writer)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.thoughtworks.xstream", "XStream", True, "fromXML", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

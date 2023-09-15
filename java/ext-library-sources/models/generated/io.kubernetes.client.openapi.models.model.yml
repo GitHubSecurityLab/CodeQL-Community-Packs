@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.kubernetes.client.openapi.models", "V1EnvVar", True, "setValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.kubernetes.client.openapi.models", "V1ObjectMeta", True, "putLabelsItem", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.kubernetes.client.openapi.models", "V1EnvVar", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.kubernetes.client.openapi.models", "V1PersistentVolumeClaimVolumeSource", True, "setClaimName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.kubernetes.client.openapi.models", "V1ConfigMapVolumeSource", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.kubernetes.client.openapi.models", "V1Container", True, "setCommand", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.kubernetes.client.openapi.models", "V1Container", True, "setImage", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.kubernetes.client.openapi.models", "V1VolumeMount", True, "subPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.kubernetes.client.openapi.models", "V1TokenReviewSpec", True, "token", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.kubernetes.client.openapi.models", "V1ObjectMeta", True, "setLabels", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.kubernetes.client.openapi.models", "V1Container", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.projectnessie.client.api", "OnBranchBuilder<CommitMultipleOperationsBuilder>", True, "branch", "(Branch)", "", "Parameter[0]", "remote", "manual"]

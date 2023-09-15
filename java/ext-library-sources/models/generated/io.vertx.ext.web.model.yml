@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.vertx.ext.web", "RoutingContext", True, "fail", "(Throwable)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.netflix.kayenta.canary.providers.metrics", "InfluxdbCanaryMetricSetQueryConfig$InfluxdbCanaryMetricSetQueryConfigBuilder", True, "metricName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.netflix.kayenta.canary.providers.metrics", "InfluxdbCanaryMetricSetQueryConfig$InfluxdbCanaryMetricSetQueryConfigBuilder", True, "fields", "(List)", "", "Parameter[0]", "remote", "manual"]

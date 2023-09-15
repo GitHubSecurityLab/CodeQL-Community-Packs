@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.facebook.airlift.http.server", "AsyncResponseHandler", True, "bindAsyncResponse", "(AsyncResponse,ListenableFuture,Executor)", "", "Parameter[0]", "remote", "manual"]

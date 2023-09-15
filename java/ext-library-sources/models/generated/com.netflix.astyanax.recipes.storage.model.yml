@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.netflix.astyanax.recipes.storage", "ChunkedStorage", True, "newReader", "(ChunkedStorageProvider,String,OutputStream)", "", "Parameter[1]", "remote", "manual"]

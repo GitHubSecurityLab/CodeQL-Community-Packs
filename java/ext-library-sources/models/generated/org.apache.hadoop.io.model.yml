@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.io", "ByteBufferPool", True, "getBuffer", "(boolean,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.io", "ByteBufferPool", True, "putBuffer", "(ByteBuffer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.io", "Text", True, "set", "(byte[],int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.io", "WritableUtils", False, "writeVInt", "(DataOutput,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.io", "WritableUtils", False, "writeVInt", "(DataOutput,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.io", "WritableUtils", False, "isNegativeVInt", "(byte)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.io", "MD5Hash", True, "digest", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.pentaho.di.core.encryption", "Encr", True, "decryptPasswordOptionallyEncrypted", "(String)", "", "Parameter[0]", "remote", "manual"]

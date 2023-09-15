@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.serotonin.util", "StringUtils", True, "isEmpty", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.util", "StringUtils", True, "isLengthGreaterThan", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.util", "StringUtils", True, "parseInt", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.util", "StringUtils", True, "parseInt", "(String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.serotonin.util", "StringUtils", True, "isBetweenInc", "(int,int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.util", "StringUtils", True, "escapeLT", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.serotonin.util", "StringUtils", True, "globWhiteListMatchIgnoreCase", "(String[],String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.serotonin.util", "ArrayUtils", True, "indexOf", "(String[],String)", "", "Parameter[1]", "remote", "manual"]

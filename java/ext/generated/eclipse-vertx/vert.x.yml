@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["io.vertx.core.http", "HttpServerResponse", true, "sendFile", "(String)", "", "Argument[0]", "create-file", "generated"]
+      - ["io.vertx.core.http", "HttpServerResponse", true, "sendFile", "(String,Handler)", "", "Argument[0]", "create-file", "generated"]
+      - ["io.vertx.core.http", "HttpServerResponse", true, "sendFile", "(String,long)", "", "Argument[0]", "create-file", "generated"]
+      - ["io.vertx.core.http", "HttpServerResponse", true, "sendFile", "(String,long,Handler)", "", "Argument[0]", "create-file", "generated"]
+      - ["io.vertx.core.http", "HttpServerResponse", true, "sendFile", "(String,long,long)", "", "Argument[0]", "create-file", "generated"]
+      - ["io.vertx.core.http", "HttpServerResponse", true, "sendFile", "(String,long,long,Handler)", "", "Argument[0]", "create-file", "generated"]
+      - ["io.vertx.core.impl.launcher.commands", "ClasspathHandler", true, "setClasspath", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["io.vertx.core.impl", "IsolatingClassLoader", true, "IsolatingClassLoader", "(URL[],ClassLoader,List)", "", "Argument[0]", "open-url", "generated"]
+      - ["io.vertx.core.impl", "VertxInternal", true, "resolveFile", "(String)", "", "Argument[0]", "create-file", "generated"]
+      - ["io.vertx.core.net", "NetSocket", true, "sendFile", "(String)", "", "Argument[0]", "create-file", "generated"]
+      - ["io.vertx.core.net", "NetSocket", true, "sendFile", "(String,Handler)", "", "Argument[0]", "create-file", "generated"]
+      - ["io.vertx.core.net", "NetSocket", true, "sendFile", "(String,long)", "", "Argument[0]", "create-file", "generated"]
+      - ["io.vertx.core.net", "NetSocket", true, "sendFile", "(String,long,Handler)", "", "Argument[0]", "create-file", "generated"]
+      - ["io.vertx.core.net", "NetSocket", true, "sendFile", "(String,long,long)", "", "Argument[0]", "create-file", "generated"]
+      - ["io.vertx.core.net", "NetSocket", true, "sendFile", "(String,long,long,Handler)", "", "Argument[0]", "create-file", "generated"]
+      - ["io.vertx.core.spi.file", "FileResolver", true, "resolveFile", "(String)", "", "Argument[0]", "create-file", "generated"]

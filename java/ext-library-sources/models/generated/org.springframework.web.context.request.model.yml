@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.web.context.request", "WebRequest", True, "checkNotModified", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.web.context.request", "WebRequest", True, "checkNotModified", "(String,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.web.context.request", "RequestAttributes", True, "setAttribute", "(String,Object,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.web.context.request", "WebRequest", True, "getParameter", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.web.context.request", "WebRequest", True, "getParameterValues", "(String)", "", "Parameter[0]", "remote", "manual"]

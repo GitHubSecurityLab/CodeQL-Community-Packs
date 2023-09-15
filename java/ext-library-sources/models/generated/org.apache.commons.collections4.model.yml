@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.collections4", "CollectionUtils", True, "isNotEmpty", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.collections4", "CollectionUtils", True, "isEmpty", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.collections4", "CollectionUtils", True, "containsAny", "(Collection,Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.collections4", "ListUtils", True, "partition", "(List,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.collections4", "MultiValuedMap<String,String>", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.collections4", "MultiValuedMap<String,String>", True, "containsKey", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.collections4", "MultiValuedMap<>", True, "put", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.collections4", "MapUtils", True, "isNotEmpty", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.collections4", "MapUtils", True, "getLong", "(Map,Object,Long)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.collections4", "EnumerationUtils", True, "toList", "(Enumeration)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.collections4", "CollectionUtils", True, "subtract", "(Iterable,Iterable)", "", "Parameter[1]", "remote", "manual"]

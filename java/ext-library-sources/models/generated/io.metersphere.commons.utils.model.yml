@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.metersphere.commons.utils", "WeakConcurrentHashMapListener<K,V>", True, "notifyOnAdd", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]

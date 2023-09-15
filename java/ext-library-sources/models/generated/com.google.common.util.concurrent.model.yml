@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.common.util.concurrent", "Futures", False, "allAsList", "(Iterable)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.util.concurrent", "Futures", False, "transform", "(ListenableFuture,Function,Executor)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.google.common.util.concurrent", "Futures", False, "nonCancellationPropagating", "(ListenableFuture)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.util.concurrent", "Futures", False, "addCallback", "(ListenableFuture,FutureCallback,Executor)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.google.common.util.concurrent", "Uninterruptibles", False, "putUninterruptibly", "(BlockingQueue,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.util.concurrent", "ThreadFactoryBuilder", False, "setNameFormat", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.util.concurrent", "Futures", False, "immediateFuture", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.util.concurrent", "AtomicLongMap<String>", False, "put", "(String,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.util.concurrent", "AtomicLongMap<String>", False, "getAndIncrement", "(String)", "", "Parameter[0]", "remote", "manual"]

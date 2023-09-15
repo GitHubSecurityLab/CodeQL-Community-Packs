@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["graphql", "GraphQL", True, "execute", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["graphql", "ExecutionInput$Builder", True, "operationName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["graphql", "ExecutionInput$Builder", True, "query", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["graphql", "ExecutionInput$Builder", True, "variables", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["graphql", "GraphQL", True, "execute", "(String,String,Object,Map)", "", "Parameter[3]", "remote", "manual"]
+      - ["graphql", "GraphQL", True, "execute", "(String,String,Object,Map)", "", "Parameter[1]", "remote", "manual"]
+      - ["graphql", "GraphQL", True, "execute", "(String,String,Object,Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["graphql", "ExecutionInput$Builder", True, "locale", "(Locale)", "", "Parameter[0]", "remote", "manual"]

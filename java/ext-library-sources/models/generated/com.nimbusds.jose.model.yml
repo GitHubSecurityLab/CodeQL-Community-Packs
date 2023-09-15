@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.nimbusds.jose", "JWSObject", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.nimbusds.jose", "JWEObject", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]

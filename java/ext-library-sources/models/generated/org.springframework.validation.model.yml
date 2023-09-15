@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.validation", "Errors", True, "rejectValue", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.validation", "ValidationUtils", True, "rejectIfEmptyOrWhitespace", "(Errors,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.validation", "Errors", True, "rejectValue", "(String,String,Object[],String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.validation", "ValidationUtils", True, "rejectIfEmptyOrWhitespace", "(Errors,String,String,Object[])", "", "Parameter[3]", "remote", "manual"]

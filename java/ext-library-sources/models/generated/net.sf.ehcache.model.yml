@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.sf.ehcache", "Ehcache", True, "get", "(Serializable)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.sf.ehcache", "Ehcache", True, "remove", "(Serializable)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.sf.ehcache", "CacheManager", True, "getCache", "(String)", "", "Parameter[0]", "remote", "manual"]

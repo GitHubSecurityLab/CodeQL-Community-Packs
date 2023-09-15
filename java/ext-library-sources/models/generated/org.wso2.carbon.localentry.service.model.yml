@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.wso2.carbon.localentry.service", "LocalEntryAdmin", True, "getEntryForTenant", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.wso2.carbon.localentry.service", "LocalEntryAdmin", True, "isEntryExistForTenant", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.wso2.carbon.localentry.service", "LocalEntryAdmin", True, "addEntryForTenant", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.wso2.carbon.localentry.service", "LocalEntryAdmin", True, "addEntry", "(String)", "", "Parameter[0]", "remote", "manual"]

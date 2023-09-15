@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.security.token", "Token<AbstractDelegationTokenIdentifier>", True, "decodeFromUrlString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.security.token", "Token<RMDelegationTokenIdentifier>", True, "decodeFromUrlString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.security.token", "Token<TokenIdentifier>", True, "decodeFromUrlString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.security.token", "Token<DelegationTokenIdentifier>", True, "decodeFromUrlString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.security.token", "Token<>", True, "decodeFromUrlString", "(String)", "", "Parameter[0]", "remote", "manual"]

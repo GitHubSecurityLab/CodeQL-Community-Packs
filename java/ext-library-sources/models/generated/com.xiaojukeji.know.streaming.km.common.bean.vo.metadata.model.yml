@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.xiaojukeji.know.streaming.km.common.bean.vo.metadata", "TopicMetadataVO", True, "setTopicName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.xiaojukeji.know.streaming.km.common.bean.vo.metadata", "BrokerMetadataVO", True, "setBrokerId", "(Integer)", "", "Parameter[0]", "remote", "manual"]

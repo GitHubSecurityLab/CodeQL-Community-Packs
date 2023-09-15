@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.pentaho.platform.api.repository2.unified", "IUnifiedRepository", True, "getFile", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.pentaho.platform.api.repository2.unified", "RepositoryRequest$FILES_TYPE_FILTER", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

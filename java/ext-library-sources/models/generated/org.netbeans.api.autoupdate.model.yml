@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.api.autoupdate", "OperationContainer<T>", False, "setUnpack200", "(File)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.neo4j.graphdb", "GraphDatabaseService", True, "execute", "(String,Map)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.neo4j.graphdb", "Transaction", True, "execute", "(String,Map)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.neo4j.graphdb", "Transaction", True, "findNodes", "(Label,String,Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.neo4j.graphdb", "Transaction", True, "findNodes", "(Label,String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.neo4j.graphdb", "Transaction", True, "findNode", "(Label,String,Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.neo4j.graphdb", "Transaction", True, "execute", "(String,Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.neo4j.graphdb", "Label", True, "label", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.neo4j.graphdb", "GraphDatabaseService", True, "execute", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.neo4j.graphdb", "Transaction", True, "getNodeById", "(long)", "", "Parameter[0]", "remote", "manual"]

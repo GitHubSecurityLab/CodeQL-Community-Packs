@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.gluu.jsf2.service", "FacesService", True, "redirectToExternalURL", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.gluu.jsf2.service", "FacesService", True, "redirectWithExternal", "(String,Map)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.gluu.jsf2.service", "FacesService", True, "redirect", "(String,Map)", "", "Parameter[1]", "remote", "manual"]

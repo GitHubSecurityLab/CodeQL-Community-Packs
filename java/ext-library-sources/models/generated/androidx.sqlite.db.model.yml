@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.sqlite.db", "SupportSQLiteProgram", True, "bindString", "(int,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["androidx.sqlite.db", "SupportSQLiteDatabase", True, "delete", "(String,String,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["androidx.sqlite.db", "SupportSQLiteDatabase", True, "delete", "(String,String,Object[])", "", "Parameter[2]", "remote", "manual"]
+      - ["androidx.sqlite.db", "SupportSQLiteDatabase", True, "insert", "(String,int,ContentValues)", "", "Parameter[2]", "remote", "manual"]
+      - ["androidx.sqlite.db", "SupportSQLiteDatabase", True, "update", "(String,int,ContentValues,String,Object[])", "", "Parameter[4]", "remote", "manual"]
+      - ["androidx.sqlite.db", "SupportSQLiteDatabase", True, "update", "(String,int,ContentValues,String,Object[])", "", "Parameter[2]", "remote", "manual"]
+      - ["androidx.sqlite.db", "SupportSQLiteDatabase", True, "update", "(String,int,ContentValues,String,Object[])", "", "Parameter[3]", "remote", "manual"]
+      - ["androidx.sqlite.db", "SupportSQLiteQueryBuilder", False, "columns", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.sqlite.db", "SupportSQLiteQueryBuilder", False, "orderBy", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.sqlite.db", "SupportSQLiteQueryBuilder", False, "selection", "(String,Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.sqlite.db", "SupportSQLiteQueryBuilder", False, "selection", "(String,Object[])", "", "Parameter[1]", "remote", "manual"]

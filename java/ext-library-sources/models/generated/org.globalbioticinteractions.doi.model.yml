@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.globalbioticinteractions.doi", "DOI", False, "create", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.ovirt.engine.sdk4", "ConnectionBuilder", True, "password", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.ovirt.engine.sdk4", "ConnectionBuilder", True, "url", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.ovirt.engine.sdk4", "ConnectionBuilder", True, "user", "(String)", "", "Parameter[0]", "remote", "manual"]

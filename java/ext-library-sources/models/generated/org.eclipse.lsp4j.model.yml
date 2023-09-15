@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.lsp4j", "TextDocumentIdentifier", True, "setUri", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.lsp4j", "TextEdit", True, "setNewText", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.lsp4j", "InitializeParams", True, "setRootUri", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.lsp4j", "InitializeParams", True, "setRootPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.lsp4j", "ConfigurationItem", True, "setScopeUri", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.lsp4j", "CodeAction", True, "setData", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.lsp4j", "CallHierarchyItem", True, "setUri", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hbase.thirdparty.com.google.common.base", "Preconditions", False, "checkNotNull", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hbase.thirdparty.com.google.common.base", "Splitter", False, "splitToList", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hbase.thirdparty.com.google.common.base", "Joiner", True, "join", "(Iterable)", "", "Parameter[0]", "remote", "manual"]

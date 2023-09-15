@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.opengis.gml", "TimePositionType", True, "setValue", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.gml", "CodeType", True, "setValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.opengis.gml", "AbstractGeometryType", True, "setSrsName", "(String)", "", "Parameter[0]", "remote", "manual"]

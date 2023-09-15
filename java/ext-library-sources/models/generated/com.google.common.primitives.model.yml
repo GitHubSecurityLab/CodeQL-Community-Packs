@@ -1,0 +1,23 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.common.primitives", "Doubles", False, "compare", "(double,double)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.primitives", "Doubles", False, "compare", "(double,double)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.common.primitives", "Doubles", False, "tryParse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.primitives", "Longs", False, "compare", "(long,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.primitives", "Longs", False, "compare", "(long,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.common.primitives", "Ints", False, "checkedCast", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.primitives", "Longs", False, "toByteArray", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.primitives", "Floats", False, "tryParse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.primitives", "Ints", False, "toByteArray", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.primitives", "Ints", False, "tryParse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.primitives", "Longs", False, "tryParse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.primitives", "Floats", False, "compare", "(float,float)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.primitives", "Chars", False, "toByteArray", "(char)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.primitives", "Ints", False, "compare", "(int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.primitives", "Floats", False, "compare", "(float,float)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.common.primitives", "Ints", False, "compare", "(int,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.common.primitives", "Ints", False, "fromByteArray", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.common.primitives", "Shorts", False, "toByteArray", "(short)", "", "Parameter[0]", "remote", "manual"]

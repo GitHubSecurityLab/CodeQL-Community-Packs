@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.stagemonitor.util", "IOUtils", True, "consumeAndClose", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.stagemonitor.util", "IOUtils", True, "toString", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.ibm.icu.text", "UTF16", False, "valueOf", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.text", "Normalizer2", True, "normalize", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.text", "DateTimePatternGenerator$FormatParser", True, "set", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.text", "UnicodeSet", True, "addAll", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.text", "DateFormat", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.text", "CharsetDetector", True, "setText", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.text", "UnicodeSet", True, "contains", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.text", "DateTimePatternGenerator", True, "getBestPattern", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.text", "UnicodeSet", True, "retainAll", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.text", "UnicodeSet", True, "containsSome", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.text", "Transliterator", True, "transliterate", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.text", "RuleBasedCollator", False, "getCollationElementIterator", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.text", "Normalizer", False, "compose", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.ibm.icu.text", "MessageFormat", True, "format", "(String,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["com.ibm.icu.text", "DateTimePatternGenerator", True, "getSkeleton", "(String)", "", "Parameter[0]", "remote", "manual"]

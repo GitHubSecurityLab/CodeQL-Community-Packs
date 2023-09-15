@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.fabric8.kubernetes.api.model", "ObjectMetaFluent<>", True, "withLabels", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.api.model", "ObjectMetaFluent<>", True, "withName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.api.model", "ObjectMetaFluent<>", True, "withNamespace", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.api.model", "ServiceSpecFluent<>", True, "withSelector", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.api.model", "ServicePortFluent<>", True, "withProtocol", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.api.model", "ServicePortFluent<>", True, "withPort", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.api.model", "ServicePortFluent<>", True, "withNodePort", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.api.model", "ServicePortFluent<>", True, "withNewTargetPort", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.api.model", "PodSpec", True, "setHostname", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.api.model", "ObjectMetaFluent<MetadataNested<JobBuilder>>", True, "withName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.api.model", "ObjectMetaFluent<MetadataNested<JobBuilder>>", True, "addToAnnotations", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.api.model", "ObjectMeta", True, "setAnnotations", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.api.model", "ContainerPortFluent<>", True, "withProtocol", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.api.model", "ContainerPortFluent<>", True, "withContainerPort", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.api.model", "ContainerFluent<>", True, "withName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.fabric8.kubernetes.api.model", "ContainerFluent<>", True, "withImage", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.lucene.store", "FSDirectory", True, "open", "(Path)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.store", "FSDirectory", True, "open", "(Path,LockFactory)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.store", "Directory", True, "copyFrom", "(Directory,String,String,IOContext)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.store", "MMapDirectory", True, "setUseUnmap", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.store", "MMapDirectory", True, "setPreload", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.lucene.store", "DataOutput", True, "writeString", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.undertow.util", "CanonicalPathUtils", True, "canonicalize", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.undertow.util", "HeaderMap", False, "put", "(HttpString,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.undertow.util", "ETagUtils", True, "handleIfNoneMatch", "(String,ETag,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.undertow.util", "ETagUtils", True, "handleIfMatch", "(String,ETag,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.undertow.util", "DateUtils", True, "handleIfUnmodifiedSince", "(String,Date)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.undertow.util", "DateUtils", True, "handleIfModifiedSince", "(String,Date)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.undertow.util", "ByteRange", True, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.undertow.util", "ByteRange", True, "getResponseResult", "(long,String,Date,String)", "", "Parameter[1]", "remote", "manual"]

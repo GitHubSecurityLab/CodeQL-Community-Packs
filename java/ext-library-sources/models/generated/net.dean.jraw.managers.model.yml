@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.dean.jraw.managers", "AccountManager", True, "reply", "(Contribution,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["net.dean.jraw.managers", "AccountManager", True, "report", "(Thing,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["net.dean.jraw.managers", "ModerationManager", True, "banUser", "(String,String,String,String,String,int)", "", "Parameter[5]", "remote", "manual"]
+      - ["net.dean.jraw.managers", "AccountManager", True, "save", "(PublicContribution,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["net.dean.jraw.managers", "AccountManager", True, "updateContribution", "(PublicContribution,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["net.dean.jraw.managers", "ModerationManager", True, "banUser", "(String,String,String,String,String,int)", "", "Parameter[2]", "remote", "manual"]
+      - ["net.dean.jraw.managers", "ModerationManager", True, "banUser", "(String,String,String,String,String,int)", "", "Parameter[3]", "remote", "manual"]
+      - ["net.dean.jraw.managers", "ModerationManager", True, "banUser", "(String,String,String,String,String,int)", "", "Parameter[4]", "remote", "manual"]
+      - ["net.dean.jraw.managers", "ModerationManager", True, "banUserPermanently", "(String,String,String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["net.dean.jraw.managers", "ModerationManager", True, "banUserPermanently", "(String,String,String,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["net.dean.jraw.managers", "ModerationManager", True, "banUserPermanently", "(String,String,String,String,String)", "", "Parameter[4]", "remote", "manual"]
+      - ["net.dean.jraw.managers", "ModerationManager", True, "setFlair", "(String,FlairTemplate,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["net.dean.jraw.managers", "ModerationManager", True, "setFlair", "(String,FlairTemplate,String,Submission)", "", "Parameter[2]", "remote", "manual"]
+      - ["net.dean.jraw.managers", "WikiManager", True, "edit", "(String,String,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["net.dean.jraw.managers", "AccountManager", True, "crosspost", "(Submission,String,String,Captcha,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["net.dean.jraw.managers", "AccountManager", True, "crosspost", "(Submission,String,String,Captcha,String)", "", "Parameter[1]", "remote", "manual"]

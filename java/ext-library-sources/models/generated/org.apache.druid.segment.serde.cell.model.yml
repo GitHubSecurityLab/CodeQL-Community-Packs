@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.druid.segment.serde.cell", "StagedSerde<SerializablePairLongString>", True, "serialize", "(SerializablePairLongString)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.segment.serde.cell", "StagedSerde<T>", True, "serialize", "(Object)", "", "Parameter[0]", "remote", "manual"]

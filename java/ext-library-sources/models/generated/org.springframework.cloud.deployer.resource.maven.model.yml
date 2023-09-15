@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.cloud.deployer.resource.maven", "MavenResource", True, "parse", "(String,MavenProperties)", "", "Parameter[0]", "remote", "manual"]

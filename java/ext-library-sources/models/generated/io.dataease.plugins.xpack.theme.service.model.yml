@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dataease.plugins.xpack.theme.service", "ThemeXpackService", True, "themes", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.theme.service", "ThemeXpackService", True, "switchStatus", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.theme.service", "ThemeXpackService", True, "switchSenior", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.theme.service", "ThemeXpackService", True, "saveThemeItems", "(ThemeRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.theme.service", "ThemeXpackService", True, "renameTheme", "(ThemeRenameRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.theme.service", "ThemeXpackService", True, "queryItems", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.theme.service", "ThemeXpackService", True, "deleteTheme", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.theme.service", "ThemeXpackService", True, "addTheme", "(ThemeCreateRequest)", "", "Parameter[0]", "remote", "manual"]

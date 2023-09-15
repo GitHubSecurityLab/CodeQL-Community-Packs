@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.browser.customtabs", "CustomTabsIntent", False, "launchUrl", "(Context,Uri)", "", "Parameter[1]", "remote", "manual"]

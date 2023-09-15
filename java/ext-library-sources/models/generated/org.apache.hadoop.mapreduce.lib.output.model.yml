@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.mapreduce.lib.output", "FileOutputFormat", True, "setOutputPath", "(Job,Path)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.ldap.query", "ConditionCriteria", True, "is", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.ldap.query", "ConditionCriteria", True, "like", "(String)", "", "Parameter[0]", "remote", "manual"]

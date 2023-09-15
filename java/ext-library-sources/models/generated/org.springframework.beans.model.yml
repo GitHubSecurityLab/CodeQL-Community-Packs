@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.beans", "TypeConverter", True, "convertIfNecessary", "(Object,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.beans", "PropertyAccessor", True, "setPropertyValue", "(String,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.beans", "BeanUtils", True, "copyProperties", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.beans", "BeanUtils", True, "copyProperties", "(Object,Object,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.beans", "BeanUtils", True, "copyProperties", "(Object,Object,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.beans", "PropertyAccessor", True, "getPropertyType", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.beans", "PropertyAccessorFactory", True, "forBeanPropertyAccess", "(Object)", "", "Parameter[0]", "remote", "manual"]

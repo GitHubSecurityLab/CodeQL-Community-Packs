@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.wso2.carbon.governance.api.util", "GovernanceUtils", True, "getArtifactPath", "(Registry,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.wso2.carbon.governance.api.util", "GovernanceUtils", True, "findGovernanceArtifacts", "(String,Registry,String,boolean)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,24 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.cloud.dataproc.v1", "UpdateClusterRequest$Builder", False, "setRegion", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "UpdateClusterRequest$Builder", False, "setProjectId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "SubmitJobRequest$Builder", False, "setRegion", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "SubmitJobRequest$Builder", False, "setProjectId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "RegionName", True, "of", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "RegionName", True, "of", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "JobControllerClient", True, "cancelJob", "(String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "JobControllerClient", True, "cancelJob", "(String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "GetClusterRequest$Builder", False, "setRegion", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "GetClusterRequest$Builder", False, "setProjectId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "DeleteClusterRequest$Builder", False, "setRegion", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "DeleteClusterRequest$Builder", False, "setProjectId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "ClusterControllerClient", True, "listClusters", "(String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "ClusterControllerClient", True, "listClusters", "(String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "ClusterControllerClient", True, "createClusterAsync", "(String,String,Cluster)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "ClusterControllerClient", True, "createClusterAsync", "(String,String,Cluster)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "AutoscalingPolicyName", True, "ofProjectLocationAutoscalingPolicyName", "(String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "AutoscalingPolicyName", True, "ofProjectLocationAutoscalingPolicyName", "(String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.cloud.dataproc.v1", "AutoscalingConfig$Builder", False, "setPolicyUri", "(String)", "", "Parameter[0]", "remote", "manual"]

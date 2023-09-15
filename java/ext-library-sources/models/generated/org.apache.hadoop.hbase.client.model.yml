@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.hbase.client", "Scan", True, "setMaxVersions", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.hbase.client", "Get", True, "setMaxVersions", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.hbase.client", "Scan", True, "setStopRow", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.hbase.client", "Scan", True, "setStartRow", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.hbase.client", "Scan", True, "setBatch", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.hbase.client", "Query", True, "setColumnFamilyTimeRange", "(byte[],long,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.hadoop.hbase.client", "Put", True, "addColumn", "(byte[],byte[],long,byte[])", "", "Parameter[3]", "remote", "manual"]
+      - ["org.apache.hadoop.hbase.client", "Put", True, "addColumn", "(byte[],byte[],long,byte[])", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.hadoop.hbase.client", "Put", True, "addColumn", "(byte[],byte[],byte[])", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.hadoop.hbase.client", "MobCompactPartitionPolicy", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.hbase.client", "AsyncTable<?>", True, "incrementColumnValue", "(byte[],byte[],byte[],long)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.apache.hadoop.hbase.client", "AsyncRpcRetryingCallerFactory$SingleRequestCallerBuilder<T>", True, "row", "(byte[])", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.github.dockerjava.api", "DockerClient", True, "waitContainerCmd", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api", "DockerClient", True, "stopContainerCmd", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api", "DockerClient", True, "startContainerCmd", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api", "DockerClient", True, "removeImageCmd", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api", "DockerClient", True, "removeContainerCmd", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api", "DockerClient", True, "pullImageCmd", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api", "DockerClient", True, "inspectImageCmd", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api", "DockerClient", True, "inspectContainerCmd", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.github.dockerjava.api", "DockerClient", True, "createContainerCmd", "(String)", "", "Parameter[0]", "remote", "manual"]

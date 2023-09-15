@@ -1,0 +1,28 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<GroupMemberPO>,SFunction<GroupMemberPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<HealthCheckResultPO>,SFunction<HealthCheckResultPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<ConnectClusterPO>,SFunction<ConnectClusterPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<KafkaUserPO>,SFunction<KafkaUserPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<TopicPO>,SFunction<TopicPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<KafkaAclPO>,SFunction<KafkaAclPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<BrokerPO>,SFunction<BrokerPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<BrokerConfigPO>,SFunction<BrokerConfigPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<ConnectorPO>,SFunction<ConnectorPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<GroupPO>,SFunction<GroupPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<ConnectWorkerPO>,SFunction<ConnectWorkerPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<QueryWrapper<MockRule>,String>", True, "eq", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<JobPO>,SFunction<JobPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<WorkerConnectorPO>,SFunction<WorkerConnectorPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<PartitionPO>,SFunction<PartitionPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<ZookeeperInfoPO>,SFunction<ZookeeperInfoPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<KmNodePO>,SFunction<KmNodePO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<PlatformClusterConfigPO>,SFunction<PlatformClusterConfigPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<QueryWrapper<MockRule>,String>", True, "like", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<KafkaControllerPO>,SFunction<KafkaControllerPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<ClusterPhyPO>,SFunction<ClusterPhyPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<KafkaChangeRecordPO>,SFunction<KafkaChangeRecordPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.baomidou.mybatisplus.core.conditions.interfaces", "Compare<LambdaQueryWrapper<HaActiveStandbyRelationPO>,SFunction<HaActiveStandbyRelationPO,?>>", True, "eq", "(SFunction,Object)", "", "Parameter[1]", "remote", "manual"]

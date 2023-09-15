@@ -1,0 +1,19 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.hibernate", "Hibernate", False, "isInitialized", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate", "Query", True, "setParameter", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.hibernate", "Session", True, "get", "(Class,Serializable)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.hibernate", "Query", True, "setParameter", "(String,Object,Type)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.hibernate", "Filter", True, "setParameter", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.hibernate", "Session", True, "saveOrUpdate", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate", "Session", True, "save", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate", "Session", True, "load", "(Class,Serializable)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.hibernate", "Query", True, "setParameter", "(int,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.hibernate", "NaturalIdLoadAccess", True, "using", "(String,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.hibernate", "LobHelper", True, "createBlob", "(InputStream,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate", "Hibernate", False, "initialize", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate", "Criteria", True, "setMaxResults", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.hibernate", "Criteria", True, "setFirstResult", "(int)", "", "Parameter[0]", "remote", "manual"]

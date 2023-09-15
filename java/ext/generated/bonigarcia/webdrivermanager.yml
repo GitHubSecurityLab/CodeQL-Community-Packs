@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["io.github.bonigarcia.wdm.cache", "ResolutionCache", true, "ResolutionCache", "(Config)", "", "Argument[-1]", "read-file", "generated"]
+      - ["io.github.bonigarcia.wdm.online", "Downloader", true, "download", "(URL,String,String,DriverManagerType)", "", "Argument[1]", "create-file", "generated"]
+      - ["io.github.bonigarcia.wdm.online", "Downloader", true, "download", "(URL,String,String,DriverManagerType)", "", "Argument[1]", "read-file", "generated"]
+      - ["io.github.bonigarcia.wdm.online", "Downloader", true, "download", "(URL,String,String,DriverManagerType)", "", "Argument[2]", "create-file", "generated"]
+      - ["io.github.bonigarcia.wdm.online", "Downloader", true, "download", "(URL,String,String,DriverManagerType)", "", "Argument[2]", "read-file", "generated"]
+      - ["io.github.bonigarcia.wdm.online", "Downloader", true, "renameFile", "(File,File)", "", "Argument[1]", "create-file", "generated"]
+      - ["io.github.bonigarcia.wdm.online", "Downloader", true, "unTarGz", "(File)", "", "Argument[0]", "read-file", "generated"]
+      - ["io.github.bonigarcia.wdm.webdriver", "WebDriverCreator", true, "createRemoteWebDriver", "(String,Capabilities)", "", "Argument[0]", "open-url", "generated"]
+      - ["io.github.bonigarcia.wdm", "WdmServer", true, "exchange", "(String,String,String,int)", "", "Argument[2]", "xss", "generated"]
+      - ["io.github.bonigarcia.wdm", "WebDriverManager", true, "isOnline", "(String)", "", "Argument[0]", "open-url", "generated"]
+      - ["io.github.bonigarcia.wdm", "WebDriverManager", true, "isOnline", "(URL)", "", "Argument[0]", "open-url", "generated"]
+

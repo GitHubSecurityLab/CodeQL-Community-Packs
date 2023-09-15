@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.media", "MediaScannerConnection", True, "scanFile", "(Context,String[],String[],OnScanCompletedListener)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.media", "MediaFormat", False, "setInteger", "(String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.media", "AudioRecord", True, "getMinBufferSize", "(int,int,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.media", "MediaFormat", False, "createAudioFormat", "(String,int,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.media", "RingtoneManager", True, "getRingtone", "(Context,Uri)", "", "Parameter[1]", "remote", "manual"]

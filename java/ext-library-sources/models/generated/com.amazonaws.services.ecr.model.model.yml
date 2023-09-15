@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.amazonaws.services.ecr.model", "ListImagesRequest", True, "withRegistryId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.ecr.model", "ListImagesRequest", True, "withRepositoryName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.ecr.model", "DescribeImagesRequest", True, "withRegistryId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.amazonaws.services.ecr.model", "DescribeImagesRequest", True, "withRepositoryName", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dataease.plugins.xpack.larksuite.service", "LarksuiteXpackService", True, "userInfo", "(String,String,Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.larksuite.service", "LarksuiteXpackService", True, "save", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.larksuite.service", "LarksuiteXpackService", True, "userInfo", "(String,String,Boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.larksuite.service", "LarksuiteXpackService", True, "testConn", "(LarkInfo)", "", "Parameter[0]", "remote", "manual"]

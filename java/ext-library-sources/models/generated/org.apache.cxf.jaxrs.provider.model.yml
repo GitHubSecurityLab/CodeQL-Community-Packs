@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.cxf.jaxrs.provider", "AbstractJAXBProvider<T>", True, "createTransformReaderIfNeeded", "(XMLStreamReader,InputStream)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.cxf.jaxrs.provider", "AbstractCachingMessageProvider<T>", True, "setObject", "(Object)", "", "Parameter[0]", "remote", "manual"]

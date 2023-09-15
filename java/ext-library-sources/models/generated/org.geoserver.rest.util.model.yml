@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.geoserver.rest.util", "RESTUtils", True, "unzipFile", "(Resource,Resource,String,String,List,boolean)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.geoserver.rest.util", "RESTUtils", True, "unzipFile", "(Resource,Resource,String,String,List,boolean)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.geoserver.rest.util", "RESTUtils", True, "handleURLUpload", "(String,String,Resource,HttpServletRequest)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geoserver.rest.util", "RESTUtils", True, "handleBinUpload", "(String,Resource,boolean,HttpServletRequest,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.geoserver.rest.util", "RESTUtils", True, "handleBinUpload", "(String,Resource,boolean,HttpServletRequest)", "", "Parameter[0]", "remote", "manual"]

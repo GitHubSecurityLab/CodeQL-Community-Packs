@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.content.res", "Resources", True, "getIdentifier", "(String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.content.res", "AssetManager", False, "open", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.content.res", "Resources", True, "getString", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.content.res", "Resources", True, "getDrawable", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.content.res", "Resources", True, "obtainTypedArray", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.content.res", "Resources", True, "getXml", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.content.res", "Resources", True, "getStringArray", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.content.res", "Resources", True, "getString", "(int,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["android.content.res", "Resources", True, "getResourceName", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.content.res", "Resources", True, "getInteger", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.content.res", "Resources", True, "getDrawable", "(int,Theme)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.content.res", "Resources", True, "getValue", "(int,TypedValue,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.content.res", "Resources", True, "getColor", "(int)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,22 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<OIdentifiable,OIdentifiable>", False, "removeNoDirty", "(OIdentifiable,OIdentifiable)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<OIdentifiable,OIdentifiable>", False, "add", "(OIdentifiable,OIdentifiable)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<OIdentifiable,OIdentifiable>", False, "addNoDirty", "(OIdentifiable,OIdentifiable)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<OIdentifiable,OIdentifiable>", False, "addNoDirty", "(OIdentifiable,OIdentifiable)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<OIdentifiable,OIdentifiable>", False, "remove", "(OIdentifiable,OIdentifiable)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<T,T>", False, "remove", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<T,T>", False, "add", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<Object,T>", False, "updated", "(Object,Object,Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<Object,T>", False, "updated", "(Object,Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<Object,T>", False, "updated", "(Object,Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<Object,T>", False, "add", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<Object,T>", False, "add", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<OIdentifiable,OIdentifiable>", False, "add", "(OIdentifiable,OIdentifiable)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<Integer,T>", False, "updated", "(Integer,Object,Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<Integer,T>", False, "updated", "(Integer,Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<Integer,T>", False, "remove", "(Integer,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.orientechnologies.orient.core.record.impl", "OSimpleMultiValueTracker<Integer,T>", False, "add", "(Integer,Object)", "", "Parameter[1]", "remote", "manual"]

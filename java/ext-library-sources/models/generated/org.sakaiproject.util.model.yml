@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.sakaiproject.util", "Web", True, "makePath", "(String[],int,int)", "", "Parameter[2]", "remote", "manual"]

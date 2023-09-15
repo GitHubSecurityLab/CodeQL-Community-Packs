@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["graphql.schema", "GraphQLTypeReference", True, "typeRef", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["graphql.schema", "GraphQLArgument$Builder", True, "name", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["graphql.schema", "GraphQLObjectType$Builder", True, "name", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["graphql.schema", "GraphQLInputObjectField$Builder", True, "name", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["graphql.schema", "GraphQLFieldDefinition$Builder", True, "name", "(String)", "", "Parameter[0]", "remote", "manual"]

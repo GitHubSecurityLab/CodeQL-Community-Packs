@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.inlong.manager.service.stream", "InlongStreamProcessService", True, "suspendProcess", "(String,String,String,boolean)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.apache.inlong.manager.service.stream", "InlongStreamProcessService", True, "suspendProcess", "(String,String,String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.inlong.manager.service.stream", "InlongStreamProcessService", True, "suspendProcess", "(String,String,String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.inlong.manager.service.stream", "InlongStreamProcessService", True, "startProcess", "(String,String,String,boolean)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.apache.inlong.manager.service.stream", "InlongStreamProcessService", True, "startProcess", "(String,String,String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.inlong.manager.service.stream", "InlongStreamProcessService", True, "startProcess", "(String,String,String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.inlong.manager.service.stream", "InlongStreamProcessService", True, "restartProcess", "(String,String,String,boolean)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.apache.inlong.manager.service.stream", "InlongStreamProcessService", True, "restartProcess", "(String,String,String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.inlong.manager.service.stream", "InlongStreamProcessService", True, "restartProcess", "(String,String,String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.inlong.manager.service.stream", "InlongStreamProcessService", True, "deleteProcess", "(String,String,String,boolean)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.apache.inlong.manager.service.stream", "InlongStreamProcessService", True, "deleteProcess", "(String,String,String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.inlong.manager.service.stream", "InlongStreamProcessService", True, "deleteProcess", "(String,String,String,boolean)", "", "Parameter[0]", "remote", "manual"]

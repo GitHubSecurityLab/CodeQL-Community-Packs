@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jeecg.common.util", "RestUtil", True, "request", "(String,HttpMethod,HttpHeaders,JSONObject,Object,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jeecg.common.util", "CommonUtils", True, "getFileName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jeecg.common.util", "CommonUtils", True, "upload", "(MultipartFile,String,String)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["feign", "RequestTemplate", False, "header", "(String,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["feign", "Feign$Builder", True, "target", "(Class,String)", "", "Parameter[1]", "remote", "manual"]

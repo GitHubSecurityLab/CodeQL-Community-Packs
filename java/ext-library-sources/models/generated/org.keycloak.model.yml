@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.keycloak", "TokenVerifier<AccessToken>", True, "realmUrl", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak", "TokenVerifier", True, "create", "(String,Class)", "", "Parameter[0]", "remote", "manual"]

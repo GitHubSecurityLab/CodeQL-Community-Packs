@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.locationtech.spatial4j.context", "SpatialContext", True, "makePoint", "(double,double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.locationtech.spatial4j.context", "SpatialContext", True, "makePoint", "(double,double)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.locationtech.spatial4j.context", "SpatialContext", True, "normY", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.locationtech.spatial4j.context", "SpatialContext", True, "normX", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.locationtech.spatial4j.context", "SpatialContext", True, "makeCircle", "(double,double,double)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.locationtech.spatial4j.context", "SpatialContext", True, "makeCircle", "(double,double,double)", "", "Parameter[0]", "remote", "manual"]

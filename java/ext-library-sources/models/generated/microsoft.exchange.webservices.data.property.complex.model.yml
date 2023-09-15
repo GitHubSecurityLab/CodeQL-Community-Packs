@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["microsoft.exchange.webservices.data.property.complex", "AttendeeCollection", False, "add", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["au.com.bytecode.opencsv", "CSVWriter", True, "writeNext", "(String[],boolean)", "", "Parameter[1]", "remote", "manual"]

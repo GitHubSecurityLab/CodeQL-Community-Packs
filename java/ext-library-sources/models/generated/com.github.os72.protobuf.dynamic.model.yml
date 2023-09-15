@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.github.os72.protobuf.dynamic", "DynamicSchema", True, "parseFrom", "(InputStream)", "", "Parameter[0]", "remote", "manual"]

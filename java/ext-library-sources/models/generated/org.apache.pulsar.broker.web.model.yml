@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.pulsar.broker.web", "PulsarWebResource", True, "validateClusterExists", "(String)", "", "Parameter[0]", "remote", "manual"]

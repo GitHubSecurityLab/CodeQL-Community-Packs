@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.atlassian.bamboo.specs.api.builders.repository", "VcsRepository<BitbucketServerRepository,BitbucketServerRepositoryProperties>", True, "name", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.atlassian.bamboo.specs.api.builders.repository", "VcsRepositoryIdentifier", True, "name", "(String)", "", "Parameter[0]", "remote", "manual"]

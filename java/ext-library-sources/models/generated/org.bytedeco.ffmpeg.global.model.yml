@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.bytedeco.ffmpeg.global", "avformat", True, "avformat_open_input", "(AVFormatContext,String,AVInputFormat,AVDictionary)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.cdap.common.http", "HttpRequest", True, "put", "(URL)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.cdap.common.http", "HttpRequest", True, "delete", "(URL)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.cdap.common.http", "HttpRequest", True, "get", "(URL)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.cdap.common.http", "HttpRequest", True, "post", "(URL)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.cdap.common.http", "HttpRequest", True, "builder", "(HttpMethod,URL)", "", "Parameter[1]", "remote", "manual"]

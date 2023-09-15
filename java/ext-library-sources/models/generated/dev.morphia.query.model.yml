@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["dev.morphia.query", "FindOptions", False, "skip", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["dev.morphia.query", "FindOptions", False, "limit", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["dev.morphia.query", "Sort", True, "ascending", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["dev.morphia.query", "Sort", True, "descending", "(String)", "", "Parameter[0]", "remote", "manual"]

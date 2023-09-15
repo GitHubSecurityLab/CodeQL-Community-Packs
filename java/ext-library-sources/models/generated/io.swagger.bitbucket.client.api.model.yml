@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.swagger.bitbucket.client.api", "RepositoriesApi", True, "repositoriesUsernameRepoSlugSrcNodePathGet", "(String,String,String,String,String,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["io.swagger.bitbucket.client.api", "RepositoriesApi", True, "repositoriesUsernameRepoSlugSrcNodePathGet", "(String,String,String,String,String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.swagger.bitbucket.client.api", "RepositoriesApi", True, "repositoriesUsernameRepoSlugGet", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.swagger.bitbucket.client.api", "RepositoriesApi", True, "repositoriesUsernameRepoSlugGet", "(String,String)", "", "Parameter[0]", "remote", "manual"]

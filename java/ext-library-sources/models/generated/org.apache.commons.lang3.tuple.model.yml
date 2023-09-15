@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.lang3.tuple", "Pair", True, "of", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.lang3.tuple", "Pair", True, "of", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.tuple", "ImmutablePair", False, "of", "(Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.tuple", "Triple", True, "of", "(Object,Object,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.lang3.tuple", "ImmutablePair", False, "of", "(Object,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.lang3.tuple", "ImmutableTriple", False, "of", "(Object,Object,Object)", "", "Parameter[0]", "remote", "manual"]

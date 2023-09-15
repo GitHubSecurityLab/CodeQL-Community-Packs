@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.druid.timeline", "VersionedIntervalTimeline<String,Sink>", True, "remove", "(Interval,String,PartitionChunk)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.timeline", "VersionedIntervalTimeline<String,Sink>", True, "remove", "(Interval,String,PartitionChunk)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.druid.timeline", "VersionedIntervalTimeline<String,ReferenceCountingSegment>", True, "remove", "(Interval,String,PartitionChunk)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.druid.timeline", "VersionedIntervalTimeline<String,ReferenceCountingSegment>", True, "remove", "(Interval,String,PartitionChunk)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.druid.timeline", "VersionedIntervalTimeline<String,ReferenceCountingSegment>", True, "add", "(Interval,String,PartitionChunk)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.druid.timeline", "VersionedIntervalTimeline<String,ReferenceCountingSegment>", True, "add", "(Interval,String,PartitionChunk)", "", "Parameter[0]", "remote", "manual"]

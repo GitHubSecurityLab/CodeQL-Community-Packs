@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.api.services.calendar.model", "EventAttendee", False, "setEmail", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.api.services.calendar.model", "EventAttendee", False, "setDisplayName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.api.services.calendar.model", "Event", False, "setSummary", "(String)", "", "Parameter[0]", "remote", "manual"]

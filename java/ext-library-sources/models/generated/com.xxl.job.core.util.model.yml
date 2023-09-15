@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.xxl.job.core.util", "DateUtil", True, "parseDateTime", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.xxl.job.core.util", "GsonTool", True, "fromJson", "(String,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.xxl.job.core.util", "GsonTool", True, "fromJson", "(String,Class,Class)", "", "Parameter[0]", "remote", "manual"]

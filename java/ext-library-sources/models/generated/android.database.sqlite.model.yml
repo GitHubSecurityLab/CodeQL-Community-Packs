@@ -1,0 +1,30 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["android.database.sqlite", "SQLiteDatabase", False, "query", "(String,String[],String,String[],String,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "query", "(String,String[],String,String[],String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "query", "(String,String[],String,String[],String,String,String)", "", "Parameter[6]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "delete", "(String,String,String[])", "", "Parameter[2]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "query", "(String,String[],String,String[],String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "update", "(String,ContentValues,String,String[])", "", "Parameter[3]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "update", "(String,ContentValues,String,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "delete", "(String,String,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "query", "(String,String[],String,String[],String,String,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "query", "(boolean,String,String[],String,String[],String,String,String,String)", "", "Parameter[4]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "execSQL", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "update", "(String,ContentValues,String,String[])", "", "Parameter[2]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "insert", "(String,String,ContentValues)", "", "Parameter[2]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "rawQuery", "(String,String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "rawQuery", "(String,String[])", "", "Parameter[1]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "query", "(boolean,String,String[],String,String[],String,String,String,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "query", "(String,String[],String,String[],String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "query", "(String,String[],String,String[],String,String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "query", "(String,String[],String,String[],String,String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "query", "(String,String[],String,String[],String,String,String,String)", "", "Parameter[7]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "query", "(boolean,String,String[],String,String[],String,String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteProgram", True, "bindString", "(int,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteQueryBuilder", True, "query", "(SQLiteDatabase,String[],String,String[],String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteDatabase", False, "insert", "(String,String,ContentValues)", "", "Parameter[0]", "remote", "manual"]
+      - ["android.database.sqlite", "SQLiteQueryBuilder", True, "query", "(SQLiteDatabase,String[],String,String[],String,String,String)", "", "Parameter[6]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.appcompat.widget", "Toolbar", True, "setTitle", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.appcompat.widget", "SearchView", True, "setQuery", "(CharSequence,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.appcompat.widget", "Toolbar", True, "setSubtitle", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]

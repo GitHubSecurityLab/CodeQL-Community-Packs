@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.jboss.resteasy.util", "Base64", True, "decode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.jboss.resteasy.util", "BasicAuthHelper", True, "parseHeader", "(String)", "", "Parameter[0]", "remote", "manual"]

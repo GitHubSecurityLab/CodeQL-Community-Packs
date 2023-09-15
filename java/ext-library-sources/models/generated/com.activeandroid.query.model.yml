@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.activeandroid.query", "From", False, "where", "(String,Object[])", "", "Parameter[0]", "remote", "manual"]

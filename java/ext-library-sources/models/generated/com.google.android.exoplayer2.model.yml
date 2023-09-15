@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.android.exoplayer2", "MediaItem", False, "fromUri", "(Uri)", "", "Parameter[0]", "remote", "manual"]

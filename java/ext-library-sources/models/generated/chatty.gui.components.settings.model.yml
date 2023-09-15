@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["chatty.gui.components.settings", "ItemColorEditor<MsgColorItem>", True, "setSelected", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["chatty.gui.components.settings", "ItemColorEditor<UsercolorItem>", True, "edit", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["chatty.gui.components.settings", "SimpleTableEditor<>", True, "edit", "(String)", "", "Parameter[0]", "remote", "manual"]

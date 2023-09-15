@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.dspace.app.rest.repository", "DSpaceRestRepository<RestAddressableModel,Integer>", True, "action", "(HttpServletRequest,Integer)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.dspace.app.rest.repository", "DSpaceRestRepository<RestAddressableModel,ID>", True, "put", "(HttpServletRequest,String,String,Serializable,List)", "", "Parameter[4]", "remote", "manual"]
+      - ["org.dspace.app.rest.repository", "DSpaceRestRepository<RestAddressableModel,ID>", True, "put", "(HttpServletRequest,String,String,Serializable,JsonNode)", "", "Parameter[4]", "remote", "manual"]
+      - ["org.dspace.app.rest.repository", "DSpaceRestRepository<RestAddressableModel,ID>", True, "patch", "(HttpServletRequest,String,String,Serializable,Patch)", "", "Parameter[3]", "remote", "manual"]
+      - ["org.dspace.app.rest.repository", "DSpaceRestRepository<RestAddressableModel,ID>", True, "patch", "(HttpServletRequest,String,String,Serializable,Patch)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.dspace.app.rest.repository", "DSpaceRestRepository<RestAddressableModel,ID>", True, "patch", "(HttpServletRequest,String,String,Serializable,Patch)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.dspace.app.rest.repository", "DSpaceRestRepository<RestAddressableModel,ID>", True, "createAndReturn", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.dspace.app.rest.repository", "DSpaceRestRepository<>", True, "upload", "(HttpServletRequest,List)", "", "Parameter[1]", "remote", "manual"]

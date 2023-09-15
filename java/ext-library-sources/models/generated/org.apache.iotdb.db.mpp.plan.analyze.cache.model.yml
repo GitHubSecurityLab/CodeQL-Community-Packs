@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.iotdb.db.mpp.plan.analyze.cache", "StorageGroupCacheResult<?>", True, "addMissedDevice", "(String)", "", "Parameter[0]", "remote", "manual"]

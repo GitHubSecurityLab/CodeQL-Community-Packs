@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["cn.iocoder.yudao.module.infra.dal.dataobject.logger", "ApiErrorLogDO$ApiErrorLogDOBuilder", True, "id", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["cn.iocoder.yudao.module.infra.dal.dataobject.logger", "ApiErrorLogDO$ApiErrorLogDOBuilder", True, "processStatus", "(Integer)", "", "Parameter[0]", "remote", "manual"]

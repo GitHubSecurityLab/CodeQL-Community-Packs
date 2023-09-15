@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.beans.factory", "BeanFactory", True, "getBean", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.beans.factory", "BeanFactory", True, "getBean", "(String,Class)", "", "Parameter[0]", "remote", "manual"]

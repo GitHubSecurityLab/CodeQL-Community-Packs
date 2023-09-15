@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.I0Itec.zkclient", "ZkClient", True, "readData", "(String,boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.I0Itec.zkclient", "ZkClient", True, "writeData", "(String,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.I0Itec.zkclient", "ZkClient", True, "getChildren", "(String)", "", "Parameter[0]", "remote", "manual"]

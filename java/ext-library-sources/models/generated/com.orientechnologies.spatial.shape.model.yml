@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.orientechnologies.spatial.shape", "OComplexShapeBuilder<JtsGeometry>", True, "createLineString", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.orientechnologies.spatial.shape", "OShapeBuilder<>", True, "fromText", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.core.view.animation", "PathInterpolatorCompat", False, "create", "(float,float,float,float)", "", "Parameter[0]", "remote", "manual"]
+      - ["androidx.core.view.animation", "PathInterpolatorCompat", False, "create", "(float,float,float,float)", "", "Parameter[1]", "remote", "manual"]
+      - ["androidx.core.view.animation", "PathInterpolatorCompat", False, "create", "(float,float,float,float)", "", "Parameter[2]", "remote", "manual"]
+      - ["androidx.core.view.animation", "PathInterpolatorCompat", False, "create", "(float,float,float,float)", "", "Parameter[3]", "remote", "manual"]

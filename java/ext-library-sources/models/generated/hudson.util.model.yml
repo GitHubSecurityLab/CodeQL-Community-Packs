@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["hudson.util", "FormValidation", True, "error", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["hudson.util", "HttpResponses", True, "okJSON", "(JSONObject)", "", "Parameter[0]", "remote", "manual"]
+      - ["hudson.util", "CopyOnWriteList<T>", True, "contains", "(Object)", "", "Parameter[0]", "remote", "manual"]

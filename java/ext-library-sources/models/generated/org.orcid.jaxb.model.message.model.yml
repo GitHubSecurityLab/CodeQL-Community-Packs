@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.orcid.jaxb.model.message", "ErrorDesc", True, "setContent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.message", "ScopePathType", False, "fromValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.message", "ScopePathType", False, "getScopesFromSpaceSeparatedString", "(String)", "", "Parameter[0]", "remote", "manual"]

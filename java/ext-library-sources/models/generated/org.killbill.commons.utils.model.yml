@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.killbill.commons.utils", "Preconditions", False, "checkArgument", "(boolean,String,Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.killbill.commons.utils", "Joiner", False, "join", "(Iterable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.killbill.commons.utils", "Preconditions", False, "checkState", "(boolean,Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.killbill.commons.utils", "Strings", False, "nullToEmpty", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.killbill.commons.utils", "Strings", False, "emptyToNull", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.killbill.commons.utils", "Preconditions", False, "checkNotNull", "(Object,String,Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.killbill.commons.utils", "Preconditions", False, "checkState", "(boolean,Object)", "", "Parameter[1]", "remote", "manual"]

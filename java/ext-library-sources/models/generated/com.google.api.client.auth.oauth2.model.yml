@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.api.client.auth.oauth2", "AuthorizationCodeFlow", True, "newTokenRequest", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.api.client.auth.oauth2", "Credential", True, "setAccessToken", "(String)", "", "Parameter[0]", "remote", "manual"]

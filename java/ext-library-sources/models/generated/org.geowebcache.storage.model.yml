@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.geowebcache.storage", "StorageBroker", True, "deleteByGridSetId", "(String,String)", "", "Parameter[0]", "remote", "manual"]

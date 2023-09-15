@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["androidx.work", "Data$Builder", False, "putString", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["androidx.work", "WorkManager", True, "enqueueUniqueWork", "(String,ExistingWorkPolicy,OneTimeWorkRequest)", "", "Parameter[0]", "remote", "manual"]

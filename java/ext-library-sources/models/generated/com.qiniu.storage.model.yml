@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.qiniu.storage", "BucketManager", False, "delete", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.qiniu.storage", "UploadManager", False, "put", "(InputStream,String,String,StringMap,String)", "", "Parameter[4]", "remote", "manual"]
+      - ["com.qiniu.storage", "UploadManager", False, "put", "(InputStream,String,String,StringMap,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.qiniu.storage", "UploadManager", False, "put", "(InputStream,String,String,StringMap,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.qiniu.storage", "BucketManager", False, "stat", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.qiniu.storage", "BucketManager", False, "listFiles", "(String,String,String,int,String)", "", "Parameter[1]", "remote", "manual"]

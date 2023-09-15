@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.opentracing", "Tracer$SpanBuilder", True, "withTag", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.opentracing", "Span", True, "setTag", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.opentracing", "Tracer$SpanBuilder", True, "withTag", "(Tag,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.opentracing", "Span", True, "setTag", "(Tag,Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.opentracing", "Span", True, "log", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.opentracing", "BaseSpan<Span>", True, "setTag", "(String,String)", "", "Parameter[1]", "remote", "manual"]

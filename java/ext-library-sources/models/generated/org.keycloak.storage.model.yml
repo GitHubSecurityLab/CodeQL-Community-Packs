@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.keycloak.storage", "AbstractStorageManager<UserStorageProvider,UserStorageProviderModel>", True, "consumeEnabledStorageProvidersWithTimeout", "(RealmModel,Class,Consumer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.storage", "AbstractStorageManager<UserStorageProvider,UserStorageProviderModel>", True, "mapEnabledStorageProvidersWithTimeout", "(RealmModel,Class,Function)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.storage", "AbstractStorageManager<UserStorageProvider,UserStorageProviderModel>", True, "getEnabledStorageProviders", "(RealmModel,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.storage", "UserStorageProvider$EditMode", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.storage", "AbstractStorageManager<UserStorageProvider,UserStorageProviderModel>", True, "getStorageProviderInstance", "(RealmModel,String,Class)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.keycloak.storage", "AbstractStorageManager<UserStorageProvider,UserStorageProviderModel>", True, "getStorageProviderModel", "(RealmModel,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.keycloak.storage", "CacheableStorageProviderModel$CachePolicy", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

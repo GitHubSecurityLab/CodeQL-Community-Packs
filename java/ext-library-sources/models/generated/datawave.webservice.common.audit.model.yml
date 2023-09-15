@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["datawave.webservice.common.audit", "AuditParameters", True, "validate", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["datawave.webservice.common.audit", "AuditParameters", True, "setSelectors", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["datawave.webservice.common.audit", "AuditParameters", True, "setAuditId", "(String)", "", "Parameter[0]", "remote", "manual"]

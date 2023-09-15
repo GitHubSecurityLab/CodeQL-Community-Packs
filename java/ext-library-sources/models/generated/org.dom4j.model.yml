@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.dom4j", "Document", True, "addProcessingInstruction", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.dom4j", "Element", True, "element", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.dom4j", "Element", True, "addText", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.dom4j", "Element", True, "addAttribute", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.dom4j", "DocumentHelper", False, "parseText", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.dom4j", "Element", True, "addComment", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.dom4j", "Element", True, "addCDATA", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.dom4j", "DocumentFactory", True, "createQName", "(String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.dom4j", "DocumentFactory", True, "createQName", "(String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.dom4j", "DocumentFactory", True, "createQName", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.dom4j", "DocumentFactory", True, "createQName", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.dom4j", "DocumentFactory", True, "createElement", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.dom4j", "Document", True, "addProcessingInstruction", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.dom4j", "Document", True, "addComment", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.dom4j", "Node", True, "createXPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.dom4j", "Node", True, "selectSingleNode", "(String)", "", "Parameter[0]", "remote", "manual"]

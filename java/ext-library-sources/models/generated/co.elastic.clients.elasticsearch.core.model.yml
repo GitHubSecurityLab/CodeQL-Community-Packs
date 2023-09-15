@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["co.elastic.clients.elasticsearch.core", "GetRequest$Builder", True, "id", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["co.elastic.clients.elasticsearch.core", "IndexRequest$Builder<Fruit>", True, "id", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["co.elastic.clients.elasticsearch.core", "IndexRequest$Builder<Fruit>", True, "document", "(Fruit)", "", "Parameter[0]", "remote", "manual"]

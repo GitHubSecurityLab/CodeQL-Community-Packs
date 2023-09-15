@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.commons.math3.distribution", "RealDistribution", True, "cumulativeProbability", "(double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.distribution", "IntegerDistribution", True, "cumulativeProbability", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.distribution", "MultivariateRealDistribution", True, "density", "(double[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.distribution", "IntegerDistribution", True, "sample", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.distribution", "IntegerDistribution", True, "probability", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.distribution", "AbstractRealDistribution", True, "probability", "(double,double)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.commons.math3.distribution", "AbstractRealDistribution", True, "probability", "(double,double)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.commons.math3.distribution", "RealDistribution", True, "sample", "(int)", "", "Parameter[0]", "remote", "manual"]

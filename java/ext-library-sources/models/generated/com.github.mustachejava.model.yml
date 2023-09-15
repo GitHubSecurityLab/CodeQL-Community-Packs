@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.github.mustachejava", "Mustache", True, "execute", "(Writer,Object)", "", "Parameter[1]", "remote", "manual"]

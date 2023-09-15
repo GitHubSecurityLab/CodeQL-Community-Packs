@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.api.java.source", "CodeStyle$WrapStyle", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.api.java.source", "CodeStyle$BracePlacement", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.api.java.source", "CodeStyle$BracesGenerationStyle", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.api.java.source", "CodeStyle$InsertionPoint", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

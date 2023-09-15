@@ -1,0 +1,26 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.solr.client.solrj", "SolrQuery", True, "setQuery", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrRequest<QueryResponse>", True, "process", "(SolrClient,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrQuery", True, "setRows", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrQuery", True, "setStart", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrRequest<QueryResponse>", True, "process", "(SolrClient,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrRequest<QueryResponse>", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrRequest<UpdateResponse>", True, "process", "(SolrClient,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrRequest<UpdateResponse>", True, "process", "(SolrClient,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrRequest<UpdateResponse>", True, "setBasicAuthCredentials", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrRequest<UpdateResponse>", True, "setBasicAuthCredentials", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrRequest<?>", True, "setBasePath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrRequest<UpdateResponse>", True, "setBasePath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrQuery", True, "setFacetPrefix", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrQuery", True, "addFilterQuery", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrQuery", True, "setFields", "(String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrQuery", True, "setRequestHandler", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrRequest<UpdateResponse>", True, "setResponseParser", "(ResponseParser)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrRequest<UpdateResponse>", True, "setPath", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrRequest<QueryResponse>", True, "setBasicAuthCredentials", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrRequest<QueryResponse>", True, "setBasicAuthCredentials", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj", "SolrRequest<SimpleSolrResponse>", True, "setBasePath", "(String)", "", "Parameter[0]", "remote", "manual"]

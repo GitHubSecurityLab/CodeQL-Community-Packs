@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.gwt.user.server", "Base64Utils", True, "fromBase64", "(String)", "", "Parameter[0]", "remote", "manual"]

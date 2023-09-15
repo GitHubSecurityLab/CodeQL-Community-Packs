@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gdcc.xoai.dataprovider.request", "RequestBuilder", False, "buildRawRequest", "(Map)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.deegree.services.wpvs.config", "Dataset<TextureManager>", True, "getMatchingDatasourceObjects", "(Collection,ViewParams)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.deegree.services.wpvs.config", "Dataset<RenderableManager<?>>", True, "getMatchingDatasourceObjects", "(Collection,ViewParams)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.deegree.services.wpvs.config", "Dataset<Colormap>", True, "getMatchingDatasourceObjects", "(Collection,ViewParams)", "", "Parameter[0]", "remote", "manual"]

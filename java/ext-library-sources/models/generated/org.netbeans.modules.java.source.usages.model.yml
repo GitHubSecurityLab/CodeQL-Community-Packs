@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.java.source.usages", "UsagesData<String>", False, "addUsage", "(String,UsageType)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.java.source.usages", "UsagesData<String>", False, "addFeatureIdent", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.java.source.usages", "LongHashMap<File>", True, "put", "(File,long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.java.source.usages", "LongHashMap<? extends File>", True, "get", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.java.source.usages", "LongHashMap<? extends File>", True, "containsKey", "(Object)", "", "Parameter[0]", "remote", "manual"]

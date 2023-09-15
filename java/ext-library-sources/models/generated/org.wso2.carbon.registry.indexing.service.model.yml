@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.wso2.carbon.registry.indexing.service", "ContentBasedSearchService", True, "searchByAttribute", "(Map,UserRegistry)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.metersphere.api.dto.automation", "TestPlanScenarioRequest", True, "setPlanId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.api.dto.automation", "ApiScenarioRequest", True, "setId", "(String)", "", "Parameter[0]", "remote", "manual"]

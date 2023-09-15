@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.glassfish.jersey.message.internal", "HttpHeaderReader", True, "readMatchingEntityTag", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.glassfish.jersey.message.internal", "ReaderInterceptorExecutor", False, "closeableInputStream", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.glassfish.jersey.message.internal", "InboundMessageContext", True, "setEntityStream", "(InputStream)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.glassfish.jersey.message.internal", "InboundMessageContext", True, "headers", "(String,Object[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.glassfish.jersey.message.internal", "HttpHeaderReader", True, "newInstance", "(String)", "", "Parameter[0]", "remote", "manual"]

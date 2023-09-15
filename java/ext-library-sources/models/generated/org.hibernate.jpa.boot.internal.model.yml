@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.hibernate.jpa.boot.internal", "PersistenceXmlParser", True, "parsePersistenceXml", "(URL,Map)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dataease.plugins.xpack.user.service", "UserXpackService", True, "upload", "(MultipartFile,HttpServletResponse)", "", "Parameter[0]", "remote", "manual"]

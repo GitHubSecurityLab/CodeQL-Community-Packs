@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.xxl.job.core.glue", "GlueTypeEnum", False, "match", "(String)", "", "Parameter[0]", "remote", "manual"]

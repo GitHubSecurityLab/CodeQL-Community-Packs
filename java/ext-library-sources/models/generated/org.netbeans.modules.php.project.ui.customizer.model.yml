@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.php.project.ui.customizer", "PhpProjectProperties$UploadFiles", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.php.project.ui.customizer", "PhpProjectProperties$RunAsType", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.php.project.ui.customizer", "PhpProjectProperties$DebugUrl", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

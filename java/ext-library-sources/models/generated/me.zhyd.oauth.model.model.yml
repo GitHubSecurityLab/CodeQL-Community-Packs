@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["me.zhyd.oauth.model", "AuthCallback", True, "setState", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["me.zhyd.oauth.model", "AuthCallback", True, "setOauth_verifier", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["me.zhyd.oauth.model", "AuthCallback", True, "setOauth_token", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["me.zhyd.oauth.model", "AuthCallback", True, "setCode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["me.zhyd.oauth.model", "AuthCallback", True, "setAuthorization_code", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["me.zhyd.oauth.model", "AuthCallback", True, "setAuth_code", "(String)", "", "Parameter[0]", "remote", "manual"]

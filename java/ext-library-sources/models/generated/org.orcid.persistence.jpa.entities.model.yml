@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.orcid.persistence.jpa.entities", "SourceAwareEntity<Long>", True, "setSourceId", "(String)", "", "Parameter[0]", "remote", "manual"]

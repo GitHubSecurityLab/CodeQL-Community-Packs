@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opensaml.saml2.core", "NameIDType", True, "setValue", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.opensaml.saml2.core", "SubjectConfirmationData", True, "setAddress", "(String)", "", "Parameter[0]", "remote", "manual"]

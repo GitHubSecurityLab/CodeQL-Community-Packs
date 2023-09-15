@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["alluxio.underfs", "ObjectUnderFileSystem$OperationBuffer<String>", True, "add", "(String)", "", "Parameter[0]", "remote", "manual"]

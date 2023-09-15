@@ -1,0 +1,33 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "put", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "put", "(String,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ArrayNode", True, "add", "(JsonNode)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ArrayNode", True, "add", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "set", "(String,JsonNode)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "put", "(String,Double)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "put", "(String,Float)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "put", "(String,Integer)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "put", "(String,Long)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "set", "(String,JsonNode)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "put", "(String,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "put", "(String,boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "put", "(String,Short)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "put", "(String,JsonNode)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "put", "(String,Boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "put", "(String,BigDecimal)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ArrayNode", True, "set", "(int,JsonNode)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "put", "(String,short)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "put", "(String,byte[])", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ObjectNode", True, "put", "(String,BigInteger)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "BooleanNode", True, "valueOf", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ArrayNode", True, "add", "(short)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ArrayNode", True, "add", "(Short)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ArrayNode", True, "add", "(Long)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ArrayNode", True, "add", "(Integer)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ArrayNode", True, "add", "(Float)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ArrayNode", True, "add", "(Double)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.fasterxml.jackson.databind.node", "ArrayNode", True, "add", "(Boolean)", "", "Parameter[0]", "remote", "manual"]

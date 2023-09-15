@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.accumulo.core.client", "IteratorSetting", True, "addOption", "(String,String)", "", "Parameter[1]", "remote", "manual"]

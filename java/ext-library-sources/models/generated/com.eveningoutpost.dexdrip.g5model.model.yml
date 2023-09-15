@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.eveningoutpost.dexdrip.g5model", "G6CalibrationParameters", True, "setCurrentSensorCode", "(String)", "", "Parameter[0]", "remote", "manual"]

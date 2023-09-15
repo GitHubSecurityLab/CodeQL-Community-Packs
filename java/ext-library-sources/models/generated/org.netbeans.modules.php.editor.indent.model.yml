@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.netbeans.modules.php.editor.indent", "CodeStyle$WrapStyle", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.netbeans.modules.php.editor.indent", "CodeStyle$BracePlacement", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]

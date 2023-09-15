@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.vertx.core.http", "HttpClientRequest", True, "putHeader", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.vertx.core.http", "RequestOptions", True, "putHeader", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.vertx.core.http", "HttpClientRequest", True, "end", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core.http", "RequestOptions", True, "setTimeout", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core.http", "RequestOptions", True, "setAbsoluteURI", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core.http", "RequestOptions", True, "putHeader", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core.http", "HttpServerResponse", True, "putHeader", "(CharSequence,CharSequence)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.vertx.core.http", "HttpServerResponse", True, "putHeader", "(CharSequence,CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core.http", "HttpServerResponse", True, "end", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core.http", "HttpServerRequest", True, "getHeader", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core.http", "HttpMethod", True, "valueOf", "(Object,String)", "", "Parameter[0]", "remote", "manual"]

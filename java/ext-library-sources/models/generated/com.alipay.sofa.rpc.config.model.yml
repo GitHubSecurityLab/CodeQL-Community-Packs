@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.alipay.sofa.rpc.config", "AbstractInterfaceConfig<GenericService,ConsumerConfig<GenericService>>", True, "setInterfaceId", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.vertx.core.buffer", "Buffer", True, "buffer", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core.buffer", "Buffer", True, "appendBuffer", "(Buffer)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core.buffer", "Buffer", True, "buffer", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core.buffer", "Buffer", True, "buffer", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core.buffer", "Buffer", True, "appendBytes", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core.buffer", "Buffer", True, "buffer", "(String,String)", "", "Parameter[0]", "remote", "manual"]

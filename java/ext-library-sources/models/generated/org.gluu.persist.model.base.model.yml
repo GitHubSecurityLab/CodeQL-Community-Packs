@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.gluu.persist.model.base", "CustomObjectAttribute", True, "setValue", "(Object)", "", "Parameter[0]", "remote", "manual"]

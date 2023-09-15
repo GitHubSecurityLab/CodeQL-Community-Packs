@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.bouncycastle.util.encoders", "Hex", True, "decode", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.bouncycastle.util.encoders", "Base64", True, "decode", "(String)", "", "Parameter[0]", "remote", "manual"]

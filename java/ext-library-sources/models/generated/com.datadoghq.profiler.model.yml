@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.datadoghq.profiler", "ContextSetter", True, "encode", "(String)", "", "Parameter[0]", "remote", "manual"]

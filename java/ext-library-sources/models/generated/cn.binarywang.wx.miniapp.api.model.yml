@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["cn.binarywang.wx.miniapp.api", "WxMaService", True, "checkSignature", "(String,String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["cn.binarywang.wx.miniapp.api", "WxMaService", True, "checkSignature", "(String,String,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["cn.binarywang.wx.miniapp.api", "WxMaUserService", True, "getSessionInfo", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["cn.binarywang.wx.miniapp.api", "WxMaService", True, "checkSignature", "(String,String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["cn.binarywang.wx.miniapp.api", "WxMaQrcodeService", True, "createWxaCodeUnlimit", "(String,String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.maven.plugin.logging", "Log", True, "warn", "(CharSequence,Throwable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.maven.plugin.logging", "Log", True, "debug", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.maven.plugin.logging", "Log", True, "info", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.maven.plugin.logging", "Log", True, "warn", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.maven.plugin.logging", "Log", True, "info", "(CharSequence,Throwable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.maven.plugin.logging", "Log", True, "error", "(CharSequence,Throwable)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.maven.plugin.logging", "Log", True, "error", "(CharSequence)", "", "Parameter[0]", "remote", "manual"]

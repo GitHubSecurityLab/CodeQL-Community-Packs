@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.cloud.gateway.route", "RouteDefinition", True, "setId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.gateway.route", "RouteDefinition", True, "setMetadata", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.gateway.route", "RouteDefinition", True, "setOrder", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.cloud.gateway.route", "RouteDefinition", True, "setUri", "(URI)", "", "Parameter[0]", "remote", "manual"]

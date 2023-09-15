@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.opentripplanner.ext.vectortiles", "LayerBuilder<>", True, "build", "(Envelope,LayerParameters)", "", "Parameter[1]", "remote", "manual"]

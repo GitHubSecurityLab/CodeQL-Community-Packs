@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.metersphere.controller.request.group", "EditGroupRequest", True, "setGoPage", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.controller.request.group", "EditGroupRequest", True, "setPageSize", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.controller.request.group", "EditGroupRequest", True, "setScopes", "(List)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.metersphere.controller.request.group", "EditGroupRequest", True, "setProjectId", "(String)", "", "Parameter[0]", "remote", "manual"]

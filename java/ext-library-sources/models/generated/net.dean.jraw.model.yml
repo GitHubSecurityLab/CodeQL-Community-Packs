@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["net.dean.jraw", "RedditClient", True, "getSubreddit", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.dean.jraw", "RedditClient", True, "getUser", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["net.dean.jraw", "RedditClient", True, "getSubmission", "(String)", "", "Parameter[0]", "remote", "manual"]

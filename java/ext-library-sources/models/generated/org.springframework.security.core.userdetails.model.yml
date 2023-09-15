@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.core.userdetails", "UserDetailsService", True, "loadUserByUsername", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.security.core.userdetails", "UserCache", True, "removeUserFromCache", "(String)", "", "Parameter[0]", "remote", "manual"]

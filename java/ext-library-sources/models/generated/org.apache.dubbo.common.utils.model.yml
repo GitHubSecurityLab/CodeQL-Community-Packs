@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.dubbo.common.utils", "StringUtils", False, "isNotEmpty", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.dubbo.common.utils", "StringUtils", False, "toQueryString", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.dubbo.common.utils", "StringUtils", False, "parseQueryString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.dubbo.common.utils", "StringUtils", False, "isEmpty", "(String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.lucene.spatial.prefix", "HeatmapFacetCounter", True, "calcFacets", "(PrefixTreeStrategy,IndexReaderContext,Bits,Shape,int,int)", "", "Parameter[2]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.dataease.plugins.xpack.display.service", "DisplayXpackService", True, "save", "(Map,List)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.dataease.plugins.xpack.display.service", "DisplayXpackService", True, "save", "(Map,List)", "", "Parameter[0]", "remote", "manual"]

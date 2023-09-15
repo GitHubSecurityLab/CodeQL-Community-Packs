@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.novell.ldapchai.provider", "ChaiProvider", True, "createEntry", "(String,Set,Map)", "", "Parameter[2]", "remote", "manual"]

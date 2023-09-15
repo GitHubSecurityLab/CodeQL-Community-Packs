@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.netflix.spectator.api", "Registry", True, "createId", "(String,Map)", "", "Parameter[1]", "remote", "manual"]

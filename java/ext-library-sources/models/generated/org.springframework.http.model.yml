@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.http", "HttpHeaders", True, "setLocation", "(URI)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.http", "MediaType", True, "parseMediaTypes", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.http", "ContentDisposition", False, "parse", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.http", "HttpHeaders", True, "setBearerAuth", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.http", "MediaType", True, "isCompatibleWith", "(MediaType)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.http", "MediaType", True, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.http", "MediaType", True, "parseMediaType", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.http", "ResponseCookie", False, "from", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.http", "ResponseCookie", False, "from", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.springframework.http", "HttpMethod", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.http", "ContentDisposition$Builder", True, "filename", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.http", "HttpHeaders", True, "setContentLength", "(long)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.infinispan.client.hotrod", "RemoteCacheManagerAdmin", True, "reindexCache", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.infinispan.client.hotrod", "RemoteCache<String,byte[]>", True, "getWithMetadata", "(String)", "", "Parameter[0]", "remote", "manual"]

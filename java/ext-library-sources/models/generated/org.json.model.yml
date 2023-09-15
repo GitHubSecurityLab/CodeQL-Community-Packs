@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.json", "JSONObject", True, "getString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.json", "JSONObject", True, "optString", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.json", "JSONObject", True, "getJSONObject", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.json", "JSONObject", True, "get", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.json", "JSONObject", True, "optJSONArray", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.json", "JSONObject", True, "getBoolean", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.json", "JSONObject", True, "similar", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.json", "JSONObject", True, "remove", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.json", "JSONObject", True, "optLong", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.json", "JSONObject", True, "getLong", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.json", "JSONObject", True, "getJSONArray", "(String)", "", "Parameter[0]", "remote", "manual"]

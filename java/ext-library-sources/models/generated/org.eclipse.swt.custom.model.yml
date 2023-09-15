@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.eclipse.swt.custom", "StyledText", True, "append", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.eclipse.swt.custom", "CLabel", True, "setText", "(String)", "", "Parameter[0]", "remote", "manual"]

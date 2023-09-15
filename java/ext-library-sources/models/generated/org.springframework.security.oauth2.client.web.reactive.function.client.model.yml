@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.security.oauth2.client.web.reactive.function.client", "ServletOAuth2AuthorizedClientExchangeFilterFunction", False, "oauth2AuthorizedClient", "(OAuth2AuthorizedClient)", "", "Parameter[0]", "remote", "manual"]

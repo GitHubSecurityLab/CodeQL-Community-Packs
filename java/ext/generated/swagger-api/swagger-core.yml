@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["io.swagger.v3.oas.integration.api", "OpenApiConfigurationLoader", true, "exists", "(String)", "", "Argument[0]", "read-file", "generated"]
+      - ["io.swagger.v3.oas.integration.api", "OpenApiConfigurationLoader", true, "load", "(String)", "", "Argument[0]", "read-file", "generated"]
+
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sourceModel
+    data:
+      - ["io.swagger.v3.jaxrs2.util", "ServletUtils", true, "getCookies", "(Cookie[])", "", "ReturnValue", "remote", "generated"]
+

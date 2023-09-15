@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.logging.log4j.spi", "ExtendedLogger", True, "logIfEnabled", "(String,Level,Marker,String,Object[])", "", "Parameter[4]", "remote", "manual"]
+      - ["org.apache.logging.log4j.spi", "ExtendedLogger", True, "logIfEnabled", "(String,Level,Marker,String,Object,Object)", "", "Parameter[5]", "remote", "manual"]
+      - ["org.apache.logging.log4j.spi", "ExtendedLogger", True, "logIfEnabled", "(String,Level,Marker,String,Object,Object)", "", "Parameter[4]", "remote", "manual"]
+      - ["org.apache.logging.log4j.spi", "ExtendedLogger", True, "logIfEnabled", "(String,Level,Marker,String,Object)", "", "Parameter[4]", "remote", "manual"]

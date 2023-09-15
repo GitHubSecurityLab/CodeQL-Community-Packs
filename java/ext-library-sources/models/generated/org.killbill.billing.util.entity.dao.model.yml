@@ -1,0 +1,31 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<PaymentMethodModelDao,PaymentMethod>", True, "search", "(String,String,Long,Long,String,InternalTenantContext)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<PaymentMethodModelDao,PaymentMethod>", True, "getSearchCount", "(String,String,InternalTenantContext)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<M,E>", True, "getByAccountRecordIdWithPaginationEnabled", "(Long,Long,InternalTenantContext)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<M,E>", True, "get", "(Long,Long,String,String,InternalTenantContext)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<InvoiceModelDao,Invoice>", True, "search", "(String,String,Long,Long,String,InternalTenantContext)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<InvoiceModelDao,Invoice>", True, "search", "(String,String,Long,Long,String,InternalTenantContext)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<InvoiceModelDao,Invoice>", True, "getSearchCount", "(String,String,InternalTenantContext)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<InvoiceModelDao,Invoice>", True, "getByRecordId", "(Long,InternalTenantContext)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<CustomFieldModelDao,CustomField>", True, "search", "(String,String,Long,Long,String,InternalTenantContext)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<CustomFieldModelDao,CustomField>", True, "search", "(String,String,Long,Long,String,InternalTenantContext)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<CustomFieldModelDao,CustomField>", True, "getSearchCount", "(String,String,InternalTenantContext)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<AccountModelDao,Account>", True, "search", "(String,String,Long,Long,String,InternalTenantContext)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<AccountModelDao,Account>", True, "search", "(String,String,Long,Long,String,InternalTenantContext)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<AccountModelDao,Account>", True, "getSearchCount", "(String,String,InternalTenantContext)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<PaymentMethodModelDao,PaymentMethod>", True, "search", "(String,String,Long,Long,String,InternalTenantContext)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<PaymentModelDao,Payment>", True, "getSearchCount", "(String,String,InternalTenantContext)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<TagModelDao,Tag>", True, "search", "(String,String,Long,Long,String,InternalTenantContext)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<TagModelDao,Tag>", True, "search", "(String,String,Long,Long,String,InternalTenantContext)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<TagModelDao,Tag>", True, "getSearchCount", "(String,String,InternalTenantContext)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<SubscriptionBundleModelDao,SubscriptionBaseBundle>", True, "search", "(String,String,Long,Long,String,InternalTenantContext)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<SubscriptionBundleModelDao,SubscriptionBaseBundle>", True, "search", "(String,String,Long,Long,String,InternalTenantContext)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<SubscriptionBundleModelDao,SubscriptionBaseBundle>", True, "getSearchCount", "(String,String,InternalTenantContext)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<PaymentModelDao,Payment>", True, "search", "(String,String,Long,Long,String,InternalTenantContext)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<PaymentModelDao,Payment>", True, "search", "(String,String,Long,Long,String,InternalTenantContext)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<PaymentModelDao,Payment>", True, "search", "(String,String,Long,Long,String,InternalTenantContext)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.killbill.billing.util.entity.dao", "EntitySqlDao<PaymentModelDao,Payment>", True, "getSearchCount", "(String,String,InternalTenantContext)", "", "Parameter[1]", "remote", "manual"]

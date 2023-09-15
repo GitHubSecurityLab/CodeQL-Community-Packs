@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.mitchellbosecke.pebble.template", "PebbleTemplate", True, "evaluate", "(Writer,Map,Locale)", "", "Parameter[1]", "remote", "manual"]

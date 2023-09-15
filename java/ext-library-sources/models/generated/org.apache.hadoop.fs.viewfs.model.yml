@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.hadoop.fs.viewfs", "ViewFileSystem$RenameStrategy", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.fs.viewfs", "InodeTree<>", True, "buildResolveResultForRegexMountPoint", "(ResultKind,String,String,Path)", "", "Parameter[2]", "remote", "manual"]
+      - ["org.apache.hadoop.fs.viewfs", "InodeTree$INodeDir<T>", True, "addLink", "(String,INodeLink)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.hadoop.fs.viewfs", "InodeTree$INodeDir<T>", True, "addDirLink", "(String,INodeDirLink)", "", "Parameter[0]", "remote", "manual"]

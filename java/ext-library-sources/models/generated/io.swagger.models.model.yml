@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.swagger.models", "Swagger", True, "setHost", "(String)", "", "Parameter[0]", "remote", "manual"]

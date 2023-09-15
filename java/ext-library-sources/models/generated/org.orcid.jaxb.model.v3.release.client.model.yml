@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.orcid.jaxb.model.v3.release.client", "Client", True, "setAuthenticationProviderId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.client", "Client", True, "setAllowAutoDeprecate", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.client", "Client", True, "setDescription", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.client", "Client", True, "setGroupProfileId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.client", "Client", True, "setId", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.client", "Client", True, "setName", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.client", "Client", True, "setOboEnabled", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.client", "Client", True, "setPersistentTokensEnabled", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.client", "Client", True, "setUserOBOEnabled", "(boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.client", "Client", True, "setWebsite", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.client", "ClientRedirectUri", True, "setRedirectUri", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.client", "ClientRedirectUri", True, "setRedirectUriType", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.client", "ClientRedirectUri", True, "setStatus", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.client", "ClientRedirectUri", True, "setUriActType", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.orcid.jaxb.model.v3.release.client", "ClientRedirectUri", True, "setUriGeoArea", "(String)", "", "Parameter[0]", "remote", "manual"]

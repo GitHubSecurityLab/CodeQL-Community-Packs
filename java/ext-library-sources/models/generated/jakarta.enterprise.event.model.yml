@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["jakarta.enterprise.event", "Event<Member>", True, "fire", "(Member)", "", "Parameter[0]", "remote", "manual"]

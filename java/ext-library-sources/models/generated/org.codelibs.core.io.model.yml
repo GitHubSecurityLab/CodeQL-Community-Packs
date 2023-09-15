@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.codelibs.core.io", "CopyUtil", True, "copy", "(InputStream,OutputStream)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["software.amazon.awssdk.enhanced.dynamodb", "Key$Builder", False, "partitionValue", "(String)", "", "Parameter[0]", "remote", "manual"]

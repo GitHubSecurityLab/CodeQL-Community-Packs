@@ -1,0 +1,49 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sinkModel
+    data:
+      - ["org.apache.pulsar.client.admin.internal", "PulsarAdminImpl", true, "PulsarAdminImpl", "(URL,String,Map)", "", "Argument[2]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.admin.internal", "PulsarAdminImpl", true, "PulsarAdminImpl", "(URL,String,String)", "", "Argument[2]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.admin", "PulsarAdminBuilder", true, "authentication", "(String,Map)", "", "Argument[1]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.admin", "PulsarAdminBuilder", true, "authentication", "(String,String)", "", "Argument[1]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.api.url", "URL", true, "openConnection", "()", "", "Argument[this]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.api", "Authentication", true, "configure", "(Map)", "", "Argument[0]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.api", "AuthenticationFactory", false, "create", "(String,Map)", "", "Argument[1]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.api", "AuthenticationFactory", false, "create", "(String,String)", "", "Argument[1]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.api", "ClientBuilder", true, "authentication", "(String,Map)", "", "Argument[1]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.api", "ClientBuilder", true, "authentication", "(String,String)", "", "Argument[1]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.api", "ClientConfiguration", true, "setAuthentication", "(String,Map)", "", "Argument[1]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.api", "ClientConfiguration", true, "setAuthentication", "(String,String)", "", "Argument[1]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.api", "CryptoKeyReader", true, "getPrivateKey", "(String,Map)", "", "Argument[this]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.api", "CryptoKeyReader", true, "getPublicKey", "(String,Map)", "", "Argument[this]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.api", "EncodedAuthenticationParameterSupport", true, "configure", "(String)", "", "Argument[0]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.impl.auth.oauth2.protocol", "MetadataResolver", true, "resolve", "()", "", "Argument[this]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.impl", "AuthenticationUtil", true, "create", "(String,Map)", "", "Argument[1]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.impl", "AuthenticationUtil", true, "create", "(String,String)", "", "Argument[1]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.internal", "PulsarClientImplementationBinding", true, "createAuthentication", "(String,Map)", "", "Argument[1]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.client.internal", "PulsarClientImplementationBinding", true, "createAuthentication", "(String,String)", "", "Argument[1]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.common.configuration", "PulsarConfigurationLoader", true, "create", "(String,Class)", "", "Argument[0]", "read-file", "df-generated"]
+      - ["org.apache.pulsar.functions.instance", "JavaInstanceMain", true, "loadJar", "(ClassLoader,File[])", "", "Argument[1]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.functions.utils.functioncache", "FunctionClassLoaders", true, "create", "(URL[],ClassLoader)", "", "Argument[0]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.io.file.utils", "GZipFiles", true, "isGzip", "(File)", "", "Argument[0]", "read-file", "df-generated"]
+      - ["org.apache.pulsar.io.file.utils", "GZipFiles", true, "lines", "(Path)", "", "Argument[0]", "read-file", "df-generated"]
+      - ["org.apache.pulsar.io.file.utils", "ZipFiles", true, "isZip", "(File)", "", "Argument[0]", "read-file", "df-generated"]
+      - ["org.apache.pulsar.io.file.utils", "ZipFiles", true, "lines", "(Path)", "", "Argument[0]", "read-file", "df-generated"]
+      - ["org.apache.pulsar.io.flume.node", "AbstractConfigurationProvider", true, "getFlumeConfiguration", "()", "", "Argument[this]", "read-file", "df-generated"]
+      - ["org.apache.pulsar.testclient", "LoadSimulationController", true, "LoadSimulationController", "(MainArguments)", "", "Argument[this]", "open-url", "df-generated"]
+      - ["org.apache.pulsar.zookeeper", "LocalBookkeeperEnsemble", true, "waitForServerUp", "(String,long)", "", "Argument[0]", "open-url", "df-generated"]
+
+  - addsTo:
+      pack: codeql/java-queries
+      extensible: sourceModel
+    data:
+      - ["org.apache.pulsar.broker.authentication", "AuthenticationDataSource", true, "getHttpHeader", "(String)", "", "ReturnValue", "remote", "df-generated"]
+      - ["org.apache.pulsar.broker.authentication", "AuthenticationProviderToken", true, "getToken", "(AuthenticationDataSource)", "", "ReturnValue", "remote", "df-generated"]
+      - ["org.apache.pulsar.broker.authentication", "AuthenticationService", true, "authenticateHttpRequest", "(HttpServletRequest)", "", "ReturnValue", "remote", "df-generated"]
+      - ["org.apache.pulsar.broker.authentication", "AuthenticationService", true, "authenticateHttpRequest", "(HttpServletRequest,AuthenticationDataSource)", "", "ReturnValue", "remote", "df-generated"]
+      - ["org.apache.pulsar.broker.web", "PulsarWebResource", true, "originalPrincipal", "()", "", "ReturnValue", "remote", "df-generated"]
+      - ["org.apache.pulsar.client.impl.auth.oauth2.protocol", "MetadataResolver", true, "resolve", "()", "", "ReturnValue", "remote", "df-generated"]
+      - ["org.apache.pulsar.websocket.admin", "WebSocketWebResource", true, "clientAppId", "()", "", "ReturnValue", "remote", "df-generated"]
+      - ["org.apache.pulsar.websocket", "ConsumerHandler", true, "extractSubscription", "(HttpServletRequest)", "", "ReturnValue", "remote", "df-generated"]
+

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.hazelcast.map", "IMap<K,Cache>", True, "unlock", "(Object)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.swagger.v3.jaxrs2.integration.resources", "BaseOpenApiResource", True, "getOpenApi", "(HttpHeaders,ServletConfig,Application,UriInfo,String)", "", "Parameter[4]", "remote", "manual"]
+      - ["io.swagger.v3.jaxrs2.integration.resources", "BaseOpenApiResource", True, "getOpenApi", "(HttpHeaders,ServletConfig,Application,UriInfo,String)", "", "Parameter[3]", "remote", "manual"]
+      - ["io.swagger.v3.jaxrs2.integration.resources", "BaseOpenApiResource", True, "getOpenApi", "(HttpHeaders,ServletConfig,Application,UriInfo,String)", "", "Parameter[2]", "remote", "manual"]
+      - ["io.swagger.v3.jaxrs2.integration.resources", "BaseOpenApiResource", True, "getOpenApi", "(HttpHeaders,ServletConfig,Application,UriInfo,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.swagger.v3.jaxrs2.integration.resources", "BaseOpenApiResource", True, "getOpenApi", "(HttpHeaders,ServletConfig,Application,UriInfo,String)", "", "Parameter[0]", "remote", "manual"]

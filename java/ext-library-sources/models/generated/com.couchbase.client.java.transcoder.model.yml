@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.couchbase.client.java.transcoder", "JsonTranscoder", True, "stringToJsonObject", "(String)", "", "Parameter[0]", "remote", "manual"]

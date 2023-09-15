@@ -1,0 +1,33 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Plan>", True, "getBatchStringSetter", "(Object,Collection)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Api>", True, "buildInClause", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Api>", True, "setArguments", "(PreparedStatement,Collection,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Organization>", True, "filterStrings", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Plan>", True, "filterStrings", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Plan>", True, "getBatchStringSetter", "(Object,Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<User>", True, "setArguments", "(PreparedStatement,Collection,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<User>", True, "buildInClause", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Ticket>", True, "setArguments", "(PreparedStatement,Collection,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Tag>", True, "getBatchStringSetter", "(Object,Collection)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Tag>", True, "getBatchStringSetter", "(Object,Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Tag>", True, "filterStrings", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Organization>", True, "getBatchStringSetter", "(Object,Collection)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Membership>", True, "setArguments", "(PreparedStatement,Collection,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Membership>", True, "buildInCondition", "(boolean,StringBuilder,String,Collection)", "", "Parameter[3]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Group>", True, "setArguments", "(PreparedStatement,Collection,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Group>", True, "buildInCondition", "(boolean,StringBuilder,String,Collection)", "", "Parameter[3]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<ClientRegistrationProvider>", True, "getBatchStringSetter", "(Object,Collection)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<ClientRegistrationProvider>", True, "getBatchStringSetter", "(Object,Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<ClientRegistrationProvider>", True, "filterStrings", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Application>", True, "setArguments", "(PreparedStatement,Collection,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Application>", True, "getBatchStringSetter", "(Object,Collection)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Application>", True, "getBatchStringSetter", "(Object,Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Application>", True, "filterStrings", "(Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<Application>", True, "buildInCondition", "(boolean,StringBuilder,String,Collection)", "", "Parameter[3]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<AlertTrigger>", True, "setArguments", "(PreparedStatement,Collection,int)", "", "Parameter[1]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<AlertTrigger>", True, "getBatchStringSetter", "(Object,Collection)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.gravitee.repository.jdbc.orm", "JdbcObjectMapper<AlertTrigger>", True, "buildInClause", "(Collection)", "", "Parameter[0]", "remote", "manual"]

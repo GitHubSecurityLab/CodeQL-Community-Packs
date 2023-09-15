@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.netflix.metacat.main.api.v1", "MetacatController", True, "updateMView", "(String,String,String,String,TableDto)", "", "Parameter[3]", "remote", "manual"]
+      - ["com.netflix.metacat.main.api.v1", "MetacatController", True, "updateMView", "(String,String,String,String,TableDto)", "", "Parameter[2]", "remote", "manual"]
+      - ["com.netflix.metacat.main.api.v1", "MetacatController", True, "updateMView", "(String,String,String,String,TableDto)", "", "Parameter[1]", "remote", "manual"]
+      - ["com.netflix.metacat.main.api.v1", "MetacatController", True, "updateMView", "(String,String,String,String,TableDto)", "", "Parameter[0]", "remote", "manual"]

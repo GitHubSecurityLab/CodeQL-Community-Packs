@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.keycloak.partialimport", "AbstractPartialImport<RoleRepresentation>", True, "skipped", "(String,RoleRepresentation)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.partialimport", "AbstractPartialImport<RoleRepresentation>", True, "overwritten", "(String,RoleRepresentation)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.keycloak.partialimport", "AbstractPartialImport<RoleRepresentation>", True, "added", "(String,RoleRepresentation)", "", "Parameter[0]", "remote", "manual"]

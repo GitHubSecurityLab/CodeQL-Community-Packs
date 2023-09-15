@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.helix.model.builder", "IdealStateBuilder", True, "setNumReplica", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.helix.model.builder", "HelixConfigScopeBuilder", True, "forParticipant", "(String)", "", "Parameter[0]", "remote", "manual"]

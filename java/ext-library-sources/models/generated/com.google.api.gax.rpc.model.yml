@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.google.api.gax.rpc", "ClientSettings$Builder<ClusterControllerSettings,Builder>", True, "setEndpoint", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.api.gax.rpc", "FixedHeaderProvider", True, "create", "(Map)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.api.gax.rpc", "ClientSettings$Builder<JobControllerSettings,Builder>", True, "setEndpoint", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["com.google.api.gax.rpc", "ClientSettings$Builder<AutoscalingPolicyServiceSettings,Builder>", True, "setEndpoint", "(String)", "", "Parameter[0]", "remote", "manual"]

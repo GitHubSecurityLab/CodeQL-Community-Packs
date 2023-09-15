@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.datasketches.memory", "Memory", True, "region", "(long,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.datasketches.memory", "Memory", True, "wrap", "(byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.memory", "Memory", True, "getByte", "(long)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.datasketches.memory", "WritableMemory", True, "putDouble", "(long,double)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.datasketches.memory", "WritableMemory", True, "putFloat", "(long,float)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.datasketches.memory", "WritableMemory", True, "putLong", "(long,long)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.datasketches.memory", "WritableMemory", True, "putByte", "(long,byte)", "", "Parameter[1]", "remote", "manual"]

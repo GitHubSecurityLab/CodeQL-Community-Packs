@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.trino.execution", "QueryTracker<DispatchQuery>", True, "tryGetQuery", "(QueryId)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.trino.execution", "QueryState", False, "valueOf", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.trino.execution", "QueryTracker<QueryExecution>", True, "getQuery", "(QueryId)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.trino.execution", "QueryTracker<QueryExecution>", True, "tryGetQuery", "(QueryId)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.trino.execution", "QueryTracker<DispatchQuery>", True, "getQuery", "(QueryId)", "", "Parameter[0]", "remote", "manual"]

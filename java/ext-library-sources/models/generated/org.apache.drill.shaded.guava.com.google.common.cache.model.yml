@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.drill.shaded.guava.com.google.common.cache", "Cache<String,String>", True, "put", "(String,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.drill.shaded.guava.com.google.common.cache", "Cache<StoragePluginConfig,PluginHandle>", True, "invalidate", "(Object)", "", "Parameter[0]", "remote", "manual"]

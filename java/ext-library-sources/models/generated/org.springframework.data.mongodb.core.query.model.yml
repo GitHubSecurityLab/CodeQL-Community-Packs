@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.springframework.data.mongodb.core.query", "Criteria", True, "is", "(Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.springframework.data.mongodb.core.query", "Criteria", True, "in", "(Collection)", "", "Parameter[0]", "remote", "manual"]

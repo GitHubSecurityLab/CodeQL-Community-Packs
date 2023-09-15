@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.yaml.snakeyaml", "Yaml", True, "loadAs", "(String,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.yaml.snakeyaml", "Yaml", True, "loadAll", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.yaml.snakeyaml", "Yaml", True, "loadAs", "(InputStream,Class)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.yaml.snakeyaml", "Yaml", True, "load", "(Object,String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.yaml.snakeyaml", "Yaml", True, "load", "(String)", "", "Parameter[0]", "remote", "manual"]

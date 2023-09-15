@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.tools.ant", "Project", True, "setProperty", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.tools.ant", "Project", True, "log", "(String,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.tools.ant", "Task", True, "log", "(String,Throwable,int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.tools.ant", "Project", True, "setUserProperty", "(String,String)", "", "Parameter[1]", "remote", "manual"]
+      - ["org.apache.tools.ant", "ProjectHelper", True, "parse", "(Project,Object)", "", "Parameter[1]", "remote", "manual"]

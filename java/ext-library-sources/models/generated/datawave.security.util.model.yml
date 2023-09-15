@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["datawave.security.util", "ScannerHelper", True, "createScanner", "(Connector,String,Collection)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.owasp.encoder", "Encode", False, "forHtml", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.owasp.encoder", "Encode", False, "forJavaScript", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.owasp.encoder", "Encode", False, "forXml", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.owasp.encoder", "Encode", False, "forHtmlContent", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.owasp.encoder", "Encode", False, "forHtmlAttribute", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.owasp.encoder", "Encode", False, "forJava", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.owasp.encoder", "Encode", False, "forUriComponent", "(String)", "", "Parameter[0]", "remote", "manual"]

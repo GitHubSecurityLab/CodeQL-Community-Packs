@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.curator.framework.recipes.cache", "PathChildrenCache", True, "getCurrentData", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.curator.framework.recipes.cache", "TreeCache", True, "getCurrentData", "(String)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.curator.framework.recipes.cache", "PathChildrenCache", True, "rebuildNode", "(String)", "", "Parameter[0]", "remote", "manual"]

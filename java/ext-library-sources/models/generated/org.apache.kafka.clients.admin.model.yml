@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.kafka.clients.admin", "AdminClient", True, "create", "(Properties)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.kafka.clients.admin", "Admin", True, "deleteTopics", "(Collection,DeleteTopicsOptions)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.kafka.clients.admin", "Admin", True, "deleteTopics", "(Collection)", "", "Parameter[0]", "remote", "manual"]

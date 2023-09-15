@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.apache.solr.client.solrj.impl", "SolrClientBuilder<Builder>", True, "withHttpClient", "(HttpClient)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj.impl", "SolrClientBuilder<Builder>", True, "withSocketTimeout", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj.impl", "SolrClientBuilder<Builder>", True, "withConnectionTimeout", "(int)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj.impl", "SolrClientBuilder<Builder>", True, "withTheseParamNamesInTheUrl", "(Set)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj.impl", "SolrClientBuilder<Builder>", True, "withSocketTimeout", "(long,TimeUnit)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj.impl", "SolrClientBuilder<Builder>", True, "withRequestWriter", "(RequestWriter)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj.impl", "SolrClientBuilder<Builder>", True, "withConnectionTimeout", "(long,TimeUnit)", "", "Parameter[0]", "remote", "manual"]
+      - ["org.apache.solr.client.solrj.impl", "SolrClientBuilder<Builder>", True, "withResponseParser", "(ResponseParser)", "", "Parameter[0]", "remote", "manual"]

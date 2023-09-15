@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["org.sakaiproject.tool.assessment.ui.bean.authz", "AuthorizationBean", True, "isUserAllowedToEditAssessment", "(String,String,boolean)", "", "Parameter[0]", "remote", "manual"]

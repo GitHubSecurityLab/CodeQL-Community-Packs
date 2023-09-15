@@ -1,0 +1,94 @@
+name: Build CodeQL Packs 
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        # language: [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby', 'swift' ]
+        language: [ 'java' ]
+
+    steps:
+      - uses: actions/checkout@v3
+        # with:
+        #   submodules: true
+
+      # Conditionally run actions based on files modified by PR, feature branch or pushed commits
+      - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+        id: changes
+        with:
+          filters: |
+            src:
+              - '${{ matrix.language }}/**'
+
+      - name: Install CodeQL
+        if: steps.changes.outputs.src == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          gh extension install github/gh-codeql
+          gh codeql pack download "codeql/${{ matrix.language }}-queries"
+          gh codeql pack install "${{ matrix.language }}/lib"
+          gh codeql pack install "${{ matrix.language }}/src"
+          gh codeql pack install "${{ matrix.language }}/test"
+
+      - name: Compile Queries
+        if: steps.changes.outputs.src == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          ./.github/scripts/pr-compile.sh ${{ github.event.number }} ${{ matrix.language }}
+
+      - name: Test Queries
+        if: steps.changes.outputs.src == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          ./.github/scripts/pr-tests.sh ${{ github.event.number }} ${{ matrix.language }}
+
+      - name: Compile / Check Suites & Packs
+        if: steps.changes.outputs.src == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          ./.github/scripts/pr-suites-packs.sh ${{ github.event.number }} ${{ matrix.language }}
+
+  extensions:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        # language: [ 'csharp', 'java', 'javascript' ]
+        language: [ 'java' ]
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+        id: changes
+        with:
+          filters: |
+            src:
+              - '${{ matrix.language }}/ext/**'
+
+      - name: Install CodeQL
+        if: steps.changes.outputs.src == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          gh extension install github/gh-codeql
+          gh codeql pack install "${{ matrix.language }}/ext/"
+          gh codeql pack install "${{ matrix.language }}/ext-library-sources/"
+          gh codeql pack create "${{ matrix.language }}/ext/"
+          gh codeql pack create "${{ matrix.language }}/ext-library-sources/"
+

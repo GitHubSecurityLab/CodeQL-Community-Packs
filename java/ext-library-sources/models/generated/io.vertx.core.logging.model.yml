@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.vertx.core.logging", "Logger", True, "warn", "(Object,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["io.vertx.core.logging", "Logger", True, "info", "(Object,Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["io.vertx.core.logging", "Logger", True, "error", "(Object,Throwable)", "", "Parameter[0]", "remote", "manual"]
+      - ["io.vertx.core.logging", "Logger", True, "debug", "(Object)", "", "Parameter[0]", "remote", "manual"]
