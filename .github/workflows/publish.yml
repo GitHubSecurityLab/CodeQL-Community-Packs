@@ -22,6 +22,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Initialize CodeQL
+        run: |
+          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
+                       | sort \
+                       | tail -n 1 \
+                       | tr -d '\n')"
+          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+
       - name: "Check and publish codeql-LANG-queries (src) pack"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -30,9 +38,8 @@ jobs:
           CURRENT_VERSION=$(grep version ${{ matrix.language }}/src/qlpack.yml | awk '{print $2}')
 
           if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
-            gh extension install github/gh-codeql
-            gh codeql pack install "${{ matrix.language }}/src"
-            gh codeql pack publish "${{ matrix.language }}/src"
+            codeql pack install "${{ matrix.language }}/src"
+            codeql pack publish "${{ matrix.language }}/src"
           fi
 
   library:
@@ -50,6 +57,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Initialize CodeQL
+        run: |
+          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
+                       | sort \
+                       | tail -n 1 \
+                       | tr -d '\n')"
+          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+
       - name: "Check and publish codeql-LANG-libs (lib) pack"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -58,9 +73,8 @@ jobs:
           CURRENT_VERSION=$(grep version ${{ matrix.language }}/lib/qlpack.yml | awk '{print $2}')
 
           if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
-            gh extension install github/gh-codeql
-            gh codeql pack install "${{ matrix.language }}/lib"
-            gh codeql pack publish "${{ matrix.language }}/lib"
+            codeql pack install "${{ matrix.language }}/lib"
+            codeql pack publish "${{ matrix.language }}/lib"
           fi
 
   extensions:
@@ -74,6 +88,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Initialize CodeQL
+        run: |
+          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
+                       | sort \
+                       | tail -n 1 \
+                       | tr -d '\n')"
+          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+
       - name: Check and publish codeql-LANG-extensions (ext) pack
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -82,9 +104,8 @@ jobs:
           CURRENT_VERSION=$(grep version ${{ matrix.language }}/ext/qlpack.yml | awk '{print $2}')
 
           if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
-            gh extension install github/gh-codeql
-            gh codeql pack install "${{ matrix.language }}/ext"
-            gh codeql pack publish "${{ matrix.language }}/ext"
+            codeql pack install "${{ matrix.language }}/ext"
+            codeql pack publish "${{ matrix.language }}/ext"
           fi
 
   library_sources_extensions:
@@ -98,6 +119,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Initialize CodeQL
+        run: |
+          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
+                       | sort \
+                       | tail -n 1 \
+                       | tr -d '\n')"
+          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+
       - name: Check and publish codeql-LANG-library-sources (ext-library-sources) pack
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -106,7 +135,6 @@ jobs:
           CURRENT_VERSION=$(grep version ${{ matrix.language }}/ext-library-sources/qlpack.yml | awk '{print $2}')
 
           if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
-            gh extension install github/gh-codeql
-            gh codeql pack install "${{ matrix.language }}/ext-library-sources"
-            gh codeql pack publish "${{ matrix.language }}/ext-library-sources"
+            codeql pack install "${{ matrix.language }}/ext-library-sources"
+            codeql pack publish "${{ matrix.language }}/ext-library-sources"
           fi

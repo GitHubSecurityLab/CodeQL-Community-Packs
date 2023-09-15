@@ -28,16 +28,24 @@ jobs:
             src:
               - '${{ matrix.language }}/**'
 
-      - name: Install CodeQL
+      - name: Initialize CodeQL
+        if: steps.changes.outputs.src == 'true'
+        run: |
+          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
+                       | sort \
+                       | tail -n 1 \
+                       | tr -d '\n')"
+          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+        
+      - name: Install Packs
         if: steps.changes.outputs.src == 'true'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          gh extension install github/gh-codeql
-          gh codeql pack download "codeql/${{ matrix.language }}-queries"
-          gh codeql pack install "${{ matrix.language }}/lib"
-          gh codeql pack install "${{ matrix.language }}/src"
-          gh codeql pack install "${{ matrix.language }}/test"
+          codeql pack download "codeql/${{ matrix.language }}-queries"
+          codeql pack install "${{ matrix.language }}/lib"
+          codeql pack install "${{ matrix.language }}/src"
+          codeql pack install "${{ matrix.language }}/test"
 
       - name: Compile Queries
         if: steps.changes.outputs.src == 'true'
@@ -81,14 +89,22 @@ jobs:
             src:
               - '${{ matrix.language }}/ext/**'
 
-      - name: Install CodeQL
+      - name: Initialize CodeQL
+        if: steps.changes.outputs.src == 'true'
+        run: |
+          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
+                       | sort \
+                       | tail -n 1 \
+                       | tr -d '\n')"
+          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+
+      - name: Install Packs
         if: steps.changes.outputs.src == 'true'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          gh extension install github/gh-codeql
-          gh codeql pack install "${{ matrix.language }}/ext/"
-          gh codeql pack install "${{ matrix.language }}/ext-library-sources/"
-          gh codeql pack create "${{ matrix.language }}/ext/"
-          gh codeql pack create "${{ matrix.language }}/ext-library-sources/"
+          codeql pack install "${{ matrix.language }}/ext/"
+          codeql pack install "${{ matrix.language }}/ext-library-sources/"
+          codeql pack create "${{ matrix.language }}/ext/"
+          codeql pack create "${{ matrix.language }}/ext-library-sources/"
 
