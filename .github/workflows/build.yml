@@ -36,11 +36,11 @@ jobs:
           gh repo clone github/codeql
           gh extension install github/gh-codeql
           gh codeql pack download "codeql/${{ matrix.language }}-queries"
-          gh codeql pack install --additional-packs=./codeql/misc "${{ matrix.language }}/ext/"
-          gh codeql pack install --additional-packs=./codeql/misc "${{ matrix.language }}/ext_library_sources/"
-          gh codeql pack install --additional-packs=./codeql/misc "${{ matrix.language }}/lib"
-          gh codeql pack install --additional-packs=./codeql/misc "${{ matrix.language }}/src"
-          gh codeql pack install --additional-packs=./codeql/misc "${{ matrix.language }}/test"
+          gh codeql pack install "${{ matrix.language }}/ext/"
+          gh codeql pack install "${{ matrix.language }}/ext_library_sources/"
+          gh codeql pack install "${{ matrix.language }}/lib"
+          gh codeql pack install "${{ matrix.language }}/src"
+          gh codeql pack install "${{ matrix.language }}/test"
 
       - name: Compile Queries
         if: steps.changes.outputs.src == 'true'

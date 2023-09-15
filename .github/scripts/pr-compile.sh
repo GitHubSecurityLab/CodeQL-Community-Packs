@@ -6,9 +6,6 @@ LANGUAGE=${2}
 # to stop recompiling all queries if multiple files are modified
 LIBRARY_SCANNED=false
 
-echo "[+] Cloning CodeQL"
-gh repo clone github/codeql
-
 echo "[+] Compiling all queries in $LANGUAGE"
 gh codeql query compile \
     --threads=0 --check-only \

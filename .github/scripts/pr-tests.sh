@@ -9,9 +9,6 @@ if [[ ! -d ./${LANGUAGE}/test/ ]]; then
     exit 0
 fi
 
-echo "[+] Cloning CodeQL"
-gh repo clone github/codeql
-
 echo "[+] Compiling all queries in $LANGUAGE"
 gh codeql query compile \
     --threads=0 --check-only \
