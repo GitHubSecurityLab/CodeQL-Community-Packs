@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["GraphQL.Transport", "GraphQLRequest", False, "set_Query", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["GraphQL.Transport", "GraphQLRequest", False, "set_OperationName", "(System.String)", "", "Parameter[0]", "remote", "manual"]

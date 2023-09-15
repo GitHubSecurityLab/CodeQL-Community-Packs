@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Mapster", "TypeAdapter", False, "Adapt<>", "(System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["Mapster", "TypeAdapter", False, "Adapt<,>", "(TSource,TDestination)", "", "Parameter[0]", "remote", "manual"]

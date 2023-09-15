@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["TvDbSharper", "ISeriesClient", True, "GetEpisodesAsync", "(System.Int32,System.Int32)", "", "Parameter[0]", "remote", "manual"]
+      - ["TvDbSharper", "ISearchClient", True, "SearchSeriesByNameAsync", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["TvDbSharper", "ISeriesClient", True, "GetAsync", "(System.Int32)", "", "Parameter[0]", "remote", "manual"]

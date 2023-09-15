@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["FluentAssertions", "AssertionExtensions", False, "Should", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["FluentAssertions", "AssertionExtensions", False, "Should", "(System.Object)", "", "Parameter[0]", "remote", "manual"]

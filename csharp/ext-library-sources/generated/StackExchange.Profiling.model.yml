@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["StackExchange.Profiling", "MiniProfilerExtensions", False, "Step", "(StackExchange.Profiling.MiniProfiler,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["StackExchange.Profiling", "MiniProfiler", False, "FromJson", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["StackExchange.Profiling", "MiniProfilerExtensions", False, "CustomTiming", "(StackExchange.Profiling.MiniProfiler,System.String,System.String,System.String,System.Boolean)", "", "Parameter[2]", "remote", "manual"]

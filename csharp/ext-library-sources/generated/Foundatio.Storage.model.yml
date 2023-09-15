@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Foundatio.Storage", "FileStorageExtensions", False, "GetFileListAsync", "(Foundatio.Storage.IFileStorage,System.String,System.Nullable<System.Int32>,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["Foundatio.Storage", "IFileStorage", True, "SaveFileAsync", "(System.String,System.IO.Stream,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]

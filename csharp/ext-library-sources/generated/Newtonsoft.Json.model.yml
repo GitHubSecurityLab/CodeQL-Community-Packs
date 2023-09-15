@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Newtonsoft.Json", "JsonTextReader", False, "JsonTextReader", "(System.IO.TextReader)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["MessagePack", "MessagePackSerializer", False, "DeserializeAsync", "(System.Type,System.IO.Stream,MessagePack.MessagePackSerializerOptions,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["MessagePack", "MessagePackSerializer+Typeless", False, "DeserializeAsync", "(System.IO.Stream,MessagePack.MessagePackSerializerOptions,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]

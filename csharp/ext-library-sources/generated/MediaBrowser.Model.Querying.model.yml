@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["MediaBrowser.Model.Querying", "QueryResult<>", False, "QueryResult", "(System.Nullable<System.Int32>,System.Nullable<System.Int32>,System.Collections.Generic.IReadOnlyList<T>)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Examine", "IExamineManager", True, "TryGetIndex", "(System.String,Examine.IIndex)", "", "Parameter[0]", "remote", "manual"]
+      - ["Examine", "IExamineManager", True, "TryGetSearcher", "(System.String,Examine.ISearcher)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,19 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["SqlSugar", "IDbFirst", True, "Where", "(System.String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlSugar", "IDbFirst", True, "ToClassStringList", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlSugar", "ISqlSugarClient", True, "Insertable<>", "(T)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlSugar", "ISugarQueryable<,>", True, "WhereIF", "(System.Boolean,System.Linq.Expressions.Expression<System.Func<T,System.Boolean>>)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlSugar", "ConnectionConfig", False, "set_ConfigId", "(dynamic)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlSugar", "ConnectionConfig", False, "set_DbType", "(SqlSugar.DbType)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlSugar", "ConnectionConfig", False, "set_ConnectionString", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlSugar", "ISqlSugarClient", True, "Updateable<>", "(T)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlSugar", "ISugarQueryable<>", True, "ToPageListAsync", "(System.Int32,System.Int32,SqlSugar.RefAsync<System.Int32>)", "", "Parameter[1]", "remote", "manual"]
+      - ["SqlSugar", "SqlSugarScope", False, "ChangeDatabase", "(dynamic)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlSugar", "ITenant", True, "RemoveConnection", "(dynamic)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlSugar", "ITenant", True, "GetConnectionScope", "(dynamic)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlSugar", "ISugarQueryable<>", True, "ToPageListAsync", "(System.Int32,System.Int32,SqlSugar.RefAsync<System.Int32>)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlSugar", "ISugarQueryable<>", True, "In<>", "(TParamter[])", "", "Parameter[0]", "remote", "manual"]

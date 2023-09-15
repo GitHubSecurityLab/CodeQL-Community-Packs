@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["FluentMigrator.Runner", "IMigrationRunner", True, "MigrateUp", "(System.Int64)", "", "Parameter[0]", "remote", "manual"]
+      - ["FluentMigrator.Runner", "MigrationRunnerBuilderExtensions", False, "WithGlobalConnectionString", "(FluentMigrator.Runner.IMigrationRunnerBuilder,System.String)", "", "Parameter[1]", "remote", "manual"]

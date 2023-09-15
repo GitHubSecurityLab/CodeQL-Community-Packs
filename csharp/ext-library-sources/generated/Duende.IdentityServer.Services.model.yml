@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Duende.IdentityServer.Services", "IIdentityServerInteractionService", True, "GetAuthorizationContextAsync", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Duende.IdentityServer.Services", "IDeviceFlowInteractionService", True, "GetAuthorizationContextAsync", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Duende.IdentityServer.Services", "IIdentityServerInteractionService", True, "GetLogoutContextAsync", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Duende.IdentityServer.Services", "IDeviceFlowInteractionService", True, "HandleRequestAsync", "(System.String,Duende.IdentityServer.Models.ConsentResponse)", "", "Parameter[0]", "remote", "manual"]
+      - ["Duende.IdentityServer.Services", "IIdentityServerInteractionService", True, "GetErrorContextAsync", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Duende.IdentityServer.Services", "IIdentityServerInteractionService", True, "IsValidReturnUrl", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Duende.IdentityServer.Services", "IIdentityServerInteractionService", True, "RevokeUserConsentAsync", "(System.String)", "", "Parameter[0]", "remote", "manual"]

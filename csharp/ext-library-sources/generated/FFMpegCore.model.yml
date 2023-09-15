@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["FFMpegCore", "FFProbe", False, "GetStreamJson", "(System.String,System.Int32,FFMpegCore.FFOptions)", "", "Parameter[0]", "remote", "manual"]
+      - ["FFMpegCore", "FFProbe", False, "GetFrameJson", "(System.String,System.Int32,FFMpegCore.FFOptions)", "", "Parameter[0]", "remote", "manual"]

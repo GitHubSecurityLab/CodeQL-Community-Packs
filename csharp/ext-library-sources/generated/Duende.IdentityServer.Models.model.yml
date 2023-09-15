@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Duende.IdentityServer.Models", "ConsentResponse", False, "set_Description", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Duende.IdentityServer.Models", "ConsentResponse", False, "set_RememberConsent", "(System.Boolean)", "", "Parameter[0]", "remote", "manual"]

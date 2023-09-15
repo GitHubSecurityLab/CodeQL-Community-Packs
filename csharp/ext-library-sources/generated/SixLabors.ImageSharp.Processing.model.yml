@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["SixLabors.ImageSharp.Processing", "ResizeExtensions", False, "Resize", "(SixLabors.ImageSharp.Processing.IImageProcessingContext,System.Int32,System.Int32)", "", "Parameter[1]", "remote", "manual"]
+      - ["SixLabors.ImageSharp.Processing", "ResizeExtensions", False, "Resize", "(SixLabors.ImageSharp.Processing.IImageProcessingContext,System.Int32,System.Int32)", "", "Parameter[2]", "remote", "manual"]
+      - ["SixLabors.ImageSharp.Processing", "RotateExtensions", False, "Rotate", "(SixLabors.ImageSharp.Processing.IImageProcessingContext,System.Single)", "", "Parameter[1]", "remote", "manual"]

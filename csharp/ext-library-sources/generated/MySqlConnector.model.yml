@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["MySqlConnector", "MySqlParameter", False, "MySqlParameter", "(System.String,System.Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["MySqlConnector", "MySqlConnection", False, "BeginTransactionAsync", "(System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["MySqlConnector", "MySqlConnectionStringBuilder", False, "set_Password", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MySqlConnector", "MySqlConnectionStringBuilder", False, "set_Server", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MySqlConnector", "MySqlConnectionStringBuilder", False, "set_UserID", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MySqlConnector", "MySqlConnectionStringBuilder", False, "set_Database", "(System.String)", "", "Parameter[0]", "remote", "manual"]

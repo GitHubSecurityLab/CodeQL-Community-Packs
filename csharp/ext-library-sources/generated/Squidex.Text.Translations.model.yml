@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Squidex.Text.Translations", "ITranslator", True, "TranslateAsync", "(System.String,System.String,System.String,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]

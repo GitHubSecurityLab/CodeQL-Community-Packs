@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["AutoMapper", "IMapperBase", True, "Map<>", "(System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["AutoMapper", "IMapperBase", True, "Map<,>", "(TSource,TDestination)", "", "Parameter[0]", "remote", "manual"]
+      - ["AutoMapper", "IMapperBase", True, "Map<,>", "(TSource)", "", "Parameter[0]", "remote", "manual"]
+      - ["AutoMapper", "IMapperBase", True, "Map<,>", "(TSource,TDestination)", "", "Parameter[1]", "remote", "manual"]

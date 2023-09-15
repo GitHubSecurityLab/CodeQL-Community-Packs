@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Hqub.MusicBrainz.API.Services", "IArtistService", True, "GetAsync", "(System.String,System.String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["Hqub.MusicBrainz.API.Services", "IArtistService", True, "SearchAsync", "(System.String,System.Int32,System.Int32)", "", "Parameter[0]", "remote", "manual"]
+      - ["Hqub.MusicBrainz.API.Services", "IReleaseService", True, "GetAsync", "(System.String,System.String[])", "", "Parameter[0]", "remote", "manual"]

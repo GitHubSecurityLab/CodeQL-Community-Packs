@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["SQLitePCL.pretty", "DatabaseConnection", False, "PrepareStatement", "(SQLitePCL.pretty.IDatabaseConnection,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["SQLitePCL.pretty", "BindParameter", False, "Bind", "(SQLitePCL.pretty.IBindParameter,System.Boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["SQLitePCL.pretty", "IBindParameter", True, "Bind", "(System.Double)", "", "Parameter[0]", "remote", "manual"]
+      - ["SQLitePCL.pretty", "IBindParameter", True, "Bind", "(System.Int32)", "", "Parameter[0]", "remote", "manual"]
+      - ["SQLitePCL.pretty", "IBindParameter", True, "Bind", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["SQLitePCL.pretty", "IBindParameter", True, "Bind", "(System.Int64)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["ICSharpCode.SharpZipLib.Zip", "FastZip", False, "ExtractZip", "(System.String,System.String,System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["ICSharpCode.SharpZipLib.Zip", "FastZip", False, "ExtractZip", "(System.String,System.String,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["ICSharpCode.SharpZipLib.Zip", "FastZip", False, "CreateZip", "(System.String,System.String,System.Boolean,System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["ICSharpCode.SharpZipLib.Zip", "FastZip", False, "CreateZip", "(System.String,System.String,System.Boolean,System.String)", "", "Parameter[1]", "remote", "manual"]

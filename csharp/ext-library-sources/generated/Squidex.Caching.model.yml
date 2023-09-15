@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Squidex.Caching", "ILocalCache", True, "Add", "(System.Object,System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["Squidex.Caching", "IReplicatedCache", True, "TryGetValue", "(System.String,System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["Squidex.Caching", "ILocalCache", True, "TryGetValue", "(System.Object,System.Object)", "", "Parameter[0]", "remote", "manual"]

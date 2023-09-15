@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["YesSql.Services", "DefaultQueryExtensions", False, "IsIn", "(System.Object,System.Collections.IEnumerable)", "", "Parameter[1]", "remote", "manual"]

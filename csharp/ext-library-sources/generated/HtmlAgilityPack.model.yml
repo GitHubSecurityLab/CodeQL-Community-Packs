@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["HtmlAgilityPack", "HtmlAttributeCollection", False, "Add", "(System.String,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["HtmlAgilityPack", "HtmlDocument", False, "Load", "(System.IO.TextReader)", "", "Parameter[0]", "remote", "manual"]

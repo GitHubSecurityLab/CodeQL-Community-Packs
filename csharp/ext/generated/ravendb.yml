@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-queries
+      extensible: sinkModel
+    data:
+      - ["Raven.Server.Commercial", "FeedbackSender", false, "SendFeedback", "(Raven.Server.Documents.Studio.FeedbackForm)", "", "Argument[0]", "xss", "generated"]
+      - ["Raven.Server.Smuggler.Migration.ApiKey", "FipsEncryptor+FipsSymmetricalEncryptor", false, "CreateDecryptor", "(System.Byte[],System.Byte[])", "", "Argument[0]", "encryption-decryptor", "generated"]
+      - ["Raven.Server.Smuggler.Migration.ApiKey", "FipsEncryptor+FipsSymmetricalEncryptor", false, "set_Key", "(System.Byte[])", "", "Argument[0]", "encryption-keyprop", "generated"]
+      - ["SlowTests.Server.Documents.Migration", "SqlAwareTestBase", false, "ExecuteSqlQuery", "(Raven.Server.SqlMigration.MigrationProvider,System.String,System.String)", "", "Argument[2]", "sql", "generated"]
+

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["LinqToDB.Data", "DataConnectionExtensions", False, "ExecuteAsync", "(LinqToDB.Data.DataConnection,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["LinqToDB.Data", "DataConnectionExtensions", False, "Execute", "(LinqToDB.Data.DataConnection,System.String)", "", "Parameter[1]", "remote", "manual"]

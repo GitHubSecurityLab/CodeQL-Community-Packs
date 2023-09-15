@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Foundatio.Parsers.LuceneQueries", "IQueryParser", True, "ParseAsync", "(System.String,Foundatio.Parsers.LuceneQueries.Visitors.IQueryVisitorContext)", "", "Parameter[0]", "remote", "manual"]
+      - ["Foundatio.Parsers.LuceneQueries", "LuceneQueryParser", False, "Parse", "(System.String,System.String)", "", "Parameter[0]", "remote", "manual"]

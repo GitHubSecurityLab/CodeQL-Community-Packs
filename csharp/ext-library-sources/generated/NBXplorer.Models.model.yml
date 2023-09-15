@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["NBXplorer.Models", "CreatePSBTRequest", False, "set_AlwaysIncludeNonWitnessUTXO", "(System.Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBXplorer.Models", "GenerateWalletRequest", False, "set_SavePrivateKeys", "(System.Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBXplorer.Models", "UTXOChanges", False, "GetUnspentUTXOs", "(System.Boolean)", "", "Parameter[0]", "remote", "manual"]

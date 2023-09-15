@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Ardalis.GuardClauses", "GuardClauseExtensions", False, "Zero", "(Ardalis.GuardClauses.IGuardClause,System.Int32,System.String,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Ardalis.GuardClauses", "GuardClauseExtensions", False, "NullOrEmpty", "(Ardalis.GuardClauses.IGuardClause,System.String,System.String,System.String)", "", "Parameter[1]", "remote", "manual"]

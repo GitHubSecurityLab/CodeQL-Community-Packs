@@ -1,0 +1,22 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["MongoDB.Driver", "FilterDefinitionBuilder<>", False, "Eq<>", "(System.Linq.Expressions.Expression<System.Func<TDocument,TField>>,TField)", "", "Parameter[1]", "remote", "manual"]
+      - ["MongoDB.Driver", "IFindFluent<,>", True, "Limit", "(System.Nullable<System.Int32>)", "", "Parameter[0]", "remote", "manual"]
+      - ["MongoDB.Driver", "FilterDefinitionBuilder<>", False, "Regex", "(System.Linq.Expressions.Expression<System.Func<TDocument,System.Object>>,MongoDB.Bson.BsonRegularExpression)", "", "Parameter[1]", "remote", "manual"]
+      - ["MongoDB.Driver", "FilterDefinitionBuilder<>", False, "AnyEq<>", "(System.Linq.Expressions.Expression<System.Func<TDocument,System.Collections.Generic.IEnumerable<TItem>>>,TItem)", "", "Parameter[1]", "remote", "manual"]
+      - ["MongoDB.Driver", "FilterDefinitionBuilder<>", False, "Eq<>", "(MongoDB.Driver.FieldDefinition<TDocument,TField>,TField)", "", "Parameter[1]", "remote", "manual"]
+      - ["MongoDB.Driver", "FilterDefinitionBuilder<>", False, "Gt<>", "(MongoDB.Driver.FieldDefinition<TDocument,TField>,TField)", "", "Parameter[1]", "remote", "manual"]
+      - ["MongoDB.Driver", "FilterDefinitionBuilder<>", False, "Gte<>", "(MongoDB.Driver.FieldDefinition<TDocument,TField>,TField)", "", "Parameter[1]", "remote", "manual"]
+      - ["MongoDB.Driver", "FilterDefinitionBuilder<>", False, "Gte<>", "(System.Linq.Expressions.Expression<System.Func<TDocument,TField>>,TField)", "", "Parameter[1]", "remote", "manual"]
+      - ["MongoDB.Driver", "FilterDefinitionBuilder<>", False, "Lt<>", "(MongoDB.Driver.FieldDefinition<TDocument,TField>,TField)", "", "Parameter[1]", "remote", "manual"]
+      - ["MongoDB.Driver", "FilterDefinitionBuilder<>", False, "Lte<>", "(MongoDB.Driver.FieldDefinition<TDocument,TField>,TField)", "", "Parameter[1]", "remote", "manual"]
+      - ["MongoDB.Driver", "FilterDefinitionBuilder<>", False, "Lte<>", "(System.Linq.Expressions.Expression<System.Func<TDocument,TField>>,TField)", "", "Parameter[1]", "remote", "manual"]
+      - ["MongoDB.Driver", "FilterDefinitionBuilder<>", False, "Ne<>", "(MongoDB.Driver.FieldDefinition<TDocument,TField>,TField)", "", "Parameter[1]", "remote", "manual"]
+      - ["MongoDB.Driver", "IFindFluent<,>", True, "Skip", "(System.Nullable<System.Int32>)", "", "Parameter[0]", "remote", "manual"]
+      - ["MongoDB.Driver", "MongoClient", False, "MongoClient", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MongoDB.Driver", "MongoUrlBuilder", False, "MongoUrlBuilder", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MongoDB.Driver", "UpdateDefinitionBuilder<>", False, "Set<>", "(System.Linq.Expressions.Expression<System.Func<TDocument,TField>>,TField)", "", "Parameter[1]", "remote", "manual"]
+      - ["MongoDB.Driver", "UpdateDefinitionExtensions", False, "Set<,>", "(MongoDB.Driver.UpdateDefinition<TDocument>,System.Linq.Expressions.Expression<System.Func<TDocument,TField>>,TField)", "", "Parameter[2]", "remote", "manual"]

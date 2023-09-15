@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["ExcelDataReader", "ExcelReaderFactory", False, "CreateReader", "(System.IO.Stream,ExcelDataReader.ExcelReaderConfiguration)", "", "Parameter[0]", "remote", "manual"]

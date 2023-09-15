@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Lucene.Net.QueryParsers.Classic", "QueryParserBase", False, "Escape", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Lucene.Net.QueryParsers.Classic", "QueryParserBase", True, "Parse", "(System.String)", "", "Parameter[0]", "remote", "manual"]

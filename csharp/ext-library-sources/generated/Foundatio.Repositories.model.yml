@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Foundatio.Repositories", "Id", False, "op_Implicit", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Foundatio.Repositories", "IReadOnlyRepository<>", True, "GetByIdAsync", "(Foundatio.Repositories.Id,Foundatio.Repositories.CommandOptionsDescriptor<T>)", "", "Parameter[0]", "remote", "manual"]
+      - ["Foundatio.Repositories", "SetPagingOptionsExtensions", False, "PageLimit<>", "(T,System.Nullable<System.Int32>)", "", "Parameter[1]", "remote", "manual"]
+      - ["Foundatio.Repositories", "SetPagingOptionsExtensions", False, "PageNumber<>", "(T,System.Nullable<System.Int32>)", "", "Parameter[1]", "remote", "manual"]
+      - ["Foundatio.Repositories", "QueryExpressionsExtensions", False, "FilterExpression<>", "(T,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Foundatio.Repositories", "DateRangesQueryExtensions", False, "DateRange<>", "(T,System.Nullable<System.DateTime>,System.Nullable<System.DateTime>,Nest.Field,System.String)", "", "Parameter[3]", "remote", "manual"]
+      - ["Foundatio.Repositories", "IReadOnlyRepository<>", True, "GetByIdAsync", "(Foundatio.Repositories.Id,Foundatio.Repositories.ICommandOptions)", "", "Parameter[0]", "remote", "manual"]
+      - ["Foundatio.Repositories", "QueryExpressionsExtensions", False, "SortExpression<>", "(T,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Foundatio.Repositories", "AggregationQueryExtensions", False, "AggregationsExpression<>", "(T,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Foundatio.Repositories", "IdentityQueryExtensions", False, "Id<>", "(T,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Foundatio.Repositories", "SearchAfterQueryExtensions", False, "SearchAfter<>", "(T,System.Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["Foundatio.Repositories", "SetCacheOptionsExtensions", False, "Cache<>", "(T,System.String)", "", "Parameter[1]", "remote", "manual"]

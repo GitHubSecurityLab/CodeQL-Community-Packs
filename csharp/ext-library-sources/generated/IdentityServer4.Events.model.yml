@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["IdentityServer4.Events", "ConsentGrantedEvent", False, "ConsentGrantedEvent", "(System.String,System.String,System.Collections.Generic.IEnumerable<System.String>,System.Collections.Generic.IEnumerable<System.String>,System.Boolean)", "", "Parameter[4]", "remote", "manual"]
+      - ["IdentityServer4.Events", "GrantsRevokedEvent", False, "GrantsRevokedEvent", "(System.String,System.String)", "", "Parameter[1]", "remote", "manual"]

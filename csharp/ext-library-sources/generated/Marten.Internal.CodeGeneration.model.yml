@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Marten.Internal.CodeGeneration", "DocumentSelectorWithDirtyChecking<,>", False, "DocumentSelectorWithDirtyChecking", "(Marten.Internal.IMartenSession,Marten.Schema.DocumentMapping)", "", "Parameter[0]", "remote", "manual"]
+      - ["Marten.Internal.CodeGeneration", "DocumentSelectorWithIdentityMap<,>", False, "DocumentSelectorWithIdentityMap", "(Marten.Internal.IMartenSession,Marten.Schema.DocumentMapping)", "", "Parameter[0]", "remote", "manual"]
+      - ["Marten.Internal.CodeGeneration", "DocumentSelectorWithVersions<,>", False, "DocumentSelectorWithVersions", "(Marten.Internal.IMartenSession,Marten.Schema.DocumentMapping)", "", "Parameter[0]", "remote", "manual"]

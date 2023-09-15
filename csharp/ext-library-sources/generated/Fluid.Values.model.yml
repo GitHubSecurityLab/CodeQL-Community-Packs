@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Fluid.Values", "StringValue", False, "StringValue", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Fluid.Values", "FluidValue", False, "Create", "(System.Object,Fluid.TemplateOptions)", "", "Parameter[0]", "remote", "manual"]
+      - ["Fluid.Values", "ObjectValue", False, "ObjectValue", "(System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["Fluid.Values", "BooleanValue", False, "Create", "(System.Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["Fluid.Values", "NumberValue", False, "Create", "(System.Decimal)", "", "Parameter[0]", "remote", "manual"]
+      - ["Fluid.Values", "StringValue", False, "StringValue", "(System.String,System.Boolean)", "", "Parameter[0]", "remote", "manual"]

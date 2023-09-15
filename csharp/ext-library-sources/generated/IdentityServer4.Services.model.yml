@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["IdentityServer4.Services", "IIdentityServerInteractionService", True, "GetAuthorizationContextAsync", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["IdentityServer4.Services", "IDeviceFlowInteractionService", True, "GetAuthorizationContextAsync", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["IdentityServer4.Services", "IDeviceFlowInteractionService", True, "HandleRequestAsync", "(System.String,IdentityServer4.Models.ConsentResponse)", "", "Parameter[0]", "remote", "manual"]
+      - ["IdentityServer4.Services", "IIdentityServerInteractionService", True, "GetErrorContextAsync", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["IdentityServer4.Services", "IIdentityServerInteractionService", True, "RevokeUserConsentAsync", "(System.String)", "", "Parameter[0]", "remote", "manual"]

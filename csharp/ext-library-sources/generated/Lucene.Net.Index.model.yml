@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Lucene.Net.Index", "Term", False, "Term", "(System.String,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Lucene.Net.Index", "Term", False, "Term", "(System.String,System.String)", "", "Parameter[0]", "remote", "manual"]

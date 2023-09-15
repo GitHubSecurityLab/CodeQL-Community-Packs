@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["MySql.Data.MySqlClient", "MySqlParameterCollection", False, "AddWithValue", "(System.String,System.Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["MySql.Data.MySqlClient", "MySqlConnectionStringBuilder", False, "MySqlConnectionStringBuilder", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MySql.Data.MySqlClient", "MySqlConnection", False, "MySqlConnection", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MySql.Data.MySqlClient", "MySqlCommand", False, "set_CommandText", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MySql.Data.MySqlClient", "MySqlCommand", False, "MySqlCommand", "(System.String,MySql.Data.MySqlClient.MySqlConnection)", "", "Parameter[0]", "remote", "manual"]

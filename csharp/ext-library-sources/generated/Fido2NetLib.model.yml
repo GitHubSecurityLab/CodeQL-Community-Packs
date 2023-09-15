@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Fido2NetLib", "Fido2Configuration", False, "set_Origin", "(System.String)", "", "Parameter[0]", "remote", "manual"]

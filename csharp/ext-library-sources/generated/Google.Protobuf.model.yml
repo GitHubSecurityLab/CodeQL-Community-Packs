@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Google.Protobuf", "ProtoPreconditions", False, "CheckNotNull<>", "(T,System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Google.Protobuf", "ByteString", False, "CopyFrom", "(System.Byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["Google.Protobuf", "ByteString", False, "FromBase64", "(System.String)", "", "Parameter[0]", "remote", "manual"]

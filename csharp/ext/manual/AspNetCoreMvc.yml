@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-queries
+      extensible: sinkModel
+    data:
+      # XSS Requires the ContentType set to 'text/html'
+      - ["Microsoft.AspNetCore.Mvc", "ContentResult", False, "Content", "", "", "", "xss", "manual"]
+      - ["Microsoft.AspNetCore.Mvc", "ContentResult", False, "ContentType", "", "", "", "xss", "manual"]
+      # Returned with a ContentType of 'plain/text'
+      - ["Microsoft.AspNetCore.Mvc", "OkObjectResult", False, "OkObjectResult", "", "", "", "xss", "manual"]

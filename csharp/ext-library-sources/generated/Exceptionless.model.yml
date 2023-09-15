@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Exceptionless", "EventBuilder", False, "AddObject", "(System.Object,System.String,System.Nullable<System.Int32>,System.Collections.Generic.ICollection<System.String>,System.Boolean)", "", "Parameter[0]", "remote", "manual"]

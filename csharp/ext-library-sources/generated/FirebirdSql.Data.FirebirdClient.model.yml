@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["FirebirdSql.Data.FirebirdClient", "FbConnectionStringBuilder", False, "FbConnectionStringBuilder", "(System.String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["DBTrie", "Table", False, "Delete", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["DBTrie", "Table", False, "Enumerate", "(System.String,DBTrie.EnumerationOrder)", "", "Parameter[0]", "remote", "manual"]
+      - ["DBTrie", "Table", False, "Insert", "(System.String,System.ReadOnlyMemory<System.Byte>,System.Boolean)", "", "Parameter[0]", "remote", "manual"]

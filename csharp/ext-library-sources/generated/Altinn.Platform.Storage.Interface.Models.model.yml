@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Altinn.Platform.Storage.Interface.Models", "Application", False, "set_Id", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Altinn.Platform.Storage.Interface.Models", "Application", False, "set_Org", "(System.String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Squidex.Infrastructure.States", "SimpleState<>", False, "SimpleState", "(Squidex.Infrastructure.States.IPersistenceFactory<T>,System.Type,System.String,System.Boolean)", "", "Parameter[2]", "remote", "manual"]
+      - ["Squidex.Infrastructure.States", "SimpleState<>", False, "SimpleState", "(Squidex.Infrastructure.States.IPersistenceFactory<T>,System.Type,Squidex.Infrastructure.DomainId,System.Boolean)", "", "Parameter[2]", "remote", "manual"]

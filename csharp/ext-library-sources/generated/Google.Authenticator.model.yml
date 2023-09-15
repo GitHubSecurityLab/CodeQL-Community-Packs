@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Google.Authenticator", "TwoFactorAuthenticator", False, "ValidateTwoFactorPIN", "(System.String,System.String,System.Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["Google.Authenticator", "TwoFactorAuthenticator", False, "ValidateTwoFactorPIN", "(System.String,System.String,System.Boolean)", "", "Parameter[1]", "remote", "manual"]

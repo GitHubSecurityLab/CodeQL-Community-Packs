@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Abp.Web.Models", "AjaxResponseBase", False, "set_TargetUrl", "(System.String)", "", "Parameter[0]", "remote", "manual"]

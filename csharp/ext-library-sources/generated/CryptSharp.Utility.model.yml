@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["CryptSharp.Utility", "SCrypt", False, "ComputeDerivedKey", "(System.Byte[],System.Byte[],System.Int32,System.Int32,System.Int32,System.Nullable<System.Int32>,System.Int32)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Swan.Logging", "Logger", False, "Info", "(System.String,System.String,System.Object,System.String,System.String,System.Int32)", "", "Parameter[0]", "remote", "manual"]
+      - ["Swan.Logging", "Logger", False, "Debug", "(System.String,System.String,System.Object,System.String,System.String,System.Int32)", "", "Parameter[0]", "remote", "manual"]
+      - ["Swan.Logging", "Logger", False, "Warn", "(System.String,System.String,System.Object,System.String,System.String,System.Int32)", "", "Parameter[0]", "remote", "manual"]

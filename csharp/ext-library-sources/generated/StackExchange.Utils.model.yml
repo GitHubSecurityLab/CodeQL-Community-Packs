@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["StackExchange.Utils", "Http", False, "Request", "(System.String,StackExchange.Utils.HttpSettings,System.String,System.String,System.Int32)", "", "Parameter[0]", "remote", "manual"]

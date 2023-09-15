@@ -1,0 +1,3 @@
+using var sha256 = System.Security.Cryptography.SHA256.Create();
+
+var data = sha256.ComputeHash(Encoding.UTF8.GetBytes(content));    // GOOD - but **not** for certificate integrity, nor password hashing!

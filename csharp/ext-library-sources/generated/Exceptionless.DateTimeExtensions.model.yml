@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Exceptionless.DateTimeExtensions", "DateTimeRange", False, "Parse", "(System.String,System.DateTimeOffset)", "", "Parameter[0]", "remote", "manual"]
+      - ["Exceptionless.DateTimeExtensions", "TimeUnit", False, "TryParse", "(System.String,System.Nullable<System.TimeSpan>)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["GraphQL", "ExecutionOptions", False, "set_Query", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["GraphQL", "IGraphQLSerializer", True, "ReadAsync<>", "(System.IO.Stream,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["GraphQL", "ExecutionOptions", False, "set_OperationName", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["GraphQL", "IGraphQLTextSerializer", True, "Deserialize<>", "(System.String)", "", "Parameter[0]", "remote", "manual"]

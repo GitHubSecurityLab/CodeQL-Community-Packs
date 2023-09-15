@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["NBitcoin.DataEncoders", "DataEncoder", True, "DecodeData", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBitcoin.DataEncoders", "HexEncoder", False, "IsWellFormed", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBitcoin.DataEncoders", "DataEncoder", False, "EncodeData", "(System.Byte[])", "", "Parameter[0]", "remote", "manual"]

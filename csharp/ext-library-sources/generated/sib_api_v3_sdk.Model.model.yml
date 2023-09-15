@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["sib_api_v3_sdk.Model", "CreateSmsCampaign", False, "CreateSmsCampaign", "(System.String,System.String,System.String,sib_api_v3_sdk.Model.CreateSmsCampaignRecipients,System.String,System.Nullable<System.Boolean>)", "", "Parameter[0]", "remote", "manual"]
+      - ["sib_api_v3_sdk.Model", "CreateSmsCampaign", False, "CreateSmsCampaign", "(System.String,System.String,System.String,sib_api_v3_sdk.Model.CreateSmsCampaignRecipients,System.String,System.Nullable<System.Boolean>)", "", "Parameter[1]", "remote", "manual"]
+      - ["sib_api_v3_sdk.Model", "CreateSmsCampaign", False, "CreateSmsCampaign", "(System.String,System.String,System.String,sib_api_v3_sdk.Model.CreateSmsCampaignRecipients,System.String,System.Nullable<System.Boolean>)", "", "Parameter[2]", "remote", "manual"]

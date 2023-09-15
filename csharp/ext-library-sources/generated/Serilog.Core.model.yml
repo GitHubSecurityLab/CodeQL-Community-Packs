@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Serilog.Core", "Logger", False, "Information", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Serilog.Core", "Logger", False, "Error", "(System.Exception,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Serilog.Core", "Logger", False, "Error", "(System.String)", "", "Parameter[0]", "remote", "manual"]

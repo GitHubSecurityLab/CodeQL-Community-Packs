@@ -5,7 +5,6 @@
 # Audit queries
 - queries: '.'
   from: githubsecuritylab/java-queries
-
 - include:
     kind:
     - problem

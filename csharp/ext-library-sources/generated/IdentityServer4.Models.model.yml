@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["IdentityServer4.Models", "ConsentResponse", False, "set_RememberConsent", "(System.Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["IdentityServer4.Models", "ConsentResponse", False, "set_Description", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["IdentityServer4.Models", "HashExtensions", False, "Sha512", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["IdentityServer4.Models", "HashExtensions", False, "Sha256", "(System.String)", "", "Parameter[0]", "remote", "manual"]

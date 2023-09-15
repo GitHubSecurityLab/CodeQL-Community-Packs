@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["GuardNet", "Guard", False, "NotNullOrWhitespace", "(System.String,System.String)", "", "Parameter[0]", "remote", "manual"]

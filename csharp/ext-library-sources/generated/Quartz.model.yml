@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Quartz", "TriggerBuilder", False, "StartAt", "(System.DateTimeOffset)", "", "Parameter[0]", "remote", "manual"]
+      - ["Quartz", "TriggerBuilder", False, "WithIdentity", "(System.String,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Quartz", "TriggerBuilder", False, "EndAt", "(System.Nullable<System.DateTimeOffset>)", "", "Parameter[0]", "remote", "manual"]
+      - ["Quartz", "CronExpression", False, "IsValidExpression", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Quartz", "DateBuilder", False, "NextGivenSecondDate", "(System.Nullable<System.DateTimeOffset>,System.Int32)", "", "Parameter[0]", "remote", "manual"]
+      - ["Quartz", "JobKey", False, "JobKey", "(System.String,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Quartz", "SimpleScheduleBuilder", False, "WithIntervalInSeconds", "(System.Int32)", "", "Parameter[0]", "remote", "manual"]
+      - ["Quartz", "CronScheduleTriggerBuilderExtensions", False, "WithCronSchedule", "(Quartz.TriggerBuilder,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Quartz", "TriggerBuilder", False, "ForJob", "(System.String,System.String)", "", "Parameter[1]", "remote", "manual"]

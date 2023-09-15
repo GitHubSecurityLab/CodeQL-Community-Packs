@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["SteamKit2", "SteamID", False, "SteamID", "(System.UInt64)", "", "Parameter[0]", "remote", "manual"]
+      - ["SteamKit2", "SteamFriends", False, "SetPersonaName", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["SteamKit2", "CryptoHelper", False, "SymmetricEncrypt", "(System.Byte[],System.Byte[])", "", "Parameter[0]", "remote", "manual"]

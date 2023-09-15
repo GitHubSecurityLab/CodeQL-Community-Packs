@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["RocksDbSharp", "RocksDb", False, "Remove", "(System.Byte[],RocksDbSharp.ColumnFamilyHandle,RocksDbSharp.WriteOptions)", "", "Parameter[0]", "remote", "manual"]
+      - ["RocksDbSharp", "RocksDb", False, "Remove", "(System.String,RocksDbSharp.ColumnFamilyHandle,RocksDbSharp.WriteOptions)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Medallion.Threading", "IDistributedLock", True, "TryAcquireAsync", "(System.TimeSpan,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Lucene.Net.Search", "TopScoreDocCollector", False, "Create", "(System.Int32,System.Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["Lucene.Net.Search", "Searcher", True, "Search", "(Lucene.Net.Search.Query,Lucene.Net.Search.Filter,System.Int32,Lucene.Net.Store.IState)", "", "Parameter[2]", "remote", "manual"]
+      - ["Lucene.Net.Search", "TopDocsCollector<>", True, "GetTopDocs", "(System.Int32,System.Int32)", "", "Parameter[0]", "remote", "manual"]
+      - ["Lucene.Net.Search", "TopDocsCollector<>", True, "GetTopDocs", "(System.Int32,System.Int32)", "", "Parameter[1]", "remote", "manual"]
+      - ["Lucene.Net.Search", "Searcher", True, "Search", "(Lucene.Net.Search.Query,Lucene.Net.Search.Filter,System.Int32,Lucene.Net.Search.Sort,Lucene.Net.Store.IState)", "", "Parameter[2]", "remote", "manual"]

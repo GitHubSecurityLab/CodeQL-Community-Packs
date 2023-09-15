@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["cloudscribe.Pagination.Models", "PagedResult<>", False, "set_PageSize", "(System.Int32)", "", "Parameter[0]", "remote", "manual"]
+      - ["cloudscribe.Pagination.Models", "PagedResult<>", False, "set_PageNumber", "(System.Int64)", "", "Parameter[0]", "remote", "manual"]

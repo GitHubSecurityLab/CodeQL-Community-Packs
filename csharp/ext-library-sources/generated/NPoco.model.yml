@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["NPoco", "IDatabaseQuery", True, "Page<>", "(System.Int64,System.Int64,NPoco.Sql)", "", "Parameter[1]", "remote", "manual"]
+      - ["NPoco", "IDatabaseQuery", True, "SkipTake<>", "(System.Int64,System.Int64,NPoco.Sql)", "", "Parameter[0]", "remote", "manual"]
+      - ["NPoco", "IDatabaseQuery", True, "Page<>", "(System.Int64,System.Int64,NPoco.Sql)", "", "Parameter[0]", "remote", "manual"]
+      - ["NPoco", "IDatabaseQuery", True, "SkipTake<>", "(System.Int64,System.Int64,NPoco.Sql)", "", "Parameter[1]", "remote", "manual"]
+      - ["NPoco", "IDatabase", True, "Delete<>", "(System.Object)", "", "Parameter[0]", "remote", "manual"]

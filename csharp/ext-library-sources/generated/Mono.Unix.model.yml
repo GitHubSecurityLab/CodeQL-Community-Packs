@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Mono.Unix", "UnixPath", False, "TryReadLink", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Mono.Unix", "UnixPath", False, "IsPathRooted", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Mono.Unix", "UnixPath", False, "GetDirectoryName", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Mono.Unix", "UnixFileSystemInfo", False, "TryGetFileSystemEntry", "(System.String,Mono.Unix.UnixFileSystemInfo)", "", "Parameter[0]", "remote", "manual"]

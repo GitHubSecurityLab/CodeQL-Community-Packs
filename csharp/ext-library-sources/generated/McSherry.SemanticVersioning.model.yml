@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["McSherry.SemanticVersioning", "SemanticVersion", False, "SemanticVersion", "(System.Int32,System.Int32)", "", "Parameter[0]", "remote", "manual"]
+      - ["McSherry.SemanticVersioning", "SemanticVersion", False, "TryParse", "(System.String,McSherry.SemanticVersioning.ParseMode,McSherry.SemanticVersioning.SemanticVersion)", "", "Parameter[0]", "remote", "manual"]
+      - ["McSherry.SemanticVersioning", "SemanticVersion", False, "TryParse", "(System.String,McSherry.SemanticVersioning.SemanticVersion)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,22 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["StackExchange.Redis", "RedisValue", False, "op_Implicit", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["StackExchange.Redis", "RedisKey", False, "op_Implicit", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["StackExchange.Redis", "IDatabaseAsync", True, "KeyDeleteAsync", "(StackExchange.Redis.RedisKey,StackExchange.Redis.CommandFlags)", "", "Parameter[0]", "remote", "manual"]
+      - ["StackExchange.Redis", "ConnectionMultiplexer", False, "GetDatabase", "(System.Int32,System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["StackExchange.Redis", "EndPointCollection", False, "TryParse", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["StackExchange.Redis", "IDatabaseAsync", True, "HashGetAsync", "(StackExchange.Redis.RedisKey,StackExchange.Redis.RedisValue,StackExchange.Redis.CommandFlags)", "", "Parameter[1]", "remote", "manual"]
+      - ["StackExchange.Redis", "IDatabaseAsync", True, "SortedSetRangeByScoreAsync", "(StackExchange.Redis.RedisKey,System.Double,System.Double,StackExchange.Redis.Exclude,StackExchange.Redis.Order,System.Int64,System.Int64,StackExchange.Redis.CommandFlags)", "", "Parameter[0]", "remote", "manual"]
+      - ["StackExchange.Redis", "IDatabaseAsync", True, "SetMembersAsync", "(StackExchange.Redis.RedisKey,StackExchange.Redis.CommandFlags)", "", "Parameter[0]", "remote", "manual"]
+      - ["StackExchange.Redis", "IDatabaseAsync", True, "StringGetAsync", "(StackExchange.Redis.RedisKey,StackExchange.Redis.CommandFlags)", "", "Parameter[0]", "remote", "manual"]
+      - ["StackExchange.Redis", "IDatabaseAsync", True, "StringSetAsync", "(StackExchange.Redis.RedisKey,StackExchange.Redis.RedisValue,System.Nullable<System.TimeSpan>,System.Boolean,StackExchange.Redis.When,StackExchange.Redis.CommandFlags)", "", "Parameter[0]", "remote", "manual"]
+      - ["StackExchange.Redis", "IServer", True, "Keys", "(System.Int32,StackExchange.Redis.RedisValue,System.Int32,System.Int64,System.Int32,StackExchange.Redis.CommandFlags)", "", "Parameter[0]", "remote", "manual"]
+      - ["StackExchange.Redis", "IDatabaseAsync", True, "ListRightPushAsync", "(StackExchange.Redis.RedisKey,StackExchange.Redis.RedisValue,StackExchange.Redis.When,StackExchange.Redis.CommandFlags)", "", "Parameter[1]", "remote", "manual"]
+      - ["StackExchange.Redis", "IDatabaseAsync", True, "SetAddAsync", "(StackExchange.Redis.RedisKey,StackExchange.Redis.RedisValue,StackExchange.Redis.CommandFlags)", "", "Parameter[1]", "remote", "manual"]
+      - ["StackExchange.Redis", "IDatabaseAsync", True, "HashSetAsync", "(StackExchange.Redis.RedisKey,StackExchange.Redis.RedisValue,StackExchange.Redis.RedisValue,StackExchange.Redis.When,StackExchange.Redis.CommandFlags)", "", "Parameter[1]", "remote", "manual"]
+      - ["StackExchange.Redis", "IDatabaseAsync", True, "ListInsertBeforeAsync", "(StackExchange.Redis.RedisKey,StackExchange.Redis.RedisValue,StackExchange.Redis.RedisValue,StackExchange.Redis.CommandFlags)", "", "Parameter[1]", "remote", "manual"]
+      - ["StackExchange.Redis", "IDatabaseAsync", True, "ListInsertBeforeAsync", "(StackExchange.Redis.RedisKey,StackExchange.Redis.RedisValue,StackExchange.Redis.RedisValue,StackExchange.Redis.CommandFlags)", "", "Parameter[2]", "remote", "manual"]
+      - ["StackExchange.Redis", "IDatabaseAsync", True, "ListRemoveAsync", "(StackExchange.Redis.RedisKey,StackExchange.Redis.RedisValue,System.Int64,StackExchange.Redis.CommandFlags)", "", "Parameter[1]", "remote", "manual"]

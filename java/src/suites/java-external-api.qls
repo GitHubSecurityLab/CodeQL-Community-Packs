@@ -3,6 +3,7 @@
 - import: codeql-suites/java-security-extended.qls
   from: codeql/java-queries
 
+# External API query
 - queries: '.'
   from: codeql/java-queries
 - include:

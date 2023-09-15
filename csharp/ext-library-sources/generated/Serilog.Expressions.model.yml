@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Serilog.Expressions", "SerilogExpression", False, "TryCompile", "(System.String,System.IFormatProvider,Serilog.Expressions.NameResolver,Serilog.Expressions.CompiledExpression,System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Serilog.Expressions", "SerilogExpression", False, "EscapeLikeExpressionContent", "(System.String)", "", "Parameter[0]", "remote", "manual"]

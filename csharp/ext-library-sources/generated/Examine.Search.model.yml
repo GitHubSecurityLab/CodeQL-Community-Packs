@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Examine.Search", "QueryOptions", False, "SkipTake", "(System.Int32,System.Nullable<System.Int32>)", "", "Parameter[1]", "remote", "manual"]
+      - ["Examine.Search", "IQuery", True, "NativeQuery", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Examine.Search", "QueryOptions", False, "SkipTake", "(System.Int32,System.Nullable<System.Int32>)", "", "Parameter[0]", "remote", "manual"]

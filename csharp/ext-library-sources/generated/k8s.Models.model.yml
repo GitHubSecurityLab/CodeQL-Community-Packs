@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["k8s.Models", "V1ListMeta", False, "V1ListMeta", "(System.String,System.Nullable<System.Int64>,System.String,System.String)", "", "Parameter[2]", "remote", "manual"]

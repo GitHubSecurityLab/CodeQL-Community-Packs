@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Nethermind.Int256", "UInt256", False, "op_Implicit", "(System.UInt64)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nethermind.Int256", "UInt256", False, "op_Addition", "(Nethermind.Int256.UInt256,Nethermind.Int256.UInt256)", "", "Parameter[1]", "remote", "manual"]
+      - ["Nethermind.Int256", "UInt256", False, "op_Inequality", "(Nethermind.Int256.UInt256,Nethermind.Int256.UInt256)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nethermind.Int256", "UInt256", False, "op_LessThan", "(Nethermind.Int256.UInt256,System.UInt64)", "", "Parameter[0]", "remote", "manual"]

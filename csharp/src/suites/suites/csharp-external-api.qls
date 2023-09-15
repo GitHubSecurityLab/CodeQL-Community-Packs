@@ -1,0 +1,11 @@
+- description: "GitHub's Community Packs CSharp External API Suite"
+
+- import: codeql-suites/csharp-security-extended.qls
+  from: codeql/csharp-queries
+
+# External API query
+- queries: '.'
+  from: codeql/csharp-queries
+- include:
+    id:
+      - cs/untrusted-data-to-external-api

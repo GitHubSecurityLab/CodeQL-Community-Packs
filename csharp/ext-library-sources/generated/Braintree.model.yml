@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Braintree", "TransactionRequest", False, "set_PaymentMethodNonce", "(System.String)", "", "Parameter[0]", "remote", "manual"]

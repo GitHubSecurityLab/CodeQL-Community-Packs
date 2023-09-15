@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Devsense.PHP.Syntax", "Lexer", False, "Lexer", "(System.IO.TextReader,System.Text.Encoding,Devsense.PHP.Errors.IErrorSink<Devsense.PHP.Text.Span>,Devsense.PHP.Syntax.LanguageFeatures,Devsense.PHP.Ast.DocBlock.IDocBlockFactory<Devsense.PHP.Text.Span>,System.Int32,Devsense.PHP.Syntax.Lexer+LexicalStates)", "", "Parameter[0]", "remote", "manual"]

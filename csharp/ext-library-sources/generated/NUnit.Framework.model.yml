@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["NUnit.Framework", "Assert", False, "That<>", "(TActual,NUnit.Framework.Constraints.IResolveConstraint)", "", "Parameter[0]", "remote", "manual"]

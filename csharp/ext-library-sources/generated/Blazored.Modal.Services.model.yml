@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Blazored.Modal.Services", "IModalService", True, "Show", "(System.Type,System.String,Blazored.Modal.ModalParameters,Blazored.Modal.ModalOptions)", "", "Parameter[0]", "remote", "manual"]
+      - ["Blazored.Modal.Services", "IModalService", True, "Show", "(System.Type,System.String,Blazored.Modal.ModalParameters,Blazored.Modal.ModalOptions)", "", "Parameter[1]", "remote", "manual"]

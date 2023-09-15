@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["EnsureThat", "EnsureArg", False, "IsNotNullOrWhiteSpace", "(System.String,System.String,EnsureThat.OptsFn)", "", "Parameter[0]", "remote", "manual"]
+      - ["EnsureThat", "EnsureArg", False, "IsNotNull<>", "(T,System.String,EnsureThat.OptsFn)", "", "Parameter[0]", "remote", "manual"]
+      - ["EnsureThat", "EnsureArg", False, "IsNotNull", "(System.String,System.String,EnsureThat.OptsFn)", "", "Parameter[0]", "remote", "manual"]
+      - ["EnsureThat", "EnsureArg", False, "IsNotEmptyOrWhiteSpace", "(System.String,System.String,EnsureThat.OptsFn)", "", "Parameter[0]", "remote", "manual"]
+      - ["EnsureThat", "EnsureArg", False, "IsNotNullOrEmpty", "(System.String,System.String,EnsureThat.OptsFn)", "", "Parameter[0]", "remote", "manual"]
+      - ["EnsureThat", "EnsureArg", False, "IsInRange", "(System.Int32,System.Int32,System.Int32,System.String,EnsureThat.OptsFn)", "", "Parameter[0]", "remote", "manual"]
+      - ["EnsureThat", "EnsureArg", False, "IsGte", "(System.Int32,System.Int32,System.String,EnsureThat.OptsFn)", "", "Parameter[0]", "remote", "manual"]

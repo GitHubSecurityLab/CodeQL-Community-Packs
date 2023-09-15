@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["SixLabors.ImageSharp.Web", "CaseHandlingUriBuilder", False, "BuildAbsolute", "(SixLabors.ImageSharp.Web.CaseHandlingUriBuilder+CaseHandling,Microsoft.AspNetCore.Http.HostString,Microsoft.AspNetCore.Http.PathString,Microsoft.AspNetCore.Http.PathString,Microsoft.AspNetCore.Http.QueryString)", "", "Parameter[1]", "remote", "manual"]
+      - ["SixLabors.ImageSharp.Web", "CaseHandlingUriBuilder", False, "BuildAbsolute", "(SixLabors.ImageSharp.Web.CaseHandlingUriBuilder+CaseHandling,Microsoft.AspNetCore.Http.HostString,Microsoft.AspNetCore.Http.PathString,Microsoft.AspNetCore.Http.PathString,Microsoft.AspNetCore.Http.QueryString)", "", "Parameter[2]", "remote", "manual"]
+      - ["SixLabors.ImageSharp.Web", "CaseHandlingUriBuilder", False, "BuildAbsolute", "(SixLabors.ImageSharp.Web.CaseHandlingUriBuilder+CaseHandling,Microsoft.AspNetCore.Http.HostString,Microsoft.AspNetCore.Http.PathString,Microsoft.AspNetCore.Http.PathString,Microsoft.AspNetCore.Http.QueryString)", "", "Parameter[3]", "remote", "manual"]
+      - ["SixLabors.ImageSharp.Web", "CaseHandlingUriBuilder", False, "BuildAbsolute", "(SixLabors.ImageSharp.Web.CaseHandlingUriBuilder+CaseHandling,Microsoft.AspNetCore.Http.HostString,Microsoft.AspNetCore.Http.PathString,Microsoft.AspNetCore.Http.PathString,Microsoft.AspNetCore.Http.QueryString)", "", "Parameter[4]", "remote", "manual"]

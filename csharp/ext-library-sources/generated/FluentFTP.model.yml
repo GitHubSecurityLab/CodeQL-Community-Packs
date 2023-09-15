@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["FluentFTP", "FtpClient", False, "DownloadAsync", "(System.IO.Stream,System.String,System.Int64,System.IProgress<FluentFTP.FtpProgress>,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]

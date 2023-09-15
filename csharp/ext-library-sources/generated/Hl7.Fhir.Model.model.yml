@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Hl7.Fhir.Model", "OperationOutcome+IssueComponent", False, "set_Diagnostics", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Hl7.Fhir.Model", "ModelInfo", False, "IsKnownResource", "(System.String)", "", "Parameter[0]", "remote", "manual"]

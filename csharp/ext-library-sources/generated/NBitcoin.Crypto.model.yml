@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["NBitcoin.Crypto", "Hashes", False, "SHA256", "(System.Byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["NBitcoin.Crypto", "Hashes", False, "RIPEMD160", "(System.Byte[],System.Int32)", "", "Parameter[0]", "remote", "manual"]

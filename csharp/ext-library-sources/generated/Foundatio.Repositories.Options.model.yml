@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Foundatio.Repositories.Options", "OptionsExtensions", False, "AddCollectionOptionValue<,>", "(TOptions,System.String,TValue)", "", "Parameter[2]", "remote", "manual"]

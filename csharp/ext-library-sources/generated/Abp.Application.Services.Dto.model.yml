@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Abp.Application.Services.Dto", "EntityDto", False, "EntityDto", "(System.Int32)", "", "Parameter[0]", "remote", "manual"]
+      - ["Abp.Application.Services.Dto", "EntityDto<>", False, "EntityDto", "(TPrimaryKey)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["FastReport.Code.CodeDom.Compiler", "CodeGenerator", False, "IsValidLanguageIndependentIdentifier", "(System.String)", "", "Parameter[0]", "remote", "manual"]

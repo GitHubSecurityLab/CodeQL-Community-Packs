@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["NBitcoin.RPC", "RPCClient", False, "SendCommandAsync", "(NBitcoin.RPC.RPCRequest,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBitcoin.RPC", "RPCClient", False, "GenerateToAddress", "(System.Int32,NBitcoin.BitcoinAddress)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBitcoin.RPC", "RPCClient", False, "GetBestBlockHashAsync", "(System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBitcoin.RPC", "RPCClient", False, "GetBlockHeaderAsync", "(NBitcoin.uint256,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["NBitcoin.RPC", "RPCClient", False, "GetBlockchainInfoAsync", "(System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBitcoin.RPC", "RPCClient", False, "GetMemPoolAsync", "(System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBitcoin.RPC", "RPCClient", False, "GetPeersInfoAsync", "(System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBitcoin.RPC", "RPCClient", False, "GetRawMempoolAsync", "(System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBitcoin.RPC", "RPCClient", False, "GetRawTransactionAsync", "(NBitcoin.uint256,System.Boolean,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["NBitcoin.RPC", "RPCClient", False, "SendBatchAsync", "(System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBitcoin.RPC", "RPCClient", False, "SendCommandAsync", "(NBitcoin.RPC.RPCOperations,System.Threading.CancellationToken,System.Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["NBitcoin.RPC", "RPCClient", False, "SendRawTransactionAsync", "(NBitcoin.Transaction,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["NBitcoin.RPC", "RPCClient", False, "TryEstimateSmartFeeAsync", "(System.Int32,NBitcoin.RPC.EstimateSmartFeeMode,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]

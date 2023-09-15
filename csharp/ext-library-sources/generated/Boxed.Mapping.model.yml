@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Boxed.Mapping", "IMapper<,>", True, "Map", "(TSource,TDestination)", "", "Parameter[0]", "remote", "manual"]
+      - ["Boxed.Mapping", "MapperExtensions", False, "Map<,>", "(Boxed.Mapping.IMapper<TSource,TDestination>,TSource)", "", "Parameter[1]", "remote", "manual"]

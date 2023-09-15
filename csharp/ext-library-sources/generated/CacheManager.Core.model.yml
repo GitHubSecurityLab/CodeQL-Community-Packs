@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["CacheManager.Core", "CacheItem<>", False, "CacheItem", "(System.String,T,CacheManager.Core.ExpirationMode,System.TimeSpan)", "", "Parameter[0]", "remote", "manual"]
+      - ["CacheManager.Core", "CacheItem<>", False, "CacheItem", "(System.String,T,CacheManager.Core.ExpirationMode,System.TimeSpan)", "", "Parameter[1]", "remote", "manual"]
+      - ["CacheManager.Core", "ICache<>", True, "Exists", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["CacheManager.Core", "ICache<>", True, "Get", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["CacheManager.Core", "ICache<>", True, "Get<>", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["CacheManager.Core", "ICache<>", True, "Remove", "(System.String)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["MailKit", "MailService", False, "Authenticate", "(System.String,System.String,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["MailKit", "MailService", False, "Authenticate", "(System.String,System.String,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["MailKit", "MailService", False, "AuthenticateAsync", "(System.String,System.String,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["MailKit", "MailService", False, "AuthenticateAsync", "(System.String,System.String,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]

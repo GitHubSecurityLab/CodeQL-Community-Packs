@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["AutoFixture.Dsl", "IPostprocessComposer<>", True, "With<>", "(System.Linq.Expressions.Expression<System.Func<T,TProperty>>,TProperty)", "", "Parameter[1]", "remote", "manual"]

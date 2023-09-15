@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Nest.Specification.IndicesApi", "IndicesNamespace", False, "DeleteAsync", "(Nest.Indices,System.Func<Nest.DeleteIndexDescriptor,Nest.IDeleteIndexRequest>,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nest.Specification.IndicesApi", "IndicesNamespace", False, "ExistsAsync", "(Nest.Indices,System.Func<Nest.IndexExistsDescriptor,Nest.IIndexExistsRequest>,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]

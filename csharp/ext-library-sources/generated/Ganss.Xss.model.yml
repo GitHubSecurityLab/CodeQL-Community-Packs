@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Ganss.XSS", "HtmlSanitizer", False, "Sanitize", "(System.String,System.String,AngleSharp.IMarkupFormatter)", "", "Parameter[0]", "remote", "manual"]

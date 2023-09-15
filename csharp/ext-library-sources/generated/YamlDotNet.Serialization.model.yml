@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["YamlDotNet.Serialization", "IDeserializer", True, "Deserialize<>", "(System.String)", "", "Parameter[0]", "remote", "manual"]
