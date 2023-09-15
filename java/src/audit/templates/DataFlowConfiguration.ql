@@ -4,8 +4,8 @@
  * @kind path-problem
  * @precision low
  * @problem.severity error
- * @id seclab/dataflow-query
- * @tags audit
+ * @id githubsecuritylab/dataflow-query
+ * @tags template
  */
 
 import java

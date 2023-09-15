@@ -1,11 +1,9 @@
 /**
  * @name Forward Partial Dataflow
  * @description Forward Partial Dataflow
- * @kind problem
- * @precision low
- * @problem.severity error
- * @id seclab/forward-partial-dataflow
- * @tags audit
+ * @kind table
+ * @id githubsecuritylab/forward-partial-dataflow
+ * @tags template
  */
 
 import java
@@ -23,13 +21,13 @@ private module MyConfig implements DataFlow::ConfigSig {
     none()
   }
 
-  predicate isSink(DataFlow::Node sink) {
-    none()
-  }
+  predicate isSink(DataFlow::Node sink) { none() }
 }
 
 private module MyFlow = TaintTracking::Global<MyConfig>; // or DataFlow::Global<..>
+
 int explorationLimit() { result = 10 }
+
 private module PartialFlow = MyFlow::FlowExploration<explorationLimit/0>;
 
 from PartialFlow::PartialPathNode n, int dist

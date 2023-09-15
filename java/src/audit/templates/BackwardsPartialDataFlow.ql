@@ -1,11 +1,9 @@
 /**
  * @name Backwards Partial Dataflow
  * @description Backwards Partial Dataflow
- * @kind problem
- * @precision low
- * @problem.severity error
- * @id seclab/backwards-partial-dataflow
- * @tags audit
+ * @kind table
+ * @id githubsecuritylab/backwards-partial-dataflow
+ * @tags template
  */
 
 import java

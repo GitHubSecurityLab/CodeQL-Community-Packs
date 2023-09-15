@@ -1,10 +1,8 @@
 /**
  * @name Attack Surface
  * @description Application attack surface
- * @kind problem
- * @precision low
- * @problem.severity error
- * @id seclab/attack-surface
+ * @kind table
+ * @id githubsecuritylab/attack-surface
  * @tags audit
  */
 

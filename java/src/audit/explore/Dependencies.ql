@@ -2,8 +2,9 @@
  * @name External dependencies
  * @description Count the number of dependencies that a Java project has on external packages.
  * @kind treemap
- * @id java/external-dependencies
+ * @id githubsecuritylab/external-dependencies
  * @metricType externalDependency
+ * @tags audit
  */
 
 import java
