@@ -17,8 +17,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: true
+        # with:
+        #   submodules: true
 
       # Conditionally run actions based on files modified by PR, feature branch or pushed commits
       - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
@@ -36,7 +36,11 @@ jobs:
           gh repo clone github/codeql
           gh extension install github/gh-codeql
           gh codeql pack download "codeql/${{ matrix.language }}-queries"
-          gh codeql pack install --additional-packs=./codeql/misc "${{ matrix.language }}"
+          gh codeql pack install --additional-packs=./codeql/misc "${{ matrix.language }}/ext/"
+          gh codeql pack install --additional-packs=./codeql/misc "${{ matrix.language }}/ext_library_sources/"
+          gh codeql pack install --additional-packs=./codeql/misc "${{ matrix.language }}/lib"
+          gh codeql pack install --additional-packs=./codeql/misc "${{ matrix.language }}/src"
+          gh codeql pack install --additional-packs=./codeql/misc "${{ matrix.language }}/test"
 
       - name: Compile Queries
         if: steps.changes.outputs.src == 'true'
