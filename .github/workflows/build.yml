@@ -33,7 +33,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          # gh repo clone github/codeql
           gh extension install github/gh-codeql
           gh codeql pack download "codeql/${{ matrix.language }}-queries"
           gh codeql pack install "${{ matrix.language }}/lib"

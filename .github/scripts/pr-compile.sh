@@ -7,10 +7,7 @@ LANGUAGE=${2}
 LIBRARY_SCANNED=false
 
 echo "[+] Compiling all queries in $LANGUAGE"
-gh codeql query compile \
-    --threads=0 --check-only \
-    "./$LANGUAGE/"
-    # --search-path=./codeql --additional-packs=./codeql:./codeql/misc \
+gh codeql query compile --threads=0 --check-only "./$LANGUAGE/"
 
 for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
     if [[ ! -f "$file" ]]; then
@@ -22,20 +19,12 @@ for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
         echo "[+] Compiling $file (in $LANGUAGE)"
 
         # compile the query
-        gh codeql query compile  \
-            --threads=0 --check-only \
-            --warnings=error \
-            "./$file"
-            # --search-path=./codeql --additional-packs=./codeql:./codeql/misc \
+        gh codeql query compile --threads=0 --check-only --warnings=error "./$file"
 
     # if lib folder is modified
     elif [[ "$file" == $LANGUAGE/lib/* ]] && [[ $LIBRARY_SCANNED == false ]]; then
         echo "[+] Libray changed, compiling all queries in $LANGUAGE"
-        gh codeql query compile \
-            --threads=0 --check-only \
-            --warnings=error \
-            "./$LANGUAGE/"
-            # --search-path=./codeql --additional-packs=./codeql:./codeql/misc \
+        gh codeql query compile --threads=0 --check-only --warnings=error "./$LANGUAGE/"
         # set LIBRARY_SCANNED to true to prevent recompiling
         LIBRARY_SCANNED=true
 

@@ -14,8 +14,6 @@ for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
     if [[ "$file" == $LANGUAGE/suites/**.qls ]]; then
         echo "[+] Compiling Suite: $file"
         gh codeql resolve queries "$file"
-        # --search-path=./codeql \
-        # --additional-packs=./codeql:./codeql/misc \
 
     # qlpack file and lock file
     elif [[ "$file" == $LANGUAGE/qlpack.yml ]] || [[ "$file" == $LANGUAGE/codeql-pack.lock.yml ]]; then
