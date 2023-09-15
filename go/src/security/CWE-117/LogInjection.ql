@@ -13,7 +13,7 @@
 
 import go
 import semmle.go.security.LogInjection
-import DataFlow::PathGraph
+import LogInjection::Flow::PathGraph
 
 class RegexpSanitizer extends LogInjection::Sanitizer {
   RegexpSanitizer() {
@@ -26,7 +26,7 @@ class RegexpSanitizer extends LogInjection::Sanitizer {
   }
 }
 
-from LogInjection::Configuration c, DataFlow::PathNode source, DataFlow::PathNode sink
-where c.hasFlowPath(source, sink)
-select sink, source, sink, "This log write receives unsanitized user input from $@.",
-  source.getNode(), "here"
+from LogInjection::Flow::PathNode source, LogInjection::Flow::PathNode sink
+where LogInjection::Flow::flowPath(source, sink)
+select sink.getNode(), source, sink, "This log entry depends on a $@.", source.getNode(),
+  "user-provided value"
