@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["NCrontab.Advanced", "CrontabSchedule", False, "Parse", "(System.String,NCrontab.Advanced.Enumerations.CronStringFormat)", "", "Parameter[0]", "remote", "manual"]

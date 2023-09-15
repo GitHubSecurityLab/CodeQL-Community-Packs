@@ -1,0 +1,14 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["MimeKit", "MailboxAddress", False, "TryParse", "(System.String,MimeKit.MailboxAddress)", "", "Parameter[0]", "remote", "manual"]
+      - ["MimeKit", "MailboxAddress", False, "Parse", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MimeKit", "MailboxAddress", False, "MailboxAddress", "(System.String,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["MimeKit", "MimeMessage", False, "set_Subject", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MimeKit", "TextPart", False, "set_Text", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MimeKit", "BodyBuilder", False, "set_HtmlBody", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MimeKit", "MailboxAddress", False, "MailboxAddress", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MimeKit", "MailboxAddress", False, "MailboxAddress", "(System.String,System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MimeKit", "MailboxAddress", False, "TryParse", "(MimeKit.ParserOptions,System.String,MimeKit.MailboxAddress)", "", "Parameter[1]", "remote", "manual"]

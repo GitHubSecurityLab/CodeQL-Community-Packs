@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["OpenIddict.Core", "OpenIddictApplicationManager<>", False, "CreateAsync", "(OpenIddict.Abstractions.OpenIddictApplicationDescriptor,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["OpenIddict.Core", "OpenIddictApplicationManager<>", False, "PopulateAsync", "(OpenIddict.Abstractions.OpenIddictApplicationDescriptor,TApplication,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["OpenIddict.Core", "OpenIddictApplicationManager<>", False, "PopulateAsync", "(TApplication,OpenIddict.Abstractions.OpenIddictApplicationDescriptor,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]

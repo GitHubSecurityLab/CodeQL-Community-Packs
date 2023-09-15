@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["MongoDB.Bson", "BsonRegularExpression", False, "BsonRegularExpression", "(System.String,System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MongoDB.Bson", "BsonRegularExpression", False, "op_Implicit", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MongoDB.Bson", "BsonRegularExpression", False, "BsonRegularExpression", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["MongoDB.Bson", "ObjectId", False, "TryParse", "(System.String,MongoDB.Bson.ObjectId)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Abp.Notifications", "MessageNotificationData", False, "MessageNotificationData", "(System.String)", "", "Parameter[0]", "remote", "manual"]

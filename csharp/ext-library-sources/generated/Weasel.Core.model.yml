@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Weasel.Core", "CommandExtensions", False, "With<>", "(T,System.String,System.Guid)", "", "Parameter[2]", "remote", "manual"]

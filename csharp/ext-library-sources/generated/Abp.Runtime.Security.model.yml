@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Abp.Runtime.Security", "SimpleStringCipher", False, "Decrypt", "(System.String,System.String,System.Byte[],System.Nullable<System.Int32>,System.Byte[])", "", "Parameter[0]", "remote", "manual"]

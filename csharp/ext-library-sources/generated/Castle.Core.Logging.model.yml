@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Castle.Core.Logging", "ILogger", True, "Error", "(System.String)", "", "Parameter[0]", "remote", "manual"]

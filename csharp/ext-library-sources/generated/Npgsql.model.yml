@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Npgsql", "NpgsqlParameterCollection", False, "AddWithValue", "(System.String,NpgsqlTypes.NpgsqlDbType,System.Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["Npgsql", "NpgsqlParameter", False, "NpgsqlParameter", "(System.String,System.Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["Npgsql", "NpgsqlParameterCollection", False, "AddWithValue", "(System.String,System.Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["Npgsql", "NpgsqlConnectionStringBuilder", False, "set_Password", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Npgsql", "NpgsqlConnectionStringBuilder", False, "set_Host", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Npgsql", "NpgsqlConnectionStringBuilder", False, "set_Database", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Npgsql", "NpgsqlConnectionStringBuilder", False, "NpgsqlConnectionStringBuilder", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Npgsql", "NpgsqlConnection", False, "NpgsqlConnection", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Npgsql", "NpgsqlCommand", False, "set_CommandText", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Npgsql", "NpgsqlConnectionStringBuilder", False, "set_Username", "(System.String)", "", "Parameter[0]", "remote", "manual"]

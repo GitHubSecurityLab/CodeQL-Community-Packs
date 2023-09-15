@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Util.Data", "PageList<>", False, "PageList", "(Util.Data.Queries.IPage,System.Collections.Generic.IEnumerable<T>)", "", "Parameter[0]", "remote", "manual"]

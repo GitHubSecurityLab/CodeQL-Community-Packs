@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Blog.Core.Model", "PageModel<>", False, "PageModel", "(System.Int32,System.Int32,System.Int32,System.Collections.Generic.List<T>)", "", "Parameter[0]", "remote", "manual"]
+      - ["Blog.Core.Model", "PageModel<>", False, "PageModel", "(System.Int32,System.Int32,System.Int32,System.Collections.Generic.List<T>)", "", "Parameter[2]", "remote", "manual"]

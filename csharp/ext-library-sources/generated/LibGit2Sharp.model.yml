@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["LibGit2Sharp", "Repository", False, "Repository", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["LibGit2Sharp", "RemoteUpdater", False, "set_Url", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["LibGit2Sharp", "Repository", False, "Clone", "(System.String,System.String,LibGit2Sharp.CloneOptions)", "", "Parameter[0]", "remote", "manual"]
+      - ["LibGit2Sharp", "RepositoryExtensions", False, "Commit", "(LibGit2Sharp.IRepository,System.String,LibGit2Sharp.Signature,LibGit2Sharp.Signature)", "", "Parameter[1]", "remote", "manual"]
+      - ["LibGit2Sharp", "Repository", False, "Clone", "(System.String,System.String,LibGit2Sharp.CloneOptions)", "", "Parameter[1]", "remote", "manual"]
+      - ["LibGit2Sharp", "Commands", False, "Stage", "(LibGit2Sharp.IRepository,System.String)", "", "Parameter[1]", "remote", "manual"]

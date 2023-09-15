@@ -1,0 +1,18 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Stripe", "AnyOf<,>", False, "op_Implicit", "(T1)", "", "Parameter[0]", "remote", "manual"]
+      - ["Stripe", "SubscriptionItemOptions", False, "set_Plan", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Stripe", "CustomerUpdateOptions", False, "set_Source", "(Stripe.AnyOf<System.String,Stripe.CardCreateNestedOptions>)", "", "Parameter[0]", "remote", "manual"]
+      - ["Stripe", "EventUtility", False, "ConstructEvent", "(System.String,System.String,System.String,System.Int64,System.Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["Stripe", "EventUtility", False, "ConstructEvent", "(System.String,System.String,System.String,System.Int64,System.Boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["Stripe", "InvoiceService", False, "GetAsync", "(System.String,Stripe.InvoiceGetOptions,Stripe.RequestOptions,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["Stripe", "ListOptions", False, "set_EndingBefore", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Stripe", "ListOptions", False, "set_Limit", "(System.Nullable<System.Int64>)", "", "Parameter[0]", "remote", "manual"]
+      - ["Stripe", "ListOptions", False, "set_StartingAfter", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Stripe", "CustomerCreateOptions", False, "set_Source", "(Stripe.AnyOf<System.String,Stripe.CardCreateNestedOptions>)", "", "Parameter[0]", "remote", "manual"]
+      - ["Stripe", "CustomerCreateOptions", False, "set_Plan", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Stripe", "CustomerCreateOptions", False, "set_Coupon", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Stripe", "ChargeCreateOptions", False, "set_SourceId", "(System.String)", "", "Parameter[0]", "remote", "manual"]

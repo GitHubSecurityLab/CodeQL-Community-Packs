@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["LNURL", "LNUrlStatusResponse", False, "set_Reason", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["LNURL", "LNURL", False, "Parse", "(System.String,System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["LNURL", "LNURL", False, "EncodeUri", "(System.Uri,System.String,System.Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["LNURL", "LNURL", False, "ExtractUriFromInternetIdentifier", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["LNURL", "LNURL", False, "FetchInformation", "(System.Uri,System.String,System.Net.Http.HttpClient,System.Threading.CancellationToken)", "", "Parameter[3]", "remote", "manual"]
+      - ["LNURL", "LNURLPayRequest", False, "SendRequest", "(BTCPayServer.Lightning.LightMoney,NBitcoin.Network,System.Net.Http.HttpClient,System.String,LNURL.LNURLPayRequest+LUD18PayerDataResponse,System.Threading.CancellationToken)", "", "Parameter[3]", "remote", "manual"]
+      - ["LNURL", "LNURLPayRequest", False, "set_Callback", "(System.Uri)", "", "Parameter[0]", "remote", "manual"]
+      - ["LNURL", "LNURLWithdrawRequest", False, "set_BalanceCheck", "(System.Uri)", "", "Parameter[0]", "remote", "manual"]
+      - ["LNURL", "LNURLWithdrawRequest", False, "set_Callback", "(System.Uri)", "", "Parameter[0]", "remote", "manual"]
+      - ["LNURL", "LNURLWithdrawRequest", False, "set_K1", "(System.String)", "", "Parameter[0]", "remote", "manual"]

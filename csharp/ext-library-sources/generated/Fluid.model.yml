@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Fluid", "FluidParserExtensions", False, "TryParse", "(Fluid.FluidParser,System.String,Fluid.IFluidTemplate,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Fluid", "TemplateContext", False, "SetValue", "(System.String,Fluid.Values.FluidValue)", "", "Parameter[0]", "remote", "manual"]

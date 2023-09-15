@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Amazon.DynamoDBv2.DataModel", "DynamoDBContext", False, "SaveAsync<>", "(T,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["Amazon.DynamoDBv2.DataModel", "DynamoDBContext", False, "DeleteAsync<>", "(T,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Ardalis.Specification", "IReadRepositoryBase<>", True, "GetByIdAsync<>", "(TId,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["Ardalis.Specification", "IReadRepositoryBase<>", True, "GetByIdAsync<>", "(TId,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["Ardalis.Specification", "IReadRepositoryBase<>", True, "FirstOrDefaultAsync", "(Ardalis.Specification.ISpecification<T>,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["Ardalis.Specification", "IReadRepositoryBase<>", True, "ListAsync", "(System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["Ardalis.Specification", "IRepositoryBase<>", True, "AddAsync", "(T,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["Ardalis.Specification", "IRepositoryBase<>", True, "DeleteAsync", "(T,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["Ardalis.Specification", "IRepositoryBase<>", True, "UpdateAsync", "(T,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]

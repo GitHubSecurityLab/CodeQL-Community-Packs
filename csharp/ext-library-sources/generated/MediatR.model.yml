@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["MediatR", "IPublisher", True, "Publish<>", "(TNotification,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["MediatR", "ISender", True, "Send<>", "(MediatR.IRequest<TResponse>,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["MediatR", "ISender", True, "Send<>", "(MediatR.IRequest<TResponse>,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["MediatR", "ISender", True, "Send<>", "(TRequest,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["MediatR", "ISender", True, "Send", "(System.Object,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]

@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Elasticsearch.Net.Specification.IndicesApi", "LowLevelIndicesNamespace", False, "GetMappingAsync<>", "(System.String,Elasticsearch.Net.Specification.IndicesApi.GetMappingRequestParameters,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]

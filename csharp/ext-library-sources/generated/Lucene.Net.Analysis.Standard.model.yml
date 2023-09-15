@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Lucene.Net.Analysis.Standard", "StandardTokenizer", False, "StandardTokenizer", "(Lucene.Net.Util.LuceneVersion,System.IO.TextReader)", "", "Parameter[1]", "remote", "manual"]

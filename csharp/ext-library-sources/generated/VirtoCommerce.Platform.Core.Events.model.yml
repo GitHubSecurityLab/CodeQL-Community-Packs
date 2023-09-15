@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["VirtoCommerce.Platform.Core.Events", "GenericChangedEntry<>", False, "GenericChangedEntry", "(T,VirtoCommerce.Platform.Core.Common.EntryState)", "", "Parameter[0]", "remote", "manual"]

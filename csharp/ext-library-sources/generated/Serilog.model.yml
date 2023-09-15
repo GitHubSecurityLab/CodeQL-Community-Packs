@@ -1,0 +1,29 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Serilog", "IDiagnosticContext", True, "Set", "(System.String,System.Object,System.Boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Debug<>", "(System.String,T)", "", "Parameter[1]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Debug<,>", "(System.String,T0,T1)", "", "Parameter[2]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Warning<,>", "(System.String,T0,T1)", "", "Parameter[1]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Information<,,>", "(System.String,T0,T1,T2)", "", "Parameter[3]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Information<,,>", "(System.String,T0,T1,T2)", "", "Parameter[1]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Information<,,>", "(System.String,T0,T1,T2)", "", "Parameter[2]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Debug<,>", "(System.String,T0,T1)", "", "Parameter[1]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Warning<,>", "(System.String,T0,T1)", "", "Parameter[2]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Information<,>", "(System.String,T0,T1)", "", "Parameter[2]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Error<>", "(System.Exception,System.String,T)", "", "Parameter[2]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Error<,>", "(System.Exception,System.String,T0,T1)", "", "Parameter[3]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Information<>", "(System.String,T)", "", "Parameter[1]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Debug", "(System.String,System.Object[])", "", "Parameter[2]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Debug", "(System.String,System.Object[])", "", "Parameter[3]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Debug", "(System.String,System.Object[])", "", "Parameter[4]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Error<,,>", "(System.Exception,System.String,T0,T1,T2)", "", "Parameter[3]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Error<,,>", "(System.String,T0,T1,T2)", "", "Parameter[2]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Error<,>", "(System.Exception,System.String,T0,T1)", "", "Parameter[2]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Warning<>", "(System.String,T)", "", "Parameter[1]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Information", "(System.String,System.Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Information<,>", "(System.String,T0,T1)", "", "Parameter[1]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Warning<,,>", "(System.String,T0,T1,T2)", "", "Parameter[2]", "remote", "manual"]
+      - ["Serilog", "ILogger", True, "Warning<,,>", "(System.String,T0,T1,T2)", "", "Parameter[1]", "remote", "manual"]

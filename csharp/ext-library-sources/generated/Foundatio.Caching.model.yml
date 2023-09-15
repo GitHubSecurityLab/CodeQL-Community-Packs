@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Foundatio.Caching", "CacheClientExtensions", False, "IncrementAsync", "(Foundatio.Caching.ICacheClient,System.String,System.Int64,System.Nullable<System.DateTime>)", "", "Parameter[1]", "remote", "manual"]
+      - ["Foundatio.Caching", "ICacheClient", True, "RemoveAsync", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Foundatio.Caching", "ScopedCacheClient", False, "AddAsync<>", "(System.String,T,System.Nullable<System.TimeSpan>)", "", "Parameter[0]", "remote", "manual"]
+      - ["Foundatio.Caching", "ScopedCacheClient", False, "GetAsync<>", "(System.String)", "", "Parameter[0]", "remote", "manual"]

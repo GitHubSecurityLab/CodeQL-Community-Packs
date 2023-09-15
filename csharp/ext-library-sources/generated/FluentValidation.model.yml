@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["FluentValidation", "AbstractValidator<>", False, "Validate", "(T)", "", "Parameter[0]", "remote", "manual"]
+      - ["FluentValidation", "IValidator<>", True, "ValidateAsync", "(T,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["FluentValidation", "IValidator<>", True, "Validate", "(T)", "", "Parameter[0]", "remote", "manual"]
+      - ["FluentValidation", "ValidationContext<>", False, "ValidationContext", "(T)", "", "Parameter[0]", "remote", "manual"]

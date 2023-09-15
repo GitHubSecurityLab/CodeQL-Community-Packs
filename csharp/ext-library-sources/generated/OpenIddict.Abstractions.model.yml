@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["OpenIddict.Abstractions", "IOpenIddictScopeManager", True, "FindByNameAsync", "(System.String,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["OpenIddict.Abstractions", "IOpenIddictApplicationManager", True, "FindByClientIdAsync", "(System.String,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["OpenIddict.Abstractions", "OpenIddictScopeDescriptor", False, "set_Description", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["OpenIddict.Abstractions", "OpenIddictScopeDescriptor", False, "set_DisplayName", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["OpenIddict.Abstractions", "OpenIddictScopeDescriptor", False, "set_Name", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["OpenIddict.Abstractions", "OpenIddictApplicationDescriptor", False, "set_ClientSecret", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["OpenIddict.Abstractions", "OpenIddictApplicationDescriptor", False, "set_ClientId", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["OpenIddict.Abstractions", "OpenIddictApplicationDescriptor", False, "set_ConsentType", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["OpenIddict.Abstractions", "OpenIddictApplicationDescriptor", False, "set_DisplayName", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["OpenIddict.Abstractions", "IOpenIddictScopeStore<>", True, "FindByIdAsync", "(System.String,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["OpenIddict.Abstractions", "IOpenIddictApplicationStore<>", True, "FindByIdAsync", "(System.String,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["OpenIddict.Abstractions", "OpenIddictApplicationDescriptor", False, "set_Type", "(System.String)", "", "Parameter[0]", "remote", "manual"]

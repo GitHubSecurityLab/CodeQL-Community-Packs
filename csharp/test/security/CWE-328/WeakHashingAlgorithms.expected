@@ -1,0 +1,4 @@
+| WeakHashingAlgorithms.cs:12:40:12:69 | object creation of type MD5CryptoServiceProvider | This function creates a new MD5CryptoServiceProvider() object, which uses a cryptographically weak hash algorithm |
+| WeakHashingAlgorithms.cs:25:66:25:121 | call to method Create | This function calls the MD5.Create() or HashAlgorithm.Create() method, which uses a cryptographically weak hash algorithm |
+| WeakHashingAlgorithms.cs:38:48:38:88 | call to method Create | This function calls the MD5.Create() or HashAlgorithm.Create() method, which uses a cryptographically weak hash algorithm |
+| WeakHashingAlgorithms.cs:51:48:51:88 | call to method Create | This function calls the MD5.Create() or HashAlgorithm.Create() method, which uses a cryptographically weak hash algorithm |

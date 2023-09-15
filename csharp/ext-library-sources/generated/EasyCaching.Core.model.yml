@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["EasyCaching.Core", "IEasyCachingProviderBase", True, "TrySet<>", "(System.String,T,System.TimeSpan)", "", "Parameter[0]", "remote", "manual"]
+      - ["EasyCaching.Core", "IEasyCachingProviderBase", True, "Remove", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["EasyCaching.Core", "IEasyCachingProviderBase", True, "Exists", "(System.String)", "", "Parameter[0]", "remote", "manual"]

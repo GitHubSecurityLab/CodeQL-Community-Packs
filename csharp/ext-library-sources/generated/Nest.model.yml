@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Nest", "Indices", False, "op_Implicit", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nest", "Query<>", False, "Term<>", "(System.Linq.Expressions.Expression<System.Func<T,TValue>>,System.Object,System.Nullable<System.Double>,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Nest", "PutMappingDescriptor<>", False, "Index", "(Nest.Indices)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nest", "Field", False, "op_Implicit", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nest", "TermQueryDescriptorBase<,,>", False, "Value", "(System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nest", "WildcardQueryDescriptor<>", False, "Wildcard", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nest", "SourceFieldDescriptor", False, "Enabled", "(System.Nullable<System.Boolean>)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nest", "SearchRequest", False, "set_Size", "(System.Nullable<System.Int32>)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nest", "AnalyzersDescriptor", False, "UserDefined", "(System.String,Nest.IAnalyzer)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nest", "CreateIndexDescriptor", False, "CreateIndexDescriptor", "(Nest.IndexName)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nest", "IndexName", False, "op_Implicit", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nest", "MultiMatchQuery", False, "set_Query", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nest", "PutMappingRequest", False, "PutMappingRequest", "(Nest.Indices)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nest", "QueryStringQuery", False, "set_Query", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nest", "SearchRequest", False, "SearchRequest", "(Nest.Indices)", "", "Parameter[0]", "remote", "manual"]
+      - ["Nest", "SearchRequest", False, "set_From", "(System.Nullable<System.Int32>)", "", "Parameter[0]", "remote", "manual"]

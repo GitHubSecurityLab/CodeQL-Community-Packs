@@ -1,0 +1,24 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["SqlKata", "BaseQuery<>", False, "Where", "(System.String,System.Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["SqlKata", "BaseQuery<>", False, "OrWhereLike", "(System.String,System.Object,System.Boolean,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["SqlKata", "BaseQuery<>", False, "WhereLike", "(System.String,System.Object,System.Boolean,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["SqlKata", "Query", False, "ForPage", "(System.Int32,System.Int32)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlKata", "BaseQuery<>", False, "Where", "(System.String,System.String,System.Object)", "", "Parameter[2]", "remote", "manual"]
+      - ["SqlKata", "BaseQuery<>", False, "WhereNot", "(System.String,System.Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["SqlKata", "BaseQuery<>", False, "WhereLike", "(System.String,System.Object,System.Boolean,System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlKata", "BaseQuery<>", False, "OrWhereIn<>", "(System.String,System.Collections.Generic.IEnumerable<T>)", "", "Parameter[1]", "remote", "manual"]
+      - ["SqlKata", "Query", False, "Offset", "(System.Int32)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlKata", "Query", False, "Limit", "(System.Int32)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlKata", "Query", False, "OrderByDesc", "(System.String[])", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlKata", "BaseQuery<>", False, "OrWhere", "(System.String,System.Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["SqlKata", "Query", False, "ForPage", "(System.Int32,System.Int32)", "", "Parameter[1]", "remote", "manual"]
+      - ["SqlKata", "BaseQuery<>", False, "Where", "(System.String,System.String,System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlKata", "BaseQuery<>", False, "WhereBetween<>", "(System.String,T,T)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlKata", "BaseQuery<>", False, "OrWhereRaw", "(System.String,System.Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["SqlKata", "BaseQuery<>", False, "WhereIn<>", "(System.String,System.Collections.Generic.IEnumerable<T>)", "", "Parameter[1]", "remote", "manual"]
+      - ["SqlKata", "BasicCondition", False, "set_Value", "(System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["SqlKata", "Query", False, "OrderBy", "(System.String[])", "", "Parameter[0]", "remote", "manual"]

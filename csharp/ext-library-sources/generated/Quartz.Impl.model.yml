@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Quartz.Impl", "JobDetailImpl", False, "JobDetailImpl", "(System.String,System.String,System.Type)", "", "Parameter[1]", "remote", "manual"]

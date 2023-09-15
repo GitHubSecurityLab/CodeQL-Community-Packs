@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Umbraco.Cms.Core.Models", "PagedResult<>", False, "PagedResult", "(System.Int64,System.Int64,System.Int64)", "", "Parameter[1]", "remote", "manual"]
+      - ["Umbraco.Cms.Core.Models", "PagedResult<>", False, "PagedResult", "(System.Int64,System.Int64,System.Int64)", "", "Parameter[2]", "remote", "manual"]

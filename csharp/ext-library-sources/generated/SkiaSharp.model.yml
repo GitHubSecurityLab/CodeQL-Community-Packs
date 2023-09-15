@@ -1,0 +1,10 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["SkiaSharp", "SKImageFilter", False, "CreateBlur", "(System.Single,System.Single,SkiaSharp.SKImageFilter,SkiaSharp.SKImageFilter+CropRect)", "", "Parameter[0]", "remote", "manual"]
+      - ["SkiaSharp", "SKImageFilter", False, "CreateBlur", "(System.Single,System.Single,SkiaSharp.SKImageFilter,SkiaSharp.SKImageFilter+CropRect)", "", "Parameter[1]", "remote", "manual"]
+      - ["SkiaSharp", "SKBitmap", False, "Encode", "(SkiaSharp.SKWStream,SkiaSharp.SKEncodedImageFormat,System.Int32)", "", "Parameter[2]", "remote", "manual"]
+      - ["SkiaSharp", "SKPixmap", False, "Encode", "(SkiaSharp.SKWStream,SkiaSharp.SKEncodedImageFormat,System.Int32)", "", "Parameter[2]", "remote", "manual"]
+      - ["SkiaSharp", "SKColor", False, "Parse", "(System.String)", "", "Parameter[0]", "remote", "manual"]

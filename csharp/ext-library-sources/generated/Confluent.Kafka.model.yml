@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Confluent.Kafka", "Config", False, "Set", "(System.String,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Confluent.Kafka", "ClientConfig", False, "set_BootstrapServers", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Confluent.Kafka", "Config", False, "Set", "(System.String,System.String)", "", "Parameter[0]", "remote", "manual"]

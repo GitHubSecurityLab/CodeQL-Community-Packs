@@ -1,0 +1,19 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["NBXplorer", "KeyPathTemplate", False, "GetKeyPath", "(System.UInt32)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBXplorer", "ExplorerClient", False, "GenerateWalletAsync", "(NBXplorer.Models.GenerateWalletRequest,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBXplorer", "ExplorerClient", False, "CreatePSBTAsync", "(NBXplorer.DerivationStrategy.DerivationStrategyBase,NBXplorer.Models.CreatePSBTRequest,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["NBXplorer", "ExplorerClient", False, "GetFeeRateAsync", "(System.Int32,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBXplorer", "ExplorerClient", False, "GetMetadataAsync<>", "(NBXplorer.DerivationStrategy.DerivationStrategyBase,System.String,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["NBXplorer", "ExplorerClient", False, "GetUTXOsAsync", "(NBXplorer.DerivationStrategy.DerivationStrategyBase,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["NBXplorer", "ExplorerClient", False, "PruneAsync", "(NBXplorer.DerivationStrategy.DerivationStrategyBase,NBXplorer.Models.PruneRequest,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["NBXplorer", "ExplorerClient", False, "ScanUTXOSetAsync", "(NBXplorer.DerivationStrategy.DerivationStrategyBase,System.Nullable<System.Int32>,System.Nullable<System.Int32>,System.Nullable<System.Int32>,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["NBXplorer", "ExplorerClient", False, "ScanUTXOSetAsync", "(NBXplorer.DerivationStrategy.DerivationStrategyBase,System.Nullable<System.Int32>,System.Nullable<System.Int32>,System.Nullable<System.Int32>,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["NBXplorer", "ExplorerClient", False, "ScanUTXOSetAsync", "(NBXplorer.DerivationStrategy.DerivationStrategyBase,System.Nullable<System.Int32>,System.Nullable<System.Int32>,System.Nullable<System.Int32>,System.Threading.CancellationToken)", "", "Parameter[3]", "remote", "manual"]
+      - ["NBXplorer", "ExplorerClient", False, "WipeAsync", "(NBXplorer.DerivationStrategy.DerivationStrategyBase,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["NBXplorer", "ExtensionsClient", False, "CloseSocket", "(System.Net.WebSockets.WebSocket,System.Net.WebSockets.WebSocketCloseStatus,System.String,System.Threading.CancellationToken)", "", "Parameter[3]", "remote", "manual"]
+      - ["NBXplorer", "Serializer", False, "ToObject<>", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBXplorer", "Serializer", False, "ToString<>", "(T)", "", "Parameter[0]", "remote", "manual"]

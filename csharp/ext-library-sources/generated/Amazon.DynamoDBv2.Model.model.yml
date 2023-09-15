@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Amazon.DynamoDBv2.Model", "AttributeValue", False, "AttributeValue", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Amazon.DynamoDBv2.Model", "AttributeValue", False, "set_S", "(System.String)", "", "Parameter[0]", "remote", "manual"]

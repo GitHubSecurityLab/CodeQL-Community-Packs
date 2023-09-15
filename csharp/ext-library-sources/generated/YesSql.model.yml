@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["YesSql", "SessionExtensions", False, "GetAsync<>", "(YesSql.ISession,System.Int64,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["YesSql", "ISession", True, "Save", "(System.Object,System.Boolean,System.String)", "", "Parameter[0]", "remote", "manual"]

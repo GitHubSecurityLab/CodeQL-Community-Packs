@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["NBitpayClient.Extensions", "BitIdExtensions", False, "ValidateSIN", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBitpayClient.Extensions", "BitIdExtensions", False, "CheckBitIDSignature", "(NBitcoin.PubKey,System.String,System.String,System.String)", "", "Parameter[3]", "remote", "manual"]

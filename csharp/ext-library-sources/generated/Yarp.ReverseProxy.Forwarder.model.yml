@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Yarp.ReverseProxy.Forwarder", "IHttpForwarder", True, "SendAsync", "(Microsoft.AspNetCore.Http.HttpContext,System.String,System.Net.Http.HttpMessageInvoker,Yarp.ReverseProxy.Forwarder.ForwarderRequestConfig,Yarp.ReverseProxy.Forwarder.HttpTransformer)", "", "Parameter[1]", "remote", "manual"]
+      - ["Yarp.ReverseProxy.Forwarder", "IHttpForwarderExtensions", False, "SendAsync", "(Yarp.ReverseProxy.Forwarder.IHttpForwarder,Microsoft.AspNetCore.Http.HttpContext,System.String,System.Net.Http.HttpMessageInvoker,System.Func<Microsoft.AspNetCore.Http.HttpContext,System.Net.Http.HttpRequestMessage,System.Threading.Tasks.ValueTask>)", "", "Parameter[1]", "remote", "manual"]
+      - ["Yarp.ReverseProxy.Forwarder", "IHttpForwarderExtensions", False, "SendAsync", "(Yarp.ReverseProxy.Forwarder.IHttpForwarder,Microsoft.AspNetCore.Http.HttpContext,System.String,System.Net.Http.HttpMessageInvoker,System.Func<Microsoft.AspNetCore.Http.HttpContext,System.Net.Http.HttpRequestMessage,System.Threading.Tasks.ValueTask>)", "", "Parameter[0]", "remote", "manual"]

@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["NLog.Fluent", "LogBuilder", False, "Message", "(System.String,System.Object,System.Object)", "", "Parameter[1]", "remote", "manual"]
+      - ["NLog.Fluent", "LogBuilder", False, "Property", "(System.Object,System.Object)", "", "Parameter[1]", "remote", "manual"]

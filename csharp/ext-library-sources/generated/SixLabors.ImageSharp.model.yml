@@ -1,0 +1,15 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["SixLabors.ImageSharp", "ImageExtensions", False, "Save", "(SixLabors.ImageSharp.Image,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["SixLabors.ImageSharp", "Image", False, "Load", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["SixLabors.ImageSharp", "Color", False, "ParseHex", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["SixLabors.ImageSharp", "Color", False, "TryParseHex", "(System.String,SixLabors.ImageSharp.Color)", "", "Parameter[0]", "remote", "manual"]
+      - ["SixLabors.ImageSharp", "Image", False, "Identify", "(System.IO.Stream)", "", "Parameter[0]", "remote", "manual"]
+      - ["SixLabors.ImageSharp", "Image", False, "Load", "(System.IO.Stream)", "", "Parameter[0]", "remote", "manual"]
+      - ["SixLabors.ImageSharp", "Image", False, "Load", "(System.IO.Stream,SixLabors.ImageSharp.Formats.IImageFormat)", "", "Parameter[0]", "remote", "manual"]
+      - ["SixLabors.ImageSharp", "Size", False, "Size", "(System.Int32,System.Int32)", "", "Parameter[1]", "remote", "manual"]
+      - ["SixLabors.ImageSharp", "Size", False, "Size", "(System.Int32,System.Int32)", "", "Parameter[0]", "remote", "manual"]
+      - ["SixLabors.ImageSharp", "Image", False, "Load<>", "(SixLabors.ImageSharp.Configuration,System.IO.Stream,SixLabors.ImageSharp.Formats.IImageFormat)", "", "Parameter[1]", "remote", "manual"]

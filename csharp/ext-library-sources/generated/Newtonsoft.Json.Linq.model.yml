@@ -1,0 +1,20 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Newtonsoft.Json.Linq", "JToken", False, "op_Implicit", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Newtonsoft.Json.Linq", "Extensions", False, "Value<>", "(System.Collections.Generic.IEnumerable<Newtonsoft.Json.Linq.JToken>)", "", "Parameter[0]", "remote", "manual"]
+      - ["Newtonsoft.Json.Linq", "JObject", False, "FromObject", "(System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["Newtonsoft.Json.Linq", "JToken", False, "FromObject", "(System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["Newtonsoft.Json.Linq", "JToken", False, "Parse", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Newtonsoft.Json.Linq", "JProperty", False, "JProperty", "(System.String,System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["Newtonsoft.Json.Linq", "JArray", False, "JArray", "(System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["Newtonsoft.Json.Linq", "JObject", False, "TryGetValue", "(System.String,Newtonsoft.Json.Linq.JToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["Newtonsoft.Json.Linq", "JToken", False, "op_Implicit", "(System.Byte[])", "", "Parameter[0]", "remote", "manual"]
+      - ["Newtonsoft.Json.Linq", "JValue", False, "JValue", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Newtonsoft.Json.Linq", "JTokenWriter", False, "WriteValue", "(System.Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["Newtonsoft.Json.Linq", "JToken", False, "op_Explicit", "(Newtonsoft.Json.Linq.JToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["Newtonsoft.Json.Linq", "JObject", False, "FromObject", "(System.Object,Newtonsoft.Json.JsonSerializer)", "", "Parameter[0]", "remote", "manual"]
+      - ["Newtonsoft.Json.Linq", "JToken", False, "DeepEquals", "(Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["Newtonsoft.Json.Linq", "JProperty", False, "JProperty", "(System.String,System.Object)", "", "Parameter[1]", "remote", "manual"]

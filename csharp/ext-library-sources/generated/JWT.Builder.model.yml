@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["JWT.Builder", "JwtBuilder", False, "Decode<>", "(System.String)", "", "Parameter[0]", "remote", "manual"]

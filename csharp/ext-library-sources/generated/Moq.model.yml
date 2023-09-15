@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Moq", "ReturnsExtensions", False, "ReturnsAsync<,>", "(Moq.Language.IReturns<TMock,System.Threading.Tasks.Task<TResult>>,TResult)", "", "Parameter[1]", "remote", "manual"]

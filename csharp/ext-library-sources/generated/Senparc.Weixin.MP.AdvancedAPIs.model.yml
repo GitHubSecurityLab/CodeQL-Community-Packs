@@ -1,0 +1,26 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "GroupMessageApi", False, "SendGroupMessageByTagIdAsync", "(System.String,System.String,System.String,Senparc.Weixin.MP.GroupMessageType,System.Boolean,System.Boolean,System.String,System.Int32)", "", "Parameter[4]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "GroupMessageApi", False, "SendGroupMessageByTagIdAsync", "(System.String,System.String,System.String,Senparc.Weixin.MP.GroupMessageType,System.Boolean,System.Boolean,System.String,System.Int32)", "", "Parameter[2]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "UserTagApi", False, "UpdateAsync", "(System.String,System.Int32,System.String,System.Int32)", "", "Parameter[2]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "UserTagApi", False, "UpdateAsync", "(System.String,System.Int32,System.String,System.Int32)", "", "Parameter[1]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "UserTagApi", False, "DeleteAsync", "(System.String,System.Int32,System.Int32)", "", "Parameter[1]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "OAuthApi", False, "GetAuthorizeUrl", "(System.String,System.String,System.String,Senparc.Weixin.MP.OAuthScope,System.String,System.Boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "CustomApi", False, "SendVideoAsync", "(System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "CustomApi", False, "SendVoiceAsync", "(System.String,System.String,System.String,System.Int32,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "GroupMessageApi", False, "SendGroupMessagePreviewAsync", "(System.String,Senparc.Weixin.MP.GroupMessageType,System.String,System.String,System.String,System.Int32)", "", "Parameter[2]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "GroupMessageApi", False, "SendGroupMessagePreviewAsync", "(System.String,Senparc.Weixin.MP.GroupMessageType,System.String,System.String,System.String,System.Int32)", "", "Parameter[4]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "OAuthApi", False, "GetAuthorizeUrl", "(System.String,System.String,System.String,Senparc.Weixin.MP.OAuthScope,System.String,System.Boolean)", "", "Parameter[2]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "UserApi", False, "BatchBlackListAsync", "(System.String,System.Collections.Generic.List<System.String>,System.Int32)", "", "Parameter[1]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "UserApi", False, "BatchUnBlackListAsync", "(System.String,System.Collections.Generic.List<System.String>,System.Int32)", "", "Parameter[1]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "UserApi", False, "InfoAsync", "(System.String,System.String,Senparc.Weixin.Language)", "", "Parameter[1]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "UserApi", False, "UpdateRemarkAsync", "(System.String,System.String,System.String,System.Int32)", "", "Parameter[1]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "UserApi", False, "UpdateRemarkAsync", "(System.String,System.String,System.String,System.Int32)", "", "Parameter[2]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "UserTagApi", False, "CreateAsync", "(System.String,System.String,System.Int32)", "", "Parameter[1]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "CustomApi", False, "SendTextAsync", "(System.String,System.String,System.String,System.Int32,System.String)", "", "Parameter[2]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "CustomApi", False, "SendImageAsync", "(System.String,System.String,System.String,System.Int32,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "CustomApi", False, "SendMpNewsAsync", "(System.String,System.String,System.String,System.Int32,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Senparc.Weixin.MP.AdvancedAPIs", "CustomApi", False, "SendTextAsync", "(System.String,System.String,System.String,System.Int32,System.String)", "", "Parameter[1]", "remote", "manual"]

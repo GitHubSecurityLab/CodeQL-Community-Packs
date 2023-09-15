@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Amazon.DynamoDBv2", "IAmazonDynamoDB", True, "TransactWriteItemsAsync", "(Amazon.DynamoDBv2.Model.TransactWriteItemsRequest,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]

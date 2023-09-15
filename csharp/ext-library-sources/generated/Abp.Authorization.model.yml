@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Abp.Authorization", "AbpLogInManager<,,>", False, "LoginAsync", "(System.String,System.String,System.String,System.Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["Abp.Authorization", "AbpLogInManager<,,>", False, "LoginAsync", "(System.String,System.String,System.String,System.Boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["Abp.Authorization", "AbpSignInManager<,,>", False, "SignInAsync", "(System.Security.Claims.ClaimsIdentity,System.Boolean)", "", "Parameter[1]", "remote", "manual"]

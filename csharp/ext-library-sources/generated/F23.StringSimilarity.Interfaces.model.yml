@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["F23.StringSimilarity.Interfaces", "IStringDistance", True, "Distance", "(System.String,System.String)", "", "Parameter[1]", "remote", "manual"]

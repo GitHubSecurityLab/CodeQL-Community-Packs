@@ -1,0 +1,20 @@
+- description: "GitHub's Community Packs CSharp Audit Suite"
+
+# Audit queries
+- queries: '.'
+  from: githubsecuritylab/codeql-csharp
+- include:
+    kind:
+    - problem
+    - path-problem
+    - metric
+    - diagnostic
+    tags contain:
+    - audit
+
+# External API query
+- queries: '.'
+  from: codeql/csharp-queries
+- include:
+    id:
+      - cs/untrusted-data-to-external-api

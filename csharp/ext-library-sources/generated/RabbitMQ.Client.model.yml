@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["RabbitMQ.Client", "ConnectionFactory", False, "set_Uri", "(System.Uri)", "", "Parameter[0]", "remote", "manual"]
+      - ["RabbitMQ.Client", "IModelExensions", False, "BasicPublish", "(RabbitMQ.Client.IModel,System.String,System.String,RabbitMQ.Client.IBasicProperties,System.Byte[])", "", "Parameter[4]", "remote", "manual"]

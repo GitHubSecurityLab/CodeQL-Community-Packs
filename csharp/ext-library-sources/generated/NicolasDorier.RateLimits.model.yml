@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["NicolasDorier.RateLimits", "IRateLimitService", True, "Throttle", "(System.String,System.Object,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]

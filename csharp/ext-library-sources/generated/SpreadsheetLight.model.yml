@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["SpreadsheetLight", "SLDocument", False, "SLDocument", "(System.String)", "", "Parameter[0]", "remote", "manual"]

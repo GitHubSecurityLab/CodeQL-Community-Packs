@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["JasperFx.Core", "ImHashMap", False, "TryFind<,>", "(JasperFx.Core.ImHashMap<K,V>,K,V)", "", "Parameter[1]", "remote", "manual"]
+      - ["JasperFx.Core", "StringExtensions", False, "EqualsIgnoreCase", "(System.String,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["JasperFx.Core", "StringExtensions", False, "IsNotEmpty", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["JasperFx.Core", "ImHashMap", False, "AddOrUpdate<,>", "(JasperFx.Core.ImHashMap<K,V>,K,V)", "", "Parameter[1]", "remote", "manual"]
+      - ["JasperFx.Core", "DisposableExtensions", False, "SafeDispose", "(System.IDisposable)", "", "Parameter[0]", "remote", "manual"]
+      - ["JasperFx.Core", "TimeSpanExtensions", False, "ToTime", "(System.String)", "", "Parameter[0]", "remote", "manual"]

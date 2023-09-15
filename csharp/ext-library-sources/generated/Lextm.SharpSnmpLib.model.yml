@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Lextm.SharpSnmpLib", "ObjectIdentifier", False, "ObjectIdentifier", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Lextm.SharpSnmpLib", "OctetString", False, "OctetString", "(System.String)", "", "Parameter[0]", "remote", "manual"]

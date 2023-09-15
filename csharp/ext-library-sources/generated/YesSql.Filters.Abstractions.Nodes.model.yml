@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["YesSql.Filters.Abstractions.Nodes", "UnaryNode", False, "UnaryNode", "(System.String,YesSql.Filters.Abstractions.Nodes.OperateNodeQuotes,System.Boolean)", "", "Parameter[0]", "remote", "manual"]

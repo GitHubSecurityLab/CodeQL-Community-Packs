@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Polly", "AsyncPolicy", False, "ExecuteAndCaptureAsync", "(System.Func<System.Threading.CancellationToken,System.Threading.Tasks.Task>,System.Threading.CancellationToken,System.Boolean)", "", "Parameter[1]", "remote", "manual"]

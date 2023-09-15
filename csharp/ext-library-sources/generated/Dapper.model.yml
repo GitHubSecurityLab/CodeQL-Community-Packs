@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Dapper", "SqlMapper", False, "ExecuteScalarAsync<>", "(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable<System.Int32>,System.Nullable<System.Data.CommandType>)", "", "Parameter[1]", "remote", "manual"]
+      - ["Dapper", "SqlMapper", False, "QueryAsync<>", "(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable<System.Int32>,System.Nullable<System.Data.CommandType>)", "", "Parameter[1]", "remote", "manual"]
+      - ["Dapper", "CommandDefinition", False, "CommandDefinition", "(System.String,System.Object,System.Data.IDbTransaction,System.Nullable<System.Int32>,System.Nullable<System.Data.CommandType>,Dapper.CommandFlags,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["Dapper", "SqlMapper", False, "QueryAsync", "(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable<System.Int32>,System.Nullable<System.Data.CommandType>)", "", "Parameter[2]", "remote", "manual"]
+      - ["Dapper", "SqlMapper", False, "Query<>", "(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Boolean,System.Nullable<System.Int32>,System.Nullable<System.Data.CommandType>)", "", "Parameter[1]", "remote", "manual"]
+      - ["Dapper", "SqlMapper", False, "ExecuteReaderAsync", "(System.Data.Common.DbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable<System.Int32>,System.Nullable<System.Data.CommandType>)", "", "Parameter[1]", "remote", "manual"]
+      - ["Dapper", "SqlMapper", False, "ExecuteAsync", "(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable<System.Int32>,System.Nullable<System.Data.CommandType>)", "", "Parameter[1]", "remote", "manual"]
+      - ["Dapper", "SqlMapper", False, "Execute", "(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable<System.Int32>,System.Nullable<System.Data.CommandType>)", "", "Parameter[1]", "remote", "manual"]
+      - ["Dapper", "SqlMapper", False, "Query<>", "(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Boolean,System.Nullable<System.Int32>,System.Nullable<System.Data.CommandType>)", "", "Parameter[2]", "remote", "manual"]
+      - ["Dapper", "SqlMapper", False, "QueryAsync<>", "(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable<System.Int32>,System.Nullable<System.Data.CommandType>)", "", "Parameter[2]", "remote", "manual"]
+      - ["Dapper", "SqlMapper", False, "QueryFirstOrDefault<>", "(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable<System.Int32>,System.Nullable<System.Data.CommandType>)", "", "Parameter[1]", "remote", "manual"]
+      - ["Dapper", "SqlMapper", False, "QueryFirstOrDefaultAsync<>", "(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable<System.Int32>,System.Nullable<System.Data.CommandType>)", "", "Parameter[1]", "remote", "manual"]

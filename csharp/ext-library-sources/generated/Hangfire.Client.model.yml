@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Hangfire.Client", "CreatingContext", False, "SetJobParameter", "(System.String,System.Object)", "", "Parameter[1]", "remote", "manual"]

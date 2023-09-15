@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["NSec.Cryptography", "SignatureAlgorithm", False, "Verify", "(NSec.Cryptography.PublicKey,System.ReadOnlySpan<System.Byte>,System.ReadOnlySpan<System.Byte>)", "", "Parameter[2]", "remote", "manual"]

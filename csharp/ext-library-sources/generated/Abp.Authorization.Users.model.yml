@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Abp.Authorization.Users", "AbpUserBase", True, "set_EmailAddress", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Abp.Authorization.Users", "AbpUserBase", True, "set_Name", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Abp.Authorization.Users", "AbpUserBase", True, "set_Surname", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Abp.Authorization.Users", "AbpUserBase", True, "set_UserName", "(System.String)", "", "Parameter[0]", "remote", "manual"]

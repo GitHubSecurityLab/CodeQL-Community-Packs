@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Flurl.Http", "FlurlHttp", False, "ConfigureClient", "(System.String,System.Action<Flurl.Http.IFlurlClient>)", "", "Parameter[0]", "remote", "manual"]
+      - ["Flurl.Http", "GeneratedExtensions", False, "DownloadFileAsync", "(System.String,System.String,System.String,System.Int32,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["Flurl.Http", "GeneratedExtensions", False, "WithHeader", "(System.String,System.String,System.Object)", "", "Parameter[0]", "remote", "manual"]

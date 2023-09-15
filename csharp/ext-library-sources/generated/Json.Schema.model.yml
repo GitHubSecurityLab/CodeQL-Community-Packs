@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Json.Schema", "JsonSchema", False, "FromText", "(System.String,System.Text.Json.JsonSerializerOptions)", "", "Parameter[0]", "remote", "manual"]

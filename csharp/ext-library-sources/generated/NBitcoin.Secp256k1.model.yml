@@ -1,0 +1,11 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["NBitcoin.Secp256k1", "GEJ", False, "AddVariable", "(NBitcoin.Secp256k1.GE,NBitcoin.Secp256k1.FE)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBitcoin.Secp256k1", "Scalar", False, "op_Multiply", "(NBitcoin.Secp256k1.Scalar,NBitcoin.Secp256k1.GE)", "", "Parameter[1]", "remote", "manual"]
+      - ["NBitcoin.Secp256k1", "Scalar", False, "op_Multiply", "(NBitcoin.Secp256k1.Scalar,NBitcoin.Secp256k1.GE)", "", "Parameter[0]", "remote", "manual"]
+      - ["NBitcoin.Secp256k1", "Scalar", False, "op_Equality", "(NBitcoin.Secp256k1.Scalar,NBitcoin.Secp256k1.Scalar)", "", "Parameter[1]", "remote", "manual"]
+      - ["NBitcoin.Secp256k1", "GE", False, "op_Multiply", "(NBitcoin.Secp256k1.GE,NBitcoin.Secp256k1.Scalar)", "", "Parameter[1]", "remote", "manual"]
+      - ["NBitcoin.Secp256k1", "GEJ", False, "AddVariable", "(NBitcoin.Secp256k1.GEJ,NBitcoin.Secp256k1.FE)", "", "Parameter[0]", "remote", "manual"]

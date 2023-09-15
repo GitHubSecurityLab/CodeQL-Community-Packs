@@ -1,0 +1,16 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Storage.Net.Blobs", "BlobStorageExtensions", False, "GetBlobAsync", "(Storage.Net.Blobs.IBlobStorage,System.String,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["Storage.Net.Blobs", "BlobStorageExtensions", False, "SetBlobAsync", "(Storage.Net.Blobs.IBlobStorage,Storage.Net.Blobs.Blob,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["Storage.Net.Blobs", "BlobStorageExtensions", False, "WriteAsync", "(Storage.Net.Blobs.IBlobStorage,System.String,System.Byte[],System.Boolean,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["Storage.Net.Blobs", "BlobStorageExtensions", False, "WriteAsync", "(Storage.Net.Blobs.IBlobStorage,System.String,System.Byte[],System.Boolean,System.Threading.CancellationToken)", "", "Parameter[3]", "remote", "manual"]
+      - ["Storage.Net.Blobs", "BlobStorageExtensions", False, "ExistsAsync", "(Storage.Net.Blobs.IBlobStorage,System.String,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["Storage.Net.Blobs", "BlobStorageExtensions", False, "ListFilesAsync", "(Storage.Net.Blobs.IBlobStorage,Storage.Net.Blobs.ListOptions,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["Storage.Net.Blobs", "BlobStorageExtensions", False, "ReadBytesAsync", "(Storage.Net.Blobs.IBlobStorage,System.String,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["Storage.Net.Blobs", "BlobStorageExtensions", False, "ReadTextAsync", "(Storage.Net.Blobs.IBlobStorage,System.String,System.Text.Encoding,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["Storage.Net.Blobs", "BlobStorageExtensions", False, "ReadTextAsync", "(Storage.Net.Blobs.IBlobStorage,System.String,System.Text.Encoding,System.Threading.CancellationToken)", "", "Parameter[3]", "remote", "manual"]
+      - ["Storage.Net.Blobs", "IBlobStorage", True, "WriteAsync", "(System.String,System.IO.Stream,System.Boolean,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["Storage.Net.Blobs", "IBlobStorage", True, "WriteAsync", "(System.String,System.IO.Stream,System.Boolean,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]

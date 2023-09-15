@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Xunit", "Assert", False, "Equal", "(System.String,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Xunit", "Assert", False, "Equal<>", "(T,T)", "", "Parameter[1]", "remote", "manual"]
+      - ["Xunit", "Assert", False, "NotNull", "(System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["Xunit", "Assert", False, "Null", "(System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["Xunit", "Assert", False, "Equal", "(System.String,System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Xunit", "Assert", False, "False", "(System.Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["Xunit", "Assert", False, "Equal<>", "(System.Collections.Generic.IEnumerable<T>,System.Collections.Generic.IEnumerable<T>)", "", "Parameter[1]", "remote", "manual"]
+      - ["Xunit", "Assert", False, "True", "(System.Boolean,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Xunit", "Assert", False, "True", "(System.Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["Xunit", "Assert", False, "Single<>", "(System.Collections.Generic.IEnumerable<T>)", "", "Parameter[0]", "remote", "manual"]
+      - ["Xunit", "Assert", False, "IsType<>", "(System.Object)", "", "Parameter[0]", "remote", "manual"]
+      - ["Xunit", "Assert", False, "StartsWith", "(System.String,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Xunit", "Assert", False, "Contains", "(System.String,System.String,System.StringComparison)", "", "Parameter[1]", "remote", "manual"]
+      - ["Xunit", "Assert", False, "Contains<>", "(T,System.Collections.Generic.IEnumerable<T>)", "", "Parameter[0]", "remote", "manual"]
+      - ["Xunit", "Assert", False, "Equal", "(System.String,System.String,System.Boolean,System.Boolean,System.Boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["Xunit", "Assert", False, "Equal<>", "(T,T)", "", "Parameter[0]", "remote", "manual"]

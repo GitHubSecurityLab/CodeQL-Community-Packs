@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["MailKit.Net.Smtp", "SmtpClient", False, "Connect", "(System.String,System.Int32,MailKit.Security.SecureSocketOptions,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["MailKit.Net.Smtp", "SmtpClient", False, "Connect", "(System.String,System.Int32,MailKit.Security.SecureSocketOptions,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["MailKit.Net.Smtp", "SmtpClient", False, "ConnectAsync", "(System.String,System.Int32,MailKit.Security.SecureSocketOptions,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]

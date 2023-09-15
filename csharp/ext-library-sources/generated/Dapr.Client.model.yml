@@ -1,0 +1,13 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Dapr.Client", "DaprClient", False, "InvokeMethodAsync<,>", "(System.String,System.String,TRequest,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["Dapr.Client", "DaprClient", False, "InvokeMethodAsync<>", "(System.String,System.String,TRequest,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["Dapr.Client", "DaprClient", True, "GetStateAndETagAsync<>", "(System.String,System.String,System.Nullable<Dapr.Client.ConsistencyMode>,System.Collections.Generic.IReadOnlyDictionary<System.String,System.String>,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["Dapr.Client", "DaprClient", True, "TrySaveStateAsync<>", "(System.String,System.String,TValue,System.String,Dapr.Client.StateOptions,System.Collections.Generic.IReadOnlyDictionary<System.String,System.String>,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["Dapr.Client", "DaprClient", True, "SaveStateAsync<>", "(System.String,System.String,TValue,Dapr.Client.StateOptions,System.Collections.Generic.IReadOnlyDictionary<System.String,System.String>,System.Threading.CancellationToken)", "", "Parameter[1]", "remote", "manual"]
+      - ["Dapr.Client", "DaprClient", False, "InvokeMethodAsync<>", "(System.String,System.String,TRequest,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["Dapr.Client", "DaprClient", True, "PublishEventAsync<>", "(System.String,System.String,TData,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]
+      - ["Dapr.Client", "DaprClient", True, "TrySaveStateAsync<>", "(System.String,System.String,TValue,System.String,Dapr.Client.StateOptions,System.Collections.Generic.IReadOnlyDictionary<System.String,System.String>,System.Threading.CancellationToken)", "", "Parameter[2]", "remote", "manual"]

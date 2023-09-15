@@ -1,0 +1,17 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Amazon.Runtime.Internal.Util", "Logger", False, "DebugFormat", "(System.String,System.Object[])", "", "Parameter[3]", "remote", "manual"]
+      - ["Amazon.Runtime.Internal.Util", "Logger", False, "DebugFormat", "(System.String,System.Object[])", "", "Parameter[2]", "remote", "manual"]
+      - ["Amazon.Runtime.Internal.Util", "Logger", False, "DebugFormat", "(System.String,System.Object[])", "", "Parameter[1]", "remote", "manual"]
+      - ["Amazon.Runtime.Internal.Util", "Logger", False, "Error", "(System.Exception,System.String,System.Object[])", "", "Parameter[7]", "remote", "manual"]
+      - ["Amazon.Runtime.Internal.Util", "Logger", False, "Error", "(System.Exception,System.String,System.Object[])", "", "Parameter[6]", "remote", "manual"]
+      - ["Amazon.Runtime.Internal.Util", "Logger", False, "Error", "(System.Exception,System.String,System.Object[])", "", "Parameter[9]", "remote", "manual"]
+      - ["Amazon.Runtime.Internal.Util", "Logger", False, "Error", "(System.Exception,System.String,System.Object[])", "", "Parameter[8]", "remote", "manual"]
+      - ["Amazon.Runtime.Internal.Util", "Logger", False, "Error", "(System.Exception,System.String,System.Object[])", "", "Parameter[5]", "remote", "manual"]
+      - ["Amazon.Runtime.Internal.Util", "Logger", False, "Error", "(System.Exception,System.String,System.Object[])", "", "Parameter[2]", "remote", "manual"]
+      - ["Amazon.Runtime.Internal.Util", "Logger", False, "Debug", "(System.Exception,System.String,System.Object[])", "", "Parameter[2]", "remote", "manual"]
+      - ["Amazon.Runtime.Internal.Util", "Logger", False, "DebugFormat", "(System.String,System.Object[])", "", "Parameter[4]", "remote", "manual"]
+      - ["Amazon.Runtime.Internal.Util", "Logger", False, "Error", "(System.Exception,System.String,System.Object[])", "", "Parameter[10]", "remote", "manual"]

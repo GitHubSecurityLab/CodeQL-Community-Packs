@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["SixLabors.Fonts", "FontCollection", False, "Install", "(System.IO.Stream)", "", "Parameter[0]", "remote", "manual"]

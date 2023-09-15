@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Elsa.Persistence.Specifications", "EntityIdSpecification<>", False, "EntityIdSpecification", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Elsa.Persistence.Specifications", "TenantSpecification<>", False, "TenantSpecification", "(System.String)", "", "Parameter[0]", "remote", "manual"]

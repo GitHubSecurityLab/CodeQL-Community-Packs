@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["X.Web.Sitemap", "Url", False, "set_Location", "(System.String)", "", "Parameter[0]", "remote", "manual"]

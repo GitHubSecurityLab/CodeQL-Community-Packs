@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["JsonFlatFileDataStore", "IDocumentCollection<>", True, "ReplaceOneAsync", "(dynamic,T,System.Boolean)", "", "Parameter[0]", "remote", "manual"]
+      - ["JsonFlatFileDataStore", "IDocumentCollection<>", True, "ReplaceOneAsync", "(dynamic,T,System.Boolean)", "", "Parameter[1]", "remote", "manual"]
+      - ["JsonFlatFileDataStore", "IDocumentCollection<>", True, "UpdateOneAsync", "(dynamic,dynamic)", "", "Parameter[0]", "remote", "manual"]
+      - ["JsonFlatFileDataStore", "IDocumentCollection<>", True, "UpdateOneAsync", "(dynamic,dynamic)", "", "Parameter[1]", "remote", "manual"]

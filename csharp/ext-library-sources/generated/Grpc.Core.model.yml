@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Grpc.Core", "Metadata", False, "Add", "(System.String,System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["Grpc.Core", "Metadata", False, "Add", "(System.String,System.String)", "", "Parameter[1]", "remote", "manual"]
+      - ["Grpc.Core", "Metadata", False, "Add", "(System.String,System.Byte[])", "", "Parameter[0]", "remote", "manual"]

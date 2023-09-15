@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["SendGrid.Helpers.Mail", "EmailAddress", False, "EmailAddress", "(System.String,System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["SendGrid.Helpers.Mail", "SendGridMessage", False, "set_HtmlContent", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["SendGrid.Helpers.Mail", "SendGridMessage", False, "set_PlainTextContent", "(System.String)", "", "Parameter[0]", "remote", "manual"]

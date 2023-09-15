@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["RestSharp", "RestClient", False, "RestClient", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["RestSharp", "RestRequestExtensions", False, "AddFile", "(RestSharp.RestRequest,System.String,System.String,System.String)", "", "Parameter[2]", "remote", "manual"]

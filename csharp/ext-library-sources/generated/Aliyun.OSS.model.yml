@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Aliyun.OSS", "ListObjectsRequest", False, "set_Prefix", "(System.String)", "", "Parameter[0]", "remote", "manual"]

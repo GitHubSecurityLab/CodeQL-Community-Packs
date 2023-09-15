@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Serilog.Formatting.Json", "JsonValueFormatter", False, "WriteQuotedJsonString", "(System.String,System.IO.TextWriter)", "", "Parameter[0]", "remote", "manual"]

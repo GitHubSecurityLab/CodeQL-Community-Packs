@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["TMDbLib.Client", "TMDbClient", False, "GetMovieAsync", "(System.Int32,TMDbLib.Objects.Movies.MovieMethods,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]
+      - ["TMDbLib.Client", "TMDbClient", False, "GetMovieImagesAsync", "(System.Int32,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]

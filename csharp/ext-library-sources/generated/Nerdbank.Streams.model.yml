@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Nerdbank.Streams", "PipeExtensions", False, "UsePipeReader", "(System.IO.Stream,System.Int32,System.IO.Pipelines.PipeOptions,System.Threading.CancellationToken)", "", "Parameter[0]", "remote", "manual"]

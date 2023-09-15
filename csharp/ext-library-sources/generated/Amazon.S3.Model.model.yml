@@ -1,0 +1,6 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["Amazon.S3.Model", "DeleteObjectRequest", False, "set_Key", "(System.String)", "", "Parameter[0]", "remote", "manual"]

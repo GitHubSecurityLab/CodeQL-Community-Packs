@@ -1,0 +1,7 @@
+extensions:
+  - addsTo:
+      pack: codeql/csharp-all
+      extensible: sourceModel
+    data:
+      - ["SteamKit2.Internal", "CMsgClientGamesPlayed+GamePlayed", False, "set_game_extra_info", "(System.String)", "", "Parameter[0]", "remote", "manual"]
+      - ["SteamKit2.Internal", "CMsgClientRegisterKey", False, "set_key", "(System.String)", "", "Parameter[0]", "remote", "manual"]
