@@ -3,7 +3,7 @@ groups: [java, test]
 dependencies:
     codeql/java-all: '*'
     codeql/java-queries: '*'
-    githubsecurtylab/java-queries: '*'
-    githubsecurtylab/java-lib: '*'
+    githubsecuritylab/java-queries: '*'
+    githubsecuritylab/java-lib: '*'
 extractor: java
 tests: .
