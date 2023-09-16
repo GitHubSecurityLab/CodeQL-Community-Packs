@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/csharp-queries
+      pack: codeql/csharp-all
       extensible: sourceModel
     data:
       # > Functions
@@ -17,7 +17,7 @@ extensions:
       - ["Azure.Messaging.ServiceBus", "ServiceBusReceivedMessage", False, "Body", "", "", "", "remote", "manual"]
 
   - addsTo:
-      pack: codeql/csharp-queries
+      pack: codeql/csharp-all
       extensible: sinkModel
     data:
       # > Cosmos DB

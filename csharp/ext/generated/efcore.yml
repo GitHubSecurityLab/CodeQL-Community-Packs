@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/csharp-queries
+      pack: codeql/csharp-all
       extensible: sinkModel
     data:
       - ["Microsoft.EntityFrameworkCore.Update", "StoredProcedureUpdateTestBase", false, "Delete", "(System.Boolean,System.String)", "", "Argument[1]", "sql", "generated"]

@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/csharp-queries
+      pack: codeql/csharp-all
       extensible: sinkModel
     data:
       - ["Volo.Abp.Cli.ProjectBuilding.Analyticses", "CliAnalyticsCollect", false, "CollectAsync", "(Volo.Abp.Cli.ProjectBuilding.Analyticses.CliAnalyticsCollectInputDto)", "", "Argument[0]", "xss", "generated"]

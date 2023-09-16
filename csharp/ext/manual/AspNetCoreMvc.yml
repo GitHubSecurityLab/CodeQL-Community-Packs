@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/csharp-queries
+      pack: codeql/csharp-all
       extensible: sinkModel
     data:
       # XSS Requires the ContentType set to 'text/html'

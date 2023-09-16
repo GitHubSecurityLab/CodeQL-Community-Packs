@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/csharp-queries
+      pack: codeql/csharp-all
       extensible: sinkModel
     data:
       - ["Google.Cloud.ClientTesting", "ReplayingMessageHandler", false, "ExpectRequest", "(System.Uri,System.String,System.String)", "", "Argument[2]", "xss", "df-generated"]

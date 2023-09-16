@@ -1,6 +1,6 @@
 extensions:
   - addsTo:
-      pack: codeql/csharp-queries
+      pack: codeql/csharp-all
       extensible: sinkModel
     data:
       - ["Raven.Server.Commercial", "FeedbackSender", false, "SendFeedback", "(Raven.Server.Documents.Studio.FeedbackForm)", "", "Argument[0]", "xss", "generated"]

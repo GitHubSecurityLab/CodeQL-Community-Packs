@@ -22,10 +22,3 @@ extensions:
       pack: codeql/csharp-all
       extensible: summaryModel
     data: []
-
-  - addsTo:
-      pack: codeql/csharp-all
-      extensible: neutralModel
-    data:
-      - ["Amazon.Lambda.Core","ILambdaContext","get_Logger","()","manual"]
-      - ["Amazon.Lambda.APIGatewayEvents","APIGatewayProxyResponse","set_StatusCode","(System.Int32)","manual"]
