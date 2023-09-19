@@ -5,7 +5,7 @@
  * @problem.severity error
  * @security-severity 9.8
  * @precision high
- * @id cs/hardcoded-credentials-symmetricsecuritykey
+ * @id githubsecuritylab/hardcoded-credentials-symmetricsecuritykey
  * @tags security
  *       external/cwe/cwe-259
  *       external/cwe/cwe-321
@@ -13,11 +13,8 @@
  */
 
 import csharp
-
 private import DataFlow::PathGraph
-
 private import github.HardcodedCredentials
-
 
 from DataFlow::PathNode source, DataFlow::PathNode sink, LiteralToSecurityKeyConfig config
 where config.hasFlowPath(source, sink)

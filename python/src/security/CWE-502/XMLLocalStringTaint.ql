@@ -6,7 +6,7 @@
  * @problem.severity error
  * @security-severity 6.0
  * @precision high
- * @id python/xxe-local-string-taint
+ * @id githubsecuritylab/xxe-local-string-taint
  * @tags security
  *       local
  *       external/cwe/cwe-611

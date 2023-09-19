@@ -6,7 +6,7 @@
  * @problem.severity error
  * @security-severity 9.8
  * @precision high
- * @id go/injection
+ * @id githubsecuritylab/audit/argument-injection
  * @tags security
  *       external/cwe/cwe-078
  *       audit

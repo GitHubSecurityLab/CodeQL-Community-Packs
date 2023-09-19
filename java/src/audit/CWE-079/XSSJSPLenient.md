@@ -1,6 +1,6 @@
 # Cross-Site Scripting (XSS) in JSP (Lenient)
 
-This query is similar to [CWE-079/XSSJSP](https://github.com/advanced-security/codeql-queries/blob/main/java/CWE-079/XSSJSP.ql) but it is lenient with the analysis leading potentially to more results (including false positives).
+This query is similar to CWE-079/XSSJSP but is lenient with the analysis leading potentially to more results (including false positives).
 
 ## Summary
 

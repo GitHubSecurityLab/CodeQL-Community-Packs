@@ -6,7 +6,7 @@
  * @security-severity 5.9
  * @precision medium
  * @sub-severity medium
- * @id py/hardcoded-credentials
+ * @id githubsecuritylab/hardcoded-credentials
  * @tags security
  *       external/cwe/cwe-259
  *       external/cwe/cwe-321

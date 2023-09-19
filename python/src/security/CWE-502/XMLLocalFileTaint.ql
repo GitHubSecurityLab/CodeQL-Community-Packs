@@ -6,7 +6,7 @@
  * @problem.severity error
  * @security-severity 6.0
  * @precision high
- * @id python/xxe-local-file-taint
+ * @id githubsecuritylab/xxe-local-file-taint
  * @tags security
  *       local
  *       external/cwe/cwe-611
@@ -22,5 +22,5 @@ private import github.XMLLocalLib
 
 from DataFlow::PathNode source, DataFlow::PathNode sink
 where any(XmlFileConfig conf).hasFlowPath(source, sink)
-select sink.getNode(), source, sink, "Unsafe parsing of XML from locally-provided filename $@.", source.getNode(),
-  "user input"
+select sink.getNode(), source, sink, "Unsafe parsing of XML from locally-provided filename $@.",
+  source.getNode(), "user input"

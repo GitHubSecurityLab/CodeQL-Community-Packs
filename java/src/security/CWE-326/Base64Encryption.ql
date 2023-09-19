@@ -6,7 +6,7 @@
  * @security-severity 8.0
  * @precision high
  * @sub-severity high
- * @id java/weak-encryption
+ * @id githubsecuritylab/weak-encryption
  * @tags security
  *       external/cwe/cwe-327
  */
@@ -29,7 +29,6 @@ class Base64Sinks extends DataFlow::Node {
 }
 
 module Base64EncryptionUsageConfig implements DataFlow::ConfigSig {
-
   predicate isSource(DataFlow::Node source) { source instanceof SensitiveInformationSources }
 
   predicate isSink(DataFlow::Node sink) { sink instanceof Base64Sinks }
@@ -40,8 +39,11 @@ module Base64EncryptionUsageConfig implements DataFlow::ConfigSig {
 }
 
 module Base64EncryptionFlow = TaintTracking::Global<Base64EncryptionUsageConfig>;
+
 import Base64EncryptionFlow::PathGraph //importing the path graph from the module
 
 from Base64EncryptionFlow::PathNode source, Base64EncryptionFlow::PathNode sink //Using PathNode from the module
 where Base64EncryptionFlow::flowPath(source, sink) //using flowPath instead of hasFlowPath
-select sink.getNode(), source, sink, "Sensitive data is being 'encrypted' with Base64 Encoding: $@", source.getNode(), "user-provided value"
+select sink.getNode(), source, sink, "Sensitive data is being 'encrypted' with Base64 Encoding: $@",
+  source.getNode(), "user-provided value"
+

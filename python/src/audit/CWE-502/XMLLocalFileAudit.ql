@@ -5,7 +5,7 @@
  * @problem.severity error
  * @security-severity 6.0
  * @precision high
- * @id python/audit/xxe-local-file
+ * @id githubsecuritylab/audit/xxe-local-file
  * @tags security
  *       external/cwe/cwe-611
  *       external/cwe/cwe-776

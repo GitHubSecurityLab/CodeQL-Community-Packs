@@ -6,7 +6,7 @@
  * @problem.severity error
  * @security-severity 6.0
  * @precision high
- * @id java/xxe-local
+ * @id githubsecuritylab/xxe-local
  * @tags security
  *       external/cwe/cwe-611
  *       external/cwe/cwe-776
@@ -23,9 +23,7 @@ import github.LocalSources
 module SafeSAXSourceFlowConfig implements DataFlow::ConfigSig {
   predicate isSource(DataFlow::Node src) { src.asExpr() instanceof SafeSaxSource }
 
-  predicate isSink(DataFlow::Node sink) {
-    sink.asExpr() = any(XmlParserCall parse).getSink()
-  }
+  predicate isSink(DataFlow::Node sink) { sink.asExpr() = any(XmlParserCall parse).getSink() }
 
   int fieldFlowBranchLimit() { result = 0 }
 }
@@ -43,14 +41,16 @@ class UnsafeXxeSink extends DataFlow::ExprNode {
 }
 
 module XXELocalConfig implements DataFlow::ConfigSig {
-  predicate isSource(DataFlow::Node source) { 
+  predicate isSource(DataFlow::Node source) {
     source instanceof LocalUserInput and
-    not exists(DataFlow::Node src | src.asExpr() instanceof SafeSaxSource)}
+    not exists(DataFlow::Node src | src.asExpr() instanceof SafeSaxSource)
+  }
 
   predicate isSink(DataFlow::Node sink) { sink instanceof UnsafeXxeSink }
 }
 
 module XXELocalFlow = TaintTracking::Global<XXELocalConfig>;
+
 import XXELocalFlow::PathGraph
 
 from XXELocalFlow::PathNode source, XXELocalFlow::PathNode sink

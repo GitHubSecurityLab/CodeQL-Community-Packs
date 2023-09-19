@@ -2,7 +2,7 @@
  * @name Sensitive information exposure through logging
  * @description Sensitive information exposure through logging
  * @kind path-problem
- * @id java/sensitive-information-logging
+ * @id githubsecuritylab/sensitive-information-logging
  * @problem.severity warning
  * @security-severity 8.0
  * @precision medium
@@ -31,10 +31,11 @@ module SensitiveInformationConfig implements DataFlow::ConfigSig {
 }
 
 module SensitiveInformationFlow = TaintTracking::Global<SensitiveInformationConfig>;
-import SensitiveInformationFlow::PathGraph //importing the path graph from the module
 
+import SensitiveInformationFlow::PathGraph //importing the path graph from the module
 
 // ========== Query ==========
 from SensitiveInformationFlow::PathNode source, SensitiveInformationFlow::PathNode sink
 where SensitiveInformationFlow::flowPath(source, sink) //using flowPath instead of hasFlowPath
-select sink.getNode(), source, sink, "Sensative data is being logged $@.", source.getNode(), "user-provided value"
+select sink.getNode(), source, sink, "Sensative data is being logged $@.", source.getNode(),
+  "user-provided value"

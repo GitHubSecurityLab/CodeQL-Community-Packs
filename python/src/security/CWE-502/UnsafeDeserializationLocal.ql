@@ -2,7 +2,7 @@
  * @name Deserializing untrusted input
  * @description Deserializing user-controlled data may allow attackers to execute arbitrary code.
  * @kind path-problem
- * @id py/unsafe-deserialization
+ * @id githubsecuritylab/unsafe-deserialization
  * @problem.severity error
  * @security-severity 8.0
  * @sub-severity high

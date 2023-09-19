@@ -6,7 +6,7 @@
  * @problem.severity error
  * @security-severity 8.8
  * @precision high
- * @id py/audit/sql-injection
+ * @id githubsecuritylab/audit/sql-injection
  * @tags security
  *       external/cwe/cwe-089
  *       heuristic

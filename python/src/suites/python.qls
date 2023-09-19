@@ -1,7 +1,7 @@
 - description: "GitHub's Community Packs Python Extended Suite"
 
 - queries: '.'
-  from: advanced-security/codeql-python
+  from: githubsecuritylab/codeql-python-queries
 
 # Include lows
 - include:

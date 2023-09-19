@@ -2,7 +2,7 @@
  * @name Insufficient Logging
  * @description Insufficient Logging
  * @kind problem
- * @id py/insufficient-logging
+ * @id githubsecuritylab/insufficient-logging
  * @problem.severity warning
  * @security-severity 1.0
  * @sub-severity low

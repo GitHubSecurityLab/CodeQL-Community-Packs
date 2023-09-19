@@ -1,7 +1,7 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
     
-    <groupId>com.github.advanced-security</groupId>
+    <groupId>com.github.githubsecuritylab</groupId>
     <artifactId>command-injection</artifactId>
     <version>1.0.0</version>
 
@@ -20,7 +20,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.github.advanced_security.command_injection_test.Main</mainClass>
+                            <mainClass>com.github.githubsecuritylab.command_injection_test.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -5,7 +5,7 @@
  * @problem.severity error
  * @security-severity 9.8
  * @precision low
- * @id java/hardcoded-password-field
+ * @id githubsecuritylab/hardcoded-password-field
  * @tags security
  *       external/cwe/cwe-798
  */

@@ -7,7 +7,7 @@
  * @security-severity 2.5
  * @sub-severity low
  * @precision very-low
- * @id py/audit/xss-jinja2
+ * @id githubsecuritylab/audit/xss-jinja2
  * @tags security
  *       external/cwe/cwe-079
  *       audit
