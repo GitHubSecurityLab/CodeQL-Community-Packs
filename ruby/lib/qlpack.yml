@@ -1,0 +1,5 @@
+library: true 
+name: githubsecuritylab/codeql-ruby-libs
+version: 0.0.1
+dependencies:
+  codeql/ruby-all: '*'
