@@ -3,4 +3,5 @@ provide:
 - go/**/qlpack.yml
 - java/**/qlpack.yml
 - python/**/qlpack.yml
+- ruby/**/qlpack.yml
 
