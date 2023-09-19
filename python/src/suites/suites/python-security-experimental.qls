@@ -1,0 +1,47 @@
+# Use with caution ⚠️ experimental queries are not assured for performance or false positives
+
+# Use in a CodeQL workflow, e.g. copy to `./.github/codeql/python-experimental-security.qls`
+# then alter the workflow to look like:
+#
+#    # Initializes the CodeQL tools for scanning.
+#    - name: Initialize CodeQL
+#      uses: github/codeql-action/init@v2
+#      with:
+#        languages: ${{ matrix.language }}
+#        queries: security-extended,./.github/codeql/python-experimental-security.qls # <-- add this bit here after the comma
+
+- description: "Python experimental security queries"
+- qlpack: codeql/python-queries
+
+- queries: '.'
+  from: codeql/python-queries
+
+- include:
+    kind:
+    - problem
+    - path-problem
+    - alert
+    - path-alert
+    tags contain:
+    - security
+    query path:
+      - /experimental\/.*/
+      
+- include:
+    kind:
+    - diagnostic
+- include:
+    kind:
+    - metric
+    tags contain:
+    - summary
+    
+- exclude:
+    deprecated: //
+- exclude:
+    query path:
+      - Metrics/Summaries/FrameworkCoverage.ql
+      - /Diagnostics/Internal/.*/
+- exclude:
+    tags contain:
+      - model-generator

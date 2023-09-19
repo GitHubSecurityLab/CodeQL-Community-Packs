@@ -1,0 +1,14 @@
+edges
+| unsafe.py:5:5:5:11 | ControlFlowNode for input() | unsafe.py:7:14:7:14 | ControlFlowNode for i |
+| unsafe.py:10:5:10:32 | ControlFlowNode for Attribute() | unsafe.py:12:14:12:14 | ControlFlowNode for e |
+nodes
+| unsafe.py:5:5:5:11 | ControlFlowNode for input() | semmle.label | ControlFlowNode for input() |
+| unsafe.py:7:14:7:14 | ControlFlowNode for i | semmle.label | ControlFlowNode for i |
+| unsafe.py:10:5:10:32 | ControlFlowNode for Attribute() | semmle.label | ControlFlowNode for Attribute() |
+| unsafe.py:12:14:12:14 | ControlFlowNode for e | semmle.label | ControlFlowNode for e |
+| unsafe.py:17:22:17:29 | ControlFlowNode for Attribute() | semmle.label | ControlFlowNode for Attribute() |
+subpaths
+#select
+| unsafe.py:7:14:7:14 | ControlFlowNode for i | unsafe.py:5:5:5:11 | ControlFlowNode for input() | unsafe.py:7:14:7:14 | ControlFlowNode for i | Deserializing of $@. | unsafe.py:5:5:5:11 | ControlFlowNode for input() | untrusted input |
+| unsafe.py:12:14:12:14 | ControlFlowNode for e | unsafe.py:10:5:10:32 | ControlFlowNode for Attribute() | unsafe.py:12:14:12:14 | ControlFlowNode for e | Deserializing of $@. | unsafe.py:10:5:10:32 | ControlFlowNode for Attribute() | untrusted input |
+| unsafe.py:17:22:17:29 | ControlFlowNode for Attribute() | unsafe.py:17:22:17:29 | ControlFlowNode for Attribute() | unsafe.py:17:22:17:29 | ControlFlowNode for Attribute() | Deserializing of $@. | unsafe.py:17:22:17:29 | ControlFlowNode for Attribute() | untrusted input |

@@ -1,0 +1,23 @@
+- description: "GitHub's Community Packs Python Extended Suite"
+
+- queries: '.'
+  from: advanced-security/codeql-python
+
+# Include lows
+- include:
+    kind:
+    - problem
+    - path-problem
+    precision:
+    - low
+
+# Remove debugging, and audit queries
+- exclude:
+    tags contain:
+      - debugging
+      - audit
+
+# Remove local testing folders
+- exclude:
+    query path:
+      - /testing\/.*/

@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'csharp', 'go', 'java' ]
+        language: [ 'csharp', 'go', 'java', 'python' ]
 
     steps:
       - uses: actions/checkout@v3

@@ -1,0 +1,16 @@
+edges
+| app.py:1:26:1:32 | ControlFlowNode for ImportMember | app.py:1:26:1:32 | GSSA Variable request |
+| app.py:1:26:1:32 | GSSA Variable request | app.py:12:16:12:22 | ControlFlowNode for request |
+| app.py:12:16:12:22 | ControlFlowNode for request | app.py:12:16:12:27 | ControlFlowNode for Attribute |
+| app.py:12:16:12:27 | ControlFlowNode for Attribute | app.py:12:16:12:39 | ControlFlowNode for Subscript |
+| app.py:12:16:12:39 | ControlFlowNode for Subscript | app.py:14:51:14:58 | ControlFlowNode for username |
+nodes
+| app.py:1:26:1:32 | ControlFlowNode for ImportMember | semmle.label | ControlFlowNode for ImportMember |
+| app.py:1:26:1:32 | GSSA Variable request | semmle.label | GSSA Variable request |
+| app.py:12:16:12:22 | ControlFlowNode for request | semmle.label | ControlFlowNode for request |
+| app.py:12:16:12:27 | ControlFlowNode for Attribute | semmle.label | ControlFlowNode for Attribute |
+| app.py:12:16:12:39 | ControlFlowNode for Subscript | semmle.label | ControlFlowNode for Subscript |
+| app.py:14:51:14:58 | ControlFlowNode for username | semmle.label | ControlFlowNode for username |
+subpaths
+#select
+| app.py:14:51:14:58 | ControlFlowNode for username | app.py:1:26:1:32 | ControlFlowNode for ImportMember | app.py:14:51:14:58 | ControlFlowNode for username | Cross-site scripting vulnerability due to a $@. | app.py:1:26:1:32 | ControlFlowNode for ImportMember | user-provided value |

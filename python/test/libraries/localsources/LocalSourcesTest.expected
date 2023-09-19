@@ -1,0 +1,11 @@
+| app.py:7:6:7:24 | ControlFlowNode for Subscript |
+| app.py:8:6:8:29 | ControlFlowNode for Attribute() |
+| app.py:9:6:9:40 | ControlFlowNode for Attribute() |
+| app.py:12:6:12:13 | ControlFlowNode for Attribute |
+| app.py:15:6:15:22 | ControlFlowNode for input() |
+| app.py:20:8:20:26 | ControlFlowNode for Attribute() |
+| app.py:22:6:22:11 | ControlFlowNode for Attribute |
+| app.py:23:6:23:15 | ControlFlowNode for Attribute |
+| app.py:27:6:27:13 | ControlFlowNode for Attribute() |
+| app.py:30:10:30:17 | ControlFlowNode for Attribute() |
+| app.py:33:7:33:23 | ControlFlowNode for Attribute() |

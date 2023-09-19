@@ -1,0 +1,4 @@
+| unsafe.py:15:18:15:24 | ControlFlowNode for my_data | Usage of Deserializing function |
+| unsafe.py:21:22:21:27 | ControlFlowNode for handle | Usage of Deserializing function |
+| unsafe.py:24:23:24:28 | ControlFlowNode for handle | Usage of Deserializing function |
+| unsafe.py:27:22:27:27 | ControlFlowNode for handle | Usage of Deserializing function |

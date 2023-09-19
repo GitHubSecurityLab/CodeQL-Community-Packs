@@ -2,3 +2,5 @@ provide:
 - csharp/**/qlpack.yml
 - go/**/qlpack.yml
 - java/**/qlpack.yml
+- python/**/qlpack.yml
+
