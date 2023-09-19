@@ -16,3 +16,5 @@ test-*.ql
 **/testing/**
 **/*.testproj/*
 */test-output.txt
+
+.DS_Store
