@@ -1,0 +1,16 @@
+edges
+| codei.py:3:5:3:28 | ControlFlowNode for input() | codei.py:6:6:6:6 | ControlFlowNode for i |
+| codei.py:9:6:9:29 | ControlFlowNode for Subscript | codei.py:10:6:10:7 | ControlFlowNode for e1 |
+| codei.py:12:6:12:33 | ControlFlowNode for Attribute() | codei.py:13:6:13:7 | ControlFlowNode for e2 |
+nodes
+| codei.py:3:5:3:28 | ControlFlowNode for input() | semmle.label | ControlFlowNode for input() |
+| codei.py:6:6:6:6 | ControlFlowNode for i | semmle.label | ControlFlowNode for i |
+| codei.py:9:6:9:29 | ControlFlowNode for Subscript | semmle.label | ControlFlowNode for Subscript |
+| codei.py:10:6:10:7 | ControlFlowNode for e1 | semmle.label | ControlFlowNode for e1 |
+| codei.py:12:6:12:33 | ControlFlowNode for Attribute() | semmle.label | ControlFlowNode for Attribute() |
+| codei.py:13:6:13:7 | ControlFlowNode for e2 | semmle.label | ControlFlowNode for e2 |
+subpaths
+#select
+| codei.py:6:6:6:6 | ControlFlowNode for i | codei.py:3:5:3:28 | ControlFlowNode for input() | codei.py:6:6:6:6 | ControlFlowNode for i | This $@ is written to a log file. | codei.py:3:5:3:28 | ControlFlowNode for input() | potentially sensitive information |
+| codei.py:10:6:10:7 | ControlFlowNode for e1 | codei.py:9:6:9:29 | ControlFlowNode for Subscript | codei.py:10:6:10:7 | ControlFlowNode for e1 | This $@ is written to a log file. | codei.py:9:6:9:29 | ControlFlowNode for Subscript | potentially sensitive information |
+| codei.py:13:6:13:7 | ControlFlowNode for e2 | codei.py:12:6:12:33 | ControlFlowNode for Attribute() | codei.py:13:6:13:7 | ControlFlowNode for e2 | This $@ is written to a log file. | codei.py:12:6:12:33 | ControlFlowNode for Attribute() | potentially sensitive information |

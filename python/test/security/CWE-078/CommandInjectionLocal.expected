@@ -1,0 +1,19 @@
+edges
+| cmdi.py:4:5:4:28 | ControlFlowNode for input() | cmdi.py:7:17:7:17 | ControlFlowNode for i |
+| cmdi.py:4:5:4:28 | ControlFlowNode for input() | cmdi.py:9:17:9:30 | ControlFlowNode for Fstring |
+| cmdi.py:14:6:14:29 | ControlFlowNode for Subscript | cmdi.py:15:17:15:43 | ControlFlowNode for BinaryExpr |
+| cmdi.py:17:6:17:33 | ControlFlowNode for Attribute() | cmdi.py:18:17:18:43 | ControlFlowNode for BinaryExpr |
+nodes
+| cmdi.py:4:5:4:28 | ControlFlowNode for input() | semmle.label | ControlFlowNode for input() |
+| cmdi.py:7:17:7:17 | ControlFlowNode for i | semmle.label | ControlFlowNode for i |
+| cmdi.py:9:17:9:30 | ControlFlowNode for Fstring | semmle.label | ControlFlowNode for Fstring |
+| cmdi.py:14:6:14:29 | ControlFlowNode for Subscript | semmle.label | ControlFlowNode for Subscript |
+| cmdi.py:15:17:15:43 | ControlFlowNode for BinaryExpr | semmle.label | ControlFlowNode for BinaryExpr |
+| cmdi.py:17:6:17:33 | ControlFlowNode for Attribute() | semmle.label | ControlFlowNode for Attribute() |
+| cmdi.py:18:17:18:43 | ControlFlowNode for BinaryExpr | semmle.label | ControlFlowNode for BinaryExpr |
+subpaths
+#select
+| cmdi.py:7:17:7:17 | ControlFlowNode for i | cmdi.py:4:5:4:28 | ControlFlowNode for input() | cmdi.py:7:17:7:17 | ControlFlowNode for i | This command depends on $@. | cmdi.py:4:5:4:28 | ControlFlowNode for input() | a user-provided value |
+| cmdi.py:9:17:9:30 | ControlFlowNode for Fstring | cmdi.py:4:5:4:28 | ControlFlowNode for input() | cmdi.py:9:17:9:30 | ControlFlowNode for Fstring | This command depends on $@. | cmdi.py:4:5:4:28 | ControlFlowNode for input() | a user-provided value |
+| cmdi.py:15:17:15:43 | ControlFlowNode for BinaryExpr | cmdi.py:14:6:14:29 | ControlFlowNode for Subscript | cmdi.py:15:17:15:43 | ControlFlowNode for BinaryExpr | This command depends on $@. | cmdi.py:14:6:14:29 | ControlFlowNode for Subscript | a user-provided value |
+| cmdi.py:18:17:18:43 | ControlFlowNode for BinaryExpr | cmdi.py:17:6:17:33 | ControlFlowNode for Attribute() | cmdi.py:18:17:18:43 | ControlFlowNode for BinaryExpr | This command depends on $@. | cmdi.py:17:6:17:33 | ControlFlowNode for Attribute() | a user-provided value |

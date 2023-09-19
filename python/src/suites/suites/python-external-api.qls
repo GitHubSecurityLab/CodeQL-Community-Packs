@@ -1,0 +1,12 @@
+- description: "GitHub's Community Packs Python External API Suite"
+
+- import: codeql-suites/python-security-extended.qls
+  from: codeql/python-queries
+
+# External API query
+- queries: '.'
+  from: codeql/python-queries
+- include:
+    id:
+      - python/untrusted-data-to-external-api
+

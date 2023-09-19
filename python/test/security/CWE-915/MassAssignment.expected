@@ -1,0 +1,5 @@
+| massassignment.py:13:26:13:28 | ControlFlowNode for key | Use of $@. | massassignment.py:1:26:1:32 | ControlFlowNode for ImportMember | mass assignment |
+| massassignment.py:23:19:23:39 | ControlFlowNode for Attribute() | Use of $@. | massassignment.py:1:26:1:32 | ControlFlowNode for ImportMember | mass assignment |
+| massassignment.py:26:22:26:42 | ControlFlowNode for Attribute() | Use of $@. | massassignment.py:1:26:1:32 | ControlFlowNode for ImportMember | mass assignment |
+| massassignment.py:49:23:49:32 | ControlFlowNode for param_name | Use of $@. | massassignment.py:1:26:1:32 | ControlFlowNode for ImportMember | mass assignment |
+| massassignment.py:67:27:67:30 | ControlFlowNode for item | Use of $@. | massassignment.py:1:26:1:32 | ControlFlowNode for ImportMember | mass assignment |
