@@ -6,7 +6,7 @@
  * @security-severity 5.0
  * @sub-severity medium
  * @precision medium
- * @id cs/weak-cryptographic-hash-algorithms
+ * @id githubsecuritylab/weak-cryptographic-hash-algorithms
  * @tags security
  *       audit
  *       external/cwe/cwe-328

@@ -5,7 +5,7 @@
  * @problem.severity error
  * @security-severity 6.1
  * @precision medium
- * @id cs/hardcoded-salt
+ * @id githubsecuritylab/hardcoded-salt
  * @tags security
  *       external/cwe/cwe-760
  */

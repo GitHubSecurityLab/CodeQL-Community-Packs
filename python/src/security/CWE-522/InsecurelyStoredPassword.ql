@@ -3,7 +3,7 @@
  * @description Password stored insecurely directly in database without hashing with a secure password hash
  * @kind problem
  * @problem.severity error
- * @id python/insecurely-stored-pw
+ * @id githubsecuritylab/insecurely-stored-pw
  * @precision high
  * @tags password
  *       python
@@ -15,7 +15,6 @@
 private import github.InsecurelyStoredPassword
 
 from User user
-where
-not user.isSecure()
+where not user.isSecure()
 select user, "Insecure 'user' class $@ stores its password insecurely, without secure hashing",
-    user, user.getName()
+  user, user.getName()

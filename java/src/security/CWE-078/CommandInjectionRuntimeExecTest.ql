@@ -5,30 +5,34 @@
  * @problem.severity error
  * @security-severity 6.1
  * @precision high
- * @id java/command-line-injection-extra-test
+ * @id githubsecuritylab/command-line-injection-extra-test
  * @tags testing
  *       test
  *       security
  *       external/cwe/cwe-078
  */
 
-
 import github.CommandInjectionRuntimeExec
 
-class DataSource extends Source { DataSource() { this instanceof RemoteFlowSource or this instanceof LocalUserInput } }
+class DataSource extends Source {
+  DataSource() { this instanceof RemoteFlowSource or this instanceof LocalUserInput }
+}
 
-from DataFlow::Node source, DataFlow::Node sink, ExecTaintConfiguration2 conf, MethodAccess call, int index, DataFlow::Node sourceCmd, DataFlow::Node sinkCmd, ExecTaintConfiguration confCmd
-where call.getMethod() instanceof RuntimeExecMethod
-// this is a command-accepting call to exec, e.g. exec("/bin/sh", ...)
-and (
-    confCmd.hasFlow(sourceCmd, sinkCmd)
-    and sinkCmd.asExpr() = call.getArgument(0)
-)
-// it is tainted by untrusted user input
-and (
-    conf.hasFlow(source, sink)
-    and sink.asExpr() = call.getArgument(index)
-)
-select sink, "Call to dangerous java.lang.Runtime.exec() with command '$@' with arg from untrusted input '$@'",
-    sourceCmd, sourceCmd.toString(),
-    source, source.toString()
+from
+  DataFlow::Node source, DataFlow::Node sink, ExecTaintConfiguration2 conf, MethodAccess call,
+  int index, DataFlow::Node sourceCmd, DataFlow::Node sinkCmd, ExecTaintConfiguration confCmd
+where
+  call.getMethod() instanceof RuntimeExecMethod and
+  // this is a command-accepting call to exec, e.g. exec("/bin/sh", ...)
+  (
+    confCmd.hasFlow(sourceCmd, sinkCmd) and
+    sinkCmd.asExpr() = call.getArgument(0)
+  ) and
+  // it is tainted by untrusted user input
+  (
+    conf.hasFlow(source, sink) and
+    sink.asExpr() = call.getArgument(index)
+  )
+select sink,
+  "Call to dangerous java.lang.Runtime.exec() with command '$@' with arg from untrusted input '$@'",
+  sourceCmd, sourceCmd.toString(), source, source.toString()

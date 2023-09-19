@@ -3,7 +3,7 @@
  * @description Calling an unsafe deserializer with data controlled by an attacker
  *              can lead to denial of service and other security problems.
  * @kind problem
- * @id cs/audit/unsafe-deserialization
+ * @id githubsecuritylab/audit/unsafe-deserialization
  * @problem.severity warning
  * @security-severity 2.0
  * @precision low
@@ -12,7 +12,6 @@
  *       audit
  */
 
-// https://github.com/advanced-security/codeql-queries/blob/audit-csharp/codeql/csharp/ql/src/Security Features/CWE-502/UnsafeDeserialization.ql
 import csharp
 import semmle.code.csharp.security.dataflow.UnsafeDeserializationQuery
 

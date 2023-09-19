@@ -6,7 +6,7 @@
  * @security-severity 8.0
  * @precision low
  * @sub-severity high
- * @id java/hardcoded-password
+ * @id githubsecuritylab/hardcoded-password
  * @tags security
  *       external/cwe/cwe-798
  */

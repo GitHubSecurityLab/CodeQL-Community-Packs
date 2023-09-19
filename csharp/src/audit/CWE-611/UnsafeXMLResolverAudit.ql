@@ -6,7 +6,7 @@
  * @problem.severity warning
  * @security-severity 2.0
  * @precision low
- * @id cs/audit/insecure-xml-read
+ * @id githubsecuritylab/audit/insecure-xml-read
  * @tags security
  *       external/cwe/cwe-611
  *       external/cwe/cwe-827
@@ -14,7 +14,6 @@
  *       audit
  */
 
-// https://github.com/advanced-security/codeql-queries/blob/c8cfb6a0cc44da3d2baae4b985262a84652f71ee/csharp/ql/src/Security Features/CWE-611/UseXmlSecureResolver.ql#L22s
 import csharp
 import semmle.code.csharp.security.xml.InsecureXMLQuery
 

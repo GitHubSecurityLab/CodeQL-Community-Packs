@@ -6,7 +6,7 @@
  * @security-severity 5.0
  * @sub-severity medium
  * @precision high
- * @id py/weak-cryptographic-algorithm
+ * @id githubsecuritylab/weak-cryptographic-algorithm
  * @tags security
  *       experimental
  *       external/cwe/cwe-327

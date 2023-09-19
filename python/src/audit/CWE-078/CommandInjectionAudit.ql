@@ -7,7 +7,7 @@
  * @security-severity 2.5
  * @sub-severity low
  * @precision very-low
- * @id py/audit/command-line-injection
+ * @id githubsecuritylab/audit/command-line-injection
  * @tags security
  *       external/cwe/cwe-078
  *       external/cwe/cwe-088

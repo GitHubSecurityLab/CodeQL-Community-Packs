@@ -5,7 +5,7 @@
  * @problem.severity warning
  * @security-severity 7.5
  * @precision high
- * @id csharp/weak-password-hashing
+ * @id githubsecuritylab/weak-password-hashing
  * @tags security
  *       external/cwe/cwe-327
  *       external/cwe/cwe-328

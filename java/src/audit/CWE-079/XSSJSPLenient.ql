@@ -5,7 +5,7 @@
  * @problem.severity error
  * @security-severity 6.1
  * @precision high
- * @id java/xss-jsp
+ * @id githubsecuritylab/xss-jsp
  * @tags security
  *       external/cwe/cwe-079
  *       audit

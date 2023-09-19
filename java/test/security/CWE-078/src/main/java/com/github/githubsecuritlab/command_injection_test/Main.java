@@ -1,4 +1,4 @@
-package com.github.advanced_security.command_injection_test;
+package com.github.githubsecuritylab.command_injection_test;
 
 /* Tests for command injection query
  * 

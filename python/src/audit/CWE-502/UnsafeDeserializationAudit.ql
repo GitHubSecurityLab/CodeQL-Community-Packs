@@ -6,7 +6,7 @@
  * @security-severity 2.5
  * @sub-severity low
  * @precision very-low
- * @id py/audit/unsafe-deserialization
+ * @id githubsecuritylab/audit/unsafe-deserialization
  * @tags security
  *       external/cwe/cwe-502
  *       audit

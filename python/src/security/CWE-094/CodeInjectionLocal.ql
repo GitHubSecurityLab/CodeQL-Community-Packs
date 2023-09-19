@@ -7,7 +7,7 @@
  * @security-severity 10.0
  * @sub-severity critical
  * @precision low
- * @id py/code-injection
+ * @id githubsecuritylab/code-injection
  * @tags security
  *       external/owasp/owasp-a1
  *       external/cwe/cwe-094

@@ -6,7 +6,7 @@
  * @problem.severity error
  * @security-severity 7.8
  * @precision high
- * @id go/log-injection
+ * @id githubsecuritylab/log-injection
  * @tags security
  *       external/cwe/cwe-117
  */

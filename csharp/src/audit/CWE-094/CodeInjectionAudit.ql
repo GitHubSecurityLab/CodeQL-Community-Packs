@@ -6,7 +6,7 @@
  * @problem.severity warning
  * @security-severity 2.0
  * @precision low
- * @id cs/audit/code-injection
+ * @id githubsecuritylab/audit/code-injection
  * @tags security
  *       external/cwe/cwe-094
  *       external/cwe/cwe-095

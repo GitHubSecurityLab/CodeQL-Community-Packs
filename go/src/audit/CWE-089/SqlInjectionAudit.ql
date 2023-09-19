@@ -5,11 +5,12 @@
  * @security-severity 2.5
  * @sub-severity low
  * @precision very-low
- * @id go/audit/sql-injection
+ * @id githubsecuritylab/audit/sql-injection
  * @tags security
  *       external/cwe/cwe-089
  *       audit
  */
+
 import go
 import semmle.go.security.SqlInjection
 import DataFlow::PathGraph
