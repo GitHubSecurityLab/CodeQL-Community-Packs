@@ -1,5 +1,17 @@
 # Community CodeQL Packs
 
+<!-- markdownlint-disable -->
+<div align="center">
+
+[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/GitHubSecurityLab/Community-CodeQL-Packs)
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/GitHubSecurityLab/Community-CodeQL-Packs/publish.yml?style=for-the-badge)](https://github.com/GitHubSecurityLab/Community-CodeQL-Packs/actions/workflows/publish.yml?query=branch%3Amain)
+[![GitHub Issues](https://img.shields.io/github/issues/GitHubSecurityLab/Community-CodeQL-Packs?style=for-the-badge)](https://github.com/GitHubSecurityLab/Community-CodeQL-Packs/issues)
+[![GitHub Stars](https://img.shields.io/github/stars/GitHubSecurityLab/Community-CodeQL-Packs?style=for-the-badge)](https://github.com/GitHubSecurityLab/Community-CodeQL-Packs)
+[![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
+
+</div>
+<!-- markdownlint-restore -->
+
 Collection of community-driven CodeQL query, library and extension packs
 
 ## Getting started
@@ -31,3 +43,11 @@ packs:
 ```bash
 codeql database analyze db/ --download githubsecuritylab/codeql-python-queries --format=sarif-latest --output=results.sarif
 ```
+
+## License
+
+This project is licensed under the terms of the MIT open source license. Please refer to [MIT](./LICENSE) for the full terms.
+
+## Support
+
+Please [create GitHub issues](https://github.com/advanced-security/brew-dependency-submission-action) for any feature requests, bugs, or documentation problems.
