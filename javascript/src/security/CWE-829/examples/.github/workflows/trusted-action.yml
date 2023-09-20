@@ -1,0 +1,10 @@
+name: "Trusted Action Example"
+
+jobs:
+  build:
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - run: |
+        ./build.sh

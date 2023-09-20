@@ -1,0 +1,8 @@
+name: githubsecuritylab/codeql-javascript-tests
+groups: [javascript, test]
+dependencies:
+  codeql/javascript-all: "*"
+  githubsecuritylab/codeql-javascript-queries: "*"
+
+extractor: javascript
+tests: .

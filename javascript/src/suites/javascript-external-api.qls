@@ -1,0 +1,10 @@
+- description: "GitHub's Community Packs JavaScript/TypeScript external api Suite"
+
+- import: codeql-suites/javascript-security-extended.qls
+  from: codeql/javascript-queries
+
+- queries: '.'
+  from: codeql/javascript-queries
+- include:
+    id:
+      - js/untrusted-data-to-external-api

@@ -1,0 +1,25 @@
+nodes
+| app.jsx:12:11:12:27 | [query, setQuery] |
+| app.jsx:12:11:16:6 | query |
+| app.jsx:12:12:12:16 | query |
+| app.jsx:12:31:16:6 | useQuer ... \\n    }) |
+| app.jsx:12:31:16:6 | useQuer ... \\n    }) |
+| app.jsx:17:11:17:45 | { x: nu ... lters } |
+| app.jsx:17:11:17:53 | searchQuery |
+| app.jsx:17:21:17:34 | q: searchQuery |
+| app.jsx:17:49:17:53 | query |
+| app.jsx:26:52:26:62 | searchQuery |
+| app.jsx:26:52:26:62 | searchQuery |
+edges
+| app.jsx:12:11:12:27 | [query, setQuery] | app.jsx:12:12:12:16 | query |
+| app.jsx:12:11:16:6 | query | app.jsx:17:49:17:53 | query |
+| app.jsx:12:12:12:16 | query | app.jsx:12:11:16:6 | query |
+| app.jsx:12:31:16:6 | useQuer ... \\n    }) | app.jsx:12:11:12:27 | [query, setQuery] |
+| app.jsx:12:31:16:6 | useQuer ... \\n    }) | app.jsx:12:11:12:27 | [query, setQuery] |
+| app.jsx:17:11:17:45 | { x: nu ... lters } | app.jsx:17:21:17:34 | q: searchQuery |
+| app.jsx:17:11:17:53 | searchQuery | app.jsx:26:52:26:62 | searchQuery |
+| app.jsx:17:11:17:53 | searchQuery | app.jsx:26:52:26:62 | searchQuery |
+| app.jsx:17:21:17:34 | q: searchQuery | app.jsx:17:11:17:53 | searchQuery |
+| app.jsx:17:49:17:53 | query | app.jsx:17:11:17:45 | { x: nu ... lters } |
+#select
+| app.jsx:26:52:26:62 | searchQuery | app.jsx:12:31:16:6 | useQuer ... \\n    }) | app.jsx:26:52:26:62 | searchQuery | Cross-site scripting vulnerability due to $@. | app.jsx:12:31:16:6 | useQuer ... \\n    }) | user-provided value |
