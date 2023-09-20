@@ -1,6 +1,6 @@
-# Community Packs
+# Community CodeQL Packs
 
-Collection of community-driven CodeQL query and extension packs
+Collection of community-driven CodeQL query, library and extension packs
 
 ## Getting started
 
