@@ -1,0 +1,7 @@
+| app.js:7:24:7:69 | "return ...  + "];" | Code Injection sink |
+| app.js:9:34:9:79 | "return ...  + "];" | Code Injection sink |
+| app.js:12:8:12:53 | "return ...  + "];" | Code Injection sink |
+| app.js:15:22:15:54 | req.par ... ction") | Code Injection sink |
+| app.js:17:30:17:53 | req.par ... cript") | Code Injection sink |
+| app.js:19:37:19:70 | req.par ... odule") | Code Injection sink |
+| app.js:21:19:21:48 | req.par ... ntext") | Code Injection sink |

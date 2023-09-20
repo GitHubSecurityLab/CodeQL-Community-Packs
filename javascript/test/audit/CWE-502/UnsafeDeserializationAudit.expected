@@ -1,0 +1,4 @@
+| deserialization.js:4:20:4:34 | req.params.data | Unsafe Deserialization sink |
+| deserialization.js:5:23:5:37 | req.params.data | Unsafe Deserialization sink |
+| deserialization.js:10:24:10:38 | req.params.data | Unsafe Deserialization sink |
+| deserialization.js:11:27:11:41 | req.params.data | Unsafe Deserialization sink |

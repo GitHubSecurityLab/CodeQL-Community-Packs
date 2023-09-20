@@ -1,0 +1,19 @@
+- description: "GitHub's Community Packs JavaScript/TypeScript audit Suite"
+
+- qlpack: githubsecuritylab/codeql-javascript-queries
+
+- include:
+    kind:
+    - problem
+    - path-problem
+    - metric
+    - diagnostic
+    tags contain:
+    - audit
+
+# External API queries
+- queries: '.'
+  from: codeql/javascript-queries
+- include:
+    id:
+      - js/untrusted-data-to-external-api

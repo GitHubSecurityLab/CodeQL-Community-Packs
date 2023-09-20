@@ -1,0 +1,1 @@
+| app.jsx:26:52:26:62 | searchQuery | React's dangerouslySetInnerHTML is being used. |

@@ -1,0 +1,39 @@
+<!DOCTYPE qhelp PUBLIC
+"-//Semmle//qhelp//EN"
+"qhelp.dtd">
+<qhelp>
+	<overview>
+		<p>
+			The code uses a cryptographic primitive that uses an Initialization Vector (IV), but does not generate IVs that are sufficiently unpredictable or unique.
+
+			Some cryptographic primitives (such as block ciphers) require that IVs must have certain properties for the uniqueness and/or unpredictability of an IV. Primitives may vary in how important these properties are. If these properties are not maintained, e.g. by a bug in the code, then the cryptography may be weakened or broken by attacking the IVs themselves.
+		</p>
+	</overview>
+	<recommendation>
+		<p>
+			With Node's crypto module, ensure that input to <code>createDecipheriv</code> or <code>createCipheriv</code> has been generated using a secure random source, such as <code>randomBytes</code> (from the same module).
+		</p>
+		<p>
+			Different kinds of cipher have different needs for their IVs. Generating a random IV is usually safest, but beware of CBC-MAC (that requires an IV of all-zeroes, by design).
+		</p>
+
+		<p>
+			NIST has recommendations for producing IVs, including for when you cannot make random ones. See the references for more information.
+		</p>
+	</recommendation>
+	<example>
+		<p>
+			In this example, the IV is static. 
+		</p>
+		<sample src="./examples/static_iv.js" />
+		<p>
+			The IV is generated securely in the example below.
+		</p>
+		<sample src="./examples/secure_iv.js" />
+	</example>
+
+	<references>
+		<li><a href="https://nodejs.org/api/crypto.html#cryptocreatecipherivalgorithm-key-iv-options">crypto.createCipheriv</a></li>
+		<li><a href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf">NIST: Recommendation for Block Cipher Modes of Operation</a></li>
+	</references>
+</qhelp>
