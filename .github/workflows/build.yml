@@ -124,12 +124,20 @@ jobs:
             src:
               - '${{ matrix.language }}/ext-library-sources/**'
 
+      - name: Initialize CodeQL
+        if: steps.changes.outputs.src == 'true'
+        run: |
+          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
+                       | sort \
+                       | tail -n 1 \
+                       | tr -d '\n')"
+          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+
       - name: Install CodeQL
         if: steps.changes.outputs.src == 'true'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          gh extension install github/gh-codeql
-          gh codeql pack install "${{ matrix.language }}/ext-library-sources/"
-          gh codeql pack create "${{ matrix.language }}/ext-library-sources/"
+          codeql pack install "${{ matrix.language }}/ext-library-sources/"
+          codeql pack create "${{ matrix.language }}/ext-library-sources/"
 
