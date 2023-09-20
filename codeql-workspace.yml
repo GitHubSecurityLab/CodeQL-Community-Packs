@@ -1,4 +1,5 @@
 provide:
+- cpp/**/qlpack.yml
 - csharp/**/qlpack.yml
 - go/**/qlpack.yml
 - java/**/qlpack.yml
