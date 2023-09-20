@@ -1,0 +1,14 @@
+---
+lockVersion: 1.0.0
+dependencies:
+  codeql/cpp-all:
+    version: 0.9.2
+  codeql/dataflow:
+    version: 0.0.3
+  codeql/ssa:
+    version: 0.1.4
+  codeql/tutorial:
+    version: 0.1.4
+  codeql/util:
+    version: 0.1.4
+compiled: false
