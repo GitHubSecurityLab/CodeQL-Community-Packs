@@ -1,6 +1,6 @@
 library: false
 name: githubsecuritylab/codeql-csharp-queries
-version: 0.0.1
+version: 0.0.2
 suites: suites
 defaultSuiteFile: suites/csharp.qls
 dependencies:
