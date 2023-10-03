@@ -1,0 +1,7 @@
+| app.py:6:1:6:16 | ControlFlowNode for Attribute() | Using weak PRNG |
+| app.py:11:1:11:15 | ControlFlowNode for Attribute() | Using weak PRNG |
+| app.py:12:1:12:23 | ControlFlowNode for Attribute() | Using weak PRNG |
+| app.py:13:1:13:21 | ControlFlowNode for Attribute() | Using weak PRNG |
+| app.py:15:1:15:20 | ControlFlowNode for Attribute() | Using weak PRNG |
+| app.py:18:1:18:12 | ControlFlowNode for Attribute() | Using weak PRNG |
+| app.py:19:1:19:44 | ControlFlowNode for Attribute() | Using weak PRNG |
