@@ -11,7 +11,7 @@
  */
 
 import DataFlow::PathGraph
-import github.CommandInjectionRuntimeExec
+import ghsl.CommandInjectionRuntimeExec
 
 class RemoteSource extends Source {
   RemoteSource() { this instanceof RemoteFlowSource }

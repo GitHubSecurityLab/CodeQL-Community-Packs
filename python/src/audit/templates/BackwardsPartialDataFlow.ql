@@ -11,7 +11,7 @@ import semmle.python.dataflow.new.DataFlow
 import semmle.python.dataflow.new.TaintTracking
 import semmle.python.ApiGraphs
 import PartialFlow::PartialPathGraph
-import github.Helpers // required for dangerousSinks
+import ghsl.Helpers // required for dangerousSinks
 
 private module MyConfig implements DataFlow::ConfigSig {
   predicate isSource(DataFlow::Node source) { none() }

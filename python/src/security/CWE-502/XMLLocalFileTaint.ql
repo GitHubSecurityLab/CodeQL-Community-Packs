@@ -18,7 +18,7 @@
 private import semmle.python.dataflow.new.DataFlow
 private import semmle.python.dataflow.new.TaintTracking
 private import DataFlow::PathGraph
-private import github.XMLLocalLib
+private import ghsl.XMLLocalLib
 
 from DataFlow::PathNode source, DataFlow::PathNode sink
 where any(XmlFileConfig conf).hasFlowPath(source, sink)

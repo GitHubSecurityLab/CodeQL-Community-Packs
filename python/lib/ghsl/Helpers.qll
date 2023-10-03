@@ -8,8 +8,8 @@ private import semmle.python.security.dataflow.ServerSideRequestForgeryCustomiza
 private import semmle.python.security.dataflow.SqlInjectionCustomizations
 private import semmle.python.security.dataflow.UnsafeDeserializationCustomizations
 // Fields Sinks
-private import github.HardcodedSecretSinks
-private import github.MassAssignment
+private import ghsl.HardcodedSecretSinks
+private import ghsl.MassAssignment
 
 // Find Node at Location
 predicate findByLocation(DataFlow::Node node, string relative_path, int linenumber) {

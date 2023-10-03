@@ -21,7 +21,7 @@ import semmle.python.dataflow.new.RemoteFlowSources
 import semmle.python.dataflow.new.BarrierGuards
 import semmle.python.ApiGraphs
 import DataFlow::PathGraph
-import github.HardcodedSecretSinks
+import ghsl.HardcodedSecretSinks
 
 class HardcodedValue extends DataFlow::Node {
   HardcodedValue() { exists(StrConst literal | this = DataFlow::exprNode(literal)) }

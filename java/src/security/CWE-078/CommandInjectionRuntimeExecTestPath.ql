@@ -13,7 +13,7 @@
  */
 
 import DataFlow::PathGraph
-import github.CommandInjectionRuntimeExec
+import ghsl.CommandInjectionRuntimeExec
 
 class DataSource extends Source {
   DataSource() { this instanceof RemoteFlowSource or this instanceof LocalUserInput }

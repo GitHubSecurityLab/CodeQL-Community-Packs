@@ -15,7 +15,7 @@
 
 import python
 import DataFlow::PathGraph
-import github.MassAssignment
+import ghsl.MassAssignment
 
 from
   MassAssignment::MassAssignmentLocalConfig config, DataFlow::PathNode source,
