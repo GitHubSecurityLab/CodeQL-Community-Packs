@@ -14,5 +14,5 @@
 import python
 import github.cryptography.RandomNumberGenerator
 
-from RandomNumberGeneratorSinks rngs
-select rngs.asExpr(), "Using weak PRNG"
+from RandomNumberGenerator::Sinks rngs
+select rngs, "Using weak PRNG"
