@@ -17,7 +17,7 @@ import semmle.code.java.dataflow.FlowSources
 import semmle.code.java.dataflow.TaintTracking2
 // import DataFlow::PathGraph
 // Internal
-import github.SensitiveInformation
+import ghsl.SensitiveInformation
 
 class Base64Sinks extends DataFlow::Node {
   Base64Sinks() {

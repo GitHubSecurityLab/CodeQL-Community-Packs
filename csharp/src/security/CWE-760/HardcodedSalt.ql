@@ -14,8 +14,8 @@ import csharp
 private import semmle.code.csharp.frameworks.Moq
 private import semmle.code.csharp.dataflow.DataFlow::DataFlow::PathGraph
 // import semmle.code.csharp.frameworks.system.security.Cryptography
-private import github.Hardcoded
-private import github.Cryptography
+private import ghsl.Hardcoded
+private import ghsl.Cryptography
 
 module HardcodedSalt {
   abstract class Source extends DataFlow::ExprNode { }

@@ -14,7 +14,7 @@
 
 import csharp
 private import DataFlow::PathGraph
-private import github.HardcodedCredentials
+private import ghsl.HardcodedCredentials
 
 from DataFlow::PathNode source, DataFlow::PathNode sink, LiteralToSecurityKeyConfig config
 where config.hasFlowPath(source, sink)

@@ -1,5 +1,5 @@
 import python
-import github.Logging
+import ghsl.Logging
 
 from LoggingSinks sources
 select sources

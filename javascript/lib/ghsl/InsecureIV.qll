@@ -1,6 +1,6 @@
 import semmle.javascript.dataflow.TaintTracking
 
-import github.CommandLine
+import ghsl.CommandLine
 
 class RandomTaintsSourceConfiguration extends TaintTracking::Configuration {
     RandomTaintsSourceConfiguration() { this = "RandomTaintsSourceConfiguration" }

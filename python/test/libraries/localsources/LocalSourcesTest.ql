@@ -1,5 +1,5 @@
 import python
-import github.LocalSources
+import ghsl.LocalSources
 
 from LocalSources::Range sources
 select sources

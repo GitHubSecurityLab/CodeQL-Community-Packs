@@ -12,7 +12,7 @@
  *       external/cwe/cwe-078
  */
 
-import github.CommandInjectionRuntimeExec
+import ghsl.CommandInjectionRuntimeExec
 
 class DataSource extends Source {
   DataSource() { this instanceof RemoteFlowSource or this instanceof LocalUserInput }

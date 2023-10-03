@@ -4,7 +4,7 @@ private import semmle.python.dataflow.new.DataFlow
 private import semmle.python.dataflow.new.TaintTracking
 private import semmle.python.dataflow.new.RemoteFlowSources
 
-private import github.LocalSources
+private import ghsl.LocalSources
 
 class FormatStringTaintConfiguration extends TaintTracking::Configuration {
     FormatStringTaintConfiguration() { this = "FormatStringTaintConfiguration" }

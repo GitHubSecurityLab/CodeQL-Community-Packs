@@ -22,7 +22,7 @@ import semmle.python.dataflow.new.TaintTracking
 import semmle.python.Concepts
 import semmle.python.dataflow.new.RemoteFlowSources
 import semmle.python.dataflow.new.BarrierGuards
-import github.LocalSources
+import ghsl.LocalSources
 private import semmle.python.security.dataflow.CodeInjectionCustomizations
 
 private module CodeInjectionConfiguration implements DataFlow::ConfigSig {

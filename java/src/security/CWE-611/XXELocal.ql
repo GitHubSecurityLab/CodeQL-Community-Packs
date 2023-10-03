@@ -18,7 +18,7 @@ import semmle.code.java.security.XmlParsers
 import semmle.code.java.dataflow.FlowSources
 import semmle.code.java.dataflow.TaintTracking2
 //import DataFlow::PathGraph
-import github.LocalSources
+import ghsl.LocalSources
 
 module SafeSAXSourceFlowConfig implements DataFlow::ConfigSig {
   predicate isSource(DataFlow::Node src) { src.asExpr() instanceof SafeSaxSource }
