@@ -1,4 +1,4 @@
-# Community CodeQL Packs
+# CodeQL Community Packs
 
 <!-- markdownlint-disable -->
 <div align="center">
