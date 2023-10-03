@@ -12,7 +12,7 @@
  */
 
 import python
-import github.crytography.WeakPRNG
+import github.cryptography.RandomNumberGenerator
 
 from RandomNumberGeneratorSinks rngs
 select rngs.asExpr(), "Using weak PRNG"

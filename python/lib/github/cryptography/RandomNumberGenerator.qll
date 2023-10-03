@@ -4,8 +4,8 @@ private import semmle.python.dataflow.new.DataFlow
 
 abstract class RandomNumberGeneratorSinks extends DataFlow::Node { }
 
-class OSRandom extends RandomNumberGeneratorSinks {
-  OSRandom() {
+class OsRandom extends RandomNumberGeneratorSinks {
+  OsRandom() {
     exists(DataFlow::Node call |
       // https://docs.python.org/3/library/os.html#os.getrandom
       call = API::moduleImport("os").getMember("getrandom").getACall() and
