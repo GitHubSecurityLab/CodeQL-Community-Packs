@@ -12,7 +12,7 @@
  */
 
 import python
-import github.cryptography.RandomNumberGenerator
+import ghsl.cryptography.RandomNumberGenerator
 
 from RandomNumberGenerator::Sinks rngs
 select rngs, "Using weak PRNG"
