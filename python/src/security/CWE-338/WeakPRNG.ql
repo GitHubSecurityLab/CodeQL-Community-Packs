@@ -12,34 +12,7 @@
  */
 
 import python
-import semmle.python.ApiGraphs
-
-abstract class RandomNumberGeneratorSinks extends DataFlow::Node { }
-
-class OSRandom extends RandomNumberGeneratorSinks {
-  OSRandom() {
-    exists(DataFlow::Node call |
-      // https://docs.python.org/3/library/os.html#os.getrandom
-      call = API::moduleImport("os").getMember("getrandom").getACall() and
-      this = call
-    )
-  }
-}
-
-class PyRandom extends RandomNumberGeneratorSinks {
-  PyRandom() {
-    exists(DataFlow::Node call |
-      (
-        // https://docs.python.org/3/library/random.html#random.random
-        call = API::moduleImport("random").getMember("random").getACall()
-        or
-        // https://docs.python.org/3/library/random.html#random.randbytes
-        call = API::moduleImport("random").getMember("randbytes").getACall()
-      ) and
-      this = call
-    )
-  }
-}
+import github.crytography.WeakPRNG
 
 from RandomNumberGeneratorSinks rngs
 select rngs.asExpr(), "Using weak PRNG"
