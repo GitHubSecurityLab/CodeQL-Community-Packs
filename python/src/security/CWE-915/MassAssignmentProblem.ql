@@ -15,7 +15,7 @@
  */
 
 import python
-import github.MassAssignment
+import ghsl.MassAssignment
 
 from MassAssignment::MassAssignmentConfig config, DataFlow::Node source, DataFlow::Node sink
 where config.hasFlow(source, sink)

@@ -5,7 +5,7 @@ import semmle.python.Concepts
 import semmle.python.dataflow.new.RemoteFlowSources
 import semmle.python.dataflow.new.BarrierGuards
 import semmle.python.ApiGraphs
-import github.LocalSources
+import ghsl.LocalSources
 
 module MassAssignment {
   abstract class Sources extends DataFlow::Node { }

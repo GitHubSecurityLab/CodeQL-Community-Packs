@@ -12,7 +12,7 @@
  */
 
 import DataFlow::PathGraph
-import github.CommandInjectionRuntimeExec
+import ghsl.CommandInjectionRuntimeExec
 
 class LocalSource extends Source {
   LocalSource() { this instanceof LocalUserInput }

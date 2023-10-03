@@ -13,7 +13,7 @@
 import java
 import semmle.code.java.dataflow.FlowSources
 import BeanManipulationFlow::PathGraph
-import github.BeanManipulation
+import ghsl.BeanManipulation
 
 private module BeanManipulationConfig implements DataFlow::ConfigSig {
   predicate isSource(DataFlow::Node source) { source instanceof RemoteFlowSource }
