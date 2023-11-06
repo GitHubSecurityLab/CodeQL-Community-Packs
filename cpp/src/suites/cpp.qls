@@ -1,6 +1,25 @@
 - description: "GitHub's Community Packs C/C++ Extended Suite"
 
-- qlpack: github-queries-cpp
+- queries: '.'
+  from: githubsecuritylab/codeql-cpp-queries
 
-- import: codeql-suites/cpp-security-extended.qls
-  from: codeql/cpp-queries
+- include:
+    kind:
+    - problem
+    - path-problem
+    precision:
+    - very-high
+    - high
+    - medium
+    - low
+
+# Remove debugging, and audit queries
+- exclude:
+    tags contain:
+      - debugging
+      - audit
+
+# Remove local testing folders
+- exclude:
+    query path:
+      - /testing\/.*/
