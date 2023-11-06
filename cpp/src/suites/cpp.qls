@@ -1,9 +1,6 @@
-- description: "GitHub's Community Packs Ruby Extended Suite"
+- description: "GitHub's Community Packs C/C++ Extended Suite"
 
-- qlpack: github-queries-ruby
+- qlpack: github-queries-cpp
 
-- import: codeql-suites/ruby-security-extended.qls
-  from: codeql/ruby-queries
-- exclude:
-    id:
-      - rb/hardcoded-credentials
+- import: codeql-suites/cpp-security-extended.qls
+  from: codeql/cpp-queries
