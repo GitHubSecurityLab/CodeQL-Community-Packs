@@ -7,8 +7,6 @@
     kind:
     - problem
     - path-problem
-    - metric
-    - diagnostic
     precision:
     - very-high
     - high
