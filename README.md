@@ -22,6 +22,8 @@ Using a `githubsecuritylab/codeql-LANG-queries` query pack will reference the de
 
 ### Using a community pack from the CodeQL Action
 
+> For language aliases in `strategy.matrix.language`, use `cpp` instead of `c-cpp`, `java` instead of `java-kotlin` and `javascript` instead of `javascript-typescript`.
+
 ```yaml
 - name: Initialize CodeQL
   uses: github/codeql-action/init@v2
