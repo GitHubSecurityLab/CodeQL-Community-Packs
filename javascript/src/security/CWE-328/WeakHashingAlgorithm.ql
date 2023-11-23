@@ -4,6 +4,7 @@
  * @kind problem
  * @problem.severity error
  * @security-severity 4.0
+ * @precision medium
  * @id githubsecuritylab/weak-hashing
  * @tags security
  *       external/cwe/cwe-328
