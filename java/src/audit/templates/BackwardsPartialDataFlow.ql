@@ -2,6 +2,8 @@
  * @name Backwards Partial Dataflow
  * @description Backwards Partial Dataflow
  * @kind path-problem
+ * @precision low
+ * @problem.severity error
  * @id githubsecuritylab/backwards-partial-dataflow
  * @tags template
  */
