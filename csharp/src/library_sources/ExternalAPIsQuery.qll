@@ -9,10 +9,10 @@ private import semmle.code.csharp.dataflow.flowsources.Remote
 private import semmle.code.csharp.frameworks.System
 private import semmle.code.csharp.dataflow.FlowSummary
 // SECLAB: Import CSV utils
-private import semmle.code.csharp.dataflow.internal.DataFlowPrivate as DataFlowPrivate
+private import semmle.code.csharp.dataflow.internal.ExternalFlow as ExternalFlow
 
 // SECLAB: Import Csv::asPartialModel
-predicate asPartialModel = DataFlowPrivate::Csv::asPartialModel/1;
+predicate asPartialModel = ExternalFlow::asPartialModel/1;
 
 /**
  * A callable that is considered a "safe" external API from a security perspective.
