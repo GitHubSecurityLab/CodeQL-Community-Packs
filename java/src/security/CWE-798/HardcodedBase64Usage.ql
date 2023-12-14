@@ -17,8 +17,8 @@ import semmle.code.java.dataflow.FlowSources
 import semmle.code.java.dataflow.TaintTracking2
 import DataFlow::PathGraph
 // Internal
-import github.Encoding
-import github.Hardcoded
+import ghsl.Encoding
+import ghsl.Hardcoded
 
 class HardcodedPasswordBase64 extends TaintTracking::Configuration {
   HardcodedPasswordBase64() { this = "HardcodedPasswordBase64" }

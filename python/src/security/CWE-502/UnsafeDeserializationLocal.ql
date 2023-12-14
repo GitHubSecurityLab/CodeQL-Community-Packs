@@ -24,7 +24,7 @@ import DataFlow::PathGraph
 // Extending library
 import semmle.python.security.dataflow.UnsafeDeserializationCustomizations
 // Internal library
-import github.LocalSources
+import ghsl.LocalSources
 
 /**
  * A taint-tracking configuration for detecting arbitrary code execution

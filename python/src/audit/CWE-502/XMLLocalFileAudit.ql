@@ -16,7 +16,7 @@
 
 private import python
 private import semmle.python.dataflow.new.DataFlow
-private import github.XMLLocalLib
+private import ghsl.XMLLocalLib
 
 from DataFlow::Node source, DataFlow::Node sink
 where

@@ -14,7 +14,7 @@
 import go
 import semmle.go.security.SqlInjection
 import DataFlow::PathGraph
-import github.Utils
+import ghsl.Utils
 
 /**
  * A taint-tracking configuration for detecting SQL injection vulnerabilities.

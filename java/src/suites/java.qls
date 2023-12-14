@@ -1,11 +1,8 @@
-# https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/
-
 - description: "GitHub's Community Packs Java/Kotlin Extended Suite"
 
 - queries: '.'
-  from: githubsecuritylab/java-queries
+  from: githubsecuritylab/codeql-java-queries
 
-# GitHub's Community Packs Java/Kotlin Suite
 - include:
     kind:
     - problem

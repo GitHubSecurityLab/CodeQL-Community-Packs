@@ -17,8 +17,8 @@ import semmle.code.java.dataflow.FlowSources
 import semmle.code.java.dataflow.TaintTracking2
 //import DataFlow::PathGraph
 // Internal
-import github.Logging
-import github.SensitiveInformation
+import ghsl.Logging
+import ghsl.SensitiveInformation
 
 module SensitiveInformationConfig implements DataFlow::ConfigSig {
   predicate isSource(DataFlow::Node source) { source instanceof SensitiveInformationSources }

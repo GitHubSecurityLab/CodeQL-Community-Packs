@@ -12,7 +12,7 @@
  *       external/cwe/cwe-522
  */
 
-private import github.InsecurelyStoredPassword
+private import ghsl.InsecurelyStoredPassword
 
 from User user
 where not user.isSecure()

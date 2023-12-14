@@ -3,12 +3,14 @@
 - queries: '.'
   from: githubsecuritylab/codeql-python-queries
 
-# Include lows
 - include:
     kind:
     - problem
     - path-problem
     precision:
+    - very-high
+    - high
+    - medium
     - low
 
 # Remove debugging, and audit queries

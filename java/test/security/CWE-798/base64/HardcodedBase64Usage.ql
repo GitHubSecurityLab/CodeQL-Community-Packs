@@ -1,7 +1,7 @@
 import java
 import semmle.code.java.security.HardcodedCredentials
-import github.Encoding
-import github.Hardcoded
+import ghsl.Encoding
+import ghsl.Hardcoded
 
 query predicate sources(DataFlow::Node sources) {
   sources instanceof Hardcoded

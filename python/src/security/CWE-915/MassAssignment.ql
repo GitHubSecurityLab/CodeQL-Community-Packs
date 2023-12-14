@@ -14,7 +14,7 @@
 
 import python
 import DataFlow::PathGraph
-import github.MassAssignment
+import ghsl.MassAssignment
 
 from MassAssignment::MassAssignmentConfig config, DataFlow::PathNode source, DataFlow::PathNode sink
 where config.hasFlowPath(source, sink)

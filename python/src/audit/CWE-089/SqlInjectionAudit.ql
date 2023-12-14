@@ -20,7 +20,7 @@ import semmle.python.ApiGraphs
 import DataFlow::PathGraph
 private import semmle.python.security.dataflow.SqlInjectionCustomizations
 //
-import github.Utils
+import ghsl.Utils
 
 /**
  * A taint-tracking configuration for detecting SQL injection vulnerabilities.

@@ -6,7 +6,7 @@ private import semmle.python.dataflow.new.RemoteFlowSources
 private import semmle.python.dataflow.new.BarrierGuards
 private import semmle.python.ApiGraphs
 
-private import github.LocalSources
+private import ghsl.LocalSources
 
 class XmlParseStringCall extends DataFlow::CallCfgNode {
   XmlParseStringCall() {
