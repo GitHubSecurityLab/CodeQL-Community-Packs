@@ -21,7 +21,7 @@ import semmle.python.dataflow.new.TaintTracking
 import semmle.python.Concepts
 import semmle.python.dataflow.new.BarrierGuards
 import semmle.python.ApiGraphs
-import github.LocalSources
+import ghsl.LocalSources
 private import semmle.python.security.dataflow.CommandInjectionCustomizations
 
 private module CommandInjectionConfiguration implements DataFlow::ConfigSig {

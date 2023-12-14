@@ -16,7 +16,7 @@
 import javascript
 import semmle.javascript.dataflow.TaintTracking
 import DataFlow::PathGraph
-import github.InsecureIV
+import ghsl.InsecureIV
 
 from InsecureIVConfiguration insecurecfg, DataFlow::PathNode source, DataFlow::PathNode sink
 where

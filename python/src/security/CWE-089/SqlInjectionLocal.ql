@@ -20,7 +20,7 @@ import semmle.python.dataflow.new.TaintTracking
 import semmle.python.Concepts
 import semmle.python.dataflow.new.BarrierGuards
 import DataFlow::PathGraph
-import github.LocalSources
+import ghsl.LocalSources
 private import semmle.python.security.dataflow.SqlInjectionCustomizations
 
 /**

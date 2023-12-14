@@ -14,7 +14,7 @@
  */
 
 private import python
-import github.DefaultPasswordDB
+import ghsl.DefaultPasswordDB
 
 from DBColumn column, string varname, string dbname
 where

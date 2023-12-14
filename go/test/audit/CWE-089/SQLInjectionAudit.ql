@@ -1,4 +1,4 @@
 import go
-import github.Utils
+import ghsl.Utils
 
 query predicate dynamicStrings(DataFlow::ExprNode node) { node instanceof DynamicStrings }

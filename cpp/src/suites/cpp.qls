@@ -1,9 +1,25 @@
-- description: "GitHub's Community Packs Ruby Extended Suite"
+- description: "GitHub's Community Packs C/C++ Extended Suite"
 
-- qlpack: github-queries-ruby
+- queries: '.'
+  from: githubsecuritylab/codeql-cpp-queries
 
-- import: codeql-suites/ruby-security-extended.qls
-  from: codeql/ruby-queries
+- include:
+    kind:
+    - problem
+    - path-problem
+    precision:
+    - very-high
+    - high
+    - medium
+    - low
+
+# Remove debugging, and audit queries
 - exclude:
-    id:
-      - rb/hardcoded-credentials
+    tags contain:
+      - debugging
+      - audit
+
+# Remove local testing folders
+- exclude:
+    query path:
+      - /testing\/.*/
