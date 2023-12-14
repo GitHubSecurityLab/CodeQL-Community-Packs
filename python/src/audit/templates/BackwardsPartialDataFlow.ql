@@ -1,7 +1,9 @@
 /**
  * @name Backwards Partial Dataflow
  * @description Backwards Partial Dataflow
- * @kind table
+ * @kind path-problem
+ * @precision low
+ * @problem.severity error
  * @id githubsecuritylab/backwards-partial-dataflow
  * @tags template
  */
@@ -32,8 +34,9 @@ private module MyFlow = TaintTracking::Global<MyConfig>; // or DataFlow::Global<
 
 int explorationLimit() { result = 10 }
 
-private module PartialFlow = MyFlow::FlowExploration<explorationLimit/0>;
+private module PartialFlow = MyFlow::FlowExplorationRev<explorationLimit/0>;
 
-from PartialFlow::PartialPathNode n, int dist
-where PartialFlow::partialFlowRev(n, _, dist)
-select dist, n
+from PartialFlow::PartialPathNode source, PartialFlow::PartialPathNode sink
+where PartialFlow::partialFlow(source, sink, _)
+select sink.getNode(), source, sink, "This node receives taint from $@.", source.getNode(),
+  "this source"

@@ -28,10 +28,10 @@ private module MyFlow = TaintTracking::Global<MyConfig>; // or DataFlow::Global<
 
 int explorationLimit() { result = 10 }
 
-private module PartialFlow = MyFlow::FlowExploration<explorationLimit/0>;
+private module PartialFlow = MyFlow::FlowExplorationRev<explorationLimit/0>;
 
 from PartialFlow::PartialPathNode n, int dist
 where
-  PartialFlow::partialFlowRev(n, _, dist) and
+  PartialFlow::partialFlow(n, _, dist) and
   n.getNode() instanceof DataFlow::ExplicitParameterNode
 select dist, n
