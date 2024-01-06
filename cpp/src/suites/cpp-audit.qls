@@ -1,8 +1,8 @@
-- description: "GitHub's Community Packs CSharp Audit Suite"
+- description: "GitHub's Community Packs C/C++ Audit Suite"
 
 # Audit queries
 - queries: '.'
-  from: githubsecuritylab/codeql-csharp-queries
+  from: githubsecuritylab/codeql-cpp-queries
 - include:
     kind:
     - problem
@@ -14,7 +14,7 @@
 
 # External API query
 - queries: '.'
-  from: codeql/csharp-queries
+  from: codeql/cpp-queries
 - include:
     id:
-      - cs/untrusted-data-to-external-api
+      - cpp/untrusted-data-to-external-api

@@ -4,7 +4,7 @@
   from: codeql/java-queries
 
 - queries: '.'
-  from: githubsecuritylab/java-queries
+  from: githubsecuritylab/codeql-java-queries
 - include:
     id:
       - java/xxe-local
