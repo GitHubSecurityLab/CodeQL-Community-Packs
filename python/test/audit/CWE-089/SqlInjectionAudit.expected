@@ -1,20 +1,28 @@
 edges
-| sqli.py:17:9:17:60 | ControlFlowNode for Fstring | sqli.py:18:16:18:20 | ControlFlowNode for query |
-| sqli.py:21:9:21:68 | ControlFlowNode for Attribute() | sqli.py:22:16:22:20 | ControlFlowNode for query |
-| sqli.py:25:9:25:60 | ControlFlowNode for BinaryExpr | sqli.py:26:16:26:20 | ControlFlowNode for query |
-| sqli.py:30:9:30:58 | ControlFlowNode for BinaryExpr | sqli.py:31:16:31:20 | ControlFlowNode for query |
+| sqli.py:17:1:17:5 | ControlFlowNode for query | sqli.py:18:16:18:20 | ControlFlowNode for query |
+| sqli.py:17:9:17:60 | ControlFlowNode for Fstring | sqli.py:17:1:17:5 | ControlFlowNode for query |
+| sqli.py:21:1:21:5 | ControlFlowNode for query | sqli.py:22:16:22:20 | ControlFlowNode for query |
+| sqli.py:21:9:21:68 | ControlFlowNode for Attribute() | sqli.py:21:1:21:5 | ControlFlowNode for query |
+| sqli.py:25:1:25:5 | ControlFlowNode for query | sqli.py:26:16:26:20 | ControlFlowNode for query |
+| sqli.py:25:9:25:60 | ControlFlowNode for BinaryExpr | sqli.py:25:1:25:5 | ControlFlowNode for query |
+| sqli.py:30:1:30:5 | ControlFlowNode for query | sqli.py:31:16:31:20 | ControlFlowNode for query |
+| sqli.py:30:9:30:58 | ControlFlowNode for BinaryExpr | sqli.py:30:1:30:5 | ControlFlowNode for query |
 nodes
+| sqli.py:17:1:17:5 | ControlFlowNode for query | semmle.label | ControlFlowNode for query |
 | sqli.py:17:9:17:60 | ControlFlowNode for Fstring | semmle.label | ControlFlowNode for Fstring |
 | sqli.py:18:16:18:20 | ControlFlowNode for query | semmle.label | ControlFlowNode for query |
+| sqli.py:21:1:21:5 | ControlFlowNode for query | semmle.label | ControlFlowNode for query |
 | sqli.py:21:9:21:68 | ControlFlowNode for Attribute() | semmle.label | ControlFlowNode for Attribute() |
 | sqli.py:22:16:22:20 | ControlFlowNode for query | semmle.label | ControlFlowNode for query |
+| sqli.py:25:1:25:5 | ControlFlowNode for query | semmle.label | ControlFlowNode for query |
 | sqli.py:25:9:25:60 | ControlFlowNode for BinaryExpr | semmle.label | ControlFlowNode for BinaryExpr |
 | sqli.py:26:16:26:20 | ControlFlowNode for query | semmle.label | ControlFlowNode for query |
+| sqli.py:30:1:30:5 | ControlFlowNode for query | semmle.label | ControlFlowNode for query |
 | sqli.py:30:9:30:58 | ControlFlowNode for BinaryExpr | semmle.label | ControlFlowNode for BinaryExpr |
 | sqli.py:31:16:31:20 | ControlFlowNode for query | semmle.label | ControlFlowNode for query |
 subpaths
 #select
-| sqli.py:18:16:18:20 | ControlFlowNode for query | sqli.py:17:9:17:60 | ControlFlowNode for Fstring | sqli.py:18:16:18:20 | ControlFlowNode for query | This SQL query depends on $@. | sqli.py:17:9:17:60 | ControlFlowNode for Fstring | a user-provided value |
-| sqli.py:22:16:22:20 | ControlFlowNode for query | sqli.py:21:9:21:68 | ControlFlowNode for Attribute() | sqli.py:22:16:22:20 | ControlFlowNode for query | This SQL query depends on $@. | sqli.py:21:9:21:68 | ControlFlowNode for Attribute() | a user-provided value |
-| sqli.py:26:16:26:20 | ControlFlowNode for query | sqli.py:25:9:25:60 | ControlFlowNode for BinaryExpr | sqli.py:26:16:26:20 | ControlFlowNode for query | This SQL query depends on $@. | sqli.py:25:9:25:60 | ControlFlowNode for BinaryExpr | a user-provided value |
-| sqli.py:31:16:31:20 | ControlFlowNode for query | sqli.py:30:9:30:58 | ControlFlowNode for BinaryExpr | sqli.py:31:16:31:20 | ControlFlowNode for query | This SQL query depends on $@. | sqli.py:30:9:30:58 | ControlFlowNode for BinaryExpr | a user-provided value |
+| sqli.py:18:16:18:20 | ControlFlowNode for query | sqli.py:17:9:17:60 | ControlFlowNode for Fstring | sqli.py:18:16:18:20 | ControlFlowNode for query | This SQL query depends on a $@. | sqli.py:17:9:17:60 | ControlFlowNode for Fstring | user-provided value |
+| sqli.py:22:16:22:20 | ControlFlowNode for query | sqli.py:21:9:21:68 | ControlFlowNode for Attribute() | sqli.py:22:16:22:20 | ControlFlowNode for query | This SQL query depends on a $@. | sqli.py:21:9:21:68 | ControlFlowNode for Attribute() | user-provided value |
+| sqli.py:26:16:26:20 | ControlFlowNode for query | sqli.py:25:9:25:60 | ControlFlowNode for BinaryExpr | sqli.py:26:16:26:20 | ControlFlowNode for query | This SQL query depends on a $@. | sqli.py:25:9:25:60 | ControlFlowNode for BinaryExpr | user-provided value |
+| sqli.py:31:16:31:20 | ControlFlowNode for query | sqli.py:30:9:30:58 | ControlFlowNode for BinaryExpr | sqli.py:31:16:31:20 | ControlFlowNode for query | This SQL query depends on a $@. | sqli.py:30:9:30:58 | ControlFlowNode for BinaryExpr | user-provided value |
