@@ -1,12 +1,12 @@
 edges
-| app.py:1:26:1:32 | ControlFlowNode for ImportMember | app.py:1:26:1:32 | ControlFlowNode for request |
-| app.py:1:26:1:32 | ControlFlowNode for request | app.py:12:16:12:22 | ControlFlowNode for request |
-| app.py:12:5:12:12 | ControlFlowNode for username | app.py:14:51:14:58 | ControlFlowNode for username |
-| app.py:12:16:12:22 | ControlFlowNode for request | app.py:12:5:12:12 | ControlFlowNode for username |
+| app.py:1:26:1:32 | ControlFlowNode for ImportMember | app.py:1:26:1:32 | GSSA Variable request |
+| app.py:1:26:1:32 | GSSA Variable request | app.py:12:16:12:22 | ControlFlowNode for request |
+| app.py:12:5:12:12 | SSA variable username | app.py:14:51:14:58 | ControlFlowNode for username |
+| app.py:12:16:12:22 | ControlFlowNode for request | app.py:12:5:12:12 | SSA variable username |
 nodes
 | app.py:1:26:1:32 | ControlFlowNode for ImportMember | semmle.label | ControlFlowNode for ImportMember |
-| app.py:1:26:1:32 | ControlFlowNode for request | semmle.label | ControlFlowNode for request |
-| app.py:12:5:12:12 | ControlFlowNode for username | semmle.label | ControlFlowNode for username |
+| app.py:1:26:1:32 | GSSA Variable request | semmle.label | GSSA Variable request |
+| app.py:12:5:12:12 | SSA variable username | semmle.label | SSA variable username |
 | app.py:12:16:12:22 | ControlFlowNode for request | semmle.label | ControlFlowNode for request |
 | app.py:14:51:14:58 | ControlFlowNode for username | semmle.label | ControlFlowNode for username |
 subpaths
