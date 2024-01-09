@@ -2,7 +2,7 @@
 
 # Audit queries
 - queries: '.'
-  from: githubsecuritylab/java-queries
+  from: githubsecuritylab/codeql-java-queries
 - include:
     kind:
     - problem
