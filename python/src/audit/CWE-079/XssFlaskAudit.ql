@@ -14,7 +14,6 @@
  */
 
 import python
-import DataFlow::PathGraph
 import semmle.python.Concepts
 import semmle.python.ApiGraphs
 import semmle.python.dataflow.new.DataFlow
@@ -33,17 +32,19 @@ class DynamicTemplate extends DataFlow::Node {
   }
 }
 
-class Configuration extends TaintTracking::Configuration {
-  Configuration() { this = "AuditXSSJinja2" }
+module Configuration implements DataFlow::ConfigSig {
+  predicate isSource(DataFlow::Node source) { source instanceof ReflectedXss::Source }
 
-  override predicate isSource(DataFlow::Node source) { source instanceof ReflectedXss::Source }
+  predicate isSink(DataFlow::Node sink) { sink instanceof DynamicTemplate }
 
-  override predicate isSink(DataFlow::Node sink) { sink instanceof DynamicTemplate }
-
-  override predicate isSanitizer(DataFlow::Node node) { node instanceof ReflectedXss::Sanitizer }
+  predicate isBarrier(DataFlow::Node node) { node instanceof ReflectedXss::Sanitizer }
 }
 
-from Configuration config, DataFlow::PathNode source, DataFlow::PathNode sink
-where config.hasFlowPath(source, sink)
+module ConfigurationFlow = TaintTracking::Global<Configuration>;
+
+import ConfigurationFlow::PathGraph //importing the path graph from the module
+
+from ConfigurationFlow::PathNode source, ConfigurationFlow::PathNode sink
+where ConfigurationFlow::flowPath(source, sink)
 select sink.getNode(), source, sink, "Cross-site scripting vulnerability due to a $@.",
   source.getNode(), "user-provided value"

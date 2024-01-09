@@ -1,9 +1,13 @@
 edges
-| unsafe.py:5:5:5:11 | ControlFlowNode for input() | unsafe.py:7:14:7:14 | ControlFlowNode for i |
-| unsafe.py:10:5:10:32 | ControlFlowNode for Attribute() | unsafe.py:12:14:12:14 | ControlFlowNode for e |
+| unsafe.py:5:1:5:1 | GSSA Variable i | unsafe.py:7:14:7:14 | ControlFlowNode for i |
+| unsafe.py:5:5:5:11 | ControlFlowNode for input() | unsafe.py:5:1:5:1 | GSSA Variable i |
+| unsafe.py:10:1:10:1 | GSSA Variable e | unsafe.py:12:14:12:14 | ControlFlowNode for e |
+| unsafe.py:10:5:10:32 | ControlFlowNode for Attribute() | unsafe.py:10:1:10:1 | GSSA Variable e |
 nodes
+| unsafe.py:5:1:5:1 | GSSA Variable i | semmle.label | GSSA Variable i |
 | unsafe.py:5:5:5:11 | ControlFlowNode for input() | semmle.label | ControlFlowNode for input() |
 | unsafe.py:7:14:7:14 | ControlFlowNode for i | semmle.label | ControlFlowNode for i |
+| unsafe.py:10:1:10:1 | GSSA Variable e | semmle.label | GSSA Variable e |
 | unsafe.py:10:5:10:32 | ControlFlowNode for Attribute() | semmle.label | ControlFlowNode for Attribute() |
 | unsafe.py:12:14:12:14 | ControlFlowNode for e | semmle.label | ControlFlowNode for e |
 | unsafe.py:17:22:17:29 | ControlFlowNode for Attribute() | semmle.label | ControlFlowNode for Attribute() |
