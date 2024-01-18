@@ -12,4 +12,15 @@
 - queries: '.'
   from: codeql/java-queries
 - include:
-    tags contain: -local
+    id:
+      - java/path-injection-local
+      - java/command-line-injection-local
+      - java/xss-local
+      - java/sql-injection-local
+      - java/http-response-splitting-local
+      - java/improper-validation-of-array-construction-local
+      - java/improper-validation-of-array-index-local
+      - java/tainted-format-string-local
+      - java/tainted-arithmetic-local
+      - java/unvalidated-url-redirection-local
+      - java/tainted-numeric-cast-local
