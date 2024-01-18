@@ -1,3 +1,8 @@
+remoteSources
+| cmd/flag.go:10:13:10:50 | call to String |
+| cmd/go_os.go:13:9:13:20 | call to Environ |
+| cmd/go_os.go:17:11:17:27 | call to Getenv |
+localSources
 | cmd/flag.go:10:13:10:23 | selection of String |
 | cmd/flag.go:10:13:10:50 | call to String |
 | cmd/flag.go:18:2:18:11 | selection of Parse |
