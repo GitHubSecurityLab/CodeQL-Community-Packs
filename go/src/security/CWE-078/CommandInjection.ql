@@ -37,6 +37,8 @@ module FlowConfig implements DataFlow::ConfigSig {
 
 module Flow = TaintTracking::Global<FlowConfig>;
 
+import Flow::PathGraph
+
 from Flow::PathNode source, Flow::PathNode sink
 where Flow::flowPath(source, sink)
 select sink.getNode(), source, sink, "This command depends on a $@.", source.getNode(),
