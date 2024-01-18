@@ -6,10 +6,16 @@ extensions:
     data:
       - ["os", "Args", True, "", "", "", "ReturnValue[0]", "remote", "manual"]
       - ["os", "", True, "Getenv", "", "", "ReturnValue[0]", "remote", "manual"]
+      - ["os", "", True, "LookupEnv", "", "", "ReturnValue[0]", "remote", "manual"]
+      - ["os", "", True, "ReadFile", "", "", "ReturnValue[0]", "remote", "manual"]
+      - ["os", "", True, "Readlink", "", "", "ReturnValue[0]", "remote", "manual"]
       - ["os", "", True, "Environ", "", "", "ReturnValue[0]", "remote", "manual"]
       # local variants
       - ["os", "Args", True, "", "", "", "ReturnValue[0]", "local", "manual"]
       - ["os", "", True, "Getenv", "", "", "ReturnValue[0]", "local", "manual"]
+      - ["os", "", True, "LookupEnv", "", "", "ReturnValue[0]", "local", "manual"]
+      - ["os", "", True, "ReadFile", "", "", "ReturnValue[0]", "local", "manual"]
+      - ["os", "", True, "Readlink", "", "", "ReturnValue[0]", "local", "manual"]
       - ["os", "", True, "Environ", "", "", "ReturnValue[0]", "local", "manual"]
   - addsTo:
       pack: codeql/go-all
