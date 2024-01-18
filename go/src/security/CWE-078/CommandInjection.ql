@@ -15,6 +15,9 @@ import go
 import semmle.go.security.CommandInjection
 import semmle.go.security.FlowSources
 
+/**
+ * Flow configuration for command injection
+ */
 module FlowConfig implements DataFlow::ConfigSig {
   predicate isSource(DataFlow::Node node) {
     exists(UntrustedFlowSource source, Function function, DataFlow::CallNode callNode |
@@ -33,13 +36,21 @@ module FlowConfig implements DataFlow::ConfigSig {
   predicate isSink(DataFlow::Node sink) {
     exists(CommandInjection::Sink s | sink = s | not s.doubleDashIsSanitizing())
   }
+
+  predicate isBarrier(DataFlow::Node node) { node instanceof CommandInjection::Sanitizer }
 }
 
 module Flow = TaintTracking::Global<FlowConfig>;
 
-import Flow::PathGraph
+module FlowGraph =
+  DataFlow::MergePathGraph<Flow::PathNode, CommandInjection::DoubleDashSanitizingFlow::PathNode,
+    Flow::PathGraph, CommandInjection::DoubleDashSanitizingFlow::PathGraph>;
 
-from Flow::PathNode source, Flow::PathNode sink
-where Flow::flowPath(source, sink)
+import FlowGraph::PathGraph
+
+from FlowGraph::PathNode source, FlowGraph::PathNode sink
+where
+  Flow::flowPath(source.asPathNode1(), sink.asPathNode1()) or
+  CommandInjection::DoubleDashSanitizingFlow::flowPath(source.asPathNode2(), sink.asPathNode2())
 select sink.getNode(), source, sink, "This command depends on a $@.", source.getNode(),
   "user-provided value"
