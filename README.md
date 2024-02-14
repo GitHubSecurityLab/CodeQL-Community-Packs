@@ -69,4 +69,4 @@ Please [create GitHub issues](https://github.com/advanced-security/brew-dependen
 
 <!-- Resources / Links -->
 
-[configurations]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/tree/main/configs
+[configurations]: ./configs
