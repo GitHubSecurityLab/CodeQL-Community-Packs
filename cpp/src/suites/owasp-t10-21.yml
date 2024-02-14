@@ -1,0 +1,75 @@
+- description: "OWASP Top 10 CodeQL Community Packs C/C++ Extended Suite"
+
+
+# Out of the box queries
+- include:
+    id:
+    - cpp/access-memory-location-after-end-buffer-strlen
+    - cpp/alloca-in-loop
+    - cpp/allocation-too-small
+    - cpp/ambiguously-signed-bit-field
+    - cpp/bad-addition-overflow-check
+    - cpp/bad-strncpy-size
+    - cpp/badly-bounded-write
+    - cpp/certificate-not-checked
+    - cpp/certificate-result-conflation
+    - cpp/cgi-xss
+    - cpp/cleartext-storage-buffer
+    - cpp/cleartext-storage-database
+    - cpp/cleartext-storage-file
+    - cpp/cleartext-transmission
+    - cpp/command-line-injection
+    - cpp/comparison-with-wider-type
+    - cpp/dangerous-use-of-exception-blocks
+    - cpp/dangerous-use-of-transformation-after-operation
+    - cpp/double-free
+    - cpp/drop-linux-privileges-outoforder
+    - cpp/external-entity-expansion
+    - cpp/insecure-generation-of-filename
+    - cpp/insufficient-key-size
+    - cpp/integer-multiplication-cast-to-long
+    - cpp/late-check-of-function-argument
+    - cpp/linux-kernel-no-check-before-unsafe-put-user
+    - cpp/memory-unsafe-function-scan
+    - cpp/memset-may-be-deleted
+    - cpp/multiplication-overflow-in-alloc
+    - cpp/no-space-for-terminator
+    - cpp/non-constant-format
+    - cpp/non-https-url
+    - cpp/offset-use-before-range-check
+    - cpp/open-call-with-mode-argument
+    - cpp/openssl-heartbleed
+    - cpp/overflowing-snprintf
+    - cpp/overrunning-write
+    - cpp/overrunning-write-with-float
+    - cpp/pam-auth-bypass
+    - cpp/path-injection
+    - cpp/potential-system-data-exposure
+    - cpp/private-cleartext-write
+    - cpp/return-stack-allocated-memory
+    - cpp/sign-conversion-pointer-arithmetic
+    - cpp/signed-overflow-check
+    - cpp/sql-injection
+    - cpp/static-buffer-overflow
+    - cpp/suspicious-allocation-size
+    - cpp/system-data-exposure
+    - cpp/tainted-format-string
+    - cpp/tainted-format-string-through-global
+    - cpp/tainted-permissions-check
+    - cpp/unbounded-write
+    - cpp/uncontrolled-allocation-size
+    - cpp/uncontrolled-arithmetic
+    - cpp/uncontrolled-process-operation
+    - cpp/unsafe-create-process-call
+    - cpp/unsafe-dacl-security-descriptor
+    - cpp/unsafe-strcat
+    - cpp/unsafe-strncat
+    - cpp/unterminated-variadic-call
+    - cpp/upcast-array-pointer-arithmetic
+    - cpp/user-controlled-bypass
+    - cpp/using-expired-stack-address
+    - cpp/very-likely-overrunning-write
+    - cpp/weak-cryptographic-algorithm
+    - cpp/work-with-file-without-permissions-rights
+    - cpp/world-writable-file-creation
+    - cpp/wrong-use-of-the-umask

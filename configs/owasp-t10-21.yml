@@ -1,0 +1,9 @@
+name: "OWASP Top 10 CodeQL Configuration"
+
+# disable all default queries
+disable-default-queries: true
+
+packs:
+  # > C/C++
+  - githubsecuritylab/codeql-cpp-queries:suites/owasp-t10-21.qls
+
