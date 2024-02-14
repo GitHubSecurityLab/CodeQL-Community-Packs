@@ -42,7 +42,7 @@ This repository has a number of [provided configuration files][configurations] y
   uses: github/codeql-action/init@v2
   with:
     languages: ${{ matrix.language }}
-    config-file: GitHubSecurityLab/CodeQL-Community-Packs/configs/codeql.yml@main
+    config-file: GitHubSecurityLab/CodeQL-Community-Packs/configs/default.yml@main
 ```
 
 ### Using a community pack from the CLI configuration file

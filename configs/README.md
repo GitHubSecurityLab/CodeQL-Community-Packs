@@ -2,7 +2,7 @@
 
 ## Default / CodeQL
 
-The `codeql.yml` configuration is the default config file used to make it easy to use the CodeQL Community Packs.
+The `default.yml` configuration is the default config file used to make it easy to use the CodeQL Community Packs.
 
 ## Audit
 
