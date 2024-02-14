@@ -155,6 +155,15 @@ jobs:
             src:
               - 'configs/**'
       
+      - name: Initialize CodeQL
+        if: steps.changes.outputs.src == 'true'
+        run: |
+          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
+                       | sort \
+                       | tail -n 1 \
+                       | tr -d '\n')"
+          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+
       - name: "Check Configurations"
         if: steps.changes.outputs.src == 'true'
         env:
