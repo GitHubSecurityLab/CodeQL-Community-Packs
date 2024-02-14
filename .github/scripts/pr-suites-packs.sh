@@ -11,7 +11,7 @@ for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
     fi
 
     # suite folder 
-    if [[ "$file" == $LANGUAGE/suites/**.qls ]]; then
+    if [[ "$file" == $LANGUAGE/src/suites/**.qls ]]; then
         echo "[+] Compiling Suite: $file"
         codeql resolve queries "$file"
 
