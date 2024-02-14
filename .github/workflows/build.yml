@@ -141,3 +141,25 @@ jobs:
           codeql pack install "${{ matrix.language }}/ext-library-sources/"
           codeql pack create "${{ matrix.language }}/ext-library-sources/"
 
+  configs:
+    runs-on: ubuntu-latest
+    needs: compile
+    
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+        id: changes
+        with:
+          filters: |
+            src:
+              - 'configs/**'
+      
+      - name: "Check Configurations"
+        if: steps.changes.outputs.src == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          ./.github/scripts/pr-configs.sh "${{ github.event.number }}"
+
+
