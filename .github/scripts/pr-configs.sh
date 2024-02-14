@@ -18,7 +18,7 @@ for file in $(gh pr view $PR_NUMBER --json files --jq '.files.[].path'); do
             rm -rf "$codeql_db"
         fi
 
-        gh codeql database create \
+        codeql database create \
             --source-root=./.github/scripts \
             --language=python \
             --codescanning-config=$file \
