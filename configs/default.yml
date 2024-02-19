@@ -1,0 +1,22 @@
+name: "GitHub Community Pack Default CodeQL Configuration"
+
+packs:
+  # C/C++
+  - githubsecuritylab/codeql-cpp-queries
+  # C#
+  - githubsecuritylab/codeql-csharp-queries
+  - githubsecuritylab/codeql-csharp-extensions
+  - githubsecuritylab/codeql-csharp-library-sources
+  # Go
+  - githubsecuritylab/codeql-go-queries
+  # Java
+  - githubsecuritylab/codeql-java-queries
+  - githubsecuritylab/codeql-java-extensions
+  - githubsecuritylab/codeql-java-library-sources
+  # JavaScript / Typescript
+  - githubsecuritylab/codeql-javascript-queries
+  # Python
+  - githubsecuritylab/codeql-python-queries
+  # Ruby
+  - githubsecuritylab/codeql-ruby-queries
+
