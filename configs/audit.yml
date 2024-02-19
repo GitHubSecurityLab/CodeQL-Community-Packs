@@ -1,0 +1,22 @@
+name: "GitHub Community Pack Audit Configuration"
+
+packs:
+  # C/C++
+  - githubsecuritylab/codeql-cpp-queries:suites/cpp-audit.qls
+  # C#
+  - githubsecuritylab/codeql-csharp-queries:suites/csharp-audit.qls
+  - githubsecuritylab/codeql-csharp-extensions
+  - githubsecuritylab/codeql-csharp-library-sources
+  # Go
+  - githubsecuritylab/codeql-go-queries:suites/go-audit.qls
+  # Java
+  - githubsecuritylab/codeql-java-queries:suites/java-audit.qls
+  - githubsecuritylab/codeql-java-extensions
+  - githubsecuritylab/codeql-java-library-sources
+  # JavaScript / Typescript
+  - githubsecuritylab/codeql-javascript-queries:suites/javascript-audit.qls
+  # Python
+  - githubsecuritylab/codeql-python-queries:suites/python-audit.qls
+  # Ruby
+  # - githubsecuritylab/codeql-ruby-queries:suites/ruby-audit.qls
+
