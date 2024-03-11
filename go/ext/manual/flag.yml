@@ -1,0 +1,19 @@
+extensions:
+  # Make sure that the extensible model predicates are at least defined as empty.
+  - addsTo:
+      pack: codeql/go-all
+      extensible: sourceModel
+    data:
+      - ["flag", "", True, "String", "", "", "ReturnValue[0]", "remote", "manual"]
+      - ["flag", "", True, "StringVar", "", "", "ReturnValue[0]", "remote", "manual"]
+      # local variants
+      - ["flag", "", True, "String", "", "", "ReturnValue[0]", "local", "manual"]
+      - ["flag", "", True, "StringVar", "", "", "ReturnValue[0]", "local", "manual"]
+  - addsTo:
+      pack: codeql/go-all
+      extensible: sinkModel
+    data: []
+  - addsTo:
+      pack: codeql/go-all
+      extensible: summaryModel
+    data: []
