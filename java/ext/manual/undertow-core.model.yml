@@ -1,0 +1,25 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["io.undertow.server","HttpServerExchange",true,"getQueryParameters","()","","ReturnValue","remote","ai-generated"]
+      - ["io.undertow.server","HttpServerExchange",true,"getResponseHeaders","()","","ReturnValue","remote","ai-generated"]
+
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sinkModel
+    data:
+      - ["io.undertow.io","Sender",true,"send","(String)","","Argument[0]","js-injection","manual"]
+      - ["io.undertow.io","Sender",true,"send","(String)","","Argument[0]","html-injection","manual"]
+      - ["io.undertow.util","HeaderMap",true,"put","(HttpString,String)","","Argument[0]","response-splitting","manual"]
+
+  - addsTo:
+      pack: codeql/java-all
+      extensible: summaryModel
+    data: []
+
+  - addsTo:
+      pack: codeql/java-all
+      extensible: neutralModel
+    data: []
