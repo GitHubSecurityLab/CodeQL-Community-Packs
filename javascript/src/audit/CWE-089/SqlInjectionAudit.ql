@@ -17,5 +17,5 @@ import semmle.javascript.security.dataflow.SqlInjectionQuery as SqlInjection
 import semmle.javascript.security.dataflow.NosqlInjectionQuery as NosqlInjection
 
 from DataFlow::Node sink
-where sink instanceof SqlInjection::Sink
-select sink, "Command Injection sink"
+where sink instanceof SqlInjection::Sink or sink instanceof NosqlInjection::Sink
+select sink, "Possible SQL Injection sink"
