@@ -112,4 +112,5 @@ paths-ignore:
     - "**/*.spec.ts"
     - "**/*.spec.tsx"
     - "dist"
-    - "CoverageResults"
+    - "CoverageResults"    
+    - "**/wwwroot/lib/**"
