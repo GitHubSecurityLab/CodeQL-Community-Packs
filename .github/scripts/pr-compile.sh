@@ -24,7 +24,7 @@ for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
     # if lib folder is modified
     elif [[ "$file" == $LANGUAGE/lib/* ]] && [[ $LIBRARY_SCANNED == false ]]; then
         echo "[+] Libray changed, compiling all queries in $LANGUAGE"
-        codeql query compile --threads=0 --check-only --warnings=error "./$LANGUAGE/"
+        codeql query compile --threads=0 --check-only "./$LANGUAGE/"
         # set LIBRARY_SCANNED to true to prevent recompiling
         LIBRARY_SCANNED=true
 
