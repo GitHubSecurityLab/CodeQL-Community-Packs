@@ -20,7 +20,7 @@ import semmle.go.security.FlowSources
  */
 module FlowConfig implements DataFlow::ConfigSig {
   predicate isSource(DataFlow::Node node) {
-    exists(UntrustedFlowSource source, Function function, DataFlow::CallNode callNode |
+    exists(UntrustedFlowSource::Range source, Function function, DataFlow::CallNode callNode |
       source.asExpr() = node.asExpr() and
       source.(DataFlow::ExprNode).asExpr().getEnclosingFunction() = function.getFuncDecl() and
       (

@@ -8,7 +8,7 @@
 
 import semmle.go.security.FlowSources
 
-from UntrustedFlowSource source
+from UntrustedFlowSource::Range source
 where not source.getFile().getRelativePath().matches("%/test/%")
 select source, "remote", source.getFile().getRelativePath(), source.getStartLine(),
   source.getEndLine(), source.getStartColumn(), source.getEndColumn()
