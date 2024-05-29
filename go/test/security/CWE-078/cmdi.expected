@@ -1,9 +1,9 @@
 edges
-| main.go:20:14:20:20 | selection of URL | main.go:20:14:20:28 | call to Query |
-| main.go:20:14:20:28 | call to Query | main.go:27:22:27:28 | cmdName |
-nodes
 | main.go:20:14:20:20 | selection of URL | main.go:20:14:20:28 | call to Query | provenance | MaD:732 |
 | main.go:20:14:20:28 | call to Query | main.go:27:22:27:28 | cmdName | provenance |  |
+nodes
+| main.go:20:14:20:20 | selection of URL | semmle.label | selection of URL |
+| main.go:20:14:20:28 | call to Query | semmle.label | call to Query |
 | main.go:27:22:27:28 | cmdName | semmle.label | cmdName |
 subpaths
 #select
