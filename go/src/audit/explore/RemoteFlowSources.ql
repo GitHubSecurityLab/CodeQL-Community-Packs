@@ -6,9 +6,9 @@
  * @tags audit
  */
 
-import semmle.go.security.FlowSources
+import semmle.go.security.FlowSources::UntrustedFlowSource
 
-from UntrustedFlowSource::Range source
+from Range source
 where not source.getFile().getRelativePath().matches("%/test/%")
 select source, "remote", source.getFile().getRelativePath(), source.getStartLine(),
   source.getEndLine(), source.getStartColumn(), source.getEndColumn()
