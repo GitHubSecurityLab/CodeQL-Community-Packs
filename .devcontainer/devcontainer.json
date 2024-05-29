@@ -1,0 +1,15 @@
+{
+    "name": "CodeQL-Community-Packs",
+    "extensions": [
+        "github.vscode-codeql",
+        "github.copilot"
+    ],
+    "settings": {
+        "codeQL.runningQueries.autoSave": true,
+        "codeQL.runningQueries.numberOfThreads": 4,
+        "codeQL.runningQueries.debug": true,
+        "editor.formatOnSave": true
+    },
+    "postCreateCommand": "git submodule init && git submodule update --recursive",
+    "remoteUser": "root"
+}
