@@ -12,9 +12,8 @@
  */
 
 import go
-import semmle.go.security.SqlInjectionCustomizations
-import DataFlow::PathGraph
 import ghsl.Utils
+private import semmle.go.security.SqlInjectionCustomizations
 
 /**
  * A taint-tracking configuration for detecting SQL injection vulnerabilities.
@@ -33,6 +32,8 @@ private module Config implements DataFlow::ConfigSig {
 
 /** Tracks taint flow for reasoning about SQL-injection vulnerabilities. */
 module Flow = TaintTracking::Global<Config>;
+
+import Flow::PathGraph
 
 from Flow::PathNode source, Flow::PathNode sink
 where Flow::flowPath(source, sink)
