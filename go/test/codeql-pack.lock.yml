@@ -2,19 +2,17 @@
 lockVersion: 1.0.0
 dependencies:
   codeql/dataflow:
-    version: 0.0.3
+    version: 0.2.7
   codeql/go-all:
-    version: 0.6.4
-  codeql/go-queries:
-    version: 0.6.4
+    version: 0.8.1
   codeql/mad:
-    version: 0.1.4
+    version: 0.2.16
   codeql/ssa:
-    version: 0.1.4
-  codeql/suite-helpers:
-    version: 0.6.4
+    version: 0.2.16
   codeql/tutorial:
-    version: 0.1.4
+    version: 0.2.16
+  codeql/typetracking:
+    version: 0.2.16
   codeql/util:
-    version: 0.1.4
+    version: 0.2.16
 compiled: false

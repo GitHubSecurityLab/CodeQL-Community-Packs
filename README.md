@@ -33,6 +33,18 @@ Using a `githubsecuritylab/codeql-LANG-queries` query pack will reference the de
     packs: githubsecuritylab/codeql-${{ matrix.language }}-queries
 ```
 
+### Using community packs with provided configuration file
+
+This repository has a number of [provided configuration files][configurations] you can use or copy from the community packs.
+
+```yaml
+- name: Initialize CodeQL
+  uses: github/codeql-action/init@v2
+  with:
+    languages: ${{ matrix.language }}
+    config-file: GitHubSecurityLab/CodeQL-Community-Packs/configs/default.yml@main
+```
+
 ### Using a community pack from the CLI configuration file
 
 ```bash
@@ -54,3 +66,7 @@ This project is licensed under the terms of the MIT open source license. Please 
 ## Support
 
 Please [create GitHub issues](https://github.com/advanced-security/brew-dependency-submission-action) for any feature requests, bugs, or documentation problems.
+
+<!-- Resources / Links -->
+
+[configurations]: ./configs
