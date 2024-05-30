@@ -21,8 +21,8 @@ jobs:
         id: get_workflow_token
         uses: peter-murray/workflow-application-token-action@v3
         with:
-          application_id: ${{ secrets.BYTELABS_APP_ID }}
-          application_private_key: ${{ secrets.BYTELABS_APP_KEY }}
+          application_id: ${{ secrets.SECLABS_APP_ID }}
+          application_private_key: ${{ secrets.SECLABS_APP_KEY }}
 
       - name: "Patch Release Me"
         run: |
