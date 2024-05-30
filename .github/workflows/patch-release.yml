@@ -1,0 +1,44 @@
+name: CodeQL Patch Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Auto-release mode"
+        required: false
+        type: string
+        default: "patch"
+
+jobs:
+  patch-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: Get Token
+        id: get_workflow_token
+        uses: peter-murray/workflow-application-token-action@v3
+        with:
+          application_id: ${{ secrets.BYTELABS_APP_ID }}
+          application_private_key: ${{ secrets.BYTELABS_APP_KEY }}
+
+      - name: "Patch Release Me"
+        run: |
+          cargo install patch-release-me
+          
+          patch-release-me bump -m "${{ inputs.mode }}"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ steps.get_workflow_token.outputs.token }}
+          title: "Chore: Auto Update new Release"
+          commit-message: "[chore]: Auto Patch new Release" 
+          body: |
+            This is automatically created as a chore to patch and update the release.
+          branch: "auto-patch-release"
+          labels: "version"
+          delete-branch: true
+
