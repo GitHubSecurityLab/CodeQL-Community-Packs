@@ -7,6 +7,12 @@ locations:
       - "**/qlpack.yml"
     patterns:
       - version:\s*([0-9]+\.[0-9]+\.[0-9])
+  
+  - name: "CodeQL Configurations"
+    paths:
+      - "configs/*.yml"
+    patterns:
+      - githubsecuritylab/codeql-[a-zA-Z]*-queries@([0-9]+\.[0-9]+\.[0-9])
 
   - name: "CodeQL Pack Libaries"
     paths:
