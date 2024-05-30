@@ -22,7 +22,7 @@ In this example a user-controlled data value such as `1_000` reaches a repeatabl
 
 <p>To fix this vulnerability, it is required to constrain the size of the user input and validate the incoming value. </p> 
 
-<p>For illustration pureposes, we can limit the possible values for the user input to between `1` and `1_000`.</p> 
+<p>For illustration purposes, we can limit the possible values for the user input to between `1` and `1_000`.</p> 
 
 <sample src="examples/good.rb" />
 
