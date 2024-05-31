@@ -17,7 +17,7 @@ module LocalSources {
   class MaDLocalSource extends Range {
     MaDLocalSource() { ExternalFlow::sourceNode(this, "local") }
   }
-  
+
   class OsCmd extends LocalSources::Range {
     OsCmd() {
       exists(ValueEntity read, DataFlow::Package pkg |
