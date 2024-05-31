@@ -61,15 +61,15 @@ class CharArrayLiteral extends Source {
 }
 
 // taint from a string literal to the constructor of a SymmetricSecurityKey
-class LiteralToSecurityKeyConfig extends TaintTracking::Configuration {
-  LiteralToSecurityKeyConfig() { this = "LiteralToSecurityKeyConfig" }
+module LiteralToSecurityKeyConfig implements DataFlow::ConfigSig {
+  predicate isSource(DataFlow::Node source) { source instanceof Source }
 
-  override predicate isSource(DataFlow::Node source) { source instanceof Source }
+  predicate isSink(DataFlow::Node sink) { sink instanceof Sink }
 
-  override predicate isSink(DataFlow::Node sink) { sink instanceof Sink }
-
-  override predicate isSanitizer(DataFlow::Node node) { node instanceof Sanitizer }
+  predicate isBarrier(DataFlow::Node node) { node instanceof Sanitizer }
 }
+
+module LiteralToSecurityKeyFlow = TaintTracking::Global<LiteralToSecurityKeyConfig>;
 
 class SymmetricSecurityKey extends Sink {
   SymmetricSecurityKey() {
@@ -241,4 +241,3 @@ class DebugSanitizer extends Sanitizer {
     )
   }
 }
-
