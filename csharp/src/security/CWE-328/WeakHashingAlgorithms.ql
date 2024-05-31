@@ -15,17 +15,19 @@
 import csharp
 
 predicate incorrectUseOfMD5CryptoServiceProvider(ObjectCreation e, string msg) {
-  e.getType().(Class).hasQualifiedName("System.Security.Cryptography", "MD5CryptoServiceProvider") and
+  e.getType()
+      .(Class)
+      .hasFullyQualifiedName("System.Security.Cryptography", "MD5CryptoServiceProvider") and
   msg =
     "This function creates a new MD5CryptoServiceProvider() object, which uses a cryptographically weak hash algorithm"
 }
 
 predicate incorrectUseOfMD5Create(Call e, string msg) {
   (
-    e.getType().(Class).hasQualifiedName("System.Security.Cryptography", "MD5") and
+    e.getType().(Class).hasFullyQualifiedName("System.Security.Cryptography", "MD5") and
     e.getTarget().hasName("Create")
     or
-    e.getType().(Class).hasQualifiedName("System.Security.Cryptography", "HashAlgorithm") and
+    e.getType().(Class).hasFullyQualifiedName("System.Security.Cryptography", "HashAlgorithm") and
     e.getTarget().hasName("Create") and
     (
       e.getArgument(0).(StringLiteral).getValue() = "MD5" or
