@@ -37,7 +37,10 @@ private class DefaultSafeExternalApiCallable extends SafeExternalApiCallable {
     this = any(SystemStringClass s).getIsNullOrWhiteSpaceMethod() or
     this.getName().regexpMatch("Count|get_Count|get_Length") or
     // SECLAB: Exclude all .NET methods
-    this.getDeclaringType().getFullyQualifiedName().matches(["System.%", "Microsoft.%", "Azure.%"])
+    this.getDeclaringType()
+        .getNamespace()
+        .getFullName()
+        .matches(["System.%", "Microsoft.%", "Azure.%"])
   }
 }
 
