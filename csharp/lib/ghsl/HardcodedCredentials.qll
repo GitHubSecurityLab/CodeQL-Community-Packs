@@ -1,4 +1,3 @@
-
 private import csharp
 private import semmle.code.csharp.frameworks.Moq
 private import semmle.code.csharp.frameworks.System
@@ -25,10 +24,10 @@ abstract class Sanitizer extends DataFlow::ExprNode { }
 class NonEmptyStringLiteral extends Source {
   NonEmptyStringLiteral() {
     exists(StringLiteral literal |
-      this.getExpr() = literal
-      and literal.getValue().length() > 1
-      and literal.fromSource()
-      and not literal.getValue().matches("${%}")
+      this.getExpr() = literal and
+      literal.getValue().length() > 1 and
+      literal.fromSource() and
+      not literal.getValue().matches("${%}")
     )
   }
 }
@@ -42,8 +41,8 @@ class ByteArrayLiteral extends Source {
       any(ArrayCreation ac |
         ac.getArrayType().getElementType() instanceof ByteType and
         ac.hasInitializer()
-      )
-    and this.getExpr().fromSource()
+      ) and
+    this.getExpr().fromSource()
   }
 }
 
@@ -56,71 +55,70 @@ class CharArrayLiteral extends Source {
       any(ArrayCreation ac |
         ac.getArrayType().getElementType() instanceof CharType and
         ac.hasInitializer()
-      )
-    and this.getExpr().fromSource()
+      ) and
+    this.getExpr().fromSource()
   }
 }
 
 // taint from a string literal to the constructor of a SymmetricSecurityKey
-class LiteralToSecurityKeyConfig extends TaintTracking::Configuration {
-  LiteralToSecurityKeyConfig() { this = "LiteralToSecurityKeyConfig" }
+module LiteralToSecurityKeyConfig implements DataFlow::ConfigSig {
+  predicate isSource(DataFlow::Node source) { source instanceof Source }
 
-  override predicate isSource(DataFlow::Node source) { source instanceof Source }
+  predicate isSink(DataFlow::Node sink) { sink instanceof Sink }
 
-  override predicate isSink(DataFlow::Node sink) {
-    sink instanceof Sink
-  }
-
-  override predicate isSanitizer(DataFlow::Node node) { node instanceof Sanitizer }
+  predicate isBarrier(DataFlow::Node node) { node instanceof Sanitizer }
 }
+
+module LiteralToSecurityKeyFlow = TaintTracking::Global<LiteralToSecurityKeyConfig>;
 
 class SymmetricSecurityKey extends Sink {
   SymmetricSecurityKey() {
     exists(ObjectCreation securityKey |
       securityKey.getAnArgument() = this.getExpr() and
-      securityKey.getType().getQualifiedName() in [
-        "Microsoft.IdentityModel.Tokens.SymmetricSecurityKey",
-        "System.IdentityModel.Tokens.SymmetricSecurityKey"
-      ]
+      securityKey
+          .getType()
+          .hasFullyQualifiedName(["Microsoft.IdentityModel.Tokens", "System.IdentityModel.Tokens"],
+            "SymmetricSecurityKey")
     )
   }
 }
 
-
-/** 
+/**
  *  A result from a mock interface
  *  Ignore values that are ultimately returned by mocks, as they don't represent "real" credentials.
-*/
+ */
 class MockSanitizer extends Sanitizer {
   MockSanitizer() {
-    exists(ReturnedByMockObject mock|
-      mock.getAMemberInitializationValue() = this.asExpr()
-      or mock.getAnArgument() = this.asExpr()
+    exists(ReturnedByMockObject mock |
+      mock.getAMemberInitializationValue() = this.asExpr() or
+      mock.getAnArgument() = this.asExpr()
     )
   }
 }
 
-/** 
+/**
  *  A result from a mock interface
  *  The function is not itself marked as a mock, but all uses of it are in mocks.
-*/
+ */
 class MockSanitizer2 extends Sanitizer {
   MockSanitizer2() {
     exists(Method method, ReturnedByMockObject mock |
       exists(Call call |
-        call = method.getACall() and method.getAChild*() = this.asExpr() and
+        call = method.getACall() and
+        method.getAChild*() = this.asExpr() and
         (
-          mock.getAMemberInitializationValue().getAChild*() = call
-          or mock.getAnArgument().getAChild*() = call
+          mock.getAMemberInitializationValue().getAChild*() = call or
+          mock.getAnArgument().getAChild*() = call
+        )
+      ) and
+      not exists(Call call |
+        call = method.getACall() and
+        method.getAChild*() = this.asExpr() and
+        not (
+          mock.getAMemberInitializationValue().getAChild*() = call or
+          mock.getAnArgument().getAChild*() = call
         )
       )
-      and not exists(Call call |
-        call = method.getACall() and method.getAChild*() = this.asExpr() and
-        not (
-          mock.getAMemberInitializationValue().getAChild*() = call
-          or mock.getAnArgument().getAChild*() = call
-        )
-        )
     )
   }
 }
@@ -161,11 +159,12 @@ class ToStringSanitizer extends Sanitizer {
 class ConfigurationSanitizer extends Sanitizer {
   ConfigurationSanitizer() {
     exists(Access configuration, MethodCall call |
-      configuration.getType().getQualifiedName() in [
-        "Microsoft.Extensions.Configuration.IConfiguration", "Microsoft.Extensions.Configuration.ConfigurationManager"
-      ]
-      and call.getQualifier() = configuration
-      and call.getAnArgument() = this.getExpr() 
+      configuration
+          .getType()
+          .hasFullyQualifiedName("Microsoft.Extensions.Configuration",
+            ["IConfiguration", "ConfigurationManager"]) and
+      call.getQualifier() = configuration and
+      call.getAnArgument() = this.getExpr()
     )
   }
 }
@@ -175,9 +174,14 @@ class ConfigurationSanitizer extends Sanitizer {
  */
 class FileSanitizer extends Sanitizer {
   FileSanitizer() {
-    exists(Call c | c.getTarget().hasQualifiedName("System.IO.File", [
-      "ReadAllBytes", "ReadAllText", "Open", "OpenText", "OpenRead", "OpenHandle", "ReadAllTextAsync", "ReadAllBytesAsync", "ReadAllLines", "ReadAllLinesAsync", "ReadLines", "ReadLinesAsync", "OpenTextAsync"
-    ]) and
+    exists(Call c |
+      c.getTarget()
+          .hasFullyQualifiedName("System.IO.File",
+            [
+              "ReadAllBytes", "ReadAllText", "Open", "OpenText", "OpenRead", "OpenHandle",
+              "ReadAllTextAsync", "ReadAllBytesAsync", "ReadAllLines", "ReadAllLinesAsync",
+              "ReadLines", "ReadLinesAsync", "OpenTextAsync"
+            ]) and
       c.getAnArgument() = this.getExpr()
     )
   }
@@ -207,7 +211,8 @@ class TestClassSanitizer extends Sanitizer {
  */
 class TestNamespaceSanitizer extends Sanitizer {
   TestNamespaceSanitizer() {
-    exists(Namespace n | n.getName().matches(["Test%", "%Test", "%Tests", "Mock%", "%Mocks", "%Mock", "Fake%"]) and
+    exists(Namespace n |
+      n.getName().matches(["Test%", "%Test", "%Tests", "Mock%", "%Mocks", "%Mock", "Fake%"]) and
       (
         this.getExpr() = n.getAClass().getAMethod().getAChild*() or
         this.getExpr() = n.getAClass().getAField().getAChild*() or
@@ -222,13 +227,17 @@ class TestNamespaceSanitizer extends Sanitizer {
  */
 class DebugSanitizer extends Sanitizer {
   DebugSanitizer() {
-    exists(IfDirective if_d, EndifDirective endif_d, Location if_loc, Location endif_loc, Location loc |
+    exists(
+      IfDirective if_d, EndifDirective endif_d, Location if_loc, Location endif_loc, Location loc
+    |
       loc = this.getLocation() and
-      if_d.getCondition().toString() = "DEBUG" and if_d.getEndifDirective() = endif_d
-      and if_d.getLocation() = if_loc and endif_d.getLocation() = endif_loc
-      and loc.getStartLine() > if_loc.getEndLine()
-      and loc.getEndLine() < endif_loc.getStartLine()
-      and loc.getFile() = if_loc.getFile()
+      if_d.getCondition().toString() = "DEBUG" and
+      if_d.getEndifDirective() = endif_d and
+      if_d.getLocation() = if_loc and
+      endif_d.getLocation() = endif_loc and
+      loc.getStartLine() > if_loc.getEndLine() and
+      loc.getEndLine() < endif_loc.getStartLine() and
+      loc.getFile() = if_loc.getFile()
     )
   }
 }

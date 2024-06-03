@@ -12,10 +12,9 @@
 
 import csharp
 private import semmle.code.csharp.frameworks.Moq
-private import semmle.code.csharp.dataflow.DataFlow::DataFlow::PathGraph
-// import semmle.code.csharp.frameworks.system.security.Cryptography
 private import ghsl.Hardcoded
 private import ghsl.Cryptography
+import HardcodedSalt::Flow::PathGraph
 
 module HardcodedSalt {
   abstract class Source extends DataFlow::ExprNode { }
@@ -30,21 +29,19 @@ module HardcodedSalt {
     HashAlgSalts() { exists(Cryptography::HashingAlgorithms hash | this = hash.getSalt()) }
   }
 
-  class HardcodedSaltConfiguration extends TaintTracking::Configuration {
-    HardcodedSaltConfiguration() { this = "HardcodedSalt" }
+  module HardcodedSaltConfiguration implements DataFlow::ConfigSig {
+    predicate isSource(DataFlow::Node source) { source instanceof HardcodedSalt::Source }
 
-    override predicate isSource(DataFlow::Node source) { source instanceof HardcodedSalt::Source }
-
-    override predicate isSink(DataFlow::Node sink) {
+    predicate isSink(DataFlow::Node sink) {
       sink instanceof HardcodedSalt::Sink and
       not any(ReturnedByMockObject mock).getAMemberInitializationValue() = sink.asExpr() and
       not any(ReturnedByMockObject mock).getAnArgument() = sink.asExpr()
     }
   }
+
+  module Flow = TaintTracking::Global<HardcodedSaltConfiguration>;
 }
 
-from
-  HardcodedSalt::HardcodedSaltConfiguration config, DataFlow::PathNode source,
-  DataFlow::PathNode sink
-where config.hasFlowPath(source, sink)
+from HardcodedSalt::Flow::PathNode source, HardcodedSalt::Flow::PathNode sink
+where HardcodedSalt::Flow::flowPath(source, sink)
 select sink.getNode(), source, sink, "Use of $@.", source.getNode(), "hardcoded salt"

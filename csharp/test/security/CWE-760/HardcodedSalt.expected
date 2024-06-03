@@ -1,14 +1,18 @@
 edges
-| StaticSalt.cs:13:16:13:55 | call to method GetBytes : Byte[] | StaticSalt.cs:14:49:14:52 | access to local variable salt |
-| StaticSalt.cs:13:39:13:54 | "Hardcoded Salt" : String | StaticSalt.cs:13:16:13:55 | call to method GetBytes : Byte[] |
-| StaticSalt.cs:23:12:23:28 | "Hardcoded Salt2" : String | StaticSalt.cs:29:39:29:63 | call to method generateSalt : String |
-| StaticSalt.cs:29:16:29:64 | call to method GetBytes : Byte[] | StaticSalt.cs:30:49:30:52 | access to local variable salt |
-| StaticSalt.cs:29:39:29:63 | call to method generateSalt : String | StaticSalt.cs:29:16:29:64 | call to method GetBytes : Byte[] |
+| StaticSalt.cs:13:9:13:12 | access to local variable salt : Byte[] | StaticSalt.cs:14:49:14:52 | access to local variable salt | provenance |  |
+| StaticSalt.cs:13:16:13:55 | call to method GetBytes : Byte[] | StaticSalt.cs:13:9:13:12 | access to local variable salt : Byte[] | provenance |  |
+| StaticSalt.cs:13:39:13:54 | "Hardcoded Salt" : String | StaticSalt.cs:13:16:13:55 | call to method GetBytes : Byte[] | provenance | MaD:1869 |
+| StaticSalt.cs:23:12:23:28 | "Hardcoded Salt2" : String | StaticSalt.cs:29:39:29:63 | call to method generateSalt : String | provenance |  |
+| StaticSalt.cs:29:9:29:12 | access to local variable salt : Byte[] | StaticSalt.cs:30:49:30:52 | access to local variable salt | provenance |  |
+| StaticSalt.cs:29:16:29:64 | call to method GetBytes : Byte[] | StaticSalt.cs:29:9:29:12 | access to local variable salt : Byte[] | provenance |  |
+| StaticSalt.cs:29:39:29:63 | call to method generateSalt : String | StaticSalt.cs:29:16:29:64 | call to method GetBytes : Byte[] | provenance | MaD:1869 |
 nodes
+| StaticSalt.cs:13:9:13:12 | access to local variable salt : Byte[] | semmle.label | access to local variable salt : Byte[] |
 | StaticSalt.cs:13:16:13:55 | call to method GetBytes : Byte[] | semmle.label | call to method GetBytes : Byte[] |
 | StaticSalt.cs:13:39:13:54 | "Hardcoded Salt" : String | semmle.label | "Hardcoded Salt" : String |
 | StaticSalt.cs:14:49:14:52 | access to local variable salt | semmle.label | access to local variable salt |
 | StaticSalt.cs:23:12:23:28 | "Hardcoded Salt2" : String | semmle.label | "Hardcoded Salt2" : String |
+| StaticSalt.cs:29:9:29:12 | access to local variable salt : Byte[] | semmle.label | access to local variable salt : Byte[] |
 | StaticSalt.cs:29:16:29:64 | call to method GetBytes : Byte[] | semmle.label | call to method GetBytes : Byte[] |
 | StaticSalt.cs:29:39:29:63 | call to method generateSalt : String | semmle.label | call to method generateSalt : String |
 | StaticSalt.cs:30:49:30:52 | access to local variable salt | semmle.label | access to local variable salt |

@@ -36,7 +36,7 @@ module Cryptography {
   class CryptoRfc2898DeriveBytes extends HashingAlgorithms {
     CryptoRfc2898DeriveBytes() {
       exists(ObjectCreation object |
-        object.getType().getQualifiedName() = "System.Security.Cryptography.Rfc2898DeriveBytes" and
+        object.getType().hasFullyQualifiedName("System.Security.Cryptography", "Rfc2898DeriveBytes") and
         this.asExpr() = object
       )
     }
@@ -67,7 +67,7 @@ module Cryptography {
       exists(ObjectCreation object |
         object
             .getType()
-            .hasQualifiedName("System.Security.Cryptography", "DSACryptoServiceProvider") and
+            .hasFullyQualifiedName("System.Security.Cryptography", "DSACryptoServiceProvider") and
         this.asExpr() = object
       )
     }
@@ -90,7 +90,7 @@ module Cryptography {
       exists(ObjectCreation object |
         object
             .getType()
-            .hasQualifiedName("System.Security.Cryptography", "RC2CryptoServiceProvider") and
+            .hasFullyQualifiedName("System.Security.Cryptography", "RC2CryptoServiceProvider") and
         this.asExpr() = object
       )
     }
@@ -113,12 +113,13 @@ module Cryptography {
       exists(ObjectCreation object |
         object
             .getType()
-            .hasQualifiedName("System.Security.Cryptography", ["RSACryptoServiceProvider", "RSACng"]) and
+            .hasFullyQualifiedName("System.Security.Cryptography",
+              ["RSACryptoServiceProvider", "RSACng"]) and
         this.asExpr() = object
       )
       or
       exists(MethodCall call |
-        call.getType().hasQualifiedName("System.Security.Cryptography", ["RSA"]) and
+        call.getType().hasFullyQualifiedName("System.Security.Cryptography", ["RSA"]) and
         call.getTarget().hasName("Create") and
         this.asExpr() = call
       )
@@ -152,7 +153,7 @@ module Cryptography {
       exists(ObjectCreation object |
         object
             .getType()
-            .hasQualifiedName("System.Security.Cryptography",
+            .hasFullyQualifiedName("System.Security.Cryptography",
               ["HMACMD5", "HMACSHA1", "HMACSHA256", "HMACSHA384", "HMACSHA512", "HMACRIPEMD160"]) and
         this.asExpr() = object
       )
