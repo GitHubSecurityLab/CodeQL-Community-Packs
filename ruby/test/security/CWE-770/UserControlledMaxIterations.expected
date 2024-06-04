@@ -1,0 +1,19 @@
+edges
+| UserControlledMaxIterations__bad.rb:3:7:3:11 | limit | UserControlledMaxIterations__bad.rb:11:7:11:11 | limit |
+| UserControlledMaxIterations__bad.rb:3:7:3:11 | limit | UserControlledMaxIterations__bad.rb:16:7:16:11 | limit |
+| UserControlledMaxIterations__bad.rb:3:15:3:20 | call to params | UserControlledMaxIterations__bad.rb:3:15:3:28 | ...[...] |
+| UserControlledMaxIterations__bad.rb:3:15:3:28 | ...[...] | UserControlledMaxIterations__bad.rb:3:15:3:33 | call to to_i |
+| UserControlledMaxIterations__bad.rb:3:15:3:33 | call to to_i | UserControlledMaxIterations__bad.rb:3:7:3:11 | limit |
+nodes
+| UserControlledMaxIterations__bad.rb:3:7:3:11 | limit | semmle.label | limit |
+| UserControlledMaxIterations__bad.rb:3:15:3:20 | call to params | semmle.label | call to params |
+| UserControlledMaxIterations__bad.rb:3:15:3:28 | ...[...] | semmle.label | ...[...] |
+| UserControlledMaxIterations__bad.rb:3:15:3:33 | call to to_i | semmle.label | call to to_i |
+| UserControlledMaxIterations__bad.rb:11:7:11:11 | limit | semmle.label | limit |
+| UserControlledMaxIterations__bad.rb:16:7:16:11 | limit | semmle.label | limit |
+subpaths
+#select
+| UserControlledMaxIterations__bad.rb:11:7:11:11 | limit | UserControlledMaxIterations__bad.rb:3:15:3:20 | call to params | UserControlledMaxIterations__bad.rb:11:7:11:11 | limit | This $@ can control $@ a repeatable operation is executed. | UserControlledMaxIterations__bad.rb:3:15:3:20 | call to params | user-provided value | UserControlledMaxIterations__bad.rb:11:7:11:11 | limit | how many times |
+| UserControlledMaxIterations__bad.rb:11:7:11:11 | limit | UserControlledMaxIterations__bad.rb:3:15:3:28 | ...[...] | UserControlledMaxIterations__bad.rb:11:7:11:11 | limit | This $@ can control $@ a repeatable operation is executed. | UserControlledMaxIterations__bad.rb:3:15:3:28 | ...[...] | user-provided value | UserControlledMaxIterations__bad.rb:11:7:11:11 | limit | how many times |
+| UserControlledMaxIterations__bad.rb:16:7:16:11 | limit | UserControlledMaxIterations__bad.rb:3:15:3:20 | call to params | UserControlledMaxIterations__bad.rb:16:7:16:11 | limit | This $@ can control $@ a repeatable operation is executed. | UserControlledMaxIterations__bad.rb:3:15:3:20 | call to params | user-provided value | UserControlledMaxIterations__bad.rb:16:7:16:11 | limit | how many times |
+| UserControlledMaxIterations__bad.rb:16:7:16:11 | limit | UserControlledMaxIterations__bad.rb:3:15:3:28 | ...[...] | UserControlledMaxIterations__bad.rb:16:7:16:11 | limit | This $@ can control $@ a repeatable operation is executed. | UserControlledMaxIterations__bad.rb:3:15:3:28 | ...[...] | user-provided value | UserControlledMaxIterations__bad.rb:16:7:16:11 | limit | how many times |
