@@ -2,7 +2,7 @@
  * @name Denial of Service using unconstrained integer/float value
  * @description A remote user-controlled integer/float value can reach a condition that controls how many times a repeatable operation can be executed. A malicious user may misuse that value to cause an application-level denial of service.
  * @kind path-problem
- * @id githubsecuritylab/UserControlledMaxIterations
+ * @id githubsecuritylab/user-controlled-max-iterations
  * @precision high
  * @problem.severity error
  * @tags security
