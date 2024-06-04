@@ -12,24 +12,30 @@
  */
 
 import go
-import semmle.go.security.SqlInjection
-import DataFlow::PathGraph
 import ghsl.Utils
+private import semmle.go.security.SqlInjectionCustomizations
 
 /**
  * A taint-tracking configuration for detecting SQL injection vulnerabilities.
  */
-class SqlInjectionAudit extends TaintTracking::Configuration {
-  SqlInjectionAudit() { this = "SqlInjectionAudit" }
+private module Config implements DataFlow::ConfigSig {
+  predicate isSource(DataFlow::Node source) { source instanceof DynamicStrings }
 
-  override predicate isSource(DataFlow::Node source) { source instanceof DynamicStrings }
+  predicate isSink(DataFlow::Node sink) { sink instanceof SqlInjection::Sink }
 
-  override predicate isSink(DataFlow::Node sink) { sink instanceof SqlInjection::Sink }
+  predicate isAdditionalFlowStep(DataFlow::Node pred, DataFlow::Node succ) {
+    NoSql::isAdditionalMongoTaintStep(pred, succ)
+  }
 
-  override predicate isSanitizer(DataFlow::Node node) { node instanceof SqlInjection::Sanitizer }
+  predicate isBarrier(DataFlow::Node node) { node instanceof SqlInjection::Sanitizer }
 }
 
-from SqlInjectionAudit config, DataFlow::PathNode source, DataFlow::PathNode sink
-where config.hasFlowPath(source, sink)
-select sink.getNode(), source, sink, "This SQL query depends on $@.", source.getNode(),
-  "a user-provided value"
+/** Tracks taint flow for reasoning about SQL-injection vulnerabilities. */
+module Flow = TaintTracking::Global<Config>;
+
+import Flow::PathGraph
+
+from Flow::PathNode source, Flow::PathNode sink
+where Flow::flowPath(source, sink)
+select sink.getNode(), source, sink, "This query depends on a $@.", source.getNode(),
+  "user-provided value"

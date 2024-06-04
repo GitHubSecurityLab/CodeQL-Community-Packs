@@ -13,10 +13,10 @@
  */
 
 import csharp
-private import DataFlow::PathGraph
 private import ghsl.HardcodedCredentials
+import LiteralToSecurityKeyFlow::PathGraph
 
-from DataFlow::PathNode source, DataFlow::PathNode sink, LiteralToSecurityKeyConfig config
-where config.hasFlowPath(source, sink)
+from LiteralToSecurityKeyFlow::PathNode source, LiteralToSecurityKeyFlow::PathNode sink
+where LiteralToSecurityKeyFlow::flowPath(source, sink)
 select source, sink, source, "Hard-coded credential $@ used as SymmetricSecurityKey $@",
   source.getNode().asExpr(), source.getNode().toString(), sink.getNode().asExpr(), "here"
