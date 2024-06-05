@@ -6,8 +6,12 @@ on:
       mode:
         description: "Auto-release mode"
         required: false
-        type: string
+        type: choice
         default: "patch"
+        options:
+          - patch
+          - minor
+          - major
 
 jobs:
   patch-release:
