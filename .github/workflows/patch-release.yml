@@ -5,7 +5,7 @@ on:
     inputs:
       mode:
         description: "Auto-release mode"
-        required: false
+        required: true
         type: choice
         default: "patch"
         options:
