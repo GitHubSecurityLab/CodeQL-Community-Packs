@@ -21,21 +21,15 @@ module Flow = TaintTracking::Global<RuntimeExec::RuntimeExecConfiguration>;
 
 module Flow2 = TaintTracking::Global<ExecTaint::ExecTaintConfiguration>;
 
-from
-  Flow::PathNode sourceExec, Flow::PathNode sinkExec, Flow2::PathNode sourceTaint,
-  Flow2::PathNode sinkTaint, MethodCall call
+module FlowGraph =
+  DataFlow::MergePathGraph<Flow::PathNode, Flow2::PathNode, Flow::PathGraph, Flow2::PathGraph>;
+
+import FlowGraph::PathGraph
+
+from FlowGraph::PathNode source, FlowGraph::PathNode sink
 where
-  call.getMethod() instanceof RuntimeExecMethod and
-  (
-    // this is a command-accepting call to exec, e.g. exec("/bin/sh", ...)
-    Flow::flowPath(sourceExec, sinkExec) and
-    sinkExec.getNode().asExpr() = call.getArgument(0)
-  ) and
-  (
-    // it is tainted by untrusted user input
-    Flow2::flowPath(sourceTaint, sinkTaint) and
-    sinkTaint.getNode().asExpr() = call.getAnArgument()
-  )
-select sinkExec, sourceExec, sinkExec,
+  Flow::flowPath(source.asPathNode1(), sink.asPathNode1()) or
+  Flow2::flowPath(source.asPathNode2(), sink.asPathNode2())
+select sink, source, sink,
   "Call to dangerous java.lang.Runtime.exec() with command '$@' with arg from untrusted input '$@'",
-  sourceTaint, sourceTaint.toString(), sourceExec.getNode(), sourceExec.toString()
+  source, source.toString(), source.getNode(), source.toString()
