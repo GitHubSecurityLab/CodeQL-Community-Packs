@@ -68,8 +68,6 @@ module LiteralConfig {
   }
 
   module LiteralFlow = TaintTracking::Global<LiteralConfig>;
-
-  import LiteralFlow::PathGraph
 }
 
 class RedirectToJsp extends ReturnStmt {
@@ -85,6 +83,8 @@ class RedirectToJsp extends ReturnStmt {
 
   File getJspFile() { result = jsp }
 }
+
+import Xss::XssFlow::PathGraph
 
 from Xss::XssFlow::PathNode source, Xss::XssFlow::PathNode sink, JSPTaintStep jspts
 where
