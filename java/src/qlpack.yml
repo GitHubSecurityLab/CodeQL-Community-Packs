@@ -4,5 +4,5 @@ version: 0.0.5
 suites: suites
 defaultSuiteFile: suites/java.qls
 dependencies:
-  codeql/java-all: "*"
+  codeql/java-all: '1.0.0'
   githubsecuritylab/codeql-java-libs: 0.0.1
