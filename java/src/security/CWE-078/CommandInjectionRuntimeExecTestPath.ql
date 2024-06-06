@@ -12,28 +12,25 @@
  *       external/cwe/cwe-078
  */
 
-import DataFlow::PathGraph
 import ghsl.CommandInjectionRuntimeExec
 
 class DataSource extends Source {
   DataSource() { this instanceof RemoteFlowSource or this instanceof LocalUserInput }
 }
 
-from
-  DataFlow::PathNode source, DataFlow::PathNode sink, ExecTaintConfiguration2 conf, MethodCall call,
-  DataFlow::Node sourceCmd, DataFlow::Node sinkCmd, ExecTaintConfiguration confCmd
+module Flow = TaintTracking::Global<RuntimeExec::RuntimeExecConfiguration>;
+
+module Flow2 = TaintTracking::Global<ExecTaint::ExecTaintConfiguration>;
+
+module FlowGraph =
+  DataFlow::MergePathGraph<Flow::PathNode, Flow2::PathNode, Flow::PathGraph, Flow2::PathGraph>;
+
+import FlowGraph::PathGraph
+
+from FlowGraph::PathNode source, FlowGraph::PathNode sink
 where
-  call.getMethod() instanceof RuntimeExecMethod and
-  // this is a command-accepting call to exec, e.g. rt.exec(new String[]{"/bin/sh", ...})
-  (
-    confCmd.hasFlow(sourceCmd, sinkCmd) and
-    sinkCmd.asExpr() = call.getArgument(0)
-  ) and
-  // it is tainted by untrusted user input
-  (
-    conf.hasFlow(source.getNode(), sink.getNode()) and
-    sink.getNode().asExpr() = call.getArgument(0)
-  )
+  Flow::flowPath(source.asPathNode1(), sink.asPathNode1()) or
+  Flow2::flowPath(source.asPathNode2(), sink.asPathNode2())
 select sink, source, sink,
   "Call to dangerous java.lang.Runtime.exec() with command '$@' with arg from untrusted input '$@'",
-  sourceCmd, sourceCmd.toString(), source.getNode(), source.toString()
+  source, source.toString(), source.getNode(), source.toString()
