@@ -14,23 +14,26 @@ import java
 import semmle.code.java.dataflow.FlowSources
 import semmle.code.java.dataflow.TaintTracking2
 import semmle.code.java.security.XSS
-import DataFlow::PathGraph
 import JSPLocations
 
-class XSSConfig extends TaintTracking::Configuration {
-  XSSConfig() { this = "XSSConfig" }
+module Xss {
+  module XssConfig implements DataFlow::ConfigSig {
+    predicate isSource(DataFlow::Node source) { source instanceof RemoteFlowSource }
 
-  override predicate isSource(DataFlow::Node source) { source instanceof RemoteFlowSource }
+    predicate isSink(DataFlow::Node sink) { sink instanceof XssSink }
 
-  override predicate isSink(DataFlow::Node sink) { sink instanceof XssSink }
+    predicate isBarrier(DataFlow::Node node) { node instanceof XssSanitizer }
 
-  override predicate isSanitizer(DataFlow::Node node) { node instanceof XssSanitizer }
+    predicate isBarrierOut(DataFlow::Node node) { node instanceof XssSinkBarrier }
 
-  override predicate isSanitizerOut(DataFlow::Node node) { node instanceof XssSinkBarrier }
-
-  override predicate isAdditionalTaintStep(DataFlow::Node node1, DataFlow::Node node2) {
-    any(XssAdditionalTaintStep s).step(node1, node2)
+    predicate isAdditionalFlowStep(DataFlow::Node node1, DataFlow::Node node2) {
+      exists(XssAdditionalTaintStep s | s.step(node1, node2))
+    }
   }
+
+  module XssFlow = TaintTracking::Global<XssConfig>;
+
+  import XssFlow::PathGraph
 }
 
 class JSPTaintStep extends XssAdditionalTaintStep {
@@ -57,31 +60,35 @@ class JSPTaintStep extends XssAdditionalTaintStep {
   }
 }
 
-class LiteralConfig extends TaintTracking2::Configuration {
-  LiteralConfig() { this = "LiteralConfig" }
+module LiteralConfig {
+  module LiteralConfig implements DataFlow::ConfigSig {
+    predicate isSource(DataFlow::Node source) { source.asExpr() instanceof StringLiteral }
 
-  override predicate isSource(DataFlow2::Node source) { source.asExpr() instanceof StringLiteral }
-
-  override predicate isSink(DataFlow2::Node sink) {
-    exists(ReturnStmt rs | rs.getResult() = sink.asExpr())
+    predicate isSink(DataFlow::Node sink) { exists(ReturnStmt rs | rs.getResult() = sink.asExpr()) }
   }
+
+  module LiteralFlow = TaintTracking::Global<LiteralConfig>;
+
+  import LiteralFlow::PathGraph
 }
 
 class RedirectToJsp extends ReturnStmt {
   File jsp;
 
   RedirectToJsp() {
-    exists(DataFlow2::Node strLit, DataFlow2::Node retVal, LiteralConfig lc |
+    exists(DataFlow2::Node strLit, DataFlow2::Node retVal |
       strLit.asExpr().(StringLiteral).getValue().splitAt("/") + "_jsp.java" = jsp.getBaseName()
     |
-      retVal.asExpr() = this.getResult() and lc.hasFlow(strLit, retVal)
+      retVal.asExpr() = this.getResult() and LiteralConfig::LiteralFlow::flow(strLit, retVal)
     )
   }
 
   File getJspFile() { result = jsp }
 }
 
-from DataFlow::PathNode source, DataFlow::PathNode sink, XSSConfig conf, JSPExpr jspe
-where conf.hasFlowPath(source, sink) and jspe.isClosest(sink.getNode().asExpr())
-select jspe, source, sink, "Cross-site scripting vulnerability due to $@.", source.getNode(),
+from Xss::XssFlow::PathNode source, Xss::XssFlow::PathNode sink, JSPTaintStep jspts
+where
+  Xss::XssFlow::flowPath(source, sink) and
+  jspts.step(source.getNode(), sink.getNode())
+select source, source, sink, "Cross-site scripting vulnerability due to $@.", source.getNode(),
   "user-provided value"
