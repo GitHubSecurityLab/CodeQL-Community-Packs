@@ -4,5 +4,5 @@ version: 0.2.0
 suites: suites
 defaultSuiteFile: suites/ruby.qls
 dependencies:
-  codeql/ruby-all: '*'
-  githubsecuritylab/codeql-ruby-libs: 0.2.0
+  codeql/ruby-all: "1.0.0"
+  githubsecuritylab/codeql-ruby-libs: "0.2.0"

@@ -2,9 +2,9 @@ library: true
 name: githubsecuritylab/codeql-go-extensions
 version: 0.0.1
 extensionTargets:
-  codeql/go-all: '*'
+  codeql/go-all: "1.0.0"
 dataExtensions:
-  - 'manual/*.yml'
-  - 'manual/**/*.yml'
-  - 'generated/*.yml'
-  - 'generated/**/*.yml'
+  - "manual/*.yml"
+  - "manual/**/*.yml"
+  - "generated/*.yml"
+  - "generated/**/*.yml"

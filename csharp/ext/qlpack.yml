@@ -2,9 +2,9 @@ library: true
 name: githubsecuritylab/codeql-csharp-extensions
 version: 0.2.0
 extensionTargets:
-  codeql/csharp-all: '*'
+  codeql/csharp-all: "1.0.0"
 dataExtensions:
-  - 'manual/*.yml'
-  - 'manual/**/*.yml'
-  - 'generated/*.yml'
-  - 'generated/**/*.yml'
+  - "manual/*.yml"
+  - "manual/**/*.yml"
+  - "generated/*.yml"
+  - "generated/**/*.yml"

@@ -1,9 +1,9 @@
 name: githubsecurtylab/codeql-csharp-tests
 groups: [csharp, test]
 dependencies:
-  codeql/csharp-all: 0.10.1
-  codeql/csharp-queries: 0.8.16
-  githubsecuritylab/codeql-csharp-libs: 0.0.1
-  githubsecuritylab/codeql-csharp-queries: 0.0.4
+  codeql/csharp-all: 1.0.0
+  codeql/csharp-queries: 1.0.0
+  githubsecuritylab/codeql-csharp-libs: 0.2.0
+  githubsecuritylab/codeql-csharp-queries: 0.2.0
 extractor: csharp
 tests: .

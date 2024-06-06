@@ -4,5 +4,5 @@ version: 0.2.0
 suites: suites
 defaultSuiteFile: suites/python.qls
 dependencies:
-  codeql/python-all: '*'
-  githubsecuritylab/codeql-python-libs: 0.2.0
+  codeql/python-all: "1.0.0"
+  githubsecuritylab/codeql-python-libs: "0.2.0"
