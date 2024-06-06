@@ -19,7 +19,7 @@ class DataSource extends Source {
 }
 
 from
-  DataFlow::Node source, DataFlow::Node sink, ExecTaintConfiguration2 conf, MethodAccess call,
+  DataFlow::Node source, DataFlow::Node sink, ExecTaintConfiguration2 conf, MethodCall call,
   int index, DataFlow::Node sourceCmd, DataFlow::Node sinkCmd, ExecTaintConfiguration confCmd
 where
   call.getMethod() instanceof RuntimeExecMethod and

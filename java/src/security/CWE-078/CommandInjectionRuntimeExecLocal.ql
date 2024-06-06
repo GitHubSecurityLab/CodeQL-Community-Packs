@@ -19,9 +19,8 @@ class LocalSource extends Source {
 }
 
 from
-  DataFlow::PathNode source, DataFlow::PathNode sink, ExecTaintConfiguration2 conf,
-  MethodAccess call, DataFlow::Node sourceCmd, DataFlow::Node sinkCmd,
-  ExecTaintConfiguration confCmd
+  DataFlow::PathNode source, DataFlow::PathNode sink, ExecTaintConfiguration2 conf, MethodCall call,
+  DataFlow::Node sourceCmd, DataFlow::Node sinkCmd, ExecTaintConfiguration confCmd
 where
   call.getMethod() instanceof RuntimeExecMethod and
   // this is a command-accepting call to exec, e.g. rt.exec(new String[]{"/bin/sh", ...})

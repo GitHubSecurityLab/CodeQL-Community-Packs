@@ -21,7 +21,7 @@ abstract class RandomNumberGeneratorSinks extends DataFlow::Node { }
 
 class MathRandom extends RandomNumberGeneratorSinks {
   MathRandom() {
-    exists(MethodAccess ma |
+    exists(MethodCall ma |
       ma.getMethod().getDeclaringType().hasQualifiedName("java.lang", "Math") and
       ma.getMethod().getName() = "random" and
       this.asExpr() = ma
@@ -31,7 +31,7 @@ class MathRandom extends RandomNumberGeneratorSinks {
 
 class RandomUtils extends RandomNumberGeneratorSinks {
   RandomUtils() {
-    exists(MethodAccess ma |
+    exists(MethodCall ma |
       ma.getMethod().getDeclaringType().hasQualifiedName("java.util", "Random") and
       (
         ma.getMethod().getName() = "next" or

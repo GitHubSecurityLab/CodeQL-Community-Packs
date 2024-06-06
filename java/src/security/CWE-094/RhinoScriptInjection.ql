@@ -39,7 +39,7 @@ class CompileScriptMethod extends Method {
 
 class RhinoInjectionSink extends DataFlow::ExprNode {
   RhinoInjectionSink() {
-    exists(MethodAccess ma |
+    exists(MethodCall ma |
       (ma.getMethod() instanceof CompileMethod or ma.getMethod() instanceof EvaluateMethod) and
       this.getExpr() = ma.getArgument(1)
       or

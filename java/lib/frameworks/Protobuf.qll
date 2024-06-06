@@ -3,7 +3,7 @@ import semmle.code.java.dataflow.FlowSources
 module Protobuf {
   class ProtoToCoreTaintStep extends TaintTracking::AdditionalTaintStep {
     override predicate step(DataFlow::Node n1, DataFlow::Node n2) {
-      exists(MethodAccess ma |
+      exists(MethodCall ma |
         ma.getMethod().getName().matches("toCore%") and
         n2.asExpr() = ma and
         n1.asExpr() = ma.getArgument(0)
@@ -13,7 +13,7 @@ module Protobuf {
 
   class ByteStringThisReturnTaintStep extends TaintTracking::AdditionalTaintStep {
     override predicate step(DataFlow::Node n1, DataFlow::Node n2) {
-      exists(MethodAccess ma |
+      exists(MethodCall ma |
         //ma.getMethod().getName().matches(["toByteArray", "toString", "toStringUtf8", "substring", "concat", "asReadOnlyByteBuffer", "asReadOnlyByteBufferList"]) and
         ma.getMethod().getName().matches("toByteArray") and
         ma.getMethod()
@@ -29,7 +29,7 @@ module Protobuf {
 
   class ByteStringArgReturnTaintStep extends TaintTracking::AdditionalTaintStep {
     override predicate step(DataFlow::Node n1, DataFlow::Node n2) {
-      exists(MethodAccess ma |
+      exists(MethodCall ma |
         ma.getMethod().getName().matches(["readFrom", "copyFrom", "concat"]) and
         ma.getMethod()
             .getDeclaringType()
@@ -44,7 +44,7 @@ module Protobuf {
 
   class RemoteSource extends RemoteFlowSource {
     RemoteSource() {
-      exists(MethodAccess ma, Method m |
+      exists(MethodCall ma, Method m |
         ma.getMethod() = m and
         m.getName().matches("get%") and
         m.getDeclaringType()

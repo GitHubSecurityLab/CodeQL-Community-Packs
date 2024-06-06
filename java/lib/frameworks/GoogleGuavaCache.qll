@@ -38,7 +38,7 @@ module GuavaCache {
    */
   class LoadCacheItemTaintStep extends TaintTracking::AdditionalTaintStep {
     override predicate step(DataFlow::Node n1, DataFlow::Node n2) {
-      exists(MethodAccess ma1, MethodAccess ma2, VarAccess va |
+      exists(MethodCall ma1, MethodCall ma2, VarAccess va |
         ma1.getMethod() instanceof GetFromCacheMethod and
         ma2.getMethod() instanceof BuildCacheLoaderMethod and
         exists(Method m |
