@@ -8,7 +8,7 @@ abstract class LoggingMethodsSinks extends DataFlow::Node { }
 // TODO: Use the exists libs in CodeQL to extend this
 class PrintMethods extends LoggingMethodsSinks {
   PrintMethods() {
-    exists(MethodAccess ma |
+    exists(MethodCall ma |
       ma.getMethod().getDeclaringType().hasQualifiedName("java.io", _) and
       (
         ma.getMethod().hasName("println") or
@@ -50,7 +50,7 @@ class Log4jLoggerType extends LoggerType {
 
 class LoggingMethods extends LoggingMethodsSinks {
   LoggingMethods() {
-    exists(MethodAccess ma |
+    exists(MethodCall ma |
       ma.getMethod().getDeclaringType() instanceof LoggerType and
       (
         ma.getMethod().hasName("debug") or

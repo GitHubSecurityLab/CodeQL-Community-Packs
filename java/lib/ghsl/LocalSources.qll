@@ -3,7 +3,7 @@ import semmle.code.java.dataflow.FlowSources
 
 class FileReadAccess extends LocalUserInput {
   FileReadAccess() {
-    exists(MethodAccess ma |
+    exists(MethodCall ma |
       // https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html#getResourceAsStream-java.lang.String-
       (
         ma.getMethod().hasQualifiedName("java.lang", "Class", "getResourceAsStream") or

@@ -21,7 +21,7 @@ module Dubbo {
 
   class CodecSupportGetPayload extends TaintTracking::AdditionalTaintStep {
     override predicate step(DataFlow::Node n1, DataFlow::Node n2) {
-      exists(MethodAccess ma |
+      exists(MethodCall ma |
         ma.getMethod()
             .getDeclaringType()
             .hasQualifiedName("org.apache.dubbo.remoting.transport", "CodecSupport") and
@@ -34,7 +34,7 @@ module Dubbo {
 
   class CodecSupportDeserialize extends TaintTracking::AdditionalTaintStep {
     override predicate step(DataFlow::Node n1, DataFlow::Node n2) {
-      exists(MethodAccess ma |
+      exists(MethodCall ma |
         ma.getMethod()
             .getDeclaringType()
             .hasQualifiedName("org.apache.dubbo.remoting.transport", "CodecSupport") and
@@ -58,7 +58,7 @@ module Dubbo {
 
   class ChannelBuffer_ThisReturn_TaintStep extends TaintTracking::AdditionalTaintStep {
     override predicate step(DataFlow::Node n1, DataFlow::Node n2) {
-      exists(MethodAccess ma |
+      exists(MethodCall ma |
         ma.getMethod()
             .getDeclaringType()
             .getASourceSupertype*()
@@ -72,7 +72,7 @@ module Dubbo {
 
   class ChannelBuffer_ThisArg1_TaintStep extends TaintTracking::AdditionalTaintStep {
     override predicate step(DataFlow::Node n1, DataFlow::Node n2) {
-      exists(MethodAccess ma |
+      exists(MethodCall ma |
         ma.getMethod()
             .getDeclaringType()
             .getASourceSupertype*()
@@ -86,7 +86,7 @@ module Dubbo {
 
   class ChannelBuffer_ThisArg0_TaintStep extends TaintTracking::AdditionalTaintStep {
     override predicate step(DataFlow::Node n1, DataFlow::Node n2) {
-      exists(MethodAccess ma |
+      exists(MethodCall ma |
         ma.getMethod()
             .getDeclaringType()
             .getASourceSupertype*()
@@ -100,7 +100,7 @@ module Dubbo {
 
   class ChannelBuffer_ArgThis1_TaintStep extends TaintTracking::AdditionalTaintStep {
     override predicate step(DataFlow::Node n1, DataFlow::Node n2) {
-      exists(MethodAccess ma |
+      exists(MethodCall ma |
         ma.getMethod()
             .getDeclaringType()
             .getASourceSupertype*()
@@ -114,7 +114,7 @@ module Dubbo {
 
   class ChannelBuffer_ArgThis0_TaintStep extends TaintTracking::AdditionalTaintStep {
     override predicate step(DataFlow::Node n1, DataFlow::Node n2) {
-      exists(MethodAccess ma |
+      exists(MethodCall ma |
         ma.getMethod()
             .getDeclaringType()
             .getASourceSupertype*()

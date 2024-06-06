@@ -39,7 +39,7 @@ class XSSConfig extends TaintTracking::Configuration {
 class ServletRequestSource extends RemoteFlowSource {
   ServletRequestSource() {
     exists(Method m |
-      this.asExpr().(MethodAccess).getMethod() = m and
+      this.asExpr().(MethodCall).getMethod() = m and
       m.getDeclaringType().getAnAncestor*().getQualifiedName() = "javax.servlet.ServletRequest"
     )
   }
@@ -50,7 +50,7 @@ class ServletRequestSource extends RemoteFlowSource {
 // Additional taint step: If an object is tainted, so are its methods' return values
 class TaintedObjectMA extends XssAdditionalTaintStep {
   override predicate step(DataFlow::Node node1, DataFlow::Node node2) {
-    node1.asExpr() = node2.asExpr().(MethodAccess).getQualifier()
+    node1.asExpr() = node2.asExpr().(MethodCall).getQualifier()
   }
 }
 
@@ -115,7 +115,7 @@ class JSPTaintStep extends XssAdditionalTaintStep {
   }
 }
 
-MethodAccess methodCallOn(string methodName, Variable v) {
+MethodCall methodCallOn(string methodName, Variable v) {
   result.getQualifier() = v.getAnAccess() and result.getCallee().getName() = methodName
 }
 

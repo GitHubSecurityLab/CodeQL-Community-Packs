@@ -7,7 +7,7 @@ abstract class SensitiveInformationSources extends DataFlow::Node { }
 
 class HttpSession extends SensitiveInformationSources {
   HttpSession() {
-    exists(MethodAccess ma |
+    exists(MethodCall ma |
       // https://docs.oracle.com/javaee/5/api/javax/servlet/http/HttpSession.html
       // Assumption: Nothing from the Session object should be logged
       ma.getMethod().getDeclaringType().hasQualifiedName("javax.servlet.http", "HttpSession") and
@@ -18,7 +18,7 @@ class HttpSession extends SensitiveInformationSources {
 
 class Properties extends SensitiveInformationSources {
   Properties() {
-    exists(MethodAccess ma |
+    exists(MethodCall ma |
       ma.getMethod().hasName("getProperty") and
       this.asExpr() = ma
     )

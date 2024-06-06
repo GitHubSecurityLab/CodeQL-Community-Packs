@@ -21,7 +21,7 @@ import ghsl.SensitiveInformation
 
 class Base64Sinks extends DataFlow::Node {
   Base64Sinks() {
-    exists(MethodAccess ma |
+    exists(MethodCall ma |
       ma.getMethod().getDeclaringType().hasQualifiedName("java.util", "Base64$Encoder") and
       this.asExpr() = ma
     )
@@ -46,4 +46,3 @@ from Base64EncryptionFlow::PathNode source, Base64EncryptionFlow::PathNode sink 
 where Base64EncryptionFlow::flowPath(source, sink) //using flowPath instead of hasFlowPath
 select sink.getNode(), source, sink, "Sensitive data is being 'encrypted' with Base64 Encoding: $@",
   source.getNode(), "user-provided value"
-
