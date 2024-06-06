@@ -15,21 +15,21 @@ import java
 import semmle.code.java.dataflow.DataFlow
 import semmle.code.java.dataflow.FlowSources
 import semmle.code.java.dataflow.TaintTracking2
-import DataFlow::PathGraph
 // Internal
 import ghsl.Encoding
 import ghsl.Hardcoded
 
-class HardcodedPasswordBase64 extends TaintTracking::Configuration {
-  HardcodedPasswordBase64() { this = "HardcodedPasswordBase64" }
+module HardcodedPasswordBase64 implements DataFlow::ConfigSig {
+  predicate isSource(DataFlow::Node source) { source instanceof Hardcoded }
 
-  override predicate isSource(DataFlow::Node source) { source instanceof Hardcoded }
-
-  override predicate isSink(DataFlow::Node sink) { sink instanceof Base64::Decoding }
+  predicate isSink(DataFlow::Node sink) { sink instanceof Base64::Decoding }
 }
 
-// ========== Query ==========
-from DataFlow::PathNode source, DataFlow::PathNode sink, HardcodedPasswordBase64 config
-where config.hasFlowPath(source, sink)
+module HardcodedPasswordBase64Flow = TaintTracking::Global<HardcodedPasswordBase64>;
+
+import HardcodedPasswordBase64Flow::PathGraph
+
+from HardcodedPasswordBase64Flow::PathNode source, HardcodedPasswordBase64Flow::PathNode sink
+where HardcodedPasswordBase64Flow::flowPath(source, sink)
 select sink.getNode(), source, sink, "Sensitive data is being logged $@.", source.getNode(),
   "user-provided value"
