@@ -90,5 +90,5 @@ from Xss::XssFlow::PathNode source, Xss::XssFlow::PathNode sink, JSPTaintStep js
 where
   Xss::XssFlow::flowPath(source, sink) and
   jspts.step(source.getNode(), sink.getNode())
-select source, source, sink, "Cross-site scripting vulnerability due to $@.", source.getNode(),
-  "user-provided value"
+select sink.getNode(), source, sink, "Cross-site scripting vulnerability due to $@.",
+  source.getNode(), "user-provided value"
