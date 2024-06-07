@@ -30,6 +30,6 @@ from FlowGraph::PathNode source, FlowGraph::PathNode sink
 where
   Flow::flowPath(source.asPathNode1(), sink.asPathNode1()) or
   Flow2::flowPath(source.asPathNode2(), sink.asPathNode2())
-select sink, source, sink,
+select sink.getNode(), source, sink,
   "Call to dangerous java.lang.Runtime.exec() with command '$@' with arg from untrusted input '$@'",
   source, source.toString(), source.getNode(), source.toString()

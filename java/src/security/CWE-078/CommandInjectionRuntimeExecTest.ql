@@ -1,7 +1,7 @@
 /**
  * @name Command Injection into Runtime.exec() with dangerous command
  * @description Testing query. High sensitvity and precision version of java/command-line-injection, designed to find more cases of command injection in rare cases that the default query does not find
- * @kind problem
+ * @kind path-problem
  * @problem.severity error
  * @security-severity 6.1
  * @precision high
@@ -22,6 +22,8 @@ module Flow = TaintTracking::Global<RuntimeExec::RuntimeExecConfiguration>;
 
 module Flow2 = TaintTracking::Global<ExecTaint::ExecTaintConfiguration>;
 
+import Flow2::PathGraph
+
 from
   Flow::PathNode sourceExec, Flow::PathNode sinkExec, Flow2::PathNode sourceTaint,
   Flow2::PathNode sinkTaint, MethodCall call
@@ -37,6 +39,6 @@ where
     Flow2::flowPath(sourceTaint, sinkTaint) and
     sinkTaint.getNode().asExpr() = call.getAnArgument()
   )
-select sinkExec,
+select sinkTaint.getNode(), sourceTaint, sinkTaint,
   "Call to dangerous java.lang.Runtime.exec() with command '$@' with arg from untrusted input '$@'",
-  sourceExec, sourceExec.toString(), sourceExec, sourceExec.toString()
+  sourceTaint, sourceTaint.toString(), sourceTaint, sourceTaint.toString()
