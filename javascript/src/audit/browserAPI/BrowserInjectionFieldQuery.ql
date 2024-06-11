@@ -13,7 +13,7 @@
  import javascript
  import DataFlow::PathGraph
  import DataFlow
- import BrowserInjectionFieldCustomizations::BrowserInjection
+ import browserextension.BrowserInjectionFieldCustomizations::BrowserInjection
  private import semmle.javascript.security.dataflow.XssThroughDomCustomizations::XssThroughDom as XssThroughDom
  
  //private import semmle.javascript.security.dataflow.DomBasedXssCustomizations

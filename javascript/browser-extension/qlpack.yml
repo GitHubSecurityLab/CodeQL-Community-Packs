@@ -1,6 +1,0 @@
-library: false
-warnOnImplicitThis: false
-name: githubsecuritylab/browser-extension
-version: 0.0.1
-dependencies:
-  codeql/javascript-all: '*'
