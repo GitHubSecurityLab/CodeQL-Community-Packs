@@ -9,6 +9,8 @@
 *.actual
 *.class
 */*.class
+# Cloned repository of codeql
+/codeql
 
 # Test files / folders
 test.ql
