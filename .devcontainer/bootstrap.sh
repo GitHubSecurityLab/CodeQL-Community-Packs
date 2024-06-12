@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# Assumes CodeQL is installed via the VSCode Plugin
-CODEQL_CODESPACES_PATH="/root/.vscode-remote/data/User/globalStorage/github.vscode-codeql/distribution1/codeql"
-export PATH=$CODEQL_CODESPACES_PATH:$PATH
+# Install CodeQL Stub
+cp ./.devcontainer/codeql.sh /usr/local/bin/codeql
 
 # Clone an instance of the CodeQL repository
 if [ ! -d "./codeql" ]; then
