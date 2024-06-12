@@ -1,15 +1,38 @@
 {
     "name": "CodeQL-Community-Packs",
+    "postAttachCommand": ".devcontainer/bootstrap.sh",
+    "hostRequirements": {
+        "storage": "32gb",
+        "memory": "16gb",
+        "cpus": 4
+    },
     "extensions": [
         "github.vscode-codeql",
         "github.copilot"
     ],
     "settings": {
+        "codeQL.canary": true,
         "codeQL.runningQueries.autoSave": true,
         "codeQL.runningQueries.numberOfThreads": 4,
         "codeQL.runningQueries.debug": true,
         "editor.formatOnSave": true
     },
     "postCreateCommand": "git submodule init && git submodule update --recursive",
-    "remoteUser": "root"
+    "remoteUser": "root",
+    "customizations": {
+        "codespaces": {
+            "repositories": {
+                "github/gh-codeql": {
+                    "permissions": {
+                        "contents": "read"
+                    }
+                },
+                "github/codeql": {
+                    "permissions": {
+                        "contents": "read"
+                    }
+                }
+            }
+        }
+    }
 }
