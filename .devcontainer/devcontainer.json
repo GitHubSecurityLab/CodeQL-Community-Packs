@@ -9,7 +9,13 @@
     "extensions": [
         "github.vscode-codeql",
         "github.copilot",
+        "MS-vsliveshare.vsliveshare",
+        "lostintangent.github-security-alerts",
         "ms-vscode.test-adapter-converter",
+        "ms-vscode.cpptools",
+        "ms-dotnettools.vscode-dotnet-runtime",
+        "ms-python.vscode-pylance",
+        "redhat.java",
     ],
     "settings": {
         "codeQL.canary": true,
