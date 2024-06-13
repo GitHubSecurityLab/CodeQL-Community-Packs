@@ -37,8 +37,6 @@ module RuntimeExec {
   }
 
   module RuntimeExecFlow = TaintTracking::Global<RuntimeExecConfiguration>;
-
-  import RuntimeExecFlow::PathGraph
 }
 
 // taint flow from user data to args of the command
@@ -64,8 +62,6 @@ module ExecTaint {
   }
 
   module ExecTaintFlow = TaintTracking::Global<ExecTaintConfiguration>;
-
-  import ExecTaintFlow::PathGraph
 }
 
 // array[3] = node
