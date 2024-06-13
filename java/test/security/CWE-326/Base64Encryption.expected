@@ -1,7 +1,7 @@
 edges
 | Base64Encryption.java:17:23:17:62 | (...)... : String | Base64Encryption.java:18:66:18:69 | attr : String | provenance |  |
 | Base64Encryption.java:17:31:17:62 | getAttribute(...) : Object | Base64Encryption.java:17:23:17:62 | (...)... : String | provenance |  |
-| Base64Encryption.java:18:66:18:69 | attr : String | Base64Encryption.java:18:66:18:80 | getBytes(...) : byte[] | provenance | MaD:43090 |
+| Base64Encryption.java:18:66:18:69 | attr : String | Base64Encryption.java:18:66:18:80 | getBytes(...) : byte[] | provenance | MaD:42737 |
 | Base64Encryption.java:18:66:18:80 | getBytes(...) : byte[] | Base64Encryption.java:18:31:18:81 | encodeToString(...) | provenance | MaD:43723 |
 nodes
 | Base64Encryption.java:17:23:17:62 | (...)... : String | semmle.label | (...)... : String |
