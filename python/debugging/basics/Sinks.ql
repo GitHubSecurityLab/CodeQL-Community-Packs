@@ -11,7 +11,6 @@
 
 import python
 import semmle.python.dataflow.new.DataFlow
-import semmle.python.dataflow.new.RemoteFlowSources
 // Helpers
 private import ghsl.Helpers
 
