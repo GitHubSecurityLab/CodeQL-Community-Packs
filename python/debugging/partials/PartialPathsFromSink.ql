@@ -28,7 +28,7 @@ class ManualSinks extends DataFlow::Node {
  * Partial Graph module interface
  */
 module RemoteFlowsConfig implements DataFlow::ConfigSig {
-  predicate isSource(DataFlow::Node source) { any() }
+  predicate isSource(DataFlow::Node source) { none() }
 
   predicate isSink(DataFlow::Node sink) {
     // List of dangerous sinks (SQL Injection, Command Injection, etc.)
