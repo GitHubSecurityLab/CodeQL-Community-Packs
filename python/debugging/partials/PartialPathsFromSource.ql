@@ -29,7 +29,7 @@ module RemoteFlowsConfig implements DataFlow::ConfigSig {
     source instanceof LocalSources::Range
   }
 
-  predicate isSink(DataFlow::Node sink) { any() }
+  predicate isSink(DataFlow::Node sink) { none() }
 }
 
 int explorationLimit() { result = 10 }
