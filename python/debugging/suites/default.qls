@@ -2,7 +2,7 @@
 
 # Field query pack with some audit queries
 - queries: "."
-  from: githubsecuritylab/codeql-python-queries
+  from: githubsecuritylab/codeql-python-debugging
 
 - include:
     kind:
