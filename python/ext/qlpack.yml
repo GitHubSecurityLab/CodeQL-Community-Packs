@@ -1,0 +1,10 @@
+library: true
+name: githubsecuritylab/codeql-python-extensions
+version: 0.1.0
+extensionTargets:
+  codeql/python-all: '*'
+dataExtensions:
+  - 'manual/*.yml'
+  - 'manual/**/*.yml'
+  - 'generated/*.yml'
+  - 'generated/**/*.yml'
