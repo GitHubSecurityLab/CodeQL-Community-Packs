@@ -118,9 +118,6 @@ paths-ignore:
     - "**/deps/**"
     - "**/third_party/**"
 
-    # Java (build-mode: none)
-    - "**/lib/**"
-
     # Ruby
     - "**/gems/**"
     - "**/spec/**/*_spec.rb"
