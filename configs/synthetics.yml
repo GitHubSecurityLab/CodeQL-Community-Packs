@@ -114,3 +114,8 @@ paths-ignore:
     - "dist"
     - "CoverageResults"    
     - "**/wwwroot/lib/**"
+
+    # Ruby
+    - "**/spec/**/*_spec.rb"
+    - "**/test/**/*_test.rb"
+    
