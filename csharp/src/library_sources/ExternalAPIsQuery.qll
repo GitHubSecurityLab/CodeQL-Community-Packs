@@ -11,8 +11,21 @@ private import semmle.code.csharp.dataflow.FlowSummary
 // SECLAB: Import CSV utils
 private import semmle.code.csharp.dataflow.internal.ExternalFlow as ExternalFlow
 
-// SECLAB: Import Csv::asPartialModel
-predicate asPartialModel = ExternalFlow::asPartialModel/1;
+/**
+ * Computes the first 6 columns for MaD rows used for summaries, sources and sinks.
+ */
+private string asPartialModel(Callable api) {
+  exists(string container, string type, string extensible, string name, string parameters |
+    ExternalFlow::partialModel(api, container, type, extensible, name, parameters) and
+    result =
+      container + ";" //
+        + type + ";" //
+        + extensible + ";" //
+        + name + ";" //
+        + parameters + ";" //
+        + /* ext + */ ";" //
+  )
+}
 
 /**
  * A callable that is considered a "safe" external API from a security perspective.
@@ -100,7 +113,7 @@ deprecated class UntrustedDataToExternalApiConfig extends TaintTracking::Configu
 
 /** A configuration for tracking flow from `ThreatModelFlowSource`s to `ExternalApiDataNode`s. */
 private module RemoteSourceToExternalApiConfig implements DataFlow::ConfigSig {
-  predicate isSource(DataFlow::Node source) { source instanceof ThreatModelFlowSource }
+  predicate isSource(DataFlow::Node source) { source instanceof ActiveThreatModelSource }
 
   predicate isSink(DataFlow::Node sink) { sink instanceof ExternalApiDataNode }
 }
