@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  compile:
+  compile-and-test:
     runs-on: ubuntu-latest
     
     strategy:
