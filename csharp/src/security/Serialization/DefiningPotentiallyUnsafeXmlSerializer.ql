@@ -4,9 +4,8 @@
  * @kind problem
  * @problem.severity error
  * @precision medium
- * @id cs/dataset-serialization/defining-potentially-unsafe-xml-serializer
+ * @id githubsecuritylab/cs/dataset-serialization/defining-potentially-unsafe-xml-serializer
  * @tags security
- *       experimental
  */
 
 import csharp

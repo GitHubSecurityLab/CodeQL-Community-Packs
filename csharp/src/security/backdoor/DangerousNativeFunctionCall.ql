@@ -4,9 +4,8 @@
  * @kind problem
  * @problem.severity warning
  * @precision low
- * @id cs/backdoor/dangerous-native-functions
+ * @id githubsecuritylab/cs/backdoor/dangerous-native-functions
  * @tags security
- *       experimental
  *       solorigate
  */
 

@@ -4,9 +4,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id cs/request-forgery
+ * @id githubsecuritylab/cs/request-forgery
  * @tags security
- *       experimental
  *       external/cwe/cwe-918
  */
 

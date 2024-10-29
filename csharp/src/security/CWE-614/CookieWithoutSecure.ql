@@ -6,9 +6,8 @@
  * @kind problem
  * @problem.severity error
  * @precision high
- * @id cs/web/cookie-secure-not-set
+ * @id githubsecuritylab/cs/web/cookie-secure-not-set
  * @tags security
- *       experimental
  *       external/cwe/cwe-319
  *       external/cwe/cwe-614
  */
@@ -17,7 +16,7 @@ import csharp
 import semmle.code.asp.WebConfig
 import semmle.code.csharp.frameworks.system.Web
 import semmle.code.csharp.frameworks.microsoft.AspNetCore
-import experimental.dataflow.flowsources.AuthCookie
+import security.dataflow.flowsources.AuthCookie
 
 from Expr secureSink
 where

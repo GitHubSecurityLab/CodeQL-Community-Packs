@@ -3,10 +3,9 @@
  * @description Check if security sensitive token validations for `JsonWebTokenHandler` are being disabled.
  * @kind problem
  * @tags security
- *       experimental
  *       JsonWebTokenHandler
  *       manual-verification-required
- * @id cs/json-webtoken-handler/security-validations-disabled
+ * @id githubsecuritylab/cs/json-webtoken-handler/security-validations-disabled
  * @problem.severity error
  * @precision high
  */

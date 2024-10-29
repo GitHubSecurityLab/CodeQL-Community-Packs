@@ -4,9 +4,8 @@
  * @kind problem
  * @problem.severity error
  * @precision medium
- * @id cs/dataset-serialization/xml-deserialization-with-dataset
+ * @id githubsecuritylab/cs/dataset-serialization/xml-deserialization-with-dataset
  * @tags security
- *       experimental
  */
 
 import csharp

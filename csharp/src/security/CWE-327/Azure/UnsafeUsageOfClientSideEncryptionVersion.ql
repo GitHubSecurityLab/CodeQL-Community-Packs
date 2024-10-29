@@ -4,9 +4,8 @@
  * @kind problem
  * @tags security
  *       cryptography
- *       experimental
  *       external/cwe/cwe-327
- * @id cs/azure-storage/unsafe-usage-of-client-side-encryption-version
+ * @id githubsecuritylab/cs/azure-storage/unsafe-usage-of-client-side-encryption-version
  * @problem.severity error
  * @precision high
  */

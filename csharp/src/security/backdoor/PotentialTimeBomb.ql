@@ -2,11 +2,10 @@
  * @name Potential Timebomb
  * @description If there is data flow from a file's last modification date and an offset to a condition statement, this could trigger a "time bomb".
  * @kind path-problem
- * @precision Low
+ * @precision low
  * @problem.severity warning
- * @id cs/backdoor/potential-time-bomb
+ * @id githubsecuritylab/cs/backdoor/potential-time-bomb
  * @tags security
- *       experimental
  *       solorigate
  */
 

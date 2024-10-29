@@ -7,9 +7,8 @@
  * @kind problem
  * @problem.severity warning
  * @precision high
- * @id cs/web/cookie-httponly-not-set
+ * @id githubsecuritylab/cs/web/cookie-httponly-not-set
  * @tags security
- *       experimental
  *       external/cwe/cwe-1004
  */
 
@@ -17,7 +16,7 @@ import csharp
 import semmle.code.asp.WebConfig
 import semmle.code.csharp.frameworks.system.Web
 import semmle.code.csharp.frameworks.microsoft.AspNetCore
-import experimental.dataflow.flowsources.AuthCookie
+import security.dataflow.flowsources.AuthCookie
 
 from Expr httpOnlySink
 where

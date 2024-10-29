@@ -4,10 +4,9 @@
  *   Higher precision version checks for exception throws, so less false positives are expected.
  * @kind problem
  * @tags security
- *       experimental
  *       JsonWebTokenHandler
  *       manual-verification-required
- * @id cs/json-webtoken-handler/delegated-security-validations-always-return-true
+ * @id githubsecuritylab/cs/json-webtoken-handler/delegated-security-validations-always-return-true
  * @problem.severity error
  * @precision high
  */

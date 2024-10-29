@@ -3,9 +3,8 @@
  * @description Hashed passwords without a salt are vulnerable to dictionary attacks.
  * @kind path-problem
  * @problem.severity error
- * @id cs/hash-without-salt
+ * @id githubsecuritylab/cs/hash-without-salt
  * @tags security
- *       experimental
  *       external/cwe/cwe-759
  */
 
