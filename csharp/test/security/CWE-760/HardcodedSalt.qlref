@@ -1,1 +1,2 @@
-security/CWE-760/HardcodedSalt.ql
+query: security/CWE-760/HardcodedSalt.ql
+postprocess: TestUtilities/PrettyPrintModels.ql
