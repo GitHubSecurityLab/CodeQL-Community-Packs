@@ -143,7 +143,7 @@ jobs:
 
   configs:
     runs-on: ubuntu-latest
-    needs: compile
+    needs: compile-and-test
     
     steps:
       - uses: actions/checkout@v3
