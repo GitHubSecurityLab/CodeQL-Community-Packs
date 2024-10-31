@@ -28,7 +28,8 @@ for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
     elif [[ "$file" == $LANGUAGE/**.ql ]] || [[ "$file" == $LANGUAGE/**.qll ]] ; then
         echo "[+] Query $file changed (in $LANGUAGE)"
 
-        SRC_DIR=$(realpath --relative-to="./${LANGUAGE}/src" "$file")
+        SRC_FILE=$(realpath --relative-to="./${LANGUAGE}/src" "$file")
+        SRC_DIR=$(dirname "$SRC_FILE")
         TEST_DIR=./${LANGUAGE}/test/${SRC_DIR}
         
         if [[ -d "$TEST_DIR" ]]; then
