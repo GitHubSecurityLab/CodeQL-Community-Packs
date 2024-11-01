@@ -57,6 +57,9 @@ jobs:
         with:
           python-version: "3.9"
 
+      - name: Install Python dependencies
+        run: pip install -r .github/scripts/requirements.txt
+
       - name: Test Queries
         if: steps.changes.outputs.src == 'true'
         env:
