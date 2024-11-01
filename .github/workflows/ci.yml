@@ -80,10 +80,10 @@ jobs:
             print_error(fmt, args)
             sys.exit(1)
 
-          workspace = os.environ['GITHUB_WORKSPACE']
           runner_temp = os.environ['RUNNER_TEMP']
 
-          language_root = Path(workspace, '${{ matrix.language }}')
+          language_root = Path('${{ github.workspace }}', '${{ matrix.language }}')
+          print(f"Looking for tests in the directory '{language_root}'")
           test_roots = list(map(str, language_root.glob('*/test')))
           for test_root in test_roots:
             print(f"Executing tests found (recursively) in the directory '{test_root}'")
