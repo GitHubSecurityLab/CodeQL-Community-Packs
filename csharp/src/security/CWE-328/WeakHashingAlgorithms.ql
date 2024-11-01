@@ -14,6 +14,7 @@
 
 import csharp
 
+// Add dummy comment
 predicate incorrectUseOfMD5CryptoServiceProvider(ObjectCreation e, string msg) {
   e.getType()
       .(Class)
