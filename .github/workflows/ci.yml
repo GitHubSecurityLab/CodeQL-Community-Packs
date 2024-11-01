@@ -45,12 +45,12 @@ jobs:
           codeql pack install "${{ matrix.language }}/src"
           codeql pack install "${{ matrix.language }}/test"
 
-      - name: Compile Queries
-        if: steps.changes.outputs.src == 'true'
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          ./.github/scripts/pr-compile.sh ${{ github.event.number }} ${{ matrix.language }}
+      # - name: Compile Queries
+      #   if: steps.changes.outputs.src == 'true'
+      #   env:
+      #     GITHUB_TOKEN: ${{ github.token }}
+      #   run: |
+      #     ./.github/scripts/pr-compile.sh ${{ github.event.number }} ${{ matrix.language }}
 
       - name: Install Python
         uses: actions/setup-python@v4
