@@ -82,11 +82,8 @@ jobs:
 
           runner_temp = os.environ['RUNNER_TEMP']
 
-          language_root = Path('${{ github.workspace }}', '${{ matrix.language }}')
-          print(f"Looking for tests in the directory '{language_root}'")
-          test_roots = list(map(str, language_root.glob('*/test')))
-          for test_root in test_roots:
-            print(f"Executing tests found (recursively) in the directory '{test_root}'")
+          test_root = Path('${{ github.workspace }}', '${{ matrix.language }}', 'test')
+          print(f"Executing tests found (recursively) in the directory '{test_root}'")
           files_to_close = []
           try:
             # XL runners have 8 cores, so split the tests into 8 "slices", and run one per thread
@@ -98,7 +95,7 @@ jobs:
               os.makedirs(os.path.dirname(test_report_path), exist_ok=True)
               test_report_file = open(test_report_path, 'w')
               files_to_close.append(test_report_file)
-              procs.append(subprocess.Popen(["codeql", "test", "run", "--failing-exitcode=122", f"--slice={slice}/{num_slices}", "--ram=2048", "--format=json", *test_roots], stdout=test_report_file, stderr=subprocess.PIPE))
+              procs.append(subprocess.Popen(["codeql", "test", "run", "--failing-exitcode=122", f"--slice={slice}/{num_slices}", "--ram=2048", "--format=json", test_root], stdout=test_report_file, stderr=subprocess.PIPE))
 
             for p in procs:
               _, err = p.communicate()
