@@ -1,1 +1,1 @@
-experimental/Security Features/Serialization/UnsafeTypeUsedDataContractSerializer.ql
+security/Serialization/UnsafeTypeUsedDataContractSerializer.ql

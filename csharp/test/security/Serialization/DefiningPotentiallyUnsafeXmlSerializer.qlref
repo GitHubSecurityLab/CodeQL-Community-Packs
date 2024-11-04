@@ -1,1 +1,1 @@
-experimental/Security Features/Serialization/DefiningPotentiallyUnsafeXmlSerializer.ql
+security/Serialization/DefiningPotentiallyUnsafeXmlSerializer.ql

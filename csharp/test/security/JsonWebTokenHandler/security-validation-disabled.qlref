@@ -1,1 +1,1 @@
-experimental/Security Features/JsonWebTokenHandler/security-validation-disabled.ql
+security/JsonWebTokenHandler/security-validation-disabled.ql
