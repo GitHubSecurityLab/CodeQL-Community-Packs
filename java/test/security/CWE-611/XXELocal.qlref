@@ -1,1 +1,2 @@
-security/CWE-611/XXELocal.ql
+query: security/CWE-611/XXELocal.ql
+postprocess: TestUtilities/PrettyPrintModels.ql

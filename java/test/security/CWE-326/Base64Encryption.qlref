@@ -1,1 +1,2 @@
-security/CWE-326/Base64Encryption.ql
+query: security/CWE-326/Base64Encryption.ql
+postprocess: TestUtilities/PrettyPrintModels.ql
