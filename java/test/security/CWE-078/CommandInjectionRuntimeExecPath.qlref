@@ -1,1 +1,2 @@
-security/CWE-078/CommandInjectionRuntimeExecTestPath.ql
+query: security/CWE-078/CommandInjectionRuntimeExecTestPath.ql
+postprocess: TestUtilities/PrettyPrintModels.ql

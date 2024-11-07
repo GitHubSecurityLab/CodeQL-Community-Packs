@@ -1,12 +1,15 @@
+#select
+| XXELocal.java:24:25:24:35 | inputSource | XXELocal.java:15:39:15:63 | new FileInputStream(...) : FileInputStream | XXELocal.java:24:25:24:35 | inputSource | Unsafe parsing of XML file from $@. | XXELocal.java:15:39:15:63 | new FileInputStream(...) | user input |
 edges
-| XXELocal.java:15:39:15:63 | new FileInputStream(...) : FileInputStream | XXELocal.java:16:51:16:61 | inputStream : FileInputStream | provenance | Src:MaD:42645  |
+| XXELocal.java:15:39:15:63 | new FileInputStream(...) : FileInputStream | XXELocal.java:16:51:16:61 | inputStream : FileInputStream | provenance | Src:MaD:1  |
 | XXELocal.java:16:35:16:62 | new InputSource(...) : InputSource | XXELocal.java:24:25:24:35 | inputSource | provenance |  |
-| XXELocal.java:16:51:16:61 | inputStream : FileInputStream | XXELocal.java:16:35:16:62 | new InputSource(...) : InputSource | provenance | MaD:49768 |
+| XXELocal.java:16:51:16:61 | inputStream : FileInputStream | XXELocal.java:16:35:16:62 | new InputSource(...) : InputSource | provenance | MaD:2 |
+models
+| 1 | Source: java.io; FileInputStream; true; FileInputStream; ; ; Argument[this]; file; manual |
+| 2 | Summary: org.xml.sax; InputSource; false; InputSource; ; ; Argument[0]; Argument[this]; taint; manual |
 nodes
 | XXELocal.java:15:39:15:63 | new FileInputStream(...) : FileInputStream | semmle.label | new FileInputStream(...) : FileInputStream |
 | XXELocal.java:16:35:16:62 | new InputSource(...) : InputSource | semmle.label | new InputSource(...) : InputSource |
 | XXELocal.java:16:51:16:61 | inputStream : FileInputStream | semmle.label | inputStream : FileInputStream |
 | XXELocal.java:24:25:24:35 | inputSource | semmle.label | inputSource |
 subpaths
-#select
-| XXELocal.java:24:25:24:35 | inputSource | XXELocal.java:15:39:15:63 | new FileInputStream(...) : FileInputStream | XXELocal.java:24:25:24:35 | inputSource | Unsafe parsing of XML file from $@. | XXELocal.java:15:39:15:63 | new FileInputStream(...) | user input |
