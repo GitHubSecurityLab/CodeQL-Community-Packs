@@ -4,9 +4,8 @@
  * @kind problem
  * @problem.severity warning
  * @precision medium
- * @id java/main-method-in-enterprise-bean
+ * @id githubsecuritylab/java/main-method-in-enterprise-bean
  * @tags security
- *       experimental
  *       external/cwe/cwe-489
  */
 

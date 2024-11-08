@@ -5,14 +5,13 @@
  * @kind problem
  * @problem.severity error
  * @precision high
- * @id java/struts-development-mode
+ * @id githubsecuritylab/java/struts-development-mode
  * @tags security
- *       experimental
  *       external/cwe/cwe-489
  */
 
 import java
-import experimental.semmle.code.xml.StrutsXML
+import semmle.code.xml.StrutsXML
 
 bindingset[path]
 predicate isLikelyDemoProject(string path) { path.regexpMatch("(?i).*(demo|test|example).*") }

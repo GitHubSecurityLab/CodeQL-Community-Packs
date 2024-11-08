@@ -3,10 +3,9 @@
  * @description Using a path specified in an Android Intent without validation could leak arbitrary
  *              Android configuration file and sensitive user data.
  * @kind path-problem
- * @id java/sensitive-android-file-leak
+ * @id githubsecuritylab/java/sensitive-android-file-leak
  * @problem.severity warning
  * @tags security
- *       experimental
  *       external/cwe/cwe-200
  */
 

@@ -5,9 +5,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/unsafe-tls-version
+ * @id githubsecuritylab/java/unsafe-tls-version
  * @tags security
- *       experimental
  *       external/cwe/cwe-327
  */
 

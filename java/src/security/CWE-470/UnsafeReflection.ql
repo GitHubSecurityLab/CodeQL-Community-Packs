@@ -5,9 +5,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/unsafe-reflection
+ * @id githubsecuritylab/java/unsafe-reflection
  * @tags security
- *       experimental
  *       external/cwe/cwe-470
  */
 

@@ -5,9 +5,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/ip-address-spoofing
+ * @id githubsecuritylab/java/ip-address-spoofing
  * @tags security
- *       experimental
  *       external/cwe/cwe-348
  */
 

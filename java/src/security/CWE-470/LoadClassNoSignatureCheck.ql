@@ -7,9 +7,8 @@
  * @problem.severity error
  * @precision high
  * @kind path-problem
- * @id java/android/unsafe-reflection
+ * @id githubsecuritylab/java/android/unsafe-reflection
  * @tags security
- *       experimental
  *       external/cwe/cwe-470
  */
 

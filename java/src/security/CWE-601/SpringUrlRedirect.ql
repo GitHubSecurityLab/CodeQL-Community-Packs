@@ -5,14 +5,13 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/spring-unvalidated-url-redirection
+ * @id githubsecuritylab/java/spring-unvalidated-url-redirection
  * @tags security
- *       experimental
  *       external/cwe/cwe-601
  */
 
 import java
-import experimental.semmle.code.java.security.SpringUrlRedirect
+import semmle.code.java.security.SpringUrlRedirect
 import semmle.code.java.dataflow.FlowSources
 import semmle.code.java.controlflow.Guards
 import SpringUrlRedirectFlow::PathGraph

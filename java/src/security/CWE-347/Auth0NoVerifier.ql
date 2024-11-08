@@ -5,7 +5,7 @@
  * @problem.severity error
  * @security-severity 7.8
  * @precision high
- * @id java/missing-jwt-signature-check-auth0
+ * @id githubsecuritylab/java/missing-jwt-signature-check-auth0
  * @tags security
  *       external/cwe/cwe-347
  */

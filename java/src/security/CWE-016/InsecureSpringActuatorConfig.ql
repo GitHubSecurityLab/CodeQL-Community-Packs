@@ -5,9 +5,8 @@
  * @kind problem
  * @problem.severity error
  * @precision high
- * @id java/insecure-spring-actuator-config
+ * @id githubsecuritylab/java/insecure-spring-actuator-config
  * @tags security
- *       experimental
  *       external/cwe/cwe-016
  */
 

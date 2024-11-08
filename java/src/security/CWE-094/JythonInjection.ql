@@ -5,9 +5,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/jython-injection
+ * @id githubsecuritylab/java/jython-injection
  * @tags security
- *       experimental
  *       external/cwe/cwe-094
  *       external/cwe/cwe-095
  */

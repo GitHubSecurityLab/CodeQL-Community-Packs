@@ -1,5 +1,5 @@
-import experimental.semmle.code.java.security.FileAndFormRemoteSource
-import experimental.semmle.code.java.security.DecompressionBomb::DecompressionBomb
+import semmle.code.java.security.FileAndFormRemoteSource
+import semmle.code.java.security.DecompressionBomb::DecompressionBomb
 
 module DecompressionBombsConfig implements DataFlow::ConfigSig {
   predicate isSource(DataFlow::Node source) { source instanceof RemoteFlowSource }

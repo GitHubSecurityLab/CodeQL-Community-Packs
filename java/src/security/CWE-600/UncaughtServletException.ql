@@ -7,9 +7,8 @@
  * @kind path-problem
  * @problem.severity warning
  * @precision medium
- * @id java/uncaught-servlet-exception
+ * @id githubsecuritylab/java/uncaught-servlet-exception
  * @tags security
- *       experimental
  *       external/cwe/cwe-600
  */
 

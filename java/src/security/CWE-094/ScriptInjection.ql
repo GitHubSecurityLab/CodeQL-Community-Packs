@@ -5,9 +5,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/unsafe-eval
+ * @id githubsecuritylab/java/unsafe-eval
  * @tags security
- *       experimental
  *       external/cwe/cwe-094
  */
 

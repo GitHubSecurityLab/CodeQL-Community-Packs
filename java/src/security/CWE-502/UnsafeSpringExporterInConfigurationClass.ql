@@ -6,9 +6,8 @@
  * @kind problem
  * @problem.severity error
  * @precision high
- * @id java/unsafe-deserialization-spring-exporter-in-configuration-class
+ * @id githubsecuritylab/java/unsafe-deserialization-spring-exporter-in-configuration-class
  * @tags security
- *       experimental
  *       external/cwe/cwe-502
  */
 

@@ -5,9 +5,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/timing-attack-against-headers-value
+ * @id githubsecuritylab/java/timing-attack-against-headers-value
  * @tags security
- *       experimental
  *       external/cwe/cwe-208
  */
 

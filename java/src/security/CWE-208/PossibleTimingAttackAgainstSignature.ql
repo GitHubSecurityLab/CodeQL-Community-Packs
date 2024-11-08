@@ -7,9 +7,8 @@
  * @kind path-problem
  * @problem.severity warning
  * @precision medium
- * @id java/possible-timing-attack-against-signature
+ * @id githubsecuritylab/java/possible-timing-attack-against-signature
  * @tags security
- *       experimental
  *       external/cwe/cwe-208
  */
 

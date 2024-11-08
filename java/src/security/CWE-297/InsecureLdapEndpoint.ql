@@ -6,9 +6,8 @@
  * @kind problem
  * @problem.severity warning
  * @precision medium
- * @id java/insecure-ldaps-endpoint
+ * @id githubsecuritylab/java/insecure-ldaps-endpoint
  * @tags security
- *       experimental
  *       external/cwe/cwe-297
  */
 

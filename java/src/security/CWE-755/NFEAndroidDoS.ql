@@ -7,9 +7,8 @@
  * @kind path-problem
  * @problem.severity warning
  * @precision medium
- * @id java/android/nfe-local-android-dos
+ * @id githubsecuritylab/java/android/nfe-local-android-dos
  * @tags security
- *       experimental
  *       external/cwe/cwe-755
  */
 

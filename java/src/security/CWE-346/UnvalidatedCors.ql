@@ -4,9 +4,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/unvalidated-cors-origin-set
+ * @id githubsecuritylab/java/unvalidated-cors-origin-set
  * @tags security
- *       experimental
  *       external/cwe/cwe-346
  */
 

@@ -5,9 +5,8 @@
  * @kind path-problem
  * @problem.severity warning
  * @precision high
- * @id java/permissive-dot-regex
+ * @id githubsecuritylab/java/permissive-dot-regex
  * @tags security
- *       experimental
  *       external/cwe/cwe-625
  *       external/cwe/cwe-863
  */

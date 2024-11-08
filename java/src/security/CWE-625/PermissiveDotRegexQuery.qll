@@ -3,7 +3,7 @@
 import java
 private import semmle.code.java.dataflow.ExternalFlow
 private import semmle.code.java.dataflow.FlowSources
-import experimental.semmle.code.java.security.SpringUrlRedirect
+import semmle.code.java.security.SpringUrlRedirect
 import semmle.code.java.controlflow.Guards
 import semmle.code.java.security.UrlRedirect
 import Regex

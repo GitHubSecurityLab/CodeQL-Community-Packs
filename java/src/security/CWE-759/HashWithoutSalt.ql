@@ -4,9 +4,8 @@
  * @kind path-problem
  * @problem.severity warning
  * @precision low
- * @id java/hash-without-salt
+ * @id githubsecuritylab/java/hash-without-salt
  * @tags security
- *       experimental
  *       external/cwe/cwe-759
  */
 

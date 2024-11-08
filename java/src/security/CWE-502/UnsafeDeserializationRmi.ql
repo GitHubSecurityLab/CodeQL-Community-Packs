@@ -7,9 +7,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/unsafe-deserialization-rmi
+ * @id githubsecuritylab/java/unsafe-deserialization-rmi
  * @tags security
- *       experimental
  *       external/cwe/cwe-502
  */
 

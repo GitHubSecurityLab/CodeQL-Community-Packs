@@ -4,9 +4,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/spring-view-manipulation
+ * @id githubsecuritylab/java/spring-view-manipulation
  * @tags security
- *       experimental
  *       external/cwe/cwe-094
  */
 

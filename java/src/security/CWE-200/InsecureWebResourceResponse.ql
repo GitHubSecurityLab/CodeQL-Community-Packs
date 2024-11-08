@@ -3,10 +3,9 @@
  * @description An insecure implementation of Android `WebResourceResponse` may lead to leakage of arbitrary
  *               sensitive content.
  * @kind path-problem
- * @id java/insecure-webview-resource-response
+ * @id githubsecuritylab/java/insecure-webview-resource-response
  * @problem.severity error
  * @tags security
- *       experimental
  *       external/cwe/cwe-200
  */
 

@@ -6,9 +6,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/file-path-injection
+ * @id githubsecuritylab/java/file-path-injection
  * @tags security
- *       experimental
  *       external/cwe/cwe-073
  */
 

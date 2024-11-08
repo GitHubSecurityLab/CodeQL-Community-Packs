@@ -4,9 +4,8 @@
  * @kind problem
  * @problem.severity warning
  * @precision high
- * @id java/credentials-in-properties
+ * @id githubsecuritylab/java/credentials-in-properties
  * @tags security
- *       experimental
  *       external/cwe/cwe-555
  *       external/cwe/cwe-256
  *       external/cwe/cwe-260
@@ -21,7 +20,7 @@
  */
 
 import java
-import experimental.semmle.code.java.frameworks.CredentialsInPropertiesFile
+import semmle.code.java.frameworks.CredentialsInPropertiesFile
 
 /**
  * Holds if the credentials are in a non-production properties file indicated by:

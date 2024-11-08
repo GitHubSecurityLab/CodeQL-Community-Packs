@@ -6,9 +6,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/mybatis-annotation-sql-injection
+ * @id githubsecuritylab/java/mybatis-annotation-sql-injection
  * @tags security
- *       experimental
  *       external/cwe/cwe-089
  */
 

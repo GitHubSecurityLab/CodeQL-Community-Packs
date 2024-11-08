@@ -5,9 +5,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/jshell-injection
+ * @id githubsecuritylab/java/jshell-injection
  * @tags security
- *       experimental
  *       external/cwe/cwe-094
  */
 

@@ -5,9 +5,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/disabled-certificate-revocation-checking
+ * @id githubsecuritylab/java/disabled-certificate-revocation-checking
  * @tags security
- *       experimental
  *       external/cwe/cwe-299
  */
 

@@ -4,9 +4,8 @@
  * @kind problem
  * @problem.severity warning
  * @precision medium
- * @id java/main-method-in-web-components
+ * @id githubsecuritylab/java/main-method-in-web-components
  * @tags security
- *       experimental
  *       external/cwe/cwe-489
  */
 

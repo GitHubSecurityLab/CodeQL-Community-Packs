@@ -8,9 +8,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/timing-attack-against-signature
+ * @id githubsecuritylab/java/timing-attack-against-signature
  * @tags security
- *       experimental
  *       external/cwe/cwe-208
  */
 

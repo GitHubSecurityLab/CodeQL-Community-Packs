@@ -5,9 +5,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/xquery-injection
+ * @id githubsecuritylab/java/xquery-injection
  * @tags security
- *       experimental
  *       external/cwe/cwe-652
  */
 

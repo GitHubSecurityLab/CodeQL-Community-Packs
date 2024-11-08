@@ -5,9 +5,8 @@
  * @kind path-problem
  * @problem.severity error
  * @precision high
- * @id java/android-insecure-dex-loading
+ * @id githubsecuritylab/java/android-insecure-dex-loading
  * @tags security
- *       experimental
  *       external/cwe/cwe-094
  */
 

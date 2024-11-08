@@ -6,9 +6,8 @@
  * @kind problem
  * @problem.severity warning
  * @precision medium
- * @id java/incorrect-url-verification
+ * @id githubsecuritylab/java/incorrect-url-verification
  * @tags security
- *       experimental
  *       external/cwe/cwe-939
  */
 

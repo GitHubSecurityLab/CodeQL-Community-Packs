@@ -4,9 +4,8 @@
  * @kind problem
  * @problem.severity warning
  * @precision medium
- * @id java/tomcat-disabled-httponly
+ * @id githubsecuritylab/java/tomcat-disabled-httponly
  * @tags security
- *       experimental
  *       external/cwe/cwe-1004
  */
 

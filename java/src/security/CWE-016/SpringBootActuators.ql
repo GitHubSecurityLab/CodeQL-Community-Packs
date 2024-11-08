@@ -5,9 +5,8 @@
  * @kind problem
  * @problem.severity error
  * @precision high
- * @id java/spring-boot-exposed-actuators
+ * @id githubsecuritylab/java/spring-boot-exposed-actuators
  * @tags security
- *       experimental
  *       external/cwe/cwe-16
  */
 

@@ -5,9 +5,8 @@
  * @kind problem
  * @problem.severity error
  * @precision high
- * @id java/ignored-hostname-verification
+ * @id githubsecuritylab/java/ignored-hostname-verification
  * @tags security
- *       experimental
  *       external/cwe/cwe-297
  */
 

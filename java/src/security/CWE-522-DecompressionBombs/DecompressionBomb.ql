@@ -5,14 +5,13 @@
  * @problem.severity error
  * @security-severity 7.8
  * @precision high
- * @id java/uncontrolled-file-decompression
+ * @id githubsecuritylab/java/uncontrolled-file-decompression
  * @tags security
- *       experimental
  *       external/cwe/cwe-409
  */
 
 import java
-import experimental.semmle.code.java.security.DecompressionBombQuery
+import semmle.code.java.security.DecompressionBombQuery
 import DecompressionBombsFlow::PathGraph
 
 from DecompressionBombsFlow::PathNode source, DecompressionBombsFlow::PathNode sink
