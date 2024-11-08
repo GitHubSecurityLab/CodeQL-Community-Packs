@@ -111,10 +111,10 @@ deprecated class UntrustedDataToExternalApiConfig extends TaintTracking::Configu
 }
 
 /**
- * Taint tracking configuration for flow from `ThreatModelFlowSource`s to `ExternalApiDataNode`s.
+ * Taint tracking configuration for flow from `ActiveThreatModelSource`s to `ExternalApiDataNode`s.
  */
 module UntrustedDataToExternalApiConfig implements DataFlow::ConfigSig {
-  predicate isSource(DataFlow::Node source) { source instanceof ThreatModelFlowSource }
+  predicate isSource(DataFlow::Node source) { source instanceof ActiveThreatModelSource }
 
   predicate isSink(DataFlow::Node sink) { sink instanceof ExternalApiDataNode }
 }
@@ -247,7 +247,7 @@ private string typeAsModel(Callable c) {
   exists(RefType type | type = c.getDeclaringType() |
     result =
       type.getCompilationUnit().getPackage().getName() + ";" +
-        type.getErasure().(J::RefType).nestedName()
+        type.getErasure().(J::RefType).getNestedName()
   )
 }
 
