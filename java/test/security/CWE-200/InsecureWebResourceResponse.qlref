@@ -1,0 +1,2 @@
+query: experimental/Security/CWE/CWE-200/InsecureWebResourceResponse.ql
+postprocess: TestUtilities/PrettyPrintModels.ql
