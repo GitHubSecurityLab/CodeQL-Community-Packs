@@ -5,9 +5,8 @@
  * @problem.severity error
  * @security-severity 9.8
  * @precision high
- * @id java/command-line-injection-extra
+ * @id githubsecuritylab/java/command-line-injection-extra
  * @tags security
- *       experimental
  *       external/cwe/cwe-078
  */
 
