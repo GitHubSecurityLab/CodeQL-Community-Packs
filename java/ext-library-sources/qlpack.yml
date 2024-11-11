@@ -8,3 +8,4 @@ dataExtensions:
   - 'manual/**/*.yml'
   - 'generated/*.yml'
   - 'generated/**/*.yml'
+  - 'experimental/*.yml'
