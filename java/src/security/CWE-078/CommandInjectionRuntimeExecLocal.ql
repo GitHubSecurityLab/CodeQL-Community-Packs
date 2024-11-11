@@ -5,31 +5,22 @@
  * @problem.severity error
  * @security-severity 6.1
  * @precision high
- * @id githubsecuritylab/command-line-injection-extra-local
+ * @id java/command-line-injection-extra-local
  * @tags security
+ *       experimental
  *       local
  *       external/cwe/cwe-078
  */
 
-import ghsl.CommandInjectionRuntimeExec
+import CommandInjectionRuntimeExec
+import ExecUserFlow::PathGraph
 
-class LocalSource extends Source {
-  LocalSource() { this instanceof LocalUserInput }
-}
+class LocalSource extends Source instanceof LocalUserInput { }
 
-module Flow = TaintTracking::Global<RuntimeExec::RuntimeExecConfiguration>;
-
-module Flow2 = TaintTracking::Global<ExecTaint::ExecTaintConfiguration>;
-
-module FlowGraph =
-  DataFlow::MergePathGraph<Flow::PathNode, Flow2::PathNode, Flow::PathGraph, Flow2::PathGraph>;
-
-import FlowGraph::PathGraph
-
-from FlowGraph::PathNode source, FlowGraph::PathNode sink
-where
-  Flow::flowPath(source.asPathNode1(), sink.asPathNode1()) or
-  Flow2::flowPath(source.asPathNode2(), sink.asPathNode2())
-select sink.getNode(), source, sink,
+from
+  ExecUserFlow::PathNode source, ExecUserFlow::PathNode sink, DataFlow::Node sourceCmd,
+  DataFlow::Node sinkCmd
+where callIsTaintedByUserInputAndDangerousCommand(source, sink, sourceCmd, sinkCmd)
+select sink, source, sink,
   "Call to dangerous java.lang.Runtime.exec() with command '$@' with arg from untrusted input '$@'",
-  source, source.toString(), source.getNode(), source.toString()
+  sourceCmd, sourceCmd.toString(), source.getNode(), source.toString()

@@ -3,32 +3,23 @@
  * @description High sensitvity and precision version of java/command-line-injection, designed to find more cases of command injection in rare cases that the default query does not find
  * @kind path-problem
  * @problem.severity error
- * @security-severity 6.1
+ * @security-severity 9.8
  * @precision high
- * @id githubsecuritylab/command-line-injection-extra
+ * @id java/command-line-injection-extra
  * @tags security
+ *       experimental
  *       external/cwe/cwe-078
  */
 
-import ghsl.CommandInjectionRuntimeExec
+import CommandInjectionRuntimeExec
+import ExecUserFlow::PathGraph
 
-class RemoteSource extends Source {
-  RemoteSource() { this instanceof RemoteFlowSource }
-}
+class ThreatModelSource extends Source instanceof ActiveThreatModelSource { }
 
-module Flow = TaintTracking::Global<RuntimeExec::RuntimeExecConfiguration>;
-
-module Flow2 = TaintTracking::Global<ExecTaint::ExecTaintConfiguration>;
-
-module FlowGraph =
-  DataFlow::MergePathGraph<Flow::PathNode, Flow2::PathNode, Flow::PathGraph, Flow2::PathGraph>;
-
-import FlowGraph::PathGraph
-
-from FlowGraph::PathNode source, FlowGraph::PathNode sink
-where
-  Flow::flowPath(source.asPathNode1(), sink.asPathNode1()) or
-  Flow2::flowPath(source.asPathNode2(), sink.asPathNode2())
-select sink.getNode(), source, sink,
+from
+  ExecUserFlow::PathNode source, ExecUserFlow::PathNode sink, DataFlow::Node sourceCmd,
+  DataFlow::Node sinkCmd
+where callIsTaintedByUserInputAndDangerousCommand(source, sink, sourceCmd, sinkCmd)
+select sink, source, sink,
   "Call to dangerous java.lang.Runtime.exec() with command '$@' with arg from untrusted input '$@'",
-  source, source.toString(), source.getNode(), source.toString()
+  sourceCmd, sourceCmd.toString(), source.getNode(), source.toString()
