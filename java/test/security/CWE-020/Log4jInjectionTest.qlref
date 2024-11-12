@@ -1,2 +1,2 @@
-query: experimental/Security/CWE/CWE-020/Log4jJndiInjection.ql
+query: security/CWE-020/Log4jJndiInjection.ql
 postprocess: TestUtilities/PrettyPrintModels.ql

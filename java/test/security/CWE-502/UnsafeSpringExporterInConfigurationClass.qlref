@@ -1,1 +1,1 @@
-experimental/Security/CWE/CWE-502/UnsafeSpringExporterInConfigurationClass.ql
+security/CWE-502/UnsafeSpringExporterInConfigurationClass.ql

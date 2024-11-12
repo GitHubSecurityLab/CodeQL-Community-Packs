@@ -1,2 +1,2 @@
-query: experimental/Security/CWE/CWE-600/UncaughtServletException.ql
+query: security/CWE-600/UncaughtServletException.ql
 postprocess: TestUtilities/PrettyPrintModels.ql

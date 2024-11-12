@@ -1,2 +1,2 @@
-query: experimental/Security/CWE/CWE-094/ScriptInjection.ql
+query: security/CWE-094/ScriptInjection.ql
 postprocess: TestUtilities/PrettyPrintModels.ql

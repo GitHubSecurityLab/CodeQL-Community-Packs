@@ -1,2 +1,2 @@
-query: experimental/Security/CWE/CWE-089/MyBatisMapperXmlSqlInjection.ql
+query: security/CWE-089/MyBatisMapperXmlSqlInjection.ql
 postprocess: TestUtilities/PrettyPrintModels.ql

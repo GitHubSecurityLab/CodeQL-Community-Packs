@@ -1,2 +1,2 @@
-query: experimental/Security/CWE/CWE-327/UnsafeTlsVersion.ql
+query: security/CWE-327/UnsafeTlsVersion.ql
 postprocess: TestUtilities/PrettyPrintModels.ql

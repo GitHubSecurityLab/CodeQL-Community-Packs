@@ -1,2 +1,2 @@
-query: experimental/Security/CWE/CWE-652/XQueryInjection.ql
+query: security/CWE-652/XQueryInjection.ql
 postprocess: TestUtilities/PrettyPrintModels.ql

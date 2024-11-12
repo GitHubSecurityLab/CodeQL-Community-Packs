@@ -1,2 +1,2 @@
-query: experimental/Security/CWE/CWE-759/HashWithoutSalt.ql
+query: security/CWE-759/HashWithoutSalt.ql
 postprocess: TestUtilities/PrettyPrintModels.ql
