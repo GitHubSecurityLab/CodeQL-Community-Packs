@@ -3,7 +3,6 @@
  */
 
 import semmle.code.java.dataflow.ExternalFlow
-import codeql.dataflow.test.ProvenancePathGraph
 import codeql.dataflow.test.ProvenancePathGraph::TestPostProcessing::TranslateProvenanceResults<interpretModelForTest/2>
 
 from string relation, int row, int column, string data
