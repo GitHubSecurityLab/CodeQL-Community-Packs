@@ -1,0 +1,1 @@
+// semmle-extractor-options: --javac-args -cp ${testdir}/../../../../codeql/java/ql/test/stubs/servlet-api-2.4:${testdir}/../../../../codeql/java/ql/test/stubs/ejb-3.2

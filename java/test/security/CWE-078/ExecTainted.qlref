@@ -1,0 +1,2 @@
+query: security/CWE-078/ExecTainted.ql
+postprocess: TestUtilities/PrettyPrintModels.ql

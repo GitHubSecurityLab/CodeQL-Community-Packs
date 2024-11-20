@@ -1,0 +1,2 @@
+query: security/CWE-299/DisabledRevocationChecking.ql
+postprocess: TestUtilities/PrettyPrintModels.ql

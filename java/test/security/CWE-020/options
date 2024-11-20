@@ -1,0 +1,1 @@
+//semmle-extractor-options: --javac-args -cp ${testdir}/../../../../codeql/java/ql/test/stubs/apache-log4j-2.14.1:${testdir}/../../../../codeql/java/ql/test/stubs/servlet-api-2.4

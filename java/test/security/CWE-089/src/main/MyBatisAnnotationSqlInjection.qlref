@@ -1,0 +1,2 @@
+query: security/CWE-089/MyBatisAnnotationSqlInjection.ql
+postprocess: TestUtilities/PrettyPrintModels.ql
