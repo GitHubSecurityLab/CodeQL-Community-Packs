@@ -21,10 +21,6 @@ import semmle.code.java.security.PathSanitizer
 private import semmle.code.java.security.Sanitizers
 import InjectFilePathFlow::PathGraph
 
-private class ActivateModels extends ActiveExperimentalModels {
-  ActivateModels() { this = "file-path-injection" }
-}
-
 /** A complementary sanitizer that protects against path traversal using path normalization. */
 class PathNormalizeSanitizer extends MethodCall {
   PathNormalizeSanitizer() {
