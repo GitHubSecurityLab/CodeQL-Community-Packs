@@ -15,31 +15,34 @@ import java
 import semmle.code.java.dataflow.FlowSources
 import semmle.code.java.dataflow.TaintTracking2
 import semmle.code.java.security.XSS
-import DataFlow::PathGraph
 import semmle.code.java.frameworks.Servlets
 import JSPLocations
 
-class XSSConfig extends TaintTracking::Configuration {
-  XSSConfig() { this = "XSSConfig" }
+module Xss {
+  module XssConfig implements DataFlow::ConfigSig {
+    predicate isSource(DataFlow::Node source) { source instanceof RemoteFlowSource }
 
-  override predicate isSource(DataFlow::Node source) { source instanceof RemoteFlowSource }
+    predicate isSink(DataFlow::Node sink) { sink instanceof XssSink }
 
-  override predicate isSink(DataFlow::Node sink) { sink instanceof XssSink }
+    predicate isBarrier(DataFlow::Node node) { node instanceof XssSanitizer }
 
-  override predicate isSanitizer(DataFlow::Node node) { node instanceof XssSanitizer }
+    predicate isBarrierOut(DataFlow::Node node) { node instanceof XssSinkBarrier }
 
-  override predicate isSanitizerOut(DataFlow::Node node) { node instanceof XssSinkBarrier }
-
-  override predicate isAdditionalTaintStep(DataFlow::Node node1, DataFlow::Node node2) {
-    any(XssAdditionalTaintStep s).step(node1, node2)
+    predicate isAdditionalFlowStep(DataFlow::Node node1, DataFlow::Node node2) {
+      any(XssAdditionalTaintStep s).step(node1, node2)
+    }
   }
+
+  module XssFlow = TaintTracking::Global<XssConfig>;
+
+  import XssFlow::PathGraph
 }
 
 // additional sources: Consider return values of ServletRequest methods to be tainted (potentially noisy)
 class ServletRequestSource extends RemoteFlowSource {
   ServletRequestSource() {
     exists(Method m |
-      this.asExpr().(MethodAccess).getMethod() = m and
+      this.asExpr().(MethodCall).getMethod() = m and
       m.getDeclaringType().getAnAncestor*().getQualifiedName() = "javax.servlet.ServletRequest"
     )
   }
@@ -50,7 +53,7 @@ class ServletRequestSource extends RemoteFlowSource {
 // Additional taint step: If an object is tainted, so are its methods' return values
 class TaintedObjectMA extends XssAdditionalTaintStep {
   override predicate step(DataFlow::Node node1, DataFlow::Node node2) {
-    node1.asExpr() = node2.asExpr().(MethodAccess).getQualifier()
+    node1.asExpr() = node2.asExpr().(MethodCall).getQualifier()
   }
 }
 
@@ -115,7 +118,7 @@ class JSPTaintStep extends XssAdditionalTaintStep {
   }
 }
 
-MethodAccess methodCallOn(string methodName, Variable v) {
+MethodCall methodCallOn(string methodName, Variable v) {
   result.getQualifier() = v.getAnAccess() and result.getCallee().getName() = methodName
 }
 
@@ -124,10 +127,13 @@ class ForEachStep extends XssAdditionalTaintStep {
   override predicate step(DataFlow::Node node1, DataFlow::Node node2) {
     exists(Variable v, string varName, EvalCall eval |
       v.getType().getName() = "ForEachTag" and
-      exists(ContextFlowConfig config, DataFlow::Node ctxSrc |
-        config
-            .hasFlow(ctxSrc, DataFlow2::exprNode(methodCallOn("setPageContext", v).getArgument(0))) and
-        config.hasFlow(ctxSrc, DataFlow2::exprNode(eval.getCtxExpr()))
+      exists(DataFlow::Node ctxSrc |
+        ContextFlow::ContextFlow::flow(ctxSrc,
+          DataFlow2::exprNode(methodCallOn("setPageContext", v).getArgument(0))) and
+        ContextFlow::ContextFlow::flow(ctxSrc, DataFlow2::exprNode(eval.getCtxExpr()))
+        // config
+        //     .hasFlow(ctxSrc, DataFlow2::exprNode(methodCallOn("setPageContext", v).getArgument(0))) and
+        // config.hasFlow(ctxSrc, DataFlow2::exprNode(eval.getCtxExpr()))
       ) and
       node1.asExpr() = methodCallOn("setItems", v).getArgument(0) and
       node2.asExpr() = eval and
@@ -137,41 +143,47 @@ class ForEachStep extends XssAdditionalTaintStep {
   }
 }
 
-class LiteralConfig extends TaintTracking2::Configuration {
-  LiteralConfig() { this = "LiteralConfig" }
+module LiteralConfig {
+  module LiteralConfig implements DataFlow::ConfigSig {
+    predicate isSource(DataFlow::Node source) { source.asExpr() instanceof StringLiteral }
 
-  override predicate isSource(DataFlow2::Node source) { source.asExpr() instanceof StringLiteral }
-
-  override predicate isSink(DataFlow2::Node sink) {
-    exists(ReturnStmt rs | rs.getResult() = sink.asExpr())
+    predicate isSink(DataFlow::Node sink) { exists(ReturnStmt rs | rs.getResult() = sink.asExpr()) }
   }
+
+  module LiteralFlow = TaintTracking::Global<LiteralConfig>;
 }
 
-class ContextFlowConfig extends TaintTracking2::Configuration {
-  ContextFlowConfig() { this = "ContextFlowConfig" }
+module ContextFlow {
+  module ContextFlowConfig implements DataFlow::ConfigSig {
+    predicate isSource(DataFlow::Node source) {
+      source.asExpr().getType().getName() = "PageContext"
+    }
 
-  override predicate isSource(DataFlow2::Node source) {
-    source.asExpr().getType().getName() = "PageContext"
+    predicate isSink(DataFlow::Node sink) { sink.asExpr() instanceof Argument }
   }
 
-  override predicate isSink(DataFlow2::Node sink) { sink.asExpr() instanceof Argument }
+  module ContextFlow = TaintTracking::Global<ContextFlowConfig>;
 }
 
 class RedirectToJsp extends ReturnStmt {
   File jsp;
 
   RedirectToJsp() {
-    exists(DataFlow2::Node strLit, DataFlow2::Node retVal, LiteralConfig lc |
-      asLiteral(strLit.asExpr()).splitAt("/") + "_jsp.java" = jsp.getBaseName()
+    exists(DataFlow2::Node strLit, DataFlow2::Node retVal |
+      strLit.asExpr().(StringLiteral).getValue().splitAt("/") + "_jsp.java" = jsp.getBaseName()
     |
-      retVal.asExpr() = this.getResult() and lc.hasFlow(strLit, retVal)
+      retVal.asExpr() = this.getResult() and LiteralConfig::LiteralFlow::flow(strLit, retVal)
     )
   }
 
   File getJspFile() { result = jsp }
 }
 
-from DataFlow::PathNode source, DataFlow::PathNode sink, XSSConfig conf, JSPExpr jspe
-where conf.hasFlowPath(source, sink) and jspe.isClosest(sink.getNode().asExpr())
-select jspe, source, sink, "Cross-site scripting vulnerability due to $@.", source.getNode(),
-  "user-provided value"
+import Xss::XssFlow::PathGraph
+
+from Xss::XssFlow::PathNode source, Xss::XssFlow::PathNode sink, JSPTaintStep jspts
+where
+  Xss::XssFlow::flowPath(source, sink) and
+  jspts.step(source.getNode(), sink.getNode())
+select sink.getNode(), source, sink, "Cross-site scripting vulnerability due to $@.",
+  source.getNode(), "user-provided value"

@@ -1,0 +1,2 @@
+query: security/CWE-400/ThreadResourceAbuse.ql
+postprocess: TestUtilities/PrettyPrintModels.ql

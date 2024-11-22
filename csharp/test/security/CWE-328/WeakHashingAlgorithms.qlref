@@ -1,1 +1,2 @@
-security/CWE-328/WeakHashingAlgorithms.ql
+query: security/CWE-328/WeakHashingAlgorithms.ql
+postprocess: TestUtilities/PrettyPrintModels.ql

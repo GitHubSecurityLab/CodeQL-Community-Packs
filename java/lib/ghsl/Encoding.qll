@@ -11,7 +11,7 @@ module Base64 {
   // codeql/java/ql/lib/semmle/code/java/security/HardcodedCredentialsApiCallQuery.qll
   class Encoders extends Base64::Encoding {
     Encoders() {
-      exists(MethodAccess ma |
+      exists(MethodCall ma |
         ma.getMethod()
             .hasQualifiedName([
                 "java.util", "cn.hutool.core.codec", "org.apache.shiro.codec",
@@ -29,7 +29,7 @@ module Base64 {
 
   class Decoders extends Base64::Decoding {
     Decoders() {
-      exists(MethodAccess ma |
+      exists(MethodCall ma |
         ma.getMethod()
             .hasQualifiedName([
                 "java.util", "cn.hutool.core.codec", "org.apache.shiro.codec",

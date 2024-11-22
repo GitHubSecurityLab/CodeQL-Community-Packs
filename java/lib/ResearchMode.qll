@@ -38,7 +38,7 @@ class FieldTaintStep extends TaintTracking::AdditionalTaintStep {
 class NotifyWaitTaintStep extends TaintTracking::AdditionalTaintStep {
   override predicate step(DataFlow::Node n1, DataFlow::Node n2) {
     exists(
-      MethodAccess notify, RefType t, MethodAccess wait, SynchronizedStmt notifySync,
+      MethodCall notify, RefType t, MethodCall wait, SynchronizedStmt notifySync,
       SynchronizedStmt waitSync
     |
       notify.getMethod().getName() = ["notify", "notifyAll"] and
@@ -65,7 +65,7 @@ class NotifyWaitTaintStep extends TaintTracking::AdditionalTaintStep {
  */
 class ExceptionTaintStep extends TaintTracking::AdditionalTaintStep {
   override predicate step(DataFlow::Node n1, DataFlow::Node n2) {
-    exists(Call call, TryStmt t, CatchClause c, MethodAccess gm |
+    exists(Call call, TryStmt t, CatchClause c, MethodCall gm |
       call.getEnclosingStmt().getEnclosingStmt*() = t.getBlock() and
       t.getACatchClause() = c and
       (
@@ -85,7 +85,7 @@ class ExceptionTaintStep extends TaintTracking::AdditionalTaintStep {
  */
 private class GetterTaintStep extends TaintTracking::AdditionalTaintStep {
   override predicate step(DataFlow::Node n1, DataFlow::Node n2) {
-    exists(MethodAccess ma, Method m |
+    exists(MethodCall ma, Method m |
       ma.getMethod() = m and
       m.getName().matches("get%") and
       m.getNumberOfParameters() = 0 and
@@ -97,7 +97,7 @@ private class GetterTaintStep extends TaintTracking::AdditionalTaintStep {
 /*
  * private class SetterTaintStep extends TaintTracking::AdditionalTaintStep {
  *  override predicate step(DataFlow::Node n1, DataFlow::Node n2) {
- *    exists(MethodAccess ma, Method m |
+ *    exists(MethodCall ma, Method m |
  *      ma.getMethod() = m and
  *      m.getName().matches("set%") and
  *      m.getNumberOfParameters() = 1 and
@@ -110,8 +110,8 @@ private class GetterTaintStep extends TaintTracking::AdditionalTaintStep {
  *
  * class GlobalSanitizer extends TaintTracking::Sanitizer {
  *  override predicate sanitize(DataFlow::Node node) {
- *    node.asExpr().(MethodAccess).getMethod().hasName("getInputStream") or
- *    node.asExpr().(MethodAccess).getMethod().hasName("getHostName")
+ *    node.asExpr().(MethodCall).getMethod().hasName("getInputStream") or
+ *    node.asExpr().(MethodCall).getMethod().hasName("getHostName")
  *  }
  * }
  */

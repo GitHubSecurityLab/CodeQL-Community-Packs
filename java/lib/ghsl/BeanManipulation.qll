@@ -40,7 +40,7 @@ class SetPropertyMethod extends Method {
 
 class BeanManipulationSink extends DataFlow::ExprNode {
   BeanManipulationSink() {
-    exists(MethodAccess ma |
+    exists(MethodCall ma |
       ma.getMethod() instanceof SetPropertyMethod and
       this.getExpr() = ma.getAnArgument()
     )

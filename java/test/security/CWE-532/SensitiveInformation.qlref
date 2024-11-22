@@ -1,1 +1,2 @@
-security/CWE-532/SensitiveInformation.ql
+query: security/CWE-532/SensitiveInformation.ql
+postprocess: TestUtilities/PrettyPrintModels.ql

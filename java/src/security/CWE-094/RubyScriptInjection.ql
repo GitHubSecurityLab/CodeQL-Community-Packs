@@ -16,7 +16,7 @@ import RubyScriptInjectionFlow::PathGraph
 
 class BSFSink extends DataFlow::ExprNode {
   BSFSink() {
-    exists(MethodAccess ma, Method m | ma.getMethod() = m |
+    exists(MethodCall ma, Method m | ma.getMethod() = m |
       m.getName() = ["exec", "eval", "compileScript", "compileExpr", "compileApply"] and
       m.getDeclaringType().hasQualifiedName("org.apache.bsf", "BSFManager") and
       this.getExpr() = ma.getAnArgument()
@@ -26,7 +26,7 @@ class BSFSink extends DataFlow::ExprNode {
 
 class JRubySink extends DataFlow::ExprNode {
   JRubySink() {
-    exists(MethodAccess ma, Method m | ma.getMethod() = m |
+    exists(MethodCall ma, Method m | ma.getMethod() = m |
       m.getName() = ["runScriptlet", "parse"] and
       m.getDeclaringType().hasQualifiedName("org.jruby.embed", "ScriptingContainer") and
       this.getExpr() = ma.getAnArgument()

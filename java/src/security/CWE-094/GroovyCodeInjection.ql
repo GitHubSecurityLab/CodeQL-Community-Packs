@@ -37,7 +37,7 @@ class ParseClassMethod extends Method {
 
 class GroovyCodeInjectionSink extends DataFlow::ExprNode {
   GroovyCodeInjectionSink() {
-    exists(MethodAccess ma |
+    exists(MethodCall ma |
       ma.getMethod() instanceof ParseClassMethod and
       this.getExpr() = ma.getArgument(0)
     )

@@ -12,29 +12,33 @@
  *       external/cwe/cwe-078
  */
 
-import DataFlow::PathGraph
 import ghsl.CommandInjectionRuntimeExec
 
 class DataSource extends Source {
   DataSource() { this instanceof RemoteFlowSource or this instanceof LocalUserInput }
 }
 
+module Flow = TaintTracking::Global<RuntimeExec::RuntimeExecConfiguration>;
+
+module Flow2 = TaintTracking::Global<ExecTaint::ExecTaintConfiguration>;
+
+import Flow2::PathGraph
+
 from
-  DataFlow::PathNode source, DataFlow::PathNode sink, ExecTaintConfiguration2 conf,
-  MethodAccess call, DataFlow::Node sourceCmd, DataFlow::Node sinkCmd,
-  ExecTaintConfiguration confCmd
+  Flow::PathNode sourceExec, Flow::PathNode sinkExec, Flow2::PathNode sourceTaint,
+  Flow2::PathNode sinkTaint, MethodCall call
 where
   call.getMethod() instanceof RuntimeExecMethod and
-  // this is a command-accepting call to exec, e.g. rt.exec(new String[]{"/bin/sh", ...})
   (
-    confCmd.hasFlow(sourceCmd, sinkCmd) and
-    sinkCmd.asExpr() = call.getArgument(0)
+    // this is a command-accepting call to exec, e.g. exec("/bin/sh", ...)
+    Flow::flowPath(sourceExec, sinkExec) and
+    sinkExec.getNode().asExpr() = call.getArgument(0)
   ) and
-  // it is tainted by untrusted user input
   (
-    conf.hasFlow(source.getNode(), sink.getNode()) and
-    sink.getNode().asExpr() = call.getArgument(0)
+    // it is tainted by untrusted user input
+    Flow2::flowPath(sourceTaint, sinkTaint) and
+    sinkTaint.getNode().asExpr() = call.getArgument(0)
   )
-select sink, source, sink,
+select sinkTaint.getNode(), sourceTaint, sinkTaint,
   "Call to dangerous java.lang.Runtime.exec() with command '$@' with arg from untrusted input '$@'",
-  sourceCmd, sourceCmd.toString(), source.getNode(), source.toString()
+  sourceTaint, sourceTaint.toString(), sourceTaint, sourceTaint.toString()

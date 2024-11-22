@@ -6,4 +6,4 @@ defaultSuiteFile: suites/csharp.qls
 dependencies:
   codeql/csharp-all: "*"
   codeql/csharp-queries: "*" # Required for Dependencies.ql
-  githubsecuritylab/codeql-csharp-libs: 0.0.1
+  githubsecuritylab/codeql-csharp-libs: "*"

@@ -1,0 +1,259 @@
+name: Build CodeQL Packs 
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  compile-and-test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # Conditionally run actions based on files modified by PR, feature branch or pushed commits
+      - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+        id: changes
+        with:
+          filters: |
+            src:
+              - '${{ matrix.language }}/**'
+
+      - name: Initialize CodeQL
+        if: steps.changes.outputs.src == 'true'
+        run: |
+          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
+                       | sort \
+                       | tail -n 1 \
+                       | tr -d '\n')"
+          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+        
+      - name: Install Packs
+        if: steps.changes.outputs.src == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          gh repo clone github/codeql # to make stubs available for tests
+          codeql pack download "codeql/${{ matrix.language }}-queries"
+          codeql pack install "${{ matrix.language }}/lib"
+          codeql pack install "${{ matrix.language }}/src"
+          codeql pack install "${{ matrix.language }}/test"
+
+      - name: Compile Queries
+        if: steps.changes.outputs.src == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          ./.github/scripts/pr-compile.sh ${{ github.event.number }} ${{ matrix.language }}
+
+      - name: Test Queries
+        if: steps.changes.outputs.src == 'true'
+        env:
+          RUNNER_TEMP: ${{ runner.temp }}
+        shell: python
+        run: |
+          import os
+          import sys
+          import subprocess
+          from pathlib import Path
+
+          def print_error(fmt, *args):
+            print(f"::error::{fmt}", *args)
+
+          def print_error_and_fail(fmt, *args):
+            print_error(fmt, args)
+            sys.exit(1)
+
+          runner_temp = os.environ['RUNNER_TEMP']
+
+          test_root = Path('${{ github.workspace }}', '${{ matrix.language }}', 'test')
+          print(f"Executing tests found (recursively) in the directory '{test_root}'")
+          files_to_close = []
+          try:
+            # Runners have 4 cores, so split the tests into 4 "slices", and run one per thread
+            num_slices = 4
+            procs = []
+
+            for slice in range(1, num_slices+1):
+              test_report_path = os.path.join(runner_temp, "${{ matrix.language }}", f"test_report_slice_{slice}_of_{num_slices}.json")
+              os.makedirs(os.path.dirname(test_report_path), exist_ok=True)
+              test_report_file = open(test_report_path, 'w')
+              files_to_close.append(test_report_file)
+              procs.append(subprocess.Popen(["codeql", "test", "run", "--failing-exitcode=122", f"--slice={slice}/{num_slices}", "--ram=2048", "--format=json", test_root], stdout=test_report_file, stderr=subprocess.PIPE))
+
+            for p in procs:
+              _, err = p.communicate()
+              if p.returncode != 0:
+                if p.returncode == 122:
+                  # Failed because a test case failed, so just print the regular output.
+                  # This will allow us to proceed to validate-test-results, which will fail if
+                  # any test cases failed
+                  print(f"{err.decode()}")
+                else:
+                  # Some more serious problem occurred, so print and fail fast
+                  print_error_and_fail(f"Failed to run tests with return code {p.returncode}\n{err.decode()}")
+          finally:
+            for file in files_to_close:
+              file.close()
+
+      - name: Upload test results
+        if: steps.changes.outputs.src == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.language }}-test-results
+          path: |
+            ${{ runner.temp }}/${{ matrix.language }}/test_report_slice_*.json
+          if-no-files-found: error
+
+      - name: Compile / Check Suites & Packs
+        if: steps.changes.outputs.src == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          ./.github/scripts/pr-suites-packs.sh ${{ github.event.number }} ${{ matrix.language }}
+
+  validate-test-results:
+    name: Validate test results
+    needs: compile-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if compile-and-test job failed to complete, if so fail
+        if: ${{ needs.compile-and-test.result == 'failure' }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setFailed('Test run job failed')
+
+      - name: Collect test results
+        uses: actions/download-artifact@v4
+
+      - name: Validate test results
+        run: |
+          if [[ ! -n "$(find . -name 'test_report_*' -print -quit)" ]]; then
+            echo "No test results found"
+            exit 0
+          fi
+
+          for json_report in *-test-results/test_report_*
+          do
+            jq --raw-output '"PASS \(map(select(.pass == true)) | length)/\(length)'" $json_report\"" "$json_report"
+          done
+          FAILING_TESTS=$(jq --raw-output '.[] | select(.pass == false)' *-test-results/test_report_*.json)
+          if [[ ! -z "$FAILING_TESTS" ]]; then
+            echo "ERROR: The following tests failed:"
+            echo $FAILING_TESTS | jq .
+            exit 1
+          fi
+  
+  extensions:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'csharp', 'java' ]
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+        id: changes
+        with:
+          filters: |
+            src:
+              - '${{ matrix.language }}/ext/**'
+
+      - name: Initialize CodeQL
+        if: steps.changes.outputs.src == 'true'
+        run: |
+          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
+                       | sort \
+                       | tail -n 1 \
+                       | tr -d '\n')"
+          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+
+      - name: Install Packs
+        if: steps.changes.outputs.src == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          gh extension install github/gh-codeql
+          gh codeql pack install "${{ matrix.language }}/ext/"
+          gh codeql pack create "${{ matrix.language }}/ext/"
+
+  library-sources:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'csharp', 'java' ]
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+        id: changes
+        with:
+          filters: |
+            src:
+              - '${{ matrix.language }}/ext-library-sources/**'
+
+      - name: Initialize CodeQL
+        if: steps.changes.outputs.src == 'true'
+        run: |
+          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
+                       | sort \
+                       | tail -n 1 \
+                       | tr -d '\n')"
+          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+
+      - name: Install CodeQL
+        if: steps.changes.outputs.src == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          codeql pack install "${{ matrix.language }}/ext-library-sources/"
+          codeql pack create "${{ matrix.language }}/ext-library-sources/"
+
+  configs:
+    runs-on: ubuntu-latest
+    needs: compile-and-test
+    
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+        id: changes
+        with:
+          filters: |
+            src:
+              - 'configs/**'
+      
+      - name: Initialize CodeQL
+        if: steps.changes.outputs.src == 'true'
+        run: |
+          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
+                       | sort \
+                       | tail -n 1 \
+                       | tr -d '\n')"
+          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+
+      - name: "Check Configurations"
+        if: steps.changes.outputs.src == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          ./.github/scripts/pr-configs.sh "${{ github.event.number }}"
+
+
