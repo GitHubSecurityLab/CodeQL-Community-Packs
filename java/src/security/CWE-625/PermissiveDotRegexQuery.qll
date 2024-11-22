@@ -8,10 +8,6 @@ import semmle.code.java.controlflow.Guards
 import semmle.code.java.security.UrlRedirect
 import Regex
 
-private class ActivateModels extends ActiveExperimentalModels {
-  ActivateModels() { this = "permissive-dot-regex-query" }
-}
-
 /** A string that ends with `.*` not prefixed with `\`. */
 private class PermissiveDotStr extends StringLiteral {
   PermissiveDotStr() {
