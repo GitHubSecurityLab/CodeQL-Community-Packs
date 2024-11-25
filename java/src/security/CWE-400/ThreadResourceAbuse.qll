@@ -7,10 +7,6 @@ import semmle.code.java.arithmetic.Overflow
 import semmle.code.java.dataflow.FlowSteps
 import semmle.code.java.controlflow.Guards
 
-private class ActivateModels extends ActiveExperimentalModels {
-  ActivateModels() { this = "thread-resource-abuse" }
-}
-
 /** A sink representing methods pausing a thread. */
 class PauseThreadSink extends DataFlow::Node {
   PauseThreadSink() { sinkNode(this, "thread-pause") }

@@ -21,10 +21,6 @@ import semmle.code.java.dataflow.ExternalFlow
 private import semmle.code.java.security.Sanitizers
 import Log4jInjectionFlow::PathGraph
 
-private class ActivateModels extends ActiveExperimentalModels {
-  ActivateModels() { this = "log4j-injection" }
-}
-
 /** A data flow sink for unvalidated user input that is used to log messages. */
 class Log4jInjectionSink extends DataFlow::Node {
   Log4jInjectionSink() { sinkNode(this, "log4j") }
