@@ -70,3 +70,22 @@ Please [create GitHub issues](https://github.com/advanced-security/brew-dependen
 <!-- Resources / Links -->
 
 [configurations]: ./configs
+
+## Developer Guide
+
+This is not a comprehensive guide on how to make contributions to this repository, but only a minimal list of what you need to do to set up a development environment and how changes can be tested using the DCA tool.
+
+### Set up environment
+To run the queries locally (including tests) you need to
+- Clone this repository.
+- Clone `https://www.github.com/github/codeql` into a folder named `codeql` in the folder created in the previous step.
+
+### Testing using DCA
+It is possible to test PR changes for all languages against the default (nightly) source suite using DCA.
+As a prerequisite you need to install and setup [DCA](https://github.com/github/codeql-dca?tab=readme-ov-file#codeql-dca-dist-compare-on-actions).
+
+After DCA has been installed, you can start an experiment using the following command (with suitable substitutions for the parameters in angle brackets)
+```
+./dca generate --language <language> <semmle-code-sha0>@<community-pack-sha0> <semmle-code-sha1>@<community-pack-sha1> --extra-config-file dca-configs/community-packs.yml
+./dca start
+```
