@@ -37,7 +37,7 @@ jobs:
         with:
           path: codeql
           repository: github/codeql
-          token: ${{ secrets.GHSECURITYLAB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: Checkout github/codeql-community-packs
@@ -95,7 +95,7 @@ jobs:
       - name: Check and publish hotspots lib packs
         working-directory: codeql-patched
         env:
-          GITHUB_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/hotspots-${{ matrix.language }}-all/versions --jq '.[0].metadata.container.tags[0]')
           CURRENT_VERSION=$(grep version ${{ matrix.language }}/ql/lib/qlpack.yml | awk '{print $2}')
@@ -110,7 +110,7 @@ jobs:
       - name: Check and publish hotspots src packs
         working-directory: codeql-patched
         env:
-          GITHUB_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/hotspots-${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]')
           CURRENT_VERSION=$(grep version ${{ matrix.language }}/ql/src/qlpack.yml | awk '{print $2}')
