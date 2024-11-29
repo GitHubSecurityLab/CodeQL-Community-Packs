@@ -44,7 +44,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: codeql-community-packs
-          repository: github/codeql-community-packs
+          repository: githubsecuritylab/codeql-community-packs
           ref: ${{ github.ref }}
 
       - name: Find codeql
