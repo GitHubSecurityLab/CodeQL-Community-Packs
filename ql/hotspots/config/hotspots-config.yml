@@ -1,0 +1,128 @@
+java:
+  disallowed_patterns:
+    - '.*-local'
+    - '.*-experimental'
+  disallowed_queries:
+    - java/untrusted-data-to-external-api
+    - java/log-injection
+    - java/android/intent-redirection
+    - java/improper-validation-of-array-construction
+    - java/improper-validation-of-array-construction-code-specified
+    - java/improper-validation-of-array-index
+    - java/improper-validation-of-array-index-code-specified
+    - java/tainted-format-string
+    - java/tainted-arithmetic
+    - java/uncontrolled-arithmetic
+    - java/extreme-value-arithmetic
+    - java/local-temp-file-or-directory-information-disclosure
+    - java/non-https-url
+    - java/weak-cryptographic-algorithm
+    - java/potentially-weak-cryptographic-algorithm
+    - java/missing-jwt-signature-check
+    - java/sensitive-log
+    - java/tainted-numeric-cast
+    - java/hardcoded-credential-api-call
+    - java/hardcoded-credential-sensitive-call
+    - java/user-controlled-bypass
+    - java/tainted-permissions-check
+    - java/android/sensitive-communication
+    - java/log4j-injection
+    - java/spring-view-manipulation
+    - java/server-side-template-injection
+    - java/static-initialization-vector
+    - java/sensitive-android-file-leak
+    - java/possible-timing-attack-against-signature
+    - java/timing-attack-against-headers-value
+    - java/timing-attack-against-signature
+    - java/disabled-certificate-revocation-checking
+    - java/unsafe-tls-version
+    - java/unvalidated-cors-origin-set
+    - java/ip-address-spoofing
+    - java/thread-resource-abuse
+    - java/sensitive-query-with-get
+    - java/uncaught-servlet-exception
+    - java/xxe
+    - java/xxe-with-experimental-sinks
+    - java/xxe-local-experimental-sinks
+    - java/android/nfe-local-android-dos
+    - java/exec-tainted-environment
+
+ruby:
+  disallowed_patterns:
+    - '.*-local'
+    - '.*-experimental'
+  disallowed_queries:
+    - rb/clear-text-logging-sensitive-data
+    - rb/clear-text-storage-sensitive-data
+    - rb/hardcoded-credentials
+    - rb/insecure-download
+    - rb/insecure-randomness
+    - rb/log-injection
+    - rb/overly-permissive-file
+    - rb/sensitive-get-query
+    - rb/stack-trace-exposure
+
+python:
+  disallowed_patterns:
+    - '.*-local'
+    - '.*-experimental'
+  disallowed_queries:
+    - py/timing-attack-against-hash
+    - py/timing-attack-sensitive-info
+    - py/timing-attack-against-header-value
+    - py/clear-text-logging-sensitive-data
+    - py/ip-address-spoofing
+    - py/log-injection
+    - py/possible-timing-attack-against-hash
+    - py/possible-timing-attack-sensitive-info
+    - py/polynomial-redos
+    - py/hardcoded-credentials
+    - py/clear-text-storage-sensitive-data
+    - py/untrusted-data-to-external-api
+    - py/azure-storage/unsafe-client-side-encryption-in-us
+    - py/xml-bomb # similar to xxe
+    - py/weak-sensitive-data-hashing
+    - py/partial-ssrf # similar to full-ssrf
+
+go:
+  disallowed_patterns:
+    - '.*-local'
+    - '.*-experimental'
+  disallowed_queries:
+    - go/log-injection
+    - go/insecure-hostkeycallback
+    - go/incomplete-hostname-regexp
+    - go/cookie-httponly-not-set
+    - go/cookie-httponly-not-set
+    - go/insecure-tls
+    - go/constant-oauth2-state
+    - go/untrusted-data-to-external-api
+    - go/timing-attack
+    - go/suspicious-character-in-regex
+    - go/divide-by-zero
+    - go/cookie-httponly-not-set
+    - go/incorrect-integer-conversion
+    - go/cookie-httponly-not-set
+    - go/untrusted-data-to-unknown-external-api
+    - go/allocation-size-overflow
+    - go/wrong-usage-of-unsafe
+
+javascript:
+  disallowed_patterns:
+    - '.*-local'
+    - '.*-experimental'
+
+cpp:
+  disallowed_patterns:
+    - '.*-local'
+    - '.*-experimental'
+
+csharp:
+  disallowed_patterns:
+    - '.*-local'
+    - '.*-experimental'
+  disallowed_queries:
+    - cs/inappropriate-encoding
+    - cs/hash-without-salt
+    - cs/stored-command-line-injection
+
