@@ -79,12 +79,11 @@ jobs:
       - name: Patch the CodeQL distro
         working-directory: codeql-community-packs
         run: |
-          ls -la "$GITHUB_WORKSPACE/codeql-community-packs/ql/hotspots/Hotspots.ql"
           pip install pandas
-          python scripts/generate-hotspots-queries.py \
+          python ql/hotspots/scripts/generate-hotspots-queries.py \
             --ql-extractor "$GITHUB_WORKSPACE/codeql/ql/extractor-pack" \
             --ql-path "$GITHUB_WORKSPACE/codeql"
-          python scripts/patch-codeql.py \
+          python ql/hotspots/scripts/patch-codeql.py \
             --hotspots "$GITHUB_WORKSPACE/codeql-community-packs/ql/hotspots/output" \
             --ql "$GITHUB_WORKSPACE/codeql" \
             --dest "$GITHUB_WORKSPACE/codeql-patched" \
@@ -97,27 +96,25 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/hotspots-${{ matrix.language }}-all/versions --jq '.[0].metadata.container.tags[0]')
-          CURRENT_VERSION=$(grep version ${{ matrix.language }}/ql/lib/qlpack.yml | awk '{print $2}')
+          for LANG in "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "swift"
+          do
+            echo "Processing $LANG packs"
+            PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/hotspots-$LANG-all/versions --jq '.[0].metadata.container.tags[0]')
+            CURRENT_VERSION=$(grep version $LANG/ql/lib/qlpack.yml | awk '{print $2}')
+            echo "Published lib version: $PUBLISHED_VERSION"
+            echo "Local lib version: $CURRENT_VERSION"
+            if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
+              codeql pack install "$LANG/ql/lib"
+              codeql pack publish "$LANG/ql/lib"
+            fi
+            
+            PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/hotspots-$LANG-queries/versions --jq '.[0].metadata.container.tags[0]')
+            CURRENT_VERSION=$(grep version $LANG/ql/src/qlpack.yml | awk '{print $2}')
+            echo "Published queries version: $PUBLISHED_VERSION"
+            echo "Local queries version: $CURRENT_VERSION"
+            if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
+              codeql pack install "$LANG/ql/src"
+              codeql pack publish "$LANG/ql/src"
+            fi
+          done
 
-          echo "Published lib version: $PUBLISHED_VERSION"
-          echo "Local lib version: $CURRENT_VERSION"
-          if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
-            codeql pack install "${{ matrix.language }}/ql/lib"
-            codeql pack publish "${{ matrix.language }}/ql/lib"
-          fi
-
-      - name: Check and publish hotspots src packs
-        working-directory: codeql-patched
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/hotspots-${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]')
-          CURRENT_VERSION=$(grep version ${{ matrix.language }}/ql/src/qlpack.yml | awk '{print $2}')
-
-          echo "Published queries version: $PUBLISHED_VERSION"
-          echo "Local queries version: $CURRENT_VERSION"
-          if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
-            codeql pack install "${{ matrix.language }}/ql/src"
-            codeql pack publish "${{ matrix.language }}/ql/src"
-          fi
