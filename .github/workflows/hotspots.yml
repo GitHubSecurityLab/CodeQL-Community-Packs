@@ -76,7 +76,7 @@ jobs:
       - name: Check and publish hotspots lib packs
         working-directory: codeql-patched
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GHCR_TOKEN }}
         run: |
           for LANG in "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "swift"
           do
