@@ -51,7 +51,7 @@ python scripts/generate-hotspots-queries.py --ql-extractor ~/src/codeql/ql/extra
 - Create a patched version of CodeQL distro (remove private modifiers and rename files/directories to remove whitespaces and dashes)
 
 ```bash
-python scripts/patch_codeql.py --hotspots hotspots.csv --ql ~/src/codeql --dest /tmp/hotspots-distro --qlpack-version 0.0.1
+python scripts/patch-codeql.py --hotspots hotspots.csv --ql ~/src/codeql --dest /tmp/hotspots-distro --qlpack-version 0.0.1
 ```
 
 - Run Hotspots query (eg: `/tmp/hotspots-distro/java/ql/src/Hotspots.ql`)
