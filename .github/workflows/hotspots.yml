@@ -13,24 +13,6 @@ jobs:
     permissions:
       contents: read
       packages: write
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - language: cpp
-            runner: ubuntu-latest
-          - language: csharp
-            runner: ubuntu-latest
-          - language: go
-            runner: ubuntu-latest
-          - language: java
-            runner: ubuntu-latest-xl
-          - language: javascript
-            runner: ubuntu-latest
-          - language: python
-            runner: ubuntu-latest
-          - language: ruby
-            runner: ubuntu-latest
     steps:
       - name: Checkout github/codeql
         uses: actions/checkout@v2
