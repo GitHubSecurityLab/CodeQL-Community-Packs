@@ -22,7 +22,7 @@ Expr getSinkExpr(DataFlow::Node n) {
 GETSINKEXPR_RUBY = """
 DataFlow::ExprNode getSinkExpr(DataFlow::Node n) {
   result = n and
-  not n.getLocation().getFile().getRelativePath().regexpMatch("(^|.*/)test/.*|(^|.*/)spec/.*|^\\.rubocop/.*|^Gemfile$|.*/extconf.rb$|.*/setup.rb$")
+  not n.getLocation().getFile().getRelativePath().regexpMatch("(^|.*/)test/.*|(^|.*/)spec/.*|^\\\\.rubocop/.*|^Gemfile$|.*/extconf.rb$|.*/setup.rb$")
 }
 """
 
