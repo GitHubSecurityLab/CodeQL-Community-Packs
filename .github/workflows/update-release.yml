@@ -1,10 +1,10 @@
-name: CodeQL Patch Release
+name: CodeQL Update Release
 
 on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "Auto-release mode"
+        description: "Please select the bump version"
         required: true
         type: choice
         default: "patch"
@@ -14,7 +14,7 @@ on:
           - major
 
 jobs:
-  patch-release:
+  update-release:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,20 +29,19 @@ jobs:
           application_private_key: ${{ secrets.SECLABS_APP_KEY }}
 
       - name: "Patch Release Me"
-        run: |
-          cargo install patch-release-me
-          
-          patch-release-me bump -m "${{ inputs.mode }}"
+        uses: 42ByteLabs/patch-release-me@0.4.0
+        with:
+          # Bump (patch)
+          mode: ${{ inputs.mode }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ steps.get_workflow_token.outputs.token }}
           title: "Chore: Auto Update new Release"
-          commit-message: "[chore]: Auto Patch new Release" 
+          commit-message: "[chore]: Auto Patch new Release"
           body: |
             This is automatically created as a chore to patch and update the release.
           branch: "auto-patch-release"
           labels: "version"
           delete-branch: true
-
