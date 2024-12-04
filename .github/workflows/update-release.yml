@@ -29,7 +29,7 @@ jobs:
           application_private_key: ${{ secrets.SECLABS_APP_KEY }}
 
       - name: "Patch Release Me"
-        uses: 42ByteLabs/patch-release-me@0.4.0
+        uses: 42ByteLabs/patch-release-me@v0.4.0
         with:
           # Bump (patch)
           mode: ${{ inputs.mode }}
