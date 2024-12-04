@@ -1,0 +1,102 @@
+name: "Hotspots CodeQL Build/Publish"
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "QLPack version"
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout github/codeql
+        uses: actions/checkout@v2
+        with:
+          path: codeql
+          repository: github/codeql
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Checkout github/codeql-community-packs
+        uses: actions/checkout@v2
+        with:
+          path: codeql-community-packs
+          repository: githubsecuritylab/codeql-community-packs
+          ref: ${{ github.ref }}
+
+      - name: Find codeql
+        id: find-codeql
+        uses: github/codeql-action/init@aa93aea877e5fb8841bcb1193f672abf6e9f2980
+        with:
+          languages: javascript # does not matter
+        
+      - name: Initialize CodeQL
+        id: init
+        run: |
+          # Take the most modern version
+          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
+                     | sort \
+                     | tail -n 1 \
+                     | tr -d '\n')"
+
+          CODEQL="$VERSION/x64/codeql/"
+          "${CODEQL}"/codeql version --format=json
+          echo "${CODEQL}" >> $GITHUB_PATH
+
+      - name: Create CodeQL config
+        run: |
+          mkdir -p ~/.config/codeql
+          echo '--search-path /home/runner/work/codeql-community-packs/codeql-community-packs/codeql/ql/extractor-pack' >> ~/.config/codeql/config
+
+      - name: Install QL extractor
+        working-directory: codeql/ql
+        run: |
+          ./scripts/create-extractor-pack.sh
+
+      - name: Patch the CodeQL distro
+        working-directory: codeql-community-packs
+        run: |
+          pip install pandas
+          python ql/hotspots/scripts/generate-hotspots-queries.py \
+            --ql-extractor "$GITHUB_WORKSPACE/codeql/ql/extractor-pack" \
+            --ql-path "$GITHUB_WORKSPACE/codeql"
+          python ql/hotspots/scripts/patch-codeql.py \
+            --hotspots "$GITHUB_WORKSPACE/codeql-community-packs/ql/hotspots/output" \
+            --ql "$GITHUB_WORKSPACE/codeql" \
+            --dest "$GITHUB_WORKSPACE/codeql-patched" \
+            --qlpack-version ${{ inputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check and publish hotspots lib packs
+        working-directory: codeql-patched
+        env:
+          GITHUB_TOKEN: ${{ secrets.GHCR_TOKEN }}
+        run: |
+          for LANG in "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "swift"
+          do
+            echo "Processing $LANG packs"
+            PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/hotspots-$LANG-all/versions --jq '.[0].metadata.container.tags[0]')
+            CURRENT_VERSION=$(grep version $LANG/ql/lib/qlpack.yml | awk '{print $2}')
+            echo "Published lib version: $PUBLISHED_VERSION"
+            echo "Local lib version: $CURRENT_VERSION"
+            if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
+              codeql pack install "$LANG/ql/lib"
+              codeql pack publish "$LANG/ql/lib"
+            fi
+            
+            PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/hotspots-$LANG-queries/versions --jq '.[0].metadata.container.tags[0]')
+            CURRENT_VERSION=$(grep version $LANG/ql/src/qlpack.yml | awk '{print $2}')
+            echo "Published queries version: $PUBLISHED_VERSION"
+            echo "Local queries version: $CURRENT_VERSION"
+            if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
+              codeql pack install "$LANG/ql/src"
+              codeql pack publish "$LANG/ql/src"
+            fi
+          done
+

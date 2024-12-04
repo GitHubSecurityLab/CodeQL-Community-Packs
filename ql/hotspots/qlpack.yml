@@ -1,0 +1,5 @@
+library: false
+name: githubsecuritylab/hotspots
+version: 0.0.1
+dependencies:
+  codeql/ql: '*'
