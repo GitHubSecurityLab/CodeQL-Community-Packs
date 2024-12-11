@@ -25,14 +25,27 @@ jobs:
             src:
               - '${{ matrix.language }}/**'
 
-      - name: Initialize CodeQL
-        if: steps.changes.outputs.src == 'true'
+      # TODO: Consider to introduce caching for the CodeQL CLI.
+      - name: Install CodeQL
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CODEQL_HOME: ${{ github.workspace }}/codeql_home
         run: |
-          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
-                       | sort \
-                       | tail -n 1 \
-                       | tr -d '\n')"
-          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+          mkdir -p $CODEQL_HOME
+          echo "Change directory to $CODEQL_HOME"
+          pushd $CODEQL_HOME
+
+          echo "Downloading CodeQL CLI"
+          gh release download v2.19.2 --repo https://github.com/github/codeql-cli-binaries --pattern codeql-linux64.zip
+
+          echo "Unzipping CodeQL CLI"
+          unzip -q codeql-linux64.zip
+
+          popd
+
+          echo "Adding CodeQL CLI to PATH"
+          echo "$CODEQL_HOME/codeql" >> $GITHUB_PATH
         
       - name: Install Packs
         if: steps.changes.outputs.src == 'true'
