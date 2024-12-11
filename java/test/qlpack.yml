@@ -5,5 +5,7 @@ dependencies:
     codeql/java-queries: '*'
     githubsecuritylab/codeql-java-queries: '*'
     githubsecuritylab/codeql-java-libs: '*'
+    githubsecuritylab/codeql-java-library-sources: '*'
+    githubsecuritylab/codeql-java-extensions: '*'
 extractor: java
 tests: .
