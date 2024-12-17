@@ -41,7 +41,6 @@ jobs:
           CODEQL_CLI_VERSION: ${{ env.CODEQL_CLI_VERSION }}
         run: |
           gh repo clone github/codeql -- -b codeql-cli-${CODEQL_CLI_VERSION} # to make stubs available for tests
-          codeql pack download "codeql/${{ matrix.language }}-queries"
           codeql pack install "${{ matrix.language }}/lib"
           codeql pack install "${{ matrix.language }}/src"
           codeql pack install "${{ matrix.language }}/test"
