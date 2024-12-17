@@ -5,5 +5,4 @@ suites: suites
 defaultSuiteFile: suites/java.qls
 dependencies:
   codeql/java-all: '*'
-  codeql/java-queries: '*'
   githubsecuritylab/codeql-java-libs: '*'
