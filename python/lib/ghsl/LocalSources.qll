@@ -7,7 +7,6 @@ module LocalSources {
   private import semmle.python.Concepts
   private import semmle.python.dataflow.new.BarrierGuards
   private import semmle.python.ApiGraphs
-  private import DataFlow::PathGraph
 
   abstract class Range extends DataFlow::Node { }
 
@@ -95,18 +94,26 @@ module LocalSources {
           call = API::moduleImport(["json", "simplejson"]).getMember("load").getACall()
           or
           // yaml.load
-          call = API::moduleImport("yaml").getMember(["load", "load_all", "safe_load", "safe_load_all"]).getACall()
+          call =
+            API::moduleImport("yaml")
+                .getMember(["load", "load_all", "safe_load", "safe_load_all"])
+                .getACall()
           or
           // msgpack.load
           call = API::moduleImport("msgpack").getMember("load").getACall()
           or
           // pickle.load
           // dill.load
-          call = API::moduleImport(["cPickle", "_pickle", "pickle", "dill"]).getMember("load").getACall()
+          call =
+            API::moduleImport(["cPickle", "_pickle", "pickle", "dill"]).getMember("load").getACall()
           or
           // pickle.Unpickler.load
           // dill.Unpickler.load
-          call = API::moduleImport(["cPickle", "pickle", "dill"]).getMember("Unpickler").getACall().getAMethodCall("load")
+          call =
+            API::moduleImport(["cPickle", "pickle", "dill"])
+                .getMember("Unpickler")
+                .getACall()
+                .getAMethodCall("load")
           or
           // shelve.open
           call = API::moduleImport("shelve").getMember("open").getACall()
@@ -137,19 +144,18 @@ module LocalSources {
           // pandas.read_gbq
           // pandas.read_stata
           // generate call expressions for each of the above pandas functions including ExcelFile.parse and HDFStore.* that have to be handled separately
-          call = API::moduleImport("pandas")
-                  .getMember([
-                      "read_csv", "read_fwf", "read_excel", "read_json", "read_html", "read_xml",
-                      "read_hdf", "read_feather", "read_parquet", "read_orc", "read_sas", "read_spss", "read_sql_table",
-                      "read_sql_query", "read_sql", "read_gbq", "read_stata"
-                    ])
-                  .getACall()
+          call =
+            API::moduleImport("pandas")
+                .getMember([
+                    "read_csv", "read_fwf", "read_excel", "read_json", "read_html", "read_xml",
+                    "read_hdf", "read_feather", "read_parquet", "read_orc", "read_sas", "read_spss",
+                    "read_sql_table", "read_sql_query", "read_sql", "read_gbq", "read_stata"
+                  ])
+                .getACall()
           or
           // pandas.ExcelFile.parse
-          call = API::moduleImport("pandas")
-                  .getMember("ExcelFile")
-                  .getACall()
-                  .getAMethodCall("parse")
+          call =
+            API::moduleImport("pandas").getMember("ExcelFile").getACall().getAMethodCall("parse")
           or
           // pandas.HDFStore.get
           // pandas.HDFStore.select
@@ -157,25 +163,38 @@ module LocalSources {
           // pandas.HDFStore.keys
           // pandas.HDFStore.groups
           // pandas.HDFStore.walk
-          call = API::moduleImport("pandas")
-                  .getMember("HDFStore")
-                  .getACall()
-                  .getAMethodCall(["get", "select", "info", "keys", "groups", "walk"])
+          call =
+            API::moduleImport("pandas")
+                .getMember("HDFStore")
+                .getACall()
+                .getAMethodCall(["get", "select", "info", "keys", "groups", "walk"])
           or
           // polars.read_csv
-          call = API::moduleImport("polars").getMember(["read_csv", "read_csv_batched", "scan_csv"]).getACall()
+          call =
+            API::moduleImport("polars")
+                .getMember(["read_csv", "read_csv_batched", "scan_csv"])
+                .getACall()
           or
           // polars.read_ipc
-          call = API::moduleImport("polars").getMember(["read_ipc", "scan_ipc", "read_ipc_schema"]).getACall()
+          call =
+            API::moduleImport("polars")
+                .getMember(["read_ipc", "scan_ipc", "read_ipc_schema"])
+                .getACall()
           or
           // polars.read_parquet, polars.scan_parquet, polars.read_parquet_schema
-          call = API::moduleImport("polars").getMember(["read_parquet", "scan_parquet", "read_parquet_schema"]).getACall()
+          call =
+            API::moduleImport("polars")
+                .getMember(["read_parquet", "scan_parquet", "read_parquet_schema"])
+                .getACall()
           or
           // polars.read_sql
           call = API::moduleImport("polars").getMember("read_sql").getACall()
           or
           // polars.read_json, polars.read_ndjson, polars.scan_ndjson
-          call = API::moduleImport("polars").getMember(["read_json", "read_ndjson", "scan_ndjson"]).getACall()
+          call =
+            API::moduleImport("polars")
+                .getMember(["read_json", "read_ndjson", "scan_ndjson"])
+                .getACall()
           or
           // polars.read_avro
           call = API::moduleImport("polars").getMember("read_avro").getACall()
@@ -186,24 +205,37 @@ module LocalSources {
           // pyarrow.csv.read_csv
           // pyarrow.csv.open_csv
           // pyarrow.csv.CSVStreamingReader
-          call = API::moduleImport("pyarrow").getMember("csv").getMember(["read_csv", "open_csv", "CSVStreamingReader"]).getACall()
+          call =
+            API::moduleImport("pyarrow")
+                .getMember("csv")
+                .getMember(["read_csv", "open_csv", "CSVStreamingReader"])
+                .getACall()
           or
           // pyarrow.feather.read_feather
           // pyarrow.feather.read_table
-          call = API::moduleImport("pyarrow").getMember("feather").getMember(["read_feather", "read_table"]).getACall()
+          call =
+            API::moduleImport("pyarrow")
+                .getMember("feather")
+                .getMember(["read_feather", "read_table"])
+                .getACall()
           or
           // pyarrow.json.read_json
           call = API::moduleImport("pyarrow").getMember("json").getMember("read_json").getACall()
+          or
           // pyarrow.parquet.ParquetDataset
           // pyarrow.parquet.ParquetFile
           // pyarrow.parquet.read_table
           // pyarrow.parquet.read_metadata
           // pyarrow.parquet.read_pandas
           // pyarrow.parquet.read_schema
-          or
-          call = API::moduleImport("pyarrow").getMember("parquet").getMember([
-              "ParquetDataset", "ParquetFile", "read_table", "read_metadata", "read_pandas", "read_schema"
-            ]).getACall()
+          call =
+            API::moduleImport("pyarrow")
+                .getMember("parquet")
+                .getMember([
+                    "ParquetDataset", "ParquetFile", "read_table", "read_metadata", "read_pandas",
+                    "read_schema"
+                  ])
+                .getACall()
         ) and
         this = call
       ) and

@@ -17,10 +17,10 @@
 
 private import semmle.python.dataflow.new.DataFlow
 private import semmle.python.dataflow.new.TaintTracking
-private import DataFlow::PathGraph
 private import ghsl.XMLLocalLib
+import XmlFileTaint::PathGraph
 
-from DataFlow::PathNode source, DataFlow::PathNode sink
-where any(XmlFileConfig conf).hasFlowPath(source, sink)
+from XmlFileTaint::PathNode source, XmlFileTaint::PathNode sink
+where XmlFileTaint::flowPath(source, sink)
 select sink.getNode(), source, sink, "Unsafe parsing of XML from locally-provided filename $@.",
   source.getNode(), "user input"

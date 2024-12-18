@@ -16,7 +16,8 @@
 
 import python
 import ghsl.MassAssignment
+import MassAssignment
 
-from MassAssignment::MassAssignmentConfig config, DataFlow::Node source, DataFlow::Node sink
-where config.hasFlow(source, sink)
+from DataFlow::Node source, DataFlow::Node sink
+where MassAssignmentTaint::flow(source, sink)
 select sink, "Use of $@.", source, "mass assignment"

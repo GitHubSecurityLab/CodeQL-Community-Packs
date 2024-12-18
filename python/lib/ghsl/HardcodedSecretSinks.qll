@@ -5,7 +5,6 @@ private import semmle.python.Concepts
 private import semmle.python.dataflow.new.RemoteFlowSources
 private import semmle.python.dataflow.new.BarrierGuards
 private import semmle.python.ApiGraphs
-private import DataFlow::PathGraph
 private import semmle.python.frameworks.Flask
 
 abstract class CredentialSink extends DataFlow::Node { }
@@ -14,7 +13,7 @@ Expr getDictValueByKey(Dict dict, string key) {
   exists(KeyValuePair item |
     // d = {KEY: VALUE}
     item = dict.getAnItem() and
-    key = item.getKey().(StrConst).getS() and
+    key = item.getKey().(StringLiteral).getS() and
     result = item.getValue()
   )
 }
@@ -25,7 +24,7 @@ Expr getAssignStmtByKey(AssignStmt assign, string key) {
     sub = assign.getASubExpression() and
     // Make sure the keys match
     // TODO: What happens if this value itself is not static?
-    key = sub.getASubExpression().(StrConst).getS() and
+    key = sub.getASubExpression().(StringLiteral).getS() and
     // TODO: Only supports static strings, resolve the value??
     // result = assign.getASubExpression().(StrConst)
     result = sub.getValue()

@@ -57,16 +57,16 @@ class User extends ClassDef {
 
   predicate hasSecureInit() {
     this.hasInit() and
-    not exists(InsecureHashTrackingConfiguration conf, DataFlow::Node source, DataFlow::Node sink |
+    not exists(DataFlow::Node source, DataFlow::Node sink |
       this.inInit(sink) and
       this.isPasswordArg(source) and
-      conf.hasFlow(source, sink)
+      InsecureHashTaint::flow(source, sink)
     )
   }
 
   predicate usedSecurely() {
-    not exists(InsecureTaintTrackingConfiguration conf, DataFlow::Node source, DataFlow::Node sink |
-      conf.hasFlow(source, sink) and
+    not exists(DataFlow::Node source, DataFlow::Node sink |
+      InsecurelyStoredPasswordTaint::flow(source, sink) and
       sink.(PasswordArg).getUser() = this
     )
   }
@@ -78,15 +78,13 @@ class User extends ClassDef {
   }
 }
 
-class InsecureTaintTrackingConfiguration extends TaintTracking::Configuration {
-  // is the password used in the init of the User protected by a secure hash?
-  InsecureTaintTrackingConfiguration() { this = "InsecureTaintTrackingConfiguration" }
+// is the password used in the init of the User protected by a secure hash?
+module InsecurelyStoredPasswordTaintConfig implements DataFlow::ConfigSig {
+  predicate isSource(DataFlow::Node source) { source instanceof RemoteFlowSource }
 
-  override predicate isSource(DataFlow::Node source) { source instanceof RemoteFlowSource }
+  predicate isSink(DataFlow::Node sink) { sink instanceof PasswordArg }
 
-  override predicate isSink(DataFlow::Node sink) { sink instanceof PasswordArg }
-
-  override predicate isAdditionalTaintStep(DataFlow::Node a, DataFlow::Node b) {
+  predicate isAdditionalFlowStep(DataFlow::Node a, DataFlow::Node b) {
     // from a dict key to the dict, if the key is "password"
     exists(Dict dict, KeyValuePair pair |
       dict.getAnItem() = pair and
@@ -96,24 +94,24 @@ class InsecureTaintTrackingConfiguration extends TaintTracking::Configuration {
     )
   }
 
-  override predicate isSanitizer(DataFlow::Node node) { node instanceof HashSanitizer }
+  predicate isBarrier(DataFlow::Node node) { node instanceof HashSanitizer }
 }
 
-class InsecureHashTrackingConfiguration extends TaintTracking::Configuration {
-  User user;
+module InsecurelyStoredPasswordTaint = TaintTracking::Global<InsecurelyStoredPasswordTaintConfig>;
 
-  // does the body of the init of the User hash the password?
-  InsecureHashTrackingConfiguration() { this = "InsecureHashTrackingConfiguration" }
+// does the body of the init of the User hash the password?
+module InsecureHashTaintConfig implements DataFlow::ConfigSig {
+  predicate isSource(DataFlow::Node source) { any(User x).isPasswordArg(source) }
 
-  override predicate isSource(DataFlow::Node source) { user.isPasswordArg(source) }
-
-  override predicate isSink(DataFlow::Node sink) {
-    user.passwordAssignedFrom(sink) and
+  predicate isSink(DataFlow::Node sink) {
+    any(User x).passwordAssignedFrom(sink) and
     not sink instanceof HashSanitizer
   }
 
-  override predicate isSanitizer(DataFlow::Node node) { node instanceof HashSanitizer }
+  predicate isBarrier(DataFlow::Node node) { node instanceof HashSanitizer }
 }
+
+module InsecureHashTaint = TaintTracking::Global<InsecureHashTaintConfig>;
 
 // assigment to self.password
 class SelfPasswordAttribute extends DataFlow::Node {
@@ -204,8 +202,8 @@ private import semmle.python.dataflow.new.internal.DataFlowDispatch as DataFlowD
 
 /** Holds if the `call` is a call to the function `target`. */
 private predicate resolveCall(CallNode call, Function target) {
-    // TODO: This should be exposed better from the standard library API
-    DataFlowDispatch::resolveCall(call, target, _)
+  // TODO: This should be exposed better from the standard library API
+  DataFlowDispatch::resolveCall(call, target, _)
 }
 
 /**
@@ -219,9 +217,9 @@ private predicate resolveCall(CallNode call, Function target) {
 class HashSanitizerWrapperFunction extends HashSanitizer {
   HashSanitizerWrapperFunction() {
     exists(CallNode hashCall, Function hashWrapper |
-        hashWrapper.contains(any(HashSanitizerConcrete hsc).asExpr()) and
-        resolveCall(hashCall, hashWrapper) and
-        this.asCfgNode() = hashCall.getArg(0)
+      hashWrapper.contains(any(HashSanitizerConcrete hsc).asExpr()) and
+      resolveCall(hashCall, hashWrapper) and
+      this.asCfgNode() = hashCall.getArg(0)
     )
   }
 }

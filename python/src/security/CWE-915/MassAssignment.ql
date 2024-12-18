@@ -13,9 +13,9 @@
  */
 
 import python
-import DataFlow::PathGraph
-import ghsl.MassAssignment
+import ghsl.MassAssignment::MassAssignment
+import MassAssignmentTaint::PathGraph
 
-from MassAssignment::MassAssignmentConfig config, DataFlow::PathNode source, DataFlow::PathNode sink
-where config.hasFlowPath(source, sink)
+from MassAssignmentTaint::PathNode source, MassAssignmentTaint::PathNode sink
+where MassAssignmentTaint::flowPath(source, sink)
 select sink.getNode(), source, sink, "Use of $@.", source.getNode(), "mass assignment"

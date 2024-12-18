@@ -2,7 +2,7 @@ edges
 | UserControlledMaxIterations__bad.rb:3:7:3:11 | limit | UserControlledMaxIterations__bad.rb:11:7:11:11 | limit | provenance |  |
 | UserControlledMaxIterations__bad.rb:3:7:3:11 | limit | UserControlledMaxIterations__bad.rb:16:7:16:11 | limit | provenance |  |
 | UserControlledMaxIterations__bad.rb:3:15:3:20 | call to params | UserControlledMaxIterations__bad.rb:3:15:3:28 | ...[...] | provenance |  |
-| UserControlledMaxIterations__bad.rb:3:15:3:28 | ...[...] | UserControlledMaxIterations__bad.rb:3:15:3:33 | call to to_i | provenance |  |
+| UserControlledMaxIterations__bad.rb:3:15:3:28 | ...[...] | UserControlledMaxIterations__bad.rb:3:15:3:33 | call to to_i | provenance | Config |
 | UserControlledMaxIterations__bad.rb:3:15:3:33 | call to to_i | UserControlledMaxIterations__bad.rb:3:7:3:11 | limit | provenance |  |
 nodes
 | UserControlledMaxIterations__bad.rb:3:7:3:11 | limit | semmle.label | limit |

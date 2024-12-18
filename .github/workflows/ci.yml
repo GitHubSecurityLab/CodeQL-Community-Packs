@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  CODEQL_CLI_VERSION: 2.19.2
+  CODEQL_CLI_VERSION: 2.19.3
 
 jobs:
   compile-and-test:
@@ -27,6 +27,7 @@ jobs:
           filters: |
             src:
               - '${{ matrix.language }}/**'
+              - '.github/**'
 
       - name: Setup CodeQL
         if: steps.changes.outputs.src == 'true'
@@ -38,9 +39,9 @@ jobs:
         if: steps.changes.outputs.src == 'true'
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          CODEQL_CLI_VERSION: ${{ env.CODEQL_CLI_VERSION }}
         run: |
-          gh repo clone github/codeql # to make stubs available for tests
-          codeql pack download "codeql/${{ matrix.language }}-queries"
+          gh repo clone github/codeql -- -b codeql-cli-${CODEQL_CLI_VERSION} # to make stubs available for tests
           codeql pack install "${{ matrix.language }}/lib"
           codeql pack install "${{ matrix.language }}/src"
           codeql pack install "${{ matrix.language }}/test"

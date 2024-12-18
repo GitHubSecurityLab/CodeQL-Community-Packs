@@ -14,12 +14,10 @@
 
 private import python
 private import semmle.python.dataflow.new.DataFlow
-private import DataFlow::PathGraph
 private import format_string
+import FormatStringTaint::PathGraph
 
-from
-  DataFlow::PathNode userdata, DataFlow::PathNode format_string,
-  FormatStringTaintConfiguration format_string_config
-where format_string_config.hasFlowPath(userdata, format_string)
+from FormatStringTaint::PathNode userdata, FormatStringTaint::PathNode format_string
+where FormatStringTaint::flowPath(userdata, format_string)
 select format_string.getNode(), userdata, format_string, "$@ used as format string: $@.",
   userdata.getNode(), "Untrusted data", format_string, format_string.getNode().asExpr().toString()
