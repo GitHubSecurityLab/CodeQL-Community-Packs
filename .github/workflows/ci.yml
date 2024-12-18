@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  CODEQL_CLI_VERSION: 2.19.2
+  CODEQL_CLI_VERSION: 2.19.3
 
 jobs:
   compile-and-test:
