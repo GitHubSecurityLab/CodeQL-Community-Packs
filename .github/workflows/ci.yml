@@ -27,6 +27,7 @@ jobs:
           filters: |
             src:
               - '${{ matrix.language }}/**'
+              - '.github/**'
 
       - name: Setup CodeQL
         if: steps.changes.outputs.src == 'true'
