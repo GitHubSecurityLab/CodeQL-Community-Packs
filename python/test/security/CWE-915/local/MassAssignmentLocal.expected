@@ -1,3 +1,6 @@
+| massassignmentLocal.py:18:26:18:28 | ControlFlowNode for key | Use of $@. | massassignmentLocal.py:8:13:8:31 | ControlFlowNode for Attribute() | mass assignment |
 | massassignmentLocal.py:18:26:18:28 | ControlFlowNode for key | Use of $@. | massassignmentLocal.py:30:10:30:20 | ControlFlowNode for Attribute | mass assignment |
+| massassignmentLocal.py:24:15:24:25 | ControlFlowNode for Attribute | Use of $@. | massassignmentLocal.py:8:13:8:31 | ControlFlowNode for Attribute() | mass assignment |
 | massassignmentLocal.py:24:15:24:25 | ControlFlowNode for Attribute | Use of $@. | massassignmentLocal.py:24:15:24:25 | ControlFlowNode for Attribute | mass assignment |
+| massassignmentLocal.py:27:18:27:28 | ControlFlowNode for Attribute | Use of $@. | massassignmentLocal.py:8:13:8:31 | ControlFlowNode for Attribute() | mass assignment |
 | massassignmentLocal.py:27:18:27:28 | ControlFlowNode for Attribute | Use of $@. | massassignmentLocal.py:27:18:27:28 | ControlFlowNode for Attribute | mass assignment |
