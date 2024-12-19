@@ -1,6 +1,6 @@
 import csharp
 import DataFlow
-import ghsl.ConstExpressions
+import security.JsonWebTokenHandler.JsonWebTokenHandlerLib
 
 /**
  * Gets the actual callable corresponding to the expression `e`.
@@ -21,7 +21,7 @@ predicate setIsOriginAllowedReturnsTrue(MethodCall mc) {
   mc.getTarget()
       .hasFullyQualifiedName("Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder",
         "SetIsOriginAllowed") and
-  alwaysReturnsTrue(mc.getArgument(0))
+  mc.getArgument(0) instanceof CallableAlwaysReturnsTrue
 }
 
 /**
