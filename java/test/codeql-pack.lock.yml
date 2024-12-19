@@ -5,8 +5,6 @@ dependencies:
     version: 1.1.5
   codeql/java-all:
     version: 4.2.0
-  codeql/java-queries:
-    version: 1.1.8
   codeql/mad:
     version: 1.0.11
   codeql/rangeanalysis:
@@ -14,8 +12,6 @@ dependencies:
   codeql/regex:
     version: 1.0.11
   codeql/ssa:
-    version: 1.0.11
-  codeql/suite-helpers:
     version: 1.0.11
   codeql/threat-models:
     version: 1.0.11
