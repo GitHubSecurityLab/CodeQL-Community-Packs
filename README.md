@@ -12,7 +12,8 @@
 </div>
 <!-- markdownlint-restore -->
 
-Collection of community-driven CodeQL query, library and extension packs
+Collection of community-driven CodeQL query, library and extension packs.
+- A detailed introduction via the GitHub Blog: [Announcing CodeQL Community Packs](https://github.blog/security/vulnerability-research/announcing-codeql-community-packs/)
 
 ## Getting started
 
