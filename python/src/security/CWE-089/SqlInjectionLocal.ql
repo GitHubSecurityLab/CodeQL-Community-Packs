@@ -19,24 +19,24 @@ import semmle.python.dataflow.new.DataFlow
 import semmle.python.dataflow.new.TaintTracking
 import semmle.python.Concepts
 import semmle.python.dataflow.new.BarrierGuards
-import DataFlow::PathGraph
 import ghsl.LocalSources
 private import semmle.python.security.dataflow.SqlInjectionCustomizations
+import SqlInjectionTaint::PathGraph
 
 /**
- * A taint-tracking configuration for detecting SQL injection vulnerabilities.
+ * A configuration for detecting SQL injection vulnerabilities.
  */
-class SQLInjectionConfiguration extends TaintTracking::Configuration {
-  SQLInjectionConfiguration() { this = "LocalSQLInjectionConfiguration" }
+module SQLInjectionTaintConfig implements DataFlow::ConfigSig {
+  predicate isSource(DataFlow::Node source) { source instanceof LocalSources::Range }
 
-  override predicate isSource(DataFlow::Node source) { source instanceof LocalSources::Range }
+  predicate isSink(DataFlow::Node sink) { sink instanceof SqlInjection::Sink }
 
-  override predicate isSink(DataFlow::Node sink) { sink instanceof SqlInjection::Sink }
-
-  override predicate isSanitizer(DataFlow::Node node) { node instanceof SqlInjection::Sanitizer }
+  predicate isBarrier(DataFlow::Node node) { node instanceof SqlInjection::Sanitizer }
 }
 
-from SQLInjectionConfiguration config, DataFlow::PathNode source, DataFlow::PathNode sink
-where config.hasFlowPath(source, sink)
+module SqlInjectionTaint = TaintTracking::Global<SQLInjectionTaintConfig>;
+
+from SqlInjectionTaint::PathNode source, SqlInjectionTaint::PathNode sink
+where SqlInjectionTaint::flowPath(source, sink)
 select sink.getNode(), source, sink, "This SQL query depends on $@.", source.getNode(),
   "a user-provided value"

@@ -1,0 +1,48 @@
+name: Setup CodeQL CLI
+description: |
+  Install a CodeQL CLI or re-use an existing one from the cache and it to the path.
+inputs:
+  codeql-cli-version:
+    description: |
+      The version of the CodeQL CLI to be downloaded.
+
+runs:
+  using: composite
+  steps:
+    - name: Cache CodeQL
+      id: cache-codeql
+      uses: actions/cache@v4
+      with:
+        # A list of files, directories, and wildcard patterns to cache and restore
+        path: ${{github.workspace}}/codeql_home
+        # An explicit key for restoring and saving the cache
+        key: codeql-home-${{ inputs.codeql-cli-version }}
+  
+    - name: Install CodeQL
+      if: steps.cache-codeql.outputs.cache-hit != 'true'
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+        CODEQL_HOME: ${{ github.workspace }}/codeql_home
+        CODEQL_CLI_VERSION: ${{ inputs.codeql-cli-version }}
+      run: |
+        mkdir -p $CODEQL_HOME
+        echo "Change directory to $CODEQL_HOME"
+        pushd $CODEQL_HOME
+
+        echo "Downloading CodeQL CLI v${CODEQL_CLI_VERSION}."
+        gh release download "v${CODEQL_CLI_VERSION}" --repo https://github.com/github/codeql-cli-binaries --pattern codeql-linux64.zip
+
+        echo "Unzipping CodeQL CLI."
+        unzip -q codeql-linux64.zip
+
+        popd
+        echo "Done."
+
+    - name: Add CodeQL to the PATH
+      shell: bash
+      env:
+        CODEQL_HOME: ${{ github.workspace }}/codeql_home
+      run: |
+        echo "Adding CodeQL CLI to the PATH."
+        echo "$CODEQL_HOME/codeql" >> $GITHUB_PATH

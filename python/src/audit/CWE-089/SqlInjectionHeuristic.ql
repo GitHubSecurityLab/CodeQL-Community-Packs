@@ -19,8 +19,8 @@ import semmle.python.dataflow.new.TaintTracking
 import semmle.python.Concepts
 import semmle.python.dataflow.new.BarrierGuards
 import semmle.python.ApiGraphs
-import DataFlow::PathGraph
 private import semmle.python.security.dataflow.SqlInjectionCustomizations
+import SqlInjectionHeuristicTaint::PathGraph
 
 class DatabaseExtentions extends DataFlow::Node {
   DatabaseExtentions() {
@@ -35,17 +35,17 @@ class DatabaseExtentions extends DataFlow::Node {
 /**
  * A taint-tracking configuration for detecting SQL injection vulnerabilities.
  */
-class SqlInjectionHeuristic extends TaintTracking::Configuration {
-  SqlInjectionHeuristic() { this = "SqlInjectionHeuristic" }
+module SqlInjectionHeuristicTaintConfig implements DataFlow::ConfigSig {
+  predicate isSource(DataFlow::Node source) { source instanceof SqlInjection::Source }
 
-  override predicate isSource(DataFlow::Node source) { source instanceof SqlInjection::Source }
+  predicate isSink(DataFlow::Node sink) { sink instanceof DatabaseExtentions }
 
-  override predicate isSink(DataFlow::Node sink) { sink instanceof DatabaseExtentions }
-
-  override predicate isSanitizer(DataFlow::Node node) { node instanceof SqlInjection::Sanitizer }
+  predicate isBarrier(DataFlow::Node node) { node instanceof SqlInjection::Sanitizer }
 }
 
-from SqlInjectionHeuristic config, DataFlow::PathNode source, DataFlow::PathNode sink
-where config.hasFlowPath(source, sink)
+module SqlInjectionHeuristicTaint = TaintTracking::Global<SqlInjectionHeuristicTaintConfig>;
+
+from SqlInjectionHeuristicTaint::PathNode source, SqlInjectionHeuristicTaint::PathNode sink
+where SqlInjectionHeuristicTaint::flowPath(source, sink)
 select sink.getNode(), source, sink, "This SQL query depends on $@.", source.getNode(),
   "a user-provided value"

@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+env:
+  CODEQL_CLI_VERSION: 2.19.3
+
 jobs:
   compile-and-test:
     runs-on: ubuntu-latest
@@ -24,23 +27,21 @@ jobs:
           filters: |
             src:
               - '${{ matrix.language }}/**'
+              - '.github/**'
 
-      - name: Initialize CodeQL
+      - name: Setup CodeQL
         if: steps.changes.outputs.src == 'true'
-        run: |
-          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
-                       | sort \
-                       | tail -n 1 \
-                       | tr -d '\n')"
-          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
-        
+        uses: ./.github/actions/install-codeql
+        with:
+          codeql-cli-version: ${{ env.CODEQL_CLI_VERSION }}
+
       - name: Install Packs
         if: steps.changes.outputs.src == 'true'
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          CODEQL_CLI_VERSION: ${{ env.CODEQL_CLI_VERSION }}
         run: |
-          gh repo clone github/codeql # to make stubs available for tests
-          codeql pack download "codeql/${{ matrix.language }}-queries"
+          gh repo clone github/codeql -- -b codeql-cli-${CODEQL_CLI_VERSION} # to make stubs available for tests
           codeql pack install "${{ matrix.language }}/lib"
           codeql pack install "${{ matrix.language }}/src"
           codeql pack install "${{ matrix.language }}/test"
@@ -171,14 +172,11 @@ jobs:
             src:
               - '${{ matrix.language }}/ext/**'
 
-      - name: Initialize CodeQL
+      - name: Setup CodeQL
         if: steps.changes.outputs.src == 'true'
-        run: |
-          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
-                       | sort \
-                       | tail -n 1 \
-                       | tr -d '\n')"
-          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+        uses: ./.github/actions/install-codeql
+        with:
+          codeql-cli-version: ${{ env.CODEQL_CLI_VERSION }}
 
       - name: Install Packs
         if: steps.changes.outputs.src == 'true'
@@ -209,14 +207,11 @@ jobs:
             src:
               - '${{ matrix.language }}/ext-library-sources/**'
 
-      - name: Initialize CodeQL
+      - name: Setup CodeQL
         if: steps.changes.outputs.src == 'true'
-        run: |
-          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
-                       | sort \
-                       | tail -n 1 \
-                       | tr -d '\n')"
-          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+        uses: ./.github/actions/install-codeql
+        with:
+          codeql-cli-version: ${{ env.CODEQL_CLI_VERSION }}
 
       - name: Install CodeQL
         if: steps.changes.outputs.src == 'true'
@@ -240,14 +235,11 @@ jobs:
             src:
               - 'configs/**'
       
-      - name: Initialize CodeQL
+      - name: Setup CodeQL
         if: steps.changes.outputs.src == 'true'
-        run: |
-          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
-                       | sort \
-                       | tail -n 1 \
-                       | tr -d '\n')"
-          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+        uses: ./.github/actions/install-codeql
+        with:
+          codeql-cli-version: ${{ env.CODEQL_CLI_VERSION }}
 
       - name: "Check Configurations"
         if: steps.changes.outputs.src == 'true'

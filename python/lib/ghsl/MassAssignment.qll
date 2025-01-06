@@ -32,24 +32,23 @@ module MassAssignment {
     }
   }
 
-  class MassAssignmentLocalConfig extends TaintTracking::Configuration {
-    MassAssignmentLocalConfig() { this = "Mass Assignment Config" }
-  
-    override predicate isSource(DataFlow::Node source) { source instanceof LocalSources::Range }
-  
-    override predicate isSink(DataFlow::Node sink) { sink instanceof MassAssignment::Sinks }
-  
-    override predicate isSanitizer(DataFlow::Node node) { node instanceof MassAssignment::Sanitizer }
+  private module MassAssignmentLocalTaintConfig implements DataFlow::ConfigSig {
+    predicate isSource(DataFlow::Node source) { source instanceof LocalSources::Range }
+
+    predicate isSink(DataFlow::Node sink) { sink instanceof MassAssignment::Sinks }
+
+    predicate isBarrier(DataFlow::Node node) { node instanceof MassAssignment::Sanitizer }
   }
-  
-  class MassAssignmentConfig extends TaintTracking::Configuration {
-    MassAssignmentConfig() { this = "Mass Assignment Config" }
-  
-    override predicate isSource(DataFlow::Node source) { source instanceof RemoteFlowSource::Range }
-  
-    override predicate isSink(DataFlow::Node sink) { sink instanceof MassAssignment::Sinks }
-  
-    override predicate isSanitizer(DataFlow::Node node) { node instanceof MassAssignment::Sanitizer }
+
+  module MassAssignmentLocalTaint = TaintTracking::Global<MassAssignmentLocalTaintConfig>;
+
+  private module MassAssignmentTaintConfig implements DataFlow::ConfigSig {
+    predicate isSource(DataFlow::Node source) { source instanceof RemoteFlowSource::Range }
+
+    predicate isSink(DataFlow::Node sink) { sink instanceof MassAssignment::Sinks }
+
+    predicate isBarrier(DataFlow::Node node) { node instanceof MassAssignment::Sanitizer }
   }
-  
+
+  module MassAssignmentTaint = TaintTracking::Global<MassAssignmentTaintConfig>;
 }

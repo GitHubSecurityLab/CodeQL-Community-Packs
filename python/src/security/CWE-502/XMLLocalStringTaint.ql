@@ -16,11 +16,10 @@
  */
 
 private import semmle.python.dataflow.new.DataFlow
-private import semmle.python.dataflow.new.TaintTracking
-private import DataFlow::PathGraph
 private import ghsl.XMLLocalLib
+import XmlStringTaint::PathGraph
 
-from DataFlow::PathNode source, DataFlow::PathNode sink
-where any(XmlStringConfig conf).hasFlowPath(source, sink)
+from XmlStringTaint::PathNode source, XmlStringTaint::PathNode sink
+where XmlStringTaint::flowPath(source, sink)
 select sink.getNode(), source, sink, "Unsafe parsing of XML from local $@.", source.getNode(),
   "user input"
