@@ -12,6 +12,7 @@ disable-default-queries: true
 
 packs:
     # All queries from the CodeQL Built in packs (including low/no precision queries)
+    - codeql/actions-queries:.
     - codeql/cpp-queries:.
     - codeql/csharp-queries:.
     - codeql/go-queries:.
