@@ -1,0 +1,47 @@
+name: CodeQL Update Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Please select the bump version"
+        required: true
+        type: choice
+        default: "patch"
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  update-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: Get Token
+        id: get_workflow_token
+        uses: peter-murray/workflow-application-token-action@8e4e6fbf6fcc8a272781d97597969d21b3812974 # v4.0.0
+        with:
+          application_id: ${{ secrets.SECLABS_APP_ID }}
+          application_private_key: ${{ secrets.SECLABS_APP_KEY }}
+
+      - name: "Patch Release Me"
+        uses: 42ByteLabs/patch-release-me@1e802ecb51cf4c5869cb77563df59b2fbe6f584c # 0.4.1
+        with:
+          # Bump (patch)
+          mode: ${{ inputs.mode }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@67ccf781d68cd99b580ae25a5c18a1cc84ffff1f # v7.0.6
+        with:
+          token: ${{ steps.get_workflow_token.outputs.token }}
+          title: "Chore: Auto Update new Release"
+          commit-message: "[chore]: Auto Patch new Release"
+          body: |
+            This is automatically created as a chore to patch and update the release.
+          branch: "auto-patch-release"
+          labels: "version"
+          delete-branch: true
