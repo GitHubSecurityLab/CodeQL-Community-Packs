@@ -1,22 +1,20 @@
 name: "CodeQL Community Packs"
+repository: "githubsecuritylab/codeql-community-packs"
 version: "0.2.0"
 
+ecosystem: CodeQL
+excludes:
+  - "/.codeql/"
+  - "/codeql/"
+
 locations:
-  - name: "CodeQL Packs"
-    paths:
-      - "**/qlpack.yml"
-    patterns:
-      - version:\s*([0-9]+\.[0-9]+\.[0-9])
-  
   - name: "CodeQL Configurations"
     paths:
       - "configs/*.yml"
     patterns:
-      - githubsecuritylab/codeql-[a-zA-Z]*-queries@([0-9]+\.[0-9]+\.[0-9])
-
-  - name: "CodeQL Pack Libaries"
+      - "{owner}/codeql-[a-zA-Z]*-queries@{version}"
+  - name: "CodeQL Pack Libraries"
     paths:
       - "**/qlpack.yml"
     patterns:
-      - githubsecuritylab/codeql-[a-zA-Z]*-libs:\s*([0-9]+\.[0-9]+\.[0-9])
-
+      - '{owner}/codeql-[a-zA-Z]*-libs:\s*{version}'
