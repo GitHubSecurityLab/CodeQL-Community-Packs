@@ -13,7 +13,6 @@
 
 import java
 import semmle.code.java.dataflow.FlowSources
-import semmle.code.java.dataflow.TaintTracking2
 import semmle.code.java.security.XSS
 import semmle.code.java.frameworks.Servlets
 import JSPLocations
@@ -106,10 +105,11 @@ class JSPTaintStep extends XssAdditionalTaintStep {
     exists(EvalCall propEval, AddAttrCall addAttr |
       varAppearsInEvalExpr(addAttr.getAttrName(), propEval.getEvalString()) and
       (
-        exists(RedirectToJsp rtj | rtj.(ControlFlowNode).getAPredecessor*() = addAttr)
+        exists(RedirectToJsp rtj | rtj.getControlFlowNode().getAPredecessor*().asExpr() = addAttr)
         implies
         propEval.getFile() =
-          any(RedirectToJsp rtj | rtj.(ControlFlowNode).getAPredecessor*() = addAttr).getJspFile()
+          any(RedirectToJsp rtj | rtj.getControlFlowNode().getAPredecessor*().asExpr() = addAttr)
+              .getJspFile()
       )
     |
       node1.asExpr() = addAttr.getAttrValue() and
@@ -129,11 +129,11 @@ class ForEachStep extends XssAdditionalTaintStep {
       v.getType().getName() = "ForEachTag" and
       exists(DataFlow::Node ctxSrc |
         ContextFlow::ContextFlow::flow(ctxSrc,
-          DataFlow2::exprNode(methodCallOn("setPageContext", v).getArgument(0))) and
-        ContextFlow::ContextFlow::flow(ctxSrc, DataFlow2::exprNode(eval.getCtxExpr()))
+          DataFlow::exprNode(methodCallOn("setPageContext", v).getArgument(0))) and
+        ContextFlow::ContextFlow::flow(ctxSrc, DataFlow::exprNode(eval.getCtxExpr()))
         // config
-        //     .hasFlow(ctxSrc, DataFlow2::exprNode(methodCallOn("setPageContext", v).getArgument(0))) and
-        // config.hasFlow(ctxSrc, DataFlow2::exprNode(eval.getCtxExpr()))
+        //     .hasFlow(ctxSrc, DataFlow::exprNode(methodCallOn("setPageContext", v).getArgument(0))) and
+        // config.hasFlow(ctxSrc, DataFlow::exprNode(eval.getCtxExpr()))
       ) and
       node1.asExpr() = methodCallOn("setItems", v).getArgument(0) and
       node2.asExpr() = eval and
@@ -169,7 +169,7 @@ class RedirectToJsp extends ReturnStmt {
   File jsp;
 
   RedirectToJsp() {
-    exists(DataFlow2::Node strLit, DataFlow2::Node retVal |
+    exists(DataFlow::Node strLit, DataFlow::Node retVal |
       strLit.asExpr().(StringLiteral).getValue().splitAt("/") + "_jsp.java" = jsp.getBaseName()
     |
       retVal.asExpr() = this.getResult() and LiteralConfig::LiteralFlow::flow(strLit, retVal)

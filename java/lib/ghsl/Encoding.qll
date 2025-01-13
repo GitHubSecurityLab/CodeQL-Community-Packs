@@ -1,7 +1,6 @@
 import java
 import semmle.code.java.dataflow.DataFlow
 import semmle.code.java.dataflow.FlowSources
-import semmle.code.java.dataflow.TaintTracking2
 
 module Base64 {
   abstract class Encoding extends DataFlow::Node { }

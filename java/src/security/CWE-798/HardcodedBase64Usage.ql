@@ -14,7 +14,6 @@
 import java
 import semmle.code.java.dataflow.DataFlow
 import semmle.code.java.dataflow.FlowSources
-import semmle.code.java.dataflow.TaintTracking2
 // Internal
 import ghsl.Encoding
 import ghsl.Hardcoded
