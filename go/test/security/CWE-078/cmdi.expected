@@ -1,6 +1,6 @@
 edges
-| main.go:20:14:20:20 | selection of URL | main.go:20:14:20:28 | call to Query | provenance | Src:MaD:1004 MaD:1065 |
-| main.go:20:14:20:28 | call to Query | main.go:27:22:27:28 | cmdName | provenance | Sink:MaD:1075 |
+| main.go:20:14:20:20 | selection of URL | main.go:20:14:20:28 | call to Query | provenance | Src:MaD:1639 MaD:1700 |
+| main.go:20:14:20:28 | call to Query | main.go:27:22:27:28 | cmdName | provenance | Sink:MaD:1710 |
 nodes
 | main.go:20:14:20:20 | selection of URL | semmle.label | selection of URL |
 | main.go:20:14:20:28 | call to Query | semmle.label | call to Query |
