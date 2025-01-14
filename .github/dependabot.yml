@@ -6,7 +6,7 @@ updates:
     schedule:
       interval: "weekly"
     reviewers:
-      - "GeekMasher"
+      - "GitHubSecurityLab/codeql-maintainers"
     target-branch: "main"
     commit-message:
       prefix: deps
