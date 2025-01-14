@@ -2,25 +2,25 @@
 lockVersion: 1.0.0
 dependencies:
   codeql/controlflow:
-    version: 1.0.11
+    version: 1.0.14
   codeql/dataflow:
-    version: 1.1.5
+    version: 1.1.8
   codeql/mad:
-    version: 1.0.11
+    version: 1.0.14
   codeql/regex:
-    version: 1.0.11
+    version: 1.0.14
   codeql/ruby-all:
-    version: 2.0.3
+    version: 3.0.1
   codeql/ruby-queries:
-    version: 1.1.6
+    version: 1.1.9
   codeql/ssa:
-    version: 1.0.11
+    version: 1.0.14
   codeql/suite-helpers:
-    version: 1.0.11
+    version: 1.0.14
   codeql/tutorial:
-    version: 1.0.11
+    version: 1.0.14
   codeql/typetracking:
-    version: 1.0.11
+    version: 1.0.14
   codeql/util:
-    version: 1.0.11
+    version: 2.0.1
 compiled: false

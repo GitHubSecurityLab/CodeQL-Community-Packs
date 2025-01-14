@@ -1,7 +1,6 @@
 import java
 import semmle.code.java.dataflow.DataFlow
 import semmle.code.java.dataflow.FlowSources
-import semmle.code.java.dataflow.TaintTracking2
 
 abstract class LoggingMethodsSinks extends DataFlow::Node { }
 

@@ -16,7 +16,6 @@
 import java
 import semmle.code.java.security.XmlParsers
 import semmle.code.java.dataflow.FlowSources
-import semmle.code.java.dataflow.TaintTracking2
 //import DataFlow::PathGraph
 import ghsl.LocalSources
 
