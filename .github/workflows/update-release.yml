@@ -23,10 +23,10 @@ jobs:
 
       - name: Get Token
         id: get_workflow_token
-        uses: peter-murray/workflow-application-token-action@8e4e6fbf6fcc8a272781d97597969d21b3812974 # v4.0.0
+        uses: actions/create-github-app-token@v1
         with:
-          application_id: ${{ secrets.SECLABS_APP_ID }}
-          application_private_key: ${{ secrets.SECLABS_APP_KEY }}
+          app-id: ${{ secrets.SECLABS_APP_ID }}
+          private-key: ${{ secrets.SECLABS_APP_KEY }}          
 
       - name: "Patch Release Me"
         uses: 42ByteLabs/patch-release-me@1e802ecb51cf4c5869cb77563df59b2fbe6f584c # 0.4.1
