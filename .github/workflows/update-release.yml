@@ -26,7 +26,7 @@ jobs:
         uses: actions/create-github-app-token@v1
         with:
           app-id: ${{ secrets.SECLABS_APP_ID }}
-          private-key: ${{ secrets.SECLABS_APP_KEY }}          
+          private-key: ${{ secrets.SECLABS_APP_KEY }}
 
       - name: "Patch Release Me"
         uses: 42ByteLabs/patch-release-me@1e802ecb51cf4c5869cb77563df59b2fbe6f584c # 0.4.1
