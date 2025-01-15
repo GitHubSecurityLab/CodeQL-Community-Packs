@@ -6,7 +6,7 @@ updates:
     schedule:
       interval: "weekly"
     reviewers:
-      - "GitHubSecurityLab/codeql-maintainers"
+      - "GitHubSecurityLab/codeql-community-packs-admin"
     target-branch: "main"
     commit-message:
       prefix: deps
