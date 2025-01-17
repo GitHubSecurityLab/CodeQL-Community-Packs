@@ -18,10 +18,10 @@ jobs:
         language: [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       # Conditionally run actions based on files modified by PR, feature branch or pushed commits
-      - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36
         id: changes
         with:
           filters: |
@@ -126,7 +126,7 @@ jobs:
     steps:
       - name: Check if compile-and-test job failed to complete, if so fail
         if: ${{ needs.compile-and-test.result == 'failure' }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v7
         with:
           script: |
             core.setFailed('Test run job failed')
@@ -161,11 +161,11 @@ jobs:
         language: [ 'csharp', 'java' ]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
-      - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36
         id: changes
         with:
           filters: |
@@ -196,11 +196,11 @@ jobs:
         language: [ 'csharp', 'java' ]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
-      - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36
         id: changes
         with:
           filters: |
@@ -226,9 +226,9 @@ jobs:
     needs: compile-and-test
     
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36
         id: changes
         with:
           filters: |
