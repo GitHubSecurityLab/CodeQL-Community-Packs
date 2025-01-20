@@ -20,7 +20,7 @@ jobs:
         language: ["cpp", "csharp", "go", "java", "javascript", "python", "ruby"] 
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Initialize CodeQL
         run: |
@@ -32,7 +32,7 @@ jobs:
 
       - name: "Check and publish codeql-LANG-queries (src) pack"
         env:
-          GITHUB_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]')
           CURRENT_VERSION=$(grep version ${{ matrix.language }}/src/qlpack.yml | awk '{print $2}')
@@ -57,7 +57,7 @@ jobs:
         language: ["cpp", "csharp", "go", "java", "javascript", "python", "ruby"] 
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Initialize CodeQL
         run: |
@@ -69,7 +69,7 @@ jobs:
 
       - name: "Check and publish codeql-LANG-libs (lib) pack"
         env:
-          GITHUB_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-libs/versions --jq '.[0].metadata.container.tags[0]')
           CURRENT_VERSION=$(grep version ${{ matrix.language }}/lib/qlpack.yml | awk '{print $2}')
@@ -84,13 +84,17 @@ jobs:
   extensions:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      packages: write
+
     strategy:
       fail-fast: false
       matrix:
         language: ["csharp", "java"]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Initialize CodeQL
         run: |
@@ -102,7 +106,7 @@ jobs:
 
       - name: Check and publish codeql-LANG-extensions (ext) pack
         env:
-          GITHUB_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-extensions/versions --jq '.[0].metadata.container.tags[0]')
           CURRENT_VERSION=$(grep version ${{ matrix.language }}/ext/qlpack.yml | awk '{print $2}')
@@ -117,13 +121,17 @@ jobs:
   library_sources_extensions:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      packages: write
+
     strategy:
       fail-fast: false
       matrix:
         language: ["csharp", "java"]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Initialize CodeQL
         run: |
@@ -135,7 +143,7 @@ jobs:
 
       - name: Check and publish codeql-LANG-library-sources (ext-library-sources) pack
         env:
-          GITHUB_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-library-sources/versions --jq '.[0].metadata.container.tags[0]')
           CURRENT_VERSION=$(grep version ${{ matrix.language }}/ext-library-sources/qlpack.yml | awk '{print $2}')

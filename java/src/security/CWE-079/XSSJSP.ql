@@ -12,7 +12,6 @@
 
 import java
 import semmle.code.java.dataflow.FlowSources
-import semmle.code.java.dataflow.TaintTracking2
 import semmle.code.java.security.XSS
 import JSPLocations
 
@@ -48,10 +47,11 @@ class JSPTaintStep extends XssAdditionalTaintStep {
           .getValue()
           .regexpMatch(".*\\$\\{" + key.getValue() + "\\}.*") and
       (
-        exists(RedirectToJsp rtj | rtj.(ControlFlowNode).getAPredecessor*() = addAttr)
+        exists(RedirectToJsp rtj | rtj.getControlFlowNode().getAPredecessor*().asExpr() = addAttr)
         implies
         propEval.getFile() =
-          any(RedirectToJsp rtj | rtj.(ControlFlowNode).getAPredecessor*() = addAttr).getJspFile()
+          any(RedirectToJsp rtj | rtj.getControlFlowNode().getAPredecessor*().asExpr() = addAttr)
+              .getJspFile()
       )
     |
       node1.asExpr() = addAttr.getArgument(1) and
@@ -74,7 +74,7 @@ class RedirectToJsp extends ReturnStmt {
   File jsp;
 
   RedirectToJsp() {
-    exists(DataFlow2::Node strLit, DataFlow2::Node retVal |
+    exists(DataFlow::Node strLit, DataFlow::Node retVal |
       strLit.asExpr().(StringLiteral).getValue().splitAt("/") + "_jsp.java" = jsp.getBaseName()
     |
       retVal.asExpr() = this.getResult() and LiteralConfig::LiteralFlow::flow(strLit, retVal)
