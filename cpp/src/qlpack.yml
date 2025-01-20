@@ -1,9 +1,9 @@
 library: false
 name: githubsecuritylab/codeql-cpp-queries
-version: 0.0.4
+version: 0.2.0
 suites: suites
 defaultSuiteFile: suites/cpp.qls
 dependencies:
   codeql/cpp-all: '*'
   codeql/cpp-queries: '*'
-  githubsecuritylab/codeql-cpp-libs: 0.0.1
+  githubsecuritylab/codeql-cpp-libs: 0.2.0
