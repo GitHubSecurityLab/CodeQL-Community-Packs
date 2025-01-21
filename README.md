@@ -28,7 +28,7 @@ Using a `githubsecuritylab/codeql-LANG-queries` query pack will reference the de
 
 ```yaml
 - name: Initialize CodeQL
-  uses: github/codeql-action/init@v2
+  uses: github/codeql-action/init@v3
   with:
     languages: ${{ matrix.language }}
     packs: githubsecuritylab/codeql-${{ matrix.language }}-queries
@@ -40,7 +40,7 @@ This repository has a number of [provided configuration files][configurations] y
 
 ```yaml
 - name: Initialize CodeQL
-  uses: github/codeql-action/init@v2
+  uses: github/codeql-action/init@v3
   with:
     languages: ${{ matrix.language }}
     config-file: GitHubSecurityLab/CodeQL-Community-Packs/configs/default.yml@main
