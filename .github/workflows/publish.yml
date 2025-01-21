@@ -5,8 +5,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
-jobs:
+env:
+  CODEQL_CLI_VERSION: 2.20.1
 
+jobs:
   queries:
     runs-on: ubuntu-latest
 
@@ -22,27 +24,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Initialize CodeQL
-        run: |
-          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
-                       | sort \
-                       | tail -n 1 \
-                       | tr -d '\n')"
-          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
-
-      - name: "Check and publish codeql-LANG-queries (src) pack"
+      - name: Check codeql-LANG-queries (src) pack
+        id: check_version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]')
           CURRENT_VERSION=$(grep version ${{ matrix.language }}/src/qlpack.yml | awk '{print $2}')
 
-          echo "Published verion: $PUBLISHED_VERSION"
-          echo "Local verion: $CURRENT_VERSION"
+          echo "Published version: $PUBLISHED_VERSION"
+          echo "Local version: $CURRENT_VERSION"
+
           if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
-            codeql pack install "${{ matrix.language }}/src"
-            codeql pack publish "${{ matrix.language }}/src"
+            echo "publish=true" >> $GITHUB_OUTPUT
           fi
+
+      - name: Setup CodeQL
+        if: steps.check_version.outputs.publish == 'true'
+        uses: ./.github/actions/install-codeql
+        with:
+          codeql-cli-version: ${{ env.CODEQL_CLI_VERSION }}
+
+      - name: Publish codeql-LANG-queries (src) pack.
+        if: steps.check_version.outputs.publish == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Publishing codeql-${{ matrix.language }}-queries."
+          codeql pack install "${{ matrix.language }}/src"
+          codeql pack publish "${{ matrix.language }}/src"
 
   library:
     runs-on: ubuntu-latest
@@ -59,27 +69,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Initialize CodeQL
-        run: |
-          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
-                       | sort \
-                       | tail -n 1 \
-                       | tr -d '\n')"
-          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
-
-      - name: "Check and publish codeql-LANG-libs (lib) pack"
+      - name: Check codeql-LANG-libs (lib) pack
+        id: check_version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-libs/versions --jq '.[0].metadata.container.tags[0]')
           CURRENT_VERSION=$(grep version ${{ matrix.language }}/lib/qlpack.yml | awk '{print $2}')
 
-          echo "Published verion: $PUBLISHED_VERSION"
-          echo "Local verion: $CURRENT_VERSION"
+          echo "Published version: $PUBLISHED_VERSION"
+          echo "Local version: $CURRENT_VERSION"
+
           if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
-            codeql pack install "${{ matrix.language }}/lib"
-            codeql pack publish "${{ matrix.language }}/lib"
+            echo "publish=true" >> $GITHUB_OUTPUT
           fi
+
+      - name: Setup CodeQL
+        if: steps.check_version.outputs.publish == 'true'
+        uses: ./.github/actions/install-codeql
+        with:
+          codeql-cli-version: ${{ env.CODEQL_CLI_VERSION }}
+
+      - name: Publish codeql-LANG-libs (lib) pack
+        if: steps.check_version.outputs.publish == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Publishing codeql-${{ matrix.language }}-libs."
+          codeql pack install "${{ matrix.language }}/lib"
+          codeql pack publish "${{ matrix.language }}/lib"
 
   extensions:
     runs-on: ubuntu-latest
@@ -96,27 +114,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Initialize CodeQL
-        run: |
-          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
-                       | sort \
-                       | tail -n 1 \
-                       | tr -d '\n')"
-          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
-
-      - name: Check and publish codeql-LANG-extensions (ext) pack
+      - name: Check codeql-LANG-extensions (ext) pack
+        id: check_version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-extensions/versions --jq '.[0].metadata.container.tags[0]')
           CURRENT_VERSION=$(grep version ${{ matrix.language }}/ext/qlpack.yml | awk '{print $2}')
 
-          echo "Published verion: $PUBLISHED_VERSION"
-          echo "Local verion: $CURRENT_VERSION"
+          echo "Published version: $PUBLISHED_VERSION"
+          echo "Local version: $CURRENT_VERSION"
           if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
-            codeql pack install "${{ matrix.language }}/ext"
-            codeql pack publish "${{ matrix.language }}/ext"
+            echo "publish=true" >> $GITHUB_OUTPUT
           fi
+
+      - name: Setup CodeQL
+        if: steps.check_version.outputs.publish == 'true'
+        uses: ./.github/actions/install-codeql
+        with:
+          codeql-cli-version: ${{ env.CODEQL_CLI_VERSION }}
+
+      - name: Publish codeql-LANG-extensions (ext) pack
+        if: steps.check_version.outputs.publish == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Publishing codeql-${{ matrix.language }}-extensions."
+          codeql pack install "${{ matrix.language }}/ext"
+          codeql pack publish "${{ matrix.language }}/ext"
+
 
   library_sources_extensions:
     runs-on: ubuntu-latest
@@ -133,24 +159,31 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Initialize CodeQL
-        run: |
-          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
-                       | sort \
-                       | tail -n 1 \
-                       | tr -d '\n')"
-          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
-
-      - name: Check and publish codeql-LANG-library-sources (ext-library-sources) pack
+      - name: Check codeql-LANG-library-sources (ext-library-sources) pack
+        id: check_version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-library-sources/versions --jq '.[0].metadata.container.tags[0]')
           CURRENT_VERSION=$(grep version ${{ matrix.language }}/ext-library-sources/qlpack.yml | awk '{print $2}')
 
-          echo "Published verion: $PUBLISHED_VERSION"
-          echo "Local verion: $CURRENT_VERSION"
+          echo "Published version: $PUBLISHED_VERSION"
+          echo "Local version: $CURRENT_VERSION"
           if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
-            codeql pack install "${{ matrix.language }}/ext-library-sources"
-            codeql pack publish "${{ matrix.language }}/ext-library-sources"
+            echo "publish=true" >> $GITHUB_OUTPUT
           fi
+
+      - name: Setup CodeQL
+        if: steps.check_version.outputs.publish == 'true'
+        uses: ./.github/actions/install-codeql
+        with:
+          codeql-cli-version: ${{ env.CODEQL_CLI_VERSION }}
+
+      - name: Publish codeql-LANG-library-sources (ext-library-sources) pack
+        if: steps.check_version.outputs.publish == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Publishing codeql-${{ matrix.language }}-library-sources."
+          codeql pack install "${{ matrix.language }}/ext-library-sources"
+          codeql pack publish "${{ matrix.language }}/ext-library-sources"
