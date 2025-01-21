@@ -3,9 +3,6 @@ name: Publish CodeQL Packs
 on:
   push:
     branches: [main]
-  # TODO: REMOVE AGAIN AFTER TESTING
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
 env:
@@ -54,9 +51,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Publishing codeql-${{ matrix.language }}-queries."
-          # TODO COMMENT BACK IN AFTER TESTING
-          # codeql pack install "${{ matrix.language }}/src"
-          # codeql pack publish "${{ matrix.language }}/src"
+          codeql pack install "${{ matrix.language }}/src"
+          codeql pack publish "${{ matrix.language }}/src"
 
   library:
     runs-on: ubuntu-latest
@@ -100,9 +96,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Publishing codeql-${{ matrix.language }}-libs."
-          # TODO COMMENT BACK IN AFTER TESTING
-          # codeql pack install "${{ matrix.language }}/lib"
-          # codeql pack publish "${{ matrix.language }}/lib"
+          codeql pack install "${{ matrix.language }}/lib"
+          codeql pack publish "${{ matrix.language }}/lib"
 
   extensions:
     runs-on: ubuntu-latest
@@ -145,9 +140,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Publishing codeql-${{ matrix.language }}-extensions."
-          # TODO COMMENT BACK IN AFTER TESTING
-          # codeql pack install "${{ matrix.language }}/ext"
-          # codeql pack publish "${{ matrix.language }}/ext"
+          codeql pack install "${{ matrix.language }}/ext"
+          codeql pack publish "${{ matrix.language }}/ext"
 
 
   library_sources_extensions:
@@ -191,6 +185,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Publishing codeql-${{ matrix.language }}-library-sources."
-          # TODO COMMENT BACK IN AFTER TESTING
-          # codeql pack install "${{ matrix.language }}/ext-library-sources"
-          # codeql pack publish "${{ matrix.language }}/ext-library-sources"
+          codeql pack install "${{ matrix.language }}/ext-library-sources"
+          codeql pack publish "${{ matrix.language }}/ext-library-sources"
