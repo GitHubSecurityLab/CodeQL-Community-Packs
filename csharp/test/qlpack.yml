@@ -3,6 +3,8 @@ groups: [csharp, test]
 dependencies:
   codeql/csharp-all: "*"
   codeql/csharp-queries: "*"
+  githubsecuritylab/codeql-csharp-extensions: "*"
+  githubsecuritylab/codeql-csharp-library-sources: "*"
   githubsecuritylab/codeql-csharp-libs: "*"
   githubsecuritylab/codeql-csharp-queries: "*"
 extractor: csharp
