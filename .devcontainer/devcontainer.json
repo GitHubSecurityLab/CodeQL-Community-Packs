@@ -31,12 +31,25 @@
             "repositories": {
                 "github/gh-codeql": {
                     "permissions": {
-                        "contents": "read"
+                        "contents": "read",
+                        "packages": "read"
                     }
                 },
                 "github/codeql": {
                     "permissions": {
                         "contents": "read"
+                    }
+                },
+                "github/codeql-cli-binaries": {
+                    "permissions": {
+                        "contents": "read",
+                        "packages": "read"
+                    }
+                },
+                "dsp-testing/codeql-cli-nightlies": {
+                    "permissions": {
+                        "contents": "read",
+                        "packages": "read"
                     }
                 }
             }

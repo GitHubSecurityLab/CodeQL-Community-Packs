@@ -2,10 +2,16 @@
 set -e
 
 echo "Installing GH Extensions..."
+
+gh extensions install github/gh-codeql
 gh extensions install GitHubSecurityLab/gh-mrva
 gh extensions install advanced-security/gh-codeql-scan
 
-echo "Installing stubs..."
+echo "Installing CodeQL + stub..."
+
+gh codeql set-version latest
+gh codeql install-stub
+
 chmod +x .devcontainer/scripts/* && cp -r .devcontainer/scripts/* /usr/local/bin/
 
 # Clone an instance of the CodeQL repository

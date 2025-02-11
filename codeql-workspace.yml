@@ -1,9 +1,11 @@
 provide:
-- cpp/**/qlpack.yml
-- csharp/**/qlpack.yml
-- go/**/qlpack.yml
-- java/**/qlpack.yml
-- javascript/**/qlpack.yml
-- python/**/qlpack.yml
-- ruby/**/qlpack.yml
+  - codeql/**/ql/lib/qlpack.yml
+  - codeql/**/ql/src/qlpack.yml
 
+  - cpp/**/qlpack.yml
+  - csharp/**/qlpack.yml
+  - go/**/qlpack.yml
+  - java/**/qlpack.yml
+  - javascript/**/qlpack.yml
+  - python/**/qlpack.yml
+  - ruby/**/qlpack.yml
