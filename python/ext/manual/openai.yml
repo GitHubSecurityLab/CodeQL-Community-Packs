@@ -1,0 +1,8 @@
+extensions:
+  - addsTo:
+      pack: codeql/python-all
+      extensible: sinkModel
+    data:
+      - ["openai", "BaseAzureClient.Member[chat].Member[completions].Member[with_raw_response].Member[create]", "prompt-injection"]
+      - ["openai", "AzureOpenAI.Member[chat].Member[completions].Member[with_raw_response].Member[create]", "prompt-injection"]
+      - ["openai", "AsyncAzureOpenAI.Member[chat].Member[completions].Member[with_raw_response].Member[create]", "prompt-injection"]
