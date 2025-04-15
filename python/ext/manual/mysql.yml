@@ -13,7 +13,7 @@ extensions:
           "connection.Connection.Argument[password:]",
           "credentials-hardcoded",
         ]
-      - ["psycopg2", "connect.Argument[:password]", "credentials-hardcoded"]
+      - ["psycopg2", "connect.Argument[password:]", "credentials-hardcoded"]
       - [
           "aioredis",
           "create_connection.Argument[password:]",
