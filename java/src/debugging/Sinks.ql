@@ -4,7 +4,7 @@
  * @problem.severity warning
  * @security-severity 1.0
  * @sub-severity low
- * @precision low
+ * @precision high
  * @id java/debugging/sinks
  * @tags debugging
  */
