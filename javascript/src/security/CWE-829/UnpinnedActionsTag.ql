@@ -8,7 +8,7 @@
  * @id githubsecuritylab/actions/unpinned-tag
  * @tags actions
  *       security
- *       experimental
+ *       deprecated
  *       external/cwe/cwe-829
  */
 

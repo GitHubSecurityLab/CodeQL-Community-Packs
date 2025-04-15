@@ -18,6 +18,7 @@
     tags contain:
       - debugging
       - audit
+      - deprecated
 
 # Remove local testing folders
 - exclude:
