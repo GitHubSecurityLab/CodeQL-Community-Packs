@@ -3,3 +3,4 @@ name: githubsecuritylab/codeql-java-libs
 version: 0.2.1
 dependencies:
   codeql/java-all: '*'
+  githubsecuritylab/codeql-java-extensions: '0.2.1'
