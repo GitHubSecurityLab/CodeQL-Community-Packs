@@ -4,6 +4,12 @@
   from: githubsecuritylab/codeql-java-queries
 
 - include:
+    kind:
+    - problem
+    - path-problem
+    precision:
+    - very-high
+    - high
     tags contain:
       - debugging
 
