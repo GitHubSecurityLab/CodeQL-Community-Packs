@@ -1,0 +1,13 @@
+- description: "GitHub's Community Packs Java/Kotlin Extended Suite"
+
+- queries: '.'
+  from: githubsecuritylab/codeql-java-queries
+
+- include:
+    tags contain:
+      - debugging
+
+# Remove local testing folders
+- exclude:
+    query path:
+      - /testing\/.*/
