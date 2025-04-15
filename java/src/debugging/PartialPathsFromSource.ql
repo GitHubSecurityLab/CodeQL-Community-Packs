@@ -15,16 +15,9 @@ import semmle.code.java.dataflow.DataFlow
 import semmle.code.java.dataflow.FlowSources
 import semmle.code.java.dataflow.TaintTracking
 
-class Sources extends AllSources {
-  Sources() {
-    findByLocation(this, "App.java", _)
-  }
-
-}
-
 // Partial Graph
 private module RemoteFlowsConfig implements DataFlow::ConfigSig {
-  predicate isSource(DataFlow::Node source) { source instanceof Sources }
+  predicate isSource(DataFlow::Node source) { source instanceof AllSources }
 
   predicate isSink(DataFlow::Node sink) { none() }
 }
@@ -39,10 +32,10 @@ private import RemoteFlowsPartial::PartialPathGraph
 
 from RemoteFlowsPartial::PartialPathNode source, RemoteFlowsPartial::PartialPathNode sink
 where
-  // Filter by file (line number)
+  /// Filter by file (line number)
   // findByLocation(source.getNode(), "File.java", _) and
-  // Filter by if the sink is callable
+  /// Filter by if the sink is callable
   // isCallable(sink.getNode()) and
-  // Perform Partial Flow query
+  /// Perform Partial Flow query
   RemoteFlowsPartial::partialFlow(source, sink, _)
 select sink.getNode(), source, sink, "Partial Graph $@.", source.getNode(), "user-provided value"
