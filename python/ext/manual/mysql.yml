@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/python-all
+      extensible: sinkModel
+    data:
+      - [
+          "mysql",
+          "connector.connect.Argument[password:]",
+          "credentials-hardcoded",
+        ]
+      - [
+          "asyncpg",
+          "connection.Connection.Argument[password:]",
+          "credentials-hardcoded",
+        ]
+      - ["psycopg2", "connect.Argument[:password]", "credentials-hardcoded"]
+      - [
+          "aioredis",
+          "create_connection.Argument[password:]",
+          "credentials-hardcoded",
+        ]
