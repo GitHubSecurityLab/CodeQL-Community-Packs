@@ -32,10 +32,10 @@ private import RemoteFlowsPartial::PartialPathGraph
 
 from RemoteFlowsPartial::PartialPathNode source, RemoteFlowsPartial::PartialPathNode sink
 where
-  // Only show sinks from a certain file
-  findByLocation(sink.getNode(), "File.java", _) and
-  // Only show sources that match our criteria
+  /// Only show sinks from a certain file
+  // findByLocation(sink.getNode(), "File.java", _) and
+  /// Only show sources that match our criteria
   // checkSource(source.getNode()) and
-  // Partical Path
+  /// Partical Path
   RemoteFlowsPartial::partialFlow(source, sink, _)
 select sink.getNode(), source, sink, "Partial Graph $@.", source.getNode(), "user-provided value"
