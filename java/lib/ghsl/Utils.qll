@@ -32,8 +32,7 @@ predicate isCallable(DataFlow::Node sink) { sink.asExpr() instanceof MethodCall 
  * Check if the source node is a method parameter.
  */
 predicate checkSource(DataFlow::Node source) {
-  // TODO: fix this
-  source.asParameter() instanceof Parameter
+  exists(source.asParameter())
   or
   source.asExpr() instanceof MethodCall
 }
