@@ -1,0 +1,16 @@
+extensions:
+    - addsTo:
+      pack: codeql/python-all
+      extensible: summaryModel
+      data:
+          - ["itsdangerous", "Member[encoding].Member[base64_decode]", "Argument[0,string:]", "ReturnValue", "taint"]
+          - ["itsdangerous", "Member[encoding].Member[base64_encode]", "Argument[0,string:]", "ReturnValue", "taint"]
+          - ["itsdangerous", "Member[encoding].Member[want_bytes]", "Argument[0,s:]", "ReturnValue", "taint"]
+          - ["itsdangerous", "Member[signer].Member[Signer].Instance.Member[derive_key]", "Argument[1,secret_key:]", "ReturnValue", "taint"]
+          - ["itsdangerous", "Member[signer].Member[Signer].Instance.Member[derive_key]", "Argument[self]", "ReturnValue", "taint"]
+          - ["itsdangerous", "Member[signer].Member[Signer].Instance.Member[sign]", "Argument[1,value:]", "ReturnValue", "taint"]
+          - ["itsdangerous", "Member[signer].Member[Signer].Instance.Member[sign]", "Argument[self]", "ReturnValue", "taint"]
+          - ["itsdangerous", "Member[signer].Member[Signer].Instance.Member[unsign]", "Argument[1,signed_value:]", "ReturnValue", "taint"]
+          - ["itsdangerous", "Member[timed].Member[TimestampSigner].Instance.Member[sign]", "Argument[1,value:]", "ReturnValue", "taint"]
+          - ["itsdangerous", "Member[timed].Member[TimestampSigner].Instance.Member[sign]", "Argument[self]", "ReturnValue", "taint"]
+          - ["itsdangerous", "Member[timed].Member[TimestampSigner].Instance.Member[unsign]", "Argument[1,signed_value:]", "ReturnValue", "taint"]
