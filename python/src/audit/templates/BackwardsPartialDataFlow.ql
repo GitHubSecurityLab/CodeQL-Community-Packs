@@ -13,7 +13,7 @@ import semmle.python.dataflow.new.DataFlow
 import semmle.python.dataflow.new.TaintTracking
 import semmle.python.ApiGraphs
 import PartialFlow::PartialPathGraph
-import ghsl.Helpers // required for dangerousSinks
+import ghsl
 
 private module MyConfig implements DataFlow::ConfigSig {
   predicate isSource(DataFlow::Node source) { none() }
