@@ -15,7 +15,7 @@ jobs:
       packages: write
 
     concurrency:
-        group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}-${{ matrix.language }}
+        group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
         cancel-in-progress: true
 
     steps:
