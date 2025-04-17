@@ -3,6 +3,8 @@ private import semmle.python.ApiGraphs
 private import semmle.python.Concepts
 private import semmle.python.dataflow.new.DataFlow
 private import ghsl.LocalSources
+private import ghsl.Sinks
+
 /**
  * Find Node at Location
  */
@@ -22,7 +24,7 @@ predicate functionParameters(DataFlow::Node node) {
     // Function Call Arguments
     node instanceof DataFlow::ArgumentNode
   ) and
-  not dangerousSinks(node) and
+  node instanceof AllSinks and
   node.getScope().inSource()
 }
 
