@@ -28,7 +28,7 @@ jobs:
       - name: "Update CodeQL Pack Dependencies"
         run: |
           set -e
-          echo "Find all directoring with a qlpack.yml file"
+          echo "Find all directories with a qlpack.yml file"
           for dir in $(find . -name qlpack.yml -exec dirname {} \;); do
             echo "Updating dependencies in $dir"
             codeql pack upgrade "$dir"
