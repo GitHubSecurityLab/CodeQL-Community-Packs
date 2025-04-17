@@ -1,0 +1,47 @@
+name: Update CodeQL
+
+on:
+  schedule:
+    # Every Monday at 14:00 UTC
+    - cron: "0 14 * * 1"
+  workflow_dispatch:
+
+jobs:
+  queries:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    concurrency:
+        group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}-${{ matrix.language }}
+        cancel-in-progress: true
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: Setup CodeQL
+        uses: ./.github/actions/install-codeql
+
+      - name: "Update CodeQL Pack Dependencies"
+        run: |
+          set -e
+          echo "Find all directoring with a qlpack.yml file"
+          for dir in $(find . -name qlpack.yml -exec dirname {} \;); do
+            echo "Updating dependencies in $dir"
+            codeql pack upgrade "$dir"
+          done
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          token: ${{ github.token }}
+          title: "Chore: Update CodeQL Pack Dependencies"
+          commit-message: "[chore]: Update CodeQL Pack Dependencies"
+          body: |
+            This is an automatically created chore to update the CodeQL pack dependencies for all languages.
+          branch: "chore/update-codeql-pack-dependencies"
+          labels: "version"
+          delete-branch: true
