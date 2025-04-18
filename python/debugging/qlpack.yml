@@ -1,0 +1,8 @@
+library: false
+name: githubsecuritylab/codeql-python-debugging
+version: 0.1.0
+suites: suites
+defaultSuiteFile: suites/default.qls
+dependencies:
+  codeql/python-all: '^1.0.0'
+  githubsecuritylab/codeql-python-libs: "${workspace}"
