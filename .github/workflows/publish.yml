@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  CODEQL_CLI_VERSION: 2.20.1
+  CODEQL_CLI_VERSION: 2.21.0
 
 jobs:
   queries:
@@ -19,7 +19,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ["cpp", "csharp", "go", "java", "javascript", "python", "ruby"] 
+        language:
+          ["cpp", "csharp", "go", "java", "javascript", "python", "ruby"]
 
     steps:
       - uses: actions/checkout@v4
@@ -64,7 +65,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ["cpp", "csharp", "go", "java", "javascript", "python", "ruby"] 
+        language:
+          ["cpp", "csharp", "go", "java", "javascript", "python", "ruby"]
 
     steps:
       - uses: actions/checkout@v4
@@ -142,7 +144,6 @@ jobs:
           echo "Publishing codeql-${{ matrix.language }}-extensions."
           codeql pack install "${{ matrix.language }}/ext"
           codeql pack publish "${{ matrix.language }}/ext"
-
 
   library_sources_extensions:
     runs-on: ubuntu-latest

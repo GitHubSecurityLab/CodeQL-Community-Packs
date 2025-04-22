@@ -1,21 +1,22 @@
-name: Build CodeQL Packs 
+name: Build CodeQL Packs
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 env:
-  CODEQL_CLI_VERSION: 2.20.1
+  CODEQL_CLI_VERSION: 2.21.0
 
 jobs:
   compile-and-test:
     runs-on: ubuntu-latest
-    
+
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
+        language:
+          ["cpp", "csharp", "go", "java", "javascript", "python", "ruby"]
 
     steps:
       - uses: actions/checkout@v4
@@ -151,14 +152,14 @@ jobs:
             echo $FAILING_TESTS | jq .
             exit 1
           fi
-  
+
   extensions:
     runs-on: ubuntu-latest
-    
+
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'csharp', 'java' ]
+        language: ["csharp", "java"]
 
     steps:
       - uses: actions/checkout@v4
@@ -189,11 +190,11 @@ jobs:
 
   library-sources:
     runs-on: ubuntu-latest
-    
+
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'csharp', 'java' ]
+        language: ["csharp", "java"]
 
     steps:
       - uses: actions/checkout@v4
@@ -224,7 +225,7 @@ jobs:
   configs:
     runs-on: ubuntu-latest
     needs: compile-and-test
-    
+
     steps:
       - uses: actions/checkout@v4
 
@@ -234,7 +235,7 @@ jobs:
           filters: |
             src:
               - 'configs/**'
-      
+
       - name: Setup CodeQL
         if: steps.changes.outputs.src == 'true'
         uses: ./.github/actions/install-codeql
@@ -247,5 +248,3 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           ./.github/scripts/pr-configs.sh "${{ github.event.number }}"
-
-
