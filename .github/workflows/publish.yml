@@ -83,8 +83,6 @@ jobs:
       - name: Setup CodeQL
         if: steps.check_version.outputs.publish == 'true'
         uses: ./.github/actions/install-codeql
-        with:
-          codeql-cli-version: ${{ env.CODEQL_CLI_VERSION }}
 
       - name: Publish codeql-LANG-libs (lib) pack
         if: steps.check_version.outputs.publish == 'true'
@@ -127,8 +125,6 @@ jobs:
       - name: Setup CodeQL
         if: steps.check_version.outputs.publish == 'true'
         uses: ./.github/actions/install-codeql
-        with:
-          codeql-cli-version: ${{ env.CODEQL_CLI_VERSION }}
 
       - name: Publish codeql-LANG-extensions (ext) pack
         if: steps.check_version.outputs.publish == 'true'
@@ -172,8 +168,6 @@ jobs:
       - name: Setup CodeQL
         if: steps.check_version.outputs.publish == 'true'
         uses: ./.github/actions/install-codeql
-        with:
-          codeql-cli-version: ${{ env.CODEQL_CLI_VERSION }}
 
       - name: Publish codeql-LANG-library-sources (ext-library-sources) pack
         if: steps.check_version.outputs.publish == 'true'

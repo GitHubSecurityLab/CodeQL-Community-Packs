@@ -1,7 +1,6 @@
 name: Setup CodeQL CLI
 description: |
   Install a CodeQL CLI or re-use an existing one from the cache and it to the path.
-inputs:
 
 outputs:
   codeql-cli-version:
