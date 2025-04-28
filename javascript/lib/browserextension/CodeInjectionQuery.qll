@@ -17,29 +17,28 @@
  /**
   * A taint-tracking configuration for reasoning about code injection vulnerabilities.
   */
- class Configuration extends TaintTracking::Configuration {
-   Configuration() { this = "CodeInjection" }
- 
-   override predicate isSource(DataFlow::Node source) { source instanceof XssThroughDom::Source}
+ module Config implements DataFlow::ConfigSig { 
+  predicate isSource(DataFlow::Node source) { source instanceof XssThroughDom::Source}
  
  
  
-   override predicate isSink(DataFlow::Node sink) { sink instanceof Sink}
+  predicate isSink(DataFlow::Node sink) { sink instanceof Sink}
  
-   override predicate isSanitizer(DataFlow::Node node) {
-     super.isSanitizer(node) or
+  predicate isBarrier(DataFlow::Node node) {
      node instanceof Sanitizer
    }
  
-   override predicate isAdditionalTaintStep(DataFlow::Node src, DataFlow::Node trg) {
+  predicate isAdditionalFlowStep(DataFlow::Node src, DataFlow::Node trg) {
      // HTML sanitizers are insufficient protection against code injection
      src = trg.(HtmlSanitizerCall).getInput()
    }
  
-   override predicate isAdditionalLoadStep(DataFlow::Node pred, DataFlow::Node succ, string prop) {
+  additional predicate isAdditionalLoadStep(DataFlow::Node pred, DataFlow::Node succ, string prop) {
      exists(ExecuteScript ess | ess = pred  and ess = succ and prop = ["file", "code"])
    }
  }
+
+ module ConfigFlow = TaintTracking::Global<Config>;
 
 //Browser Extension Models
 class ExecuteScriptSink extends Sink instanceof ExecuteScript{}
