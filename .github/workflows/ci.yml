@@ -31,15 +31,14 @@ jobs:
 
       - name: Setup CodeQL
         if: steps.changes.outputs.src == 'true'
+        id: install-codeql
         uses: ./.github/actions/install-codeql
-        with:
-          codeql-cli-version: ${{ env.CODEQL_CLI_VERSION }}
 
       - name: Install Packs
         if: steps.changes.outputs.src == 'true'
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          CODEQL_CLI_VERSION: ${{ env.CODEQL_CLI_VERSION }}
+          CODEQL_CLI_VERSION: ${{ steps.install-codeql.outputs.codeql-cli-version }}
         run: |
           gh repo clone github/codeql -- -b codeql-cli-${CODEQL_CLI_VERSION} # to make stubs available for tests
           codeql pack install "${{ matrix.language }}/lib"
@@ -247,5 +246,3 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           ./.github/scripts/pr-configs.sh "${{ github.event.number }}"
-
-

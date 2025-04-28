@@ -5,6 +5,10 @@ inputs:
   codeql-cli-version:
     description: |
       The version of the CodeQL CLI to be downloaded.
+outputs:
+  codeql-cli-version:
+    description: "The version of the CodeQL CLI that was installed or retrieved from cache"
+    value: ${{ steps.install-codeql.outputs.codeql-cli-version }}
 
 runs:
   using: composite
@@ -19,6 +23,7 @@ runs:
         key: codeql-home-${{ inputs.codeql-cli-version }}
   
     - name: Install CodeQL
+      id: install-codeql
       if: steps.cache-codeql.outputs.cache-hit != 'true'
       shell: bash
       env:
@@ -44,6 +49,7 @@ runs:
 
         popd
         echo "Done."
+        echo "codeql-cli-version=${CODEQL_CLI_VERSION}" >> $GITHUB_OUTPUT
 
     - name: Add CodeQL to the PATH
       shell: bash
