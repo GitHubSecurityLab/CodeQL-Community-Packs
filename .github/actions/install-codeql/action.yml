@@ -2,9 +2,7 @@ name: Setup CodeQL CLI
 description: |
   Install a CodeQL CLI or re-use an existing one from the cache and it to the path.
 inputs:
-  codeql-cli-version:
-    description: |
-      The version of the CodeQL CLI to be downloaded.
+
 outputs:
   codeql-cli-version:
     description: "The version of the CodeQL CLI that was installed or retrieved from cache"
@@ -29,17 +27,11 @@ runs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
         CODEQL_HOME: ${{ github.workspace }}/codeql_home
-        CODEQL_CLI_VERSION: ${{ inputs.codeql-cli-version }}
       run: |
-        if [ -z "$CODEQL_CLI_VERSION" ]; then
-          echo "No CodeQL CLI version specified. Checking for .codeqlversion file."
-          if [ ! -f ./.codeqlversion ]; then
-            echo "Error: .codeqlversion file not found. Please specify a CodeQL CLI version." >&2
-            exit 1
-          fi
-          echo "Reading CodeQL CLI version from .codeqlversion file."
-          CODEQL_CLI_VERSION=$(cat ./.codeqlversion)
-        fi
+        set -e
+
+        echo "Reading CodeQL CLI version from .codeqlversion file."
+        CODEQL_CLI_VERSION=$(cat ./.codeqlversion)
         echo "Installing CodeQL CLI v${CODEQL_CLI_VERSION}."
 
         mkdir -p $CODEQL_HOME
