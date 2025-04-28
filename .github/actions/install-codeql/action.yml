@@ -5,11 +5,20 @@ description: |
 outputs:
   codeql-cli-version:
     description: "The version of the CodeQL CLI that was installed or retrieved from cache"
-    value: ${{ steps.install-codeql.outputs.codeql-cli-version }}
+    value: ${{ steps.codeql-version.outputs.codeql-cli-version }}
 
 runs:
   using: composite
   steps:
+    - name: "CodeQL Version"
+      id: codeql-version
+      shell: bash
+      run: |
+        echo "Reading CodeQL CLI version from .codeqlversion file."
+        CODEQL_CLI_VERSION=$(cat ./.codeqlversion)
+        echo "CODEQL_CLI_VERSION=${CODEQL_CLI_VERSION}" >> $GITHUB_ENV
+        echo "codeql-cli-version=${CODEQL_CLI_VERSION}" >> $GITHUB_OUTPUT
+
     - name: Cache CodeQL
       id: cache-codeql
       uses: actions/cache@v4
@@ -17,7 +26,7 @@ runs:
         # A list of files, directories, and wildcard patterns to cache and restore
         path: ${{github.workspace}}/codeql_home
         # An explicit key for restoring and saving the cache
-        key: codeql-home-${{ inputs.codeql-cli-version }}
+        key: codeql-home-${{ steps.codeql-version.outputs.codeql-cli-version }}
   
     - name: Install CodeQL
       id: install-codeql
@@ -26,11 +35,8 @@ runs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
         CODEQL_HOME: ${{ github.workspace }}/codeql_home
+        CODEQL_CLI_VERSION: ${{ steps.codeql-version.outputs.codeql-cli-version }}
       run: |
-        set -e
-
-        echo "Reading CodeQL CLI version from .codeqlversion file."
-        CODEQL_CLI_VERSION=$(cat ./.codeqlversion)
         echo "Installing CodeQL CLI v${CODEQL_CLI_VERSION}."
 
         mkdir -p $CODEQL_HOME
