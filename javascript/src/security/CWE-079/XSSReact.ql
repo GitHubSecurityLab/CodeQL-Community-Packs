@@ -16,23 +16,20 @@ import javascript
 private import semmle.javascript.security.dataflow.XssThroughDomCustomizations
 private import semmle.javascript.security.dataflow.DomBasedXssCustomizations
 private import semmle.javascript.security.dataflow.Xss::Shared as Shared
-import DataFlow::PathGraph
+import XssFlow::PathGraph
 
 /**
  * A taint-tracking configuration for reasoning about XSS.
  */
-class XssConfiguration extends TaintTracking::Configuration {
-  XssConfiguration() { this = "XssReact" }
+module XssConfig implements DataFlow::ConfigSig {
+  predicate isSource(DataFlow::Node source) { source instanceof XssThroughDom::Source }
 
-  override predicate isSource(DataFlow::Node source) { source instanceof XssThroughDom::Source }
+  predicate isSink(DataFlow::Node sink) { sink instanceof DomBasedXss::Sink }
 
-  override predicate isSink(DataFlow::Node sink) { sink instanceof DomBasedXss::Sink }
-
-  override predicate isSanitizer(DataFlow::Node node) {
-    super.isSanitizer(node) or
-    node instanceof DomBasedXss::Sanitizer
-  }
+  predicate isBarrier(DataFlow::Node node) { node instanceof DomBasedXss::Sanitizer }
 }
+
+module XssFlow = TaintTracking::Global<XssConfig>;
 
 // Additional Source
 class ReactUseQueryParams extends XssThroughDom::Source {
@@ -42,7 +39,7 @@ class ReactUseQueryParams extends XssThroughDom::Source {
   }
 }
 
-from XssConfiguration cfg, DataFlow::PathNode source, DataFlow::PathNode sink
-where cfg.hasFlowPath(source, sink)
+from XssFlow::PathNode source, XssFlow::PathNode sink
+where XssFlow::flowPath(source, sink)
 select sink.getNode(), source, sink, "Cross-site scripting vulnerability due to $@.",
   source.getNode(), "user-provided value"

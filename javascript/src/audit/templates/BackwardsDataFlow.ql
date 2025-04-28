@@ -9,23 +9,22 @@
  */
 
  import javascript
- import DataFlow::PathGraph
- import semmle.javascript.explore.BackwardDataFlow
+ import BackwardDataFlow::PathGraph
  
- class BackwardDataFlowConfig extends TaintTracking::Configuration {
-   BackwardDataFlowConfig() { this = "BackwardDataFlowConfig" }
+ module BackwardDataFlowConfig implements DataFlow::ConfigSig { 
+  predicate isSource(DataFlow::Node source) { any() }
  
-   // `isSource` is ignored when `semmle.javascript.explore.BackwardDataFlow` is imported.
- 
-   override predicate isSink(DataFlow::Node sink) {
+  predicate isSink(DataFlow::Node sink) {
      // Define the sink to run the backwards dataflow from. Eg:
      // sink = API::moduleImport("module").getMember("method").getParameter(0).asSink()
      none()
    }
  }
+
+ module BackwardDataFlow = TaintTracking::Global<BackwardDataFlowConfig>;
  
- from BackwardDataFlowConfig cfg, DataFlow::PathNode source, DataFlow::PathNode sink
- where cfg.hasFlowPath(source, sink)
+ from BackwardDataFlow::PathNode source, BackwardDataFlow::PathNode sink
+ where BackwardDataFlow::flowPath(source, sink)
  select sink.getNode(), source, sink, "This node receives taint from $@.", source.getNode(),
    "this source"
  
