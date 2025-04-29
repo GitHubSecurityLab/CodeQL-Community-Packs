@@ -88,6 +88,7 @@ jobs:
               test_report_file = open(test_report_path, 'w')
               files_to_close.append(test_report_file)
               procs.append(subprocess.Popen(["codeql", "test", "run", "--failing-exitcode=122", f"--slice={slice}/{num_slices}", "--ram=2048", "--format=json", test_root], stdout=test_report_file, stderr=subprocess.PIPE))
+              procs.append(subprocess.Popen(["codeql", "--version", "--failing-exitcode=122", f"--slice={slice}/{num_slices}", "--ram=2048", "--format=json", test_root], stdout=test_report_file, stderr=subprocess.PIPE))
 
             for p in procs:
               _, err = p.communicate()
