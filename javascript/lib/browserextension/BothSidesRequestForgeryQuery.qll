@@ -16,10 +16,8 @@
   * A taint tracking configuration for client-side request forgery.
   * Server side is disabled since this is in the browser, but the extra models can be enabled for extra coverage
   */
- class Configuration extends TaintTracking::Configuration {
-   Configuration() { this = "ClientSideRequestForgery" }
- 
-   override predicate isSource(DataFlow::Node source) {
+ module Config implements DataFlow::ConfigSig {
+  predicate isSource(DataFlow::Node source) {
      exists(Source src |
        source = src and
        not src.isServerSide()
@@ -27,19 +25,20 @@
     source instanceof OnMessageExternal or source instanceof OnConnectExternal
    }
  
-   override predicate isSink(DataFlow::Node sink) { sink instanceof Sink }
+  predicate isSink(DataFlow::Node sink) { sink instanceof Sink }
  
-   override predicate isSanitizer(DataFlow::Node node) {
-     super.isSanitizer(node) or
+  predicate isBarrier(DataFlow::Node node) {
      node instanceof Sanitizer
    }
  
-   override predicate isSanitizerOut(DataFlow::Node node) { sanitizingPrefixEdge(node, _) }
+  predicate isBarrierOut(DataFlow::Node node) { sanitizingPrefixEdge(node, _) }
  
-   override predicate isAdditionalTaintStep(DataFlow::Node pred, DataFlow::Node succ) {
+  predicate isAdditionalFlowStep(DataFlow::Node pred, DataFlow::Node succ) {
      isAdditionalRequestForgeryStep(pred, succ)
    }
   }
+
+  module ConfigFlow = TaintTracking::Global<Config>;
 
   class BrowserStep extends DataFlow::SharedFlowStep {
     override predicate step(DataFlow::Node pred, DataFlow::Node succ) {
