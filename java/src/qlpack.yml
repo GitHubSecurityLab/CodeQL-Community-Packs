@@ -1,6 +1,6 @@
 library: false
 name: githubsecuritylab/codeql-java-queries
-version: 0.2.1
+version: 0.2.2
 suites: suites
 defaultSuiteFile: suites/java.qls
 dependencies:
