@@ -9,23 +9,22 @@
  */
 
  import javascript
- import DataFlow::PathGraph
- import semmle.javascript.explore.ForwardDataFlow
+ import ForwardDataFlow::PathGraph
  
- class ForwardDataFlowConfig extends TaintTracking::Configuration {
-   ForwardDataFlowConfig() { this = "ForwardDataFlowConfig" }
- 
-   override predicate isSource(DataFlow::Node source) {
+ module ForwardDataFlowConfig implements DataFlow::ConfigSig { 
+   predicate isSource(DataFlow::Node source) {
      // Define the source to run the forward dataflow from. Eg:
      // source = API::moduleImport(_).getMember("method").getReturn().asSource()
      none()
    }
- 
-   // `isSink` is ignored when `semmle.javascript.explore.ForwardDataFlow` is imported.
+
+   predicate isSink(DataFlow::Node sink) { any() }
  }
+
+ module ForwardDataFlow = TaintTracking::Global<ForwardDataFlowConfig>;
  
- from ForwardDataFlowConfig cfg, DataFlow::PathNode source, DataFlow::PathNode sink
- where cfg.hasFlowPath(source, sink)
+ from ForwardDataFlow::PathNode source, ForwardDataFlow::PathNode sink
+ where ForwardDataFlow::flowPath(source, sink)
  select sink.getNode(), source, sink, "This node receives taint from $@.", source.getNode(),
    "this source"
  
