@@ -1,76 +1,22 @@
-nodes
-| examples/secure_iv.js:11:7:11:14 | randomIV |
-| examples/secure_iv.js:11:7:11:44 | randomIV |
-| examples/secure_iv.js:11:7:11:44 | randomIV |
-| examples/secure_iv.js:11:18:11:44 | crypto. ... eysize) |
-| examples/secure_iv.js:11:18:11:44 | crypto. ... eysize) |
-| examples/secure_iv.js:13:63:13:62 | randomIV |
-| examples/secure_iv.js:14:54:14:61 | randomIV |
-| examples/secure_iv.js:14:54:14:61 | randomIV |
-| examples/secure_iv_tainted.js:11:7:11:14 | randomIV |
-| examples/secure_iv_tainted.js:11:7:11:76 | randomIV |
-| examples/secure_iv_tainted.js:11:7:11:76 | randomIV |
-| examples/secure_iv_tainted.js:11:7:11:76 | randomIV |
-| examples/secure_iv_tainted.js:11:18:11:39 | crypto. ... tes(32) |
-| examples/secure_iv_tainted.js:11:18:11:39 | crypto. ... tes(32) |
-| examples/secure_iv_tainted.js:11:18:11:48 | crypto. ... oString |
-| examples/secure_iv_tainted.js:11:18:11:48 | crypto. ... oString |
-| examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') |
-| examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') |
-| examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') |
-| examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') |
-| examples/secure_iv_tainted.js:11:18:11:64 | crypto. ... ).slice |
-| examples/secure_iv_tainted.js:11:18:11:64 | crypto. ... ).slice |
-| examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) |
-| examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) |
-| examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) |
-| examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) |
-| examples/secure_iv_tainted.js:13:63:13:62 | randomIV |
-| examples/secure_iv_tainted.js:14:54:14:61 | randomIV |
-| examples/secure_iv_tainted.js:14:54:14:61 | randomIV |
-| examples/secure_iv_tainted.js:14:54:14:61 | randomIV |
-| examples/secure_iv_tainted.js:14:54:14:61 | randomIV |
-| examples/static_iv.js:11:7:11:34 | fixedIV |
-| examples/static_iv.js:11:17:11:34 | "0123456789abcdef" |
-| examples/static_iv.js:11:17:11:34 | "0123456789abcdef" |
-| examples/static_iv.js:14:54:14:60 | fixedIV |
-| examples/static_iv.js:14:54:14:60 | fixedIV |
 edges
-| examples/secure_iv.js:11:7:11:44 | randomIV | examples/secure_iv.js:11:7:11:14 | randomIV |
-| examples/secure_iv.js:11:7:11:44 | randomIV | examples/secure_iv.js:13:63:13:62 | randomIV |
-| examples/secure_iv.js:11:7:11:44 | randomIV | examples/secure_iv.js:14:54:14:61 | randomIV |
-| examples/secure_iv.js:11:7:11:44 | randomIV | examples/secure_iv.js:14:54:14:61 | randomIV |
-| examples/secure_iv.js:11:18:11:44 | crypto. ... eysize) | examples/secure_iv.js:11:7:11:44 | randomIV |
-| examples/secure_iv.js:11:18:11:44 | crypto. ... eysize) | examples/secure_iv.js:11:7:11:44 | randomIV |
-| examples/secure_iv.js:11:18:11:44 | crypto. ... eysize) | examples/secure_iv.js:11:7:11:44 | randomIV |
-| examples/secure_iv.js:11:18:11:44 | crypto. ... eysize) | examples/secure_iv.js:11:7:11:44 | randomIV |
-| examples/secure_iv_tainted.js:11:7:11:76 | randomIV | examples/secure_iv_tainted.js:11:7:11:14 | randomIV |
-| examples/secure_iv_tainted.js:11:7:11:76 | randomIV | examples/secure_iv_tainted.js:13:63:13:62 | randomIV |
-| examples/secure_iv_tainted.js:11:7:11:76 | randomIV | examples/secure_iv_tainted.js:14:54:14:61 | randomIV |
-| examples/secure_iv_tainted.js:11:7:11:76 | randomIV | examples/secure_iv_tainted.js:14:54:14:61 | randomIV |
-| examples/secure_iv_tainted.js:11:7:11:76 | randomIV | examples/secure_iv_tainted.js:14:54:14:61 | randomIV |
-| examples/secure_iv_tainted.js:11:7:11:76 | randomIV | examples/secure_iv_tainted.js:14:54:14:61 | randomIV |
-| examples/secure_iv_tainted.js:11:18:11:39 | crypto. ... tes(32) | examples/secure_iv_tainted.js:11:18:11:48 | crypto. ... oString |
-| examples/secure_iv_tainted.js:11:18:11:39 | crypto. ... tes(32) | examples/secure_iv_tainted.js:11:18:11:48 | crypto. ... oString |
-| examples/secure_iv_tainted.js:11:18:11:39 | crypto. ... tes(32) | examples/secure_iv_tainted.js:11:18:11:48 | crypto. ... oString |
-| examples/secure_iv_tainted.js:11:18:11:39 | crypto. ... tes(32) | examples/secure_iv_tainted.js:11:18:11:48 | crypto. ... oString |
-| examples/secure_iv_tainted.js:11:18:11:39 | crypto. ... tes(32) | examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') |
-| examples/secure_iv_tainted.js:11:18:11:39 | crypto. ... tes(32) | examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') |
-| examples/secure_iv_tainted.js:11:18:11:39 | crypto. ... tes(32) | examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') |
-| examples/secure_iv_tainted.js:11:18:11:39 | crypto. ... tes(32) | examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') |
-| examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') | examples/secure_iv_tainted.js:11:18:11:64 | crypto. ... ).slice |
-| examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') | examples/secure_iv_tainted.js:11:18:11:64 | crypto. ... ).slice |
-| examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') | examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) |
-| examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') | examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) |
-| examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') | examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) |
-| examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') | examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) |
-| examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) | examples/secure_iv_tainted.js:11:7:11:76 | randomIV |
-| examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) | examples/secure_iv_tainted.js:11:7:11:76 | randomIV |
-| examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) | examples/secure_iv_tainted.js:11:7:11:76 | randomIV |
-| examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) | examples/secure_iv_tainted.js:11:7:11:76 | randomIV |
-| examples/static_iv.js:11:7:11:34 | fixedIV | examples/static_iv.js:14:54:14:60 | fixedIV |
-| examples/static_iv.js:11:7:11:34 | fixedIV | examples/static_iv.js:14:54:14:60 | fixedIV |
-| examples/static_iv.js:11:17:11:34 | "0123456789abcdef" | examples/static_iv.js:11:7:11:34 | fixedIV |
-| examples/static_iv.js:11:17:11:34 | "0123456789abcdef" | examples/static_iv.js:11:7:11:34 | fixedIV |
+| examples/secure_iv_tainted.js:11:7:11:76 | randomIV | examples/secure_iv_tainted.js:14:54:14:61 | randomIV | provenance |  |
+| examples/secure_iv_tainted.js:11:7:11:76 | randomIV [ArrayElement] | examples/secure_iv_tainted.js:14:54:14:61 | randomIV | provenance |  |
+| examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') | examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) | provenance |  |
+| examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') | examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) [ArrayElement] | provenance |  |
+| examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) | examples/secure_iv_tainted.js:11:7:11:76 | randomIV | provenance |  |
+| examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) [ArrayElement] | examples/secure_iv_tainted.js:11:7:11:76 | randomIV [ArrayElement] | provenance |  |
+| examples/static_iv.js:11:7:11:34 | fixedIV | examples/static_iv.js:14:54:14:60 | fixedIV | provenance |  |
+| examples/static_iv.js:11:17:11:34 | "0123456789abcdef" | examples/static_iv.js:11:7:11:34 | fixedIV | provenance |  |
+nodes
+| examples/secure_iv_tainted.js:11:7:11:76 | randomIV | semmle.label | randomIV |
+| examples/secure_iv_tainted.js:11:7:11:76 | randomIV [ArrayElement] | semmle.label | randomIV [ArrayElement] |
+| examples/secure_iv_tainted.js:11:18:11:58 | crypto. ... ase64') | semmle.label | crypto. ... ase64') |
+| examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) | semmle.label | crypto. ... eysize) |
+| examples/secure_iv_tainted.js:11:18:11:76 | crypto. ... eysize) [ArrayElement] | semmle.label | crypto. ... eysize) [ArrayElement] |
+| examples/secure_iv_tainted.js:14:54:14:61 | randomIV | semmle.label | randomIV |
+| examples/static_iv.js:11:7:11:34 | fixedIV | semmle.label | fixedIV |
+| examples/static_iv.js:11:17:11:34 | "0123456789abcdef" | semmle.label | "0123456789abcdef" |
+| examples/static_iv.js:14:54:14:60 | fixedIV | semmle.label | fixedIV |
+subpaths
 #select
 | examples/static_iv.js:14:54:14:60 | fixedIV | examples/static_iv.js:11:17:11:34 | "0123456789abcdef" | examples/static_iv.js:14:54:14:60 | fixedIV | Insecure Initialization Vector (IV) used for cryptographic function. With a few exceptions, it is best to use a secure random source for IVs. |
