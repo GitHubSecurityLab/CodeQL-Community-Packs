@@ -8,7 +8,6 @@ private import browserextension.BrowserAPI
 
 module BrowserInjection {
 
-  private import DataFlow::FlowLabel
   /**
    * A data flow source for Chrome API injection vulnerabilities.
    */
@@ -16,7 +15,7 @@ module BrowserInjection {
 
 
 
-    DataFlow::FlowLabel getFlowLabel() { result = "BrowserSource" }
+    string getFlowLabel() { result = "BrowserSource" }
   }
 
   /**
