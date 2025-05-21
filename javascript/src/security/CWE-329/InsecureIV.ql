@@ -15,16 +15,14 @@
 
 import javascript
 import semmle.javascript.dataflow.TaintTracking
-import DataFlow::PathGraph
+import InsecureIVFlow::PathGraph
 import ghsl.InsecureIV
 
-from InsecureIVConfiguration insecurecfg, DataFlow::PathNode source, DataFlow::PathNode sink
+from InsecureIVFlow::PathNode source, InsecureIVFlow::PathNode sink
 where
-  insecurecfg.hasFlowPath(source, sink) and
-  not exists(DataFlow::Node randomSource, RandomTaintsSourceConfiguration randomConfig |
-    randomSource instanceof SecureRandomSource
-  |
-    randomConfig.hasFlow(randomSource, source.getNode())
+  InsecureIVFlow::flowPath(source, sink) and
+  not exists(DataFlow::Node randomSource | randomSource instanceof SecureRandomSource |
+    RandomTaintsSourceFlow::flow(randomSource, source.getNode())
   ) and
   not knownCryptTest(sink.getNode())
 select sink, source, sink,

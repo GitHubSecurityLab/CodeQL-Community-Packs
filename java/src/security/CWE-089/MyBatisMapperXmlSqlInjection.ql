@@ -14,7 +14,7 @@
 import java
 import MyBatisCommonLib
 import MyBatisMapperXmlSqlInjectionLib
-import semmle.code.xml.MyBatisMapperXML
+import semmle.code.java.frameworks.MyBatis
 import semmle.code.java.dataflow.FlowSources
 private import semmle.code.java.security.Sanitizers
 import MyBatisMapperXmlSqlInjectionFlow::PathGraph

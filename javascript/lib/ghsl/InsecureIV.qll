@@ -2,46 +2,40 @@ import semmle.javascript.dataflow.TaintTracking
 
 import ghsl.CommandLine
 
-class RandomTaintsSourceConfiguration extends TaintTracking::Configuration {
-    RandomTaintsSourceConfiguration() { this = "RandomTaintsSourceConfiguration" }
+module RandomTaintsSourceConfig implements DataFlow::ConfigSig {
+  predicate isSource(DataFlow::Node source) { isSecureRandom(source) }
 
-    override predicate isSource(DataFlow::Node source) {
-        isSecureRandom(source)
-    }
-
-    override predicate isSink(DataFlow::Node sink) {
-        not isSecureRandom(sink)
-    }
+  predicate isSink(DataFlow::Node sink) { not isSecureRandom(sink) }
 }
 
-class InsecureIVConfiguration extends TaintTracking::Configuration {
-    InsecureIVConfiguration() { this = "InsecureIVConfiguration" }
+module RandomTaintsSourceFlow = TaintTracking::Global<RandomTaintsSourceConfig>;
 
-    override predicate isSource(DataFlow::Node source) {
-        exists(Literal literal|literal.flow() = source)
-        or
-        source instanceof DataFlow::ArrayLiteralNode
-        or
-        source instanceof RemoteFlowSource
-        or
-        source instanceof FileSystemReadAccess
-        or
-        source instanceof DatabaseAccess
-        or
-        source instanceof CommandLineArgument
-        or
-        // an external function that is not a known source of randomness
-        (
-            source instanceof ExternalCallWithOutput
-            and not source instanceof CreateIVArgument
-            and not source instanceof SecureRandomSource
-        )
-    }
+module InsecureIVConfig implements DataFlow::ConfigSig {
+  predicate isSource(DataFlow::Node source) {
+    exists(Literal literal | literal.flow() = source)
+    or
+    source instanceof DataFlow::ArrayLiteralNode
+    or
+    source instanceof RemoteFlowSource
+    or
+    source instanceof FileSystemReadAccess
+    or
+    source instanceof DatabaseAccess
+    or
+    source instanceof CommandLineArgument
+    or
+    // an external function that is not a known source of randomness
+    (
+        source instanceof ExternalCallWithOutput
+        and not source instanceof CreateIVArgument
+        and not source instanceof SecureRandomSource
+    )
+  }
 
-    override predicate isSink(DataFlow::Node sink) {
-        sink instanceof CreateIVArgument
-    }
+  predicate isSink(DataFlow::Node sink) { sink instanceof CreateIVArgument }
 }
+
+module InsecureIVFlow = TaintTracking::Global<InsecureIVConfig>;
 
 class ExternalCallWithOutput extends DataFlow::Node {
     CallExpr call;
