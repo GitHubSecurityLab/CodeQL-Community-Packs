@@ -1,0 +1,19 @@
+- description: "GitHub's Community Packs Go Debugging Suite"
+
+- queries: '.'
+  from: githubsecuritylab/codeql-go-queries
+
+- include:
+    kind:
+    - problem
+    - path-problem
+    precision:
+    - very-high
+    - high
+    tags contain:
+      - debugging
+
+# Remove local testing folders
+- exclude:
+    query path:
+      - /testing\/.*/

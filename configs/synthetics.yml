@@ -105,6 +105,7 @@ paths-ignore:
     - "vendor/**"
     - "examples/**"
     - "tests/**"
+    - "test/**"
     - "site-packages/**"
 
     # JavaScript
