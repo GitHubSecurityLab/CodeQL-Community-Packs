@@ -119,6 +119,8 @@ paths-ignore:
     - "**/wwwroot/lib/**"
     - "**/deps/**"
     - "**/third_party/**"
+    - "**/wp-includes/**"
+    - "**/wp-admin/**"
 
     # Ruby
     - "**/gems/**"
