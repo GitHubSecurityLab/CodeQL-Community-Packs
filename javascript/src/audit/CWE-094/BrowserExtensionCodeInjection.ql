@@ -16,9 +16,9 @@
 
  import javascript
  import browserextension.CodeInjectionQuery
- import DataFlow::PathGraph
+ import ConfigFlow::PathGraph
  
- from Configuration cfg, DataFlow::PathNode source, DataFlow::PathNode sink
- where cfg.hasFlowPath(source, sink)
+ from ConfigFlow::PathNode source, ConfigFlow::PathNode sink
+ where ConfigFlow::flowPath(source, sink)
  select sink.getNode(), source, sink, sink.getNode().(Sink).getMessagePrefix() + " depends on a $@.",
    source.getNode(), "user-provided value"

@@ -105,6 +105,7 @@ paths-ignore:
     - "vendor/**"
     - "examples/**"
     - "tests/**"
+    - "test/**"
     - "site-packages/**"
 
     # JavaScript
@@ -118,6 +119,8 @@ paths-ignore:
     - "**/wwwroot/lib/**"
     - "**/deps/**"
     - "**/third_party/**"
+    - "**/wp-includes/**"
+    - "**/wp-admin/**"
 
     # Ruby
     - "**/gems/**"
