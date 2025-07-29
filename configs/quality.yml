@@ -1,0 +1,36 @@
+# Use this configuration file when looking to get the broadest coverage of code quality results from the CodeQL Built in packs and community packs.
+# WARNING: A notable amount of false positives may be found in this configuration.  If you wish to reduce the number of false positives, use the default codeql suites :)
+# NOTE: This will pull in queries that may not be compatible with Autofix.
+
+name: "CodeQL Quality Configuration"
+
+packs:
+  # Built In - Code Quality Queries for Actions
+  - codeql/actions-queries:codeql-suites/actions-code-quality-extended.qls
+
+  #  Built In - Code Quality Queries for C/C++
+  - codeql/cpp-queries:codeql-suites/cpp-code-quality-extended.qls
+
+  #  Built In - Code Quality Queries for C#
+  - codeql/csharp-queries:codeql-suites/csharp-code-quality-extended.qls
+
+  #  Built In - Code Quality Queries for Go
+  - codeql/go-queries:codeql-suites/go-code-quality-extended.qls
+
+  #  Built In - Code Quality Queries for Java/Kotlin
+  - codeql/java-queries:codeql-suites/java-code-quality-extended.qls
+
+  #  Built In - Code Quality Queries for JavaScript/Typescript
+  - codeql/javascript-queries:codeql-suites/javascript-code-quality-extended.qls
+
+  #  Built In - Code Quality Queries for Python
+  - codeql/python-queries:codeql-suites/python-code-quality-extended.qls
+
+  #  Built In - Code Quality Queries for Ruby
+  - codeql/ruby-queries:codeql-suites/ruby-code-quality-extended.qls
+
+  #  Built In - Code Quality Queries for Rust
+  - codeql/rust-queries:codeql-suites/rust-code-quality-extended.qls
+
+  #  Built In - Code Quality Queries for Swift
+  - codeql/swift-queries:codeql-suites/swift-code-quality-extended.qls
