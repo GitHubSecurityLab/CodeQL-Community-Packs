@@ -20,7 +20,7 @@ packs:
   #  Built In - Code Quality Queries for Java/Kotlin
   - codeql/java-queries:codeql-suites/java-code-quality-extended.qls
 
-  #  Built In - Code Quality Queries for JavaScript/Typescript
+  #  Built In - Code Quality Queries for JavaScript/TypeScript
   - codeql/javascript-queries:codeql-suites/javascript-code-quality-extended.qls
 
   #  Built In - Code Quality Queries for Python
