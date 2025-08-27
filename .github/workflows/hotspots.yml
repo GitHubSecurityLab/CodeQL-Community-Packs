@@ -15,7 +15,7 @@ jobs:
       packages: write
     steps:
       - name: Checkout github/codeql
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: codeql
           repository: github/codeql
@@ -23,7 +23,7 @@ jobs:
           fetch-depth: 0
 
       - name: Checkout github/codeql-community-packs
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: codeql-community-packs
           repository: githubsecuritylab/codeql-community-packs
