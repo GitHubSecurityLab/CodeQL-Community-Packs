@@ -1,6 +1,6 @@
 library: true
 name: githubsecuritylab/codeql-go-extensions
-version: 0.2.1
+version: 0.2.2
 extensionTargets:
   codeql/go-all: '*'
 dataExtensions:
