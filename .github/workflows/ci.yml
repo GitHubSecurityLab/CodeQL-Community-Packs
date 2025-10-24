@@ -15,7 +15,7 @@ jobs:
         language: [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # Conditionally run actions based on files modified by PR, feature branch or pushed commits
       - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36
@@ -128,7 +128,7 @@ jobs:
             core.setFailed('Test run job failed')
 
       - name: Collect test results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
 
       - name: Validate test results
         run: |
@@ -157,7 +157,7 @@ jobs:
         language: [ 'csharp', 'java' ]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           submodules: true
 
@@ -190,7 +190,7 @@ jobs:
         language: [ 'csharp', 'java' ]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           submodules: true
 
@@ -218,7 +218,7 @@ jobs:
     needs: compile-and-test
     
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36
         id: changes

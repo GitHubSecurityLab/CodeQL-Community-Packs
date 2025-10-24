@@ -20,7 +20,7 @@ jobs:
         language: ["cpp", "csharp", "go", "java", "javascript", "python", "ruby"] 
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Check codeql-LANG-queries (src) pack
         id: check_version
@@ -63,7 +63,7 @@ jobs:
         language: ["cpp", "csharp", "go", "java", "javascript", "python", "ruby"] 
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Check codeql-LANG-libs (lib) pack
         id: check_version
@@ -106,7 +106,7 @@ jobs:
         language: ["csharp", "java"]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Check codeql-LANG-extensions (ext) pack
         id: check_version
@@ -149,7 +149,7 @@ jobs:
         language: ["csharp", "java"]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Check codeql-LANG-library-sources (ext-library-sources) pack
         id: check_version
