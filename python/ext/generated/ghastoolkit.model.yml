@@ -1,7 +1,7 @@
 extensions:
     - addsTo:
-      pack: codeql/python-all
-      extensible: sourceModel
+        pack: codeql/python-all
+        extensible: sourceModel
       data:
           - ["ghastoolkit", "Member[codeql].Member[cli].Member[CodeQL].Instance.Member[getResults]", "Argument[1,database:]", "file"]
           - ["ghastoolkit", "Member[codeql].Member[cli].Member[CodeQL].Instance.Member[getResults]", "Argument[2,path:]", "file"]
@@ -55,8 +55,8 @@ extensions:
           - ["ghastoolkit", "Member[supplychain].Member[licensing].Member[Licenses].Instance.Member[load]", "Argument[1,path:]", "file"]
           - ["ghastoolkit", "Member[utils].Member[cli].Member[CommandLine].Instance.Member[parse_args]", "ReturnValue", "commandargs"]
     - addsTo:
-      pack: codeql/python-all
-      extensible: sinkModel
+        pack: codeql/python-all
+        extensible: sinkModel
       data:
           - ["ghastoolkit", "Member[codeql].Member[cli].Member[CodeQL].Instance.Member[getResults]", "Argument[1,database:]", "path-injection"]
           - ["ghastoolkit", "Member[codeql].Member[cli].Member[CodeQL].Instance.Member[runQuery]", "Argument[1,database:]", "path-injection"]
@@ -77,8 +77,8 @@ extensions:
           - ["ghastoolkit", "Member[supplychain].Member[licensing].Member[Licenses].Instance.Member[generateLockfile]", "Argument[1,path:]", "path-injection"]
           - ["ghastoolkit", "Member[supplychain].Member[licensing].Member[Licenses].Instance.Member[load]", "Argument[1,path:]", "path-injection"]
     - addsTo:
-      pack: codeql/python-all
-      extensible: summaryModel
+        pack: codeql/python-all
+        extensible: summaryModel
       data:
           - ["ghastoolkit", "Member[codeql].Member[cli].Member[CodeQL].Instance.Member[createDatabase]", "Argument[1,database:]", "ReturnValue", "taint"]
           - ["ghastoolkit", "Member[codeql].Member[cli].Member[CodeQL].Instance.Member[createDatabase]", "Argument[2,output:]", "ReturnValue", "taint"]

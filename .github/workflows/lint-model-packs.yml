@@ -1,0 +1,32 @@
+name: Lint Model Packs
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**/ext/**/*.yml'
+      - '**/ext/**/*.yaml'
+      - '**/ext-library-sources/**/*.yml'
+      - '**/ext-library-sources/**/*.yaml'
+      - '.github/scripts/validate-model-packs.py'
+      - '.github/workflows/lint-model-packs.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-model-packs:
+    name: Validate Model Pack Extensions
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Validate model pack extensions
+        run: python .github/scripts/validate-model-packs.py .
