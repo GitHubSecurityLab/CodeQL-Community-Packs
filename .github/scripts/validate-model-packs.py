@@ -110,7 +110,7 @@ def find_model_files(root_dir):
     for pattern in patterns:
         for f in sorted(glob.glob(pattern, recursive=True)):
             # Skip non-model files
-            if "qlpack.yml" in f or "codeql-pack.lock.yml" in f or ".github" in f:
+            if "qlpack.yml" in f or "codeql-pack.lock.yml" in f or "/.github/" in f:
                 continue
             files.append(f)
     return files

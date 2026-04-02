@@ -12,6 +12,9 @@ on:
       - '.github/workflows/lint-model-packs.yml'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   validate-model-packs:
     name: Validate Model Pack Extensions
