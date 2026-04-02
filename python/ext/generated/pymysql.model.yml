@@ -1,15 +1,15 @@
 extensions:
     - addsTo:
-      pack: codeql/python-all
-      extensible: sinkModel
+        pack: codeql/python-all
+        extensible: sinkModel
       data:
           - ["pymysql", "Member[connections].Member[Connection].Instance.Member[connect]", "Argument[1,sock:]", "path-injection"]
           - ["pymysql", "Member[connections].Member[Connection].Instance.Member[connect]", "Argument[1,sock:]", "sql-injection"]
           - ["pymysql", "Member[cursors].Member[Cursor].Instance.Member[executemany]", "Argument[1,query:]", "sql-injection"]
           - ["pymysql", "Member[cursors].Member[Cursor].Instance.Member[executemany]", "Argument[2,args:]", "sql-injection"]
     - addsTo:
-      pack: codeql/python-all
-      extensible: summaryModel
+        pack: codeql/python-all
+        extensible: summaryModel
       data:
           - ["pymysql", "Member[Binary]", "Argument[0,x:]", "ReturnValue", "taint"]
           - ["pymysql", "Member[_auth].Member[caching_sha2_password_auth]", "Argument[1,pkt:]", "Argument[0,conn:]", "taint"]

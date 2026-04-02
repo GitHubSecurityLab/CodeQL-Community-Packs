@@ -1,7 +1,7 @@
 extensions:
     - addsTo:
-      pack: codeql/python-all
-      extensible: sourceModel
+        pack: codeql/python-all
+        extensible: sourceModel
       data:
           - ["flask", "Member[app].Member[Flask].Instance.Member[open_instance_resource]", "Argument[1,resource:]", "file"]
           - ["flask", "Member[app].Member[Flask].Instance.Member[open_instance_resource]", "Argument[2,mode:]", "file"]
@@ -41,8 +41,8 @@ extensions:
           - ["flask", "Member[sessions].Member[SecureCookieSessionInterface].Instance.Member[open_session]", "Argument[1,app:]", "remote"]
           - ["flask", "Member[sessions].Member[SecureCookieSessionInterface].Instance.Member[save_session]", "Argument[1,app:]", "remote"]
     - addsTo:
-      pack: codeql/python-all
-      extensible: sinkModel
+        pack: codeql/python-all
+        extensible: sinkModel
       data:
           - ["flask", "Member[app].Member[Flask].Instance.Member[open_instance_resource]", "Argument[1,resource:]", "path-injection"]
           - ["flask", "Member[app].Member[Flask].Instance.Member[open_resource]", "Argument[1,resource:]", "path-injection"]
@@ -53,8 +53,8 @@ extensions:
           - ["flask", "Member[config].Member[Config].Instance.Member[from_file]", "Argument[1,filename:]", "path-injection"]
           - ["flask", "Member[config].Member[Config].Instance.Member[from_pyfile]", "Argument[1,filename:]", "path-injection"]
     - addsTo:
-      pack: codeql/python-all
-      extensible: summaryModel
+        pack: codeql/python-all
+        extensible: summaryModel
       data:
           - ["flask", "Member[app].Member[Flask].Instance.Member[app_context]", "Argument[self]", "ReturnValue", "taint"]
           - ["flask", "Member[app].Member[Flask].Instance.Member[create_jinja_environment]", "Argument[self]", "ReturnValue", "taint"]
