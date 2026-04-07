@@ -1,7 +1,7 @@
 extensions:
     - addsTo:
-      pack: codeql/python-all
-      extensible: sourceModel
+        pack: codeql/python-all
+        extensible: sourceModel
       data:
           - ["openai", "Argument[self]", "file"]
           - ["openai", "Member[_legacy_response].Member[HttpxBinaryResponseContent].Instance.Member[stream_to_file]", "Argument[1,file:]", "file"]
@@ -24,8 +24,8 @@ extensions:
           - ["openai", "Member[lib].Member[_validators].Member[read_any_format]", "Argument[self]", "file"]
           - ["openai", "Member[lib].Member[_validators].Member[read_any_format]", "ReturnValue", "file"]
     - addsTo:
-      pack: codeql/python-all
-      extensible: summaryModel
+        pack: codeql/python-all
+        extensible: summaryModel
       data:
           - ["openai", "Argument[self]", "Argument[1,_fields_set:]", "taint"]
           - ["openai", "Member[_base_client].Member[AsyncAPIClient].Instance.Member[delete]", "Argument[self]", "ReturnValue", "taint"]

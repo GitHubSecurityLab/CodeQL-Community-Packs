@@ -1,7 +1,7 @@
 extensions:
     - addsTo:
-      pack: codeql/python-all
-      extensible: sourceModel
+        pack: codeql/python-all
+        extensible: sourceModel
       data:
           - ["urllib3", "Member[util].Member[ssl_].Member[create_urllib3_context]", "Argument[0,ssl_version:]", "environment"]
           - ["urllib3", "Member[util].Member[ssl_].Member[create_urllib3_context]", "Argument[3,ciphers:]", "environment"]
@@ -10,13 +10,13 @@ extensions:
           - ["urllib3", "Member[util].Member[ssl_].Member[ssl_wrap_socket]", "Argument[6,ssl_version:]", "environment"]
           - ["urllib3", "Member[util].Member[ssl_].Member[ssl_wrap_socket]", "Argument[7,ciphers:]", "environment"]
     - addsTo:
-      pack: codeql/python-all
-      extensible: sinkModel
+        pack: codeql/python-all
+        extensible: sinkModel
       data:
           - ["urllib3", "Member[util].Member[ssl_].Member[ssl_wrap_socket]", "Argument[1,keyfile:]", "path-injection"]
     - addsTo:
-      pack: codeql/python-all
-      extensible: summaryModel
+        pack: codeql/python-all
+        extensible: summaryModel
       data:
           - ["urllib3", "Member[_collections].Member[HTTPHeaderDict].Instance.Member[getlist]", "Argument[2,default:]", "ReturnValue", "taint"]
           - ["urllib3", "Member[_collections].Member[HTTPHeaderDict].Instance.Member[getlist]", "Argument[self]", "ReturnValue", "taint"]
