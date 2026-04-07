@@ -1,7 +1,7 @@
 extensions:
     - addsTo:
-      pack: codeql/python-all
-      extensible: sourceModel
+        pack: codeql/python-all
+        extensible: sourceModel
       data:
           - ["werkzeug", "Member[_reloader].Member[ReloaderLoop].Instance.Member[restart_with_reloader]", "ReturnValue", "environment"]
           - ["werkzeug", "Member[_reloader].Member[run_with_reloader]", "Argument[0,main_func:]", "environment"]
@@ -49,8 +49,8 @@ extensions:
           - ["werkzeug", "Member[utils].Member[send_from_directory]", "Argument[2,environ:]", "file"]
           - ["werkzeug", "Member[utils].Member[send_from_directory]", "ReturnValue", "file"]
     - addsTo:
-      pack: codeql/python-all
-      extensible: sinkModel
+        pack: codeql/python-all
+        extensible: sinkModel
       data:
           - ["werkzeug", "Member[datastructures].Member[file_storage].Member[FileMultiDict].Instance.Member[add_file]", "Argument[2,file:]", "path-injection"]
           - ["werkzeug", "Member[datastructures].Member[file_storage].Member[FileStorage].Instance.Member[save]", "Argument[1,dst:]", "path-injection"]
@@ -64,8 +64,8 @@ extensions:
           - ["werkzeug", "Member[utils].Member[send_file]", "Argument[0,path_or_file:]", "path-injection"]
           - ["werkzeug", "Member[utils].Member[send_file]", "Argument[11,_root_path:]", "path-injection"]
     - addsTo:
-      pack: codeql/python-all
-      extensible: summaryModel
+        pack: codeql/python-all
+        extensible: summaryModel
       data:
           - ["werkzeug", "Member[datastructures].Member[accept].Member[Accept].Instance.Member[best_match]", "Argument[1,matches:]", "ReturnValue", "taint"]
           - ["werkzeug", "Member[datastructures].Member[accept].Member[Accept].Instance.Member[best_match]", "Argument[2,default:]", "ReturnValue", "taint"]

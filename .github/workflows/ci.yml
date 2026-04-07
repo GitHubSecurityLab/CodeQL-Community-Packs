@@ -15,7 +15,7 @@ jobs:
         language: [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       # Conditionally run actions based on files modified by PR, feature branch or pushed commits
       - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36
@@ -101,7 +101,7 @@ jobs:
 
       - name: Upload test results
         if: steps.changes.outputs.src == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: ${{ matrix.language }}-test-results
           path: |
@@ -122,26 +122,27 @@ jobs:
     steps:
       - name: Check if compile-and-test job failed to complete, if so fail
         if: ${{ needs.compile-and-test.result == 'failure' }}
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             core.setFailed('Test run job failed')
 
       - name: Collect test results
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
 
       - name: Validate test results
         run: |
-          if [[ ! -n "$(find . -name 'test_report_*' -print -quit)" ]]; then
+          mapfile -t test_reports < <(find . -name 'test_report_*.json')
+          if [[ ${#test_reports[@]} -eq 0 ]]; then
             echo "No test results found"
             exit 0
           fi
 
-          for json_report in *-test-results/test_report_*
+          for json_report in "${test_reports[@]}"
           do
-            jq --raw-output '"PASS \(map(select(.pass == true)) | length)/\(length)'" $json_report\"" "$json_report"
+            jq --raw-output '"PASS \(map(select(.pass == true)) | length)/\(length)"' "$json_report"
           done
-          FAILING_TESTS=$(jq --raw-output '.[] | select(.pass == false)' *-test-results/test_report_*.json)
+          FAILING_TESTS=$(jq --raw-output '.[] | select(.pass == false)' "${test_reports[@]}")
           if [[ ! -z "$FAILING_TESTS" ]]; then
             echo "ERROR: The following tests failed:"
             echo $FAILING_TESTS | jq .
@@ -157,7 +158,7 @@ jobs:
         language: [ 'csharp', 'java' ]
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           submodules: true
 
@@ -190,7 +191,7 @@ jobs:
         language: [ 'csharp', 'java' ]
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           submodules: true
 
@@ -218,7 +219,7 @@ jobs:
     needs: compile-and-test
     
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36
         id: changes

@@ -1,7 +1,7 @@
 extensions:
     - addsTo:
-      pack: codeql/python-all
-      extensible: summaryModel
+        pack: codeql/python-all
+        extensible: summaryModel
       data:
           - ["itsdangerous", "Member[encoding].Member[base64_decode]", "Argument[0,string:]", "ReturnValue", "taint"]
           - ["itsdangerous", "Member[encoding].Member[base64_encode]", "Argument[0,string:]", "ReturnValue", "taint"]
