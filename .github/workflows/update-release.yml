@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Get Token
         id: get_workflow_token
@@ -29,13 +29,13 @@ jobs:
           private-key: ${{ secrets.SECLABS_APP_KEY }}
 
       - name: "Patch Release Me"
-        uses: 42ByteLabs/patch-release-me@9ff3c04cb0802fd8dcd3100e5c0b4801e88daf3a # 0.6.1
+        uses: 42ByteLabs/patch-release-me@ef44b04c04fde87280adf14548664bfbcebba04d # 0.6.4
         with:
           # Bump (patch)
           mode: ${{ inputs.mode }}
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        uses: peter-evans/create-pull-request@98357b18bf14b5342f975ff684046ec3b2a07725 # v8.0.0
         with:
           token: ${{ steps.get_workflow_token.outputs.token }}
           title: "Chore: Auto Update new Release"
