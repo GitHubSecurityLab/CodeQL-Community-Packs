@@ -19,6 +19,17 @@ namespace SsrfIpv6TransitionTest
             return true;
         }
 
+        // BAD: a denylist covering the upper half of the RFC 1918 172.16.0.0/12 block
+        // (172.20-172.31). The query must recognize the full /12 range, not just 172.16-172.19.
+        public static bool CheckTargetIp(string host) // NOT OK
+        {
+            if (host.StartsWith("172.20") || host.StartsWith("172.31"))
+            {
+                throw new Exception("blocked internal host");
+            }
+            return true;
+        }
+
         // BAD: an `IsPrivateHost`-named guard that only does the partial `::ffff:` unwrap via
         // `IsIPv4MappedToIPv6` / `MapToIPv4`, leaving NAT64 and 6to4 forms live.
         public static bool IsPrivateHostAddress(FakeIPAddress addr) // NOT OK

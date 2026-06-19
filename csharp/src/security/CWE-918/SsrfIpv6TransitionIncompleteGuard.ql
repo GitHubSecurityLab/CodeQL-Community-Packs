@@ -32,13 +32,15 @@ predicate hasIsPrivateCall(Callable c) {
 }
 
 /**
- * Holds if `c` contains a hand-written RFC 1918, loopback or cloud-metadata IPv4 literal
- * used as a denylist entry.
+ * Holds if `c` contains a hand-written denylist literal: an RFC 1918 / loopback /
+ * link-local-metadata IPv4 form (`127.0.0.1`, `169.254.169.254`, `10.`, `192.168`, the full
+ * `172.16.0.0/12` range `172.16`-`172.31`), an IPv6 loopback or ULA fragment (`::1`, `fc00`,
+ * `fd00`), or the cloud-metadata hostname fragment `metadata.google`.
  */
 predicate hasRfc1918Literal(Callable c) {
   exists(StringLiteral s | s.getEnclosingCallable() = c |
     s.getValue()
-        .regexpMatch("(?i).*(127\\.0\\.0\\.1|169\\.254\\.169\\.254|10\\.|192\\.168|172\\.1[6-9]|::1|fc00|fd00|metadata\\.google).*")
+        .regexpMatch("(?i).*(127\\.0\\.0\\.1|169\\.254\\.169\\.254|10\\.|192\\.168|172\\.(1[6-9]|2[0-9]|3[01])|::1|fc00|fd00|metadata\\.google).*")
   )
 }
 
