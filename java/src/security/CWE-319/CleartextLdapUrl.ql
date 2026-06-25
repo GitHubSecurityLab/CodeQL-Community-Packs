@@ -32,7 +32,7 @@ class LdapUrlSink extends MethodCall {
   Expr urlArg;
 
   LdapUrlSink() {
-    this.getMethod().hasName(["setUrl", "setUrls", "setProviderUrl"]) and
+    this.getMethod().hasName(["setUrl", "setProviderUrl"]) and
     this.getQualifier().getType().(RefType).getName().matches("%ContextSource%") and
     urlArg = this.getArgument(0)
   }
@@ -44,4 +44,4 @@ from LdapUrlSink sink, string url
 where
   constantStringValue(sink.getUrlArg(), url) and
   url.regexpMatch("(?i)ldap://.*")
-select sink, "LDAP context configured with cleartext URL '" + url + "'; use ldaps:// or STARTTLS."
+select sink, "LDAP context configured with a cleartext ldap:// URL; use ldaps:// or STARTTLS."

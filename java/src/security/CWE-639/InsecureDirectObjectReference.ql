@@ -24,7 +24,7 @@ class ActionMethod extends SpringRequestMappingMethod {
   /** Gets a string describing this action: method name, class name, route, or HTTP verb. */
   string getADescription() {
     result =
-      [this.getName(), this.getDeclaringType().getName(), this.getAValue(), this.getMethodValue()]
+      [this.getName(), this.getDeclaringType().getName(), this.getValue(), this.getMethodValue()]
   }
 
   /** Holds if this action may represent a state-changing operation. */
@@ -64,7 +64,7 @@ predicate hasIdParameter(ActionMethod m) {
       a.getType()
           .hasQualifiedName("org.springframework.web.bind.annotation",
             ["PathVariable", "RequestParam"]) and
-      a.getAStringArrayValue(["value", "name"]).toLowerCase().matches(["%id", "%idx"])
+      a.getAStringValue(["value", "name"]).toLowerCase().matches(["%id", "%idx"])
     )
   )
 }
@@ -121,4 +121,4 @@ predicate hasInsecureDirectObjectReference(ActionMethod m) {
 from ActionMethod m
 where hasInsecureDirectObjectReference(m)
 select m,
-  "This action may be missing authorization checks for which users can access the resource of the provided id."
+  "This action may be missing authorization checks to verify the current user is permitted to access the resource identified by the provided id."
