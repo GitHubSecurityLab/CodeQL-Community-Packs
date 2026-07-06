@@ -251,3 +251,40 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           ./.github/scripts/pr-configs.sh "${{ github.event.number }}"
+
+  version-bump-check:
+    name: Check pack version was bumped
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write # required by pr-version-bump-check.sh (gh pr comment)
+      issues: write # required by pr-version-bump-check.sh (gh pr comment)
+      packages: read # required by pr-version-bump-check.sh (gh api packages)
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: dorny/paths-filter@7b450fff21473bca461d4b92ce414b9d0420d706
+        id: changes
+        with:
+          filters: |
+            src:
+              - '${{ matrix.language }}/**'
+
+      # Advisory only (never fails the build): publish.yml only republishes a
+      # pack when its qlpack.yml `version:` differs from what's on GHCR, so a
+      # content change that merges without a version bump silently never
+      # ships. This flags that gap on the PR instead of failing it, since the
+      # repo's actual practice sometimes intentionally splits a content
+      # change and its version bump across sequential PRs.
+      - name: "Check for forgotten version bump"
+        if: steps.changes.outputs.src == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          ./.github/scripts/pr-version-bump-check.sh "${{ github.event.number }}" "${{ matrix.language }}"
