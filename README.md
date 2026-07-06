@@ -17,6 +17,9 @@ Collection of community-driven CodeQL query, library and extension packs.
 
 ## Getting started
 
+> [!NOTE]
+> These packs are published with precompiled queries, so a pack built against an older CodeQL CLI generally keeps working with a newer one too — see [CodeQL pack compatibility](https://docs.github.com/en/code-security/reference/code-scanning/codeql/codeql-cli/codeql-query-packs#codeql-pack-compatibility) for how that works. If you're curious which CodeQL CLI version we currently build and test against, see [Supported CodeQL versions](./CONTRIBUTING.md#supported-codeql-versions) in CONTRIBUTING.md.
+
 ### Default query suites
 
 Using a `githubsecuritylab/codeql-LANG-queries` query pack will reference the default suite for that pack (e.g. `python.qls` for python). However, you may use a different suite such as `python-audit.qls` by referencing the query pack with the following syntax: `githubsecuritylab/codeql-python-queries:suites/python-audit.qls`. The examples below work for both syntaxes.
@@ -67,6 +70,10 @@ This project is licensed under the terms of the MIT open source license. Please 
 ## Support
 
 Please [create GitHub issues](https://github.com/advanced-security/brew-dependency-submission-action) for any feature requests, bugs, or documentation problems.
+
+## Contributing
+
+We welcome contributions — see [CONTRIBUTING.md](./CONTRIBUTING.md) for how to submit a new query or improve an existing one, and for the CodeQL CLI/library versions we currently build and test against.
 
 <!-- Resources / Links -->
 
