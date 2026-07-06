@@ -1,0 +1,22 @@
+name: Detect new CodeQL CLI release
+
+on:
+  schedule:
+    - cron: '0 13 * * 1' # Every Monday at 13:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Check for a new CodeQL CLI release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          ./.github/scripts/check-codeql-release.sh
