@@ -42,13 +42,15 @@ fi
 
 BINARY_URL="https://github.com/github/codeql-cli-binaries/releases/tag/$LATEST_TAG"
 BUNDLE_URL="https://github.com/github/codeql-action/releases/tag/codeql-bundle-v$LATEST_VERSION"
+REPO="${GITHUB_REPOSITORY:-GitHubSecurityLab/CodeQL-Community-Packs}"
+REPO_BLOB_URL="https://github.com/$REPO/blob/main"
 
 BODY=$(cat <<EOF
 A new CodeQL CLI release is available upstream: **v$LATEST_VERSION** ([binary]($BINARY_URL), [bundle]($BUNDLE_URL)).
 
-This repo is currently pinned to **v$CURRENT_VERSION** in [\`.codeqlversion\`](../blob/main/.codeqlversion).
+This repo is currently pinned to **v$CURRENT_VERSION** in [\`.codeqlversion\`]($REPO_BLOB_URL/.codeqlversion).
 
-Updating is a manual process today (see [CONTRIBUTING.md § Keeping CodeQL versions current](../blob/main/CONTRIBUTING.md#keeping-codeql-versions-current)):
+Updating is a manual process today (see [CONTRIBUTING.md § Keeping CodeQL versions current]($REPO_BLOB_URL/CONTRIBUTING.md#keeping-codeql-versions-current)):
 
 - [ ] Update \`.codeqlversion\` to \`$LATEST_VERSION\`.
 - [ ] Run \`codeql pack upgrade <dir>\` for each pack directory to refresh its \`codeql-pack.lock.yml\`.
@@ -56,7 +58,7 @@ Updating is a manual process today (see [CONTRIBUTING.md § Keeping CodeQL versi
 - [ ] Bump the \`version:\` field of every pack that changed, so \`publish.yml\` actually publishes the update once merged.
 - [ ] Update the "Supported CodeQL versions" table in CONTRIBUTING.md.
 
-This issue was opened automatically by [\`detect-codeql-release.yml\`](../blob/main/.github/workflows/detect-codeql-release.yml). If you're not picking this up right away, feel free to leave it open as a tracker - a duplicate won't be filed while this stays open.
+This issue was opened automatically by [\`detect-codeql-release.yml\`]($REPO_BLOB_URL/.github/workflows/detect-codeql-release.yml). If you're not picking this up right away, feel free to leave it open as a tracker - a duplicate won't be filed while this stays open.
 EOF
 )
 

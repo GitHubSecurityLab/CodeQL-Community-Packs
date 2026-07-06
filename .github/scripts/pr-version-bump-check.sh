@@ -25,7 +25,18 @@ declare -A PACKAGE_SUFFIX=(
     [ext-library-sources]="library-sources"
 )
 
-for subdir in src lib ext ext-library-sources; do
+# publish.yml's `extensions`/`library_sources_extensions` jobs only matrix over
+# csharp/java today (see #144 for the proposal to extend this to python/go).
+# go/ext and python/ext directories exist but aren't wired into publish.yml,
+# so bumping their version wouldn't actually make them publish - don't check
+# those pack types for other languages, to avoid telling contributors a
+# version bump will ship something that publish.yml doesn't yet publish.
+SUBDIRS=(src lib)
+if [[ "$LANGUAGE" == "csharp" || "$LANGUAGE" == "java" ]]; then
+    SUBDIRS+=(ext ext-library-sources)
+fi
+
+for subdir in "${SUBDIRS[@]}"; do
     qlpack_path="$LANGUAGE/$subdir/qlpack.yml"
     if [[ ! -f "$qlpack_path" ]]; then
         # Not every language has an ext / ext-library-sources pack.

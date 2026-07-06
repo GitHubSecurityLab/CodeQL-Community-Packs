@@ -253,7 +253,7 @@ jobs:
           ./.github/scripts/pr-configs.sh "${{ github.event.number }}"
 
   version-bump-check:
-    name: Check pack version was bumped
+    name: Warn if pack version bump is missing
     runs-on: ubuntu-latest
     permissions:
       contents: read
