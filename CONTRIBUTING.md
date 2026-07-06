@@ -113,9 +113,17 @@ unpublished indefinitely. For example, removing a Java query required a separate
 > `githubsecuritylab/codeql-java-extensions` to an exact version — if you bump `java/ext`, remember to
 > update that pin too, or the two can drift out of sync (see [#155][pr-155]).
 
-There's no in-repo inventory of "what's currently published." To check:
-- **What's live today** — the [GHCR Packages page][ghcr-packages] for this repo.
-- **What will publish next** — the `version:` field in each language's `qlpack.yml` on `main`.
+Forgetting the version bump is easy, so `ci.yml` runs a **version-bump-check** job on every PR
+([`pr-version-bump-check.sh`][version-bump-check-script]) that posts an advisory (non-blocking) comment if
+files changed inside a pack directory but that pack's `version:` still matches what's already published.
+It's advisory rather than blocking because content changes and their version bump are sometimes
+intentionally split across sequential PRs (see [#123][pr-123] → [#124][pr-124]).
+
+There's an in-repo inventory of "what's currently published": [`PACKAGE_VERSIONS.md`][package-versions] is
+regenerated weekly (and on demand) by [`publish-version-inventory.yml`][publish-version-inventory-workflow]
+via [`generate-version-inventory.sh`][version-inventory-script]. To check:
+- **What's live today** — [`PACKAGE_VERSIONS.md`][package-versions], or the [GHCR Packages page][ghcr-packages] for this repo directly.
+- **What will publish next** — the `version:` field in each language's `qlpack.yml` on `main` (also shown in `PACKAGE_VERSIONS.md`'s "On main" column).
 
 ### What GitHub Releases are for
 
@@ -155,6 +163,11 @@ notice and kick off this process by hand. [#118][pr-118] proposes a weekly sched
 2 (`codeql pack upgrade`) only; steps 1, 3, and 4 would still need to be done manually even once it's
 merged.
 
+To at least remove the "noticing" part, [`detect-codeql-release.yml`][detect-codeql-release-workflow] runs
+weekly and opens a tracking issue (idempotently — it won't duplicate one that's already open) with this
+checklist whenever `github/codeql-cli-binaries` has a newer release than [`.codeqlversion`][codeqlversion].
+It only detects and files the issue — steps 1–4 above are still manual work for whoever picks it up.
+
 ## Using your personal data
 
 If you contribute to this project, we will record your name and email address (as provided by you with your contributions) as part of the code repositories, which are public. We might also use this information to contact you in relation to your contributions, as well as in the normal course of software development. We also store records of CLA agreements signed in the past, but no longer require contributors to sign a CLA. Under GDPR legislation, we do this on the basis of our legitimate interest in creating the CodeQL product.
@@ -171,6 +184,12 @@ Please do get in touch (privacy@github.com) if you have any questions about this
 [releases]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/releases
 [ghcr-packages]: https://github.com/orgs/GitHubSecurityLab/packages?repo_name=CodeQL-Community-Packs
 [pr-118]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/118
+[pr-123]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/123
 [pr-124]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/124
 [pr-144]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/144
 [pr-155]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/155
+[version-bump-check-script]: ./.github/scripts/pr-version-bump-check.sh
+[package-versions]: ./PACKAGE_VERSIONS.md
+[publish-version-inventory-workflow]: ./.github/workflows/publish-version-inventory.yml
+[version-inventory-script]: ./.github/scripts/generate-version-inventory.sh
+[detect-codeql-release-workflow]: ./.github/workflows/detect-codeql-release.yml
