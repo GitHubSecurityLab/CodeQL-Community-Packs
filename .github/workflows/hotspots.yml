@@ -61,7 +61,7 @@ jobs:
       - name: Patch the CodeQL distro
         working-directory: codeql-community-packs
         run: |
-          pip install pandas
+          pip install --require-hashes -r ql/hotspots/requirements.txt
           python ql/hotspots/scripts/generate-hotspots-queries.py \
             --ql-extractor "$GITHUB_WORKSPACE/codeql/ql/extractor-pack" \
             --ql-path "$GITHUB_WORKSPACE/codeql"
