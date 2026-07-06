@@ -61,6 +61,11 @@ jobs:
       - name: Patch the CodeQL distro
         working-directory: codeql-community-packs
         run: |
+          # TODO(supply-chain): this installs an unpinned, non-hash-checked package directly
+          # (and doesn't use ql/hotspots/requirements.txt, which is also unpinned). Prefer
+          # `pip install -r ql/hotspots/requirements.txt` with fully pinned versions and
+          # `--require-hashes` for a deterministic, verifiable install. Needs human review
+          # before changing, since it may require regenerating the lockfile/hashes.
           pip install pandas
           python ql/hotspots/scripts/generate-hotspots-queries.py \
             --ql-extractor "$GITHUB_WORKSPACE/codeql/ql/extractor-pack" \
