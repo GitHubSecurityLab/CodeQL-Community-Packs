@@ -85,6 +85,85 @@ Most of our query packs only depend on the standard library (`*-all`) for CodeQL
 > [!NOTE]
 > This table is maintained by hand today; update it whenever `.codeqlversion` or the `codeql-pack.lock.yml` files are refreshed. For a broader mapping of CodeQL CLI/bundle versions to per-language library versions (useful when triaging why a query compiles locally but not in CI, or vice versa), see the community [CodeQL Bundle Version Tracker](https://github.com/advanced-security/advanced-security-material/blob/main/codeql/codeql-version-tracker.md).
 
+## Releases & publishing
+
+Publishing a package to the GitHub Container Registry (GHCR) and creating a GitHub Release are two
+**separate, decoupled** processes in this repository. This section documents the actual, current
+process for each — most of it is manual today.
+
+### Shipping a change to a query/library pack
+
+[`publish.yml`][publish-workflow] runs on every push to `main`. For each pack it ships (`src`
+queries, `lib` libraries, and — for `csharp`/`java` only today, see [#144][pr-144] — `ext`
+extensions and `ext-library-sources`), it compares the `version:` in that pack's `qlpack.yml` on
+`main` to the version currently published on [GHCR][ghcr-packages], and only publishes if they
+differ. **Merging a change alone does not publish it** — the pack's own version must also be
+bumped, or the change sits on `main` unpublished indefinitely.
+
+To ship a change:
+
+- [ ] Make your `<language>` query/library change (e.g. edit files under `<language>/src`).
+- [ ] Bump `version:` in `<language>/src/qlpack.yml` (or `lib`/`ext`/`ext-library-sources`, whichever
+      pack you changed), following [semver](https://semver.org/).
+- [ ] If you changed a pack that other packs depend on (e.g. `<language>/ext`), check whether
+      dependents pin an exact version of it (e.g. `<language>/lib/qlpack.yml`) and bump that pin too
+      — these can drift out of sync otherwise (see [#155][pr-155]).
+- [ ] Open a PR and get it reviewed/merged to `main`.
+- [ ] Nothing further to do — `publish.yml` detects the version diff and publishes automatically on
+      merge. There's no separate "publish" button or manual trigger step for a version that's
+      already bumped.
+
+There is no in-repo inventory of "what's currently published" today — check the
+[GHCR Packages page][ghcr-packages] for this repo directly, or compare against the `version:` field
+in each language's `qlpack.yml` on `main` to see what will publish next.
+
+### Updating the pinned CodeQL CLI/library version
+
+Bumping the CodeQL CLI/library version this repo builds against (tracked in
+[`.codeqlversion`][codeqlversion], see [Supported CodeQL versions](#supported-codeql-versions)
+above) is also a fully manual process today. Nothing currently detects new upstream CodeQL CLI
+releases automatically — a maintainer has to notice one exists and kick off this checklist by hand
+(see [#118][pr-118] for an open proposal to at least automate the `codeql pack upgrade` step):
+
+- [ ] Update `.codeqlversion` to the new CLI version.
+- [ ] Run `codeql pack upgrade <dir>` for each pack directory to refresh its `codeql-pack.lock.yml`.
+- [ ] Fix any compilation/test errors caused by upstream API changes (usually the hardest part — see
+      [#124][pr-124] for an example of what this can involve).
+- [ ] Bump the `version:` field of every pack that changed, so the "Shipping a change" steps above
+      actually publish the update.
+- [ ] Update the "Supported CodeQL versions" table above.
+- [ ] Open a PR and get it reviewed/merged.
+
+> [!NOTE]
+> The `.codeqlversion` bump and the pack version bumps don't have to land in the same PR — the
+> current `v2.21.1` update split them: [#124][pr-124] refreshed dependencies/lock files for the new
+> CLI, and [#126][pr-126] is a separate, still-open PR bumping every pack's `version:` so that change
+> actually ships (per the [previous section](#shipping-a-change-to-a-querylibrary-pack)). If you split
+> your update the same way, don't forget the second PR — that's exactly the gap `codeql pack upgrade`
+> alone won't close.
+
+### What GitHub Releases are for
+
+The [Releases][releases] tab (`v0.2.0`, `v0.2.1`, ...) is a **repo-wide changelog**, unrelated to the
+per-pack publishing described above:
+
+- [`.release.yml`][release-config] is config for the [`42ByteLabs/patch-release-me`][patch-release-me]
+  tool. It tracks a single repository-wide `version:` and, when bumped, patches version references in
+  `configs/*.yml` and dependency pins in `**/qlpack.yml` — it does **not** bump any pack's own
+  top-level `version:` field.
+- [`update-release.yml`][update-release-workflow] is a manual `workflow_dispatch` (pick
+  patch/minor/major) that runs that tool and opens a PR with the bumped `.release.yml` and patched
+  references.
+- The GitHub Release itself is created manually afterwards by a maintainer via GitHub's "Draft a new
+  release" UI with auto-generated notes.
+
+> [!NOTE]
+> These two systems are currently out of sync: `.release.yml`'s `version:` is still `0.2.0`, and the
+> latest GitHub Release is `v0.2.1`, while individual packs (e.g. `codeql-java-queries`) are already
+> published at `0.2.2`. Don't use the Releases tab or `.release.yml` to infer what's currently
+> published — check [GHCR][ghcr-packages] or a pack's `qlpack.yml` directly, per "Shipping a change"
+> above.
+
 ## Using your personal data
 
 If you contribute to this project, we will record your name and email address (as provided by you with your contributions) as part of the code repositories, which are public. We might also use this information to contact you in relation to your contributions, as well as in the normal course of software development. We also store records of CLA agreements signed in the past, but no longer require contributors to sign a CLA. Under GDPR legislation, we do this on the basis of our legitimate interest in creating the CodeQL product.
@@ -94,3 +173,14 @@ Please do get in touch (privacy@github.com) if you have any questions about this
 <!-- Resources / Links -->
 
 [codeqlversion]: ./.codeqlversion
+[publish-workflow]: ./.github/workflows/publish.yml
+[update-release-workflow]: ./.github/workflows/update-release.yml
+[release-config]: ./.release.yml
+[patch-release-me]: https://github.com/42ByteLabs/patch-release-me
+[releases]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/releases
+[ghcr-packages]: https://github.com/orgs/GitHubSecurityLab/packages?repo_name=CodeQL-Community-Packs
+[pr-118]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/118
+[pr-124]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/124
+[pr-126]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/126
+[pr-144]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/144
+[pr-155]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/155
