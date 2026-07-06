@@ -24,7 +24,7 @@ class ActionMethod extends SpringRequestMappingMethod {
   /** Gets a string describing this action: method name, class name, route, or HTTP verb. */
   string getADescription() {
     result =
-      [this.getName(), this.getDeclaringType().getName(), this.getValue(), this.getMethodValue()]
+      [this.getName(), this.getDeclaringType().getName(), this.getAValue(), this.getMethodValue()]
   }
 
   /** Holds if this action may represent a state-changing operation. */
