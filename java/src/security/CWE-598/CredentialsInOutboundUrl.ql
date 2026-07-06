@@ -31,20 +31,21 @@ class CredentialGetter extends MethodCall {
 class OutboundUrlArg extends Expr {
   OutboundUrlArg() {
     exists(MethodCall ma |
+      ma.getMethod()
+          .hasName([
+              "getForObject", "getForEntity", "postForObject", "postForEntity", "postForLocation",
+              "put", "delete", "patchForObject", "exchange", "execute"
+            ]) and
       (
         ma.getMethod()
             .getDeclaringType()
             .getASupertype*()
             .hasQualifiedName("org.springframework.web.client", "RestOperations")
         or
-        ma.getMethod()
-            .hasName([
-                "getForObject", "getForEntity", "postForObject", "postForEntity", "put", "delete",
-                "exchange", "execute"
-              ]) and
         ma.getQualifier().getType().(RefType).getName().matches("%RestTemplate%")
       ) and
-      this = ma.getArgument(0)
+      this = ma.getArgument(0) and
+      this.getType() instanceof TypeString
     )
   }
 }
