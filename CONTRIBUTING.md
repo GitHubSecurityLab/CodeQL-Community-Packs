@@ -93,25 +93,40 @@ process for each — most of it is manual today.
 
 ### Shipping a change to a query/library pack
 
-[`publish.yml`][publish-workflow] runs on every push to `main`. For each pack it ships (`src`
-queries, `lib` libraries, and — for `csharp`/`java` only today, see [#144][pr-144] — `ext`
-extensions and `ext-library-sources`), it compares the `version:` in that pack's `qlpack.yml` on
-`main` to the version currently published on [GHCR][ghcr-packages], and only publishes if they
-differ. **Merging a change alone does not publish it** — the pack's own version must also be
-bumped, or the change sits on `main` unpublished indefinitely.
+[`publish.yml`][publish-workflow] runs on every push to `main`. It's organized as four jobs — one
+per pack type (`queries` for `src`, `library` for `lib`, `extensions` for `ext`,
+`library_sources_extensions` for `ext-library-sources`) — each matrixed over every language that has
+that pack type (`ext`/`ext-library-sources` only run for `csharp`/`java` today, see [#144][pr-144]).
+
+**Each `<language>` × `<pack type>` combination is checked and published completely
+independently.** For every matrix entry, the job compares the `version:` in that one pack's
+`qlpack.yml` on `main` to the version currently published on [GHCR][ghcr-packages], and only
+installs + publishes *that specific pack* if they differ — it never touches any other language or
+pack type. Concretely, this means:
+
+- **You only need to bump the version of the pack(s) you actually changed.** If your PR only
+  touches `java/src`, bumping `java/src/qlpack.yml`'s version is enough — you do not need to touch
+  `csharp`, `go`, `python`, or any other language/pack type for `codeql-java-queries` to publish.
+- **Nothing cascades automatically.** If a single PR changes both `java/src` and `csharp/lib`, each
+  needs its own version bump — bumping one does not publish the other, and bumping neither means
+  neither publishes.
+- **Merging a change alone does not publish it.** The workflow runs on every merge, but a pack's own
+  `version:` field must have changed since the last publish, or that pack's matrix entry does nothing
+  and the change sits on `main` unpublished indefinitely.
 
 To ship a change:
 
 - [ ] Make your `<language>` query/library change (e.g. edit files under `<language>/src`).
 - [ ] Bump `version:` in `<language>/src/qlpack.yml` (or `lib`/`ext`/`ext-library-sources`, whichever
-      pack you changed), following [semver](https://semver.org/).
+      pack you changed), following [semver](https://semver.org/). Only bump the specific pack(s) you
+      changed — other languages/pack types are unaffected and don't need touching.
 - [ ] If you changed a pack that other packs depend on (e.g. `<language>/ext`), check whether
       dependents pin an exact version of it (e.g. `<language>/lib/qlpack.yml`) and bump that pin too
       — these can drift out of sync otherwise (see [#155][pr-155]).
 - [ ] Open a PR and get it reviewed/merged to `main`.
-- [ ] Nothing further to do — `publish.yml` detects the version diff and publishes automatically on
-      merge. There's no separate "publish" button or manual trigger step for a version that's
-      already bumped.
+- [ ] Nothing further to do — `publish.yml` detects the version diff for that pack and publishes it
+      automatically on merge. There's no separate "publish" button or manual trigger step for a
+      version that's already bumped.
 
 There is no in-repo inventory of "what's currently published" today — check the
 [GHCR Packages page][ghcr-packages] for this repo directly, or compare against the `version:` field
