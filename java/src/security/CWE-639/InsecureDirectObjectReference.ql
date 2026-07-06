@@ -64,7 +64,7 @@ predicate hasIdParameter(ActionMethod m) {
       a.getType()
           .hasQualifiedName("org.springframework.web.bind.annotation",
             ["PathVariable", "RequestParam"]) and
-      a.getAStringValue(["value", "name"]).toLowerCase().matches(["%id", "%idx"])
+      a.getStringValue(["value", "name"]).toLowerCase().matches(["%id", "%idx"])
     )
   )
 }
