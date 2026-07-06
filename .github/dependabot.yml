@@ -6,7 +6,7 @@ updates:
     schedule:
       interval: "weekly"
     cooldown:
-      default-days: 3
+      default-days: 7
     reviewers:
       - "GitHubSecurityLab/codeql-community-packs-admin"
     target-branch: "main"

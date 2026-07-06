@@ -8,6 +8,7 @@ on:
 # Least-privilege default; jobs that need to comment on PRs override this below.
 permissions:
   contents: read
+  packages: read
 
 jobs:
   compile-and-test:
@@ -15,6 +16,8 @@ jobs:
     permissions:
       contents: read
       pull-requests: write # required by pr-suites-packs.sh (gh pr comment)
+      issues: write # required by pr-suites-packs.sh (gh pr comment)
+      packages: read # required by pr-suites-packs.sh (gh api packages)
 
     strategy:
       fail-fast: false
