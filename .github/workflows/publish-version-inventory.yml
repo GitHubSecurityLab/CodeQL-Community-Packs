@@ -1,0 +1,57 @@
+name: Update published package version inventory
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Every Monday at 06:00 UTC (offset from the other scheduled jobs)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  packages: read
+
+jobs:
+  update-inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Generate PACKAGE_VERSIONS.md
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          ./.github/scripts/generate-version-inventory.sh > PACKAGE_VERSIONS.md
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if [[ -z "$(git status --porcelain -- PACKAGE_VERSIONS.md)" ]]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Reuses one stable branch/PR (force-pushed each run) instead of opening
+      # a new PR every time the inventory drifts, since this file changes
+      # often (any time any pack is published) and is fully machine-generated.
+      - name: Open or update the inventory PR
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          BRANCH: chore/package-inventory-update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout -b "$BRANCH"
+          git add PACKAGE_VERSIONS.md
+          git commit -m "chore: update published package version inventory"
+          git push --force origin "HEAD:$BRANCH"
+
+          if [[ "$(gh pr list --head "$BRANCH" --state open --json number --jq 'length')" == "0" ]]; then
+            gh pr create --base main --head "$BRANCH" \
+              --title "chore: update published package version inventory" \
+              --body "Automated update of \`PACKAGE_VERSIONS.md\` (see [\`publish-version-inventory.yml\`](./.github/workflows/publish-version-inventory.yml))."
+          else
+            echo "[+] Existing PR for $BRANCH updated via force-push."
+          fi
