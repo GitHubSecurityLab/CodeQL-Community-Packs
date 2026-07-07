@@ -116,10 +116,12 @@ pack type. Concretely, this means:
 
 To ship a change:
 
-- [ ] Make your `<language>` query/library change (e.g. edit files under `<language>/src`).
-- [ ] Bump `version:` in `<language>/src/qlpack.yml` (or `lib`/`ext`/`ext-library-sources`, whichever
-      pack you changed), following [semver](https://semver.org/). Only bump the specific pack(s) you
-      changed — other languages/pack types are unaffected and don't need touching.
+- [ ] Make your change in the pack directory you intend to publish: `<language>/src` (queries),
+      `<language>/lib` (library), or `<language>/ext`/`<language>/ext-library-sources` (extensions,
+      `csharp`/`java` only).
+- [ ] Bump `version:` in that pack's `qlpack.yml`, following [semver](https://semver.org/). Only bump
+      the specific pack(s) you changed — other languages/pack types are unaffected and don't need
+      touching.
 - [ ] If you changed a pack that other packs depend on (e.g. `<language>/ext`), check whether
       dependents pin an exact version of it (e.g. `<language>/lib/qlpack.yml`) and bump that pin too
       — these can drift out of sync otherwise (see [#155][pr-155]).
@@ -150,15 +152,13 @@ releases automatically — a maintainer has to notice one exists and kick off th
 - [ ] Open a PR and get it reviewed/merged.
 
 > [!WARNING]
-> The `.codeqlversion` bump and the pack version bumps don't have to land in the same PR, but skipping
-> the second one has real consequences: [#124][pr-124] refreshed `.codeqlversion` and every
-> language's dependencies/lock files for `v2.21.1` back in June 2025, but bumped **no** pack
-> `version:` fields. [#126][pr-126] — a separate PR that bumps every pack's `version:` — has sat open
-> and unmerged since April 2025. As a result, only `java` (bumped separately, for an unrelated reason)
-> has actually published `v2.21.1`-era content; the other six languages' packages on
-> [GHCR][ghcr-packages] are still the versions published before that update and don't yet reflect it.
-> Don't assume a merged dependency-refresh PR means consumers received it — check the pack actually
-> published a new `version:` too.
+> The `.codeqlversion` bump and the pack version bumps don't have to land in the same PR — but
+> splitting them is risky: [#124][pr-124] refreshed `.codeqlversion` and every language's
+> dependencies/lock files for `v2.21.1`, without bumping any pack's `version:` field in the same PR.
+> The companion PR to bump every pack's `version:` ([#126][pr-126]) went unmerged for a long stretch
+> afterward, during which most languages' published GHCR packages silently kept serving pre-`v2.21.1`
+> content even though `main` had already moved on. Don't assume a merged dependency-refresh PR means
+> consumers received it — check that the pack's `version:` actually changed and published too.
 
 ### What GitHub Releases are for
 
@@ -179,11 +179,11 @@ per-pack publishing described above:
   release" UI with auto-generated notes.
 
 > [!NOTE]
-> These two systems are currently out of sync: `.release.yml`'s `version:` is still `0.2.0`, and the
-> latest GitHub Release is `v0.2.1`, while individual packs (e.g. `codeql-java-queries`) are already
-> published at `0.2.2`. Don't use the Releases tab or `.release.yml` to infer what's currently
-> published — check [GHCR][ghcr-packages] or a pack's `qlpack.yml` directly, per "Shipping a change"
-> above.
+> These systems have no mechanism keeping them in sync, and have drifted in practice: `.release.yml`'s
+> `version:`, the latest GitHub Release tag, and individual packs' published `version:` fields can all
+> disagree with each other at any given time. Don't use the Releases tab or `.release.yml` to infer
+> what's currently published — check [GHCR][ghcr-packages] or a pack's `qlpack.yml` directly, per
+> "Shipping a change" above.
 
 ## Using your personal data
 
