@@ -149,13 +149,16 @@ releases automatically — a maintainer has to notice one exists and kick off th
 - [ ] Update the "Supported CodeQL versions" table above.
 - [ ] Open a PR and get it reviewed/merged.
 
-> [!NOTE]
-> The `.codeqlversion` bump and the pack version bumps don't have to land in the same PR — the
-> current `v2.21.1` update split them: [#124][pr-124] refreshed dependencies/lock files for the new
-> CLI, and [#126][pr-126] is a separate, still-open PR bumping every pack's `version:` so that change
-> actually ships (per the [previous section](#shipping-a-change-to-a-querylibrary-pack)). If you split
-> your update the same way, don't forget the second PR — that's exactly the gap `codeql pack upgrade`
-> alone won't close.
+> [!WARNING]
+> The `.codeqlversion` bump and the pack version bumps don't have to land in the same PR, but skipping
+> the second one has real consequences: [#124][pr-124] refreshed `.codeqlversion` and every
+> language's dependencies/lock files for `v2.21.1` back in June 2025, but bumped **no** pack
+> `version:` fields. [#126][pr-126] — a separate PR that bumps every pack's `version:` — has sat open
+> and unmerged since April 2025. As a result, only `java` (bumped separately, for an unrelated reason)
+> has actually published `v2.21.1`-era content; the other six languages' packages on
+> [GHCR][ghcr-packages] are still the versions published before that update and don't yet reflect it.
+> Don't assume a merged dependency-refresh PR means consumers received it — check the pack actually
+> published a new `version:` too.
 
 ### What GitHub Releases are for
 
@@ -163,9 +166,12 @@ The [Releases][releases] tab (`v0.2.0`, `v0.2.1`, ...) is a **repo-wide changelo
 per-pack publishing described above:
 
 - [`.release.yml`][release-config] is config for the [`42ByteLabs/patch-release-me`][patch-release-me]
-  tool. It tracks a single repository-wide `version:` and, when bumped, patches version references in
-  `configs/*.yml` and dependency pins in `**/qlpack.yml` — it does **not** bump any pack's own
-  top-level `version:` field.
+  tool. It tracks a single repository-wide `version:` and defines two patch locations: one targeting
+  `configs/*.yml` (has never matched anything in this repo's history — those configs never pin an
+  exact version, so this is effectively dead), and one targeting the exact `codeql-<lang>-libs:`
+  dependency pin in `**/qlpack.yml` (only 5 of 7 languages — cpp, go, javascript, python, ruby — pin an
+  exact version there; csharp/java use `'*'`). Either way, it does **not** bump any pack's own
+  top-level `version:` field, so bumping it alone doesn't publish anything.
 - [`update-release.yml`][update-release-workflow] is a manual `workflow_dispatch` (pick
   patch/minor/major) that runs that tool and opens a PR with the bumped `.release.yml` and patched
   references.
