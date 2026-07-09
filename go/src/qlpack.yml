@@ -5,4 +5,4 @@ suites: suites
 defaultSuiteFile: suites/go.qls
 dependencies:
   codeql/go-all: '*'
-  githubsecuritylab/codeql-go-libs: 0.2.0
+  githubsecuritylab/codeql-go-libs: '*'

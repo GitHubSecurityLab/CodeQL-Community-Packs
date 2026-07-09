@@ -11,8 +11,10 @@ locations:
   - name: "CodeQL Pack Versions"
     paths:
       - "**/qlpack.yml"
+    excludes:
+      - "ql/hotspots/"
     patterns:
-      - '^version:\s*{version}'
+      - '^version:\s*{version}$'
   - name: "CodeQL Configurations"
     paths:
       - "configs/*.yml"

@@ -6,4 +6,4 @@ defaultSuiteFile: suites/cpp.qls
 dependencies:
   codeql/cpp-all: '*'
   codeql/cpp-queries: '*'
-  githubsecuritylab/codeql-cpp-libs: 0.2.0
+  githubsecuritylab/codeql-cpp-libs: '*'
