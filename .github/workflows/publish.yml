@@ -343,7 +343,11 @@ jobs:
       - name: Build summary table
         run: |
           mkdir -p publish-results
-          .github/scripts/build-publish-summary.sh publish-results | tee summary.md >> "$GITHUB_STEP_SUMMARY"
+          echo "Result fragments found:"
+          ls -la publish-results
+          .github/scripts/build-publish-summary.sh publish-results > summary.md
+          echo "summary.md is $(wc -l < summary.md) lines, $(wc -c < summary.md) bytes"
+          cat summary.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upsert release table
         env:
