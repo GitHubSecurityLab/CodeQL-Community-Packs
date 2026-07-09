@@ -1,6 +1,6 @@
 name: "CodeQL Community Packs"
 repository: "githubsecuritylab/codeql-community-packs"
-version: "0.2.0"
+version: "0.2.2"
 
 ecosystem: CodeQL
 excludes:
@@ -8,6 +8,13 @@ excludes:
   - "/codeql/"
 
 locations:
+  - name: "CodeQL Pack Versions"
+    paths:
+      - "**/qlpack.yml"
+    excludes:
+      - "ql/hotspots/"
+    patterns:
+      - '^version:\s*{version}$'
   - name: "CodeQL Configurations"
     paths:
       - "configs/*.yml"
