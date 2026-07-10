@@ -103,10 +103,14 @@ process for each; most of it is manual today.
 
 ### Shipping a change to a query/library pack
 
-[`publish.yml`][publish-workflow] is organized as four jobs: one per pack type (`queries` for
-`src`, `library` for `lib`, `extensions` for `ext`, `library_sources_extensions` for
+[`publish.yml`][publish-workflow] is organized as five jobs: four publish jobs, one per pack type
+(`queries` for `src`, `library` for `lib`, `extensions` for `ext`, `library_sources_extensions` for
 `ext-library-sources`), each matrixed over every language that has that pack type
-(`ext`/`ext-library-sources` only run for `csharp`/`java` today, see [#144][pr-144]).
+(`ext`/`ext-library-sources` only run for `csharp`/`java` today, see [#144][pr-144]) - plus a fifth
+`summary` job that runs after the other four (`if: always()`, so it still runs even if one of them
+fails), aggregates their per-pack results into the publish-summary and CodeQL library/query pack
+version tables, and (on the release-cut `push` trigger only) upserts both tables into the GitHub
+Release's notes.
 
 **Each `<language>` × `<pack type>` combination is checked and published completely
 independently.** For every matrix entry, the job compares the `version:` in that one pack's
