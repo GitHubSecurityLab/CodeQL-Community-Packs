@@ -49,6 +49,15 @@ jobs:
       - name: Setup CodeQL
         uses: ./.github/actions/install-codeql
 
+      - name: DEBUG resolve qlpacks
+        run: |
+          set -x
+          codeql version
+          echo "--- codeql resolve qlpacks --format=json ---"
+          codeql resolve qlpacks --format=json || true
+          echo "--- find bundled qlpacks dir ---"
+          find "$(dirname "$(command -v codeql)")" -maxdepth 6 -iname "qlpack.yml" -path "*qlpacks*codeql*" 2>/dev/null | head -50 || true
+
       - name: Upgrade every pack's dependencies
         env:
           GITHUB_TOKEN: ${{ github.token }}
