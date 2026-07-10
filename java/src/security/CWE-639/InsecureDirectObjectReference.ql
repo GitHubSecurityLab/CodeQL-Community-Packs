@@ -23,10 +23,10 @@ import semmle.code.java.frameworks.spring.SpringController
 class ActionMethod extends SpringRequestMappingMethod {
   /** Gets a string describing this action: method name, class name, route, or HTTP verb. */
   string getADescription() {
-    // `getValue()` is the route accessor in the pinned codeql/java-all (7.1.3); it was
-    // renamed to `getAValue()` in newer library versions.
+    // `getValue()` on `SpringRequestMappingMethod` was deprecated in favor of
+    // `getAValue()` in codeql/java-all 7.3.0 (bundled with CodeQL CLI 2.21.4).
     result =
-      [this.getName(), this.getDeclaringType().getName(), this.getValue(), this.getMethodValue()]
+      [this.getName(), this.getDeclaringType().getName(), this.getAValue(), this.getMethodValue()]
   }
 
   /** Holds if this action may represent a state-changing operation. */

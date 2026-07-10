@@ -4,5 +4,5 @@ version: 0.2.3
 suites: suites
 defaultSuiteFile: suites/javascript.qls
 dependencies:
-  codeql/javascript-all: '*'
+  codeql/javascript-all: '2.6.4'
   githubsecuritylab/codeql-javascript-libs: '*'
