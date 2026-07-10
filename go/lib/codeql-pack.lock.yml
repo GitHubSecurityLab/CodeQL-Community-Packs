@@ -2,19 +2,19 @@
 lockVersion: 1.0.0
 dependencies:
   codeql/dataflow:
-    version: 2.0.8
+    version: 2.0.13
   codeql/go-all:
-    version: 4.2.6
+    version: 4.3.2
   codeql/mad:
-    version: 1.0.24
+    version: 1.0.29
   codeql/ssa:
-    version: 2.0.0
+    version: 2.0.5
   codeql/threat-models:
-    version: 1.0.24
+    version: 1.0.29
   codeql/tutorial:
-    version: 1.0.24
+    version: 1.0.29
   codeql/typetracking:
-    version: 2.0.8
+    version: 2.0.13
   codeql/util:
-    version: 2.0.11
+    version: 2.0.16
 compiled: false
