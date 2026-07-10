@@ -27,6 +27,16 @@ if [ -z "$VERSION" ]; then
 fi
 TAG="v${VERSION}"
 
+# Whether the release should be marked as a pre-release. Set via the
+# `prerelease` (update-release.yml) / `release_prerelease`
+# (update-codeql-version.yml) workflow_dispatch input, which writes a
+# `prerelease: true|false` field into .release.yml alongside the version bump
+# (see those workflows). Defaults to false (a full release) if the field is
+# absent - e.g. for .release.yml files predating this field, or if the
+# version was bumped by some other means.
+PRERELEASE_FLAG=$(grep -E '^prerelease:' .release.yml | head -1 | sed -E 's/^prerelease:[[:space:]]*"?([^"[:space:]]*)"?/\1/' || true)
+PRERELEASE_FLAG="${PRERELEASE_FLAG:-false}"
+
 BLOCK_FILE=$(mktemp)
 {
   echo "$START_MARKER"
@@ -64,11 +74,15 @@ if gh release view "$TAG" >/dev/null 2>&1; then
 
   gh release edit "$TAG" --notes-file "$NEW_BODY"
 else
-  echo "Release $TAG does not exist yet; creating it as a pre-release."
-  gh release create "$TAG" \
-    --title "$TAG" \
-    --notes-file "$BLOCK_FILE" \
-    --generate-notes \
-    --prerelease \
+  echo "Release $TAG does not exist yet; creating it (prerelease: ${PRERELEASE_FLAG})."
+  CREATE_ARGS=(
+    --title "$TAG"
+    --notes-file "$BLOCK_FILE"
+    --generate-notes
     --target "${GITHUB_SHA:-main}"
+  )
+  if [ "$PRERELEASE_FLAG" = "true" ]; then
+    CREATE_ARGS+=(--prerelease)
+  fi
+  gh release create "$TAG" "${CREATE_ARGS[@]}"
 fi

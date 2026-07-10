@@ -12,6 +12,11 @@ on:
           - patch
           - minor
           - major
+      prerelease:
+        description: "Mark the resulting GitHub Release as a pre-release (default: off, a full release)"
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   update-release:
@@ -36,6 +41,22 @@ jobs:
           # Bump (patch)
           mode: ${{ inputs.mode }}
 
+      - name: Set release prerelease flag
+        run: |
+          set -euo pipefail
+          # patch-release-me's Config struct doesn't know about a `prerelease`
+          # key, so it silently drops any such field the next time it
+          # round-trips .release.yml (see config.rs: Config::write() re-
+          # serializes from the Rust struct, not the original file text).
+          # That's fine here since we always re-set it fresh on every dispatch,
+          # right after the bump step, before the PR is opened - so it's never
+          # stale by the time upsert-release-table.sh reads it.
+          if grep -qE '^prerelease:' .release.yml; then
+            sed -i -E "s/^prerelease:.*/prerelease: ${{ inputs.prerelease }}/" .release.yml
+          else
+            sed -i -E "/^version:/a prerelease: ${{ inputs.prerelease }}" .release.yml
+          fi
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
@@ -44,6 +65,12 @@ jobs:
           commit-message: "[chore]: Auto Patch new Release"
           body: |
             This is automatically created as a chore to patch and update the release.
+
+            Requested via the "CodeQL Update Release" workflow (`workflow_dispatch`,
+            `mode: ${{ inputs.mode }}`, `prerelease: ${{ inputs.prerelease }}`).
+
+            Merging this PR triggers `publish.yml`'s real batch publish. Its `summary`
+            job will create the matching GitHub Release as a **${{ inputs.prerelease == 'true' && 'pre-release' || 'full release' }}**.
           branch: "auto-patch-release"
           labels: "version"
           delete-branch: true

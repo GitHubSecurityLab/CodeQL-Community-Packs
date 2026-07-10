@@ -32,6 +32,11 @@ on:
         required: false
         type: string
         default: ""
+      release_prerelease:
+        description: "Only used if release_bump is set: mark the resulting GitHub Release as a pre-release (default: off, a full release)"
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   update-codeql-version:
@@ -113,6 +118,20 @@ jobs:
         with:
           mode: ${{ steps.release_bump.outputs.bump }}
 
+      - name: Set release prerelease flag (optional)
+        if: steps.release_bump.outputs.bump != ''
+        run: |
+          set -euo pipefail
+          # See the matching step/comment in update-release.yml: patch-release-me's
+          # Config struct doesn't know about a `prerelease` key, so it would get
+          # silently dropped on the NEXT bump - harmless here since we always
+          # re-set it fresh right after this bump, before the PR is opened.
+          if grep -qE '^prerelease:' .release.yml; then
+            sed -i -E "s/^prerelease:.*/prerelease: ${{ inputs.release_prerelease }}/" .release.yml
+          else
+            sed -i -E "/^version:/a prerelease: ${{ inputs.release_prerelease }}" .release.yml
+          fi
+
       - name: Determine new release version (if bumped)
         id: release_version
         if: steps.release_bump.outputs.bump != ''
@@ -163,6 +182,11 @@ jobs:
             echo '  `codeql-pack.lock.yml` against the new CLI and pinned library versions.'
             echo
             if [[ -n "${{ steps.release_bump.outputs.bump }}" ]]; then
+              if [[ "${{ inputs.release_prerelease }}" == "true" ]]; then
+                RELEASE_KIND="pre-release"
+              else
+                RELEASE_KIND="full release"
+              fi
               echo "- Also bumps the repo release version (\`${{ steps.release_bump.outputs.bump }}\`, via the same"
               echo '  `patch-release-me` step `update-release.yml` uses) to `'"${{ steps.release_version.outputs.version }}"'`,'
               echo "  propagating it to every pack's own \`version:\` field, \`configs/*.yml\`"
@@ -170,7 +194,9 @@ jobs:
               echo
               echo '**Merging this PR triggers the real batch publish** - `publish.yml`'"'"'s'
               echo 'auto-trigger fires on any push to `main` that changes `.release.yml`, which this'
-              echo 'PR does. No separate "CodeQL Update Release" run is needed.'
+              echo "PR does. No separate \"CodeQL Update Release\" run is needed. That run's \`summary\`"
+              echo "job will create the matching GitHub Release as a **${RELEASE_KIND}**"
+              echo "(\`release_prerelease: ${{ inputs.release_prerelease }}\`)."
               echo
               echo 'Remaining steps (see CONTRIBUTING.md'"'"'s "Updating the pinned CodeQL CLI/library'
               echo 'version" section):'
