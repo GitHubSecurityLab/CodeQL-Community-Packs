@@ -60,7 +60,12 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          for dir in $(find . -name qlpack.yml -exec dirname {} \;); do
+          # ql/hotspots is excluded: it's a standalone local dev tool (see
+          # ql/hotspots/README.md and .github/workflows/hotspots.yml), not one of
+          # the per-language src/lib/ext/ext-library-sources packs that ci.yml and
+          # publish.yml operate on. Its `codeql/ql: '*'` dependency isn't a real
+          # resolvable GHCR package, so it always fails `codeql pack upgrade`.
+          for dir in $(find . -name qlpack.yml -not -path "./ql/hotspots/*" -exec dirname {} \;); do
             echo "::group::codeql pack upgrade $dir"
             codeql pack upgrade "$dir"
             echo "::endgroup::"
