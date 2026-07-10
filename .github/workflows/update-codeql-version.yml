@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read # PR creation uses a scoped GitHub App token (SECLABS_APP_ID/SECLABS_APP_KEY), not GITHUB_TOKEN
+      packages: read # `codeql pack upgrade` resolves codeql/* library deps from GHCR (see ci.yml)
 
     steps:
       - name: Checkout
