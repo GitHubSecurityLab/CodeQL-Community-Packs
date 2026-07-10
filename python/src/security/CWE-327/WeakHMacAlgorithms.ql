@@ -15,7 +15,6 @@
 import python
 import semmle.python.Concepts
 import semmle.python.ApiGraphs
-import semmle.python.concepts.internal.CryptoAlgorithmNames
 
 from DataFlow::Node digest, DataFlow::CallCfgNode calls
 where

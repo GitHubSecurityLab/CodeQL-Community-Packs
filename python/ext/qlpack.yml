@@ -1,8 +1,8 @@
 library: true
 name: githubsecuritylab/codeql-python-extensions
-version: 0.2.4
+version: 0.3.0
 extensionTargets:
-  codeql/python-all: '4.0.8'
+  codeql/python-all: '4.0.13'
 dataExtensions:
   - 'manual/*.yml'
   - 'manual/**/*.yml'
