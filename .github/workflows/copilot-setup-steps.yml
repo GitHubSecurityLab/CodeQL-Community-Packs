@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      packages: read # matches ci.yml/update-codeql-version.yml's grant for `codeql pack install`/`upgrade` resolving codeql/* deps from GHCR
 
     steps:
       - name: Checkout
