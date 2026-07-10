@@ -1,8 +1,8 @@
 library: true
 name: githubsecuritylab/codeql-csharp-extensions
-version: 0.2.4
+version: 0.2.5
 extensionTargets:
-  codeql/csharp-all: '5.1.7'
+  codeql/csharp-all: '5.2.2'
 dataExtensions:
   - 'manual/*.yml'
   - 'manual/**/*.yml'

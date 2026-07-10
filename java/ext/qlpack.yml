@@ -1,8 +1,8 @@
 library: true
 name: githubsecuritylab/codeql-java-extensions
-version: 0.2.4
+version: 0.2.5
 extensionTargets:
-  codeql/java-all: '7.3.0'
+  codeql/java-all: '7.6.0'
 dataExtensions:
   - 'manual/*.yml'
   - 'manual/**/*.yml'
