@@ -49,21 +49,21 @@ jobs:
       - name: Setup CodeQL
         uses: ./.github/actions/install-codeql
 
-      - name: DEBUG gh-codeql bundle qlpacks
+      - name: DEBUG codeql-action bundle qlpacks
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -x
-          gh extension install github/gh-codeql
-          gh codeql set-version "${{ steps.version.outputs.version }}"
-          gh codeql version --format=terse
-          BUNDLE_DIR="$HOME/.local/share/gh/extensions/gh-codeql/dist/release/v${{ steps.version.outputs.version }}"
-          echo "bundle dir: $BUNDLE_DIR"
-          find "$BUNDLE_DIR" -maxdepth 3 -type d -iname "go*" 2>/dev/null || true
-          echo "--- all qlpack.yml under go dir ---"
-          find "$BUNDLE_DIR/go" -iname "qlpack.yml" 2>/dev/null | sort || true
-          echo "--- resolve qlpacks using bundle codeql binary ---"
-          "$BUNDLE_DIR/codeql" resolve qlpacks --format=json --search-path "$BUNDLE_DIR" 2>&1 | head -c 4000 || true
+          BUNDLE_TAG="codeql-bundle-v${{ steps.version.outputs.version }}"
+          mkdir -p /tmp/bundle
+          gh release download "$BUNDLE_TAG" --repo github/codeql-action --pattern "codeql-bundle-linux64.tar.gz" --dir /tmp/bundle
+          echo "--- listing top-level tar entries (first 40) ---"
+          tar tzf /tmp/bundle/codeql-bundle-linux64.tar.gz | head -40
+          echo "--- extracting only qlpacks/codeql/go-all and qlpacks/codeql/java-all ---"
+          tar xzf /tmp/bundle/codeql-bundle-linux64.tar.gz -C /tmp/bundle --wildcards \
+            'codeql/qlpacks/codeql/go-all/*/qlpack.yml' \
+            'codeql/qlpacks/codeql/java-all/*/qlpack.yml' 2>&1 | head -20 || true
+          find /tmp/bundle -iname "qlpack.yml" | sort
 
       - name: Upgrade every pack's dependencies
         env:
