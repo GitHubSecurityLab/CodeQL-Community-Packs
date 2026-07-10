@@ -6,6 +6,7 @@ ecosystem: CodeQL
 excludes:
   - "/.codeql/"
   - "/codeql/"
+  - "/codeql_home/" # only present when run alongside update-codeql-version.yml, which downloads the CLI here
 
 locations:
   - name: "CodeQL Pack Versions"
