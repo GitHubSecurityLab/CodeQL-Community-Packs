@@ -31,10 +31,26 @@ jobs:
           private-key: ${{ secrets.SECLABS_APP_KEY }}
 
       - name: "Patch Release Me"
-        uses: 42ByteLabs/patch-release-me@431a82795eda94d09b3821da9391c53ab287e84d # 0.6.5 (0.6.6's ghcr.io image was never published; see https://github.com/42ByteLabs/patch-release-me/issues - action.yml is byte-identical between the two)
-        with:
-          # Bump (patch)
-          mode: ${{ inputs.mode }}
+        run: |
+          set -euo pipefail
+          # Invoke the pinned patch-release-me image directly via `docker run`
+          # instead of `uses: 42ByteLabs/patch-release-me@...`. That action's own
+          # action.yml builds its Docker CMD as a single YAML list item
+          # (`-m "${{ inputs.mode }}"`); Docker container actions don't go
+          # through a shell, so the literal quote characters end up baked into
+          # ONE argv token (`-m "minor"`). clap can't match that against
+          # "patch"/"minor"/"major" and silently falls back to its own default
+          # (Patch) - meaning `minor`/`major` have always quietly produced a
+          # patch bump instead (confirmed via a local repro: see PR history).
+          # Running the same pinned image ourselves via a normal shell `run:`
+          # step naturally splits `-m` and the mode value into separate argv
+          # entries, avoiding the bug entirely.
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            -v "${{ github.workspace }}:/repo" \
+            -w /repo \
+            ghcr.io/42bytelabs/patch-release-me:0.6.5 \
+            --disable-banner bump -m ${{ inputs.mode }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
