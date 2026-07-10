@@ -32,6 +32,37 @@ jobs:
         id: install-codeql
         uses: ./.github/actions/install-codeql
 
+      - name: Install CodeQL pack dependencies
+        run: |
+          # Pre-downloads every pack's dependencies (codeql/<lang>-all, etc.) into
+          # the pack download cache so Copilot never hits "Pack '...' was not
+          # found in the pack download cache. Run 'codeql pack install' to
+          # download the dependencies." when it runs `codeql query compile` /
+          # `codeql test run`.
+          #
+          # Without this, the agent has to discover on its own that `codeql pack
+          # install <dir>` is a prerequisite - which it does eventually, but not
+          # before burning several minutes on dead-end investigation first (e.g.
+          # a whole-filesystem `find / -name ...` looking for a "missing" library
+          # that was simply never installed). See the Copilot session on PR #173
+          # for a real example: it spent ~3 of its ~10 minutes on that rabbit
+          # hole before running `codeql pack install` and immediately finding/
+          # fixing the real one-line bug.
+          #
+          # We install every pack (not just the language the agent will end up
+          # touching) because we don't know ahead of time which one it'll be
+          # asked to fix - the extra cost is a few seconds per pack, which is
+          # trivial next to the minutes it can save. Same exclude list as
+          # update-codeql-version.yml's `codeql pack upgrade` loop: skip
+          # ql/hotspots (standalone tool, not a real GHCR-resolvable pack),
+          # codeql_home (vendored CLI packs), and codeql/ + */.codeql (the test-
+          # stubs clone below and CodeQL's own per-pack build caches).
+          for dir in $(find . -name qlpack.yml -not -path "./ql/hotspots/*" -not -path "./codeql_home/*" -not -path "./codeql/*" -not -path "*/.codeql/*" -exec dirname {} \;); do
+            echo "::group::codeql pack install $dir"
+            codeql pack install "$dir"
+            echo "::endgroup::"
+          done
+
       - name: Clone github/codeql (test stubs)
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -48,9 +79,3 @@ jobs:
           # resolve, so `codeql test run` can actually compile the test snippets.
           # `--depth=1`: we only need the tree at that branch tip, not its history.
           gh repo clone github/codeql -- -b "codeql-cli-${CODEQL_CLI_VERSION}" --depth=1
-
-      # Deliberately not running `codeql pack install <lang>/...` here for every
-      # language - that's fast enough (a few seconds) for Copilot to run itself for
-      # whichever specific language pack(s) it's actually fixing, and running it
-      # for all 7 languages up front would just slow down every session regardless
-      # of what it's working on.
