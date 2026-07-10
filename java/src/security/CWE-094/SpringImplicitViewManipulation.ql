@@ -42,7 +42,7 @@ private predicate mayBeExploitable(Method m) {
     // hence, here we check for the param type to be a Java `String`.
     p.getType() instanceof TypeString and
     // Exclude cases where a regex check is applied on a parameter to prevent false positives.
-    not m.(SpringRequestMappingMethod).getValue().matches("%{%:[%]%}%")
+    not m.(SpringRequestMappingMethod).getAValue().matches("%{%:[%]%}%")
   ) and
   not maybeATestMethod(m)
 }
