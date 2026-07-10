@@ -219,16 +219,38 @@ coding agent) in the loop for the hard part — fixing whatever the new CLI brea
    of [#118][pr-118]'s original proposal, extended to also own the `.codeqlversion` bump and the
    exact-version pinning (not just a bare `codeql pack upgrade` loop) and to use a token that triggers
    CI.
-3. **Fix breakage and finish the checklist** — this PR does **not** publish anything by itself (no
-   pack `version:` field is touched), so there's no rush, but it still needs:
-   - [ ] Fix any compilation/test errors CI surfaces from upstream API changes (usually the
-         hardest part, see [#124][pr-124] for an example of what this can involve). Consider
-         delegating this step to a Copilot coding agent session pointed at the PR/branch.
-   - [ ] Update the "Supported CodeQL versions" table above.
-   - [ ] Review and merge.
-   - [ ] Once merged, run [`update-release.yml`][update-release-workflow] as described in
-         [Cutting a release](#cutting-a-release) below to bump every pack's `version:` in
-         lockstep and trigger the real batch publish.
+
+   By default this PR only refreshes dependencies and does not publish anything — that's the safest
+   choice when you expect CI breakage that needs fixing first (the normal case for a minor/major CLI
+   bump). If you're confident the bump is safe to publish as soon as CI is green (e.g. a same-series
+   CLI patch release with no expected breaking changes), you can also set the optional `release_bump`
+   input (`patch`/`minor`/`major`) on the same `workflow_dispatch` run. When set, this workflow runs
+   the same [`42ByteLabs/patch-release-me`][patch-release-me] step [`update-release.yml`][update-release-workflow]
+   uses, in this same run, folding a full [release bump](#cutting-a-release) — and everything that
+   comes with it (every pack's `version:` field, `configs/*.yml` references, and cross-pack `-libs`
+   pins) — into this one PR. Since [`publish.yml`][publish-workflow]'s auto-trigger fires on any push
+   to `main` that changes `.release.yml`, merging this combined PR is then enough by itself to kick
+   off the real batch publish — no separate `update-release.yml` run needed afterward. Leave
+   `release_bump` empty (the default) otherwise.
+3. **Fix breakage and finish the checklist** — the PR's own description tells you which checklist
+   applies, depending on whether you set `release_bump`:
+   - **Without `release_bump` (default)** — this PR does **not** publish anything by itself (no pack
+     `version:` field is touched), so there's no rush, but it still needs:
+     - [ ] Fix any compilation/test errors CI surfaces from upstream API changes (usually the
+           hardest part, see [#124][pr-124] for an example of what this can involve). Consider
+           delegating this step to a Copilot coding agent session pointed at the PR/branch.
+     - [ ] Update the "Supported CodeQL versions" table above.
+     - [ ] Review and merge.
+     - [ ] Once merged, run [`update-release.yml`][update-release-workflow] as described in
+           [Cutting a release](#cutting-a-release) below to bump every pack's `version:` in
+           lockstep and trigger the real batch publish.
+   - **With `release_bump` set** — merging this PR *is* the release; there's no separate follow-up
+     step:
+     - [ ] Fix any compilation/test errors CI surfaces from upstream API changes, same as above.
+     - [ ] Update the "Supported CodeQL versions" table above.
+     - [ ] Review and merge — this alone triggers the real batch publish and the same
+           `summary` job / GitHub Release upsert described in
+           [Cutting a release](#cutting-a-release) below.
 
 > [!NOTE]
 > <a id="ql-hotspots"></a>**Why `ql/hotspots` is excluded from the `codeql pack upgrade` loop:**
