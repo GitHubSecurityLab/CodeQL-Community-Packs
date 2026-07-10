@@ -25,4 +25,4 @@ where
     sink = call
   )
 select sink, "Unsafe parsing of XML from fixed file name $@.", source,
-  source.asExpr().(StringLiteral).getLiteralValue().toString()
+  source.asExpr().(StringLiteral).getText()
