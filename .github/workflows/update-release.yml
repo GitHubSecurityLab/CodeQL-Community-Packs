@@ -31,7 +31,7 @@ jobs:
           private-key: ${{ secrets.SECLABS_APP_KEY }}
 
       - name: "Patch Release Me"
-        uses: 42ByteLabs/patch-release-me@04ea0a696abfc3cfbdfadb279bd9c9dd0b1652a2 # 0.6.6
+        uses: 42ByteLabs/patch-release-me@431a82795eda94d09b3821da9391c53ab287e84d # 0.6.5 (0.6.6's ghcr.io image was never published; see https://github.com/42ByteLabs/patch-release-me/issues - action.yml is byte-identical between the two)
         with:
           # Bump (patch)
           mode: ${{ inputs.mode }}
