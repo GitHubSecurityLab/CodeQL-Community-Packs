@@ -34,7 +34,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]')
+          # `|| true` inside the substitution (not after it) matters: `run:` steps default to
+          # `bash -e`, and a brand-new pack's container doesn't exist on GHCR yet, so `gh api`
+          # returns 404 (non-zero). Without this, that failure would abort the step here and
+          # fail the job, blocking the first-ever publish of a new pack. Swallowing it leaves
+          # PUBLISHED_VERSION empty, which correctly differs from CURRENT_VERSION below and
+          # triggers a first publish.
+          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null || true)
           CURRENT_VERSION=$(grep -E '^version:' ${{ matrix.language }}/src/qlpack.yml | head -1 | awk '{print $2}')
 
           echo "Published version: $PUBLISHED_VERSION"
@@ -113,7 +119,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-libs/versions --jq '.[0].metadata.container.tags[0]')
+          # See the `queries` job above for why `|| true` is inside the substitution: a
+          # brand-new pack's GHCR container doesn't exist yet, so `gh api` 404s; without this,
+          # `bash -e` would abort here and block the pack's first-ever publish.
+          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-libs/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null || true)
           CURRENT_VERSION=$(grep -E '^version:' ${{ matrix.language }}/lib/qlpack.yml | head -1 | awk '{print $2}')
 
           echo "Published version: $PUBLISHED_VERSION"
@@ -192,7 +201,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-extensions/versions --jq '.[0].metadata.container.tags[0]')
+          # See the `queries` job above for why `|| true` is inside the substitution: a
+          # brand-new pack's GHCR container doesn't exist yet, so `gh api` 404s; without this,
+          # `bash -e` would abort here and block the pack's first-ever publish.
+          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-extensions/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null || true)
           CURRENT_VERSION=$(grep -E '^version:' ${{ matrix.language }}/ext/qlpack.yml | head -1 | awk '{print $2}')
 
           echo "Published version: $PUBLISHED_VERSION"
@@ -270,7 +282,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-library-sources/versions --jq '.[0].metadata.container.tags[0]')
+          # See the `queries` job above for why `|| true` is inside the substitution: a
+          # brand-new pack's GHCR container doesn't exist yet, so `gh api` 404s; without this,
+          # `bash -e` would abort here and block the pack's first-ever publish.
+          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-library-sources/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null || true)
           CURRENT_VERSION=$(grep -E '^version:' ${{ matrix.language }}/ext-library-sources/qlpack.yml | head -1 | awk '{print $2}')
 
           echo "Published version: $PUBLISHED_VERSION"
