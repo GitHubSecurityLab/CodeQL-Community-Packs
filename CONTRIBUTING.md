@@ -224,8 +224,10 @@ coding agent) in the loop for the hard part — fixing whatever the new CLI brea
    choice when you expect CI breakage that needs fixing first (the normal case for a minor/major CLI
    bump). If you're confident the bump is safe to publish as soon as CI is green (e.g. a same-series
    CLI patch release with no expected breaking changes), you can also set the optional `release_bump`
-   input (`patch`/`minor`/`major`) on the same `workflow_dispatch` run. When set, this workflow runs
-   the same [`42ByteLabs/patch-release-me`][patch-release-me] step [`update-release.yml`][update-release-workflow]
+   input (`patch`/`minor`/`major`) on the same `workflow_dispatch` run (and, alongside it,
+   `release_prerelease` to control whether the resulting release is a pre-release — default off, see
+   the note in [Cutting a release](#cutting-a-release)). When set, this workflow runs the same
+   [`42ByteLabs/patch-release-me`][patch-release-me] step [`update-release.yml`][update-release-workflow]
    uses, in this same run, folding a full [release bump](#cutting-a-release) — and everything that
    comes with it (every pack's `version:` field, `configs/*.yml` references, and cross-pack `-libs`
    pins) — into this one PR. Since [`publish.yml`][publish-workflow]'s auto-trigger fires on any push
@@ -296,22 +298,38 @@ what actually triggers a real, atomic batch publish of every changed pack — th
 supported way to bump `.release.yml`:
 
 - [ ] Run [`update-release.yml`][update-release-workflow] (`workflow_dispatch`, pick
-      patch/minor/major). It runs the [`42ByteLabs/patch-release-me`][patch-release-me] tool, which
-      reads `.release.yml`'s current `version:`, computes the bump, and opens a PR that:
+      patch/minor/major, and optionally check `prerelease`). It runs the
+      [`42ByteLabs/patch-release-me`][patch-release-me] tool, which reads `.release.yml`'s current
+      `version:`, computes the bump, and opens a PR that:
   - bumps `.release.yml`'s `version:` to the new value, and
   - patches **every** matching pack's own `version:` field to match (the "CodeQL Pack Versions"
     location in `.release.yml`, added in [#158][pr-158] — this is what makes `.release.yml` a real
-    lever over publishing today, not just a changelog label).
+    lever over publishing today, not just a changelog label), and
+  - writes a `prerelease: true|false` field into `.release.yml` reflecting the `prerelease` input
+    (default `false`/unchecked, i.e. a full release) - see the note below.
 - [ ] Review and merge that PR like any other.
 - [ ] Merging it is what changes `.release.yml` on `main`, which auto-triggers
       [`publish.yml`][publish-workflow] for a real batch publish: every pack whose version actually
       changed gets published to [GHCR][ghcr-packages] in that one run.
 - [ ] The run's `summary` job posts two markdown tables to the job summary **and** upserts both into
-      the matching GitHub Release (`vX.Y.Z`), auto-creating it as a pre-release if it doesn't exist
-      yet: a publish summary (what published) and a CodeQL standard library & query pack versions
-      table (whether each language's locked `codeql/*` dependencies match what the pinned CodeQL CLI
-      actually ships upstream — see the note under
+      the matching GitHub Release (`vX.Y.Z`), creating it if it doesn't exist yet: a publish summary
+      (what published) and a CodeQL standard library & query pack versions table (whether each
+      language's locked `codeql/*` dependencies match what the pinned CodeQL CLI actually ships
+      upstream — see the note under
       [Updating the pinned CodeQL CLI/library version](#updating-the-pinned-codeql-clilibrary-version)).
+
+> [!NOTE]
+> **Pre-release vs. full release.** The GitHub Release created above is a **full release by
+> default** - `.github/scripts/upsert-release-table.sh` only passes `--prerelease` to
+> `gh release create` if `.release.yml`'s `prerelease:` field says `true`. That field is set by the
+> `prerelease` input on [`update-release.yml`][update-release-workflow] (default off) or the
+> `release_prerelease` input on [`update-codeql-version.yml`][update-codeql-version-workflow] (only
+> used when that workflow's `release_bump` is also set). It's re-written fresh on every dispatch,
+> immediately after the version bump and before the PR opens, so it always reflects that specific
+> dispatch's choice - `patch-release-me` doesn't know about this field and drops it the *next* time
+> it round-trips `.release.yml`, but that's harmless since we always re-set it right away. A
+> `.release.yml` predating this field (or a version bumped by some other means) defaults to `false`
+> (a full release).
 
 > [!WARNING]
 > **Never hand-edit `.release.yml`'s `version:` field directly** — `patch-release-me` computes its
