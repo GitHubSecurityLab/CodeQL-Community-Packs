@@ -75,7 +75,13 @@ cell() {
   case "$status" in
     published)  echo "[${version}](${url}) 🆕" ;;
     up-to-date) echo "[${version}](${url})" ;;
-    failed)     echo "⚠️ publish failed (still \`${previous}\`)" ;;
+    failed)
+      if [ -n "$previous" ] && [ "$previous" != "null" ]; then
+        echo "⚠️ publish failed (still \`${previous}\`)"
+      else
+        echo "⚠️ publish failed (previous version unknown - version-check step itself failed)"
+      fi
+      ;;
     *)          echo "❓ unknown" ;;
   esac
 }

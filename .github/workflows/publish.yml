@@ -364,6 +364,12 @@ jobs:
           cat codeql-lib-versions.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upsert release table
+        # Only the release-cut path (push to .release.yml) should touch a GitHub Release's
+        # notes. A workflow_dispatch run is often a one-off hotfix publish for a single pack
+        # (see CONTRIBUTING.md's "Manual/one-off hotfix publish") while .release.yml still
+        # points at the last cut release - upserting this run's tables into that release would
+        # misleadingly overwrite its notes with a summary of an unrelated hotfix run.
+        if: github.event_name == 'push'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
