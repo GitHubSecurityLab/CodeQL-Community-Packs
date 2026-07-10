@@ -240,7 +240,10 @@ coding agent) in the loop for the hard part — fixing whatever the new CLI brea
      `version:` field is touched), so there's no rush, but it still needs:
      - [ ] Fix any compilation/test errors CI surfaces from upstream API changes (usually the
            hardest part, see [#124][pr-124] for an example of what this can involve). Consider
-           delegating this step to a Copilot coding agent session pointed at the PR/branch.
+           delegating this step to a Copilot coding agent session pointed at the PR/branch -
+           [`copilot-setup-steps.yml`][copilot-setup-steps-workflow] pre-installs the pinned
+           CodeQL CLI and the matching `github/codeql` test-stubs checkout so the agent can
+           actually run `codeql test run` itself instead of guessing.
      - [ ] Update the "Supported CodeQL versions" table above.
      - [ ] Review and merge.
      - [ ] Once merged, run [`update-release.yml`][update-release-workflow] as described in
@@ -385,6 +388,7 @@ Please do get in touch (privacy@github.com) if you have any questions about this
 [update-release-workflow]: ./.github/workflows/update-release.yml
 [update-codeql-version-workflow]: ./.github/workflows/update-codeql-version.yml
 [detect-codeql-release-workflow]: ./.github/workflows/detect-codeql-release.yml
+[copilot-setup-steps-workflow]: ./.github/workflows/copilot-setup-steps.yml
 [pin-codeql-library-versions-script]: ./.github/scripts/pin-codeql-library-versions.sh
 [codeql-cli-binaries]: https://github.com/github/codeql-cli-binaries/releases
 [release-config]: ./.release.yml

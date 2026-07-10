@@ -1,0 +1,56 @@
+name: "Copilot Setup Steps"
+
+# Runs in Copilot coding agent's ephemeral environment before it starts working on
+# a delegated task (e.g. fixing compile/test errors surfaced by a CodeQL CLI bump -
+# see CONTRIBUTING.md's "Updating the pinned CodeQL CLI/library version"). Without
+# this, Copilot would have to discover and install the CodeQL CLI itself, which is
+# slow/unreliable and can't happen at all for anything requiring auth.
+#
+# Also runs on workflow_dispatch/push/pull_request against this file itself, so it
+# can be validated like a normal CI check before Copilot ever relies on it.
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+  pull_request:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+
+jobs:
+  # The job MUST be named `copilot-setup-steps` or Copilot won't pick it up.
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup CodeQL
+        id: install-codeql
+        uses: ./.github/actions/install-codeql
+
+      - name: Clone github/codeql (test stubs)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CODEQL_CLI_VERSION: ${{ steps.install-codeql.outputs.codeql-cli-version }}
+        run: |
+          # Several languages' test suites (see e.g. java/test/**/options,
+          # `--javac-args -cp ${testdir}/../../../../codeql/java/ql/test/stubs/...`)
+          # reference third-party library "stubs" (log4j, servlet-api, etc.) via a
+          # relative path into a sibling checkout of github/codeql, instead of
+          # vendoring those stub jars into this repo - github/codeql's own
+          # standard-library tests reuse the same stubs. Cloning the
+          # `codeql-cli-<version>` branch matching our pinned CLI version (mirroring
+          # ci.yml's own "Install Packs" step) is what makes those relative paths
+          # resolve, so `codeql test run` can actually compile the test snippets.
+          # `--depth=1`: we only need the tree at that branch tip, not its history.
+          gh repo clone github/codeql -- -b "codeql-cli-${CODEQL_CLI_VERSION}" --depth=1
+
+      # Deliberately not running `codeql pack install <lang>/...` here for every
+      # language - that's fast enough (a few seconds) for Copilot to run itself for
+      # whichever specific language pack(s) it's actually fixing, and running it
+      # for all 7 languages up front would just slow down every session regardless
+      # of what it's working on.
