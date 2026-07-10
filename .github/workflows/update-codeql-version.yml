@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read # PR creation uses a scoped GitHub App token (SECLABS_APP_ID/SECLABS_APP_KEY), not GITHUB_TOKEN
+      packages: read # `codeql pack upgrade` resolves codeql/* library deps from GHCR (see ci.yml)
 
     steps:
       - name: Checkout
@@ -48,12 +49,33 @@ jobs:
       - name: Setup CodeQL
         uses: ./.github/actions/install-codeql
 
+      - name: Pin codeql/* library dependencies to the CodeQL Bundle version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          .github/scripts/pin-codeql-library-versions.sh "${{ steps.version.outputs.version }}"
+
       - name: Upgrade every pack's dependencies
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          for dir in $(find . -name qlpack.yml -exec dirname {} \;); do
+          # Exclusions (kept in sync with the same exclusions in
+          # .github/scripts/pin-codeql-library-versions.sh):
+          #  - ./ql/hotspots is a standalone local dev tool (see
+          #    ql/hotspots/README.md and .github/workflows/hotspots.yml), not
+          #    one of the per-language src/lib/ext/ext-library-sources packs
+          #    that ci.yml and publish.yml operate on. Its `codeql/ql: '*'`
+          #    dependency isn't a real resolvable GHCR package, so it always
+          #    fails `codeql pack upgrade`.
+          #  - ./codeql_home is where .github/actions/install-codeql
+          #    downloads/extracts the CodeQL CLI; it ships its own small
+          #    vendored qlpack.yml packs (e.g. codeql/<lang>/downgrades) that
+          #    have nothing to do with this repo and shouldn't be touched.
+          #  - ./codeql and */.codeql are a locally-cloned github/codeql
+          #    checkout (used by ql/hotspots) and CodeQL's own per-pack build
+          #    caches, respectively - neither is a repo pack either.
+          for dir in $(find . -name qlpack.yml -not -path "./ql/hotspots/*" -not -path "./codeql_home/*" -not -path "./codeql/*" -not -path "*/.codeql/*" -exec dirname {} \;); do
             echo "::group::codeql pack upgrade $dir"
             codeql pack upgrade "$dir"
             echo "::endgroup::"
@@ -86,8 +108,13 @@ jobs:
 
             This PR:
             - Updates `.codeqlversion` to `${{ steps.version.outputs.version }}`.
+            - Pins every `codeql/<lang>-all` / `codeql/<lang>-queries` dependency across all
+              `qlpack.yml` files to the exact version shipped in the official CodeQL Bundle
+              for this CLI release (see `.github/scripts/pin-codeql-library-versions.sh`) -
+              this keeps `codeql pack upgrade` from jumping those libraries to
+              registry-latest instead of the version this CLI actually ships/tests against.
             - Runs `codeql pack upgrade <dir>` for every pack directory to refresh its
-              `codeql-pack.lock.yml` against the new CLI.
+              `codeql-pack.lock.yml` against the new CLI and pinned library versions.
 
             **This PR does not publish anything by itself** - no pack `version:` field is
             bumped here, so `publish.yml`'s version-diff trigger won't fire for it yet.
