@@ -57,13 +57,8 @@ jobs:
           BUNDLE_TAG="codeql-bundle-v${{ steps.version.outputs.version }}"
           mkdir -p /tmp/bundle
           gh release download "$BUNDLE_TAG" --repo github/codeql-action --pattern "codeql-bundle-linux64.tar.gz" --dir /tmp/bundle
-          echo "--- listing top-level tar entries (first 40) ---"
-          tar tzf /tmp/bundle/codeql-bundle-linux64.tar.gz | head -40
-          echo "--- extracting only qlpacks/codeql/go-all and qlpacks/codeql/java-all ---"
-          tar xzf /tmp/bundle/codeql-bundle-linux64.tar.gz -C /tmp/bundle --wildcards \
-            'codeql/qlpacks/codeql/go-all/*/qlpack.yml' \
-            'codeql/qlpacks/codeql/java-all/*/qlpack.yml' 2>&1 | head -20 || true
-          find /tmp/bundle -iname "qlpack.yml" | sort
+          echo "--- listing all codeql/qlpacks/codeql/<pkg>/<version>/ dir entries (no extraction) ---"
+          tar tzf /tmp/bundle/codeql-bundle-linux64.tar.gz | grep -E '^codeql/qlpacks/codeql/[^/]+/[^/]+/$' | sort -u
 
       - name: Upgrade every pack's dependencies
         env:
