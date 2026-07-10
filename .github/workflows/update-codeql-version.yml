@@ -49,16 +49,11 @@ jobs:
       - name: Setup CodeQL
         uses: ./.github/actions/install-codeql
 
-      - name: DEBUG codeql-action bundle qlpacks
+      - name: Pin codeql/* library dependencies to the CodeQL Bundle version
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          set -x
-          BUNDLE_TAG="codeql-bundle-v${{ steps.version.outputs.version }}"
-          mkdir -p /tmp/bundle
-          gh release download "$BUNDLE_TAG" --repo github/codeql-action --pattern "codeql-bundle-linux64.tar.gz" --dir /tmp/bundle
-          echo "--- listing all codeql/qlpacks/codeql/<pkg>/<version>/ dir entries (no extraction) ---"
-          tar tzf /tmp/bundle/codeql-bundle-linux64.tar.gz | grep -E '^codeql/qlpacks/codeql/[^/]+/[^/]+/$' | sort -u
+          .github/scripts/pin-codeql-library-versions.sh "${{ steps.version.outputs.version }}"
 
       - name: Upgrade every pack's dependencies
         env:
@@ -98,8 +93,13 @@ jobs:
 
             This PR:
             - Updates `.codeqlversion` to `${{ steps.version.outputs.version }}`.
+            - Pins every `codeql/<lang>-all` / `codeql/<lang>-queries` dependency across all
+              `qlpack.yml` files to the exact version shipped in the official CodeQL Bundle
+              for this CLI release (see `.github/scripts/pin-codeql-library-versions.sh`) -
+              this keeps `codeql pack upgrade` from jumping those libraries to
+              registry-latest instead of the version this CLI actually ships/tests against.
             - Runs `codeql pack upgrade <dir>` for every pack directory to refresh its
-              `codeql-pack.lock.yml` against the new CLI.
+              `codeql-pack.lock.yml` against the new CLI and pinned library versions.
 
             **This PR does not publish anything by itself** - no pack `version:` field is
             bumped here, so `publish.yml`'s version-diff trigger won't fire for it yet.
