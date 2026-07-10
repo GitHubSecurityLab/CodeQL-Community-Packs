@@ -53,8 +53,11 @@ tar tzf "$WORKDIR/codeql-bundle-linux64.tar.gz" \
 echo "Discovered $(wc -l < "$VERSIONS_FILE") bundled codeql/* packages for CLI ${VERSION}."
 
 # Every real qlpack.yml in the repo, excluding gitignored local build
-# artifacts (.codeql/ pack caches, the /codeql cloned-repo checkout dir).
-mapfile -t QLPACK_FILES < <(find . -name qlpack.yml -not -path "*/.codeql/*" -not -path "./codeql/*")
+# artifacts (.codeql/ pack caches, the /codeql cloned-repo checkout dir, and
+# /codeql_home, where .github/actions/install-codeql downloads/extracts the
+# CodeQL CLI - which ships its own small vendored qlpack.yml packs, e.g.
+# codeql/<lang>/downgrades, that have nothing to do with this repo).
+mapfile -t QLPACK_FILES < <(find . -name qlpack.yml -not -path "*/.codeql/*" -not -path "./codeql/*" -not -path "./codeql_home/*")
 
 declare -A PINNED_COUNT=()
 while read -r pkg ver; do
