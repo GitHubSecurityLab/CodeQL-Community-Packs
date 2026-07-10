@@ -57,10 +57,12 @@ jobs:
           gh extension install github/gh-codeql
           gh codeql set-version "${{ steps.version.outputs.version }}"
           gh codeql version --format=terse
-          BUNDLE_CODEQL="$(gh codeql home 2>/dev/null || true)"
-          echo "gh codeql home: $BUNDLE_CODEQL"
-          find "$BUNDLE_CODEQL" -maxdepth 4 -iname "qlpacks" -type d 2>/dev/null || true
-          find "$BUNDLE_CODEQL" -maxdepth 6 -path "*qlpacks/codeql*" -iname "qlpack.yml" 2>/dev/null | sort | head -80 || true
+          BUNDLE_DIR="$HOME/.local/share/gh/extensions/gh-codeql/dist/release/v${{ steps.version.outputs.version }}"
+          echo "bundle dir: $BUNDLE_DIR"
+          ls -la "$BUNDLE_DIR" || true
+          find "$BUNDLE_DIR" -maxdepth 2 -iname "qlpacks*" 2>/dev/null || true
+          find "$BUNDLE_DIR" -maxdepth 8 -path "*qlpacks/codeql/go-all*" -iname "qlpack.yml" 2>/dev/null || true
+          find "$BUNDLE_DIR" -maxdepth 8 -path "*qlpacks/codeql/*-all*" -iname "qlpack.yml" 2>/dev/null | sort || true
 
       - name: Upgrade every pack's dependencies
         env:
