@@ -195,7 +195,7 @@ jobs:
               echo '  (`update-release.yml`) to bump every pack'"'"'s `version:` in lockstep via'
               echo '  `.release.yml` and trigger the real batch publish.'
             fi
-          } > pr-body.md
+          } > "${{ runner.temp }}/pr-body.md"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
@@ -203,7 +203,7 @@ jobs:
           token: ${{ steps.get_workflow_token.outputs.token }}
           title: ${{ steps.pr_meta.outputs.title }}
           commit-message: ${{ steps.pr_meta.outputs.title }}
-          body-path: pr-body.md
+          body-path: "${{ runner.temp }}/pr-body.md"
           branch: "chore/update-codeql-cli-${{ steps.version.outputs.version }}"
           labels: "version"
           delete-branch: true
