@@ -33,7 +33,7 @@ if gh release view "$TAG" >/dev/null 2>&1; then
   gh release view "$TAG" --json body -q .body > "$CURRENT_BODY"
 
   NEW_BODY=$(mktemp)
-  if grep -qF "$START_MARKER" "$CURRENT_BODY"; then
+  if grep -qF "$START_MARKER" "$CURRENT_BODY" && grep -qF "$END_MARKER" "$CURRENT_BODY"; then
     awk -v start="$START_MARKER" -v end="$END_MARKER" -v blockfile="$BLOCK_FILE" '
       $0 == start {
         while ((getline line < blockfile) > 0) print line
@@ -48,7 +48,8 @@ if gh release view "$TAG" >/dev/null 2>&1; then
       { print }
     ' "$CURRENT_BODY" > "$NEW_BODY"
   else
-    # Older release predating this automation: append the block once.
+    # Older release predating this automation, or a corrupted/partial marker
+    # pair: append the block once rather than risk truncating the body.
     cat "$CURRENT_BODY" > "$NEW_BODY"
     echo "" >> "$NEW_BODY"
     cat "$BLOCK_FILE" >> "$NEW_BODY"

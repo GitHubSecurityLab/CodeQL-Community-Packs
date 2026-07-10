@@ -179,7 +179,7 @@ supported way to bump `.release.yml`:
 
 > [!WARNING]
 > **Never hand-edit `.release.yml`'s `version:` field directly** — `patch-release-me` computes its
-> bump as a *delta* from whatever `.release.yml` currently says, then find/replaces that exact old
+> bump as a *delta* from whatever `.release.yml` currently says, then finds and replaces that exact old
 > value across every pack. If you set `.release.yml` straight to a target version yourself, the tool
 > has no delta left to apply and running it will overshoot to the *next* version instead of catching
 > anything up. If this happens, you have to bump the remaining packs by hand to match what
