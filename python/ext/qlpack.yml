@@ -1,6 +1,6 @@
 library: true
 name: githubsecuritylab/codeql-python-extensions
-version: 0.2.3
+version: 0.2.4
 extensionTargets:
   codeql/python-all: '4.0.8'
 dataExtensions:
