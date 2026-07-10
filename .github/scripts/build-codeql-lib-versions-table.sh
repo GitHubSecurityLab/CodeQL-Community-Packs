@@ -1,18 +1,28 @@
 #!/usr/bin/env bash
 # Builds a markdown section documenting the pinned CodeQL CLI version and
 # comparing every direct `codeql/*` dependency declared in each language's
-# src/qlpack.yml (e.g. `codeql/<lang>-all`, and `codeql/<lang>-queries` for
-# the languages that also depend on the standard queries pack) against the
-# canonical version github/codeql itself bundles for that CLI release.
+# `src/qlpack.yml` AND `lib/qlpack.yml` (e.g. `codeql/<lang>-all`, and
+# `codeql/<lang>-queries` for the languages that also depend on the standard
+# queries pack) against the canonical version github/codeql itself bundles
+# for that CLI release.
 #
-# Dependencies are discovered dynamically from each `<lang>/src/qlpack.yml`
-# (not hardcoded) so this stays correct if a language adds/drops a direct
-# `codeql/*` dependency. Only `src/codeql-pack.lock.yml` is read for locked
-# versions - CONTRIBUTING.md's "Supported CodeQL versions" table treats it as
-# the source of truth. This checks one representative directory (src) per
-# language as a coarse signal, not every pack directory; a mismatch there is
-# reason enough to re-run `codeql pack upgrade` across all of that language's
-# directories (src/lib/ext as applicable).
+# Both `src` and `lib` are checked independently, not just `src`. Each pack
+# directory has its own `codeql-pack.lock.yml`, resolved separately by
+# `codeql pack upgrade <dir>` - the `codeql/<lang>-all: '*'` dependency each
+# of them declares can therefore drift out of sync with each other (e.g. if
+# someone runs `codeql pack upgrade <lang>/src` alone to fix a compile error
+# after a CLI bump, and forgets `<lang>/lib`). Nothing in this repo enforces
+# they stay identical, so both are treated as independent sources of truth
+# here rather than assuming one implies the other.
+# `ext`/`ext-library-sources` packs are deliberately NOT checked: they pin
+# their target via `extensionTargets:`, not `dependencies:`, which CodeQL
+# does not resolve into a version-locked `codeql-pack.lock.yml` entry (their
+# lock files have an empty `dependencies: {}`), so there is no locked version
+# to compare there.
+#
+# Dependencies are discovered dynamically from each qlpack.yml (not
+# hardcoded) so this stays correct if a language adds/drops a direct
+# `codeql/*` dependency.
 #
 # Both the "our locked" and "upstream" version cells link directly to the
 # exact file+line that pins that version, at the exact commit (ours) or CLI
@@ -22,8 +32,8 @@
 # This exists because CI's "codeql pack install" step is non-resolving: it
 # only installs whatever is already pinned in the checked-in lock file, it
 # never re-resolves/upgrades versions. If a maintainer bumps .codeqlversion
-# but forgets to run `codeql pack upgrade <lang>/src` (and lib/ext) for a
-# language, that language's lock file silently stays on a stale version
+# but forgets to run `codeql pack upgrade` for one of a language's pack
+# directories, that directory's lock file silently stays on a stale version
 # forever, and CI stays green. This table is a machine-checkable tripwire for
 # that drift - see CONTRIBUTING.md's "Updating the pinned CodeQL CLI/library
 # version" section.
@@ -42,6 +52,7 @@ if [ -z "$CODEQL_VERSION" ]; then
 fi
 
 LANGUAGES=(cpp csharp go java javascript python ruby)
+PACKTYPES=(src lib)
 
 lang_label() {
   case "$1" in
@@ -120,66 +131,69 @@ echo "## CodeQL standard library & query pack versions"
 echo
 echo "Pinned CodeQL CLI/library version ([\`.codeqlversion\`](https://github.com/${REPO}/blob/${REPO_SHA}/.codeqlversion)): [\`v${CODEQL_VERSION}\`](https://github.com/github/codeql-cli-binaries/releases/tag/v${CODEQL_VERSION})"
 echo
-echo "_Comparing each language's direct \`codeql/*\` dependencies (from \`<lang>/src/qlpack.yml\`, resolved in \`src/codeql-pack.lock.yml\`) against the versions [github/codeql](https://github.com/github/codeql) itself ships for CLI \`v${CODEQL_VERSION}\` (tag [\`codeql-cli/v${CODEQL_VERSION}\`](https://github.com/github/codeql/tree/codeql-cli/v${CODEQL_VERSION})). Each cell links to the exact file/line backing it - our side at the commit this table was generated from, upstream at the CLI tag - so the claim can be verified with one click. A mismatch means \`codeql pack upgrade <lang>/src\` (and \`lib\`/\`ext\` as needed) hasn't been run since the last \`.codeqlversion\` bump - see [CONTRIBUTING.md: Updating the pinned CodeQL CLI/library version](https://github.com/${REPO}/blob/${REPO_SHA}/CONTRIBUTING.md#updating-the-pinned-codeql-clilibrary-version)._"
+echo "_Comparing each language's direct \`codeql/*\` dependencies (from both \`src/qlpack.yml\` and \`lib/qlpack.yml\`, each resolved in its own \`codeql-pack.lock.yml\`) against the versions [github/codeql](https://github.com/github/codeql) itself ships for CLI \`v${CODEQL_VERSION}\` (tag [\`codeql-cli/v${CODEQL_VERSION}\`](https://github.com/github/codeql/tree/codeql-cli/v${CODEQL_VERSION})). \`src\` and \`lib\` are checked independently because they're separately-resolved lock files that can drift from each other. Each cell links to the exact file/line backing it - our side at the commit this table was generated from, upstream at the CLI tag - so the claim can be verified with one click. A mismatch means \`codeql pack upgrade <lang>/<pack>\` hasn't been run for that specific directory since the last \`.codeqlversion\` bump - see [CONTRIBUTING.md: Updating the pinned CodeQL CLI/library version](https://github.com/${REPO}/blob/${REPO_SHA}/CONTRIBUTING.md#updating-the-pinned-codeql-clilibrary-version)._"
 echo
-echo "| Language | Dependency | Our locked version | Upstream (CLI v${CODEQL_VERSION} ships) | Status |"
-echo "| --- | --- | --- | --- | --- |"
+echo "| Language | Pack | Dependency | Our locked version | Upstream (CLI v${CODEQL_VERSION} ships) | Status |"
+echo "| --- | --- | --- | --- | --- | --- |"
 
 for lang in "${LANGUAGES[@]}"; do
-  qlpackfile="${lang}/src/qlpack.yml"
-  lockfile="${lang}/src/codeql-pack.lock.yml"
   label=$(lang_label "$lang")
 
-  if [ ! -f "$qlpackfile" ] || [ ! -f "$lockfile" ]; then
-    echo "| $label | - | ❓ missing qlpack.yml or lock file | - | ❓ |"
-    MISMATCH=1
-    continue
-  fi
+  for packtype in "${PACKTYPES[@]}"; do
+    qlpackfile="${lang}/${packtype}/qlpack.yml"
+    lockfile="${lang}/${packtype}/codeql-pack.lock.yml"
 
-  deps=$(qlpack_codeql_deps "$qlpackfile")
-  if [ -z "$deps" ]; then
-    echo "| $label | - | ❓ no direct \`codeql/*\` dependency found | - | ❓ |"
-    MISMATCH=1
-    continue
-  fi
-
-  while IFS= read -r pkg; do
-    [ -n "$pkg" ] || continue
-
-    read -r locked keyline verline <<< "$(locked_version_and_lines "$lockfile" "$pkg")"
-    if [ -z "${locked:-}" ]; then
-      echo "| $label | \`$pkg\` | ❓ not found in lock file | - | ❓ |"
-      MISMATCH=1
-      continue
-    fi
-    locked_link="https://github.com/${REPO}/blob/${REPO_SHA}/${lockfile}#L${keyline}-L${verline}"
-    locked_cell="[\`$locked\`]($locked_link)"
-
-    upath=$(upstream_path_for_pkg "$lang" "$pkg")
-    if [ -z "$upath" ]; then
-      echo "| $label | \`$pkg\` | $locked_cell | ❓ no known upstream mapping | ❓ |"
+    if [ ! -f "$qlpackfile" ] || [ ! -f "$lockfile" ]; then
+      echo "| $label | \`$packtype\` | - | ❓ missing qlpack.yml or lock file | - | ❓ |"
       MISMATCH=1
       continue
     fi
 
-    read -r upstream uverline <<< "$(upstream_version_and_line "$upath" || true)"
-    if [ -z "${upstream:-}" ]; then
-      echo "| $label | \`$pkg\` | $locked_cell | ❓ fetch failed | ❓ |"
+    deps=$(qlpack_codeql_deps "$qlpackfile")
+    if [ -z "$deps" ]; then
+      echo "| $label | \`$packtype\` | - | ❓ no direct \`codeql/*\` dependency found | - | ❓ |"
       MISMATCH=1
       continue
     fi
-    upstream_link="https://github.com/github/codeql/blob/codeql-cli/v${CODEQL_VERSION}/${upath}#L${uverline}"
-    upstream_cell="[\`$upstream\`]($upstream_link)"
 
-    if [ "$locked" == "$upstream" ]; then
-      echo "| $label | \`$pkg\` | $locked_cell | $upstream_cell | ✅ |"
-    else
-      echo "| $label | \`$pkg\` | $locked_cell | $upstream_cell | ⚠️ drift |"
-      MISMATCH=1
-    fi
-  done <<< "$deps"
+    while IFS= read -r pkg; do
+      [ -n "$pkg" ] || continue
+
+      read -r locked keyline verline <<< "$(locked_version_and_lines "$lockfile" "$pkg")"
+      if [ -z "${locked:-}" ]; then
+        echo "| $label | \`$packtype\` | \`$pkg\` | ❓ not found in lock file | - | ❓ |"
+        MISMATCH=1
+        continue
+      fi
+      locked_link="https://github.com/${REPO}/blob/${REPO_SHA}/${lockfile}#L${keyline}-L${verline}"
+      locked_cell="[\`$locked\`]($locked_link)"
+
+      upath=$(upstream_path_for_pkg "$lang" "$pkg")
+      if [ -z "$upath" ]; then
+        echo "| $label | \`$packtype\` | \`$pkg\` | $locked_cell | ❓ no known upstream mapping | ❓ |"
+        MISMATCH=1
+        continue
+      fi
+
+      read -r upstream uverline <<< "$(upstream_version_and_line "$upath" || true)"
+      if [ -z "${upstream:-}" ]; then
+        echo "| $label | \`$packtype\` | \`$pkg\` | $locked_cell | ❓ fetch failed | ❓ |"
+        MISMATCH=1
+        continue
+      fi
+      upstream_link="https://github.com/github/codeql/blob/codeql-cli/v${CODEQL_VERSION}/${upath}#L${uverline}"
+      upstream_cell="[\`$upstream\`]($upstream_link)"
+
+      if [ "$locked" == "$upstream" ]; then
+        echo "| $label | \`$packtype\` | \`$pkg\` | $locked_cell | $upstream_cell | ✅ |"
+      else
+        echo "| $label | \`$packtype\` | \`$pkg\` | $locked_cell | $upstream_cell | ⚠️ drift |"
+        MISMATCH=1
+      fi
+    done <<< "$deps"
+  done
 done
 
 if [ "$MISMATCH" -eq 1 ]; then
-  echo "::warning::One or more CodeQL standard library/query pack versions are out of sync with CLI v${CODEQL_VERSION}. Run 'codeql pack upgrade <lang>/src' (and lib/ext as needed) for the affected language(s)." >&2
+  echo "::warning::One or more CodeQL standard library/query pack versions are out of sync with CLI v${CODEQL_VERSION}. Run 'codeql pack upgrade <lang>/<pack>' for the affected language/pack directory(ies)." >&2
 fi
