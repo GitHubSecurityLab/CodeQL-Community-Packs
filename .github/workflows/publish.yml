@@ -356,7 +356,7 @@ jobs:
           echo "summary.md is $(wc -l < summary.md) lines, $(wc -c < summary.md) bytes"
           cat summary.md >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Build CodeQL library versions table
+      - name: Build CodeQL library & query pack versions table
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
