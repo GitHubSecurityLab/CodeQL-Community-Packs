@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-# Pins every `codeql/<name>: '*'` dependency in this repo's qlpack.yml files to
-# the exact library version shipped in the official CodeQL Bundle for a given
-# CLI release.
+# Pins every `codeql/<name>` dependency in this repo's qlpack.yml files to the
+# exact library version shipped in the official CodeQL Bundle for a given CLI
+# release - overwriting whatever value is currently there (an unconstrained
+# `'*'`, or an exact version pinned by a previous run of this script against
+# an older CLI).
 #
 # Why this exists: `codeql pack upgrade` resolves an unconstrained `'*'`
 # dependency to the *latest-ever-published* version in the configured
@@ -14,6 +16,15 @@
 # before running `codeql pack upgrade` makes that resolution deterministic
 # and keeps every pack's declared library dependency in lockstep with the
 # CLI version this repo says it supports.
+#
+# This script is idempotent and must be re-run (with a new target version)
+# on every subsequent CLI bump: once a dependency is pinned to an exact
+# version, it no longer matches an "unconstrained" pattern, so this script
+# unconditionally overwrites any `codeql/<pkg>: <value>` line for every
+# package it finds in the target bundle, regardless of what value (if any)
+# is already there - otherwise the pin would only ever get set once, and
+# every later `.codeqlversion` bump would silently keep resolving against
+# the stale version from the first run.
 #
 # Usage: pin-codeql-library-versions.sh <cli-version>
 #   e.g. pin-codeql-library-versions.sh 2.21.4
@@ -64,11 +75,12 @@ while read -r pkg ver; do
   [[ -z "$pkg" ]] && continue
   count=0
   for file in "${QLPACK_FILES[@]}"; do
-    # Only touch lines declaring an unconstrained `codeql/<pkg>: '*'` (or
-    # unquoted / double-quoted `*`) dependency; any trailing comment is left
-    # untouched since the substitution only replaces the matched quote-star-quote.
-    if grep -qE "^[[:space:]]*codeql/${pkg}:[[:space:]]*[\"']?\\*[\"']?[[:space:]]*(#.*)?\$" "$file"; then
-      sed -i -E "s#^([[:space:]]*codeql/${pkg}:[[:space:]]*)([\"']?)\\*\\2#\\1\\2${ver}\\2#" "$file"
+    # Match a `codeql/<pkg>: <value>` dependency line regardless of its
+    # current value - unquoted or quoted `*`, or an already-pinned exact
+    # version from a previous run - and overwrite it to the target bundle
+    # version, preserving quote style and any trailing comment.
+    if grep -qE "^[[:space:]]*codeql/${pkg}:[[:space:]]*[\"']?[^\"'#[:space:]]+[\"']?[[:space:]]*(#.*)?\$" "$file"; then
+      sed -i -E "s#^([[:space:]]*codeql/${pkg}:[[:space:]]*)([\"']?)[^\"'#[:space:]]+\\2#\\1\\2${ver}\\2#" "$file"
       count=$((count + 1))
     fi
   done
@@ -85,7 +97,11 @@ done | sort
 
 # Surface any remaining unconstrained codeql/* dependency that this script
 # did NOT pin (e.g. it isn't one of the standard per-language bundle
-# packages) so it doesn't silently keep resolving to registry-latest.
+# packages, like ql/hotspots' `codeql/ql`) so it doesn't silently keep
+# resolving to registry-latest. Since every package the loop above finds in
+# the bundle gets its value unconditionally overwritten (see the loop
+# comment), anything still showing a literal `'*'` here was never found in
+# any bundle this script has been run against.
 echo
 echo "codeql/* dependencies left unpinned (not found in the CodeQL Bundle):"
 REMAINING=0

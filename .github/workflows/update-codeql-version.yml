@@ -60,7 +60,8 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          # Exclusions:
+          # Exclusions (kept in sync with the same exclusions in
+          # .github/scripts/pin-codeql-library-versions.sh):
           #  - ./ql/hotspots is a standalone local dev tool (see
           #    ql/hotspots/README.md and .github/workflows/hotspots.yml), not
           #    one of the per-language src/lib/ext/ext-library-sources packs
@@ -71,7 +72,10 @@ jobs:
           #    downloads/extracts the CodeQL CLI; it ships its own small
           #    vendored qlpack.yml packs (e.g. codeql/<lang>/downgrades) that
           #    have nothing to do with this repo and shouldn't be touched.
-          for dir in $(find . -name qlpack.yml -not -path "./ql/hotspots/*" -not -path "./codeql_home/*" -exec dirname {} \;); do
+          #  - ./codeql and */.codeql are a locally-cloned github/codeql
+          #    checkout (used by ql/hotspots) and CodeQL's own per-pack build
+          #    caches, respectively - neither is a repo pack either.
+          for dir in $(find . -name qlpack.yml -not -path "./ql/hotspots/*" -not -path "./codeql_home/*" -not -path "./codeql/*" -not -path "*/.codeql/*" -exec dirname {} \;); do
             echo "::group::codeql pack upgrade $dir"
             codeql pack upgrade "$dir"
             echo "::endgroup::"

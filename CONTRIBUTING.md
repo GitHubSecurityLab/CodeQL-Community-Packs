@@ -95,10 +95,13 @@ The pinning is codified per language across:
 >
 > The fix: [`.github/scripts/pin-codeql-library-versions.sh`][pin-codeql-library-versions-script] runs
 > before `codeql pack upgrade` (as part of
-> [`update-codeql-version.yml`](#updating-the-pinned-codeql-clilibrary-version)) and rewrites every
-> `codeql/<pkg>: '*'` dependency to the *exact* version shipped in the **official CodeQL Bundle** for
-> the target CLI release - i.e. the same library versions GitHub itself builds, tests, and ships
-> together with that CLI. It determines these by downloading the bundle release asset
+> [`update-codeql-version.yml`](#updating-the-pinned-codeql-clilibrary-version)) and unconditionally
+> overwrites every `codeql/<pkg>` dependency it recognizes - whether currently `'*'` or an exact
+> version pinned by a previous run against an older CLI - to the *exact* version shipped in the
+> **official CodeQL Bundle** for the target CLI release - i.e. the same library versions GitHub
+> itself builds, tests, and ships together with that CLI. It's re-run (with a new target version)
+> on every subsequent CLI bump, so pins are always re-enforced against the bundle, not just set once.
+> It determines these versions by downloading the bundle release asset
 > (`codeql-bundle-linux64.tar.gz`, tag `codeql-bundle-v<version>`) from
 > [github/codeql-action releases](https://github.com/github/codeql-action/releases) and listing its
 > `codeql/qlpacks/codeql/<pkg>/<version>/` directory entries (via `tar tzf`, no extraction needed) -
@@ -198,10 +201,14 @@ coding agent) in the loop for the hard part — fixing whatever the new CLI brea
    something to run unattended.
 2. **Dependency refresh** — run [`update-codeql-version.yml`][update-codeql-version-workflow]
    (`workflow_dispatch`, input the new CLI version, e.g. `2.22.0`). It updates `.codeqlversion`, then:
-   1. Pins every `codeql/<pkg>: '*'` dependency across every `qlpack.yml` to the exact version shipped
-      in the official CodeQL Bundle for that CLI release (see the warning box under
-      [Supported CodeQL versions](#supported-codeql-versions) above for why this step exists), via
-      [`pin-codeql-library-versions.sh`][pin-codeql-library-versions-script].
+   1. Unconditionally re-pins every `codeql/<pkg>` dependency it recognizes across every
+      `qlpack.yml` to the exact version shipped in the official CodeQL Bundle for that CLI release
+      (see the warning box under [Supported CodeQL versions](#supported-codeql-versions) above for
+      why this step exists), via
+      [`pin-codeql-library-versions.sh`][pin-codeql-library-versions-script] - this overwrites
+      whatever value is currently there, whether that's an unconstrained `'*'` or an exact version
+      pinned by an earlier run of this same workflow, so pins always stay in lockstep with
+      `.codeqlversion` on every bump, not just the first one.
    2. Runs `codeql pack upgrade <dir>` for every pack directory (except
       [`ql/hotspots`](#ql-hotspots), see below) to refresh each `codeql-pack.lock.yml` against the
       newly-pinned dependencies.
