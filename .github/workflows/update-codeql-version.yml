@@ -123,11 +123,14 @@ jobs:
           # Running the same pinned image ourselves via a normal shell `run:`
           # step naturally splits `-m` and the mode value into separate argv
           # entries, avoiding the bug entirely.
+          #
+          # Pinned by digest (not just tag) so the exact image content can't
+          # change out from under us - digest corresponds to the 0.6.5 tag.
           docker run --rm \
             --user "$(id -u):$(id -g)" \
             -v "${{ github.workspace }}:/repo" \
             -w /repo \
-            ghcr.io/42bytelabs/patch-release-me:0.6.5 \
+            ghcr.io/42bytelabs/patch-release-me@sha256:d9d7abe7051855d0c395fec99d931acc002fb6b299ca16b8123e2c8ef0c7e750 \
             --disable-banner bump -m ${{ steps.release_bump.outputs.bump }}
 
       - name: Determine new release version (if bumped)
