@@ -1,0 +1,87 @@
+name: Detect New CodeQL CLI Release
+
+# Weekly tripwire for a new upstream CodeQL CLI release. Compares .codeqlversion
+# against github/codeql-cli-binaries' latest release and keeps a single persistent
+# tracking issue in sync: opens/updates it while we're behind, auto-closes it once
+# .codeqlversion catches up. Never opens a PR itself - kicking off the actual bump is
+# a deliberate action (see "Update CodeQL CLI Version" workflow) because fixing the
+# compile/test breakage a new CLI can introduce isn't safe to run unattended.
+on:
+  schedule:
+    - cron: "0 14 * * 1" # Every Monday at 14:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+env:
+  TRACKING_ISSUE_TITLE: "CodeQL CLI update available"
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Compare pinned vs latest upstream CodeQL CLI release
+        id: check
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          PINNED=$(tr -d '[:space:]' < .codeqlversion)
+          LATEST=$(gh api repos/github/codeql-cli-binaries/releases/latest --jq .tag_name | sed 's/^v//')
+          echo "pinned=$PINNED" >> "$GITHUB_OUTPUT"
+          echo "latest=$LATEST" >> "$GITHUB_OUTPUT"
+          if [ "$PINNED" != "$LATEST" ]; then
+            echo "drift=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "drift=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Find existing tracking issue
+        id: existing
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          NUMBER=$(gh issue list --state open --search "\"${TRACKING_ISSUE_TITLE}\" in:title" --json number -q '.[0].number // empty')
+          echo "number=$NUMBER" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update tracking issue
+        if: steps.check.outputs.drift == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PINNED: ${{ steps.check.outputs.pinned }}
+          LATEST: ${{ steps.check.outputs.latest }}
+          EXISTING: ${{ steps.existing.outputs.number }}
+        run: |
+          set -euo pipefail
+          BODY="A newer CodeQL CLI release is available upstream.
+
+          - Pinned (\`.codeqlversion\`): [\`v${PINNED}\`](https://github.com/github/codeql-cli-binaries/releases/tag/v${PINNED})
+          - Latest upstream: [\`v${LATEST}\`](https://github.com/github/codeql-cli-binaries/releases/tag/v${LATEST})
+
+          To start the update, run the [\"Update CodeQL CLI Version\"](https://github.com/${REPO}/actions/workflows/update-codeql-version.yml) workflow (\`workflow_dispatch\`) with \`codeql_version: ${LATEST}\`. See [CONTRIBUTING.md: Updating the pinned CodeQL CLI/library version](https://github.com/${REPO}/blob/main/CONTRIBUTING.md#updating-the-pinned-codeql-clilibrary-version) for the full process.
+
+          This issue is kept up to date automatically by the \"Detect New CodeQL CLI Release\" workflow and will auto-close once \`.codeqlversion\` catches up."
+
+          if [ -n "$EXISTING" ]; then
+            gh issue edit "$EXISTING" --body "$BODY"
+            echo "Updated existing tracking issue #$EXISTING"
+          else
+            gh issue create --title "$TRACKING_ISSUE_TITLE" --body "$BODY" --label "version"
+          fi
+
+      - name: Close tracking issue if caught up
+        if: steps.check.outputs.drift == 'false' && steps.existing.outputs.number != ''
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          EXISTING: ${{ steps.existing.outputs.number }}
+          PINNED: ${{ steps.check.outputs.pinned }}
+        run: |
+          set -euo pipefail
+          gh issue close "$EXISTING" --comment ".codeqlversion is now \`v${PINNED}\`, matching the latest upstream CodeQL CLI release. Closing."

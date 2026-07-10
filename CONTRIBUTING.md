@@ -134,18 +134,34 @@ in each language's `qlpack.yml` on `main` to see what will publish next.
 
 Bumping the CodeQL CLI/library version this repo builds against (tracked in
 [`.codeqlversion`][codeqlversion], see [Supported CodeQL versions](#supported-codeql-versions)
-above) is also a fully manual process today. Nothing currently detects new upstream CodeQL CLI
-releases automatically. A maintainer has to notice one exists and kick off this checklist by hand
-(see [#118][pr-118] for an open proposal to at least automate the `codeql pack upgrade` step):
+above) is semi-automated across three workflows, but still needs a human (or a delegated Copilot
+coding agent) in the loop for the hard part — fixing whatever the new CLI breaks:
 
-- [ ] Update `.codeqlversion` to the new CLI version.
-- [ ] Run `codeql pack upgrade <dir>` for each pack directory to refresh its `codeql-pack.lock.yml`.
-- [ ] Fix any compilation/test errors caused by upstream API changes (usually the hardest part, see
-      [#124][pr-124] for an example of what this can involve).
-- [ ] Bump the `version:` field of every pack that changed, so the "Shipping a change" steps above
-      actually publish the update.
-- [ ] Update the "Supported CodeQL versions" table above.
-- [ ] Open a PR and get it reviewed/merged.
+1. **Detection** — [`detect-codeql-release.yml`][detect-codeql-release-workflow] runs weekly
+   (and on `workflow_dispatch`) comparing `.codeqlversion` against
+   [github/codeql-cli-binaries][codeql-cli-binaries]' latest release. While we're behind, it
+   opens/updates a single persistent tracking issue titled "CodeQL CLI update available"; once
+   `.codeqlversion` catches up, it auto-closes that issue. It never opens a PR itself — deciding
+   when to actually take the upgrade (and deal with any breakage) is a deliberate call, not
+   something to run unattended.
+2. **Dependency refresh** — run [`update-codeql-version.yml`][update-codeql-version-workflow]
+   (`workflow_dispatch`, input the new CLI version, e.g. `2.22.0`). It updates `.codeqlversion`,
+   runs `codeql pack upgrade <dir>` for every pack directory to refresh each
+   `codeql-pack.lock.yml`, and opens a PR (via the same GitHub App token as
+   [`update-release.yml`][update-release-workflow], so CI actually runs on it — a plain
+   `GITHUB_TOKEN`-authored PR would not trigger downstream workflows). This is the automated
+   version of [#118][pr-118]'s original proposal, extended to also own the `.codeqlversion` bump
+   itself (not just the `codeql pack upgrade` loop) and to use a token that triggers CI.
+3. **Fix breakage and finish the checklist** — this PR does **not** publish anything by itself (no
+   pack `version:` field is touched), so there's no rush, but it still needs:
+   - [ ] Fix any compilation/test errors CI surfaces from upstream API changes (usually the
+         hardest part, see [#124][pr-124] for an example of what this can involve). Consider
+         delegating this step to a Copilot coding agent session pointed at the PR/branch.
+   - [ ] Update the "Supported CodeQL versions" table above.
+   - [ ] Review and merge.
+   - [ ] Once merged, run [`update-release.yml`][update-release-workflow] as described in
+         [Cutting a release](#cutting-a-release) below to bump every pack's `version:` in
+         lockstep and trigger the real batch publish.
 
 > [!WARNING]
 > The `.codeqlversion` bump and the pack version bumps don't have to land in the same PR, but
@@ -250,6 +266,9 @@ Please do get in touch (privacy@github.com) if you have any questions about this
 [codeqlversion]: ./.codeqlversion
 [publish-workflow]: ./.github/workflows/publish.yml
 [update-release-workflow]: ./.github/workflows/update-release.yml
+[update-codeql-version-workflow]: ./.github/workflows/update-codeql-version.yml
+[detect-codeql-release-workflow]: ./.github/workflows/detect-codeql-release.yml
+[codeql-cli-binaries]: https://github.com/github/codeql-cli-binaries/releases
 [release-config]: ./.release.yml
 [patch-release-me]: https://github.com/42ByteLabs/patch-release-me
 [releases]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/releases
