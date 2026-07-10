@@ -356,7 +356,16 @@ jobs:
           echo "summary.md is $(wc -l < summary.md) lines, $(wc -c < summary.md) bytes"
           cat summary.md >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Build CodeQL library versions table
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          .github/scripts/build-codeql-lib-versions-table.sh > codeql-lib-versions.md
+          cat codeql-lib-versions.md >> "$GITHUB_STEP_SUMMARY"
+
       - name: Upsert release table
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: .github/scripts/upsert-release-table.sh summary.md
+        run: |
+          .github/scripts/upsert-release-table.sh summary.md publish-summary
+          .github/scripts/upsert-release-table.sh codeql-lib-versions.md codeql-lib-versions

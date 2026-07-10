@@ -156,6 +156,19 @@ releases automatically. A maintainer has to notice one exists and kick off this 
 > content even though `main` had already moved on. Don't assume a merged dependency-refresh PR means
 > consumers received it. Check that the pack's `version:` actually changed and published too.
 
+> [!NOTE]
+> Forgetting `codeql pack upgrade <dir>` for one language after bumping `.codeqlversion` is the
+> other common failure mode: CI's "Install Packs" step only runs `codeql pack install`, which is
+> non-resolving — it installs whatever's already pinned in the checked-in lock file and never
+> re-resolves or upgrades it, so a stale lock file stays green in CI indefinitely. Every
+> [`publish.yml`][publish-workflow] run now cross-checks this automatically: its "CodeQL standard
+> library versions" table (in the run's job summary and upserted into the matching GitHub Release,
+> see [Cutting a release](#cutting-a-release) below) compares each language's locked
+> `codeql/<language>-all` version against the version [github/codeql](https://github.com/github/codeql)
+> itself ships for the pinned `.codeqlversion` (read from its `<language>/ql/lib/qlpack.yml` at tag
+> `codeql-cli/v<version>`) and flags any mismatch with a build warning (`::warning::`) and a ⚠️ in the
+> table. This doesn't block the workflow — it's a tripwire to catch drift, not a gate.
+
 ### Cutting a release
 
 `.release.yml` is the **single source of truth** for the repo-wide version, and a release is now
@@ -173,9 +186,12 @@ supported way to bump `.release.yml`:
 - [ ] Merging it is what changes `.release.yml` on `main`, which auto-triggers
       [`publish.yml`][publish-workflow] for a real batch publish: every pack whose version actually
       changed gets published to [GHCR][ghcr-packages] in that one run.
-- [ ] The run's `summary` job posts a markdown table of what published to the job summary **and**
-      upserts it into the matching GitHub Release (`vX.Y.Z`), auto-creating it as a pre-release if it
-      doesn't exist yet.
+- [ ] The run's `summary` job posts two markdown tables to the job summary **and** upserts both into
+      the matching GitHub Release (`vX.Y.Z`), auto-creating it as a pre-release if it doesn't exist
+      yet: a publish summary (what published) and a CodeQL standard library versions table (whether
+      each language's locked `codeql/<language>-all` matches what the pinned CodeQL CLI actually
+      bundles upstream — see the note under
+      [Updating the pinned CodeQL CLI/library version](#updating-the-pinned-codeql-clilibrary-version)).
 
 > [!WARNING]
 > **Never hand-edit `.release.yml`'s `version:` field directly** — `patch-release-me` computes its
@@ -205,8 +221,10 @@ consider before using it:
 
 The [Releases][releases] tab (`v0.2.0`, `v0.2.1`, ...) is a repo-wide changelog tied to cutting a
 release as described above. Each release's auto-generated notes are supplemented with the publish
-summary table (see [Cutting a release](#cutting-a-release)), so you can see exactly which packs
-published at that version without cross-referencing [GHCR][ghcr-packages] separately.
+summary table and the CodeQL standard library versions table (see
+[Cutting a release](#cutting-a-release)), so you can see exactly which packs published at that
+version — and whether the library versions they're compiled against are still in sync with the
+pinned CodeQL CLI — without cross-referencing [GHCR][ghcr-packages] or `github/codeql` separately.
 
 > [!NOTE]
 > A GitHub Release can still exist as a pre-release ahead of every pack in it actually catching up

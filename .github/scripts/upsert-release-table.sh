@@ -1,17 +1,24 @@
 #!/usr/bin/env bash
-# Upserts the publish-summary table (built by build-publish-summary.sh) into
-# the GitHub Release matching .release.yml's current version, creating that
-# release as a pre-release if it doesn't exist yet.
+# Upserts a generated markdown block (e.g. the publish-summary table from
+# build-publish-summary.sh, or the CodeQL library-versions table from
+# build-codeql-lib-versions-table.sh) into the GitHub Release matching
+# .release.yml's current version, creating that release as a pre-release if
+# it doesn't exist yet.
 #
-# Usage: upsert-release-table.sh <table-markdown-file>
+# Usage: upsert-release-table.sh <table-markdown-file> [block-name]
 #
-# The table is stored between marker comments so re-runs only replace that
-# block and leave the rest of the release body (e.g. "What's Changed") alone.
+# block-name defaults to "publish-summary" for backwards compatibility. Each
+# distinct block-name gets its own marker-comment pair, so multiple blocks
+# (e.g. "publish-summary" and "codeql-lib-versions") can be upserted
+# independently into the same release body without clobbering each other.
+# Re-runs only replace the matching block and leave the rest of the release
+# body (e.g. "What's Changed") alone.
 set -euo pipefail
 
-TABLE_FILE="${1:?usage: upsert-release-table.sh <table-markdown-file>}"
-START_MARKER="<!-- publish-summary:start -->"
-END_MARKER="<!-- publish-summary:end -->"
+TABLE_FILE="${1:?usage: upsert-release-table.sh <table-markdown-file> [block-name]}"
+BLOCK_NAME="${2:-publish-summary}"
+START_MARKER="<!-- ${BLOCK_NAME}:start -->"
+END_MARKER="<!-- ${BLOCK_NAME}:end -->"
 
 VERSION=$(grep -E '^version:' .release.yml | head -1 | sed -E 's/^version:[[:space:]]*"?([^"[:space:]]*)"?/\1/')
 if [ -z "$VERSION" ]; then
@@ -28,7 +35,7 @@ BLOCK_FILE=$(mktemp)
 } > "$BLOCK_FILE"
 
 if gh release view "$TAG" >/dev/null 2>&1; then
-  echo "Release $TAG exists; refreshing its publish-summary block."
+  echo "Release $TAG exists; refreshing its $BLOCK_NAME block."
   CURRENT_BODY=$(mktemp)
   gh release view "$TAG" --json body -q .body > "$CURRENT_BODY"
 
