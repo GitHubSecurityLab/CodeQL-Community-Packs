@@ -1,8 +1,15 @@
 name: Publish CodeQL Packs
 
+# Auto-publish only fires when .release.yml itself changes - that's the
+# deliberate "cut a release" signal (see update-release.yml, which bumps
+# .release.yml and every pack version together in one PR). Individual pack
+# version bumps merged outside of that flow do NOT auto-publish; use
+# workflow_dispatch for one-off hotfixes (see CONTRIBUTING.md).
 on:
   push:
     branches: [main]
+    paths:
+      - ".release.yml"
   workflow_dispatch:
 
 

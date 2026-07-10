@@ -93,26 +93,23 @@ process for each; most of it is manual today.
 
 ### Shipping a change to a query/library pack
 
-[`publish.yml`][publish-workflow] runs on every push to `main`. It's organized as four jobs: one
-per pack type (`queries` for `src`, `library` for `lib`, `extensions` for `ext`,
-`library_sources_extensions` for `ext-library-sources`), each matrixed over every language that has
-that pack type (`ext`/`ext-library-sources` only run for `csharp`/`java` today, see [#144][pr-144]).
+[`publish.yml`][publish-workflow] is organized as four jobs: one per pack type (`queries` for
+`src`, `library` for `lib`, `extensions` for `ext`, `library_sources_extensions` for
+`ext-library-sources`), each matrixed over every language that has that pack type
+(`ext`/`ext-library-sources` only run for `csharp`/`java` today, see [#144][pr-144]).
 
 **Each `<language>` × `<pack type>` combination is checked and published completely
 independently.** For every matrix entry, the job compares the `version:` in that one pack's
 `qlpack.yml` on `main` to the version currently published on [GHCR][ghcr-packages], and only
 installs + publishes *that specific pack* if they differ. It never touches any other language or
-pack type. Concretely, this means:
+pack type.
 
-- **You only need to bump the version of the pack(s) you actually changed.** If your PR only
-  touches `java/src`, bumping `java/src/qlpack.yml`'s version is enough; you do not need to touch
-  `csharp`, `go`, `python`, or any other language/pack type for `codeql-java-queries` to publish.
-- **Nothing cascades automatically.** If a single PR changes both `java/src` and `csharp/lib`, each
-  needs its own version bump: bumping one does not publish the other, and bumping neither means
-  neither publishes.
-- **Merging a change alone does not publish it.** The workflow runs on every merge, but a pack's own
-  `version:` field must have changed since the last publish, or that pack's matrix entry does nothing
-  and the change sits on `main` unpublished indefinitely.
+**Merging your change does *not* publish it by itself.** `publish.yml` only auto-triggers when
+[`.release.yml`][release-config] itself changes on `main` — that's the deliberate "cut a release"
+signal, produced by the [Cutting a release](#cutting-a-release) flow below, not by every ordinary
+merge. Bumping your pack's own `version:` in a regular PR just *stages* the change: it sits on
+`main`, unpublished, until the next release is cut (or someone runs a manual one-off publish, see
+[Manual/one-off hotfix publish](#manualone-off-hotfix-publish)).
 
 To ship a change:
 
@@ -126,9 +123,8 @@ To ship a change:
       dependents pin an exact version of it (e.g. `<language>/lib/qlpack.yml`) and bump that pin too
       (these can drift out of sync otherwise, see [#155][pr-155]).
 - [ ] Open a PR and get it reviewed/merged to `main`.
-- [ ] Nothing further to do: `publish.yml` detects the version diff for that pack and publishes it
-      automatically on merge. There's no separate "publish" button or manual trigger step for a
-      version that's already bumped.
+- [ ] That's it for your PR — the change publishes the next time a release is cut (see below), not
+      immediately on merge.
 
 There is no in-repo inventory of "what's currently published" today; check the
 [GHCR Packages page][ghcr-packages] for this repo directly, or compare against the `version:` field
@@ -160,30 +156,64 @@ releases automatically. A maintainer has to notice one exists and kick off this 
 > content even though `main` had already moved on. Don't assume a merged dependency-refresh PR means
 > consumers received it. Check that the pack's `version:` actually changed and published too.
 
+### Cutting a release
+
+`.release.yml` is the **single source of truth** for the repo-wide version, and a release is now
+what actually triggers a real, atomic batch publish of every changed pack — this is the *only*
+supported way to bump `.release.yml`:
+
+- [ ] Run [`update-release.yml`][update-release-workflow] (`workflow_dispatch`, pick
+      patch/minor/major). It runs the [`42ByteLabs/patch-release-me`][patch-release-me] tool, which
+      reads `.release.yml`'s current `version:`, computes the bump, and opens a PR that:
+  - bumps `.release.yml`'s `version:` to the new value, and
+  - patches **every** matching pack's own `version:` field to match (the "CodeQL Pack Versions"
+    location in `.release.yml`, added in [#158][pr-158] — this is what makes `.release.yml` a real
+    lever over publishing today, not just a changelog label).
+- [ ] Review and merge that PR like any other.
+- [ ] Merging it is what changes `.release.yml` on `main`, which auto-triggers
+      [`publish.yml`][publish-workflow] for a real batch publish: every pack whose version actually
+      changed gets published to [GHCR][ghcr-packages] in that one run.
+- [ ] The run's `summary` job posts a markdown table of what published to the job summary **and**
+      upserts it into the matching GitHub Release (`vX.Y.Z`), auto-creating it as a pre-release if it
+      doesn't exist yet.
+
+> [!WARNING]
+> **Never hand-edit `.release.yml`'s `version:` field directly** — `patch-release-me` computes its
+> bump as a *delta* from whatever `.release.yml` currently says, then find/replaces that exact old
+> value across every pack. If you set `.release.yml` straight to a target version yourself, the tool
+> has no delta left to apply and running it will overshoot to the *next* version instead of catching
+> anything up. If this happens, you have to bump the remaining packs by hand to match what
+> `.release.yml` already claims (see [#159][pr-159] for exactly this recovery).
+
+### Manual/one-off hotfix publish
+
+`workflow_dispatch` on `publish.yml` remains available outside the release-cut flow above, for
+urgent fixes that can't wait for the next batch release (a fatal crash, for example). Two things to
+consider before using it:
+
+- **Prefer a semver pre-release suffix** for the hotfixed pack's version (e.g. `0.2.3-alpha.1`
+  instead of `0.2.3`) unless you're intentionally shipping the next real version early. GHCR has no
+  "pre-release" flag the way GitHub Releases do, so the version string is the only signal; a
+  `-alpha.N` suffix keeps it out of `'*'`-range dependency resolution elsewhere in the repo (semver
+  ranges exclude pre-release versions from wildcard matches), so it won't get silently picked up
+  ahead of the real release.
+- **[#155][pr-155] is an accepted one-off exception** to this: it shipped a clean `0.2.3` (no
+  `-alpha` suffix) because it merged before this gated-trigger design and the `-alpha.N` convention
+  existed. Don't treat it as a precedent for future hotfixes.
+
 ### What GitHub Releases are for
 
-The [Releases][releases] tab (`v0.2.0`, `v0.2.1`, ...) is a **repo-wide changelog**, unrelated to the
-per-pack publishing described above:
-
-- [`.release.yml`][release-config] is config for the [`42ByteLabs/patch-release-me`][patch-release-me]
-  tool. It tracks a single repository-wide `version:` and defines two patch locations: one targeting
-  `configs/*.yml` (has never matched anything in this repo's history; those configs never pin an
-  exact version, so this is effectively dead), and one targeting the exact `codeql-<lang>-libs:`
-  dependency pin in `**/qlpack.yml` (only 5 of 7 languages, cpp, go, javascript, python, ruby, pin an
-  exact version there; csharp/java use `'*'`). Either way, it does **not** bump any pack's own
-  top-level `version:` field, so bumping it alone doesn't publish anything.
-- [`update-release.yml`][update-release-workflow] is a manual `workflow_dispatch` (pick
-  patch/minor/major) that runs that tool and opens a PR with the bumped `.release.yml` and patched
-  references.
-- The GitHub Release itself is created manually afterwards by a maintainer via GitHub's "Draft a new
-  release" UI with auto-generated notes.
+The [Releases][releases] tab (`v0.2.0`, `v0.2.1`, ...) is a repo-wide changelog tied to cutting a
+release as described above. Each release's auto-generated notes are supplemented with the publish
+summary table (see [Cutting a release](#cutting-a-release)), so you can see exactly which packs
+published at that version without cross-referencing [GHCR][ghcr-packages] separately.
 
 > [!NOTE]
-> These systems have no mechanism keeping them in sync, and have drifted in practice: `.release.yml`'s
-> `version:`, the latest GitHub Release tag, and individual packs' published `version:` fields can all
-> disagree with each other at any given time. Don't use the Releases tab or `.release.yml` to infer
-> what's currently published. Check [GHCR][ghcr-packages] or a pack's `qlpack.yml` directly, per
-> "Shipping a change" above.
+> A GitHub Release can still exist as a pre-release ahead of every pack in it actually catching up
+> (e.g. if a hotfix or a hand-fixed gap like [#159][pr-159] shipped some packs early/out-of-band).
+> The publish summary table in the release body reflects the true, live state of every pack at the
+> time of that run — trust that table (or [GHCR][ghcr-packages]/a pack's `qlpack.yml` directly) over
+> the release tag or title alone.
 
 ## Using your personal data
 
@@ -205,3 +235,5 @@ Please do get in touch (privacy@github.com) if you have any questions about this
 [pr-126]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/126
 [pr-144]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/144
 [pr-155]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/155
+[pr-158]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/158
+[pr-159]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/159
