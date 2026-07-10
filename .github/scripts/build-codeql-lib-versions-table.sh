@@ -1,18 +1,22 @@
 #!/usr/bin/env bash
 # Builds a markdown section documenting the pinned CodeQL CLI version and
-# comparing our locked `codeql/<lang>-all` library versions (from each
-# language's lib/codeql-pack.lock.yml) against the canonical versions
-# bundled with that CLI release (from github/codeql's own
-# <lang>/ql/lib/qlpack.yml at tag codeql-cli/v<.codeqlversion>).
+# comparing our locked `codeql/<lang>-all` library version (from each
+# language's src/codeql-pack.lock.yml - the queries pack CONTRIBUTING.md's
+# "Supported CodeQL versions" table treats as the source of truth) against
+# the canonical version bundled with that CLI release (from github/codeql's
+# own <lang>/ql/lib/qlpack.yml at tag codeql-cli/v<.codeqlversion>).
 #
 # This exists because CI's "codeql pack install" step is non-resolving: it
 # only installs whatever is already pinned in the checked-in lock file, it
 # never re-resolves/upgrades versions. If a maintainer bumps .codeqlversion
-# but forgets to run `codeql pack upgrade <lang>/lib` for a language, that
-# language's lock file silently stays on a stale library version forever,
-# and CI stays green. This table is a machine-checkable tripwire for that
-# drift - see CONTRIBUTING.md's "Updating the pinned CodeQL CLI/library
-# version" section.
+# but forgets to run `codeql pack upgrade <lang>/src` (and lib/ext) for a
+# language, that language's lock file silently stays on a stale library
+# version forever, and CI stays green. This table is a machine-checkable
+# tripwire for that drift - see CONTRIBUTING.md's "Updating the pinned
+# CodeQL CLI/library version" section. It checks one representative
+# directory (src) per language as a coarse signal, not every pack
+# directory; a mismatch there is reason enough to re-run
+# `codeql pack upgrade` across all of that language's directories.
 #
 # Usage: build-codeql-lib-versions-table.sh
 # Requires: gh (authenticated), awk, base64
@@ -67,13 +71,13 @@ echo "## CodeQL standard library versions"
 echo
 echo "Pinned CodeQL CLI/library version ([\`.codeqlversion\`](https://github.com/${REPO}/blob/main/.codeqlversion)): [\`v${CODEQL_VERSION}\`](https://github.com/github/codeql-cli-binaries/releases/tag/v${CODEQL_VERSION})"
 echo
-echo "_Comparing our locked \`codeql/<lang>-all\` version (from each language's \`lib/codeql-pack.lock.yml\`) against the version [github/codeql](https://github.com/github/codeql) itself bundles with CLI \`v${CODEQL_VERSION}\` (tag [\`codeql-cli/v${CODEQL_VERSION}\`](https://github.com/github/codeql/tree/codeql-cli/v${CODEQL_VERSION})). A mismatch means \`codeql pack upgrade <lang>/lib\` (and \`src\`/\`ext\` as needed) hasn't been run since the last \`.codeqlversion\` bump - see [CONTRIBUTING.md: Updating the pinned CodeQL CLI/library version](https://github.com/${REPO}/blob/main/CONTRIBUTING.md#updating-the-pinned-codeql-clilibrary-version)._"
+echo "_Comparing our locked \`codeql/<lang>-all\` version (from each language's \`src/codeql-pack.lock.yml\`) against the version [github/codeql](https://github.com/github/codeql) itself bundles with CLI \`v${CODEQL_VERSION}\` (tag [\`codeql-cli/v${CODEQL_VERSION}\`](https://github.com/github/codeql/tree/codeql-cli/v${CODEQL_VERSION})). A mismatch means \`codeql pack upgrade <lang>/src\` (and \`lib\`/\`ext\` as needed) hasn't been run since the last \`.codeqlversion\` bump - see [CONTRIBUTING.md: Updating the pinned CodeQL CLI/library version](https://github.com/${REPO}/blob/main/CONTRIBUTING.md#updating-the-pinned-codeql-clilibrary-version)._"
 echo
 echo "| Language | Our locked \`codeql/<lang>-all\` | Upstream CLI v${CODEQL_VERSION} bundles | Status |"
 echo "| --- | --- | --- | --- |"
 
 for lang in "${LANGUAGES[@]}"; do
-  lockfile="${lang}/lib/codeql-pack.lock.yml"
+  lockfile="${lang}/src/codeql-pack.lock.yml"
   pkg="codeql/${lang}-all"
   label=$(lang_label "$lang")
 
@@ -107,5 +111,5 @@ for lang in "${LANGUAGES[@]}"; do
 done
 
 if [ "$MISMATCH" -eq 1 ]; then
-  echo "::warning::One or more CodeQL standard library versions are out of sync with CLI v${CODEQL_VERSION}. Run 'codeql pack upgrade <lang>/lib' (and src/ext as needed) for the affected language(s)." >&2
+  echo "::warning::One or more CodeQL standard library versions are out of sync with CLI v${CODEQL_VERSION}. Run 'codeql pack upgrade <lang>/src' (and lib/ext as needed) for the affected language(s)." >&2
 fi
