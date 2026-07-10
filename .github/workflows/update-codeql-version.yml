@@ -1,0 +1,107 @@
+name: Update CodeQL CLI Version
+
+# Bumps the pinned CodeQL CLI/library version (.codeqlversion) and refreshes every
+# pack's codeql-pack.lock.yml against it, then opens a PR with the result.
+#
+# This does NOT publish anything by itself and does NOT bump any pack's `version:`
+# field - it only prepares the dependency-refresh half of the process documented in
+# CONTRIBUTING.md's "Updating the pinned CodeQL CLI/library version" section. A human
+# (or a delegated Copilot coding agent) still needs to fix any compilation/test
+# breakage the new CLI/library versions introduce before merging, and the existing
+# "CodeQL Update Release" workflow (update-release.yml) is still what bumps every
+# pack's version and triggers the real batch publish once this PR is merged.
+on:
+  workflow_dispatch:
+    inputs:
+      codeql_version:
+        description: "New CodeQL CLI version to pin, e.g. 2.22.0 (a leading 'v' is fine too)"
+        required: true
+        type: string
+
+jobs:
+  update-codeql-version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read # PR creation uses a scoped GitHub App token (SECLABS_APP_ID/SECLABS_APP_KEY), not GITHUB_TOKEN
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Validate and normalize version input
+        id: version
+        run: |
+          set -euo pipefail
+          VERSION="${{ inputs.codeql_version }}"
+          VERSION="${VERSION#v}" # tolerate an accidental leading "v"
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::codeql_version must look like X.Y.Z, got: ${{ inputs.codeql_version }}"
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Update .codeqlversion
+        run: |
+          echo "${{ steps.version.outputs.version }}" > .codeqlversion
+          echo "Pinned CodeQL CLI version bumped to ${{ steps.version.outputs.version }}"
+
+      - name: Setup CodeQL
+        uses: ./.github/actions/install-codeql
+
+      - name: Upgrade every pack's dependencies
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          for dir in $(find . -name qlpack.yml -exec dirname {} \;); do
+            echo "::group::codeql pack upgrade $dir"
+            codeql pack upgrade "$dir"
+            echo "::endgroup::"
+          done
+
+      - name: Summarize changed files
+        run: |
+          {
+            echo "## Files changed by this CodeQL CLI bump"
+            echo
+            git status --porcelain | sed 's/^/- /'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Get Token
+        id: get_workflow_token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.SECLABS_APP_ID }}
+          private-key: ${{ secrets.SECLABS_APP_KEY }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ steps.get_workflow_token.outputs.token }}
+          title: "chore: bump pinned CodeQL CLI to v${{ steps.version.outputs.version }}"
+          commit-message: "chore: bump pinned CodeQL CLI to v${{ steps.version.outputs.version }}"
+          body: |
+            Automated CLI version bump, requested via the "Update CodeQL CLI Version"
+            workflow (`workflow_dispatch`, `codeql_version: ${{ steps.version.outputs.version }}`).
+
+            This PR:
+            - Updates `.codeqlversion` to `${{ steps.version.outputs.version }}`.
+            - Runs `codeql pack upgrade <dir>` for every pack directory to refresh its
+              `codeql-pack.lock.yml` against the new CLI.
+
+            **This PR does not publish anything by itself** - no pack `version:` field is
+            bumped here, so `publish.yml`'s version-diff trigger won't fire for it yet.
+            Remaining steps (see CONTRIBUTING.md's "Updating the pinned CodeQL CLI/library
+            version" section):
+
+            - [ ] Check CI on this PR - fix any compilation/test errors caused by upstream
+              API changes. This is usually the hardest part; consider delegating it to a
+              Copilot coding agent session pointed at this PR/branch.
+            - [ ] Update the "Supported CodeQL versions" table in CONTRIBUTING.md.
+            - [ ] Review and merge.
+            - [ ] Once merged, run the "CodeQL Update Release" workflow
+              (`update-release.yml`) to bump every pack's `version:` in lockstep via
+              `.release.yml` and trigger the real batch publish.
+          branch: "chore/update-codeql-cli-${{ steps.version.outputs.version }}"
+          labels: "version"
+          delete-branch: true

@@ -1,8 +1,15 @@
 name: Publish CodeQL Packs
 
+# Auto-publish only fires when .release.yml itself changes - that's the
+# deliberate "cut a release" signal (see update-release.yml, which bumps
+# .release.yml and every pack version together in one PR). Individual pack
+# version bumps merged outside of that flow do NOT auto-publish; use
+# workflow_dispatch for one-off hotfixes (see CONTRIBUTING.md).
 on:
   push:
     branches: [main]
+    paths:
+      - ".release.yml"
   workflow_dispatch:
 
 
@@ -27,11 +34,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]')
-          CURRENT_VERSION=$(grep version ${{ matrix.language }}/src/qlpack.yml | awk '{print $2}')
+          # `|| true` inside the substitution (not after it) matters: `run:` steps default to
+          # `bash -e`, and a brand-new pack's container doesn't exist on GHCR yet, so `gh api`
+          # returns 404 (non-zero). Without this, that failure would abort the step here and
+          # fail the job, blocking the first-ever publish of a new pack. Swallowing it leaves
+          # PUBLISHED_VERSION empty, which correctly differs from CURRENT_VERSION below and
+          # triggers a first publish.
+          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null || true)
+          CURRENT_VERSION=$(grep -E '^version:' ${{ matrix.language }}/src/qlpack.yml | head -1 | awk '{print $2}')
 
           echo "Published version: $PUBLISHED_VERSION"
           echo "Local version: $CURRENT_VERSION"
+
+          echo "published_version=$PUBLISHED_VERSION" >> $GITHUB_OUTPUT
+          echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
 
           if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
             echo "publish=true" >> $GITHUB_OUTPUT
@@ -42,6 +58,7 @@ jobs:
         uses: ./.github/actions/install-codeql
 
       - name: Publish codeql-LANG-queries (src) pack.
+        id: publish
         if: steps.check_version.outputs.publish == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -49,6 +66,38 @@ jobs:
           echo "Publishing codeql-${{ matrix.language }}-queries."
           codeql pack install "${{ matrix.language }}/src"
           codeql pack publish "${{ matrix.language }}/src"
+
+      - name: Record publish result
+        if: always()
+        run: |
+          mkdir -p publish-results
+          STATUS="up-to-date"
+          if [ "${{ steps.check_version.outcome }}" != "success" ]; then
+            STATUS="failed"
+          elif [ "${{ steps.check_version.outputs.publish }}" == "true" ]; then
+            if [ "${{ steps.publish.outcome }}" == "success" ]; then
+              STATUS="published"
+            else
+              STATUS="failed"
+            fi
+          fi
+          jq -n \
+            --arg language "${{ matrix.language }}" \
+            --arg type "src" \
+            --arg package "codeql-${{ matrix.language }}-queries" \
+            --arg previous_version "${{ steps.check_version.outputs.published_version }}" \
+            --arg target_version "${{ steps.check_version.outputs.current_version }}" \
+            --arg status "$STATUS" \
+            '{language: $language, type: $type, package: $package, previous_version: $previous_version, target_version: $target_version, status: $status}' \
+            > "publish-results/${{ matrix.language }}-src.json"
+
+      - name: Upload publish result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publish-result-${{ matrix.language }}-src
+          path: publish-results/${{ matrix.language }}-src.json
+          retention-days: 1
 
   library:
     runs-on: ubuntu-latest
@@ -70,11 +119,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-libs/versions --jq '.[0].metadata.container.tags[0]')
-          CURRENT_VERSION=$(grep version ${{ matrix.language }}/lib/qlpack.yml | awk '{print $2}')
+          # See the `queries` job above for why `|| true` is inside the substitution: a
+          # brand-new pack's GHCR container doesn't exist yet, so `gh api` 404s; without this,
+          # `bash -e` would abort here and block the pack's first-ever publish.
+          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-libs/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null || true)
+          CURRENT_VERSION=$(grep -E '^version:' ${{ matrix.language }}/lib/qlpack.yml | head -1 | awk '{print $2}')
 
           echo "Published version: $PUBLISHED_VERSION"
           echo "Local version: $CURRENT_VERSION"
+
+          echo "published_version=$PUBLISHED_VERSION" >> $GITHUB_OUTPUT
+          echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
 
           if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
             echo "publish=true" >> $GITHUB_OUTPUT
@@ -85,6 +140,7 @@ jobs:
         uses: ./.github/actions/install-codeql
 
       - name: Publish codeql-LANG-libs (lib) pack
+        id: publish
         if: steps.check_version.outputs.publish == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -92,6 +148,38 @@ jobs:
           echo "Publishing codeql-${{ matrix.language }}-libs."
           codeql pack install "${{ matrix.language }}/lib"
           codeql pack publish "${{ matrix.language }}/lib"
+
+      - name: Record publish result
+        if: always()
+        run: |
+          mkdir -p publish-results
+          STATUS="up-to-date"
+          if [ "${{ steps.check_version.outcome }}" != "success" ]; then
+            STATUS="failed"
+          elif [ "${{ steps.check_version.outputs.publish }}" == "true" ]; then
+            if [ "${{ steps.publish.outcome }}" == "success" ]; then
+              STATUS="published"
+            else
+              STATUS="failed"
+            fi
+          fi
+          jq -n \
+            --arg language "${{ matrix.language }}" \
+            --arg type "lib" \
+            --arg package "codeql-${{ matrix.language }}-libs" \
+            --arg previous_version "${{ steps.check_version.outputs.published_version }}" \
+            --arg target_version "${{ steps.check_version.outputs.current_version }}" \
+            --arg status "$STATUS" \
+            '{language: $language, type: $type, package: $package, previous_version: $previous_version, target_version: $target_version, status: $status}' \
+            > "publish-results/${{ matrix.language }}-lib.json"
+
+      - name: Upload publish result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publish-result-${{ matrix.language }}-lib
+          path: publish-results/${{ matrix.language }}-lib.json
+          retention-days: 1
 
   extensions:
     runs-on: ubuntu-latest
@@ -113,11 +201,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-extensions/versions --jq '.[0].metadata.container.tags[0]')
-          CURRENT_VERSION=$(grep version ${{ matrix.language }}/ext/qlpack.yml | awk '{print $2}')
+          # See the `queries` job above for why `|| true` is inside the substitution: a
+          # brand-new pack's GHCR container doesn't exist yet, so `gh api` 404s; without this,
+          # `bash -e` would abort here and block the pack's first-ever publish.
+          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-extensions/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null || true)
+          CURRENT_VERSION=$(grep -E '^version:' ${{ matrix.language }}/ext/qlpack.yml | head -1 | awk '{print $2}')
 
           echo "Published version: $PUBLISHED_VERSION"
           echo "Local version: $CURRENT_VERSION"
+          echo "published_version=$PUBLISHED_VERSION" >> $GITHUB_OUTPUT
+          echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
           if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
             echo "publish=true" >> $GITHUB_OUTPUT
           fi
@@ -127,6 +220,7 @@ jobs:
         uses: ./.github/actions/install-codeql
 
       - name: Publish codeql-LANG-extensions (ext) pack
+        id: publish
         if: steps.check_version.outputs.publish == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -134,6 +228,38 @@ jobs:
           echo "Publishing codeql-${{ matrix.language }}-extensions."
           codeql pack install "${{ matrix.language }}/ext"
           codeql pack publish "${{ matrix.language }}/ext"
+
+      - name: Record publish result
+        if: always()
+        run: |
+          mkdir -p publish-results
+          STATUS="up-to-date"
+          if [ "${{ steps.check_version.outcome }}" != "success" ]; then
+            STATUS="failed"
+          elif [ "${{ steps.check_version.outputs.publish }}" == "true" ]; then
+            if [ "${{ steps.publish.outcome }}" == "success" ]; then
+              STATUS="published"
+            else
+              STATUS="failed"
+            fi
+          fi
+          jq -n \
+            --arg language "${{ matrix.language }}" \
+            --arg type "ext" \
+            --arg package "codeql-${{ matrix.language }}-extensions" \
+            --arg previous_version "${{ steps.check_version.outputs.published_version }}" \
+            --arg target_version "${{ steps.check_version.outputs.current_version }}" \
+            --arg status "$STATUS" \
+            '{language: $language, type: $type, package: $package, previous_version: $previous_version, target_version: $target_version, status: $status}' \
+            > "publish-results/${{ matrix.language }}-ext.json"
+
+      - name: Upload publish result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publish-result-${{ matrix.language }}-ext
+          path: publish-results/${{ matrix.language }}-ext.json
+          retention-days: 1
 
 
   library_sources_extensions:
@@ -156,11 +282,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-library-sources/versions --jq '.[0].metadata.container.tags[0]')
-          CURRENT_VERSION=$(grep version ${{ matrix.language }}/ext-library-sources/qlpack.yml | awk '{print $2}')
+          # See the `queries` job above for why `|| true` is inside the substitution: a
+          # brand-new pack's GHCR container doesn't exist yet, so `gh api` 404s; without this,
+          # `bash -e` would abort here and block the pack's first-ever publish.
+          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-library-sources/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null || true)
+          CURRENT_VERSION=$(grep -E '^version:' ${{ matrix.language }}/ext-library-sources/qlpack.yml | head -1 | awk '{print $2}')
 
           echo "Published version: $PUBLISHED_VERSION"
           echo "Local version: $CURRENT_VERSION"
+          echo "published_version=$PUBLISHED_VERSION" >> $GITHUB_OUTPUT
+          echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
           if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
             echo "publish=true" >> $GITHUB_OUTPUT
           fi
@@ -170,6 +301,7 @@ jobs:
         uses: ./.github/actions/install-codeql
 
       - name: Publish codeql-LANG-library-sources (ext-library-sources) pack
+        id: publish
         if: steps.check_version.outputs.publish == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -177,3 +309,84 @@ jobs:
           echo "Publishing codeql-${{ matrix.language }}-library-sources."
           codeql pack install "${{ matrix.language }}/ext-library-sources"
           codeql pack publish "${{ matrix.language }}/ext-library-sources"
+
+      - name: Record publish result
+        if: always()
+        run: |
+          mkdir -p publish-results
+          STATUS="up-to-date"
+          if [ "${{ steps.check_version.outcome }}" != "success" ]; then
+            STATUS="failed"
+          elif [ "${{ steps.check_version.outputs.publish }}" == "true" ]; then
+            if [ "${{ steps.publish.outcome }}" == "success" ]; then
+              STATUS="published"
+            else
+              STATUS="failed"
+            fi
+          fi
+          jq -n \
+            --arg language "${{ matrix.language }}" \
+            --arg type "ext-library-sources" \
+            --arg package "codeql-${{ matrix.language }}-library-sources" \
+            --arg previous_version "${{ steps.check_version.outputs.published_version }}" \
+            --arg target_version "${{ steps.check_version.outputs.current_version }}" \
+            --arg status "$STATUS" \
+            '{language: $language, type: $type, package: $package, previous_version: $previous_version, target_version: $target_version, status: $status}' \
+            > "publish-results/${{ matrix.language }}-ext-library-sources.json"
+
+      - name: Upload publish result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publish-result-${{ matrix.language }}-ext-library-sources
+          path: publish-results/${{ matrix.language }}-ext-library-sources.json
+          retention-days: 1
+
+  summary:
+    name: Publish summary
+    needs: [queries, library, extensions, library_sources_extensions]
+    if: always()
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Download publish results
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: publish-result-*
+          path: publish-results
+          merge-multiple: true
+
+      - name: Build summary table
+        run: |
+          mkdir -p publish-results
+          echo "Result fragments found:"
+          ls -la publish-results
+          .github/scripts/build-publish-summary.sh publish-results > summary.md
+          echo "summary.md is $(wc -l < summary.md) lines, $(wc -c < summary.md) bytes"
+          cat summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Build CodeQL library & query pack versions table
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          .github/scripts/build-codeql-lib-versions-table.sh > codeql-lib-versions.md
+          cat codeql-lib-versions.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upsert release table
+        # Only the release-cut path (push to .release.yml) should touch a GitHub Release's
+        # notes. A workflow_dispatch run is often a one-off hotfix publish for a single pack
+        # (see CONTRIBUTING.md's "Manual/one-off hotfix publish") while .release.yml still
+        # points at the last cut release - upserting this run's tables into that release would
+        # misleadingly overwrite its notes with a summary of an unrelated hotfix run.
+        if: github.event_name == 'push'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          .github/scripts/upsert-release-table.sh summary.md publish-summary
+          .github/scripts/upsert-release-table.sh codeql-lib-versions.md codeql-lib-versions
