@@ -305,11 +305,23 @@ supported way to bump `.release.yml`:
       [`42ByteLabs/patch-release-me`][patch-release-me] tool, which reads `.release.yml`'s current
       `version:`, computes the bump, and opens a PR that:
   - bumps `.release.yml`'s `version:` to the new value, and
-  - patches **every** matching pack's own `version:` field to match (the "CodeQL Pack Versions"
+  - patches **every** matching pack's own `version:` field to match (the "CodeQL Packs"
     location in `.release.yml`, added in [#158][pr-158] — this is what makes `.release.yml` a real
     lever over publishing today, not just a changelog label), and
   - writes a `prerelease: true|false` field into `.release.yml` reflecting the `prerelease` input
     (default `false`/unchecked, i.e. a full release) - see the note below.
+
+> [!IMPORTANT]
+> `ql/hotspots/` is deliberately excluded from that "CodeQL Packs" location (it's a separate
+> package published by its own manual `workflow_dispatch`, not part of the per-language pack
+> family - see `.github/workflows/hotspots.yml`). That location's `name:` **must stay exactly
+> `"CodeQL Packs"`**, matching `patch-release-me`'s own built-in default location for the
+> `CodeQL` ecosystem - if it's ever renamed, the built-in default silently reactivates
+> alongside it and re-bumps `ql/hotspots/qlpack.yml` regardless of the exclude, since the
+> built-in default doesn't know about it. Its pattern also needs the `(?m)` multiline flag
+> (`(?m)^version:\s*{version}$`) - without it, `^`/`$` anchor to the whole file rather than each
+> line and the pattern silently never matches anything. Both were real, live bugs discovered
+> while landing the CodeQL 2.22.4/v0.3.0 bump (see PR #173).
 - [ ] Review and merge that PR like any other.
 - [ ] Merging it is what changes `.release.yml` on `main`, which auto-triggers
       [`publish.yml`][publish-workflow] for a real batch publish: every pack whose version actually
