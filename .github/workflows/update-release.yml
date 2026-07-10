@@ -70,7 +70,7 @@ jobs:
             `mode: ${{ inputs.mode }}`, `prerelease: ${{ inputs.prerelease }}`).
 
             Merging this PR triggers `publish.yml`'s real batch publish. Its `summary`
-            job will create the matching GitHub Release as a **${{ inputs.prerelease == 'true' && 'pre-release' || 'full release' }}**.
+            job will create the matching GitHub Release as a **${{ inputs.prerelease && 'pre-release' || 'full release' }}**.
           branch: "auto-patch-release"
           labels: "version"
           delete-branch: true
