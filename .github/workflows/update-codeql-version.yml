@@ -59,10 +59,11 @@ jobs:
           gh codeql version --format=terse
           BUNDLE_DIR="$HOME/.local/share/gh/extensions/gh-codeql/dist/release/v${{ steps.version.outputs.version }}"
           echo "bundle dir: $BUNDLE_DIR"
-          ls -la "$BUNDLE_DIR" || true
-          find "$BUNDLE_DIR" -maxdepth 2 -iname "qlpacks*" 2>/dev/null || true
-          find "$BUNDLE_DIR" -maxdepth 8 -path "*qlpacks/codeql/go-all*" -iname "qlpack.yml" 2>/dev/null || true
-          find "$BUNDLE_DIR" -maxdepth 8 -path "*qlpacks/codeql/*-all*" -iname "qlpack.yml" 2>/dev/null | sort || true
+          find "$BUNDLE_DIR" -maxdepth 3 -type d -iname "go*" 2>/dev/null || true
+          echo "--- all qlpack.yml under go dir ---"
+          find "$BUNDLE_DIR/go" -iname "qlpack.yml" 2>/dev/null | sort || true
+          echo "--- resolve qlpacks using bundle codeql binary ---"
+          "$BUNDLE_DIR/codeql" resolve qlpacks --format=json --search-path "$BUNDLE_DIR" 2>&1 | head -c 4000 || true
 
       - name: Upgrade every pack's dependencies
         env:
