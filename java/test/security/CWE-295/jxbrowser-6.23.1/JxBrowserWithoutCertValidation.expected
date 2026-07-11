@@ -1,2 +1,1 @@
-WARNING: predicate 'getResult' has been deprecated and may be removed in future (JxBrowserWithoutCertValidation.ql:50,8-17)
 | JxBrowserWithoutCertValidationV6_23_1.java:17:27:17:39 | new Browser(...) | This JxBrowser instance may not check HTTPS certificates. |
