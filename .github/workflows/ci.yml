@@ -37,12 +37,12 @@ jobs:
               - '.github/**'
 
       - name: Setup CodeQL
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         id: install-codeql
         uses: ./.github/actions/install-codeql
 
       - name: Install Packs
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ github.token }}
           CODEQL_CLI_VERSION: ${{ steps.install-codeql.outputs.codeql-cli-version }}
@@ -53,14 +53,14 @@ jobs:
           codeql pack install "${{ matrix.language }}/test"
 
       - name: Compile Queries
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          ./.github/scripts/pr-compile.sh ${{ github.event.number }} ${{ matrix.language }}
+          ./.github/scripts/pr-compile.sh "${{ github.event.number }}" "${{ matrix.language }}"
 
       - name: Test Queries
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         env:
           RUNNER_TEMP: ${{ runner.temp }}
         shell: python
@@ -110,7 +110,7 @@ jobs:
               file.close()
 
       - name: Upload test results
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         uses: actions/upload-artifact@v7
         with:
           name: ${{ matrix.language }}-test-results
@@ -119,11 +119,11 @@ jobs:
           if-no-files-found: error
 
       - name: Compile / Check Suites & Packs
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          ./.github/scripts/pr-suites-packs.sh ${{ github.event.number }} ${{ matrix.language }}
+          ./.github/scripts/pr-suites-packs.sh "${{ github.event.number }}" "${{ matrix.language }}"
 
   validate-test-results:
     name: Validate test results
@@ -180,11 +180,11 @@ jobs:
               - '${{ matrix.language }}/ext/**'
 
       - name: Setup CodeQL
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         uses: ./.github/actions/install-codeql
 
       - name: Install Packs
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
@@ -213,11 +213,11 @@ jobs:
               - '${{ matrix.language }}/ext-library-sources/**'
 
       - name: Setup CodeQL
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         uses: ./.github/actions/install-codeql
 
       - name: Install CodeQL
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
@@ -242,11 +242,11 @@ jobs:
               - 'configs/**'
       
       - name: Setup CodeQL
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         uses: ./.github/actions/install-codeql
 
       - name: "Check Configurations"
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
