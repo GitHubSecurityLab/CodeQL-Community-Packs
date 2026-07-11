@@ -1,6 +1,6 @@
 library: false
 name: githubsecuritylab/codeql-ruby-queries
-version: 0.5.0
+version: 0.5.1
 suites: suites
 defaultSuiteFile: suites/ruby.qls
 dependencies:
