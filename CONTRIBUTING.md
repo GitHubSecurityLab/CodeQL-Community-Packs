@@ -62,7 +62,7 @@ After the query is merged, we welcome pull requests to improve it.
 
 ## Supported CodeQL versions
 
-Every query pack in this repository is compiled and tested against a specific version of the upstream CodeQL standard libraries (e.g. `codeql/java-all`). These queries are **only guaranteed to compile** against the exact library versions shown below: newer or older CodeQL CLI/library versions may rename or remove APIs the queries depend on (see [#151](https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/151) for an example, and [#145](https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/issues/145) for the ongoing effort to refresh these pins).
+Every query pack in this repository is compiled and tested against a specific, pinned version of the upstream CodeQL standard libraries (e.g. `codeql/java-all`). These queries are **only guaranteed to compile** against those exact library versions (see the latest release for the current versions): newer or older CodeQL CLI/library versions may rename or remove APIs the queries depend on (see [#151](https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/151) for an example, and [#145](https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/issues/145) for the ongoing effort to refresh these pins).
 
 The pinning is codified per language across:
 - [`.codeqlversion`][codeqlversion] (repo root): the CodeQL **CLI** version CI installs and compiles/tests against.
@@ -78,9 +78,9 @@ The pinning is codified per language across:
   `codeql pack upgrade` is run against one directory but not the other, or one `qlpack.yml` pin is
   hand-edited without the other) for them to drift apart. Always upgrade both when bumping
   `.codeqlversion` (the [automated workflow](#updating-the-pinned-codeql-clilibrary-version) does this
-  for every pack directory in one pass); the table below only shows `src` for brevity, but the
-  auto-generated table in every publish summary (see [Cutting a release](#cutting-a-release)) checks
-  both and will flag drift between them.
+  for every pack directory in one pass); the auto-generated table in every publish summary (see
+  [Cutting a release](#cutting-a-release)) checks both `src` and `lib` independently and will flag
+  drift between them.
 
 > [!WARNING]
 > **Why `codeql/*` dependencies are pinned to an exact version instead of left as `'*'`:** they used
@@ -119,22 +119,36 @@ The pinning is codified per language across:
 > `codeql/<pkg>: '*'`, that just means its dependencies haven't been re-resolved since, not that the
 > convention doesn't apply to it.
 
-CodeQL CLI: `v2.21.1` (released 2025-04-16) ([Bundle](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.21.1) / [Binary](https://github.com/github/codeql-cli-binaries/releases/tag/v2.21.1))
+**This section no longer hand-maintains a version table** - it used to, but that table went stale
+across multiple CLI bumps in a row (nobody remembered to update it, and there was no CI check
+enforcing it) while the *real* answer was already being generated automatically and posted
+somewhere more visible. Don't add one back here; see below for where to actually look.
 
-| Language | Query pack | Standard library (`*-all`) | Upstream query pack (`*-queries`) | Lock file |
-| --- | --- | --- | --- | --- |
-| C/C++ | [codeql-cpp-queries](./cpp) | `codeql/cpp-all` 4.2.0 | `codeql/cpp-queries` 1.3.8 | [cpp/src/codeql-pack.lock.yml](./cpp/src/codeql-pack.lock.yml) |
-| C# | [codeql-csharp-queries](./csharp) | `codeql/csharp-all` 5.1.4 | `codeql/csharp-queries` 1.1.1 | [csharp/src/codeql-pack.lock.yml](./csharp/src/codeql-pack.lock.yml) |
-| Go | [codeql-go-queries](./go) | `codeql/go-all` 4.2.3 | *not used* | [go/src/codeql-pack.lock.yml](./go/src/codeql-pack.lock.yml) |
-| Java/Kotlin | [codeql-java-queries](./java) | `codeql/java-all` 7.1.3 | *not used* | [java/src/codeql-pack.lock.yml](./java/src/codeql-pack.lock.yml) |
-| JavaScript/TypeScript | [codeql-javascript-queries](./javascript) | `codeql/javascript-all` 2.6.1 | *not used* | [javascript/src/codeql-pack.lock.yml](./javascript/src/codeql-pack.lock.yml) |
-| Python | [codeql-python-queries](./python) | `codeql/python-all` 4.0.5 | *not used* | [python/src/codeql-pack.lock.yml](./python/src/codeql-pack.lock.yml) |
-| Ruby | [codeql-ruby-queries](./ruby) | `codeql/ruby-all` 4.1.4 | *not used* | [ruby/src/codeql-pack.lock.yml](./ruby/src/codeql-pack.lock.yml) |
+To find the CodeQL CLI/library versions this repo currently builds and tests against:
 
-Most of our query packs only depend on the standard library (`*-all`) for CodeQL's core language APIs. C/C++ and C# are the exception: their `qlpack.yml` also declares a dependency on the upstream `codeql/<language>-queries` pack, because one query (`audit/explore/Dependencies.ql`) reuses a `Metrics.Dependencies` helper that ships with the upstream query pack rather than the standard library. That's an extra surface area those two languages need to stay compatible with.
+- **[Latest GitHub Release][latest-release]** - every release's notes include an auto-generated
+  **"CodeQL standard library & query pack versions"** table (produced by `publish.yml`'s `summary`
+  job, see [Cutting a release](#cutting-a-release)), comparing every language's locked `codeql/*`
+  dependency - independently for both `src` and `lib`, since they're separately-resolved lock files
+  that can drift apart - against what [github/codeql][codeql-repo] itself ships for that exact CLI
+  version, with a ✅/mismatch status per row and a direct link to the exact file/line on both sides
+  (our lock file, upstream's `qlpack.yml`) so any claim can be verified with one click. This is
+  always in sync with what's actually on `main` at release time, because it's generated from the
+  real lock files, not typed by hand.
+- **[`.codeqlversion`][codeqlversion]** (repo root) directly, if you just need the pinned CLI
+  version and don't need the per-language library breakdown.
 
-> [!NOTE]
-> This table is maintained by hand today; update it whenever `.codeqlversion` or the `codeql-pack.lock.yml` files are refreshed. For a broader mapping of CodeQL CLI/bundle versions to per-language library versions (useful when triaging why a query compiles locally but not in CI, or vice versa), see the community [CodeQL Bundle Version Tracker](https://github.com/advanced-security/advanced-security-material/blob/main/codeql/codeql-version-tracker.md).
+For a broader mapping of CodeQL CLI/bundle versions to per-language library versions (useful when
+triaging why a query compiles locally but not in CI, or vice versa), see the community
+[CodeQL Bundle Version Tracker](https://github.com/advanced-security/advanced-security-material/blob/main/codeql/codeql-version-tracker.md).
+
+Most of our query packs only depend on the standard library (`*-all`) for CodeQL's core language
+APIs. C/C++ and C# are the exception: their `qlpack.yml` also declares a dependency on the upstream
+`codeql/<language>-queries` pack, because one query (`audit/explore/Dependencies.ql`) reuses a
+`Metrics.Dependencies` helper that ships with the upstream query pack rather than the standard
+library. That's an extra surface area those two languages need to stay compatible with, which is
+why the version table in each release shows an extra `codeql/<language>-queries` row for those two
+languages that the others don't have.
 
 ## Releases & publishing
 
@@ -244,7 +258,6 @@ coding agent) in the loop for the hard part — fixing whatever the new CLI brea
            [`copilot-setup-steps.yml`][copilot-setup-steps-workflow] pre-installs the pinned
            CodeQL CLI and the matching `github/codeql` test-stubs checkout so the agent can
            actually run `codeql test run` itself instead of guessing.
-     - [ ] Update the "Supported CodeQL versions" table above.
      - [ ] Review and merge.
      - [ ] Once merged, run [`update-release.yml`][update-release-workflow] as described in
            [Cutting a release](#cutting-a-release) below to bump every pack's `version:` in
@@ -252,7 +265,6 @@ coding agent) in the loop for the hard part — fixing whatever the new CLI brea
    - **With `release_bump` set** — merging this PR *is* the release; there's no separate follow-up
      step:
      - [ ] Fix any compilation/test errors CI surfaces from upstream API changes, same as above.
-     - [ ] Update the "Supported CodeQL versions" table above.
      - [ ] Review and merge — this alone triggers the real batch publish and the same
            `summary` job / GitHub Release upsert described in
            [Cutting a release](#cutting-a-release) below.
@@ -406,6 +418,8 @@ Please do get in touch (privacy@github.com) if you have any questions about this
 [release-config]: ./.release.yml
 [patch-release-me]: https://github.com/42ByteLabs/patch-release-me
 [releases]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/releases
+[latest-release]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/releases/latest
+[codeql-repo]: https://github.com/github/codeql
 [ghcr-packages]: https://github.com/orgs/GitHubSecurityLab/packages?repo_name=CodeQL-Community-Packs
 [pr-118]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/118
 [pr-124]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/124

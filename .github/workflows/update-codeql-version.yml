@@ -224,7 +224,6 @@ jobs:
               echo '- [ ] Check CI on this PR - fix any compilation/test errors caused by upstream'
               echo '  API changes. This is usually the hardest part; consider delegating it to a'
               echo '  Copilot coding agent session pointed at this PR/branch.'
-              echo '- [ ] Update the "Supported CodeQL versions" table in CONTRIBUTING.md.'
               echo '- [ ] Review and merge - this alone will trigger the real batch publish.'
             else
               echo '**This PR does not publish anything by itself** - no pack `version:` field is'
@@ -235,7 +234,6 @@ jobs:
               echo '- [ ] Check CI on this PR - fix any compilation/test errors caused by upstream'
               echo '  API changes. This is usually the hardest part; consider delegating it to a'
               echo '  Copilot coding agent session pointed at this PR/branch.'
-              echo '- [ ] Update the "Supported CodeQL versions" table in CONTRIBUTING.md.'
               echo '- [ ] Review and merge.'
               echo '- [ ] Once merged, run the "CodeQL Update Release" workflow'
               echo '  (`update-release.yml`) to bump every pack'"'"'s `version:` in lockstep via'
