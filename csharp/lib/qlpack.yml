@@ -1,5 +1,5 @@
 library: true 
 name: githubsecuritylab/codeql-csharp-libs
-version: 0.5.1
+version: 0.6.0
 dependencies:
-  codeql/csharp-all: "5.4.8"
+  codeql/csharp-all: "6.0.2"
