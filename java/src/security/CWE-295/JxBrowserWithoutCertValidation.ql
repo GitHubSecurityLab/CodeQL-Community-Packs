@@ -47,7 +47,7 @@ private class JxBrowserLoadHandler extends RefType {
 
 private predicate isOnCertificateErrorMethodSafe(Method m) {
   forex(ReturnStmt rs | rs.getEnclosingCallable() = m |
-    rs.getResult().(CompileTimeConstantExpr).getBooleanValue() = true
+    rs.getExpr().(CompileTimeConstantExpr).getBooleanValue() = true
   )
 }
 

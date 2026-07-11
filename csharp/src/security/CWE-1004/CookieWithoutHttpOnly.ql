@@ -21,7 +21,7 @@ import security.dataflow.flowsources.AuthCookie
 from Expr httpOnlySink
 where
   exists(Assignment a, Expr val |
-    httpOnlySink = a.getRValue() and
+    httpOnlySink = a.getRightOperand() and
     val.getValue() = "false" and
     (
       exists(ObjectCreation oc |
@@ -53,8 +53,8 @@ where
             MicrosoftAspNetCoreAuthenticationCookiesCookieAuthenticationOptions
         ) and
         pw.getProperty().getName() = "HttpOnly" and
-        a.getLValue() = pw and
-        DataFlow::localExprFlow(val, a.getRValue())
+        a.getLeftOperand() = pw and
+        DataFlow::localExprFlow(val, a.getRightOperand())
       )
     )
   )

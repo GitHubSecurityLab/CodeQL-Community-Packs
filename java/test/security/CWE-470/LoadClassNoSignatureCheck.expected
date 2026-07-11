@@ -1,6 +1,3 @@
-WARNING: predicate 'getAUse' has been deprecated and may be removed in future (LoadClassNoSignatureCheck.ql:45,7-14)
-WARNING: predicate 'getAUse' has been deprecated and may be removed in future (LoadClassNoSignatureCheck.ql:46,14-21)
-WARNING: type 'SsaVariable' has been deprecated and may be removed in future (LoadClassNoSignatureCheck.ql:44,34-45)
 #select
 | BadClassLoader.java:18:37:18:47 | classLoader | BadClassLoader.java:15:42:16:75 | createPackageContext(...) : Context | BadClassLoader.java:18:37:18:47 | classLoader | Class loaded from a $@ without signature check | BadClassLoader.java:15:42:16:75 | createPackageContext(...) | third party library |
 edges
