@@ -18,7 +18,6 @@ import codeql.ruby.dataflow.RemoteFlowSources
 import codeql.ruby.dataflow.BarrierGuards
 import codeql.ruby.AST
 import codeql.ruby.controlflow.CfgNodes as CfgNodes
-import codeql.ruby.CFG
 import codeql.ruby.dataflow.internal.DataFlowPublic
 import codeql.ruby.InclusionTests
 
@@ -31,7 +30,7 @@ import codeql.ruby.InclusionTests
  * 3. A comparison operation node with a greater than or greater than or equal operator and the branch is false
  * 4. A comparison operation node with a less than or less than or equal operator and the branch is false
  */
-predicate underAValue(CfgNodes::AstCfgNode g, CfgNode node, boolean branch) {
+predicate underAValue(CfgNodes::AstCfgNode g, Cfg::CfgNode node, boolean branch) {
   exists(CfgNodes::ExprNodes::ComparisonOperationCfgNode cn | cn = g |
     exists(string op |
       (
