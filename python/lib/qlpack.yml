@@ -1,5 +1,5 @@
 library: true 
 name: githubsecuritylab/codeql-python-libs
-version: 0.4.0
+version: 0.5.0
 dependencies:
-  codeql/python-all: '5.0.4'
+  codeql/python-all: '7.0.0'

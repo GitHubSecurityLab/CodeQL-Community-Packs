@@ -2,23 +2,23 @@
 lockVersion: 1.0.0
 dependencies:
   codeql/controlflow:
-    version: 2.0.23
+    version: 2.0.27
   codeql/csharp-all:
-    version: 5.4.4
+    version: 5.4.8
   codeql/dataflow:
-    version: 2.0.23
+    version: 2.0.27
   codeql/mad:
-    version: 1.0.39
+    version: 1.0.43
   codeql/ssa:
-    version: 2.0.15
+    version: 2.0.19
   codeql/threat-models:
-    version: 1.0.39
+    version: 1.0.43
   codeql/tutorial:
-    version: 1.0.39
+    version: 1.0.43
   codeql/typetracking:
-    version: 2.0.23
+    version: 2.0.27
   codeql/util:
-    version: 2.0.26
+    version: 2.0.30
   codeql/xml:
-    version: 1.0.39
+    version: 1.0.43
 compiled: false

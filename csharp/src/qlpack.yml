@@ -1,9 +1,9 @@
 library: false
 name: githubsecuritylab/codeql-csharp-queries
-version: 0.4.0
+version: 0.5.0
 suites: suites
 defaultSuiteFile: suites/csharp.qls
 dependencies:
-  codeql/csharp-all: "5.4.4"
-  codeql/csharp-queries: "1.5.4" # Required for Dependencies.ql
+  codeql/csharp-all: "5.4.8"
+  codeql/csharp-queries: "1.6.3" # Required for Dependencies.ql
   githubsecuritylab/codeql-csharp-libs: "*"
