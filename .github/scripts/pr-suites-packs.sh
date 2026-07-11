@@ -19,9 +19,13 @@ if [[ -z "$PR_NUMBER" ]]; then
         done < <(find "$LANGUAGE/suites" -name '*.qls' -print0)
     fi
 
-    echo "[+] Compiling Pack: $LANGUAGE"
-    codeql pack install "$LANGUAGE"
-    codeql pack create "$LANGUAGE"
+    for pack_dir in "$LANGUAGE/src" "$LANGUAGE/lib" "$LANGUAGE/ext" "$LANGUAGE/ext-library-sources"; do
+        if [[ -f "$pack_dir/qlpack.yml" ]]; then
+            echo "[+] Compiling Pack: $pack_dir"
+            codeql pack install "$pack_dir"
+            codeql pack create "$pack_dir"
+        fi
+    done
 
     echo "[+] Complete"
     exit 0
