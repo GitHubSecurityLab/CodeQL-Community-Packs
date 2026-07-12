@@ -69,7 +69,7 @@ where
   )
   or
   exists(Assignment a, Expr val |
-    secureSink = a.getRValue() and
+    secureSink = a.getRightOperand() and
     (
       exists(ObjectCreation oc |
         getAValueForProp(oc, a, "Secure") = val and
@@ -95,8 +95,8 @@ where
             MicrosoftAspNetCoreAuthenticationCookiesCookieAuthenticationOptions
         ) and
         pw.getProperty().getName() = "SecurePolicy" and
-        a.getLValue() = pw and
-        DataFlow::localExprFlow(val, a.getRValue()) and
+        a.getLeftOperand() = pw and
+        DataFlow::localExprFlow(val, a.getRightOperand()) and
         val.getValue() = "2" // None
       )
     )

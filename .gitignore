@@ -11,6 +11,9 @@
 */*.class
 # Cloned repository of codeql
 /codeql
+# Downloaded/extracted CodeQL CLI (see .github/actions/install-codeql), cached
+# by actions/cache between CI runs - never meant to be committed.
+/codeql_home
 
 # Test files / folders
 test.ql

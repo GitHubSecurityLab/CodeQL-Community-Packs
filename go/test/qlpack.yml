@@ -1,7 +1,7 @@
 name: githubsecurtylab/codeql-go-tests
 groups: [go, test]
 dependencies:
-    codeql/go-all: '*'
+    codeql/go-all: '7.1.2'
       # codeql/go-queries: '*'
     githubsecuritylab/codeql-go-queries: '*'
     githubsecuritylab/codeql-go-libs: '*'

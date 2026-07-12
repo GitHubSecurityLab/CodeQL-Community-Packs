@@ -1,0 +1,253 @@
+name: Update CodeQL CLI Version
+
+# Bumps the pinned CodeQL CLI/library version (.codeqlversion) and refreshes every
+# pack's codeql-pack.lock.yml against it, then opens a PR with the result.
+#
+# By default this does NOT publish anything and does NOT bump any pack's `version:`
+# field - it only prepares the dependency-refresh half of the process documented in
+# CONTRIBUTING.md's "Updating the pinned CodeQL CLI/library version" section. A human
+# (or a delegated Copilot coding agent) still needs to fix any compilation/test
+# breakage the new CLI/library versions introduce before merging, and the existing
+# "CodeQL Update Release" workflow (update-release.yml) is still what bumps every
+# pack's version and triggers the real batch publish once this PR is merged.
+#
+# Optionally, set `release_bump` (patch/minor/major) to fold that release bump into
+# THIS SAME PR - it runs the same `patch-release-me` step update-release.yml uses,
+# which bumps `.release.yml`'s repo-wide version and propagates it to every pack's
+# own `version:` field, `configs/*.yml` references, and cross-pack `-libs` pins in
+# one pass. Since publish.yml's auto-trigger fires on any push to `main` that changes
+# `.release.yml`, merging this one combined PR is then enough to kick off the real
+# batch publish immediately - no separate "CodeQL Update Release" run needed
+# afterward. Leave `release_bump` empty (the default) to only refresh dependencies,
+# e.g. when you expect CI breakage that needs fixing before it's safe to publish.
+on:
+  workflow_dispatch:
+    inputs:
+      codeql_version:
+        description: "New CodeQL CLI version to pin, e.g. 2.22.0 (a leading 'v' is fine too)"
+        required: true
+        type: string
+      release_bump:
+        description: "Optional: patch/minor/major - also bump the repo release version and every pack's version in this same PR to trigger a real publish on merge. Leave empty to only refresh dependencies (default)."
+        required: false
+        type: string
+        default: ""
+      release_prerelease:
+        description: "Only used if release_bump is set: mark the resulting GitHub Release as a pre-release (default: off, a full release)"
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  update-codeql-version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read # PR creation uses a scoped GitHub App token (SECLABS_APP_ID/SECLABS_APP_KEY), not GITHUB_TOKEN
+      packages: read # `codeql pack upgrade` resolves codeql/* library deps from GHCR (see ci.yml)
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Validate and normalize version input
+        id: version
+        run: |
+          set -euo pipefail
+          VERSION="${{ inputs.codeql_version }}"
+          VERSION="${VERSION#v}" # tolerate an accidental leading "v"
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::codeql_version must look like X.Y.Z, got: ${{ inputs.codeql_version }}"
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Validate release_bump input
+        id: release_bump
+        run: |
+          set -euo pipefail
+          BUMP="${{ inputs.release_bump }}"
+          if [[ -n "$BUMP" && ! "$BUMP" =~ ^(patch|minor|major)$ ]]; then
+            echo "::error::release_bump must be 'patch', 'minor', 'major', or empty - got: ${{ inputs.release_bump }}" >&2
+            exit 1
+          fi
+          echo "bump=$BUMP" >> "$GITHUB_OUTPUT"
+
+      - name: Update .codeqlversion
+        run: |
+          echo "${{ steps.version.outputs.version }}" > .codeqlversion
+          echo "Pinned CodeQL CLI version bumped to ${{ steps.version.outputs.version }}"
+
+      - name: Setup CodeQL
+        uses: ./.github/actions/install-codeql
+
+      - name: Pin codeql/* library dependencies to the CodeQL Bundle version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          .github/scripts/pin-codeql-library-versions.sh "${{ steps.version.outputs.version }}"
+
+      - name: Upgrade every pack's dependencies
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # Exclusions (kept in sync with the same exclusions in
+          # .github/scripts/pin-codeql-library-versions.sh):
+          #  - ./ql/hotspots is a standalone local dev tool (see
+          #    ql/hotspots/README.md and .github/workflows/hotspots.yml), not
+          #    one of the per-language src/lib/ext/ext-library-sources packs
+          #    that ci.yml and publish.yml operate on. Its `codeql/ql: '*'`
+          #    dependency isn't a real resolvable GHCR package, so it always
+          #    fails `codeql pack upgrade`.
+          #  - ./codeql_home is where .github/actions/install-codeql
+          #    downloads/extracts the CodeQL CLI; it ships its own small
+          #    vendored qlpack.yml packs (e.g. codeql/<lang>/downgrades) that
+          #    have nothing to do with this repo and shouldn't be touched.
+          #  - ./codeql and */.codeql are a locally-cloned github/codeql
+          #    checkout (used by ql/hotspots) and CodeQL's own per-pack build
+          #    caches, respectively - neither is a repo pack either.
+          for dir in $(find . -name qlpack.yml -not -path "./ql/hotspots/*" -not -path "./codeql_home/*" -not -path "./codeql/*" -not -path "*/.codeql/*" -exec dirname {} \;); do
+            echo "::group::codeql pack upgrade $dir"
+            codeql pack upgrade "$dir"
+            echo "::endgroup::"
+          done
+
+      - name: Bump release version (optional)
+        if: steps.release_bump.outputs.bump != ''
+        run: |
+          set -euo pipefail
+          # Invoke the pinned patch-release-me image directly via `docker run`
+          # instead of `uses: 42ByteLabs/patch-release-me@...`. That action's own
+          # action.yml builds its Docker CMD as a single YAML list item
+          # (`-m "${{ inputs.mode }}"`); Docker container actions don't go
+          # through a shell, so the literal quote characters end up baked into
+          # ONE argv token (`-m "minor"`). clap can't match that against
+          # "patch"/"minor"/"major" and silently falls back to its own default
+          # (Patch) - meaning `minor`/`major` have always quietly produced a
+          # patch bump instead (confirmed via a local repro: see PR history).
+          # Running the same pinned image ourselves via a normal shell `run:`
+          # step naturally splits `-m` and the mode value into separate argv
+          # entries, avoiding the bug entirely.
+          #
+          # Pinned by digest (not just tag) so the exact image content can't
+          # change out from under us - digest corresponds to the 0.6.5 tag.
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            -v "${{ github.workspace }}:/repo" \
+            -w /repo \
+            ghcr.io/42bytelabs/patch-release-me@sha256:d9d7abe7051855d0c395fec99d931acc002fb6b299ca16b8123e2c8ef0c7e750 \
+            --disable-banner bump -m ${{ steps.release_bump.outputs.bump }}
+
+      - name: Set release prerelease flag (optional)
+        if: steps.release_bump.outputs.bump != ''
+        run: |
+          set -euo pipefail
+          # See the matching step/comment in update-release.yml: patch-release-me's
+          # Config struct doesn't know about a `prerelease` key, so it would get
+          # silently dropped on the NEXT bump - harmless here since we always
+          # re-set it fresh right after this bump, before the PR is opened.
+          if grep -qE '^prerelease:' .release.yml; then
+            sed -i -E "s/^prerelease:.*/prerelease: ${{ inputs.release_prerelease }}/" .release.yml
+          else
+            sed -i -E "/^version:/a prerelease: ${{ inputs.release_prerelease }}" .release.yml
+          fi
+
+      - name: Determine new release version (if bumped)
+        id: release_version
+        if: steps.release_bump.outputs.bump != ''
+        run: |
+          set -euo pipefail
+          NEW_VERSION="$(grep -E '^version:' .release.yml | head -1 | sed -E 's/^version:[[:space:]]*"?([^"[:space:]]+)"?/\1/')"
+          echo "version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
+          echo "Release version bumped to ${NEW_VERSION}"
+
+      - name: Summarize changed files
+        run: |
+          {
+            echo "## Files changed by this CodeQL CLI bump"
+            echo
+            git status --porcelain | sed 's/^/- /'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Get Token
+        id: get_workflow_token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.SECLABS_APP_ID }}
+          private-key: ${{ secrets.SECLABS_APP_KEY }}
+
+      - name: Build PR title and body
+        id: pr_meta
+        run: |
+          set -euo pipefail
+          if [[ -n "${{ steps.release_bump.outputs.bump }}" ]]; then
+            TITLE="chore: bump pinned CodeQL CLI to v${{ steps.version.outputs.version }} and release v${{ steps.release_version.outputs.version }}"
+          else
+            TITLE="chore: bump pinned CodeQL CLI to v${{ steps.version.outputs.version }}"
+          fi
+          echo "title=$TITLE" >> "$GITHUB_OUTPUT"
+
+          {
+            echo 'Automated CLI version bump, requested via the "Update CodeQL CLI Version"'
+            echo "workflow (\`workflow_dispatch\`, \`codeql_version: ${{ steps.version.outputs.version }}\`, \`release_bump: ${{ steps.release_bump.outputs.bump || '(none)' }}\`)."
+            echo
+            echo "This PR:"
+            echo '- Updates `.codeqlversion` to `'"${{ steps.version.outputs.version }}"'`.'
+            echo '- Pins every `codeql/<lang>-all` / `codeql/<lang>-queries` dependency across all'
+            echo '  `qlpack.yml` files to the exact version shipped in the official CodeQL Bundle'
+            echo '  for this CLI release (see `.github/scripts/pin-codeql-library-versions.sh`) -'
+            echo '  this keeps `codeql pack upgrade` from jumping those libraries to'
+            echo '  registry-latest instead of the version this CLI actually ships/tests against.'
+            echo '- Runs `codeql pack upgrade <dir>` for every pack directory to refresh its'
+            echo '  `codeql-pack.lock.yml` against the new CLI and pinned library versions.'
+            echo
+            if [[ -n "${{ steps.release_bump.outputs.bump }}" ]]; then
+              if [[ "${{ inputs.release_prerelease }}" == "true" ]]; then
+                RELEASE_KIND="pre-release"
+              else
+                RELEASE_KIND="full release"
+              fi
+              echo "- Also bumps the repo release version (\`${{ steps.release_bump.outputs.bump }}\`, via the same"
+              echo '  `patch-release-me` step `update-release.yml` uses) to `'"${{ steps.release_version.outputs.version }}"'`,'
+              echo "  propagating it to every pack's own \`version:\` field, \`configs/*.yml\`"
+              echo '  references, and cross-pack `-libs` pins.'
+              echo
+              echo '**Merging this PR triggers the real batch publish** - `publish.yml`'"'"'s'
+              echo 'auto-trigger fires on any push to `main` that changes `.release.yml`, which this'
+              echo "PR does. No separate \"CodeQL Update Release\" run is needed. That run's \`summary\`"
+              echo "job will create the matching GitHub Release as a **${RELEASE_KIND}**"
+              echo "(\`release_prerelease: ${{ inputs.release_prerelease }}\`)."
+              echo
+              echo 'Remaining steps (see CONTRIBUTING.md'"'"'s "Updating the pinned CodeQL CLI/library'
+              echo 'version" section):'
+              echo
+              echo '- [ ] Check CI on this PR - fix any compilation/test errors caused by upstream'
+              echo '  API changes. This is usually the hardest part; consider delegating it to a'
+              echo '  Copilot coding agent session pointed at this PR/branch.'
+              echo '- [ ] Review and merge - this alone will trigger the real batch publish.'
+            else
+              echo '**This PR does not publish anything by itself** - no pack `version:` field is'
+              echo "bumped here, so \`publish.yml\`'s version-diff trigger won't fire for it yet."
+              echo 'Remaining steps (see CONTRIBUTING.md'"'"'s "Updating the pinned CodeQL CLI/library'
+              echo 'version" section):'
+              echo
+              echo '- [ ] Check CI on this PR - fix any compilation/test errors caused by upstream'
+              echo '  API changes. This is usually the hardest part; consider delegating it to a'
+              echo '  Copilot coding agent session pointed at this PR/branch.'
+              echo '- [ ] Review and merge.'
+              echo '- [ ] Once merged, run the "CodeQL Update Release" workflow'
+              echo '  (`update-release.yml`) to bump every pack'"'"'s `version:` in lockstep via'
+              echo '  `.release.yml` and trigger the real batch publish.'
+            fi
+          } > "${{ runner.temp }}/pr-body.md"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ steps.get_workflow_token.outputs.token }}
+          title: ${{ steps.pr_meta.outputs.title }}
+          commit-message: ${{ steps.pr_meta.outputs.title }}
+          body-path: "${{ runner.temp }}/pr-body.md"
+          branch: "chore/update-codeql-cli-${{ steps.version.outputs.version }}"
+          labels: "version"
+          delete-branch: true

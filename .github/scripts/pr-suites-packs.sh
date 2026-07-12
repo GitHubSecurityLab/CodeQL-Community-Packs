@@ -1,9 +1,35 @@
 #!/bin/bash
 set -euo pipefail
 
-PR_NUMBER=${1}
+PR_NUMBER=${1:-}
 LANGUAGE=${2}
 PACK_COMPILED=false
+
+if [[ -z "$PR_NUMBER" ]]; then
+    # No PR context (e.g. workflow_dispatch run directly on a branch) - there is no PR
+    # file list to walk, so resolve every suite and (re)build the language's packs
+    # directly. There is no PR to comment on, so the version-diff-comment logic below
+    # is intentionally skipped in this mode.
+    echo "[+] No PR number provided - running full suite/pack validation for $LANGUAGE"
+
+    if [[ -d "$LANGUAGE/suites" ]]; then
+        while IFS= read -r -d '' suite; do
+            echo "[+] Compiling Suite: $suite"
+            codeql resolve queries "$suite"
+        done < <(find "$LANGUAGE/suites" -name '*.qls' -print0)
+    fi
+
+    for pack_dir in "$LANGUAGE/src" "$LANGUAGE/lib" "$LANGUAGE/ext" "$LANGUAGE/ext-library-sources"; do
+        if [[ -f "$pack_dir/qlpack.yml" ]]; then
+            echo "[+] Compiling Pack: $pack_dir"
+            codeql pack install "$pack_dir"
+            codeql pack create "$pack_dir"
+        fi
+    done
+
+    echo "[+] Complete"
+    exit 0
+fi
 
 for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
     if [[ ! -f "$file" ]]; then

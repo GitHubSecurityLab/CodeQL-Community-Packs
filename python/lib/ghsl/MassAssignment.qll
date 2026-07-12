@@ -22,10 +22,9 @@ module MassAssignment {
         this = API::builtin("setattr").getACall().getArg(1)
         or
         // > __setattr__(SINK, value)
-        exists(Value value, CallNode call |
-          value.getName() = "__setattr__" and
-          call = value.getACall() and
-          this.asCfgNode() = call.getArg(0)
+        exists(DataFlow::MethodCallNode call |
+          call.getMethodName() = "__setattr__" and
+          this = call.getArg(0)
         )
       ) and
       this.getScope().inSource()

@@ -5,20 +5,30 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+# Least-privilege default; jobs that need to comment on PRs override this below.
+permissions:
+  contents: read
+  packages: read
+
 jobs:
   compile-and-test:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: read
+      pull-requests: write # required by pr-suites-packs.sh (gh pr comment)
+      issues: write # required by pr-suites-packs.sh (gh pr comment)
+      packages: read # required by pr-suites-packs.sh (gh api packages)
+
     strategy:
       fail-fast: false
       matrix:
         language: [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       # Conditionally run actions based on files modified by PR, feature branch or pushed commits
-      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36
+      - uses: dorny/paths-filter@7b450fff21473bca461d4b92ce414b9d0420d706
         id: changes
         with:
           filters: |
@@ -27,12 +37,12 @@ jobs:
               - '.github/**'
 
       - name: Setup CodeQL
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         id: install-codeql
         uses: ./.github/actions/install-codeql
 
       - name: Install Packs
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ github.token }}
           CODEQL_CLI_VERSION: ${{ steps.install-codeql.outputs.codeql-cli-version }}
@@ -43,14 +53,14 @@ jobs:
           codeql pack install "${{ matrix.language }}/test"
 
       - name: Compile Queries
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          ./.github/scripts/pr-compile.sh ${{ github.event.number }} ${{ matrix.language }}
+          ./.github/scripts/pr-compile.sh "${{ github.event.number }}" "${{ matrix.language }}"
 
       - name: Test Queries
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         env:
           RUNNER_TEMP: ${{ runner.temp }}
         shell: python
@@ -100,8 +110,8 @@ jobs:
               file.close()
 
       - name: Upload test results
-        if: steps.changes.outputs.src == 'true'
-        uses: actions/upload-artifact@v6
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ matrix.language }}-test-results
           path: |
@@ -109,11 +119,11 @@ jobs:
           if-no-files-found: error
 
       - name: Compile / Check Suites & Packs
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          ./.github/scripts/pr-suites-packs.sh ${{ github.event.number }} ${{ matrix.language }}
+          ./.github/scripts/pr-suites-packs.sh "${{ github.event.number }}" "${{ matrix.language }}"
 
   validate-test-results:
     name: Validate test results
@@ -122,13 +132,13 @@ jobs:
     steps:
       - name: Check if compile-and-test job failed to complete, if so fail
         if: ${{ needs.compile-and-test.result == 'failure' }}
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             core.setFailed('Test run job failed')
 
       - name: Collect test results
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
 
       - name: Validate test results
         run: |
@@ -158,11 +168,11 @@ jobs:
         language: [ 'csharp', 'java' ]
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: true
 
-      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36
+      - uses: dorny/paths-filter@7b450fff21473bca461d4b92ce414b9d0420d706
         id: changes
         with:
           filters: |
@@ -170,11 +180,11 @@ jobs:
               - '${{ matrix.language }}/ext/**'
 
       - name: Setup CodeQL
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         uses: ./.github/actions/install-codeql
 
       - name: Install Packs
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
@@ -191,11 +201,11 @@ jobs:
         language: [ 'csharp', 'java' ]
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: true
 
-      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36
+      - uses: dorny/paths-filter@7b450fff21473bca461d4b92ce414b9d0420d706
         id: changes
         with:
           filters: |
@@ -203,11 +213,11 @@ jobs:
               - '${{ matrix.language }}/ext-library-sources/**'
 
       - name: Setup CodeQL
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         uses: ./.github/actions/install-codeql
 
       - name: Install CodeQL
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
@@ -217,11 +227,14 @@ jobs:
   configs:
     runs-on: ubuntu-latest
     needs: compile-and-test
-    
-    steps:
-      - uses: actions/checkout@v6
+    permissions:
+      contents: read
+      pull-requests: read # required by pr-configs.sh (gh pr view)
 
-      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: dorny/paths-filter@7b450fff21473bca461d4b92ce414b9d0420d706
         id: changes
         with:
           filters: |
@@ -229,11 +242,11 @@ jobs:
               - 'configs/**'
       
       - name: Setup CodeQL
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         uses: ./.github/actions/install-codeql
 
       - name: "Check Configurations"
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |

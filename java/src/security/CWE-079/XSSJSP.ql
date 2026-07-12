@@ -64,7 +64,7 @@ module LiteralConfig {
   module LiteralConfig implements DataFlow::ConfigSig {
     predicate isSource(DataFlow::Node source) { source.asExpr() instanceof StringLiteral }
 
-    predicate isSink(DataFlow::Node sink) { exists(ReturnStmt rs | rs.getResult() = sink.asExpr()) }
+    predicate isSink(DataFlow::Node sink) { exists(ReturnStmt rs | rs.getExpr() = sink.asExpr()) }
   }
 
   module LiteralFlow = TaintTracking::Global<LiteralConfig>;
@@ -77,7 +77,7 @@ class RedirectToJsp extends ReturnStmt {
     exists(DataFlow::Node strLit, DataFlow::Node retVal |
       strLit.asExpr().(StringLiteral).getValue().splitAt("/") + "_jsp.java" = jsp.getBaseName()
     |
-      retVal.asExpr() = this.getResult() and LiteralConfig::LiteralFlow::flow(strLit, retVal)
+      retVal.asExpr() = this.getExpr() and LiteralConfig::LiteralFlow::flow(strLit, retVal)
     )
   }
 

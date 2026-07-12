@@ -1,13 +1,22 @@
 name: "CodeQL Community Packs"
 repository: "githubsecuritylab/codeql-community-packs"
-version: "0.2.0"
+version: "0.6.0"
+prerelease: false
 
 ecosystem: CodeQL
 excludes:
   - "/.codeql/"
   - "/codeql/"
+  - "/codeql_home/" # only present when run alongside update-codeql-version.yml, which downloads the CLI here
 
 locations:
+  - name: "CodeQL Packs" # must match patch-release-me's built-in default location name for the "CodeQL" ecosystem (see defaults.yml upstream) - otherwise BOTH run, and the built-in one bumps every qlpack.yml with no knowledge of our excludes below
+    paths:
+      - "**/qlpack.yml"
+    excludes:
+      - "ql/hotspots/"
+    patterns:
+      - '(?m)^version:\s*{version}$' # (?m) is required: without it ^/$ anchor to the whole file, not each line, so this would never match a real multi-line qlpack.yml
   - name: "CodeQL Configurations"
     paths:
       - "configs/*.yml"

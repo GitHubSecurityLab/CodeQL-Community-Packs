@@ -1,5 +1,5 @@
 library: true 
 name: githubsecuritylab/codeql-go-libs
-version: 0.2.1
+version: 0.6.0
 dependencies:
-  codeql/go-all: '*'
+  codeql/go-all: '7.1.2'

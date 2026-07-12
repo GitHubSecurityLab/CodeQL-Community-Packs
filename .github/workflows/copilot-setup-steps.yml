@@ -1,0 +1,82 @@
+name: "Copilot Setup Steps"
+
+# Runs in Copilot coding agent's ephemeral environment before it starts working on
+# a delegated task (e.g. fixing compile/test errors surfaced by a CodeQL CLI bump -
+# see CONTRIBUTING.md's "Updating the pinned CodeQL CLI/library version"). Without
+# this, Copilot would have to discover and install the CodeQL CLI itself, which is
+# slow/unreliable and can't happen at all for anything requiring auth.
+#
+# Also runs on workflow_dispatch/push/pull_request against this file itself, so it
+# can be validated like a normal CI check before Copilot ever relies on it.
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+  pull_request:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+
+jobs:
+  # The job MUST be named `copilot-setup-steps` or Copilot won't pick it up.
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read # matches ci.yml/update-codeql-version.yml's grant for `codeql pack install`/`upgrade` resolving codeql/* deps from GHCR
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup CodeQL
+        id: install-codeql
+        uses: ./.github/actions/install-codeql
+
+      - name: Install CodeQL pack dependencies
+        run: |
+          # Pre-downloads every pack's dependencies (codeql/<lang>-all, etc.) into
+          # the pack download cache so Copilot never hits "Pack '...' was not
+          # found in the pack download cache. Run 'codeql pack install' to
+          # download the dependencies." when it runs `codeql query compile` /
+          # `codeql test run`.
+          #
+          # Without this, the agent has to discover on its own that `codeql pack
+          # install <dir>` is a prerequisite - which it does eventually, but not
+          # before burning several minutes on dead-end investigation first (e.g.
+          # a whole-filesystem `find / -name ...` looking for a "missing" library
+          # that was simply never installed). See the Copilot session on PR #173
+          # for a real example: it spent ~3 of its ~10 minutes on that rabbit
+          # hole before running `codeql pack install` and immediately finding/
+          # fixing the real one-line bug.
+          #
+          # We install every pack (not just the language the agent will end up
+          # touching) because we don't know ahead of time which one it'll be
+          # asked to fix - the extra cost is a few seconds per pack, which is
+          # trivial next to the minutes it can save. Same exclude list as
+          # update-codeql-version.yml's `codeql pack upgrade` loop: skip
+          # ql/hotspots (standalone tool, not a real GHCR-resolvable pack),
+          # codeql_home (vendored CLI packs), and codeql/ + */.codeql (the test-
+          # stubs clone below and CodeQL's own per-pack build caches).
+          for dir in $(find . -name qlpack.yml -not -path "./ql/hotspots/*" -not -path "./codeql_home/*" -not -path "./codeql/*" -not -path "*/.codeql/*" -exec dirname {} \;); do
+            echo "::group::codeql pack install $dir"
+            codeql pack install "$dir"
+            echo "::endgroup::"
+          done
+
+      - name: Clone github/codeql (test stubs)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CODEQL_CLI_VERSION: ${{ steps.install-codeql.outputs.codeql-cli-version }}
+        run: |
+          # Several languages' test suites (see e.g. java/test/**/options,
+          # `--javac-args -cp ${testdir}/../../../../codeql/java/ql/test/stubs/...`)
+          # reference third-party library "stubs" (log4j, servlet-api, etc.) via a
+          # relative path into a sibling checkout of github/codeql, instead of
+          # vendoring those stub jars into this repo - github/codeql's own
+          # standard-library tests reuse the same stubs. Cloning the
+          # `codeql-cli-<version>` branch matching our pinned CLI version (mirroring
+          # ci.yml's own "Install Packs" step) is what makes those relative paths
+          # resolve, so `codeql test run` can actually compile the test snippets.
+          # `--depth=1`: we only need the tree at that branch tip, not its history.
+          gh repo clone github/codeql -- -b "codeql-cli-${CODEQL_CLI_VERSION}" --depth=1

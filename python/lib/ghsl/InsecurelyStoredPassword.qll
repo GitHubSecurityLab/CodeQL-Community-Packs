@@ -3,6 +3,7 @@ private import semmle.python.dataflow.new.DataFlow
 private import semmle.python.dataflow.new.TaintTracking
 private import semmle.python.ApiGraphs
 private import semmle.python.dataflow.new.RemoteFlowSources
+private import LegacyPointsTo
 private import semmle.python.pointsto.CallGraph
 
 class User extends ClassDef {
@@ -16,7 +17,7 @@ class User extends ClassDef {
     this.getDefinedClass() = class_ and
     class_.getName() = name and
     class_.getABase() = base and
-    base.pointsTo(ref) and
+    base.getAFlowNode().(ControlFlowNodeWithPointsTo).pointsTo(ref) and
     (
       ref.getName() = "UserMixin" and
       password_variable = "password"

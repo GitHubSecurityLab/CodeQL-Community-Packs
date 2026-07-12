@@ -12,36 +12,83 @@ on:
           - patch
           - minor
           - major
+      prerelease:
+        description: "Mark the resulting GitHub Release as a pre-release (default: off, a full release)"
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   update-release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # PR creation uses a scoped GitHub App token (SECLABS_APP_ID/SECLABS_APP_KEY), not GITHUB_TOKEN
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Get Token
         id: get_workflow_token
-        uses: actions/create-github-app-token@v2
+        uses: actions/create-github-app-token@v3
         with:
           app-id: ${{ secrets.SECLABS_APP_ID }}
           private-key: ${{ secrets.SECLABS_APP_KEY }}
 
       - name: "Patch Release Me"
-        uses: 42ByteLabs/patch-release-me@ef44b04c04fde87280adf14548664bfbcebba04d # 0.6.4
-        with:
-          # Bump (patch)
-          mode: ${{ inputs.mode }}
+        run: |
+          set -euo pipefail
+          # Invoke the pinned patch-release-me image directly via `docker run`
+          # instead of `uses: 42ByteLabs/patch-release-me@...`. That action's own
+          # action.yml builds its Docker CMD as a single YAML list item
+          # (`-m "${{ inputs.mode }}"`); Docker container actions don't go
+          # through a shell, so the literal quote characters end up baked into
+          # ONE argv token (`-m "minor"`). clap can't match that against
+          # "patch"/"minor"/"major" and silently falls back to its own default
+          # (Patch) - meaning `minor`/`major` have always quietly produced a
+          # patch bump instead (confirmed via a local repro: see PR history).
+          # Running the same pinned image ourselves via a normal shell `run:`
+          # step naturally splits `-m` and the mode value into separate argv
+          # entries, avoiding the bug entirely.
+          # Pinned by digest (not just tag) so the exact image content can't
+          # change out from under us - digest corresponds to the 0.6.5 tag.
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            -v "${{ github.workspace }}:/repo" \
+            -w /repo \
+            ghcr.io/42bytelabs/patch-release-me@sha256:d9d7abe7051855d0c395fec99d931acc002fb6b299ca16b8123e2c8ef0c7e750 \
+            --disable-banner bump -m ${{ inputs.mode }}
+
+      - name: Set release prerelease flag
+        run: |
+          set -euo pipefail
+          # patch-release-me's Config struct doesn't know about a `prerelease`
+          # key, so it silently drops any such field the next time it
+          # round-trips .release.yml (see config.rs: Config::write() re-
+          # serializes from the Rust struct, not the original file text).
+          # That's fine here since we always re-set it fresh on every dispatch,
+          # right after the bump step, before the PR is opened - so it's never
+          # stale by the time upsert-release-table.sh reads it.
+          if grep -qE '^prerelease:' .release.yml; then
+            sed -i -E "s/^prerelease:.*/prerelease: ${{ inputs.prerelease }}/" .release.yml
+          else
+            sed -i -E "/^version:/a prerelease: ${{ inputs.prerelease }}" .release.yml
+          fi
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@98357b18bf14b5342f975ff684046ec3b2a07725 # v8.0.0
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           token: ${{ steps.get_workflow_token.outputs.token }}
           title: "Chore: Auto Update new Release"
           commit-message: "[chore]: Auto Patch new Release"
           body: |
             This is automatically created as a chore to patch and update the release.
+
+            Requested via the "CodeQL Update Release" workflow (`workflow_dispatch`,
+            `mode: ${{ inputs.mode }}`, `prerelease: ${{ inputs.prerelease }}`).
+
+            Merging this PR triggers `publish.yml`'s real batch publish. Its `summary`
+            job will create the matching GitHub Release as a **${{ inputs.prerelease && 'pre-release' || 'full release' }}**.
           branch: "auto-patch-release"
           labels: "version"
           delete-branch: true
