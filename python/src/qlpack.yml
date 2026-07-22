@@ -1,8 +1,8 @@
 library: false
 name: githubsecuritylab/codeql-python-queries
-version: 0.6.0
+version: 0.7.0
 suites: suites
 defaultSuiteFile: suites/python.qls
 dependencies:
-  codeql/python-all: '7.1.2'
+  codeql/python-all: '7.2.1'
   githubsecuritylab/codeql-python-libs: '*'

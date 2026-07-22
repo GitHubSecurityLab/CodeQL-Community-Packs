@@ -1,7 +1,7 @@
 name: githubsecurtylab/codeql-java-tests
 groups: [java, test]
 dependencies:
-    codeql/java-all: '9.1.2'
+    codeql/java-all: '9.2.1'
     githubsecuritylab/codeql-java-queries: '*'
     githubsecuritylab/codeql-java-libs: '*'
     githubsecuritylab/codeql-java-library-sources: '*'
