@@ -17,7 +17,10 @@ class User extends ClassDef {
     this.getDefinedClass() = class_ and
     class_.getName() = name and
     class_.getABase() = base and
-    base.getAFlowNode().(ControlFlowNodeWithPointsTo).pointsTo(ref) and
+    exists(ControlFlowNodeWithPointsTo baseFlowNode |
+      baseFlowNode.getNode() = base and
+      baseFlowNode.pointsTo(ref)
+    ) and
     (
       ref.getName() = "UserMixin" and
       password_variable = "password"

@@ -11,7 +11,7 @@ class DBColumn extends Call {
   DBColumn() {
     call.getFunction().(AttrNode).getObject(name) = object and
     name = "Column" and
-    call = this.getAFlowNode() and
+    call.getNode() = this and
     object.getNode() = var.getVariable().getAnAccess() and
     var.getId() = id
   }
