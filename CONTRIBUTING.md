@@ -161,7 +161,7 @@ process for each; most of it is manual today.
 [`publish.yml`][publish-workflow] is organized as five jobs: four publish jobs, one per pack type
 (`queries` for `src`, `library` for `lib`, `extensions` for `ext`, `library_sources_extensions` for
 `ext-library-sources`), each matrixed over every language that has that pack type
-(`ext`/`ext-library-sources` only run for `csharp`/`java` today, see [#144][pr-144]) - plus a fifth
+(`ext` runs for `csharp`/`go`/`java`/`python`; `ext-library-sources` only runs for `csharp`/`java`, the only languages with that pack) - plus a fifth
 `summary` job that runs after the other four (`if: always()`, so it still runs even if one of them
 fails), aggregates their per-pack results into the publish-summary and CodeQL library/query pack
 version tables, and (on the release-cut `push` trigger only) upserts both tables into the GitHub
@@ -184,7 +184,7 @@ To ship a change:
 
 - [ ] Make your change in the pack directory you intend to publish: `<language>/src` (queries),
       `<language>/lib` (library), or `<language>/ext`/`<language>/ext-library-sources` (extensions,
-      `csharp`/`java` only).
+      `csharp`/`go`/`java`/`python` only).
 - [ ] Bump `version:` in that pack's `qlpack.yml`, following [semver](https://semver.org/). Only bump
       the specific pack(s) you changed; other languages/pack types are unaffected and don't need
       touching.
@@ -424,7 +424,6 @@ Please do get in touch (privacy@github.com) if you have any questions about this
 [pr-118]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/118
 [pr-124]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/124
 [pr-126]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/126
-[pr-144]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/144
 [pr-155]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/155
 [pr-158]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/158
 [pr-159]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/159
