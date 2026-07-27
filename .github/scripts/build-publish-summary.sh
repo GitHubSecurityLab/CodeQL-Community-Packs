@@ -29,7 +29,7 @@ fi
 
 LANGUAGES=(cpp csharp go java javascript python ruby)
 TYPES=(src lib ext ext-library-sources)
-EXT_LANGUAGES=(csharp java)
+EXT_LANGUAGES=(csharp go java python)
 
 lang_label() {
   case "$1" in
