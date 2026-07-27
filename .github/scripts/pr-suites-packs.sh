@@ -22,7 +22,16 @@ if [[ -z "$PR_NUMBER" ]]; then
     for pack_dir in "$LANGUAGE/src" "$LANGUAGE/lib" "$LANGUAGE/ext" "$LANGUAGE/ext-library-sources"; do
         if [[ -f "$pack_dir/qlpack.yml" ]]; then
             echo "[+] Compiling Pack: $pack_dir"
-            codeql pack install "$pack_dir"
+            # `ext`/`ext-library-sources` are CodeQL model/extension packs (`extensionTargets`,
+            # no `dependencies`) - deliberately skip `codeql pack install` for them. Installing
+            # writes a `codeql-pack.lock.yml` with an empty `dependencies: {}` map, and a
+            # checked-in lock file in that state makes `codeql pack create` emit a bogus
+            # `addsTo.pack '...' is not an extension target of '...'` warning for every data
+            # extension in the pack (a known CodeQL CLI bug, see
+            # https://github.com/github/codeql/issues/20211). See CONTRIBUTING.md.
+            if [[ "$pack_dir" != "$LANGUAGE/ext" && "$pack_dir" != "$LANGUAGE/ext-library-sources" ]]; then
+                codeql pack install "$pack_dir"
+            fi
             codeql pack create "$pack_dir"
         fi
     done

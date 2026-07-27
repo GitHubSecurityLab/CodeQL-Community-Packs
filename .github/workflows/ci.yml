@@ -189,7 +189,13 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           gh extension install github/gh-codeql
-          gh codeql pack install "${{ matrix.language }}/ext/"
+          # NOTE: deliberately no `gh codeql pack install` here. `ext` is a CodeQL model/extension
+          # pack (`library: true`, `extensionTargets`, no `dependencies`) - installing it just
+          # (re)writes a `codeql-pack.lock.yml` with an empty `dependencies: {}` map, and a
+          # checked-in lock file in that state makes a subsequent `codeql pack create` emit a
+          # bogus `addsTo.pack '...' is not an extension target of '...'` warning for every data
+          # extension in the pack (a known CodeQL CLI bug, see
+          # https://github.com/github/codeql/issues/20211). See CONTRIBUTING.md.
           gh codeql pack create "${{ matrix.language }}/ext/"
 
   library-sources:
@@ -221,7 +227,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          codeql pack install "${{ matrix.language }}/ext-library-sources/"
+          # NOTE: deliberately no `codeql pack install` here - see the matching comment in the
+          # `extensions` job above.
           codeql pack create "${{ matrix.language }}/ext-library-sources/"
 
   configs:

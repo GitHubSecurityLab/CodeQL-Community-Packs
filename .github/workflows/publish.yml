@@ -226,7 +226,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Publishing codeql-${{ matrix.language }}-extensions."
-          codeql pack install "${{ matrix.language }}/ext"
+          # NOTE: deliberately no `codeql pack install` here. `ext` is a CodeQL model/extension
+          # pack (`library: true`, `extensionTargets`, no `dependencies`) - installing it just
+          # (re)writes a `codeql-pack.lock.yml` with an empty `dependencies: {}` map, and a
+          # checked-in lock file in that state makes a subsequent `codeql pack publish`/`create`
+          # emit a bogus `addsTo.pack '...' is not an extension target of '...'` warning for every
+          # data extension in the pack (a known CodeQL CLI bug, see
+          # https://github.com/github/codeql/issues/20211). See CONTRIBUTING.md.
           codeql pack publish "${{ matrix.language }}/ext"
 
       - name: Record publish result
@@ -307,7 +313,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Publishing codeql-${{ matrix.language }}-library-sources."
-          codeql pack install "${{ matrix.language }}/ext-library-sources"
+          # NOTE: deliberately no `codeql pack install` here - see the matching comment in the
+          # `extensions` job above.
           codeql pack publish "${{ matrix.language }}/ext-library-sources"
 
       - name: Record publish result
