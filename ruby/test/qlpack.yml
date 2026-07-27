@@ -1,8 +1,8 @@
 name: githubsecurtylab/codeql-ruby-tests
 groups: [ruby, test]
 dependencies:
-    codeql/ruby-all: '5.2.2'
-    codeql/ruby-queries: '1.6.4'
+    codeql/ruby-all: '6.0.1'
+    codeql/ruby-queries: '1.6.6'
     githubsecuritylab/codeql-ruby-queries: '*'
     githubsecuritylab/codeql-ruby-libs: '*'
 extractor: ruby

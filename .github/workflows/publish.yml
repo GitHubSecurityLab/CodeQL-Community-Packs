@@ -93,7 +93,7 @@ jobs:
 
       - name: Upload publish result
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: publish-result-${{ matrix.language }}-src
           path: publish-results/${{ matrix.language }}-src.json
@@ -175,7 +175,7 @@ jobs:
 
       - name: Upload publish result
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: publish-result-${{ matrix.language }}-lib
           path: publish-results/${{ matrix.language }}-lib.json
@@ -255,7 +255,7 @@ jobs:
 
       - name: Upload publish result
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: publish-result-${{ matrix.language }}-ext
           path: publish-results/${{ matrix.language }}-ext.json
@@ -336,7 +336,7 @@ jobs:
 
       - name: Upload publish result
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: publish-result-${{ matrix.language }}-ext-library-sources
           path: publish-results/${{ matrix.language }}-ext-library-sources.json
@@ -355,7 +355,7 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: Download publish results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         continue-on-error: true
         with:
           pattern: publish-result-*
