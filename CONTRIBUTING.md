@@ -167,6 +167,20 @@ fails), aggregates their per-pack results into the publish-summary and CodeQL li
 version tables, and (on the release-cut `push` trigger only) upserts both tables into the GitHub
 Release's notes.
 
+Each published/up-to-date cell in the publish-summary table is a shields.io **Dynamic Regex
+Badge**, labeled with the version and showing that pack version's download count (e.g. `0.6.0 |
+2,559 downloads`), linked through to that version's GHCR package page. The badge's `url`/`search`
+params point shields at GitHub's public `.../pkgs/container/<package>/versions` page and scrape the
+count live on every image load - there's no scraping infra, cron, or stored data of our own; the
+number simply reflects whatever GitHub reports at view time (shields.io caches responses briefly,
+so it can lag live activity by a bit). **This relies on shields.io's `dynamic/regex` badge type,
+which is explicitly documented upstream as "experimental: may change or be removed at any time"**
+— if it ever breaks or is removed, the affected cells will render as a broken image/`invalid`
+badge rather than failing the workflow; see `download_badge()` in
+[`build-publish-summary.sh`][build-publish-summary-script] for the implementation and its comments
+on why the URL/regex must be percent-encoded a specific way (jq's `@uri`, plus manual `%2A`/`%28`/
+`%29` fixups) to survive round-tripping through markdown without corruption.
+
 **Each `<language>` × `<pack type>` combination is checked and published completely
 independently.** For every matrix entry, the job compares the `version:` in that one pack's
 `qlpack.yml` on `main` to the version currently published on [GHCR][ghcr-packages], and only
@@ -414,6 +428,7 @@ Please do get in touch (privacy@github.com) if you have any questions about this
 [detect-codeql-release-workflow]: ./.github/workflows/detect-codeql-release.yml
 [copilot-setup-steps-workflow]: ./.github/workflows/copilot-setup-steps.yml
 [pin-codeql-library-versions-script]: ./.github/scripts/pin-codeql-library-versions.sh
+[build-publish-summary-script]: ./.github/scripts/build-publish-summary.sh
 [codeql-cli-binaries]: https://github.com/github/codeql-cli-binaries/releases
 [release-config]: ./.release.yml
 [patch-release-me]: https://github.com/42ByteLabs/patch-release-me
