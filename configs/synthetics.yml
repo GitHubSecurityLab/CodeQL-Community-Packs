@@ -44,7 +44,9 @@ packs:
 
     # Data extensions via Community Packs https://github.com/GitHubSecurityLab/CodeQL-Community-Packs
     - githubsecuritylab/codeql-csharp-extensions
+    - githubsecuritylab/codeql-go-extensions
     - githubsecuritylab/codeql-java-extensions
+    - githubsecuritylab/codeql-python-extensions
 
     ### Trail of Bits ###
     # Queris via packs: https://github.com/trailofbits/codeql-queries  (default suites include security + crypto
