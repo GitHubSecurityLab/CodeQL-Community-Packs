@@ -187,6 +187,34 @@ jobs:
           app-id: ${{ secrets.SECLABS_APP_ID }}
           private-key: ${{ secrets.SECLABS_APP_KEY }}
 
+      - name: Compute PR labels
+        id: pr_labels
+        run: |
+          set -euo pipefail
+          {
+            echo "list<<EOF"
+            echo "version"
+            echo "codeql-cli-v${{ steps.version.outputs.version }}"
+            if [[ -n "${{ steps.release_bump.outputs.bump }}" ]]; then
+              echo "release-v${{ steps.release_version.outputs.version }}"
+            fi
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Ensure version labels exist
+        env:
+          GH_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
+        run: |
+          set -euo pipefail
+          # `version` already exists in the repo; only the version-specific
+          # labels below need to be created on demand. `gh label create --force`
+          # is idempotent, so re-running this workflow for the same version is
+          # safe.
+          while IFS= read -r LABEL; do
+            [[ "$LABEL" == "version" ]] && continue
+            gh label create "$LABEL" --color ededed --force
+          done <<< "${{ steps.pr_labels.outputs.list }}"
+
       - name: Build PR title and body
         id: pr_meta
         run: |
@@ -260,5 +288,5 @@ jobs:
           commit-message: ${{ steps.pr_meta.outputs.title }}
           body-path: "${{ runner.temp }}/pr-body.md"
           branch: "chore/update-codeql-cli-${{ steps.version.outputs.version }}"
-          labels: "version"
+          labels: ${{ steps.pr_labels.outputs.list }}
           delete-branch: true
