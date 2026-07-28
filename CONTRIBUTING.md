@@ -293,6 +293,27 @@ coding agent) in the loop for the hard part — fixing whatever the new CLI brea
 > `codeql pack upgrade`/the pinning script can never resolve it. This is a pre-existing, unrelated
 > quirk of that tool, not something the version-bump automation needs to (or can) fix.
 
+> [!NOTE]
+> <a id="ext-packs-no-install"></a>**Why `<language>/ext` and `<language>/ext-library-sources` are
+> never `codeql pack install`ed or `codeql pack upgrade`d:** these are CodeQL
+> [model/extension packs](https://docs.github.com/en/code-security/tutorials/customize-code-scanning/create-and-work-with-codeql-packs#creating-a-codeql-model-pack)
+> — `library: true`, an `extensionTargets` map, and (by design) **no `dependencies`**. `codeql pack
+> install`/`codeql pack upgrade` still (re)write a `codeql-pack.lock.yml` for them, but since there's
+> nothing to resolve it's always an empty `dependencies: {}` map. A *checked-in* lock file in that
+> state triggers a known CodeQL CLI bug
+> ([github/codeql#20211](https://github.com/github/codeql/issues/20211)): a later `codeql pack
+> create`/`codeql pack publish` on the same pack emits a bogus `WARNING: In extension for
+> codeql/<language>-all:<extensible>, addsTo.pack 'codeql/<language>-all' is not an extension target
+> of '...'` for every data extension file in the pack, even though `extensionTargets` correctly lists
+> that pack. CI (`ci.yml`'s `extensions`/`library-sources` jobs, `publish.yml`'s `extensions`/
+> `library_sources_extensions` jobs, `pr-suites-packs.sh`) and
+> [`update-codeql-version.yml`](#updating-the-pinned-codeql-clilibrary-version)'s `codeql pack
+> upgrade` loop deliberately skip `install`/`upgrade` for these two pack types and go straight to
+> `codeql pack create`/`publish` — and no `codeql-pack.lock.yml` should ever be committed for them.
+> If you run `codeql pack install`/`upgrade` against one of these directories locally while
+> developing (e.g. to sanity-check a new data extension), delete the resulting
+> `codeql-pack.lock.yml` before committing.
+
 > [!WARNING]
 > The `.codeqlversion` bump and the pack version bumps don't have to land in the same PR, but
 > splitting them is risky: [#124][pr-124] refreshed `.codeqlversion` and every language's

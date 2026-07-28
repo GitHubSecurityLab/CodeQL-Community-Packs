@@ -91,8 +91,10 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          # Exclusions (kept in sync with the same exclusions in
-          # .github/scripts/pin-codeql-library-versions.sh):
+          # Exclusions (the first three below are also excluded in
+          # .github/scripts/pin-codeql-library-versions.sh; the last one is
+          # NOT - ext/ext-library-sources still need their extensionTargets
+          # versions pinned, but must be skipped here to avoid lock-file churn):
           #  - ./ql/hotspots is a standalone local dev tool (see
           #    ql/hotspots/README.md and .github/workflows/hotspots.yml), not
           #    one of the per-language src/lib/ext/ext-library-sources packs
@@ -106,7 +108,16 @@ jobs:
           #  - ./codeql and */.codeql are a locally-cloned github/codeql
           #    checkout (used by ql/hotspots) and CodeQL's own per-pack build
           #    caches, respectively - neither is a repo pack either.
-          for dir in $(find . -name qlpack.yml -not -path "./ql/hotspots/*" -not -path "./codeql_home/*" -not -path "./codeql/*" -not -path "*/.codeql/*" -exec dirname {} \;); do
+          #  - <lang>/ext and <lang>/ext-library-sources are CodeQL model/extension packs
+          #    (`extensionTargets`, no `dependencies`) - NOT excluded from
+          #    pin-codeql-library-versions.sh (their extensionTargets versions still need
+          #    pinning), but excluded here: `codeql pack upgrade` (re)writes their
+          #    codeql-pack.lock.yml with an empty `dependencies: {}` map, and a checked-in
+          #    lock file in that state makes a later `codeql pack create`/`publish` emit a
+          #    bogus `addsTo.pack '...' is not an extension target of '...'` warning for
+          #    every data extension in the pack (a known CodeQL CLI bug, see
+          #    https://github.com/github/codeql/issues/20211). See CONTRIBUTING.md.
+          for dir in $(find . -name qlpack.yml -not -path "./ql/hotspots/*" -not -path "./codeql_home/*" -not -path "./codeql/*" -not -path "*/.codeql/*" -not -path "*/ext/*" -not -path "*/ext-library-sources/*" -exec dirname {} \;); do
             echo "::group::codeql pack upgrade $dir"
             codeql pack upgrade "$dir"
             echo "::endgroup::"
