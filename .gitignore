@@ -9,6 +9,10 @@
 *.actual
 *.class
 */*.class
+# Lockfiles for model/extension packs (ext, ext-library-sources) should never
+# be generated or committed; see CONTRIBUTING.md's "Releases & publishing" section.
+**/ext/codeql-pack.lock.yml
+**/ext-library-sources/codeql-pack.lock.yml
 # Cloned repository of codeql
 /codeql
 # Downloaded/extracted CodeQL CLI (see .github/actions/install-codeql), cached

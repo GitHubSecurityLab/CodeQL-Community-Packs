@@ -102,8 +102,13 @@ download_badge() {
 cell() {
   local lang="$1" type="$2"
   local entry
+  # `type == "object" and` guards against a malformed result fragment (e.g. one job's
+  # "Record publish result" step writing a bare `true`/`false` instead of a JSON object,
+  # as happened when publishing v0.7.1 - see PR discussion). Without it, `.language`/`.type`
+  # would fail to index that non-object element and abort this jq call entirely, which
+  # previously broke every cell in the table, not just the one for the malformed fragment.
   entry=$(echo "$MERGED" | jq -c --arg l "$lang" --arg t "$type" \
-    '[.[] | select(.language == $l and .type == $t)] | first // empty')
+    '[.[] | select(type == "object" and .language == $l and .type == $t)] | first // empty')
 
   if [ -z "$entry" ] || [ "$entry" == "null" ]; then
     # This combo is expected to publish (unlike the "n/a" combos filtered out
