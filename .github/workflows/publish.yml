@@ -34,13 +34,19 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # `|| true` inside the substitution (not after it) matters: `run:` steps default to
-          # `bash -e`, and a brand-new pack's container doesn't exist on GHCR yet, so `gh api`
-          # returns 404 (non-zero). Without this, that failure would abort the step here and
-          # fail the job, blocking the first-ever publish of a new pack. Swallowing it leaves
-          # PUBLISHED_VERSION empty, which correctly differs from CURRENT_VERSION below and
-          # triggers a first publish.
-          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null || true)
+          # A brand-new pack's container doesn't exist on GHCR yet, so `gh api` 404s. On any
+          # failure, force PUBLISHED_VERSION empty rather than trusting whatever ended up on
+          # stdout: on error, `gh api` prints the raw (unfiltered) response body there - e.g.
+          # `{"message":"Package not found.",...}` - even with `--jq` and even with
+          # `2>/dev/null`. That body's embedded double quotes previously broke out of the
+          # `--arg previous_version "..."` quoting in the "Record publish result" step below,
+          # corrupting its jq invocation into writing a bare `true`/`false` instead of a JSON
+          # object - which then broke the release summary table for every language, not just
+          # the newly-published one (this is what happened publishing v0.7.1's new go/python
+          # `ext` packs for the first time).
+          if ! PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null); then
+            PUBLISHED_VERSION=""
+          fi
           CURRENT_VERSION=$(grep -E '^version:' ${{ matrix.language }}/src/qlpack.yml | head -1 | awk '{print $2}')
 
           echo "Published version: $PUBLISHED_VERSION"
@@ -69,6 +75,15 @@ jobs:
 
       - name: Record publish result
         if: always()
+        env:
+          # Passed via env (not raw `${{ }}` interpolation) since these values ultimately
+          # derive from external content (a GHCR tag, or `gh api`'s error body on a 404 - see
+          # the `check_version` step above) that could contain a literal `"`. Interpolating
+          # such a value directly into `--arg previous_version "${{ ... }}"` below would break
+          # out of that quoting and corrupt the whole jq invocation; referenced as a shell
+          # variable instead, it's always passed through safely no matter its content.
+          PREVIOUS_VERSION: ${{ steps.check_version.outputs.published_version }}
+          TARGET_VERSION: ${{ steps.check_version.outputs.current_version }}
         run: |
           mkdir -p publish-results
           STATUS="up-to-date"
@@ -85,8 +100,8 @@ jobs:
             --arg language "${{ matrix.language }}" \
             --arg type "src" \
             --arg package "codeql-${{ matrix.language }}-queries" \
-            --arg previous_version "${{ steps.check_version.outputs.published_version }}" \
-            --arg target_version "${{ steps.check_version.outputs.current_version }}" \
+            --arg previous_version "$PREVIOUS_VERSION" \
+            --arg target_version "$TARGET_VERSION" \
             --arg status "$STATUS" \
             '{language: $language, type: $type, package: $package, previous_version: $previous_version, target_version: $target_version, status: $status}' \
             > "publish-results/${{ matrix.language }}-src.json"
@@ -119,10 +134,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # See the `queries` job above for why `|| true` is inside the substitution: a
-          # brand-new pack's GHCR container doesn't exist yet, so `gh api` 404s; without this,
-          # `bash -e` would abort here and block the pack's first-ever publish.
-          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-libs/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null || true)
+          # See the `queries` job above for why PUBLISHED_VERSION is forced empty on any
+          # `gh api` failure instead of relying on `|| true`.
+          if ! PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-libs/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null); then
+            PUBLISHED_VERSION=""
+          fi
           CURRENT_VERSION=$(grep -E '^version:' ${{ matrix.language }}/lib/qlpack.yml | head -1 | awk '{print $2}')
 
           echo "Published version: $PUBLISHED_VERSION"
@@ -151,6 +167,10 @@ jobs:
 
       - name: Record publish result
         if: always()
+        env:
+          # See the `queries` job above for why these are passed via env, not `${{ }}`.
+          PREVIOUS_VERSION: ${{ steps.check_version.outputs.published_version }}
+          TARGET_VERSION: ${{ steps.check_version.outputs.current_version }}
         run: |
           mkdir -p publish-results
           STATUS="up-to-date"
@@ -167,8 +187,8 @@ jobs:
             --arg language "${{ matrix.language }}" \
             --arg type "lib" \
             --arg package "codeql-${{ matrix.language }}-libs" \
-            --arg previous_version "${{ steps.check_version.outputs.published_version }}" \
-            --arg target_version "${{ steps.check_version.outputs.current_version }}" \
+            --arg previous_version "$PREVIOUS_VERSION" \
+            --arg target_version "$TARGET_VERSION" \
             --arg status "$STATUS" \
             '{language: $language, type: $type, package: $package, previous_version: $previous_version, target_version: $target_version, status: $status}' \
             > "publish-results/${{ matrix.language }}-lib.json"
@@ -201,10 +221,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # See the `queries` job above for why `|| true` is inside the substitution: a
-          # brand-new pack's GHCR container doesn't exist yet, so `gh api` 404s; without this,
-          # `bash -e` would abort here and block the pack's first-ever publish.
-          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-extensions/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null || true)
+          # See the `queries` job above for why PUBLISHED_VERSION is forced empty on any
+          # `gh api` failure instead of relying on `|| true`.
+          if ! PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-extensions/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null); then
+            PUBLISHED_VERSION=""
+          fi
           CURRENT_VERSION=$(grep -E '^version:' ${{ matrix.language }}/ext/qlpack.yml | head -1 | awk '{print $2}')
 
           echo "Published version: $PUBLISHED_VERSION"
@@ -237,6 +258,10 @@ jobs:
 
       - name: Record publish result
         if: always()
+        env:
+          # See the `queries` job above for why these are passed via env, not `${{ }}`.
+          PREVIOUS_VERSION: ${{ steps.check_version.outputs.published_version }}
+          TARGET_VERSION: ${{ steps.check_version.outputs.current_version }}
         run: |
           mkdir -p publish-results
           STATUS="up-to-date"
@@ -253,8 +278,8 @@ jobs:
             --arg language "${{ matrix.language }}" \
             --arg type "ext" \
             --arg package "codeql-${{ matrix.language }}-extensions" \
-            --arg previous_version "${{ steps.check_version.outputs.published_version }}" \
-            --arg target_version "${{ steps.check_version.outputs.current_version }}" \
+            --arg previous_version "$PREVIOUS_VERSION" \
+            --arg target_version "$TARGET_VERSION" \
             --arg status "$STATUS" \
             '{language: $language, type: $type, package: $package, previous_version: $previous_version, target_version: $target_version, status: $status}' \
             > "publish-results/${{ matrix.language }}-ext.json"
@@ -288,10 +313,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # See the `queries` job above for why `|| true` is inside the substitution: a
-          # brand-new pack's GHCR container doesn't exist yet, so `gh api` 404s; without this,
-          # `bash -e` would abort here and block the pack's first-ever publish.
-          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-library-sources/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null || true)
+          # See the `queries` job above for why PUBLISHED_VERSION is forced empty on any
+          # `gh api` failure instead of relying on `|| true`.
+          if ! PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-library-sources/versions --jq '.[0].metadata.container.tags[0]' 2>/dev/null); then
+            PUBLISHED_VERSION=""
+          fi
           CURRENT_VERSION=$(grep -E '^version:' ${{ matrix.language }}/ext-library-sources/qlpack.yml | head -1 | awk '{print $2}')
 
           echo "Published version: $PUBLISHED_VERSION"
@@ -319,6 +345,10 @@ jobs:
 
       - name: Record publish result
         if: always()
+        env:
+          # See the `queries` job above for why these are passed via env, not `${{ }}`.
+          PREVIOUS_VERSION: ${{ steps.check_version.outputs.published_version }}
+          TARGET_VERSION: ${{ steps.check_version.outputs.current_version }}
         run: |
           mkdir -p publish-results
           STATUS="up-to-date"
@@ -335,8 +365,8 @@ jobs:
             --arg language "${{ matrix.language }}" \
             --arg type "ext-library-sources" \
             --arg package "codeql-${{ matrix.language }}-library-sources" \
-            --arg previous_version "${{ steps.check_version.outputs.published_version }}" \
-            --arg target_version "${{ steps.check_version.outputs.current_version }}" \
+            --arg previous_version "$PREVIOUS_VERSION" \
+            --arg target_version "$TARGET_VERSION" \
             --arg status "$STATUS" \
             '{language: $language, type: $type, package: $package, previous_version: $previous_version, target_version: $target_version, status: $status}' \
             > "publish-results/${{ matrix.language }}-ext-library-sources.json"
