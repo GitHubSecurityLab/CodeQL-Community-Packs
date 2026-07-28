@@ -14,7 +14,7 @@
 
 # External API query
 - queries: '.'
-  from: codeql/go-queries
+  from: codeql/go-all
 - include:
     id:
       - go/untrusted-data-to-external-api
