@@ -91,8 +91,10 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          # Exclusions (path-based ones kept in sync with the same exclusions in
-          # .github/scripts/pin-codeql-library-versions.sh):
+          # Exclusions (the first three below are also excluded in
+          # .github/scripts/pin-codeql-library-versions.sh; the last one is
+          # NOT - ext/ext-library-sources still need their extensionTargets
+          # versions pinned, but must be skipped here to avoid lock-file churn):
           #  - ./ql/hotspots is a standalone local dev tool (see
           #    ql/hotspots/README.md and .github/workflows/hotspots.yml), not
           #    one of the per-language src/lib/ext/ext-library-sources packs
