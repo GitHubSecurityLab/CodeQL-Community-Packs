@@ -229,6 +229,7 @@ jobs:
     needs: compile-and-test
     permissions:
       contents: read
+      packages: read # required by codeql pack install (GHCR rate limiting)
       pull-requests: read # required by pr-configs.sh (gh pr view)
 
     steps:
