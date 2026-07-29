@@ -69,7 +69,7 @@ This project is licensed under the terms of the MIT open source license. Please 
 
 ## Support
 
-Please [create GitHub issues](https://github.com/advanced-security/brew-dependency-submission-action) for any feature requests, bugs, or documentation problems.
+Please [create GitHub issues](https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/issues) for any feature requests, bugs, or documentation problems.
 
 ## Contributing
 
