@@ -62,12 +62,13 @@ jobs:
       - name: Test Queries
         if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
         env:
+          GITHUB_TOKEN: ${{ github.token }}
           RUNNER_TEMP: ${{ runner.temp }}
         shell: python
         run: |
           import os
-          import sys
           import subprocess
+          import sys
           from pathlib import Path
 
           def print_error(fmt, *args):
@@ -78,33 +79,103 @@ jobs:
             sys.exit(1)
 
           runner_temp = os.environ['RUNNER_TEMP']
+          language = "${{ matrix.language }}"
+          pr_number = "${{ github.event.number }}"
+          test_root = Path('${{ github.workspace }}', language, 'test')
 
-          test_root = Path('${{ github.workspace }}', '${{ matrix.language }}', 'test')
-          print(f"Executing tests found (recursively) in the directory '{test_root}'")
+          def get_pr_changed_files():
+            # No PR context (e.g. workflow_dispatch run directly on a branch) - there is
+            # no PR file list to walk, so the caller always runs the full test suite.
+            if not pr_number:
+              return None
+            result = subprocess.run(
+              ["gh", "pr", "view", pr_number, "--json", "files", "--jq", ".files.[].path"],
+              capture_output=True, text=True, check=True,
+            )
+            return [line for line in result.stdout.splitlines() if line]
+
+          def find_targeted_qlrefs(changed_files):
+            # If this PR only touches leaf .ql file(s) in `language` (no shared library,
+            # pack metadata/lockfile, or CLI/dependency version-bump changes), return the
+            # .qlref file(s) that test those exact quer(y/ies) - which may be empty if none
+            # of the touched queries have test coverage. Otherwise return None, meaning
+            # "run the full test suite" (some other kind of change could affect any test).
+            touched_queries = []
+            for f in changed_files:
+              if f in (".codeqlversion", ".release.yml") or f.startswith(".github/"):
+                return None
+              if f.startswith(f"{language}/"):
+                if f.endswith(".ql"):
+                  touched_queries.append(f)
+                else:
+                  return None
+            if not touched_queries:
+              return None
+
+            src_prefix = f"{language}/src/"
+            touched_rel = set()
+            for q in touched_queries:
+              if not q.startswith(src_prefix):
+                return None
+              touched_rel.add(q[len(src_prefix):])
+
+            # .qlref files declare the query they test via a `query: <path-relative-to-src>`
+            # line - this is the authoritative src<->test mapping (test folder names are
+            # only a loose, unreliable convention, not a formal one).
+            matches = []
+            for qlref in test_root.rglob("*.qlref"):
+              for line in qlref.read_text().splitlines():
+                line = line.strip()
+                if line.startswith("query:"):
+                  if line.split(":", 1)[1].strip() in touched_rel:
+                    matches.append(qlref)
+                  break
+            return matches
+
+          changed_files = get_pr_changed_files()
+          targeted_qlrefs = find_targeted_qlrefs(changed_files) if changed_files is not None else None
+
           files_to_close = []
           try:
-            # Runners have 4 cores, so split the tests into 4 "slices", and run one per thread
-            num_slices = 4
-            procs = []
+            if targeted_qlrefs is not None:
+              if not targeted_qlrefs:
+                print(f"[+] No tests reference the changed .ql file(s) in {language} - nothing to run")
+                report_path = os.path.join(runner_temp, language, "test_report_slice_1_of_1.json")
+                os.makedirs(os.path.dirname(report_path), exist_ok=True)
+                Path(report_path).write_text("[]")
+                sys.exit(0)
 
-            for slice in range(1, num_slices+1):
-              test_report_path = os.path.join(runner_temp, "${{ matrix.language }}", f"test_report_slice_{slice}_of_{num_slices}.json")
+              print(f"[+] PR only touches leaf .ql file(s) in {language} - running {len(targeted_qlrefs)} targeted test(s) instead of the full suite")
+              slices = [(1, 1, [str(p) for p in targeted_qlrefs])]
+            else:
+              print(f"Executing tests found (recursively) in the directory '{test_root}'")
+              # Runners have 4 cores, so split the tests into 4 "slices", and run one per thread
+              num_slices = 4
+              slices = [(n, num_slices, [f"--slice={n}/{num_slices}", str(test_root)]) for n in range(1, num_slices+1)]
+
+            procs = []
+            for slice_num, total_slices, extra_args in slices:
+              test_report_path = os.path.join(runner_temp, language, f"test_report_slice_{slice_num}_of_{total_slices}.json")
+              test_log_path = os.path.join(runner_temp, language, f"test_log_slice_{slice_num}_of_{total_slices}.txt")
               os.makedirs(os.path.dirname(test_report_path), exist_ok=True)
               test_report_file = open(test_report_path, 'w')
+              test_log_file = open(test_log_path, 'w')
               files_to_close.append(test_report_file)
-              procs.append(subprocess.Popen(["codeql", "test", "run", "--failing-exitcode=122", f"--slice={slice}/{num_slices}", "--ram=2048", "--format=json", test_root], stdout=test_report_file, stderr=subprocess.PIPE))
+              files_to_close.append(test_log_file)
+              procs.append((subprocess.Popen(["codeql", "test", "run", "--failing-exitcode=122", "--verbosity=progress", "--ram=2048", "--format=json", *extra_args], stdout=test_report_file, stderr=test_log_file), test_log_path))
 
-            for p in procs:
-              _, err = p.communicate()
-              if p.returncode != 0:
-                if p.returncode == 122:
-                  # Failed because a test case failed, so just print the regular output.
-                  # This will allow us to proceed to validate-test-results, which will fail if
-                  # any test cases failed
-                  print(f"{err.decode()}")
-                else:
-                  # Some more serious problem occurred, so print and fail fast
-                  print_error_and_fail(f"Failed to run tests with return code {p.returncode}\n{err.decode()}")
+            for p, test_log_path in procs:
+              p.wait()
+              # Progress output goes to stderr by default - previously this was only
+              # printed on failure, so a normal passing run looked completely silent.
+              # Always surface it now.
+              log_text = Path(test_log_path).read_text()
+              if log_text:
+                print(log_text)
+              if p.returncode != 0 and p.returncode != 122:
+                # 122 just means a test case failed - validate-test-results will catch
+                # that from the JSON report. Anything else is a real crash - fail fast.
+                print_error_and_fail(f"Failed to run tests with return code {p.returncode}")
           finally:
             for file in files_to_close:
               file.close()
@@ -116,6 +187,7 @@ jobs:
           name: ${{ matrix.language }}-test-results
           path: |
             ${{ runner.temp }}/${{ matrix.language }}/test_report_slice_*.json
+            ${{ runner.temp }}/${{ matrix.language }}/test_log_slice_*.txt
           if-no-files-found: error
 
       - name: Compile / Check Suites & Packs
