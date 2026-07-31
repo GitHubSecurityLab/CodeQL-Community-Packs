@@ -1,0 +1,2 @@
+query: audit/CWE-089/SqlInjectionAudit.ql
+postprocess: TestUtilities/PrettyPrintModels.ql
