@@ -2,7 +2,7 @@
  * @name SQL injection in MyBatis Mapper XML
  * @description Constructing a dynamic SQL statement with input that comes from an
  *              untrusted source could allow an attacker to modify the statement's
- *              meaning or to execute arbitrary SQL commands.
+ *              meaning or to execute arbitrary SQL commands. (test: targeted CI validation)
  * @kind path-problem
  * @problem.severity error
  * @precision high
