@@ -1,0 +1,24 @@
+#select
+| SqlInjectionAuditTest.java:9:28:9:32 | query | SqlInjectionAuditTest.java:6:37:6:51 | username | SqlInjectionAuditTest.java:9:28:9:32 | query | This SQL query depends on a $@. | SqlInjectionAuditTest.java:6:37:6:51 | username | user-provided value |
+| SqlInjectionAuditTest.java:9:28:9:32 | query | SqlInjectionAuditTest.java:8:20:8:59 | "SELECT * FROM users WHERE username = '" | SqlInjectionAuditTest.java:9:28:9:32 | query | This SQL query depends on a $@. | SqlInjectionAuditTest.java:8:20:8:59 | "SELECT * FROM users WHERE username = '" | user-provided value |
+| SqlInjectionAuditTest.java:9:28:9:32 | query | SqlInjectionAuditTest.java:8:20:8:59 | "SELECT * FROM users WHERE username = '" [Ext] | SqlInjectionAuditTest.java:9:28:9:32 | query | This SQL query depends on a $@. | SqlInjectionAuditTest.java:8:20:8:59 | "SELECT * FROM users WHERE username = '" | user-provided value |
+| SqlInjectionAuditTest.java:9:28:9:32 | query | SqlInjectionAuditTest.java:8:20:8:70 | ... + ... | SqlInjectionAuditTest.java:9:28:9:32 | query | This SQL query depends on a $@. | SqlInjectionAuditTest.java:8:20:8:70 | ... + ... | user-provided value |
+| SqlInjectionAuditTest.java:9:28:9:32 | query | SqlInjectionAuditTest.java:8:20:8:70 | ... + ... [Ext] | SqlInjectionAuditTest.java:9:28:9:32 | query | This SQL query depends on a $@. | SqlInjectionAuditTest.java:8:20:8:70 | ... + ... | user-provided value |
+| SqlInjectionAuditTest.java:9:28:9:32 | query | SqlInjectionAuditTest.java:8:20:8:76 | ... + ... | SqlInjectionAuditTest.java:9:28:9:32 | query | This SQL query depends on a $@. | SqlInjectionAuditTest.java:8:20:8:76 | ... + ... | user-provided value |
+| SqlInjectionAuditTest.java:9:28:9:32 | query | SqlInjectionAuditTest.java:8:63:8:70 | username | SqlInjectionAuditTest.java:9:28:9:32 | query | This SQL query depends on a $@. | SqlInjectionAuditTest.java:8:63:8:70 | username | user-provided value |
+| SqlInjectionAuditTest.java:9:28:9:32 | query | SqlInjectionAuditTest.java:8:63:8:70 | username [Ext] | SqlInjectionAuditTest.java:9:28:9:32 | query | This SQL query depends on a $@. | SqlInjectionAuditTest.java:8:63:8:70 | username | user-provided value |
+| SqlInjectionAuditTest.java:9:28:9:32 | query | SqlInjectionAuditTest.java:8:74:8:76 | "'" | SqlInjectionAuditTest.java:9:28:9:32 | query | This SQL query depends on a $@. | SqlInjectionAuditTest.java:8:74:8:76 | "'" | user-provided value |
+| SqlInjectionAuditTest.java:9:28:9:32 | query | SqlInjectionAuditTest.java:8:74:8:76 | "'" [Ext] | SqlInjectionAuditTest.java:9:28:9:32 | query | This SQL query depends on a $@. | SqlInjectionAuditTest.java:8:74:8:76 | "'" | user-provided value |
+| SqlInjectionAuditTest.java:15:28:15:36 | hardcoded | SqlInjectionAuditTest.java:13:24:13:44 | "SELECT * FROM users" | SqlInjectionAuditTest.java:15:28:15:36 | hardcoded | This SQL query depends on a $@. | SqlInjectionAuditTest.java:13:24:13:44 | "SELECT * FROM users" | user-provided value |
+edges
+| SqlInjectionAuditTest.java:6:37:6:51 | username | SqlInjectionAuditTest.java:8:63:8:70 | username |
+| SqlInjectionAuditTest.java:8:20:8:59 | "SELECT * FROM users WHERE username = '" | SqlInjectionAuditTest.java:8:20:8:70 | ... + ... |
+| SqlInjectionAuditTest.java:8:20:8:59 | "SELECT * FROM users WHERE username = '" [Ext] | SqlInjectionAuditTest.java:8:20:8:70 | ... + ... |
+| SqlInjectionAuditTest.java:8:20:8:70 | ... + ... | SqlInjectionAuditTest.java:8:20:8:76 | ... + ... |
+| SqlInjectionAuditTest.java:8:20:8:70 | ... + ... [Ext] | SqlInjectionAuditTest.java:8:20:8:76 | ... + ... |
+| SqlInjectionAuditTest.java:8:20:8:76 | ... + ... | SqlInjectionAuditTest.java:9:28:9:32 | query |
+| SqlInjectionAuditTest.java:8:63:8:70 | username | SqlInjectionAuditTest.java:8:20:8:70 | ... + ... |
+| SqlInjectionAuditTest.java:8:63:8:70 | username [Ext] | SqlInjectionAuditTest.java:8:20:8:70 | ... + ... |
+| SqlInjectionAuditTest.java:8:74:8:76 | "'" | SqlInjectionAuditTest.java:8:20:8:76 | ... + ... |
+| SqlInjectionAuditTest.java:8:74:8:76 | "'" [Ext] | SqlInjectionAuditTest.java:8:20:8:76 | ... + ... |
+| SqlInjectionAuditTest.java:13:24:13:44 | "SELECT * FROM users" | SqlInjectionAuditTest.java:15:28:15:36 | hardcoded |
