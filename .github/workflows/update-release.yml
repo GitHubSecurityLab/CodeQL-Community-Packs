@@ -59,6 +59,14 @@ jobs:
             ghcr.io/42bytelabs/patch-release-me@sha256:d9d7abe7051855d0c395fec99d931acc002fb6b299ca16b8123e2c8ef0c7e750 \
             --disable-banner bump -m ${{ inputs.mode }}
 
+      - name: Determine new release version
+        id: release_version
+        run: |
+          set -euo pipefail
+          NEW_VERSION="$(grep -E '^version:' .release.yml | head -1 | sed -E 's/^version:[[:space:]]*"?([^"[:space:]]+)"?/\1/')"
+          echo "version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
+          echo "Release version bumped to ${NEW_VERSION}"
+
       - name: Set release prerelease flag
         run: |
           set -euo pipefail
@@ -75,6 +83,15 @@ jobs:
             sed -i -E "/^version:/a prerelease: ${{ inputs.prerelease }}" .release.yml
           fi
 
+      - name: Ensure version label exists
+        env:
+          GH_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
+        run: |
+          set -euo pipefail
+          # `gh label create --force` is idempotent, so re-running this
+          # workflow for the same release version is safe.
+          gh label create "release-v${{ steps.release_version.outputs.version }}" --color ededed --force
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
@@ -90,5 +107,7 @@ jobs:
             Merging this PR triggers `publish.yml`'s real batch publish. Its `summary`
             job will create the matching GitHub Release as a **${{ inputs.prerelease && 'pre-release' || 'full release' }}**.
           branch: "auto-patch-release"
-          labels: "version"
+          labels: |
+            version
+            release-v${{ steps.release_version.outputs.version }}
           delete-branch: true
