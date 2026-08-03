@@ -1,0 +1,21 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sinkModel
+    data:
+      # `io.r2dbc.spi` is the low-level, driver-agnostic R2DBC SPI that every
+      # reactive relational driver (Postgres, MySQL, H2, SQL Server, ...)
+      # implements, and that higher-level APIs such as Spring's
+      # `DatabaseClient` are themselves built on top of. Modeling these two
+      # sinks closes the false negative for any code (Spring-based or not)
+      # that drops down to the raw R2DBC SPI to build/execute SQL text.
+      #
+      # `Connection.createStatement(String)` is the R2DBC equivalent of
+      # `java.sql.Connection.prepareStatement(String)`: the SQL text is fixed
+      # at statement-creation time and executed (with any bound parameters)
+      # via `Statement.execute()`.
+      - ["io.r2dbc.spi", "Connection", True, "createStatement", "(String)", "", "Argument[0]", "sql-injection", "manual"]
+      # `Batch.add(String)` is the R2DBC equivalent of
+      # `java.sql.Statement.addBatch(String)`: it appends a raw SQL statement
+      # to a batch that is later executed via `Batch.execute()`.
+      - ["io.r2dbc.spi", "Batch", True, "add", "(String)", "", "Argument[0]", "sql-injection", "manual"]

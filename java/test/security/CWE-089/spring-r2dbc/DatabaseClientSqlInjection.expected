@@ -1,0 +1,6 @@
+| com/example/DeferredQueryHandler.java:24:23:24:30 | source(...) | com/example/DeferredQueryHandler.java:25:12:26:77 | sql(...) |
+| com/example/RawR2dbcHandler.java:28:23:28:30 | source(...) | com/example/RawR2dbcHandler.java:31:13:31:69 | ... + ... |
+| com/example/RawR2dbcHandler.java:36:23:36:30 | source(...) | com/example/RawR2dbcHandler.java:38:15:38:71 | ... + ... |
+| com/example/StringConcatQueryHandler.java:39:23:39:30 | source(...) | com/example/StringConcatQueryHandler.java:43:31:43:35 | query |
+| com/example/StringConcatQueryHandler.java:40:21:40:28 | source(...) | com/example/StringConcatQueryHandler.java:43:31:43:35 | query |
+| com/example/StringConcatQueryHandler.java:41:24:41:31 | source(...) | com/example/StringConcatQueryHandler.java:43:31:43:35 | query |
