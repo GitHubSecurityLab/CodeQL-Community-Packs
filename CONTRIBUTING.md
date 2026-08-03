@@ -118,6 +118,47 @@ The pinning is codified per language across:
 > this shortly after this pinning behavior was introduced and a pack's `qlpack.yml` still shows
 > `codeql/<pkg>: '*'`, that just means its dependencies haven't been re-resolved since, not that the
 > convention doesn't apply to it.
+>
+> **This exact-pin treatment applies to `dependencies:` only** (query/library packs: `src`, `lib`,
+> etc.) - `<language>/ext` and `<language>/ext-library-sources` model/extension packs use
+> `extensionTargets:` instead, and are handled completely differently; see the next warning box.
+
+> [!WARNING]
+> <a id="extensiontargets-floor"></a>**Why `extensionTargets` is an open-ended floor, not an exact
+> pin (unlike `dependencies:` above):** `extensionTargets` and `dependencies:` look similar but fail
+> very differently when a consumer's CodeQL CLI doesn't bundle the exact version this repo pinned
+> against. An unsatisfiable `dependencies:` constraint fails **loudly** - `codeql pack
+> install`/`resolve-dependencies` refuses with `ERROR: No valid pack solution found...` - and even a
+> stale/incompatible pin on the CLI-bundled `codeql/<lang>-all` itself is harmless in practice,
+> because the CLI always resolves that specific dependency to whatever `-all` version it actually
+> bundles regardless of the declared range, and any genuine incompatibility then surfaces as an
+> ordinary QL compile error. An unsatisfiable `extensionTargets` constraint does neither: the CLI
+> just **silently drops the entire extension pack** - zero data-extension rows applied, no compile
+> error, no SARIF-level signal, job stays green - and surfaces only a low-visibility
+> `WARNING: Extension pack '<name>' is unused.` that's easy to miss in CI logs. Exact-pinning
+> `extensionTargets` to whatever this repo's own CI happens to test against on every routine CLI bump
+> (the way [`pin-codeql-library-versions.sh`][pin-codeql-library-versions-script] handles
+> `dependencies:`) therefore turns *any* drift between this repo's tested CLI version and a
+> consumer's actual CLI version into silent, undetected loss of coverage - this is exactly what
+> happened in [#206][issue-206], reproduced and confirmed there across a local CLI, a genuine GHCR
+> registry install, and a real hosted GitHub Actions run.
+>
+> The fix: `extensionTargets` is set **by hand** as an open-ended floor
+> (`codeql/<lang>-all: '>=X.Y.Z'`, no upper bound) instead of an exact pin, and
+> [`pin-codeql-library-versions.sh`][pin-codeql-library-versions-script] explicitly excludes
+> `*/ext` and `*/ext-library-sources` from its rewrite loop so a routine CLI bump can never silently
+> re-tighten it back to an exact version. An open floor works because the models-as-data extensible
+> predicates (`sinkModel`, `sourceModel`, `summaryModel`, etc.) these packs contribute rows to are a
+> stable schema that only changes on a genuine breaking change (an extensible predicate's
+> arity/column set changing) - which is rare and would show up as real compilation/test failures in
+> this repo's own CI, not something that needs to be guarded against on every release. Only raise an
+> `extensionTargets` floor by hand when there's evidence of an actual such breaking change (upstream
+> `github/codeql` CHANGELOG "Breaking Changes" entries are a good place to check, though in practice
+> most of those are QL library API changes that affect query/library packs, not the data-extension
+> row format) - not just because a newer CLI happens to be available. As of this writing, Java's
+> `<language>/ext`/`ext-library-sources` packs pilot this open-floor approach; other languages still
+> use an exact `extensionTargets` pin pending the same conversion.
+
 
 **This section no longer hand-maintains a version table** - it used to, but that table went stale
 across multiple CLI bumps in a row (nobody remembered to update it, and there was no CI check
@@ -313,6 +354,10 @@ coding agent) in the loop for the hard part — fixing whatever the new CLI brea
 > If you run `codeql pack install`/`upgrade` against one of these directories locally while
 > developing (e.g. to sanity-check a new data extension), delete the resulting
 > `codeql-pack.lock.yml` before committing.
+>
+> This is a separate concern from how `extensionTargets`' *version value* itself is chosen and
+> maintained — see the ["Why `extensionTargets` is an open-ended floor, not an exact
+> pin"](#extensiontargets-floor) warning box above.
 
 > [!WARNING]
 > The `.codeqlversion` bump and the pack version bumps don't have to land in the same PR, but
@@ -463,3 +508,4 @@ Please do get in touch (privacy@github.com) if you have any questions about this
 [pr-155]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/155
 [pr-158]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/158
 [pr-159]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/159
+[issue-206]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/issues/206

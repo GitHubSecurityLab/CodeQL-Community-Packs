@@ -84,6 +84,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          # NOTE: this only re-pins `dependencies:` in query/library packs
+          # (<language>/src, <language>/lib, etc.) - it deliberately skips
+          # <language>/ext and <language>/ext-library-sources, whose
+          # `extensionTargets:` floors are maintained by hand (see
+          # pin-codeql-library-versions.sh's header comment and
+          # CONTRIBUTING.md's "Supported CodeQL versions" section).
           .github/scripts/pin-codeql-library-versions.sh "${{ steps.version.outputs.version }}"
 
       - name: Upgrade every pack's dependencies
@@ -234,11 +240,13 @@ jobs:
             echo
             echo "This PR:"
             echo '- Updates `.codeqlversion` to `'"${{ steps.version.outputs.version }}"'`.'
-            echo '- Pins every `codeql/<lang>-all` / `codeql/<lang>-queries` dependency across all'
-            echo '  `qlpack.yml` files to the exact version shipped in the official CodeQL Bundle'
-            echo '  for this CLI release (see `.github/scripts/pin-codeql-library-versions.sh`) -'
-            echo '  this keeps `codeql pack upgrade` from jumping those libraries to'
-            echo '  registry-latest instead of the version this CLI actually ships/tests against.'
+            echo '- Pins every `codeql/<lang>-all` / `codeql/<lang>-queries` `dependencies:`'
+            echo '  entry across query/library `qlpack.yml` files (not `*/ext` or'
+            echo '  `*/ext-library-sources`, whose `extensionTargets` floors are maintained by'
+            echo '  hand) to the exact version shipped in the official CodeQL Bundle for this CLI'
+            echo '  release (see `.github/scripts/pin-codeql-library-versions.sh`) - this keeps'
+            echo '  `codeql pack upgrade` from jumping those libraries to registry-latest instead'
+            echo '  of the version this CLI actually ships/tests against.'
             echo '- Runs `codeql pack upgrade <dir>` for every pack directory to refresh its'
             echo '  `codeql-pack.lock.yml` against the new CLI and pinned library versions.'
             echo
