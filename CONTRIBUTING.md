@@ -106,10 +106,10 @@ instead of, or alongside, a query change.
     [CodeQL model pack
     documentation](https://docs.github.com/en/code-security/tutorials/customize-code-scanning/create-and-work-with-codeql-packs#creating-a-codeql-model-pack)
     for the full column reference (`namespace, type, subtypes, name, signature, ext, input/output,
-    kind, provenance`). `java/ext/manual/org.springframework.r2dbc.model.yml` shows a real
-    `sinkModel`/`summaryModel` pair side by side, with comments explaining *why* each row is shaped
-    the way it is — comment your own rows the same way whenever the mapping from source code to a
-    MaD row isn't obvious at a glance.
+    kind, provenance`), and any existing file under `manual/` in this repo for a real example of the
+    YAML shape. Add a short comment above any row whose reasoning isn't obvious from the method name
+    alone — e.g. explain what data reaches the argument/return value you picked and why that makes
+    it dangerous (for a sink) or untrusted (for a source).
 
 3. **`manual/` vs `generated/`**
 
@@ -121,14 +121,20 @@ instead of, or alongside, a query change.
 4. **The `extensionTargets` version gotcha**
 
     Your pack's `qlpack.yml` pins `extensionTargets: codeql/<language>-all: '<version>'` (see
-    `<language>/ext/qlpack.yml`). This must be satisfied by the `codeql/<language>-all` version
-    bundled with whatever CodeQL CLI is running the analysis — **if it isn't, your new models
-    silently attach zero results, with no error**, instead of failing loudly. This bit us during
-    development of the Spring R2DBC models above: a local CLI older than this repo's pinned
-    [`.codeqlversion`][codeqlversion] bundled a `codeql/java-all` below the pinned
-    `extensionTargets` range, so `codeql test run` produced 0 results locally for a genuinely-working
-    model — while CI (on the correctly pinned CLI) passed. If a local test run for a new data
-    extension doesn't find what you expect, check `codeql version` against
+    `<language>/ext/qlpack.yml`). A model pack's data extensions are only applied if the
+    `codeql/<language>-all` version actually being used for the analysis satisfies that range —
+    **if it doesn't, the extensions are silently skipped, with no error or warning**. This is a
+    general property of how CodeQL model packs work, not just a local-dev quirk: it affects
+    **anyone consuming the published pack**, not only contributors. Someone running an older (or
+    much newer) CodeQL CLI than this repo currently targets will get the pack installed
+    successfully but silently see none of its models take effect. This is part of why
+    `.codeqlversion` and every pack's version get bumped together whenever the pinned CLI changes
+    (see [Updating the pinned CodeQL CLI/library version](#updating-the-pinned-codeql-clilibrary-version))
+    — letting `extensionTargets` drift out of sync with the CLI versions people are actually
+    running quietly reduces coverage for them.
+
+    Practically, for your own local testing: if a new data extension doesn't seem to fire, check
+    `codeql version`'s bundled `codeql/<language>-all` against this repo's pinned
     [`.codeqlversion`][codeqlversion] before assuming your model is wrong.
 
     Also see the [note below](#ext-packs-no-install) on why these packs are never `codeql pack
