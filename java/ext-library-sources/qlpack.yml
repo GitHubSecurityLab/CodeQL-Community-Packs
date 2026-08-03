@@ -1,6 +1,6 @@
 library: true
 name: githubsecuritylab/codeql-java-library-sources
-version: 0.7.1
+version: 0.7.2
 extensionTargets:
   codeql/java-all: '9.2.1'
 dataExtensions:
