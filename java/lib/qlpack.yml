@@ -1,5 +1,5 @@
 library: true 
 name: githubsecuritylab/codeql-java-libs
-version: 0.7.2
+version: 0.7.3
 dependencies:
-  codeql/java-all: '9.2.1'
+  codeql/java-all: '9.2.2'
