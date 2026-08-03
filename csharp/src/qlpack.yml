@@ -5,5 +5,5 @@ suites: suites
 defaultSuiteFile: suites/csharp.qls
 dependencies:
   codeql/csharp-all: "7.1.0"
-  codeql/csharp-queries: "1.8.0" # Required for Dependencies.ql
+  codeql/csharp-queries: "1.8.0" # Required by suites/csharp-audit.qls and suites/csharp-external-api.qls for upstream cs/untrusted-data-to-external-api
   githubsecuritylab/codeql-csharp-libs: "*"
