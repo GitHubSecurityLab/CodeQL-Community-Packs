@@ -211,7 +211,9 @@ jobs:
           # is idempotent, so re-running this workflow for the same version is
           # safe.
           while IFS= read -r LABEL; do
-            [[ "$LABEL" == "version" ]] && continue
+            if [[ -z "$LABEL" || "$LABEL" == "version" ]]; then
+              continue
+            fi
             gh label create "$LABEL" --color ededed --force
           done <<< "${{ steps.pr_labels.outputs.list }}"
 
