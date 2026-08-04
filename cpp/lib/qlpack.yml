@@ -1,5 +1,5 @@
 library: true 
 name: githubsecuritylab/codeql-cpp-libs
-version: 0.7.3
+version: 0.7.4
 dependencies:
   codeql/cpp-all: '12.0.1'
