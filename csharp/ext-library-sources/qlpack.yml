@@ -1,8 +1,14 @@
 library: true
 name: githubsecuritylab/codeql-csharp-library-sources
-version: 0.7.1
+version: 0.7.3
+# Keep this '*' (unconstrained) - never pin/floor it to a specific
+# codeql/csharp-all version. Unlike `dependencies:`, an unsatisfied
+# extensionTargets constraint doesn't fail loudly: it silently drops this
+# whole extension pack (zero models applied) with only a low-visibility
+# "is unused" warning, no CI signal for downstream consumers. See
+# GitHubSecurityLab/CodeQL-Community-Packs#206 and CONTRIBUTING.md.
 extensionTargets:
-  codeql/csharp-all: '7.1.0'
+  codeql/csharp-all: '*'
 dataExtensions:
   - 'manual/*.yml'
   - 'manual/**/*.yml'

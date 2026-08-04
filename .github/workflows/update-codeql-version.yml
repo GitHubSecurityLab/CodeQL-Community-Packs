@@ -84,6 +84,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          # NOTE: this only re-pins `dependencies:` in query/library packs
+          # (<language>/src, <language>/lib, etc.) - it deliberately skips
+          # <language>/ext and <language>/ext-library-sources, whose
+          # `extensionTargets:` is intentionally left as an unconstrained
+          # `'*'` and must never be auto-rewritten (see
+          # pin-codeql-library-versions.sh's header comment and
+          # CONTRIBUTING.md's "Supported CodeQL versions" section).
           .github/scripts/pin-codeql-library-versions.sh "${{ steps.version.outputs.version }}"
 
       - name: Upgrade every pack's dependencies
@@ -91,10 +98,10 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          # Exclusions (the first three below are also excluded in
-          # .github/scripts/pin-codeql-library-versions.sh; the last one is
-          # NOT - ext/ext-library-sources still need their extensionTargets
-          # versions pinned, but must be skipped here to avoid lock-file churn):
+          # Exclusions (all four are also excluded in
+          # .github/scripts/pin-codeql-library-versions.sh, though ext/
+          # ext-library-sources are excluded there for a different reason -
+          # see that script's header comment):
           #  - ./ql/hotspots is a standalone local dev tool (see
           #    ql/hotspots/README.md and .github/workflows/hotspots.yml), not
           #    one of the per-language src/lib/ext/ext-library-sources packs
@@ -109,14 +116,16 @@ jobs:
           #    checkout (used by ql/hotspots) and CodeQL's own per-pack build
           #    caches, respectively - neither is a repo pack either.
           #  - <lang>/ext and <lang>/ext-library-sources are CodeQL model/extension packs
-          #    (`extensionTargets`, no `dependencies`) - NOT excluded from
-          #    pin-codeql-library-versions.sh (their extensionTargets versions still need
-          #    pinning), but excluded here: `codeql pack upgrade` (re)writes their
-          #    codeql-pack.lock.yml with an empty `dependencies: {}` map, and a checked-in
-          #    lock file in that state makes a later `codeql pack create`/`publish` emit a
-          #    bogus `addsTo.pack '...' is not an extension target of '...'` warning for
-          #    every data extension in the pack (a known CodeQL CLI bug, see
-          #    https://github.com/github/codeql/issues/20211). See CONTRIBUTING.md.
+          #    (`extensionTargets`, no `dependencies`) - excluded here for TWO independent
+          #    reasons, either of which alone would be enough: (1) `codeql pack upgrade`
+          #    (re)writes their codeql-pack.lock.yml with an empty `dependencies: {}` map,
+          #    and a checked-in lock file in that state makes a later `codeql pack
+          #    create`/`publish` emit a bogus `addsTo.pack '...' is not an extension target
+          #    of '...'` warning for every data extension in the pack (a known CodeQL CLI
+          #    bug, see https://github.com/github/codeql/issues/20211); (2) `extensionTargets`
+          #    is intentionally left as an unconstrained `'*'` (see qlpack.yml's own comment
+          #    and CONTRIBUTING.md) and must never be auto-rewritten by tooling - see
+          #    GitHubSecurityLab/CodeQL-Community-Packs#206.
           for dir in $(find . -name qlpack.yml -not -path "./ql/hotspots/*" -not -path "./codeql_home/*" -not -path "./codeql/*" -not -path "*/.codeql/*" -not -path "*/ext/*" -not -path "*/ext-library-sources/*" -exec dirname {} \;); do
             echo "::group::codeql pack upgrade $dir"
             codeql pack upgrade "$dir"
@@ -187,6 +196,36 @@ jobs:
           app-id: ${{ secrets.SECLABS_APP_ID }}
           private-key: ${{ secrets.SECLABS_APP_KEY }}
 
+      - name: Compute PR labels
+        id: pr_labels
+        run: |
+          set -euo pipefail
+          {
+            echo "list<<EOF"
+            echo "version"
+            echo "codeql-cli-v${{ steps.version.outputs.version }}"
+            if [[ -n "${{ steps.release_bump.outputs.bump }}" ]]; then
+              echo "release-v${{ steps.release_version.outputs.version }}"
+            fi
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Ensure version labels exist
+        env:
+          GH_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
+        run: |
+          set -euo pipefail
+          # `version` already exists in the repo; only the version-specific
+          # labels below need to be created on demand. `gh label create --force`
+          # is idempotent, so re-running this workflow for the same version is
+          # safe.
+          while IFS= read -r LABEL; do
+            if [[ -z "$LABEL" || "$LABEL" == "version" ]]; then
+              continue
+            fi
+            gh label create "$LABEL" --color ededed --force
+          done <<< "${{ steps.pr_labels.outputs.list }}"
+
       - name: Build PR title and body
         id: pr_meta
         run: |
@@ -204,12 +243,16 @@ jobs:
             echo
             echo "This PR:"
             echo '- Updates `.codeqlversion` to `'"${{ steps.version.outputs.version }}"'`.'
-            echo '- Pins every `codeql/<lang>-all` / `codeql/<lang>-queries` dependency across all'
-            echo '  `qlpack.yml` files to the exact version shipped in the official CodeQL Bundle'
-            echo '  for this CLI release (see `.github/scripts/pin-codeql-library-versions.sh`) -'
-            echo '  this keeps `codeql pack upgrade` from jumping those libraries to'
-            echo '  registry-latest instead of the version this CLI actually ships/tests against.'
-            echo '- Runs `codeql pack upgrade <dir>` for every pack directory to refresh its'
+            echo '- Pins every `codeql/<lang>-all` / `codeql/<lang>-queries` `dependencies:`'
+            echo '  entry across query/library `qlpack.yml` files (not `*/ext` or'
+            echo '  `*/ext-library-sources`, whose `extensionTargets` is intentionally left'
+            echo '  unconstrained and must never be auto-rewritten) to the exact version'
+            echo '  shipped in the official CodeQL Bundle for this CLI release (see'
+            echo '  `.github/scripts/pin-codeql-library-versions.sh`) - this keeps'
+            echo '  `codeql pack upgrade` from jumping those libraries to registry-latest instead'
+            echo '  of the version this CLI actually ships/tests against.'
+            echo '- Runs `codeql pack upgrade <dir>` for every query/library pack directory (again'
+            echo '  excluding `*/ext` and `*/ext-library-sources`) to refresh its'
             echo '  `codeql-pack.lock.yml` against the new CLI and pinned library versions.'
             echo
             if [[ -n "${{ steps.release_bump.outputs.bump }}" ]]; then
@@ -260,5 +303,5 @@ jobs:
           commit-message: ${{ steps.pr_meta.outputs.title }}
           body-path: "${{ runner.temp }}/pr-body.md"
           branch: "chore/update-codeql-cli-${{ steps.version.outputs.version }}"
-          labels: "version"
+          labels: ${{ steps.pr_labels.outputs.list }}
           delete-branch: true

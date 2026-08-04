@@ -36,7 +36,12 @@ fi
 
 LANGUAGES=(cpp csharp go java javascript python ruby)
 TYPES=(src lib ext ext-library-sources)
+# Languages with an `ext` (model/extension) pack - matches the `extensions` job's matrix.
 EXT_LANGUAGES=(csharp go java python)
+# Languages with an `ext-library-sources` pack - matches the `library_sources_extensions`
+# job's matrix. This is a strict subset of EXT_LANGUAGES: go/python ship `ext` packs but
+# have no `ext-library-sources` pack, so they must not be expected to have a result for it.
+EXT_LIBRARY_SOURCES_LANGUAGES=(csharp java)
 
 lang_label() {
   case "$1" in
@@ -54,6 +59,14 @@ lang_label() {
 is_ext_language() {
   local lang="$1"
   for l in "${EXT_LANGUAGES[@]}"; do
+    [ "$l" == "$lang" ] && return 0
+  done
+  return 1
+}
+
+is_ext_library_sources_language() {
+  local lang="$1"
+  for l in "${EXT_LIBRARY_SOURCES_LANGUAGES[@]}"; do
     [ "$l" == "$lang" ] && return 0
   done
   return 1
@@ -146,7 +159,11 @@ echo "| --- | --- | --- | --- | --- |"
 for lang in "${LANGUAGES[@]}"; do
   row="| $(lang_label "$lang") |"
   for type in "${TYPES[@]}"; do
-    if { [ "$type" == "ext" ] || [ "$type" == "ext-library-sources" ]; } && ! is_ext_language "$lang"; then
+    if [ "$type" == "ext" ] && ! is_ext_language "$lang"; then
+      row="$row n/a |"
+      continue
+    fi
+    if [ "$type" == "ext-library-sources" ] && ! is_ext_library_sources_language "$lang"; then
       row="$row n/a |"
       continue
     fi

@@ -1,0 +1,28 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sinkModel
+    data:
+      # `DatabaseClient.sql(String)` executes the given SQL text. Neither the
+      # SQL text nor any subsequently bound parameters are validated by the
+      # framework, so an unvalidated string reaching this argument is a SQL
+      # injection sink.
+      - ["org.springframework.r2dbc.core", "DatabaseClient", True, "sql", "(String)", "", "Argument[0]", "sql-injection", "manual"]
+      # `DatabaseClient.sql(Supplier<String>)` defers resolution of the SQL
+      # text until execution. The supplier's return value is not itself an
+      # argument/return position that MaD can target directly as a sink, so
+      # taint is instead propagated (via the summaryModel below) onto the
+      # `GenericExecuteSpec` object returned by `sql(...)`. The sink is
+      # placed on `fetch()`, the point where the deferred query is finalized
+      # and enters the fluent execution chain; actual execution remains
+      # reactive/deferred until the returned publisher is subscribed to, but
+      # the tainted SQL text has already been captured by that point.
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "fetch", "", "", "Argument[this]", "sql-injection", "manual"]
+  - addsTo:
+      pack: codeql/java-all
+      extensible: summaryModel
+    data:
+      # Propagate taint from the deferred SQL supplier's return value onto
+      # the `GenericExecuteSpec` returned by `sql(Supplier<String>)`, so it
+      # can reach the `fetch()` sink modeled above.
+      - ["org.springframework.r2dbc.core", "DatabaseClient", True, "sql", "(java.util.function.Supplier)", "", "Argument[0].ReturnValue", "ReturnValue", "taint", "manual"]
