@@ -1,6 +1,6 @@
 library: false
 name: githubsecuritylab/codeql-go-queries
-version: 0.7.3
+version: 0.7.4
 suites: suites
 defaultSuiteFile: suites/go.qls
 dependencies:
