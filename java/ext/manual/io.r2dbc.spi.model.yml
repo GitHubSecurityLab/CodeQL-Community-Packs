@@ -6,9 +6,10 @@ extensions:
       # `io.r2dbc.spi` is the low-level, driver-agnostic R2DBC SPI that every
       # reactive relational driver (Postgres, MySQL, H2, SQL Server, ...)
       # implements, and that higher-level APIs such as Spring's
-      # `DatabaseClient` are themselves built on top of. Modeling these two
-      # sinks closes the false negative for any code (Spring-based or not)
-      # that drops down to the raw R2DBC SPI to build/execute SQL text.
+      # `DatabaseClient` are themselves built on top of. Modeling these sinks
+      # closes the false negative for any code (Spring-based or not) that
+      # drops down to the raw R2DBC SPI to build/execute SQL text or
+      # identifiers.
       #
       # `Connection.createStatement(String)` is the R2DBC equivalent of
       # `java.sql.Connection.prepareStatement(String)`: the SQL text is fixed
@@ -19,3 +20,24 @@ extensions:
       # `java.sql.Statement.addBatch(String)`: it appends a raw SQL statement
       # to a batch that is later executed via `Batch.execute()`.
       - ["io.r2dbc.spi", "Batch", True, "add", "(String)", "", "Argument[0]", "sql-injection", "manual"]
+      # `Connection.createSavepoint`/`releaseSavepoint`/
+      # `rollbackTransactionToSavepoint` each take a raw `name` that
+      # identifies a savepoint. The SQL wire protocol has no parameter
+      # placeholder for identifiers (only for literal values), so drivers
+      # build the executed command by splicing `name` directly into text
+      # such as `SAVEPOINT <name>`. Verified against r2dbc-postgresql
+      # 1.0.2.RELEASE (`PostgresqlConnection`), which does exactly this via
+      # unescaped `String.format(...)` - a tainted savepoint name is
+      # classic SQL injection (e.g. `x; DROP TABLE users; --`).
+      - ["io.r2dbc.spi", "Connection", True, "createSavepoint", "(String)", "", "Argument[0]", "sql-injection", "manual"]
+      - ["io.r2dbc.spi", "Connection", True, "releaseSavepoint", "(String)", "", "Argument[0]", "sql-injection", "manual"]
+      - ["io.r2dbc.spi", "Connection", True, "rollbackTransactionToSavepoint", "(String)", "", "Argument[0]", "sql-injection", "manual"]
+      # `Statement.returnGeneratedValues(String...)` takes raw column names
+      # to request back after an INSERT/UPDATE/DELETE. For the same reason
+      # (no placeholder syntax for identifiers), drivers append these names
+      # directly into the executed SQL's `RETURNING` clause. Verified
+      # against r2dbc-postgresql 1.0.2.RELEASE
+      # (`GeneratedValuesUtils.augment`), which does
+      # `String.format("%s RETURNING %s", sql, String.join(", ", columns))`
+      # with zero escaping or validation of the column names.
+      - ["io.r2dbc.spi", "Statement", True, "returnGeneratedValues", "(String[])", "", "Argument[0]", "sql-injection", "manual"]

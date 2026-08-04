@@ -47,4 +47,30 @@ public class RawR2dbcHandler {
     statement.bind(0, category);
     return statement.execute();
   }
+
+  public void runCreateSavepoint() {
+    // Real drivers (e.g. r2dbc-postgresql) build this as
+    // `String.format("SAVEPOINT %s", name)` with no escaping/validation.
+    String name = source();
+    connection.createSavepoint(name); // sink 5: Connection.createSavepoint(String)
+  }
+
+  public void runReleaseSavepoint() {
+    String name = source();
+    connection.releaseSavepoint(name); // sink 6: Connection.releaseSavepoint(String)
+  }
+
+  public void runRollbackTransactionToSavepoint() {
+    String name = source();
+    connection.rollbackTransactionToSavepoint(name); // sink 7: Connection.rollbackTransactionToSavepoint(String)
+  }
+
+  public Result runReturnGeneratedValues() {
+    // Real drivers (e.g. r2dbc-postgresql) build this as
+    // `String.format("%s RETURNING %s", sql, String.join(", ", columns))`
+    // with no escaping/validation of the column names.
+    String column = source();
+    Statement statement = connection.createStatement("INSERT INTO items (name) VALUES ($1)");
+    return statement.returnGeneratedValues(column).execute(); // sink 8: Statement.returnGeneratedValues(String...)
+  }
 }
