@@ -10,12 +10,14 @@
 # - those are model/extension packs that declare `extensionTargets:`, not
 # `dependencies:`, and are excluded from this script's file list entirely. See
 # CONTRIBUTING.md's "Supported CodeQL versions" section ("Why `extensionTargets`
-# is a floor, not an exact pin") for why: unlike `dependencies:`, an unsatisfied
+# is always `'*'`, never pinned") for why: unlike `dependencies:`, an unsatisfied
 # `extensionTargets` constraint doesn't fail loudly, it silently drops the whole
-# extension pack, so re-pinning it to an exact version on every CLI bump (the
-# way this script handles `dependencies:`) turns routine consumer CLI drift into
-# silent, undetected loss of coverage (GitHubSecurityLab/CodeQL-Community-Packs#206).
-# `extensionTargets` floors are maintained by hand instead, as open-ended ranges.
+# extension pack, so re-pinning it - to an exact version OR a version floor -
+# on every CLI bump (the way this script handles `dependencies:`) turns routine
+# consumer CLI drift into silent, undetected loss of coverage
+# (GitHubSecurityLab/CodeQL-Community-Packs#206). `extensionTargets` is left as
+# the fully unconstrained `'*'` instead, and this script must never touch it -
+# see the comment above `extensionTargets:` in each `<language>/ext*/qlpack.yml`.
 #
 # Why this exists (for `dependencies:`): `codeql pack upgrade` resolves an
 # unconstrained `'*'` dependency to the *latest-ever-published* version in the
@@ -87,21 +89,21 @@ echo "Discovered $(wc -l < "$VERSIONS_FILE") bundled codeql/* packages for CLI $
 # codeql/<lang>/downgrades, that have nothing to do with this repo) - and
 # excluding every `<language>/ext` and `<language>/ext-library-sources`
 # model/extension pack. Those use `extensionTargets:` instead of
-# `dependencies:`, and deliberately do NOT get re-pinned to the exact bundle
-# version on every CLI bump the way `dependencies:` does here (see
-# CONTRIBUTING.md's "Supported CodeQL versions" section, "Why
-# `extensionTargets` is a floor, not an exact pin"). Unlike `dependencies:`,
-# an unsatisfied `extensionTargets` constraint doesn't fail loudly - the CLI
-# just silently drops the whole extension pack (zero data-extension rows
-# applied, only a low-visibility `WARNING: ... is unused`) - so constantly
-# re-pinning it to whatever this repo's own CI happens to test against turns
-# every routine consumer CLI/version mismatch into silent, undetected loss of
-# coverage (see GitHubSecurityLab/CodeQL-Community-Packs#206). Instead,
-# `extensionTargets` is set by hand as an open-ended floor
-# (`codeql/<lang>-all: '>=X.Y.Z'`) and only ever raised when a maintainer
-# confirms an actual breaking change to the models-as-data schema (e.g. an
-# extensible predicate's arity/column set changed) - our own test suite
-# failing is the trigger to look for that, not a routine CLI bump.
+# `dependencies:`, and deliberately do NOT get re-pinned on every CLI bump the
+# way `dependencies:` does here (see CONTRIBUTING.md's "Supported CodeQL
+# versions" section, "Why `extensionTargets` is always `'*'`, never pinned or
+# floored"). Unlike `dependencies:`, an unsatisfied `extensionTargets`
+# constraint doesn't fail loudly - the CLI just silently drops the whole
+# extension pack (zero data-extension rows applied, only a low-visibility
+# `WARNING: ... is unused`) - so re-pinning it to whatever this repo's own CI
+# happens to test against, on every routine CLI bump, turns every consumer
+# CLI/version mismatch into silent, undetected loss of coverage (see
+# GitHubSecurityLab/CodeQL-Community-Packs#206). Instead, `extensionTargets`
+# is left as the fully unconstrained `codeql/<lang>-all: '*'` and only ever
+# changed by hand if a maintainer confirms an actual breaking change to the
+# models-as-data schema (e.g. an extensible predicate's arity/column set
+# changed) - our own test suite failing is the trigger to look for that, not
+# a routine CLI bump.
 mapfile -t QLPACK_FILES < <(find . -name qlpack.yml -not -path "*/.codeql/*" -not -path "./codeql/*" -not -path "./codeql_home/*" -not -path "*/ext/*" -not -path "*/ext-library-sources/*")
 
 declare -A PINNED_COUNT=()
