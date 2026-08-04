@@ -60,6 +60,91 @@ Queries and libraries may not be actively maintained as the supported libraries 
 
 After the query is merged, we welcome pull requests to improve it.
 
+## Adding a data extension
+
+Sometimes a false negative or false positive isn't a gap in a query's own logic, but a third-party
+library API that the standard `codeql/<language>-all` libraries simply don't know about — a
+framework method that's really a SQL/command/path-injection sink, or a getter that hands back
+untrusted remote data. For those, add a **data extension** (a "MaD" — Model-as-Data — model)
+instead of, or alongside, a query change.
+
+1. **Pick the right pack: `ext` vs `ext-library-sources`**
+
+    Every language with data-extension support has a `<language>/ext` pack (`csharp`/`go`/`java`/
+    `python`). Two of those languages additionally have a second, narrower pack,
+    `<language>/ext-library-sources` (`csharp`/`java` only). They hold different *kinds* of models,
+    and picking the right one matters:
+
+    - **`<language>/ext`** (published as `githubsecuritylab/codeql-<language>-extensions`) is what
+      you want for almost every contribution: **sink models** (this library method is a dangerous
+      operation), **summary models** (taint flows from one argument/return value to another through
+      a library method), and, where appropriate, hand-curated **source models** for a specific,
+      well-known framework API (e.g. a web framework's `getParameter()`-style methods). This is
+      where our own [Spring R2DBC `DatabaseClient` SQL injection sink models][pr-204] live
+      (`java/ext/manual/org.springframework.r2dbc.model.yml`) — use it as a concrete reference for
+      both the file layout and the row shape.
+    - **`<language>/ext-library-sources`** (published as
+      `githubsecuritylab/codeql-<language>-library-sources`) exists only for `csharp`/`java` and
+      holds a narrower category: `sourceModel` rows (almost always `kind: "remote"`) that flag a
+      third-party library API as a place where untrusted/attacker-controlled data enters an
+      application. Because a `RemoteFlowSource` feeds *every* standard security query, not just one
+      vulnerability class, these models have a much larger blast radius than a typical sink model,
+      so they're kept in a separate, more conservatively-reviewed pack. Most of the content here is
+      bulk-generated from real-world library usage (see
+      `<language>/src/library_sources/ExternalAPIsUsedWithUntrustedData.ql`) rather than
+      hand-written — `manual/` in this pack is essentially unused today.
+
+    **Rule of thumb: if you're modeling a dangerous sink, or how taint flows through a library
+    method, use `ext`. Only reach for `ext-library-sources` if you're contributing a genuinely new
+    remote-data-entry-point (source) model, and only for csharp/java.**
+
+2. **Row shape**
+
+    Each data extension is a `.yml` file with an `extensions:` list. Every entry has an
+    `addsTo.pack` (always `codeql/<language>-all`), an `addsTo.extensible`
+    (`sinkModel`/`sourceModel`/`summaryModel`/`neutralModel`), and a `data:` list of rows. See the
+    [CodeQL model pack
+    documentation](https://docs.github.com/en/code-security/tutorials/customize-code-scanning/create-and-work-with-codeql-packs#creating-a-codeql-model-pack)
+    for the full column reference (`namespace, type, subtypes, name, signature, ext, input/output,
+    kind, provenance`), and any existing file under `manual/` in this repo for a real example of the
+    YAML shape. Add a short comment above any row whose reasoning isn't obvious from the method name
+    alone — e.g. explain what data reaches the argument/return value you picked and why that makes
+    it dangerous (for a sink) or untrusted (for a source).
+
+3. **`manual/` vs `generated/`**
+
+    Both `ext` and `ext-library-sources` load `manual/*.yml` and `generated/*.yml` (see each pack's
+    `qlpack.yml`, `dataExtensions:`). By convention, `manual/` is for hand-authored, human-reviewed
+    models — this is where a new library's sink/summary models should go — while `generated/` is
+    bulk output from an automated model-generation tool/query and isn't meant to be hand-edited.
+
+4. **Don't touch `extensionTargets`**
+
+    Your pack's `qlpack.yml` declares `extensionTargets: codeql/<language>-all: '*'` — fully
+    unconstrained, on purpose. Leave it that way even though it looks like the exact-pinned
+    `dependencies:` used elsewhere in this repo: an unsatisfied `extensionTargets` constraint
+    doesn't fail loudly like a bad `dependencies:` pin does, it silently drops the *entire*
+    extension pack with only a low-visibility warning. See the [`extensionTargets`
+    warning box](#extensiontargets-floor) below for the full story.
+
+    Also see the [note below](#ext-packs-no-install) on why these packs are never `codeql pack
+    install`ed/`upgrade`d.
+
+5. **Testing**
+
+    Add a test under `<language>/test/security/<CWE-id>/<your-library>/`: minimal source stubs that
+    reproduce the vulnerable call shape, a `.ql` query that imports the *real* standard query (e.g.
+    `SqlInjectionQuery`/`QueryInjectionFlow`, not a reimplementation of it), and a `.expected` file.
+    Check that `<language>/test/qlpack.yml` depends on `githubsecuritylab/codeql-<language>-extensions`
+    (and `-library-sources` where applicable) — that dependency is what makes `codeql test run`'s
+    normal dependency resolution load your data extensions automatically, unlike ad-hoc `codeql
+    database analyze`/`query run`, which need an explicit `--model-packs` flag. Add the dependency if
+    it's missing. Confirm the test actually exercises your model (not just that it compiles) by
+    checking the CI job log for a `PASSED` line naming your `.ql` file.
+
+Once merged, publish your change the same way as any other pack — see [Shipping a change to a
+query/library pack](#shipping-a-change-to-a-querylibrary-pack) below.
+
 ## Supported CodeQL versions
 
 Every query pack in this repository is compiled and tested against a specific, pinned version of the upstream CodeQL standard libraries (e.g. `codeql/java-all`). These queries are **only guaranteed to compile** against those exact library versions (see the latest release for the current versions): newer or older CodeQL CLI/library versions may rename or remove APIs the queries depend on (see [#151](https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/151) for an example, and [#145](https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/issues/145) for the ongoing effort to refresh these pins).
@@ -259,8 +344,9 @@ merge. Bumping your pack's own `version:` in a regular PR just *stages* the chan
 To ship a change:
 
 - [ ] Make your change in the pack directory you intend to publish: `<language>/src` (queries),
-      `<language>/lib` (library), or `<language>/ext`/`<language>/ext-library-sources` (extensions,
-      `csharp`/`go`/`java`/`python` only).
+      `<language>/lib` (library), `<language>/ext` (extensions, `csharp`/`go`/`java`/`python` only),
+      or `<language>/ext-library-sources` (extensions, `csharp`/`java` only). See [Adding a data
+      extension](#adding-a-data-extension) above if you're not sure which extensions pack to use.
 - [ ] Bump `version:` in that pack's `qlpack.yml`, following [semver](https://semver.org/). Only bump
       the specific pack(s) you changed; other languages/pack types are unaffected and don't need
       touching.
@@ -529,4 +615,5 @@ Please do get in touch (privacy@github.com) if you have any questions about this
 [pr-155]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/155
 [pr-158]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/158
 [pr-159]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/159
+[pr-204]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/pull/204
 [issue-206]: https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/issues/206
