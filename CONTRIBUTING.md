@@ -135,12 +135,12 @@ instead of, or alongside, a query change.
     Add a test under `<language>/test/security/<CWE-id>/<your-library>/`: minimal source stubs that
     reproduce the vulnerable call shape, a `.ql` query that imports the *real* standard query (e.g.
     `SqlInjectionQuery`/`QueryInjectionFlow`, not a reimplementation of it), and a `.expected` file.
-    `<language>/test/qlpack.yml` already depends on `githubsecuritylab/codeql-<language>-extensions`
+    Check that `<language>/test/qlpack.yml` depends on `githubsecuritylab/codeql-<language>-extensions`
     (and `-library-sources` where applicable) — that dependency is what makes `codeql test run`'s
-    normal dependency resolution load your new data extensions automatically, unlike ad-hoc `codeql
-    database analyze`/`query run`, which need an explicit `--model-packs` flag. Confirm the test
-    actually exercises your model (not just that it compiles) by checking the CI job log for a
-    `PASSED` line naming your `.ql` file.
+    normal dependency resolution load your data extensions automatically, unlike ad-hoc `codeql
+    database analyze`/`query run`, which need an explicit `--model-packs` flag. Add the dependency if
+    it's missing. Confirm the test actually exercises your model (not just that it compiles) by
+    checking the CI job log for a `PASSED` line naming your `.ql` file.
 
 Once merged, publish your change the same way as any other pack — see [Shipping a change to a
 query/library pack](#shipping-a-change-to-a-querylibrary-pack) below.
