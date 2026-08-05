@@ -1,6 +1,21 @@
 | com/example/DeferredQueryHandler.java:24:23:24:30 | source(...) | com/example/DeferredQueryHandler.java:25:12:26:77 | sql(...) |
+| com/example/DeferredQueryHandler.java:33:23:33:30 | source(...) | com/example/DeferredQueryHandler.java:34:12:35:77 | sql(...) |
+| com/example/DeferredQueryHandler.java:42:23:42:30 | source(...) | com/example/DeferredQueryHandler.java:43:12:44:77 | sql(...) |
+| com/example/DeferredQueryHandler.java:52:23:52:30 | source(...) | com/example/DeferredQueryHandler.java:53:12:55:35 | bind(...) |
+| com/example/DeferredQueryHandler.java:64:23:64:30 | source(...) | com/example/DeferredQueryHandler.java:65:12:67:41 | bind(...) |
+| com/example/DeferredQueryHandler.java:75:23:75:30 | source(...) | com/example/DeferredQueryHandler.java:76:12:77:77 | sql(...) |
+| com/example/DeferredQueryHandler.java:83:23:83:30 | source(...) | com/example/DeferredQueryHandler.java:84:12:85:77 | sql(...) |
+| com/example/DeferredQueryHandler.java:94:23:94:30 | source(...) | com/example/DeferredQueryHandler.java:95:12:100:29 | filter(...) |
+| com/example/DeferredQueryHandler.java:107:23:107:30 | source(...) | com/example/DeferredQueryHandler.java:108:12:110:40 | bindNull(...) |
+| com/example/DeferredQueryHandler.java:117:23:117:30 | source(...) | com/example/DeferredQueryHandler.java:118:12:120:59 | bindValues(...) |
+| com/example/DeferredQueryHandler.java:127:23:127:30 | source(...) | com/example/DeferredQueryHandler.java:128:12:130:78 | filter(...) |
+| com/example/DeferredQueryHandler.java:137:23:137:30 | source(...) | com/example/DeferredQueryHandler.java:138:12:139:77 | sql(...) |
 | com/example/RawR2dbcHandler.java:28:23:28:30 | source(...) | com/example/RawR2dbcHandler.java:31:13:31:69 | ... + ... |
 | com/example/RawR2dbcHandler.java:36:23:36:30 | source(...) | com/example/RawR2dbcHandler.java:38:15:38:71 | ... + ... |
+| com/example/RawR2dbcHandler.java:54:19:54:26 | source(...) | com/example/RawR2dbcHandler.java:55:32:55:35 | name |
+| com/example/RawR2dbcHandler.java:59:19:59:26 | source(...) | com/example/RawR2dbcHandler.java:60:33:60:36 | name |
+| com/example/RawR2dbcHandler.java:64:19:64:26 | source(...) | com/example/RawR2dbcHandler.java:65:47:65:50 | name |
+| com/example/RawR2dbcHandler.java:72:21:72:28 | source(...) | com/example/RawR2dbcHandler.java:74:12:74:50 | new ..[] { .. } |
 | com/example/StringConcatQueryHandler.java:39:23:39:30 | source(...) | com/example/StringConcatQueryHandler.java:43:31:43:35 | query |
 | com/example/StringConcatQueryHandler.java:40:21:40:28 | source(...) | com/example/StringConcatQueryHandler.java:43:31:43:35 | query |
 | com/example/StringConcatQueryHandler.java:41:24:41:31 | source(...) | com/example/StringConcatQueryHandler.java:43:31:43:35 | query |

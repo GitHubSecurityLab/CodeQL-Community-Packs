@@ -12,17 +12,43 @@ extensions:
       # text until execution. The supplier's return value is not itself an
       # argument/return position that MaD can target directly as a sink, so
       # taint is instead propagated (via the summaryModel below) onto the
-      # `GenericExecuteSpec` object returned by `sql(...)`. The sink is
-      # placed on `fetch()`, the point where the deferred query is finalized
-      # and enters the fluent execution chain; actual execution remains
-      # reactive/deferred until the returned publisher is subscribed to, but
-      # the tainted SQL text has already been captured by that point.
+      # `GenericExecuteSpec` object returned by `sql(...)`. Sinks are then
+      # placed on every method of `GenericExecuteSpec` that actually enters
+      # the execution stage (per Spring's own Javadoc wording) - `fetch()`,
+      # `then()`, `map(...)`/`mapValue(...)`/`mapProperties(...)`, and
+      # `flatMap(...)` - since any of them, called on a tainted receiver,
+      # means the tainted SQL text has already been captured. Actual
+      # execution remains reactive/deferred until the returned publisher is
+      # subscribed to, but that doesn't change the taint result.
       - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "fetch", "", "", "Argument[this]", "sql-injection", "manual"]
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "then", "", "", "Argument[this]", "sql-injection", "manual"]
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "map", "(java.util.function.Function)", "", "Argument[this]", "sql-injection", "manual"]
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "map", "(java.util.function.BiFunction)", "", "Argument[this]", "sql-injection", "manual"]
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "mapValue", "(Class)", "", "Argument[this]", "sql-injection", "manual"]
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "mapProperties", "(Class)", "", "Argument[this]", "sql-injection", "manual"]
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "flatMap", "(java.util.function.Function)", "", "Argument[this]", "sql-injection", "manual"]
   - addsTo:
       pack: codeql/java-all
       extensible: summaryModel
     data:
       # Propagate taint from the deferred SQL supplier's return value onto
       # the `GenericExecuteSpec` returned by `sql(Supplier<String>)`, so it
-      # can reach the `fetch()` sink modeled above.
+      # can reach the execution-stage sinks modeled above.
       - ["org.springframework.r2dbc.core", "DatabaseClient", True, "sql", "(java.util.function.Supplier)", "", "Argument[0].ReturnValue", "ReturnValue", "taint", "manual"]
+      # `GenericExecuteSpec`'s parameter-binding/filtering methods are
+      # fluent - they return (a possibly new) `GenericExecuteSpec` - and
+      # must NOT break the taint chain from the deferred-supplier summary
+      # above through to the execution-stage sinks. These propagate the
+      # receiver's own taint (from the deferred-supplier path) onto the
+      # returned `GenericExecuteSpec`; they do not, and should not, taint
+      # the receiver based on the *bound parameter value* itself, since
+      # bound parameters are safely escaped by the driver.
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "bind", "(int,Object)", "", "Argument[this]", "ReturnValue", "taint", "manual"]
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "bind", "(String,Object)", "", "Argument[this]", "ReturnValue", "taint", "manual"]
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "bindNull", "(int,Class)", "", "Argument[this]", "ReturnValue", "taint", "manual"]
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "bindNull", "(String,Class)", "", "Argument[this]", "ReturnValue", "taint", "manual"]
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "bindValues", "(List)", "", "Argument[this]", "ReturnValue", "taint", "manual"]
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "bindValues", "(Map)", "", "Argument[this]", "ReturnValue", "taint", "manual"]
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "bindProperties", "(Object)", "", "Argument[this]", "ReturnValue", "taint", "manual"]
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "filter", "(java.util.function.Function)", "", "Argument[this]", "ReturnValue", "taint", "manual"]
+      - ["org.springframework.r2dbc.core", "DatabaseClient$GenericExecuteSpec", True, "filter", "(org.springframework.r2dbc.core.StatementFilterFunction)", "", "Argument[this]", "ReturnValue", "taint", "manual"]

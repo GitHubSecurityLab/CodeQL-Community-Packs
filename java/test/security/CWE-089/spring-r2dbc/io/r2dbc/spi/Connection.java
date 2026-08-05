@@ -9,4 +9,10 @@ public interface Connection {
   Statement createStatement(String sql);
 
   Batch createBatch();
+
+  void createSavepoint(String name);
+
+  void releaseSavepoint(String name);
+
+  void rollbackTransactionToSavepoint(String name);
 }

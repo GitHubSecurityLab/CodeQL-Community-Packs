@@ -16,5 +16,7 @@ public interface Statement {
 
   Statement add();
 
+  Statement returnGeneratedValues(String... columns);
+
   Result execute();
 }
