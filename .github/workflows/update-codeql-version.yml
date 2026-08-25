@@ -54,9 +54,11 @@ jobs:
         run: |
           set -euo pipefail
           VERSION="${{ inputs.codeql_version }}"
+          VERSION="${VERSION#"${VERSION%%[![:space:]]*}"}" # trim leading whitespace
+          VERSION="${VERSION%"${VERSION##*[![:space:]]}"}" # trim trailing whitespace
           VERSION="${VERSION#v}" # tolerate an accidental leading "v"
           if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo "::error::codeql_version must look like X.Y.Z, got: ${{ inputs.codeql_version }}"
+            echo "::error::codeql_version must look like X.Y.Z, got: $VERSION"
             exit 1
           fi
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
