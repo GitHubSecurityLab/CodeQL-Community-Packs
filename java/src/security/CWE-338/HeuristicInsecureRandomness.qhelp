@@ -1,0 +1,47 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+<p>Cryptographically weak pseudo-random number generators (PRNGs), such as
+  <code>java.util.Random</code> or <code>Math.random()</code>, produce output that an attacker
+  can predict or reproduce, for example by observing a few outputs or brute-forcing the seed.
+  This is not a problem in most contexts, but if the resulting value is used somewhere that
+  must be unpredictable, such as an authentication token, a password-reset code, an API key, or
+  a session identifier, an attacker who can predict the value may be able to bypass the security
+  control it was meant to protect.</p>
+<p>This query is a heuristic: rather than tracing the random value all the way to a known
+  security-sensitive sink, it flags any value produced by a weak PRNG whose surrounding code
+  (the enclosing method or constructor name, the variable it is assigned to, or the variable
+  holding the <code>Random</code> instance) has a name that suggests a security-sensitive
+  purpose, such as <code>token</code>, <code>secret</code>, <code>otp</code>, or
+  <code>authorizationCode</code>. Review each result to confirm that the value is genuinely used
+  in a security-sensitive way.</p>
+</overview>
+
+<recommendation>
+<p>Use <code>java.security.SecureRandom</code> instead of <code>java.util.Random</code> or
+  <code>Math.random()</code> to generate any value that must be unpredictable.</p>
+</recommendation>
+
+<example>
+<p>In the following example, an authorization code is generated using
+  <code>java.util.Random</code>. Because <code>java.util.Random</code> is seeded from a value
+  that is often predictable (or is easy to brute-force even when it is not), an attacker may be
+  able to predict or reproduce the generated code. The fixed version uses
+  <code>java.security.SecureRandom</code> instead.</p>
+<sample src="HeuristicInsecureRandomness.java" />
+</example>
+
+<references>
+<li>
+  OWASP:
+  <a href="https://owasp.org/www-community/vulnerabilities/Insecure_Randomness">Insecure Randomness</a>
+</li>
+<li>
+  CWE:
+  <a href="https://cwe.mitre.org/data/definitions/338.html">CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)</a>
+</li>
+</references>
+</qhelp>
