@@ -4,5 +4,5 @@ version: 0.7.5
 suites: suites
 defaultSuiteFile: suites/python.qls
 dependencies:
-  codeql/python-all: '7.2.2'
+  codeql/python-all: '7.2.3'
   githubsecuritylab/codeql-python-libs: '*'
