@@ -2,4 +2,4 @@ library: true
 name: githubsecuritylab/codeql-javascript-libs
 version: 0.7.5
 dependencies:
-  codeql/javascript-all: '2.8.2'
+  codeql/javascript-all: '2.9.0'
