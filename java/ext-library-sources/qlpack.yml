@@ -1,6 +1,6 @@
 library: true
 name: githubsecuritylab/codeql-java-library-sources
-version: 0.7.5
+version: 0.7.6
 # Keep this '*' (unconstrained) - never pin/floor it to a specific
 # codeql/java-all version. Unlike `dependencies:`, an unsatisfied
 # extensionTargets constraint doesn't fail loudly: it silently drops this

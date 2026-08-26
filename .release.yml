@@ -1,6 +1,6 @@
 name: "CodeQL Community Packs"
 repository: "githubsecuritylab/codeql-community-packs"
-version: "0.7.5"
+version: "0.7.6"
 prerelease: false
 
 ecosystem: CodeQL
