@@ -1,6 +1,6 @@
 library: true
 name: githubsecuritylab/codeql-csharp-extensions
-version: 0.7.6
+version: 0.7.7
 # Keep this '*' (unconstrained) - never pin/floor it to a specific
 # codeql/csharp-all version. Unlike `dependencies:`, an unsatisfied
 # extensionTargets constraint doesn't fail loudly: it silently drops this

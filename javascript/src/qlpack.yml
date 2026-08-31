@@ -1,8 +1,8 @@
 library: false
 name: githubsecuritylab/codeql-javascript-queries
-version: 0.7.6
+version: 0.7.7
 suites: suites
 defaultSuiteFile: suites/javascript.qls
 dependencies:
-  codeql/javascript-all: '2.9.0'
+  codeql/javascript-all: '2.10.0'
   githubsecuritylab/codeql-javascript-libs: '*'

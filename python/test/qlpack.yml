@@ -1,8 +1,8 @@
 name: githubsecurtylab/codeql-python-tests
 groups: [python, test]
 dependencies:
-    codeql/python-all: '7.2.3'
-    codeql/python-queries: '1.8.8'
+    codeql/python-all: '7.2.4'
+    codeql/python-queries: '1.8.9'
     githubsecuritylab/codeql-python-queries: '*'
     githubsecuritylab/codeql-python-libs: '*'
 extractor: python
