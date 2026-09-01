@@ -1,0 +1,59 @@
+# Use this query suite when looking to get the broadest coverage of security results from the CodeQL Built in packs and the GitHub Security Lab Community packs.
+# WARNING: A notable amount of false positives may be found in this configuration.  If you wish to reduce the number of false positives, use the default codeql suites :)
+# NOTE: This suite will not include audit level queries intended for gathering information about the codebase, and debugging queries intended for CodeQL developers.
+# NOTE: A suite cannot exclude directories from the scan.  Consider pairing with a codeql-config.yml that excludes unwanted folders with `paths-ignore`
+# NOTE: A suite cannot include library packs that contain data extensions.  Consider pairing with a codeql-config.yml that includes needed data models.
+
+# Run the following pack install commands to prime your workspace or run the analyze command using `--download` flag
+#codeql pack download codeql/python-queries
+#codeql pack download githubsecuritylab/codeql-python-queries
+
+# All queries from CodeQL built in query packs
+- queries: '.'
+  from: codeql/python-queries
+
+# Curated packs from community repos
+
+### GitHub Security Lab ###
+# Queries via Community Packs https://github.com/GitHubSecurityLab/CodeQL-Community-Packs (NOTE: the default suites do not include audit/debugging queries)
+- qlpack: githubsecuritylab/codeql-python-queries
+
+# Queries via Community Packs that use local sources https://github.com/GitHubSecurityLab/CodeQL-Community-Packs
+- qlpack: githubsecuritylab/codeql-python-queries:suites/python-local.qls
+
+
+- include:
+          kind:
+              - problem
+              - path-problem
+          tags contain:
+              - security
+- include:
+        kind:
+            - diagnostic
+- include:
+        kind:
+            - metric
+        tags contain:
+            - summary
+- exclude:
+        deprecated: //
+- exclude:
+        query path:
+            # REMOVE exclude - OK even if they exist in experimental folder
+            #- /^experimental\/.*/
+            - Metrics/Summaries/FrameworkCoverage.ql
+            - /Diagnostics/Internal/.*/
+- exclude:
+        tags contain:
+            - modeleditor
+            - modelgenerator
+# Exclude audit queries from the CodeQL Built in packs
+- exclude:
+        id:
+            - python/untrusted-data-to-external-api
+# Remove debugging, and audit queries used by community packs (this is duplicative of the default suites from those community packs)
+- exclude:
+        tags contain:
+            - debugging
+            - audit
