@@ -72,7 +72,7 @@ class ParamsRFS extends RemoteFlowSource::Range {
     exists(ElementReference er, MethodCall mc |
       er.getReceiver() = mc and
       mc.getMethodName() = "params" and
-      this.asExpr() = er.getAControlFlowNode()
+      this.asExpr() = er.getControlFlowNode()
     )
   }
 
