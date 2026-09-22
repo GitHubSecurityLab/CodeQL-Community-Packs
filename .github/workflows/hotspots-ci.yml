@@ -15,10 +15,13 @@ name: "Hotspots Build/Validate"
 # `.codeqlversion` CLI and the matching `codeql-cli/v<version>` tag of `github/codeql`, so a red
 # run means *this PR* broke something rather than upstream moving underneath us.
 #
-# The `github/codeql` ref is deliberately not overridable by a `workflow_dispatch` input, and no
-# job here writes to the Actions cache: this workflow checks out and executes code from another
-# repository, and on the default branch (`workflow_dispatch`) a cache write from such a job is a
-# cache-poisoning vector.
+# Security note: this workflow checks out and executes code from another repository
+# (`github/codeql`), so it is deliberately confined to the `pull_request` event - where the Actions
+# cache scope is the PR's own branch - with no `workflow_dispatch` (which would run it on the
+# default branch, whose cache is shared with every other workflow). For the same reason the
+# `github/codeql` ref is always derived from `.codeqlversion` rather than a caller-supplied input.
+# To build against a different `github/codeql` ref,
+# run the `hotspots.yml` publish workflow or the pipeline locally (see `ql/hotspots/README.md`).
 
 on:
   pull_request:
@@ -27,7 +30,6 @@ on:
       - "ql/hotspots/**"
       - ".github/actions/install-codeql/**"
       - ".github/workflows/hotspots-ci.yml"
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -61,10 +63,6 @@ jobs:
       - name: Setup CodeQL
         id: install-codeql
         uses: ./.github/actions/install-codeql
-        with:
-          # No cache writes in a job that checks out and executes code from another repository
-          # (`github/codeql`): on the default branch that would be a cache-poisoning vector.
-          cache: "false"
 
       - name: Resolve github/codeql ref
         id: ql-ref
@@ -95,9 +93,8 @@ jobs:
           python ql/hotspots/scripts/generate-hotspots-queries.py --help > /dev/null
           python ql/hotspots/scripts/patch-codeql.py --help > /dev/null
 
-      # Deliberately not cached: this job checks out and runs code from `github/codeql`, and a
-      # cache write here would be shared with the default branch. The build is ~1 minute of
-      # `cargo build --release`.
+      # ~1 minute of `cargo build --release`; deliberately not cached, to keep this job free of
+      # Actions cache writes of anything derived from the `github/codeql` checkout.
       - name: Build QL extractor
         working-directory: codeql/ql
         run: ./scripts/create-extractor-pack.sh
@@ -159,8 +156,6 @@ jobs:
 
       - name: Setup CodeQL
         uses: ./.github/actions/install-codeql
-        with:
-          cache: "false" # see the matching comment in the `generate` job
 
       - name: Checkout github/codeql
         uses: actions/checkout@v7

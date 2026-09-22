@@ -73,7 +73,7 @@ Two workflows cover this directory:
 | Workflow                                                                 | Trigger                                      | What it does                                                                                            |
 | ------------------------------------------------------------------------ | -------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | [`hotspots.yml`](../../.github/workflows/hotspots.yml)                   | manual (`workflow_dispatch`, takes a version) | Generates, patches, **and publishes** the `githubsecuritylab/hotspots-*` packs to GHCR                   |
-| [`hotspots-ci.yml`](../../.github/workflows/hotspots-ci.yml)             | PRs touching `ql/hotspots/**`, or manual      | Runs the same pipeline but stops at `codeql pack create` - **build/validate only, never publishes**     |
+| [`hotspots-ci.yml`](../../.github/workflows/hotspots-ci.yml)             | PRs touching `ql/hotspots/**`                 | Runs the same pipeline but stops at `codeql pack create` - **build/validate only, never publishes**     |
 
 `hotspots-ci.yml` is what makes it safe to merge Dependabot bumps of `requirements.txt` (the
 generator/patch scripts run on those dependencies) or edits to the scripts, queries or config here:
@@ -92,10 +92,10 @@ generator/patch scripts run on those dependencies) or edits to the scripts, quer
 Unlike `hotspots.yml` (CodeQL Action bundle CLI + `github/codeql@main`), the CI workflow builds
 against this repo's pinned [`.codeqlversion`](../../.codeqlversion) CLI and the matching
 `codeql-cli/v<version>` tag of `github/codeql`, so a failure points at the PR rather than at
-upstream drift. That ref is intentionally not overridable from a workflow input, and the workflow
-never writes to the Actions cache, because it checks out and executes code from another
-repository. To validate against `github/codeql@main` before a publish, run `hotspots.yml` (or the
-commands above) instead.
+upstream drift. Because it checks out and executes code from another repository, the workflow is
+confined to the `pull_request` event (where the Actions cache scope is the PR branch) and the ref
+is not overridable from a workflow input. To validate against
+`github/codeql@main` before a publish, run `hotspots.yml` (or the commands above) instead.
 
 Swift is excluded from CI: `generate-hotspots-queries.py` has no Swift support, so no
 `Hotspots-swift.ql` is ever generated and there is nothing to compile for the patched Swift pack.
