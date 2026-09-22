@@ -92,8 +92,10 @@ generator/patch scripts run on those dependencies) or edits to the scripts, quer
 Unlike `hotspots.yml` (CodeQL Action bundle CLI + `github/codeql@main`), the CI workflow builds
 against this repo's pinned [`.codeqlversion`](../../.codeqlversion) CLI and the matching
 `codeql-cli/v<version>` tag of `github/codeql`, so a failure points at the PR rather than at
-upstream drift. Use the workflow's `codeql-ref` `workflow_dispatch` input to check against another
-ref (e.g. `main`) before running a publish.
+upstream drift. That ref is intentionally not overridable from a workflow input: the workflow
+checks it out and writes to the Actions cache, so an arbitrary caller-supplied ref would be
+untrusted code in a cache-writing context. To validate against `github/codeql@main` before a
+publish, run `hotspots.yml` (or the commands above) instead.
 
 Swift is excluded from CI: `generate-hotspots-queries.py` has no Swift support, so no
 `Hotspots-swift.ql` is ever generated and there is nothing to compile for the patched Swift pack.

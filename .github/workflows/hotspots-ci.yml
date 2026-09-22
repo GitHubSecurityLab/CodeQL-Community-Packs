@@ -13,8 +13,12 @@ name: "Hotspots Build/Validate"
 # Unlike `hotspots.yml`, which builds against the CodeQL CLI bundled with the CodeQL Action and
 # `github/codeql@main`, this workflow is deliberately deterministic: it uses this repo's pinned
 # `.codeqlversion` CLI and the matching `codeql-cli/v<version>` tag of `github/codeql`, so a red
-# run means *this PR* broke something rather than upstream moving underneath us. Use the
-# `codeql-ref` `workflow_dispatch` input to validate against another ref (e.g. `main`) on demand.
+# run means *this PR* broke something rather than upstream moving underneath us.
+#
+# The `github/codeql` ref is deliberately not overridable by a `workflow_dispatch` input: this
+# workflow both checks out that ref and writes to the Actions cache, so a caller-supplied ref
+# would be untrusted code running in a cache-writing (and, on the default branch,
+# cache-poisoning) context.
 
 on:
   pull_request:
@@ -24,11 +28,6 @@ on:
       - ".github/actions/install-codeql/**"
       - ".github/workflows/hotspots-ci.yml"
   workflow_dispatch:
-    inputs:
-      codeql-ref:
-        description: "github/codeql ref to build against (default: the codeql-cli/v<.codeqlversion> tag)"
-        required: false
-        type: string
 
 permissions:
   contents: read
@@ -66,9 +65,8 @@ jobs:
       - name: Resolve github/codeql ref
         id: ql-ref
         env:
-          INPUT_REF: ${{ inputs.codeql-ref }}
           CODEQL_CLI_VERSION: ${{ steps.install-codeql.outputs.codeql-cli-version }}
-        run: echo "ref=${INPUT_REF:-codeql-cli/v${CODEQL_CLI_VERSION}}" >> "$GITHUB_OUTPUT"
+        run: echo "ref=codeql-cli/v${CODEQL_CLI_VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Checkout github/codeql
         uses: actions/checkout@v7
