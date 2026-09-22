@@ -30,6 +30,7 @@ on:
       - "ql/hotspots/**"
       - ".github/actions/install-codeql/**"
       - ".github/workflows/hotspots-ci.yml"
+      - ".codeqlversion"
 
 permissions:
   contents: read
@@ -55,6 +56,8 @@ jobs:
       languages: ${{ steps.languages.outputs.languages }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - name: Expose language matrix
         id: languages
@@ -76,6 +79,7 @@ jobs:
           repository: github/codeql
           ref: ${{ steps.ql-ref.outputs.ref }}
           path: codeql
+          persist-credentials: false
 
       - name: Setup Python
         uses: actions/setup-python@v7
@@ -153,6 +157,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - name: Setup CodeQL
         uses: ./.github/actions/install-codeql
@@ -163,6 +169,7 @@ jobs:
           repository: github/codeql
           ref: ${{ needs.generate.outputs.codeql-ref }}
           path: codeql
+          persist-credentials: false
 
       - name: Setup Python
         uses: actions/setup-python@v7
