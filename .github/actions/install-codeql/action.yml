@@ -2,6 +2,15 @@ name: Setup CodeQL CLI
 description: |
   Install a CodeQL CLI or re-use an existing one from the cache and it to the path.
 
+inputs:
+  cache:
+    description: |
+      Whether to restore/save the downloaded CLI from the Actions cache. Set to "false" in
+      workflows that check out and execute code from another repository (e.g. `github/codeql`),
+      so the job never writes to a cache that is shared with the default branch.
+    required: false
+    default: "true"
+
 outputs:
   codeql-cli-version:
     description: "The version of the CodeQL CLI that was installed or retrieved from cache"
@@ -21,6 +30,7 @@ runs:
 
     - name: Cache CodeQL
       id: cache-codeql
+      if: inputs.cache != 'false'
       uses: actions/cache@v6
       with:
         # A list of files, directories, and wildcard patterns to cache and restore

@@ -79,7 +79,7 @@ Two workflows cover this directory:
 generator/patch scripts run on those dependencies) or edits to the scripts, queries or config here:
 
 - `generate` job: installs `requirements.txt` with `--require-hashes`, byte-compiles the scripts,
-  builds the QL extractor (cached per `github/codeql` commit), runs
+  builds the QL extractor, runs
   `generate-hotspots-queries.py`, then fails if any supported language produced a missing or
   empty (no taint-tracking configuration imports) `Hotspots-<language>.ql`. The generated
   queries are uploaded as a build artifact so they can be inspected on the PR.
@@ -92,10 +92,10 @@ generator/patch scripts run on those dependencies) or edits to the scripts, quer
 Unlike `hotspots.yml` (CodeQL Action bundle CLI + `github/codeql@main`), the CI workflow builds
 against this repo's pinned [`.codeqlversion`](../../.codeqlversion) CLI and the matching
 `codeql-cli/v<version>` tag of `github/codeql`, so a failure points at the PR rather than at
-upstream drift. That ref is intentionally not overridable from a workflow input: the workflow
-checks it out and writes to the Actions cache, so an arbitrary caller-supplied ref would be
-untrusted code in a cache-writing context. To validate against `github/codeql@main` before a
-publish, run `hotspots.yml` (or the commands above) instead.
+upstream drift. That ref is intentionally not overridable from a workflow input, and the workflow
+never writes to the Actions cache, because it checks out and executes code from another
+repository. To validate against `github/codeql@main` before a publish, run `hotspots.yml` (or the
+commands above) instead.
 
 Swift is excluded from CI: `generate-hotspots-queries.py` has no Swift support, so no
 `Hotspots-swift.ql` is ever generated and there is nothing to compile for the patched Swift pack.

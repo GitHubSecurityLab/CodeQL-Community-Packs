@@ -15,10 +15,10 @@ name: "Hotspots Build/Validate"
 # `.codeqlversion` CLI and the matching `codeql-cli/v<version>` tag of `github/codeql`, so a red
 # run means *this PR* broke something rather than upstream moving underneath us.
 #
-# The `github/codeql` ref is deliberately not overridable by a `workflow_dispatch` input: this
-# workflow both checks out that ref and writes to the Actions cache, so a caller-supplied ref
-# would be untrusted code running in a cache-writing (and, on the default branch,
-# cache-poisoning) context.
+# The `github/codeql` ref is deliberately not overridable by a `workflow_dispatch` input, and no
+# job here writes to the Actions cache: this workflow checks out and executes code from another
+# repository, and on the default branch (`workflow_dispatch`) a cache write from such a job is a
+# cache-poisoning vector.
 
 on:
   pull_request:
@@ -61,6 +61,10 @@ jobs:
       - name: Setup CodeQL
         id: install-codeql
         uses: ./.github/actions/install-codeql
+        with:
+          # No cache writes in a job that checks out and executes code from another repository
+          # (`github/codeql`): on the default branch that would be a cache-poisoning vector.
+          cache: "false"
 
       - name: Resolve github/codeql ref
         id: ql-ref
@@ -91,21 +95,10 @@ jobs:
           python ql/hotspots/scripts/generate-hotspots-queries.py --help > /dev/null
           python ql/hotspots/scripts/patch-codeql.py --help > /dev/null
 
-      - name: Resolve github/codeql commit
-        id: ql-sha
-        run: echo "sha=$(git -C codeql rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-
-      - name: Cache QL extractor pack
-        id: cache-extractor
-        uses: actions/cache@v6
-        with:
-          # The extractor pack is a pure function of the `github/codeql` commit it was built from,
-          # so it can be reused across runs. Building it is ~1 minute of `cargo build --release`.
-          path: codeql/ql/extractor-pack
-          key: ql-extractor-pack-${{ runner.os }}-${{ steps.ql-sha.outputs.sha }}
-
+      # Deliberately not cached: this job checks out and runs code from `github/codeql`, and a
+      # cache write here would be shared with the default branch. The build is ~1 minute of
+      # `cargo build --release`.
       - name: Build QL extractor
-        if: steps.cache-extractor.outputs.cache-hit != 'true'
         working-directory: codeql/ql
         run: ./scripts/create-extractor-pack.sh
 
@@ -166,6 +159,8 @@ jobs:
 
       - name: Setup CodeQL
         uses: ./.github/actions/install-codeql
+        with:
+          cache: "false" # see the matching comment in the `generate` job
 
       - name: Checkout github/codeql
         uses: actions/checkout@v7
