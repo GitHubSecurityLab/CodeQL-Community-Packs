@@ -440,6 +440,11 @@ coding agent) in the loop for the hard part — fixing whatever the new CLI brea
 > `codeql/ql` isn't a real package published to the registry or shipped in the CodeQL Bundle, so
 > `codeql pack upgrade`/the pinning script can never resolve it. This is a pre-existing, unrelated
 > quirk of that tool, not something the version-bump automation needs to (or can) fix.
+>
+> It does, however, get its own PR-time CI: [`hotspots-ci.yml`][hotspots-ci-workflow] runs the full
+> generate → patch → `codeql pack create` pipeline (build/validate only, never publishing) on any PR
+> touching `ql/hotspots/**`, so Dependabot bumps of `ql/hotspots/requirements.txt` and edits to the
+> generator/patch scripts are covered. See `ql/hotspots/README.md`.
 
 > [!NOTE]
 > <a id="ext-packs-no-install"></a>**Why `<language>/ext` and `<language>/ext-library-sources` are
@@ -600,6 +605,7 @@ Please do get in touch (privacy@github.com) if you have any questions about this
 [update-codeql-version-workflow]: ./.github/workflows/update-codeql-version.yml
 [detect-codeql-release-workflow]: ./.github/workflows/detect-codeql-release.yml
 [copilot-setup-steps-workflow]: ./.github/workflows/copilot-setup-steps.yml
+[hotspots-ci-workflow]: ./.github/workflows/hotspots-ci.yml
 [pin-codeql-library-versions-script]: ./.github/scripts/pin-codeql-library-versions.sh
 [build-publish-summary-script]: ./.github/scripts/build-publish-summary.sh
 [codeql-cli-binaries]: https://github.com/github/codeql-cli-binaries/releases
