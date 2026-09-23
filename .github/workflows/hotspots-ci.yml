@@ -1,0 +1,211 @@
+name: "Hotspots Build/Validate"
+
+# Build/validate-only counterpart to `hotspots.yml` (which is a manual
+# `workflow_dispatch` build *and publish* of the `githubsecuritylab/hotspots-*` packs).
+#
+# This workflow runs the exact same `ql/hotspots` pipeline - generate the per-language
+# `Hotspots-<lang>.ql` queries with QL-4-QL, patch a copy of the `github/codeql` distribution,
+# then build the resulting packs - but stops at `codeql pack create` and never publishes
+# anything. It exists so PRs that touch `ql/hotspots/**` (notably Dependabot bumps of
+# `ql/hotspots/requirements.txt`, which the generator/patch scripts run on) get the same
+# CI signal every other pack in this repo already gets from `ci.yml`.
+#
+# Unlike `hotspots.yml`, which builds against the CodeQL CLI bundled with the CodeQL Action and
+# `github/codeql@main`, this workflow is deliberately deterministic: it uses this repo's pinned
+# `.codeqlversion` CLI and the matching `codeql-cli/v<version>` tag of `github/codeql`, so a red
+# run means *this PR* broke something rather than upstream moving underneath us.
+#
+# Security note: this workflow checks out and executes code from another repository
+# (`github/codeql`), so it is deliberately confined to the `pull_request` event - where the Actions
+# cache scope is the PR's own branch - with no `workflow_dispatch` (which would run it on the
+# default branch, whose cache is shared with every other workflow). For the same reason the
+# `github/codeql` ref is always derived from `.codeqlversion` rather than a caller-supplied input.
+# To build against a different `github/codeql` ref,
+# run the `hotspots.yml` publish workflow or the pipeline locally (see `ql/hotspots/README.md`).
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "ql/hotspots/**"
+      - ".github/actions/install-codeql/**"
+      - ".github/workflows/hotspots-ci.yml"
+      - ".codeqlversion"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  # `swift` is deliberately absent: `generate-hotspots-queries.py` has no Swift support (it isn't
+  # in that script's `supported_languages`), so no `Hotspots-swift.ql` is ever generated and the
+  # patched Swift query pack has nothing to compile. `patch-codeql.py` still processes Swift (it
+  # prints `[-] Hotspots queries not found ...` and moves on), and `hotspots.yml` still publishes
+  # whatever that produces - validating it here would only ever fail on that known gap.
+  HOTSPOTS_LANGUAGES: '["cpp", "csharp", "go", "java", "javascript", "python", "ruby"]'
+
+jobs:
+  generate:
+    name: Generate hotspots queries
+    runs-on: ubuntu-latest
+    outputs:
+      codeql-ref: ${{ steps.ql-ref.outputs.ref }}
+      languages: ${{ steps.languages.outputs.languages }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Expose language matrix
+        id: languages
+        run: echo "languages=${HOTSPOTS_LANGUAGES}" >> "$GITHUB_OUTPUT"
+
+      - name: Setup CodeQL
+        id: install-codeql
+        uses: ./.github/actions/install-codeql
+
+      - name: Resolve github/codeql ref
+        id: ql-ref
+        env:
+          CODEQL_CLI_VERSION: ${{ steps.install-codeql.outputs.codeql-cli-version }}
+        run: echo "ref=codeql-cli/v${CODEQL_CLI_VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout github/codeql
+        uses: actions/checkout@v7
+        with:
+          repository: github/codeql
+          ref: ${{ steps.ql-ref.outputs.ref }}
+          path: codeql
+          persist-credentials: false
+
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          # `requirements.txt` is `pip-compile --generate-hashes`d against Python 3.12 and pins
+          # cp312-only wheels, so the interpreter version has to match.
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: python -m pip install --require-hashes -r ql/hotspots/requirements.txt
+
+      - name: Validate scripts
+        run: |
+          python -m compileall -q ql/hotspots/scripts
+          python ql/hotspots/scripts/generate-hotspots-queries.py --help > /dev/null
+          python ql/hotspots/scripts/patch-codeql.py --help > /dev/null
+
+      # ~1 minute of `cargo build --release`; deliberately not cached, to keep this job free of
+      # Actions cache writes of anything derived from the `github/codeql` checkout.
+      - name: Build QL extractor
+        working-directory: codeql/ql
+        run: ./scripts/create-extractor-pack.sh
+
+      - name: Generate hotspots queries
+        run: |
+          python ql/hotspots/scripts/generate-hotspots-queries.py \
+            --ql-extractor "$GITHUB_WORKSPACE/codeql/ql/extractor-pack" \
+            --ql-path "$GITHUB_WORKSPACE/codeql"
+
+      - name: Check generated queries
+        env:
+          LANGUAGES: ${{ env.HOTSPOTS_LANGUAGES }}
+        run: |
+          set -euo pipefail
+          failed=0
+          for lang in $(echo "$LANGUAGES" | jq --raw-output '.[]'); do
+            query="ql/hotspots/output/Hotspots-${lang}.ql"
+            if [[ ! -f "$query" ]]; then
+              echo "::error::No query generated for ${lang} (${query} is missing)"
+              failed=1
+              continue
+            fi
+            # A generated query with no `import ... as P<hash>` lines means the QL-4-QL generator
+            # matched no TaintTracking configurations at all for that language - the query would
+            # still compile, but it would be an empty, useless hotspots query.
+            imports=$(grep --count --extended-regexp '^import .* as P[0-9a-f]+' "$query" || true)
+            if [[ "$imports" -eq 0 ]]; then
+              echo "::error::${query} contains no taint-tracking configuration imports"
+              failed=1
+              continue
+            fi
+            echo "[+] ${lang}: ${imports} configuration import(s)"
+          done
+          exit "$failed"
+
+      - name: Upload generated hotspots queries
+        uses: actions/upload-artifact@v7
+        with:
+          name: hotspots-generated-queries
+          path: ql/hotspots/output
+          if-no-files-found: error
+
+  build-packs:
+    name: Build ${{ matrix.language }} hotspots packs
+    needs: generate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read # `codeql pack install` reads from GHCR
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ${{ fromJSON(needs.generate.outputs.languages) }}
+
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Setup CodeQL
+        uses: ./.github/actions/install-codeql
+
+      - name: Checkout github/codeql
+        uses: actions/checkout@v7
+        with:
+          repository: github/codeql
+          ref: ${{ needs.generate.outputs.codeql-ref }}
+          path: codeql
+          persist-credentials: false
+
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: python -m pip install --require-hashes -r ql/hotspots/requirements.txt
+
+      - name: Download generated hotspots queries
+        uses: actions/download-artifact@v8
+        with:
+          name: hotspots-generated-queries
+          path: ql/hotspots/output
+
+      - name: Patch the CodeQL distribution
+        run: |
+          python ql/hotspots/scripts/patch-codeql.py \
+            --hotspots "$GITHUB_WORKSPACE/ql/hotspots/output" \
+            --ql "$GITHUB_WORKSPACE/codeql" \
+            --dest "$GITHUB_WORKSPACE/codeql-patched" \
+            --qlpack-version 0.0.0
+
+      - name: Build hotspots packs (no publish)
+        working-directory: codeql-patched
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          LANGUAGE: ${{ matrix.language }}
+          # `pack create` is the compile step `pack publish` performs internally, so this is the
+          # same build `hotspots.yml` does - just without the upload to GHCR.
+          PACK_OUTPUT: ${{ runner.temp }}/hotspots-packs
+        run: |
+          set -euo pipefail
+          for dir in lib src; do
+            echo "::group::${LANGUAGE}/ql/${dir}"
+            codeql pack install "${LANGUAGE}/ql/${dir}"
+            codeql pack create "${LANGUAGE}/ql/${dir}" --output="${PACK_OUTPUT}"
+            echo "::endgroup::"
+          done
