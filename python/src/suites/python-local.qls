@@ -1,6 +1,0 @@
-- description: "GitHub's Community Packs Python Local Variate Suite"
-
-- queries: '.'
-  from: githubsecuritylab/codeql-python-queries
-- include:
-    tags contain: -local
