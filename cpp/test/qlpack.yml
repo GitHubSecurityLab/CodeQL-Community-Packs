@@ -1,8 +1,8 @@
 name: githubsecurtylab/codeql-cpp-tests
 groups: [cpp, test]
 dependencies:
-    codeql/cpp-all: '12.1.0'
-    codeql/cpp-queries: '1.8.3'
+    codeql/cpp-all: '12.1.1'
+    codeql/cpp-queries: '1.9.0'
     githubsecuritylab/codeql-cpp-queries: '*'
     githubsecuritylab/codeql-cpp-libs: '*'
 extractor: cpp
