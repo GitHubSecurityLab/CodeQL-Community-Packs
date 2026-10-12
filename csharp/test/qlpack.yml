@@ -1,8 +1,8 @@
 name: githubsecurtylab/codeql-csharp-tests
 groups: [csharp, test]
 dependencies:
-  codeql/csharp-all: "7.3.1"
-  codeql/csharp-queries: "1.10.0"
+  codeql/csharp-all: "7.4.0"
+  codeql/csharp-queries: "1.10.1"
   githubsecuritylab/codeql-csharp-extensions: "*"
   githubsecuritylab/codeql-csharp-library-sources: "*"
   githubsecuritylab/codeql-csharp-libs: "*"
