@@ -1,8 +1,8 @@
 library: false
 name: githubsecuritylab/codeql-ruby-queries
-version: 0.8.2
+version: 0.8.3
 suites: suites
 defaultSuiteFile: suites/ruby.qls
 dependencies:
-  codeql/ruby-all: '7.0.2'
+  codeql/ruby-all: '7.1.0'
   githubsecuritylab/codeql-ruby-libs: '*'
