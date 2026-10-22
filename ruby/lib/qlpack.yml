@@ -1,5 +1,5 @@
 library: true 
 name: githubsecuritylab/codeql-ruby-libs
-version: 0.8.2
+version: 0.8.3
 dependencies:
-  codeql/ruby-all: '7.0.2'
+  codeql/ruby-all: '7.1.0'
