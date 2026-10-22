@@ -104,10 +104,73 @@ jobs:
         run: ./scripts/create-extractor-pack.sh
 
       - name: Generate hotspots queries
+        env:
+          HOTSPOTS_DIAGNOSTICS_DIR: ${{ runner.temp }}/hotspots-diagnostics
+          HOTSPOTS_EVALUATOR_LOG: ${{ runner.temp }}/hotspots-diagnostics/evaluator.json
         run: |
+          set -euo pipefail
+          mkdir -p "$HOTSPOTS_DIAGNOSTICS_DIR"
+          resource_log="$HOTSPOTS_DIAGNOSTICS_DIR/resource-usage.log"
+          {
+            date --iso-8601=seconds
+            free -b
+            df -B1 /tmp "$GITHUB_WORKSPACE"
+          } > "$resource_log"
+
           python ql/hotspots/scripts/generate-hotspots-queries.py \
             --ql-extractor "$GITHUB_WORKSPACE/codeql/ql/extractor-pack" \
-            --ql-path "$GITHUB_WORKSPACE/codeql"
+            --ql-path "$GITHUB_WORKSPACE/codeql" &
+          generator_pid=$!
+          (
+            sample=0
+            while kill -0 "$generator_pid" 2>/dev/null; do
+              {
+                date --iso-8601=seconds
+                free -b
+                df -B1 /tmp "$GITHUB_WORKSPACE"
+                ps -eo pid,ppid,rss,vsz,%mem,args --sort=-rss | sed -n '1,16p'
+                if ((sample % 4 == 0)); then
+                  du -sh /tmp/codeqldb /tmp/codeqldb/db-ql/default/cache 2>/dev/null || true
+                fi
+              } >> "$resource_log"
+              sample=$((sample + 1))
+              sleep 15
+            done
+          ) &
+          monitor_pid=$!
+          if wait "$generator_pid"; then
+            generator_status=0
+          else
+            generator_status=$?
+          fi
+          kill "$monitor_pid" 2>/dev/null || true
+          wait "$monitor_pid" 2>/dev/null || true
+          {
+            date --iso-8601=seconds
+            free -b
+            df -B1 /tmp "$GITHUB_WORKSPACE"
+            du -sh /tmp/codeqldb /tmp/codeqldb/db-ql/default/cache 2>/dev/null || true
+          } >> "$resource_log"
+          exit "$generator_status"
+
+      - name: Summarize CodeQL evaluator log
+        if: always()
+        env:
+          HOTSPOTS_DIAGNOSTICS_DIR: ${{ runner.temp }}/hotspots-diagnostics
+          HOTSPOTS_EVALUATOR_LOG: ${{ runner.temp }}/hotspots-diagnostics/evaluator.json
+        run: |
+          if [[ -s "$HOTSPOTS_EVALUATOR_LOG" ]]; then
+            codeql generate log-summary --format=text -- "$HOTSPOTS_EVALUATOR_LOG" \
+              "$HOTSPOTS_DIAGNOSTICS_DIR/evaluator-summary.txt" || true
+          fi
+
+      - name: Upload query evaluation diagnostics
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: hotspots-query-diagnostics
+          path: ${{ runner.temp }}/hotspots-diagnostics/
+          if-no-files-found: warn
 
       - name: Check generated queries
         env:
