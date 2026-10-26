@@ -164,7 +164,11 @@ jobs:
               test_log_file = open(test_log_path, 'w')
               files_to_close.append(test_report_file)
               files_to_close.append(test_log_file)
-              procs.append((subprocess.Popen(["codeql", "test", "run", "--failing-exitcode=122", "--verbosity=progress", "--ram=2048", "--format=json", *extra_args], stdout=test_report_file, stderr=test_log_file), test_log_path))
+              # stdout is the JSON report, but the JVM prints its own warnings there too. Four
+              # JVMs start at once, and their /tmp/hsperfdata_<user>/<pid> files can collide
+              # ("Cannot use file ... locked by another process"), corrupting the report.
+              # -XX:-UsePerfData stops the JVM from creating those files at all.
+              procs.append((subprocess.Popen(["codeql", "test", "run", "-J=-XX:-UsePerfData", "--failing-exitcode=122", "--verbosity=progress", "--ram=2048", "--format=json", *extra_args], stdout=test_report_file, stderr=test_log_file), test_log_path))
 
             for p, test_log_path in procs:
               p.wait()
@@ -222,11 +226,30 @@ jobs:
             exit 0
           fi
 
-          for json_report in "${test_reports[@]}"
+          # The JVM can write warnings to stdout ahead of the JSON report. Drop everything before
+          # the opening bracket (a lone `[`, or `[]` for an empty report) so a stray warning
+          # line can't fail validation, but still fail if the remainder isn't valid JSON.
+          cleaned_dir="$(mktemp -d)"
+          cleaned_reports=()
+          for report in "${test_reports[@]}"
+          do
+            cleaned="$cleaned_dir/${report//\//_}"
+            sed -nE '/^\[\]?[[:space:]]*$/,$p' "$report" > "$cleaned"
+            if ! jq -e . "$cleaned" > /dev/null; then
+              echo "ERROR: $report is not valid JSON"
+              exit 1
+            fi
+            if ! cmp -s "$report" "$cleaned"; then
+              echo "::warning::Ignored non-JSON output before the report in $report"
+            fi
+            cleaned_reports+=("$cleaned")
+          done
+
+          for json_report in "${cleaned_reports[@]}"
           do
             jq --raw-output '"PASS \(map(select(.pass == true)) | length)/\(length)"' "$json_report"
           done
-          FAILING_TESTS=$(jq --slurp --raw-output '.[][] | select(.pass == false)' "${test_reports[@]}")
+          FAILING_TESTS=$(jq --slurp --raw-output '.[][] | select(.pass == false)' "${cleaned_reports[@]}")
           if [[ ! -z "$FAILING_TESTS" ]]; then
             echo "ERROR: The following tests failed:"
             echo $FAILING_TESTS | jq .
