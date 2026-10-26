@@ -23,6 +23,10 @@ private string getAbsoluteImportString(Import i) {
   result = getFileImport(i.getResolvedModule().getFile()).suffix(1)
 }
 
+/** Gets a non-empty suffix of `s`, including `s` itself. */
+bindingset[s]
+private string getASuffix(string s) { result = s.suffix(any(int n | n in [0 .. s.length() - 1])) }
+
 /**
  * A Taint tracking configuration. Either a Class or a Module.
  */
@@ -84,6 +88,25 @@ abstract class TaintTrackingConfiguration extends ModuleDeclaration {
   }
 
   /**
+   * Gets a suffix of the dotted module path of the file this configuration is in.
+   *
+   * This is materialized on its own, and compared with `Import.getImportString()` by equality
+   * rather than with `matches("%" + importString)`: a non-equality string join gives the
+   * optimizer nothing to bind on, and it has been observed to pick a cartesian product with
+   * `locations_default` (billions of tuples) instead of joining on this small relation first.
+   */
+  pragma[nomagic]
+  private string getADottedPathSuffix() {
+    result =
+      getASuffix(this.getLocation()
+            .getFile()
+            .getRelativePath()
+            .splitAt(".", 0)
+            .replaceAll("/", ".")
+            .suffix(1))
+  }
+
+  /**
    * Returns the import string necessary to import this configuration.
    */
   string getImportStringFrom(File root) {
@@ -94,13 +117,7 @@ abstract class TaintTrackingConfiguration extends ModuleDeclaration {
         else
           exists(Import i |
             i = tl.getAnImport() and
-            this.getLocation()
-                .getFile()
-                .getRelativePath()
-                .splitAt(".", 0)
-                .replaceAll("/", ".")
-                .suffix(1)
-                .matches("%" + i.getImportString()) and
+            i.getImportString() = this.getADottedPathSuffix() and
             result = getAbsoluteImportString(i)
           )
       )
