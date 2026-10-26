@@ -107,6 +107,7 @@ jobs:
         env:
           HOTSPOTS_DIAGNOSTICS_DIR: ${{ runner.temp }}/hotspots-diagnostics
           HOTSPOTS_EVALUATOR_LOG: ${{ runner.temp }}/hotspots-diagnostics/evaluator.json
+          HOTSPOTS_MAX_DISK_CACHE_MB: "32768"
         run: |
           set -euo pipefail
           mkdir -p "$HOTSPOTS_DIAGNOSTICS_DIR"
