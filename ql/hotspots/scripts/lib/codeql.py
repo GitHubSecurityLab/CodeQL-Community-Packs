@@ -46,7 +46,7 @@ class CodeQL:
             qlp = safe_load(qlpack)
             qlpack_name = qlp["name"]
 
-        self.execute_cmd(
+        query_args = [
             "database",
             "run-queries",
             "--additional-packs",
@@ -55,7 +55,14 @@ class CodeQL:
             "--rerun",
             self.dbpath,
             query_path,
-        )
+        ]
+        evaluator_log = os.environ.get("HOTSPOTS_EVALUATOR_LOG")
+        if evaluator_log:
+            query_args.extend(["--evaluator-log", evaluator_log, "--tuple-counting"])
+        max_disk_cache_mb = os.environ.get("HOTSPOTS_MAX_DISK_CACHE_MB")
+        if max_disk_cache_mb:
+            query_args.append(f"--max-disk-cache={max_disk_cache_mb}")
+        self.execute_cmd(query_args)
 
         # args.dbpath/results/seclab/java-report based on the qlpack name
         query_name = query_relpath.replace(".ql", "")
@@ -86,4 +93,3 @@ class CodeQL:
             remove(csv_file)
 
         return df
-
