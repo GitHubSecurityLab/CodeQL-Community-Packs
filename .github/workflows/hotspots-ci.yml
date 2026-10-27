@@ -25,7 +25,7 @@ name: "Hotspots Build/Validate"
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, "chore/update-codeql-cli-*"]
     paths:
       - "ql/hotspots/**"
       - ".github/actions/install-codeql/**"
