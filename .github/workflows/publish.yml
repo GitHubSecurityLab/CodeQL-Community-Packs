@@ -386,7 +386,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write
+      contents: read
 
     steps:
       - uses: actions/checkout@v7
@@ -415,6 +415,15 @@ jobs:
           .github/scripts/build-codeql-lib-versions-table.sh > codeql-lib-versions.md
           cat codeql-lib-versions.md >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Create release token
+        if: github.event_name == 'push'
+        id: release_token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.SECLABS_APP_ID }}
+          private-key: ${{ secrets.SECLABS_APP_KEY }}
+          permission-contents: write
+
       - name: Upsert release table
         # Only the release-cut path (push to .release.yml) should touch a GitHub Release's
         # notes. A workflow_dispatch run is often a one-off hotfix publish for a single pack
@@ -423,7 +432,7 @@ jobs:
         # misleadingly overwrite its notes with a summary of an unrelated hotfix run.
         if: github.event_name == 'push'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.release_token.outputs.token }}
         run: |
           .github/scripts/upsert-release-table.sh summary.md publish-summary
           .github/scripts/upsert-release-table.sh codeql-lib-versions.md codeql-lib-versions
