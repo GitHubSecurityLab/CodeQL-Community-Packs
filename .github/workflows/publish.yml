@@ -387,17 +387,19 @@ jobs:
 
     permissions:
       contents: write
+      actions: read
 
     steps:
       - uses: actions/checkout@v7
 
+      # Not actions/download-artifact with merge-multiple: a re-run or restarted publish job
+      # leaves a second same-named artifact in the run, and merge-multiple can let the stale
+      # (e.g. cancelled/failed) one overwrite the newer result. This keeps the newest per name.
       - name: Download publish results
-        uses: actions/download-artifact@v8
         continue-on-error: true
-        with:
-          pattern: publish-result-*
-          path: publish-results
-          merge-multiple: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: .github/scripts/download-latest-publish-results.sh "${{ github.run_id }}" publish-results
 
       - name: Build summary table
         run: |
