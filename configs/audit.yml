@@ -1,5 +1,7 @@
 name: "GitHub Community Pack Audit Configuration"
 
+threat-models: local
+
 packs:
   # C/C++
   - githubsecuritylab/codeql-cpp-queries:suites/cpp-audit.qls
