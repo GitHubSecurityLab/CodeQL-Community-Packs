@@ -1,0 +1,10 @@
+library: true
+name: githubsecuritylab/codeql-rust-extensions
+version: 0.8.3
+extensionTargets:
+  codeql/rust-all: '*'
+dataExtensions:
+  - 'manual/*.yml'
+  - 'manual/**/*.yml'
+  - 'generated/*.yml'
+  - 'generated/**/*.yml'

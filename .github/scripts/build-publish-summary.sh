@@ -34,10 +34,13 @@ else
   MERGED=$(jq -s '.' "${FRAGMENTS[@]}")
 fi
 
-LANGUAGES=(cpp csharp go java javascript python ruby)
+LANGUAGES=(actions cpp csharp go java javascript python ruby rust swift)
 TYPES=(src lib ext ext-library-sources)
+# Languages with a published `lib` pack - the remaining languages currently
+# have no shared library use cases and should not produce empty placeholder packs.
+LIB_LANGUAGES=(cpp csharp go java javascript python ruby)
 # Languages with an `ext` (model/extension) pack - matches the `extensions` job's matrix.
-EXT_LANGUAGES=(csharp go java python)
+EXT_LANGUAGES=(csharp go java python rust)
 # Languages with an `ext-library-sources` pack - matches the `library_sources_extensions`
 # job's matrix. This is a strict subset of EXT_LANGUAGES: go/python ship `ext` packs but
 # have no `ext-library-sources` pack, so they must not be expected to have a result for it.
@@ -45,6 +48,7 @@ EXT_LIBRARY_SOURCES_LANGUAGES=(csharp java)
 
 lang_label() {
   case "$1" in
+    actions) echo "Actions" ;;
     cpp) echo "C++" ;;
     csharp) echo "C#" ;;
     go) echo "Go" ;;
@@ -52,6 +56,8 @@ lang_label() {
     javascript) echo "JavaScript" ;;
     python) echo "Python" ;;
     ruby) echo "Ruby" ;;
+    rust) echo "Rust" ;;
+    swift) echo "Swift" ;;
     *) echo "$1" ;;
   esac
 }
@@ -59,6 +65,14 @@ lang_label() {
 is_ext_language() {
   local lang="$1"
   for l in "${EXT_LANGUAGES[@]}"; do
+    [ "$l" == "$lang" ] && return 0
+  done
+  return 1
+}
+
+is_lib_language() {
+  local lang="$1"
+  for l in "${LIB_LANGUAGES[@]}"; do
     [ "$l" == "$lang" ] && return 0
   done
   return 1
@@ -160,6 +174,10 @@ for lang in "${LANGUAGES[@]}"; do
   row="| $(lang_label "$lang") |"
   for type in "${TYPES[@]}"; do
     if [ "$type" == "ext" ] && ! is_ext_language "$lang"; then
+      row="$row n/a |"
+      continue
+    fi
+    if [ "$type" == "lib" ] && ! is_lib_language "$lang"; then
       row="$row n/a |"
       continue
     fi

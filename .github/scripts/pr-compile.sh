@@ -10,12 +10,12 @@ run_lenient_full_compile() {
     # all of them at once. Failing on that backlog would block CI-infra validation
     # (workflow_dispatch, or a PR that only touches .github/**) on unrelated debt.
     echo "[+] Compiling all queries in $LANGUAGE"
-    codeql query compile --threads=0 --check-only "./$LANGUAGE/"
+    codeql query compile --additional-packs "$LANGUAGE" --threads=0 --check-only "./$LANGUAGE/"
 }
 
 run_strict_full_compile() {
     echo "[+] Compiling all queries in $LANGUAGE (strict)"
-    codeql query compile --threads=0 --check-only --warnings=error "./$LANGUAGE/"
+    codeql query compile --additional-packs "$LANGUAGE" --threads=0 --check-only --warnings=error "./$LANGUAGE/"
 }
 
 if [[ -z "$PR_NUMBER" ]]; then
@@ -74,7 +74,7 @@ if [[ "$WORKFLOW_CHANGED" == true ]]; then
             continue
         fi
         echo "[+] Compiling $file (in $LANGUAGE)"
-        codeql query compile --threads=0 --check-only --warnings=error "./$file"
+        codeql query compile --additional-packs "$LANGUAGE" --threads=0 --check-only --warnings=error "./$file"
     done
     echo "[+] Complete"
     exit 0
@@ -92,7 +92,7 @@ for file in "${TOUCHED_QUERIES[@]}"; do
         continue
     fi
     echo "[+] Compiling $file (in $LANGUAGE)"
-    codeql query compile --threads=0 --check-only --warnings=error "./$file"
+    codeql query compile --additional-packs "$LANGUAGE" --threads=0 --check-only --warnings=error "./$file"
 done
 
 echo "[+] Complete"
