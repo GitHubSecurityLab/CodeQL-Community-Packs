@@ -1,5 +1,9 @@
 # Community Configurations
 
+The checked-in configurations reference community packs that have already been published to GHCR.
+Add new language packs to the relevant configurations after their first release so they do not
+point to packages that consumers cannot download yet.
+
 ## [Default / CodeQL](default.yml)
 
 The `default.yml` configuration is the default config file used to make it easy to use the CodeQL Community Packs.  The queries included here are pulled in from the language `default suites` automatically when referencing the community packs.  The default suites as specified in each language's `{LANG}/src/qlpack.yml`.  The standard configuration is:
@@ -14,7 +18,7 @@ The `audit.yml` configuration is used primarily to conduct a security assessment
 These are based on the suite in each language suites folder called `{LANG}-audit.qls`
 
 > [!NOTE]
-> Current Ruby and Swift are not supported
+> Ruby, Actions, Rust, and Swift do not currently have audit suites in this configuration.
 
 ## [Synthetics](synthetics.yml)
 

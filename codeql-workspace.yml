@@ -6,4 +6,6 @@ provide:
 - javascript/**/qlpack.yml
 - python/**/qlpack.yml
 - ruby/**/qlpack.yml
-
+- actions/**/qlpack.yml
+- rust/**/qlpack.yml
+- swift/**/qlpack.yml

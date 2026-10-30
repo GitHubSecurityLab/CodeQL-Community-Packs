@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
+        language: [ 'actions', 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby', 'rust', 'swift' ]
 
     steps:
       - uses: actions/checkout@v7
@@ -50,9 +50,13 @@ jobs:
           CODEQL_CLI_VERSION: ${{ steps.install-codeql.outputs.codeql-cli-version }}
         run: |
           gh repo clone github/codeql -- -b codeql-cli-${CODEQL_CLI_VERSION} # to make stubs available for tests
-          codeql pack install "${{ matrix.language }}/lib"
-          codeql pack install "${{ matrix.language }}/src"
-          codeql pack install "${{ matrix.language }}/test"
+          # Resolve this language's local query/library/extension packs before GHCR so
+          # tests can use packs that have not been published yet.
+          if [[ -f "${{ matrix.language }}/lib/qlpack.yml" ]]; then
+            codeql pack install --additional-packs "$GITHUB_WORKSPACE/${{ matrix.language }}" "${{ matrix.language }}/lib"
+          fi
+          codeql pack install --additional-packs "$GITHUB_WORKSPACE/${{ matrix.language }}" "${{ matrix.language }}/src"
+          codeql pack install --additional-packs "$GITHUB_WORKSPACE/${{ matrix.language }}" "${{ matrix.language }}/test"
 
       - name: Compile Queries
         if: steps.changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
@@ -168,7 +172,7 @@ jobs:
               # JVMs start at once, and their /tmp/hsperfdata_<user>/<pid> files can collide
               # ("Cannot use file ... locked by another process"), corrupting the report.
               # -XX:-UsePerfData stops the JVM from creating those files at all.
-              procs.append((subprocess.Popen(["codeql", "test", "run", "-J=-XX:-UsePerfData", "--failing-exitcode=122", "--verbosity=progress", "--ram=2048", "--format=json", *extra_args], stdout=test_report_file, stderr=test_log_file), test_log_path))
+              procs.append((subprocess.Popen(["codeql", "test", "run", "--additional-packs", language, "-J=-XX:-UsePerfData", "--failing-exitcode=122", "--verbosity=progress", "--ram=2048", "--format=json", *extra_args], stdout=test_report_file, stderr=test_log_file), test_log_path))
 
             for p, test_log_path in procs:
               p.wait()
@@ -262,7 +266,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'csharp', 'go', 'java', 'python' ]
+        language: [ 'csharp', 'go', 'java', 'python', 'rust' ]
 
     steps:
       - uses: actions/checkout@v7
@@ -355,7 +359,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          for lang in cpp csharp go java javascript python ruby; do
+          for lang in actions cpp csharp go java javascript python ruby rust swift; do
             if [[ -d "${lang}/src" ]]; then
               codeql pack install "${lang}/src"
             fi

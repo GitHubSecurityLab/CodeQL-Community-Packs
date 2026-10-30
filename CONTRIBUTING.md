@@ -6,20 +6,22 @@ There is lots of useful documentation to help you write queries, ranging from in
 
 ## Submitting a new query
 
-If you have an idea for a query that you would like to share with other CodeQL users, please open a pull request to add it to this repository. New queries start out in a `<language>/ql/src/` directory, to which they can be merged when they meet the following requirements.
+If you have an idea for a query that you would like to share with other CodeQL users, please open a pull request to add it to this repository. New queries start out in a `<language>/src/` directory, to which they can be merged when they meet the following requirements.
 
 1. **Directory structure**
 
-    There are eight language-specific query directories in this repository:
+    Query packs are available for the following CodeQL languages:
 
-      * C/C++: `cpp/ql/src`
-      * C#: `csharp/ql/src`
-      * Go: `go/ql/src`
-      * Java/Kotlin: `java/ql/src`
-      * JavaScript: `javascript/ql/src`
-      * Python: `python/ql/src`
-      * Ruby: `ruby/ql/src`
-      * Swift: `swift/ql/src`
+      * GitHub Actions: `actions/src`
+      * C/C++: `cpp/src`
+      * C#: `csharp/src`
+      * Go: `go/src`
+      * Java/Kotlin: `java/src`
+      * JavaScript/TypeScript: `javascript/src`
+      * Python: `python/src`
+      * Ruby: `ruby/src`
+      * Rust: `rust/src`
+      * Swift: `swift/src`
 
     Each language-specific directory contains further subdirectories that group queries based on their `@tags` or purpose.
 
@@ -71,7 +73,7 @@ instead of, or alongside, a query change.
 1. **Pick the right pack: `ext` vs `ext-library-sources`**
 
     Every language with data-extension support has a `<language>/ext` pack (`csharp`/`go`/`java`/
-    `python`). Two of those languages additionally have a second, narrower pack,
+    `python`/`rust`). Two of those languages additionally have a second, narrower pack,
     `<language>/ext-library-sources` (`csharp`/`java` only). They hold different *kinds* of models,
     and picking the right one matters:
 
@@ -82,7 +84,8 @@ instead of, or alongside, a query change.
       well-known framework API (e.g. a web framework's `getParameter()`-style methods). This is
       where our own [Spring R2DBC `DatabaseClient` SQL injection sink models][pr-204] live
       (`java/ext/manual/org.springframework.r2dbc.model.yml`) — use it as a concrete reference for
-      both the file layout and the row shape.
+      both the file layout and the row shape. For example, Rust models for Diesel SQL sinks belong
+      in `rust/ext/manual/diesel.model.yml`.
     - **`<language>/ext-library-sources`** (published as
       `githubsecuritylab/codeql-<language>-library-sources`) exists only for `csharp`/`java` and
       holds a narrower category: `sourceModel` rows (almost always `kind: "remote"`) that flag a
@@ -96,7 +99,8 @@ instead of, or alongside, a query change.
 
     **Rule of thumb: if you're modeling a dangerous sink, or how taint flows through a library
     method, use `ext`. Only reach for `ext-library-sources` if you're contributing a genuinely new
-    remote-data-entry-point (source) model, and only for csharp/java.**
+    remote-data-entry-point (source) model, and only for csharp/java. Do not add an empty
+    `ext-library-sources` pack for other languages.**
 
 2. **Row shape**
 
@@ -135,8 +139,9 @@ instead of, or alongside, a query change.
     Add a test under `<language>/test/security/<CWE-id>/<your-library>/`: minimal source stubs that
     reproduce the vulnerable call shape, a `.ql` query that imports the *real* standard query (e.g.
     `SqlInjectionQuery`/`QueryInjectionFlow`, not a reimplementation of it), and a `.expected` file.
-    Check that `<language>/test/qlpack.yml` depends on `githubsecuritylab/codeql-<language>-extensions`
-    (and `-library-sources` where applicable) — that dependency is what makes `codeql test run`'s
+    If the language has an `ext` pack, check that `<language>/test/qlpack.yml` depends on
+    `githubsecuritylab/codeql-<language>-extensions` (and `-library-sources` where applicable) —
+    that dependency is what makes `codeql test run`'s
     normal dependency resolution load your data extensions automatically, unlike ad-hoc `codeql
     database analyze`/`query run`, which need an explicit `--model-packs` flag. Add the dependency if
     it's missing. Confirm the test actually exercises your model (not just that it compiles) by
@@ -308,7 +313,7 @@ process for each; most of it is manual today.
 [`publish.yml`][publish-workflow] is organized as five jobs: four publish jobs, one per pack type
 (`queries` for `src`, `library` for `lib`, `extensions` for `ext`, `library_sources_extensions` for
 `ext-library-sources`), each matrixed over every language that has that pack type
-(`ext` runs for `csharp`/`go`/`java`/`python`; `ext-library-sources` only runs for `csharp`/`java`, the only languages with that pack) - plus a fifth
+(`src` includes Actions, Rust, and Swift; `lib` is only created where there is shared library code; `ext` runs for `csharp`/`go`/`java`/`python`/`rust`; `ext-library-sources` only runs for `csharp`/`java`, the only languages with that pack) - plus a fifth
 `summary` job that runs after the other four (`if: always()`, so it still runs even if one of them
 fails), aggregates their per-pack results into the publish-summary and CodeQL library/query pack
 version tables, and (on the release-cut `push` trigger only) upserts both tables into the GitHub
@@ -344,7 +349,8 @@ merge. Bumping your pack's own `version:` in a regular PR just *stages* the chan
 To ship a change:
 
 - [ ] Make your change in the pack directory you intend to publish: `<language>/src` (queries),
-      `<language>/lib` (library), `<language>/ext` (extensions, `csharp`/`go`/`java`/`python` only),
+      `<language>/lib` (shared library code, only where needed), `<language>/ext` (extensions,
+      `csharp`/`go`/`java`/`python`/`rust`),
       or `<language>/ext-library-sources` (extensions, `csharp`/`java` only). See [Adding a data
       extension](#adding-a-data-extension) above if you're not sure which extensions pack to use.
 - [ ] Bump `version:` in that pack's `qlpack.yml`, following [semver](https://semver.org/). Only bump

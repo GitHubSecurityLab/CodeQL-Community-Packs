@@ -1,0 +1,9 @@
+name: githubsecuritylab/codeql-rust-tests
+groups: [rust, test]
+dependencies:
+  codeql/rust-all: '0.2.24'
+  githubsecuritylab/codeql-rust-queries: '*'
+  githubsecuritylab/codeql-rust-extensions: '*'
+
+extractor: rust
+tests: .

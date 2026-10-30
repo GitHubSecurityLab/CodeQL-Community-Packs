@@ -1,0 +1,9 @@
+extensions:
+  - addsTo:
+      pack: codeql/rust-all
+      extensible: sinkModel
+    data:
+      - ["<diesel::connection::SimpleConnection>::batch_execute", "Argument[0]", "sql-injection", "manual"]
+      - ["<diesel::query_builder::sql_query::SqlQuery>::sql", "Argument[0]", "sql-injection", "manual"]
+      - ["diesel::expression::sql_literal::sql", "Argument[0]", "sql-injection", "manual"]
+      - ["diesel::query_builder::functions::sql_query", "Argument[0]", "sql-injection", "manual"]
