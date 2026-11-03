@@ -138,7 +138,9 @@ is_lib_language() {
   return 1
 }
 
-echo "## CodeQL standard library & query pack versions"
+echo "<details>"
+echo "<summary>CodeQL standard library & query pack versions</summary>"
+echo "<p>"
 echo
 echo "Pinned CodeQL CLI/library version ([\`.codeqlversion\`](https://github.com/${REPO}/blob/${REPO_SHA}/.codeqlversion)): [\`v${CODEQL_VERSION}\`](https://github.com/github/codeql-cli-binaries/releases/tag/v${CODEQL_VERSION})"
 echo
@@ -208,6 +210,9 @@ for lang in "${LANGUAGES[@]}"; do
     done <<< "$deps"
   done
 done
+
+echo "</p>"
+echo "</details>"
 
 if [ "$MISMATCH" -eq 1 ]; then
   echo "::warning::One or more CodeQL standard library/query pack versions are out of sync with CLI v${CODEQL_VERSION}. Run 'codeql pack upgrade <lang>/<pack>' for the affected language/pack directory(ies)." >&2
