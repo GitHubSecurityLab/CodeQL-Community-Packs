@@ -130,7 +130,7 @@ jobs:
           #    GitHubSecurityLab/CodeQL-Community-Packs#206.
           for dir in $(find . -name qlpack.yml -not -path "./ql/hotspots/*" -not -path "./codeql_home/*" -not -path "./codeql/*" -not -path "*/.codeql/*" -not -path "*/ext/*" -not -path "*/ext-library-sources/*" -exec dirname {} \;); do
             echo "::group::codeql pack upgrade $dir"
-            codeql pack upgrade "$dir"
+            codeql pack upgrade --additional-packs "$(dirname "$dir")" "$dir"
             echo "::endgroup::"
           done
 

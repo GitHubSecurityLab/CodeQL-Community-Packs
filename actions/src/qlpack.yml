@@ -1,0 +1,8 @@
+library: false
+name: githubsecuritylab/codeql-actions-queries
+version: 0.8.3
+suites: suites
+defaultSuiteFile: suites/actions.qls
+dependencies:
+  codeql/actions-all: '0.7.0'
+extractor: actions

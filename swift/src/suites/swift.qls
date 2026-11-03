@@ -1,0 +1,19 @@
+- description: "GitHub Security Lab's Swift query suite"
+
+- queries: '.'
+  from: githubsecuritylab/codeql-swift-queries
+
+- include:
+    kind:
+      - problem
+      - path-problem
+    precision:
+      - very-high
+      - high
+      - medium
+      - low
+
+- exclude:
+    tags contain:
+      - debugging
+      - audit

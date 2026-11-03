@@ -50,17 +50,18 @@ jobs:
           # hole before running `codeql pack install` and immediately finding/
           # fixing the real one-line bug.
           #
-          # We install every pack (not just the language the agent will end up
+          # We install every dependency-bearing pack (not just the language the agent will end up
           # touching) because we don't know ahead of time which one it'll be
           # asked to fix - the extra cost is a few seconds per pack, which is
           # trivial next to the minutes it can save. Same exclude list as
           # update-codeql-version.yml's `codeql pack upgrade` loop: skip
           # ql/hotspots (standalone tool, not a real GHCR-resolvable pack),
           # codeql_home (vendored CLI packs), and codeql/ + */.codeql (the test-
-          # stubs clone below and CodeQL's own per-pack build caches).
-          for dir in $(find . -name qlpack.yml -not -path "./ql/hotspots/*" -not -path "./codeql_home/*" -not -path "./codeql/*" -not -path "*/.codeql/*" -exec dirname {} \;); do
+          # stubs clone below and CodeQL's own per-pack build caches). Model/extension
+          # packs are also skipped because they must not be installed or have lockfiles.
+          for dir in $(find . -name qlpack.yml -not -path "./ql/hotspots/*" -not -path "./codeql_home/*" -not -path "./codeql/*" -not -path "*/.codeql/*" -not -path "*/ext/*" -not -path "*/ext-library-sources/*" -exec dirname {} \;); do
             echo "::group::codeql pack install $dir"
-            codeql pack install "$dir"
+            codeql pack install --additional-packs "$(dirname "$dir")" "$dir"
             echo "::endgroup::"
           done
 

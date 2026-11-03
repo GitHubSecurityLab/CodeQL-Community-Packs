@@ -51,11 +51,12 @@ if [ -z "$CODEQL_VERSION" ]; then
   exit 1
 fi
 
-LANGUAGES=(cpp csharp go java javascript python ruby)
-PACKTYPES=(src lib)
+LANGUAGES=(actions cpp csharp go java javascript python ruby rust swift)
+LIB_LANGUAGES=(cpp csharp go java javascript python ruby)
 
 lang_label() {
   case "$1" in
+    actions) echo "Actions" ;;
     cpp) echo "C++" ;;
     csharp) echo "C#" ;;
     go) echo "Go" ;;
@@ -63,6 +64,8 @@ lang_label() {
     javascript) echo "JavaScript" ;;
     python) echo "Python" ;;
     ruby) echo "Ruby" ;;
+    rust) echo "Rust" ;;
+    swift) echo "Swift" ;;
     *) echo "$1" ;;
   esac
 }
@@ -127,6 +130,14 @@ upstream_version_and_line() {
 
 MISMATCH=0
 
+is_lib_language() {
+  local lang="$1"
+  for supported in "${LIB_LANGUAGES[@]}"; do
+    [ "$supported" == "$lang" ] && return 0
+  done
+  return 1
+}
+
 echo "## CodeQL standard library & query pack versions"
 echo
 echo "Pinned CodeQL CLI/library version ([\`.codeqlversion\`](https://github.com/${REPO}/blob/${REPO_SHA}/.codeqlversion)): [\`v${CODEQL_VERSION}\`](https://github.com/github/codeql-cli-binaries/releases/tag/v${CODEQL_VERSION})"
@@ -139,7 +150,11 @@ echo "| --- | --- | --- | --- | --- | --- |"
 for lang in "${LANGUAGES[@]}"; do
   label=$(lang_label "$lang")
 
-  for packtype in "${PACKTYPES[@]}"; do
+  for packtype in src lib; do
+    if [ "$packtype" == "lib" ] && ! is_lib_language "$lang"; then
+      echo "| $label | \`$packtype\` | - | n/a | - | n/a |"
+      continue
+    fi
     qlpackfile="${lang}/${packtype}/qlpack.yml"
     lockfile="${lang}/${packtype}/codeql-pack.lock.yml"
 

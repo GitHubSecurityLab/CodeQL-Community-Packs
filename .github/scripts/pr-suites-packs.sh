@@ -15,7 +15,7 @@ if [[ -z "$PR_NUMBER" ]]; then
     if [[ -d "$LANGUAGE/suites" ]]; then
         while IFS= read -r -d '' suite; do
             echo "[+] Compiling Suite: $suite"
-            codeql resolve queries "$suite"
+            codeql resolve queries --additional-packs "$LANGUAGE" "$suite"
         done < <(find "$LANGUAGE/suites" -name '*.qls' -print0)
     fi
 
@@ -30,9 +30,9 @@ if [[ -z "$PR_NUMBER" ]]; then
             # extension in the pack (a known CodeQL CLI bug, see
             # https://github.com/github/codeql/issues/20211). See CONTRIBUTING.md.
             if [[ "$pack_dir" != "$LANGUAGE/ext" && "$pack_dir" != "$LANGUAGE/ext-library-sources" ]]; then
-                codeql pack install "$pack_dir"
+                codeql pack install --additional-packs "$LANGUAGE" "$pack_dir"
             fi
-            codeql pack create "$pack_dir"
+            codeql pack create --additional-packs "$LANGUAGE" "$pack_dir"
         fi
     done
 
@@ -48,7 +48,7 @@ for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
     # suite folder 
     if [[ "$file" == $LANGUAGE/suites/**.qls ]]; then
         echo "[+] Compiling Suite: $file"
-        codeql resolve queries "$file"
+        codeql resolve queries --additional-packs "$LANGUAGE" "$file"
 
     # qlpack file and lock file
     elif [[ "$file" == $LANGUAGE/qlpack.yml ]] || [[ "$file" == $LANGUAGE/codeql-pack.lock.yml ]]; then
@@ -57,9 +57,9 @@ for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
         fi 
         echo "[+] Compiling Pack: $LANGUAGE"
         # install deps
-        codeql pack install "$LANGUAGE"
+        codeql pack install --additional-packs "$LANGUAGE" "$LANGUAGE"
         # compile / create pack
-        codeql pack create "$LANGUAGE"
+        codeql pack create --additional-packs "$LANGUAGE" "$LANGUAGE"
 
         # if the version of the pack is changed, comment in the PR
         PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-"$LANGUAGE"-queries/versions --jq '.[0].metadata.container.tags[0]')
@@ -75,7 +75,7 @@ for file in $(gh pr view "$PR_NUMBER" --json files --jq '.files.[].path'); do
             fi
         fi
 
-        # Same for the libs pack
+        # Same for the libs pack, when this language has one
         PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-"$LANGUAGE"-libs/versions --jq '.[0].metadata.container.tags[0]')
         CURRENT_VERSION=$(grep version "$LANGUAGE"/lib/qlpack.yml | awk '{print $2}')
 
