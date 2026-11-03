@@ -1,7 +1,7 @@
 name: githubsecuritylab/codeql-actions-tests
 groups: [actions, test]
 dependencies:
-  codeql/actions-all: '0.7.0'
+  codeql/actions-all: '0.7.1'
   githubsecuritylab/codeql-actions-queries: '*'
 
 extractor: actions

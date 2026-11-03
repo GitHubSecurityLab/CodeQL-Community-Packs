@@ -1,7 +1,7 @@
 name: githubsecuritylab/codeql-javascript-tests
 groups: [javascript, test]
 dependencies:
-  codeql/javascript-all: "2.10.4"
+  codeql/javascript-all: "3.0.0"
   githubsecuritylab/codeql-javascript-queries: "*"
 
 extractor: javascript

@@ -1,8 +1,8 @@
 library: false
 name: githubsecuritylab/codeql-swift-queries
-version: 0.8.3
+version: 0.9.0
 suites: suites
 defaultSuiteFile: suites/swift.qls
 dependencies:
-  codeql/swift-all: '6.8.6'
+  codeql/swift-all: '6.8.7'
 extractor: swift

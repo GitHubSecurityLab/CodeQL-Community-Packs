@@ -1,7 +1,7 @@
 name: githubsecuritylab/codeql-swift-tests
 groups: [swift, test]
 dependencies:
-  codeql/swift-all: '6.8.6'
+  codeql/swift-all: '6.8.7'
   githubsecuritylab/codeql-swift-queries: '*'
 
 extractor: swift

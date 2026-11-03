@@ -1,8 +1,8 @@
 library: false
 name: githubsecuritylab/codeql-rust-queries
-version: 0.8.3
+version: 0.9.0
 suites: suites
 defaultSuiteFile: suites/rust.qls
 dependencies:
-  codeql/rust-all: '0.2.24'
+  codeql/rust-all: '0.2.25'
 extractor: rust
