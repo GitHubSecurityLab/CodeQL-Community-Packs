@@ -6,6 +6,7 @@ private import semmle.javascript.security.dataflow.CommandInjectionCustomization
 private import semmle.javascript.security.dataflow.CodeInjectionCustomizations
 private import semmle.javascript.security.dataflow.LogInjectionQuery as LogInjection
 private import semmle.javascript.security.dataflow.NosqlInjectionCustomizations
+private import semmle.javascript.security.dataflow.SqlInjectionCustomizations
 private import semmle.javascript.security.dataflow.Xss as Xss
 private import semmle.javascript.security.dataflow.XxeCustomizations
 
@@ -77,6 +78,8 @@ class AllSinks extends DataFlow::Node {
     sink = "log-injection" or
     this instanceof NosqlInjection::Sink and
     sink = "nosql-injection" or
+    this instanceof SqlInjection::Sink and
+    sink = "sql-injection" or
     this instanceof Xss::Shared::Sink and
     sink = "xss" or
     this instanceof Xxe::Sink and
