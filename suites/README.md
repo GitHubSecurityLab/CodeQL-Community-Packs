@@ -41,22 +41,32 @@ the suite to be published on `main`; replace `main` with a commit SHA to pin it.
 
 ## Add community credential queries
 
-Add this to the same config (or inline `config: |`) to download only the community
-credential suite for each analyzed language, alongside the built-in suite above:
+Add this to the same config (or inline `config: |`) to download community packs
+and select only these query files for each analyzed language, alongside the
+built-in suite above:
 
 ```yaml
 packs:
   csharp:
-    - githubsecuritylab/codeql-csharp-queries:suites/csharp-credentials.qls
+    - githubsecuritylab/codeql-csharp-queries:security/CWE-798/HardcodedCredentialsSymmetricSecurityKey.ql
+    - githubsecuritylab/codeql-csharp-queries:security/CWE-328/WeakPasswordHashing.ql
+    - githubsecuritylab/codeql-csharp-queries:security/CWE-759/HashWithoutSalt.ql
   java:
-    - githubsecuritylab/codeql-java-queries:suites/java-credentials.qls
+    - githubsecuritylab/codeql-java-queries:security/CWE-798/HardcodedBase64Usage.ql
+    - githubsecuritylab/codeql-java-queries:security/CWE-798/HardcodedPasswordsInProperties.ql
+    - githubsecuritylab/codeql-java-queries:security/CWE-555/CredentialsInPropertiesFile.ql
+    - githubsecuritylab/codeql-java-queries:security/CWE-598/CredentialsInOutboundUrl.ql
+    - githubsecuritylab/codeql-java-queries:security/CWE-555/PasswordInConfigurationFile.ql
+    - githubsecuritylab/codeql-java-queries:security/CWE-759/HashWithoutSalt.ql
   python:
-    - githubsecuritylab/codeql-python-queries:suites/python-credentials.qls
+    - githubsecuritylab/codeql-python-queries:security/CWE-798/HardcodedFrameworkSecrets.ql
+    - githubsecuritylab/codeql-python-queries:security/CWE-1393/DefaultPasswordDB.ql
+    - githubsecuritylab/codeql-python-queries:security/CWE-522/InsecurelyStoredPassword.ql
 ```
 
 These select 3 C#, 6 Java, and 3 Python queries, not each pack's default suite.
-The new suites must be included in a published release before these registry
-references work; a Git branch reference cannot be used as a pack version.
+Paths are relative to the published pack root. No additional community suites or
+pack release are needed when the published packs already contain these files.
 
 ## Standalone CLI
 
@@ -67,7 +77,7 @@ download the packs referenced by the combined suite before analysis:
 codeql pack download suites/hardcoded-credentials.qls
 ```
 
-For community suites, use `codeql pack download githubsecuritylab/codeql-java-queries`
+For community queries, use `codeql pack download githubsecuritylab/codeql-java-queries`
 (substitute the desired language), then pass
-`githubsecuritylab/codeql-java-queries:suites/java-credentials.qls` to
+`githubsecuritylab/codeql-java-queries:security/CWE-798/HardcodedBase64Usage.ql` to
 `codeql database analyze`. Compatible published packs reuse precompiled queries.
