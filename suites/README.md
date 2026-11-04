@@ -1,7 +1,8 @@
 # Query suites
 
-[hardcoded-credentials.qls](hardcoded-credentials.qls) selects 12 credential queries
-across C#, Go, Java, JavaScript, Python, Ruby, and Swift from the built-in query packs.
+[hardcoded-credentials.qls](hardcoded-credentials.qls) selects built-in credential
+queries across C#, Go, Java, JavaScript, Python, Ruby, and Swift, plus related
+credential and password queries from the C#, Java, and Python community packs.
 
 Use either of the first two examples to add the suite to a regular scan. Leave
 `disable-default-queries` unset to keep the default queries.
@@ -38,5 +39,4 @@ the suite to be published on `main`; replace `main` with a commit SHA to pin it.
       queries:
         - uses: GitHubSecurityLab/CodeQL-Community-Packs/suites/hardcoded-credentials.qls@main
 ```
-
 
