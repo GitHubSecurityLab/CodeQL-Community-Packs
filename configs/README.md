@@ -20,6 +20,25 @@ These are based on the suite in each language suites folder called `{LANG}-audit
 > [!NOTE]
 > Ruby, Actions, Rust, and Swift do not currently have audit suites in this configuration.
 
+## [Hardcoded credentials](hardcoded-credentials.yml)
+
+Adds 12 built-in and 12 community credential/password queries across seven languages
+to the standard code-scanning scan. Packs are downloaded automatically, and explicit
+query paths avoid running entire community default suites. No global query filters
+restrict the standard scan.
+
+```yaml
+- uses: github/codeql-action/init@v4
+  with:
+    languages: ${{ matrix.language }}
+    config-file: GitHubSecurityLab/CodeQL-Community-Packs/configs/hardcoded-credentials.yml@main
+```
+
+The config includes commented options for `code-scanning`, `security-extended`,
+and `disable-default-queries: true` to run only the listed credential checks.
+Copy the config into your repository to customize it; the remote reference works
+after merge to `main` and can be pinned to a commit SHA.
+
 ## [Synthetics](synthetics.yml)
 
 This `synthetics.yml` configuration is intended for analyzing synthetic ([intentionally vulnerable](https://owasp.org/www-project-vulnerable-web-applications-directory/)) code samples for vulnerabilities. This configuration uses all possible security queries/extensions from the CodeQL built in packs, the CodeQL Community Packs, and additional OSS packs. It also includes the queries from the built-in `security-experimental.qls` suite with additional lower precision/experimental queries:
