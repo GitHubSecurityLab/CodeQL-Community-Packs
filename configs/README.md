@@ -1,8 +1,9 @@
 # Community Configurations
 
 The checked-in configurations reference community packs that have already been published to GHCR.
-Add new language packs to the relevant configurations after their first release so they do not
-point to packages that consumers cannot download yet.
+Add new language packs to the relevant configurations after their first release so they do not point to packages that consumers cannot download yet.
+We use a custom configuration file(.yml) rather than a standalone query suite(.qls) so the CodeQL Action downloads the required packs automatically and adds the selected queries without filtering the standard scan.
+Also consider that it is possible to directly use the  `config:` input to the CodeQL Action and copy the statements from these config files directly without using the `config-file:` reference to the .yml files in this repository.
 
 ## [Default / CodeQL](default.yml)
 
@@ -19,6 +20,25 @@ These are based on the suite in each language suites folder called `{LANG}-audit
 
 > [!NOTE]
 > Ruby, Actions, Rust, and Swift do not currently have audit suites in this configuration.
+
+## [Hardcoded credentials](hardcoded-credentials.yml)
+
+Adds 12 built-in and 12 community credential/password queries across seven languages
+to the standard code-scanning scan. Packs are downloaded automatically, and explicit
+query paths avoid running entire community default suites. No global query filters
+restrict the standard scan.
+
+```yaml
+- uses: github/codeql-action/init@v4
+  with:
+    languages: ${{ matrix.language }}
+    config-file: GitHubSecurityLab/CodeQL-Community-Packs/configs/hardcoded-credentials.yml@main
+```
+
+The config includes commented options for `code-scanning`, `security-extended`,
+and `disable-default-queries: true` to run only the listed credential checks.
+Copy the config into your repository to customize it; the remote reference works
+after merge to `main` and can be pinned to a commit SHA.
 
 ## [Synthetics](synthetics.yml)
 
