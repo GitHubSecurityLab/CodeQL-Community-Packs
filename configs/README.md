@@ -1,8 +1,9 @@
 # Community Configurations
 
 The checked-in configurations reference community packs that have already been published to GHCR.
-Add new language packs to the relevant configurations after their first release so they do not
-point to packages that consumers cannot download yet.
+Add new language packs to the relevant configurations after their first release so they do not point to packages that consumers cannot download yet.
+We use a custom configuration file(.yml) rather than a standalone query suite(.qls) so the CodeQL Action downloads the required packs automatically and adds the selected queries without filtering the standard scan.
+Also consider that you may also use the `config:` input to the CodeQL Action and copy the statements from these config files directly without using the `config-file` reference to the config files here.
 
 ## [Default / CodeQL](default.yml)
 
