@@ -1,0 +1,12 @@
+- description: "GitHub's Community Packs Python Debugging Suite"
+
+# Field query pack with some audit queries
+- queries: "."
+  from: githubsecuritylab/codeql-python-debugging
+
+- include:
+    kind:
+      - problem
+      - path-problem
+      - metric
+      - diagnostic
