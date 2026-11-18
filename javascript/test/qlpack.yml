@@ -3,6 +3,7 @@ groups: [javascript, test]
 dependencies:
   codeql/javascript-all: "3.0.0"
   githubsecuritylab/codeql-javascript-queries: "*"
+  githubsecuritylab/codeql-javascript-extensions: "*"
 
 extractor: javascript
 tests: .

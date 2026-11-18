@@ -5,5 +5,6 @@ dependencies:
     codeql/cpp-queries: '1.10.0'
     githubsecuritylab/codeql-cpp-queries: '*'
     githubsecuritylab/codeql-cpp-libs: '*'
+    githubsecuritylab/codeql-cpp-extensions: '*'
 extractor: cpp
 tests: .
