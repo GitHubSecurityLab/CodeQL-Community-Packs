@@ -105,3 +105,30 @@ jobs:
         run: |
           docker login -u "${{ secrets.REGISTRY_USER }}" --password-stdin < /dev/null
           echo "${{ secrets.REGISTRY_USER }}" | hexdump -C
+
+      - name: Standard error appended to a file does not hide standard output
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: echo "$TOKEN" | base64 2>> encoder.err
+
+      - name: The value of an option is not a file operand
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: echo "$TOKEN" | base64 -w 0
+
+      - name: The value of a long option is not a file operand
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: echo "$TOKEN" | base64 --wrap 0
+
+      - name: A dash operand is standard input
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: echo "$TOKEN" | base64 -
+
+      - name: Environment secret copied by an assignment
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          TOKEN="$TOKEN"
+          echo "$TOKEN" | base64

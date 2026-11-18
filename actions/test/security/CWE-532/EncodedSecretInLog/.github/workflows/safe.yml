@@ -59,6 +59,8 @@ jobs:
           T="${{ secrets.TOKEN }}"
           T=public
           echo "$T" | base64
+          TOKEN=public
+          echo "$TOKEN" | base64
 
       - name: Pipeline stages that do not pass through input
         env:
@@ -71,6 +73,10 @@ jobs:
           echo "$SUPER_SECRET" | curl https://example.com | base64
           echo "$SUPER_SECRET" >/dev/null | base64
           echo "$SUPER_SECRET" | base64 --decode>cert.p12
+          echo "$SUPER_SECRET" | base64 < /dev/null
+          echo "$SUPER_SECRET" | base64 public.txt
+          echo "$SUPER_SECRET" | base64 -w 0 public.txt
+          echo "$SUPER_SECRET" | openssl base64 -in public.txt
 
       - name: Hashed or encrypted before encoding
         env:

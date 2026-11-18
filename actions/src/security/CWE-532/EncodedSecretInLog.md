@@ -8,6 +8,8 @@ This query reports `run` steps using a Bash shell where a secret (`${{ secrets.*
 
 Variable assignments are ordered by their source line, not by shell control flow. Assignments inside functions or loops may execute in a different order than their source lines. Pipeline source attribution recognizes `curl` as a command that does not forward secret arguments to stdout; the output behavior of other commands is not modeled.
 
+An input redirection (`base64 < file`) that replaces the pipe is recognized for every stage. A file operand that replaces the pipe is recognized only for `base64`, `base32`, `basenc` (`base64 file`) and `openssl` (`-in file`), so for other encoders such as `xxd file` the pipe is assumed to be the input. An assignment to an environment variable earlier in the script replaces its secret value for the statements after it, even when the assignment only runs in some branches.
+
 A command between the secret and the encoder that destroys the secret, for example a hash such as `sha256sum` or encryption with a key, stops the query from reporting the statement. Only `tee`, `tr`, `cat` and `fold` are treated as keeping the data recoverable. Redirecting the output of the whole script with `exec >` is recognized, and so is the body of a here-document, which is data and not a command. Other ways of redirecting output are not modeled.
 
 Decoding is not reported because restoring a certificate or key from a secret, as in `echo "$CERT_B64" | base64 --decode -o cert.p12`, is a routine step. Printing the decoded value to the log is a leak that this query does not find.

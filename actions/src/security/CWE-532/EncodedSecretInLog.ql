@@ -133,11 +133,32 @@ predicate isNonEmittingCommand(string stage) {
 /** Holds if `stage` sends its standard output to a file. */
 bindingset[stage]
 predicate redirectsStdout(string stage) {
-  stage.regexpMatch(".*(^|[^2])>{1,2}\\s*[^&\\s].*")
+  stage.regexpMatch(".*(^|[^2>])>{1,2}\\s*[^&\\s].*")
   or
   // an output option of the encoder, for example `base64 -o file` or `openssl base64 -out file`
   stage
       .regexpMatch("(sudo\\s+)?(\\S*/)?(base64|base32|basenc|openssl)(\\s.*)?\\s(-o|--output|-out)([\\s=].*)?")
+}
+
+/**
+ * Holds if `stage` does not read the output of the previous pipeline stage: its standard input is
+ * redirected from a file, or it reads a file operand, as in `base64 < file`, `base64 file` or
+ * `openssl base64 -in file`. File operands are only recognized for `base64`, `base32`, `basenc`
+ * and `openssl`.
+ */
+bindingset[stage]
+predicate replacesInput(string stage) {
+  // `< file`, but not a here-document (`<<`) or a here-string (`<<<`)
+  stage.regexpMatch(".*(^|[^<])<\\s*[^<\\s].*")
+  or
+  stage.regexpMatch("(sudo\\s+)?(\\S*/)?openssl(\\s.*)?\\s-in[\\s=]\\s*[^\\s].*")
+  or
+  // a file operand after the options, with the redirections removed. `-` and `/dev/stdin` mean stdin.
+  exists(string command |
+    command = stage.regexpReplaceAll("[0-9]*[<>]+&?\\s*[^\\s]*", "") and
+    command
+        .regexpMatch("(sudo\\s+)?(\\S*/)?(base64|base32|basenc)(\\s+(-w\\s*[0-9]+|--wrap(=|\\s+)[0-9]+|-[^\\s]*))*\\s+(?!/dev/stdin\\b)[^-0-9\\s][^\\s]*.*")
+  )
 }
 
 /** Gets the name of a shell variable or environment variable referenced in `stage`. */
@@ -192,8 +213,9 @@ predicate stageReferencesVariableSecret(
 ) {
   isSecretOfRun(run, secret) and
   (
-    // environment variable: env: { X: ${{ secrets.X }} }
-    secret = run.getInScopeEnvVarExpr(var)
+    // environment variable: env: { X: ${{ secrets.X }} }, unless the script assigned it before
+    secret = run.getInScopeEnvVarExpr(var) and
+    not exists(getLatestAssignmentData(script, useLine, var))
     or
     // shell variable assigned from a secret: X="${{ secrets.X }}" or X="$SECRET_ENV"
     (
@@ -324,6 +346,10 @@ where
     forall(int m | m > k and m < j and exists(stageOf(run, i, stmt, m)) |
       isPassThroughCommand(stageOf(run, i, stmt, m)) or
       isEncodingCommand(stageOf(run, i, stmt, m))
+    ) and
+    // no stage after the secret ignores its piped input, as in `base64 < file` or `base64 file`
+    forall(int m | m > k and m <= j and exists(stageOf(run, i, stmt, m)) |
+      not replacesInput(stageOf(run, i, stmt, m))
     )
   ) and
   not exists(int k | k < j | redirectsStdout(stageOf(run, i, stmt, k))) and
