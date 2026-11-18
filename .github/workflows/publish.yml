@@ -211,7 +211,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ["csharp", "go", "java", "python", "rust"]
+        language: ["cpp", "csharp", "go", "java", "javascript", "python", "ruby", "rust"]
 
     steps:
       - uses: actions/checkout@v7

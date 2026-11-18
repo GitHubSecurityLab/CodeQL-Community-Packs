@@ -40,7 +40,7 @@ TYPES=(src lib ext ext-library-sources)
 # have no shared library use cases and should not produce empty placeholder packs.
 LIB_LANGUAGES=(cpp csharp go java javascript python ruby)
 # Languages with an `ext` (model/extension) pack - matches the `extensions` job's matrix.
-EXT_LANGUAGES=(csharp go java python rust)
+EXT_LANGUAGES=(cpp csharp go java javascript python ruby rust)
 # Languages with an `ext-library-sources` pack - matches the `library_sources_extensions`
 # job's matrix. This is a strict subset of EXT_LANGUAGES: go/python ship `ext` packs but
 # have no `ext-library-sources` pack, so they must not be expected to have a result for it.
