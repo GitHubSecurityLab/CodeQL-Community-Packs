@@ -18,18 +18,34 @@
 
 import actions
 
-/** Holds if `expr` is an Actions expression that evaluates to a secret value. */
+/** Holds if `expr` is an Actions expression that can evaluate to a secret value. */
 bindingset[expr]
 predicate isSecretExpression(string expr) {
-  exists(string expressionWithoutLiterals |
+  exists(string expressionWithoutLiterals, string reference, int offset |
     expressionWithoutLiterals =
       expr.regexpReplaceAll("\"(?:\\\\.|[^\"\\\\])*\"|'(?:\\\\.|[^'\\\\])*'", "") and
-    expressionWithoutLiterals
-        .regexpMatch("(?s).*(^|[^A-Za-z0-9_.])(secrets(\\s*\\.\\s*[A-Za-z_][A-Za-z0-9_]*|\\s*\\[[^]]+\\])?|github\\s*\\.\\s*token)([^A-Za-z0-9_]|$).*") and
-    not expressionWithoutLiterals.regexpMatch("(?s).*(==|!=|<=|>=|<|>|&&).*") and
-    not expressionWithoutLiterals.regexpMatch("(?s)^\\s*!.*") and
+    reference =
+      expressionWithoutLiterals
+          .regexpFind("(?<![A-Za-z0-9_.])(?:secrets(?:\\s*\\.\\s*[A-Za-z_][A-Za-z0-9_]*|\\s*\\[[^\\]]*\\])?|github\\s*\\.\\s*token)(?![A-Za-z0-9_])",
+            _, offset) and
+    isReturnedAsValue(expressionWithoutLiterals, offset, reference.length()) and
     not expressionWithoutLiterals.regexpMatch("(?s).*\\b(contains|startsWith|endsWith)\\s*\\(.*")
   )
+}
+
+/**
+ * Holds if the secret reference at `offset` of `expr`, `length` characters long, can be the value
+ * of the expression. It cannot when the expression negates or compares it (`!secrets.X`,
+ * `secrets.X != ''`) or only tests it as the left operand of `&&` (`secrets.X && 'yes'`). It can
+ * when it is an operand of `||` or the right operand of `&&`, so
+ * `github.ref == 'refs/heads/main' && secrets.PROD || secrets.DEV` evaluates to a secret.
+ */
+bindingset[expr, offset, length]
+private predicate isReturnedAsValue(string expr, int offset, int length) {
+  not expr.substring(0, offset)
+      .regexpMatch("(?s).*(==|!=|<=|>=|<|>|!)\\s*(?:\\(\\s*|[A-Za-z_][A-Za-z0-9_]*\\s*\\(\\s*)*") and
+  not expr.substring(offset + length, expr.length())
+      .regexpMatch("(?s)(?:\\s*[)\\]]|\\.[A-Za-z_][A-Za-z0-9_]*|\\s*\\[[^\\]]*\\])*\\s*(==|!=|<=|>=|<|>|&&).*")
 }
 
 /** Holds if `offset` points to a shell pipeline separator in `stmt`. */
@@ -148,8 +164,10 @@ predicate redirectsStdout(string stage) {
  */
 bindingset[stage]
 predicate replacesInput(string stage) {
-  // `< file`, but not a here-document (`<<`) or a here-string (`<<<`)
-  stage.regexpMatch(".*(^|[^<])<\\s*[^<\\s].*")
+  // `< file`, but not a here-document (`<<`) or a here-string (`<<<`). Quoted text is not a redirection.
+  stage
+      .regexpReplaceAll("'[^']*'|\"(?:\\\\.|[^\"\\\\])*\"", "Q")
+      .regexpMatch(".*(^|[^<])<\\s*[^<\\s].*")
   or
   stage.regexpMatch("(sudo\\s+)?(\\S*/)?openssl(\\s.*)?\\s-in[\\s=]\\s*[^\\s].*")
   or
@@ -222,16 +240,20 @@ predicate stageReferencesVariableSecret(
       secret = run.getAnScriptExpr() and
       getLatestAssignmentData(script, useLine, var).indexOf(secret.getRawExpression()) >= 0
       or
-      secret =
-        run.getInScopeEnvVarExpr(getAReferencedVariable(getLatestAssignmentData(script, useLine, var)))
+      // a copy of an environment variable, as long as no assignment replaced its value before the copy
+      exists(int assignmentLine, string copied |
+        copied = getAReferencedVariable(getLatestAssignment(script, useLine, var, assignmentLine)) and
+        secret = run.getInScopeEnvVarExpr(copied) and
+        not exists(getLatestAssignmentData(script, assignmentLine, copied))
+      )
     )
   )
 }
 
-/** Gets the data for the latest assignment to `var` before `useLine`. */
+/** Gets the data of the latest assignment to `var` before `useLine`, which is made at `assignmentLine`. */
 bindingset[script, useLine, var]
-private string getLatestAssignmentData(ShellScript script, int useLine, string var) {
-  exists(int assignmentLine, string assignmentStmt |
+private string getLatestAssignment(ShellScript script, int useLine, string var, int assignmentLine) {
+  exists(string assignmentStmt |
     assignmentStmt = script.getStmt(assignmentLine) and
     assignmentLine < useLine and
     script.getAssignment(assignmentLine, var, result) and
@@ -242,6 +264,12 @@ private string getLatestAssignmentData(ShellScript script, int useLine, string v
       laterAssignmentLine < useLine
     )
   )
+}
+
+/** Gets the data for the latest assignment to `var` before `useLine`. */
+bindingset[script, useLine, var]
+private string getLatestAssignmentData(ShellScript script, int useLine, string var) {
+  result = getLatestAssignment(script, useLine, var, _)
 }
 
 /** Holds if `stage` provides the secret to the input of encoding stage `encodingStage`. */
@@ -356,7 +384,8 @@ where
   not exists(int k | k < j | isNonEmittingCommand(stageOf(run, i, stmt, k))) and
   // the encoded value reaches the log
   forall(int l | l > j and exists(stageOf(run, i, stmt, l)) |
-    isPassThroughCommand(stageOf(run, i, stmt, l))
+    isPassThroughCommand(stageOf(run, i, stmt, l)) and
+    not replacesInput(stageOf(run, i, stmt, l))
   ) and
   not exists(int l | l >= j | redirectsStdout(stageOf(run, i, stmt, l)))
 select run.getScript(),

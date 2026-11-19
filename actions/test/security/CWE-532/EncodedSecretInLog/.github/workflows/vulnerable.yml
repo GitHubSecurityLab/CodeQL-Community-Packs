@@ -132,3 +132,18 @@ jobs:
         run: |
           TOKEN="$TOKEN"
           echo "$TOKEN" | base64
+
+      - name: Conditional expression whose result is a secret
+        env:
+          TOKEN: ${{ github.ref == 'refs/heads/main' && secrets.PROD_TOKEN || secrets.DEV_TOKEN }}
+        run: echo "$TOKEN" | xxd -p
+
+      - name: Secret as the right operand of a logical and
+        env:
+          TOKEN: ${{ github.event_name == 'push' && secrets.TOKEN }}
+        run: echo "$TOKEN" | xxd -p
+
+      - name: A quoted angle bracket is not an input redirection
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: echo "$TOKEN" | base64 | tr '+' '<'

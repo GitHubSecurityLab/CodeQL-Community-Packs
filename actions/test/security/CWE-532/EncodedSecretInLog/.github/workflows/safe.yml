@@ -62,6 +62,35 @@ jobs:
           TOKEN=public
           echo "$TOKEN" | base64
 
+      - name: Copy of an environment variable that an assignment replaced first
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          TOKEN=public
+          T="$TOKEN"
+          echo "$T" | base64
+
+      - name: Expressions that are tested or compared, and not returned
+        env:
+          ENABLED: ${{ secrets.TOKEN && 'enabled' || 'disabled' }}
+          EMPTY: ${{ secrets.TOKEN == '' && 'empty' || 'set' }}
+          NEGATED: ${{ !secrets.TOKEN }}
+          MATCHED: ${{ github.ref == 'refs/heads/main' && secrets.TOKEN != '' }}
+          FROM_JSON: ${{ fromJSON(secrets.CONFIG).enabled == 'true' }}
+        run: |
+          echo "$ENABLED" | xxd -p
+          echo "$EMPTY" | xxd -p
+          echo "$NEGATED" | xxd -p
+          echo "$MATCHED" | xxd -p
+          echo "$FROM_JSON" | xxd -p
+
+      - name: tee reads from a file and prints nothing
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          echo "$TOKEN" | base64 | tee < /dev/null
+          echo "$TOKEN" | base64 | tr -d '\n' < /dev/null
+
       - name: Pipeline stages that do not pass through input
         env:
           SUPER_SECRET: ${{ secrets.API_SECRET }}
