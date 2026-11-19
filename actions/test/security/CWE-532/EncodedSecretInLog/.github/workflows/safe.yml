@@ -1,0 +1,159 @@
+name: Safe
+
+on:
+  push:
+
+jobs:
+  safe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Decode a certificate into a file
+        env:
+          CERT_B64: ${{ secrets.CERT_B64 }}
+        run: echo "$CERT_B64" | base64 --decode > cert.p12
+
+      - name: Encoded value captured and masked
+        env:
+          SUPER_SECRET: ${{ secrets.API_SECRET }}
+        run: |
+          ENCODED=$(echo "$SUPER_SECRET" | base64 -w0)
+          echo "::add-mask::$ENCODED"
+          echo "::add-mask::$(echo "$SUPER_SECRET" | base64 -w0)"
+          OTHER=`echo "$SUPER_SECRET" | base32`
+          echo "$SUPER_SECRET" | base64 >> "$GITHUB_OUTPUT"
+          echo "$SUPER_SECRET" | base64 -w0 | docker login -u user --password-stdin
+
+      - name: Non-secret values
+        env:
+          PUBLIC_VALUE: ${{ vars.PUBLIC_VALUE }}
+        run: |
+          echo "$PUBLIC_VALUE" | base64
+          echo "${{ github.sha }}" | base64
+          echo "${{ github.repository }}" | rev
+
+      - name: Secret unrelated to the encoding
+        env:
+          SUPER_SECRET: ${{ secrets.API_SECRET }}
+        run: |
+          curl -H "Authorization: $SUPER_SECRET" https://example.com
+          echo "hello" | base64
+
+      - name: Secret-valued expression boundaries
+        env:
+          SUPER_SECRET: ${{ secrets.TOKEN }}
+        run: |
+          echo "${{ vars.SECRETS }}" | base64
+          echo "${{ 'secrets' }}" | base64
+          echo "${{ secrets.TOKEN != '' }}" | base64
+          echo "${{ contains(secrets.TOKEN, 'x') }}" | base64
+          echo "$SUPER_SECRET | base64 -w0"
+
+      - name: Literal variable references and overwritten assignments
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          echo '$TOKEN' | base64
+          echo \$TOKEN | base64
+          T=public
+          echo "$T" | base64
+          T="${{ secrets.TOKEN }}"
+          T=public
+          echo "$T" | base64
+          TOKEN=public
+          echo "$TOKEN" | base64
+
+      - name: Copy of an environment variable that an assignment replaced first
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          TOKEN=public
+          T="$TOKEN"
+          echo "$T" | base64
+
+      - name: Expressions that are tested or compared, and not returned
+        env:
+          ENABLED: ${{ secrets.TOKEN && 'enabled' || 'disabled' }}
+          EMPTY: ${{ secrets.TOKEN == '' && 'empty' || 'set' }}
+          NEGATED: ${{ !secrets.TOKEN }}
+          MATCHED: ${{ github.ref == 'refs/heads/main' && secrets.TOKEN != '' }}
+          FROM_JSON: ${{ fromJSON(secrets.CONFIG).enabled == 'true' }}
+        run: |
+          echo "$ENABLED" | xxd -p
+          echo "$EMPTY" | xxd -p
+          echo "$NEGATED" | xxd -p
+          echo "$MATCHED" | xxd -p
+          echo "$FROM_JSON" | xxd -p
+
+      - name: tee reads from a file and prints nothing
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          echo "$TOKEN" | base64 | tee < /dev/null
+          echo "$TOKEN" | base64 | tr -d '\n' < /dev/null
+
+      - name: Pipeline stages that do not pass through input
+        env:
+          SUPER_SECRET: ${{ secrets.API_SECRET }}
+        run: |
+          echo "$SUPER_SECRET" | base64 | cat /dev/null
+          echo "$SUPER_SECRET" | base64 | fold /dev/null
+          echo "$SUPER_SECRET" | base64 | fold < cert.p12
+          curl -H "Authorization: $SUPER_SECRET" https://example.com | base64
+          echo "$SUPER_SECRET" | curl https://example.com | base64
+          echo "$SUPER_SECRET" >/dev/null | base64
+          echo "$SUPER_SECRET" | base64 --decode>cert.p12
+          echo "$SUPER_SECRET" | base64 < /dev/null
+          echo "$SUPER_SECRET" | base64 public.txt
+          echo "$SUPER_SECRET" | base64 -w 0 public.txt
+          echo "$SUPER_SECRET" | openssl base64 -in public.txt
+
+      - name: Hashed or encrypted before encoding
+        env:
+          API_SECRET: ${{ secrets.API_SECRET }}
+        run: |
+          echo "$API_SECRET" | sha256sum | base64
+          echo "$API_SECRET" | openssl dgst -sha256 -binary | base64
+          echo "$API_SECRET" | openssl enc -aes-256-cbc -pbkdf2 -pass file:key.txt | base64
+          echo "$API_SECRET" | openssl enc -aes-256-cbc -a -pbkdf2 -pass file:key.txt
+
+      - name: Decoding restores data and is not an encoding
+        env:
+          CERT_B64: ${{ secrets.CERT_B64 }}
+        run: |
+          echo -n "$CERT_B64" | base64 --decode -o "$RUNNER_TEMP/cert.p12"
+          echo "$CERT_B64" | base64 --decode --output "$RUNNER_TEMP/cert.p12"
+          echo "$CERT_B64" | base64 -d
+          echo "$CERT_B64" | base64 -D
+          echo "$CERT_B64" | base32 --decode
+          echo "$CERT_B64" | xxd -r -p
+          echo "$CERT_B64" | openssl base64 -d
+          gpg --batch --import <(echo -n "$CERT_B64" | base64 --decode)
+
+      - name: Encoder writes to a file
+        env:
+          API_SECRET: ${{ secrets.API_SECRET }}
+        run: |
+          echo "$API_SECRET" | base64 -i /dev/stdin -o "$RUNNER_TEMP/encoded.txt"
+          echo "$API_SECRET" | openssl base64 -out "$RUNNER_TEMP/encoded.txt"
+
+      - name: Output of the whole script is redirected
+        env:
+          API_SECRET: ${{ secrets.API_SECRET }}
+        run: |
+          exec > build.log
+          echo "$API_SECRET" | base64
+
+      - name: Here-document body is data, not a command
+        env:
+          API_SECRET: ${{ secrets.API_SECRET }}
+        run: |
+          cat > helper.sh <<'EOF'
+          echo "$API_SECRET" | base64
+          EOF
+          chmod +x helper.sh
+
+      - name: PowerShell is out of scope
+        shell: pwsh
+        env:
+          SUPER_SECRET: ${{ secrets.API_SECRET }}
+        run: echo "$env:SUPER_SECRET"

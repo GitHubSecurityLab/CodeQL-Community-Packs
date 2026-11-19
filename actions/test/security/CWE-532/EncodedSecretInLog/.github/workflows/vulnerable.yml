@@ -1,0 +1,149 @@
+name: Vulnerable
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  WORKFLOW_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+
+jobs:
+  get_secrets:
+    runs-on: ubuntu-latest
+    env:
+      JOB_SECRET: ${{ secrets.JOB_SECRET }}
+    steps:
+      - name: Get Secret
+        env:
+          ALLMYSECRETS: ${{ toJSON(secrets) }}
+          ALLMYVARS: ${{ toJSON(vars) }}
+          SUPER_SECRET: ${{ secrets.API_SECRET }}
+        run: |
+          # masked by the runner: not reported
+          echo "$SUPER_SECRET"
+          echo "$ALLMYSECRETS"
+          # variables are public: not reported
+          echo "$ALLMYVARS" | base64
+          # encoded secrets defeat masking: reported
+          echo "$SUPER_SECRET" | base64
+          echo "$ALLMYSECRETS" | base64
+
+      - name: Inline secret expression
+        run: echo "${{ secrets.API_KEY }}" | base64 -w0
+
+      - name: Secret expression wrappers and shell logical fallback
+        run: |
+          echo "${{ secrets.API_KEY || github.token }}" | base64
+          echo "${{ format('{0}', fromJSON(secrets.API_KEY)) }}" | base64
+          echo "${{ secrets['API_KEY'] }}" | base64
+
+      - name: Here-string
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: base64 <<< "$TOKEN"
+
+      - name: Hex dump
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: printf '%s' "${TOKEN}" | xxd -p
+
+      - name: Reverse
+        run: echo $JOB_SECRET | rev
+
+      - name: Workflow-level env, piped through tee
+        run: echo $WORKFLOW_TOKEN | base64 | tee encoded.txt
+
+      - name: Script variable assigned from a secret
+        run: |
+          T="${{ secrets.ANOTHER }}"
+          echo "$T" | base32
+
+      - name: printenv
+        env:
+          SUPER_SECRET: ${{ secrets.API_SECRET }}
+        run: printenv SUPER_SECRET | openssl base64
+
+      - name: GitHub token
+        run: echo "${{ github.token }}" | od -c
+
+      - name: Prefixed secret value
+        env:
+          AUTH: "token ${{ secrets.TOKEN }}"
+        run: echo "$AUTH" | hexdump -C
+
+      - name: Adjacent stderr redirection and pass-through stages
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          echo "$TOKEN" | base64 2> encoder.err
+          echo "$TOKEN" | base64 >&2
+          echo "$TOKEN" | base64 | tr -d '\n' | base64
+          echo "$TOKEN" | base64 | cat
+          echo "$TOKEN" | base64 | cat -
+          echo "$TOKEN" | base64 | fold -w 80
+          echo "$TOKEN" | base64 | tr -d '\n'
+
+      - name: Standard error redirection of the whole script does not hide standard output
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          exec 2>&1
+          echo "$TOKEN" | base64
+
+      - name: Hex encoding with an encoding stage in the middle
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: echo "$TOKEN" | base64 | xxd -p
+
+      - name: Encoding only openssl invocation
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: echo "$TOKEN" | openssl enc -base64 -A
+
+      - name: The same expression occurs twice in one script
+        run: |
+          docker login -u "${{ secrets.REGISTRY_USER }}" --password-stdin < /dev/null
+          echo "${{ secrets.REGISTRY_USER }}" | hexdump -C
+
+      - name: Standard error appended to a file does not hide standard output
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: echo "$TOKEN" | base64 2>> encoder.err
+
+      - name: The value of an option is not a file operand
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: echo "$TOKEN" | base64 -w 0
+
+      - name: The value of a long option is not a file operand
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: echo "$TOKEN" | base64 --wrap 0
+
+      - name: A dash operand is standard input
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: echo "$TOKEN" | base64 -
+
+      - name: Environment secret copied by an assignment
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          TOKEN="$TOKEN"
+          echo "$TOKEN" | base64
+
+      - name: Conditional expression whose result is a secret
+        env:
+          TOKEN: ${{ github.ref == 'refs/heads/main' && secrets.PROD_TOKEN || secrets.DEV_TOKEN }}
+        run: echo "$TOKEN" | xxd -p
+
+      - name: Secret as the right operand of a logical and
+        env:
+          TOKEN: ${{ github.event_name == 'push' && secrets.TOKEN }}
+        run: echo "$TOKEN" | xxd -p
+
+      - name: A quoted angle bracket is not an input redirection
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: echo "$TOKEN" | base64 | tr '+' '<'
