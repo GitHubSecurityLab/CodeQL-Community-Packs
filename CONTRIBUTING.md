@@ -316,8 +316,8 @@ process for each; most of it is manual today.
 (`src` includes Actions, Rust, and Swift; `lib` is only created where there is shared library code; `ext` runs for `cpp`/`csharp`/`go`/`java`/`javascript`/`python`/`ruby`/`rust`; `ext-library-sources` only runs for `csharp`/`java`, the only languages with that pack) - plus a fifth
 `summary` job that runs after the other four (`if: always()`, so it still runs even if one of them
 fails), aggregates their per-pack results into the publish-summary and CodeQL library/query pack
-version tables, and (on the release-cut `push` trigger only) upserts both tables into the GitHub
-Release's notes.
+version tables, resolves query suite counts, and (on the release-cut `push` trigger only) upserts
+these sections into the GitHub Release's notes.
 
 Each published/up-to-date cell in the publish-summary table is a shields.io **Dynamic Regex
 Badge**, labeled with the version and showing that pack version's download count (e.g. `0.6.0 |
@@ -536,12 +536,18 @@ supported way to bump `.release.yml`:
 - [ ] Merging it is what changes `.release.yml` on `main`, which auto-triggers
       [`publish.yml`][publish-workflow] for a real batch publish: every pack whose version actually
       changed gets published to [GHCR][ghcr-packages] in that one run.
-- [ ] The run's `summary` job posts two markdown tables to the job summary **and** upserts both into
+- [ ] The run's `summary` job posts three markdown tables to the job summary **and** upserts them into
       the matching GitHub Release (`vX.Y.Z`), creating it if it doesn't exist yet: a publish summary
       (what published) and a CodeQL standard library & query pack versions table (whether each
       language's locked `codeql/*` dependencies match what the pinned CodeQL CLI actually ships
       upstream — see the note under
-      [Updating the pinned CodeQL CLI/library version](#updating-the-pinned-codeql-clilibrary-version)).
+      [Updating the pinned CodeQL CLI/library version](#updating-the-pinned-codeql-clilibrary-version)),
+      plus a collapsible query suite inventory with per-language query counts. Each suite links to
+      its `.qls` file at the release commit. Counts use `codeql resolve queries --format=json`
+      and include upstream queries selected by the suite, resolved from the `github/codeql` source
+      at the pinned CLI tag. Suites may overlap, so their counts should not be added together.
+      A failed resolution is reported as an error, never as a zero count, and prevents updating
+      the inventory for that run.
 
 > [!NOTE]
 > **Pre-release vs. full release.** The GitHub Release created above is a **full release by
@@ -584,7 +590,8 @@ consider before using it:
 
 The [Releases][releases] tab (`v0.2.0`, `v0.2.1`, ...) is a repo-wide changelog tied to cutting a
 release as described above. Each release's auto-generated notes are supplemented with the publish
-summary table and the CodeQL standard library & query pack versions table (see
+summary table, the CodeQL standard library & query pack versions table, and a collapsible query
+suite inventory (see
 [Cutting a release](#cutting-a-release)), so you can see exactly which packs published at that
 version — and whether the library/query pack versions they're compiled against are still in sync
 with the pinned CodeQL CLI, with a direct link to the exact upstream file/line — without
