@@ -429,3 +429,33 @@ jobs:
         run: |
           .github/scripts/upsert-release-table.sh summary.md publish-summary
           .github/scripts/upsert-release-table.sh codeql-lib-versions.md codeql-lib-versions
+
+      - name: Setup CodeQL for suite counts
+        id: suite_codeql
+        uses: ./.github/actions/install-codeql
+
+      - name: Checkout matching upstream suites and queries
+        uses: actions/checkout@v7
+        with:
+          repository: github/codeql
+          ref: codeql-cli/v${{ steps.suite_codeql.outputs.codeql-cli-version }}
+          path: codeql-upstream
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*/ql/src/
+            /*/ql/lib/
+            /shared/
+            /misc/suite-helpers/
+            /codeql-workspace.yml
+          persist-credentials: false
+
+      - name: Build query suite counts
+        run: |
+          bash .github/scripts/build-query-suite-table.sh codeql-upstream > query-suite-counts.md
+          cat query-suite-counts.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upsert release suite counts
+        if: github.event_name == 'push'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: .github/scripts/upsert-release-table.sh query-suite-counts.md query-suite-counts
