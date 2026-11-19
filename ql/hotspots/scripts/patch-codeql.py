@@ -140,10 +140,17 @@ def rename_ql_packs(patched_path):
             regexp=True,
         )
         utils.find_and_replace(
-            os.path.join(target_base, "lib"),
+            target_base,
             f"pack: codeql/{lang}-",
             f"pack: githubsecuritylab/hotspots-{lang}-",
             "*.yml",
+        )
+        utils.find_and_replace(
+            target_base,
+            rf'("pack"\s*:\s*")codeql/{lang}-',
+            rf"\g<1>githubsecuritylab/hotspots-{lang}-",
+            "*.json",
+            regexp=True,
         )
         if args.qlpack_version:
             print(f"[+] Setting QLPacks version to {args.qlpack_version}")

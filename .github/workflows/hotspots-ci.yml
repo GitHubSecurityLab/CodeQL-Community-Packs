@@ -96,6 +96,7 @@ jobs:
           python -m compileall -q ql/hotspots/scripts
           python ql/hotspots/scripts/generate-hotspots-queries.py --help > /dev/null
           python ql/hotspots/scripts/patch-codeql.py --help > /dev/null
+          python -m unittest discover -s ql/hotspots/tests
 
       # ~1 minute of `cargo build --release`; deliberately not cached, to keep this job free of
       # Actions cache writes of anything derived from the `github/codeql` checkout.
