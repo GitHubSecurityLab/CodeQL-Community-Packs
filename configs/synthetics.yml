@@ -26,6 +26,7 @@ packs:
 
     ### GitHub Security Lab###
     # Queries via Community Packs https://github.com/GitHubSecurityLab/CodeQL-Community-Packs (NOTE: the default suites do not include audit/debugging queries)
+    - githubsecuritylab/codeql-actions-queries
     - githubsecuritylab/codeql-cpp-queries
     - githubsecuritylab/codeql-csharp-queries
     - githubsecuritylab/codeql-go-queries
