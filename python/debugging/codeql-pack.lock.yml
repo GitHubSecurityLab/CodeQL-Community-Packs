@@ -1,0 +1,24 @@
+---
+lockVersion: 1.0.0
+dependencies:
+  codeql/dataflow:
+    version: 1.0.1
+  codeql/mad:
+    version: 1.0.1
+  codeql/python-all:
+    version: 1.0.1
+  codeql/regex:
+    version: 1.0.1
+  codeql/ssa:
+    version: 1.0.1
+  codeql/tutorial:
+    version: 1.0.1
+  codeql/typetracking:
+    version: 1.0.1
+  codeql/util:
+    version: 1.0.1
+  codeql/xml:
+    version: 1.0.1
+  codeql/yaml:
+    version: 1.0.1
+compiled: false
