@@ -1,6 +1,8 @@
 name: "GitHub Community Pack Default CodeQL Configuration"
 
 packs:
+  # GitHub Actions
+  - githubsecuritylab/codeql-actions-queries
   # C/C++
   - githubsecuritylab/codeql-cpp-queries
   # C#
