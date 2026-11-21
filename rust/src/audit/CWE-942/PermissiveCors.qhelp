@@ -1,0 +1,55 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+<p>
+Cross-Origin Resource Sharing (CORS) lets a server relax the browser's same-origin policy by
+naming the origins that are allowed to read its responses in the
+<code>Access-Control-Allow-Origin</code> response header. A policy that allows any origin, for
+example by sending <code>Access-Control-Allow-Origin: *</code>, reflecting the request origin, or
+using a framework's "allow any origin" or "permissive" CORS configuration, lets every website
+read the responses of this service from a victim's browser.
+</p>
+<p>
+This is harmless for truly public, unauthenticated data, but it exposes any sensitive data the
+service returns (now or in the future), including data served to clients on a local or private
+network that the attacker cannot reach directly.
+</p>
+<p>
+This query recognizes, among others: <code>allow_any_origin()</code> (warp, actix-cors),
+<code>Cors::permissive()</code> (actix-cors), <code>CorsLayer::permissive()</code>,
+<code>CorsLayer::very_permissive()</code> and <code>allow_origin</code> with <code>Any</code>,
+<code>"*"</code>, <code>AllowOrigin::any()</code> or <code>AllowOrigin::mirror_request()</code>
+(tower-http), <code>AllowedOrigins::all()</code> (rocket_cors),
+<code>AccessControlAllowOrigin::Any</code> (iron / hyper 0.10), and setting the
+<code>Access-Control-Allow-Origin</code> header to <code>"*"</code> directly.
+</p>
+</overview>
+
+<recommendation>
+<p>
+Allow only an explicit list of trusted origins. If the endpoint really serves only public data
+that every website may read, the alert can be dismissed.
+</p>
+</recommendation>
+
+<example>
+<p>
+In the following example, an axum application uses a tower-http <code>CorsLayer</code> that
+allows the wildcard origin, so any website can read the JSON responses:
+</p>
+<sample src="PermissiveCorsBad.rs" />
+<p>
+The fix is to allow only the trusted front-end origin:
+</p>
+<sample src="PermissiveCorsGood.rs" />
+</example>
+
+<references>
+<li>MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Cross-Origin Resource Sharing (CORS)</a>.</li>
+<li>OWASP: <a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/07-Testing_Cross_Origin_Resource_Sharing">Testing Cross Origin Resource Sharing</a>.</li>
+<li>Common Weakness Enumeration: <a href="https://cwe.mitre.org/data/definitions/942.html">CWE-942</a>.</li>
+</references>
+</qhelp>
