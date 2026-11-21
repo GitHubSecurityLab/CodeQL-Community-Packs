@@ -1,0 +1,22 @@
+extensions:
+  - addsTo:
+      pack: codeql/rust-all
+      extensible: sourceModel
+    data:
+      # The `&mut Request` passed to a handler registered with `Chain::new` or `Iron::new`.
+      - ["<iron::iron::Iron>::new", "Argument[0].Parameter[0]", "remote", "manual"]
+      - ["<iron::middleware::Chain>::new", "Argument[0].Parameter[0]", "remote", "manual"]
+  - addsTo:
+      pack: codeql/rust-all
+      extensible: sinkModel
+    data:
+      # `Response::with(body)` sets the response body without a `Content-Type`, so browsers
+      # sniff the content type and render markup as HTML. Bodies passed inside a modifier tuple,
+      # such as `Response::with((status::Ok, body))`, cannot be expressed as a MaD sink and are
+      # handled by the `githubsecuritylab/rust/iron-response-xss` query.
+      - ["<iron::response::Response>::with", "Argument[0]", "html-injection", "manual"]
+  - addsTo:
+      pack: codeql/rust-all
+      extensible: summaryModel
+    data:
+      - ["<iron::request::url::Url>::path", "Argument[self].Reference", "ReturnValue", "taint", "manual"]
