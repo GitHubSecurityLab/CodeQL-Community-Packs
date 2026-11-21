@@ -1,0 +1,59 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+<p>
+A cryptographic key or passphrase that is embedded in source code can be recovered
+by anyone with access to the source code or to the compiled binary. An attacker who
+recovers the key can decrypt data that it protects, or forge ciphertexts and
+authentication tags that the application will accept as genuine.
+</p>
+<p>
+This query finds constant values (literals, constant arrays, and repeated-value
+arrays) that flow to the key or passphrase argument of a cryptographic API. It
+complements the standard <code>rust/hard-coded-cryptographic-value</code> query by
+recognizing additional APIs from the <code>age</code>, <code>orion</code> and
+<code>ring</code> crates, and keys that are wrapped with
+<code>GenericArray::from</code> or <code>secrecy::Secret::new</code> before use.
+Results that the standard query already reports are not repeated.
+</p>
+<p>
+A buffer that starts out as a constant but is then filled in place, for example by
+passing it to a function through a mutable reference or by copying a slice into it,
+is not reported, because the constant is overwritten before the buffer is used.
+</p>
+</overview>
+
+<recommendation>
+<p>
+Do not embed keys or passphrases in source code. Generate keys with a
+cryptographically secure random number generator, or load them at runtime from a
+protected secret store such as a key management service, and rotate any key that
+has been committed to source control.
+</p>
+</recommendation>
+
+<example>
+<p>
+In the following example, an AES key is a fixed array of zero bytes:
+</p>
+<sample src="HardcodedCryptographicKeyBad.rs" />
+<p>
+In the following corrected example, the key is supplied at runtime from a protected
+secret store:
+</p>
+<sample src="HardcodedCryptographicKeyGood.rs" />
+</example>
+
+<references>
+<li>
+MITRE: <a href="https://cwe.mitre.org/data/definitions/321.html">CWE-321: Use of Hard-coded Cryptographic Key</a>.
+</li>
+<li>
+OWASP: <a href="https://cheatsheetseries.owasp.org/cheatsheets/Key_Management_Cheat_Sheet.html">Key Management Cheat Sheet</a>.
+</li>
+</references>
+
+</qhelp>

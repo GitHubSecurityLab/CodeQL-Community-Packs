@@ -1,0 +1,78 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+<p>
+Output written to the console or to a log is commonly retained in shared log
+storage, and is readable by operators, log aggregation services, and anyone else
+with access to those logs. If a cryptographic key is written to such output, an
+attacker who can read the logs can recover the key and use it to decrypt or forge
+the data that it protects.
+</p>
+<p>
+This query finds generated key material that is written to a log or to standard
+output or standard error, possibly after hex encoding. Results from key-generation
+APIs such as <code>KeyInit::generate_key</code> are already known to be keys, even
+when returned without being passed to a constructor. Generic randomly filled
+buffers, including results of helpers returning such buffers, must also flow to a
+cryptographic key API. The standard
+<code>rust/cleartext-logging</code> query relies on variable names to recognize
+sensitive data, and does not recognize names such as <code>key_bytes</code>.
+</p>
+</overview>
+
+<recommendation>
+<p>
+Do not write cryptographic keys to logs or to the console, even in encoded form. If
+you need to identify a key in diagnostic output, log a non-secret identifier for
+the key instead.
+</p>
+<p>
+A tool whose purpose is to generate a key and print it for the user is reported as well. Dismiss
+the alert in that case.
+</p>
+</recommendation>
+
+<example>
+<p>
+In the following example, a freshly generated AES-256-GCM key is hex-encoded and
+printed:
+</p>
+<sample src="CleartextLoggingOfKeyMaterialBad.rs" />
+<p>
+In the following corrected example, only the key length is printed:
+</p>
+<sample src="CleartextLoggingOfKeyMaterialGood.rs" />
+</example>
+
+<section title="Known limitations">
+<p>
+For generic random buffers, both key-use and logging flows must be available from
+the same source in the global data-flow graph. Data-flow state and operation order
+can prevent some combinations from being correlated. The query does not infer this
+relationship from variable names or use of the same helper.
+</p>
+<p>
+Helpers are recognized only when the filled buffer flows locally to a return
+value, including explicit <code>return</code> expressions. Each call to such a
+helper is a separate source unless its result is itself locally returned by
+another wrapper. Those shared inner-call sources are suppressed to avoid
+correlating independent outer calls. Nested returning wrappers are not promoted
+to sources, so even logging and key use of the same outer-call result can be
+missed. Logging inside a helper that returns the filled buffer is also not covered
+by this call-site model.
+</p>
+</section>
+
+<references>
+<li>
+MITRE: <a href="https://cwe.mitre.org/data/definitions/532.html">CWE-532: Insertion of Sensitive Information into Log File</a>.
+</li>
+<li>
+OWASP: <a href="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html">Logging Cheat Sheet</a>.
+</li>
+</references>
+
+</qhelp>

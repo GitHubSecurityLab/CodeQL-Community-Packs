@@ -1,0 +1,10 @@
+qltest_cargo_check: true
+qltest_dependencies:
+    - aes = { version = "0.8.4" }
+    - camellia = { version = "0.1.0" }
+    - orion = { version = "0.17.6" }
+    - age = { version = "0.9" }
+    - ring = { version = "0.17.8" }
+    - hex = { version = "0.4.3" }
+    - getrandom = { version = "0.2.15" }
+    - rand = { version = "=0.8.5" }
