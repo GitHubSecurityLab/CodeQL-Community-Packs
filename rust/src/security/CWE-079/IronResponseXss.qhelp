@@ -43,7 +43,8 @@ In the following corrected example, the response declares that its body is plain
 A content type that is set by another kind of modifier, such as <code>Header(ContentType::json())</code>,
 is not recognized, so the body of such a response is still reported. A content type is recognized
 only when it is parsed directly from a string literal and flows to the tuple through local
-variables, <code>unwrap</code>, <code>expect</code> or <code>?</code>.
+variables, <code>unwrap</code>, <code>expect</code> or <code>?</code>. The type that the literal is
+parsed into is not checked.
 </p>
 </section>
 

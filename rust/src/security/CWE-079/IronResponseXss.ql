@@ -39,20 +39,26 @@ private predicate isMarkupContentType(StringLiteralExpr literal) {
 }
 
 /**
- * Tracks a parsed string literal to the tuple elements it becomes, through `unwrap`, `expect`, `?`
- * and local variables.
+ * Holds if `e` is the value that parsing `literal` produces: the `parse` call itself, that call
+ * unwrapped with `unwrap`, `expect` or `?`, or a local variable that holds such a value. A value
+ * that is merely derived from it, for example by formatting it into a string, is not.
  */
-module ParsedLiteralConfig implements DataFlow::ConfigSig {
-  predicate isSource(DataFlow::Node node) { node.asExpr() instanceof ParsedStringLiteral }
-
-  predicate isSink(DataFlow::Node node) {
-    exists(TupleExpr modifiers | node.asExpr() = modifiers.getAField())
-  }
-
-  predicate isBarrier(DataFlow::Node barrier) { none() }
+private predicate isParsedFrom(Expr e, ParsedStringLiteral literal) {
+  e.(MethodCallExpr).getIdentifier().getText() = "parse" and
+  e.(MethodCallExpr).getReceiver() = literal
+  or
+  e.(MethodCallExpr).getIdentifier().getText() = ["unwrap", "expect"] and
+  isParsedFrom(e.(MethodCallExpr).getReceiver(), literal)
+  or
+  isParsedFrom(e.(TryExpr).getExpr(), literal)
+  or
+  exists(DataFlow::ExprNode source, DataFlow::ExprNode target |
+    target.asExpr() = e and
+    source.asExpr() != e and
+    DataFlow::localFlow(source, target) and
+    isParsedFrom(source.asExpr(), literal)
+  )
 }
-
-module ParsedLiteralFlow = TaintTracking::Global<ParsedLiteralConfig>;
 
 /**
  * An element of a modifier tuple passed to `iron::Response::with`, such as `body` in
@@ -72,13 +78,9 @@ class IronResponseModifierTupleElement extends DataFlow::Node {
         DataFlow::localFlow(tupleNode, argumentNode)
       ) and
       this.asExpr() = modifiers.getAField() and
-      not exists(
-        ParsedStringLiteral literal, DataFlow::ExprNode literalNode, DataFlow::ExprNode modifierNode
-      |
+      not exists(ParsedStringLiteral literal |
         not isMarkupContentType(literal) and
-        literalNode.asExpr() = literal and
-        modifierNode.asExpr() = modifiers.getAField() and
-        ParsedLiteralFlow::flow(literalNode, modifierNode)
+        isParsedFrom(modifiers.getAField(), literal)
       )
     )
   }

@@ -65,6 +65,14 @@ fn bad_html_mime_handler(req: &mut Request) -> IronResult<Response> {
     Ok(Response::with((status::Ok, html, response)))
 }
 
+fn bad_parsed_literal_in_body_handler(req: &mut Request) -> IronResult<Response> {
+    let res = req.url.path();
+    // BAD: a parsed literal that is only formatted into the body is not a content type modifier.
+    let label = "text/plain".parse::<String>().unwrap();
+    let response = format!("<h1>{} {:?}!</h1>", label, res);
+    Ok(Response::with((status::Ok, response)))
+}
+
 fn main() {
     Iron::new(bad_handler).http("localhost:3000").unwrap();
     Iron::new(Chain::new(bad_body_only_handler)).http("localhost:3001").unwrap();
@@ -74,4 +82,5 @@ fn main() {
     Iron::new(prelude_style::handler).http("localhost:3005").unwrap();
     Iron::new(bad_named_tuple_handler).http("localhost:3006").unwrap();
     Iron::new(bad_html_mime_handler).http("localhost:3007").unwrap();
+    Iron::new(bad_parsed_literal_in_body_handler).http("localhost:3008").unwrap();
 }
