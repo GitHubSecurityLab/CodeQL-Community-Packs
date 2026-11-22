@@ -73,6 +73,19 @@ fn bad_parsed_literal_in_body_handler(req: &mut Request) -> IronResult<Response>
     Ok(Response::with((status::Ok, response)))
 }
 
+fn bad_mixed_mime_handler(req: &mut Request) -> IronResult<Response> {
+    let res = req.url.path();
+    let response = format!("<h1>Assessing resource, {:?}!</h1>", res);
+    // BAD: the content type is plain text on one branch and HTML on the other, so the body can still be
+    // rendered as HTML.
+    let mime: Mime = if res.len() > 3 {
+        "text/plain".parse().unwrap()
+    } else {
+        "text/html".parse().unwrap()
+    };
+    Ok(Response::with((status::Ok, mime, response)))
+}
+
 fn main() {
     Iron::new(bad_handler).http("localhost:3000").unwrap();
     Iron::new(Chain::new(bad_body_only_handler)).http("localhost:3001").unwrap();
@@ -83,4 +96,5 @@ fn main() {
     Iron::new(bad_named_tuple_handler).http("localhost:3006").unwrap();
     Iron::new(bad_html_mime_handler).http("localhost:3007").unwrap();
     Iron::new(bad_parsed_literal_in_body_handler).http("localhost:3008").unwrap();
+    Iron::new(bad_mixed_mime_handler).http("localhost:3009").unwrap();
 }

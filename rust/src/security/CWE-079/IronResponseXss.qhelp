@@ -44,7 +44,8 @@ A content type that is set by another kind of modifier, such as <code>Header(Con
 is not recognized, so the body of such a response is still reported. A content type is recognized
 only when it is parsed directly from a string literal and flows to the tuple through local
 variables, <code>unwrap</code>, <code>expect</code> or <code>?</code>. The type that the literal is
-parsed into is not checked.
+parsed into is not checked. If several parsed literals can reach the content type, for example one on
+each branch of an <code>if</code>, it is recognized only when none of them names HTML or XML.
 </p>
 </section>
 

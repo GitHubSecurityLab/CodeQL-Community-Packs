@@ -2,6 +2,7 @@ name: githubsecuritylab/codeql-rust-tests
 groups: [rust, test]
 dependencies:
   codeql/rust-all: '0.2.26'
+  codeql/rust-queries: '0.1.47'
   githubsecuritylab/codeql-rust-queries: '*'
   githubsecuritylab/codeql-rust-extensions: '*'
 

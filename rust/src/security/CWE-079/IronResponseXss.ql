@@ -61,6 +61,22 @@ private predicate isParsedFrom(Expr e, ParsedStringLiteral literal) {
 }
 
 /**
+ * Holds if `modifier` is a content type that is parsed from string literals, and every parsed literal
+ * that reaches it names a content type that is not markup. A content type that can also be HTML or XML,
+ * for example on one branch of an `if`, is not safe.
+ */
+private predicate isSafeContentType(Expr modifier) {
+  exists(ParsedStringLiteral safe |
+    isParsedFrom(modifier, safe) and
+    not isMarkupContentType(safe)
+  ) and
+  not exists(ParsedStringLiteral markup |
+    isParsedFrom(modifier, markup) and
+    isMarkupContentType(markup)
+  )
+}
+
+/**
  * An element of a modifier tuple passed to `iron::Response::with`, such as `body` in
  * `Response::with((status::Ok, body))`.
  *
@@ -78,9 +94,9 @@ class IronResponseModifierTupleElement extends DataFlow::Node {
         DataFlow::localFlow(tupleNode, argumentNode)
       ) and
       this.asExpr() = modifiers.getAField() and
-      not exists(ParsedStringLiteral literal |
-        not isMarkupContentType(literal) and
-        isParsedFrom(modifiers.getAField(), literal)
+      not exists(Expr modifier |
+        modifier = modifiers.getAField() and
+        isSafeContentType(modifier)
       )
     )
   }
