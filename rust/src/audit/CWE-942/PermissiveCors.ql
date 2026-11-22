@@ -24,19 +24,30 @@ private predicate isStringLiteral(Expr e, string value) {
 }
 
 /**
- * Gets an expression that can contribute to the value of `e`: a receiver or
- * argument of a call, a referenced or `?`-operand expression, or a reaching
+ * Holds if `c` builds a header value from its argument, such as `HeaderValue::from_static("*")`.
+ */
+private predicate isHeaderValueConstructor(CallExpr c) {
+  isPathCall(c, "HeaderValue",
+    ["from_static", "from_str", "from_bytes", "from_maybe_shared", "try_from"])
+  or
+  isPathCall(c, "String", "from")
+  or
+  isPathCall(c, "AllowOrigin", "exact")
+}
+
+/**
+ * Gets an expression that the value of `e` is taken from: the receiver of a method call, the
+ * argument of a constructor of a header value, a referenced or `?`-operand expression, or a reaching
  * assignment to a local variable read by `e`.
  *
  * This handles wrappers such as `"*".parse::<HeaderValue>().unwrap()`,
- * `HeaderValue::from_static("*")` and `let origin = "*"; ... origin`.
+ * `HeaderValue::from_static("*")` and `let origin = "*"; ... origin`. Other arguments are not
+ * followed: in `origin.parse::<HeaderValue>().expect("*")` the `"*"` is only a message.
  */
 private Expr getAnInnerExpr(Expr e) {
   result = e.(MethodCallExpr).getReceiver()
   or
-  result = e.(MethodCallExpr).getArgList().getAnArg()
-  or
-  result = e.(CallExpr).getArgList().getAnArg()
+  isHeaderValueConstructor(e) and result = e.(CallExpr).getArgList().getAnArg()
   or
   result = e.(RefExpr).getExpr()
   or
@@ -110,11 +121,28 @@ private predicate isAllowOriginHeaderName(Expr e) {
 }
 
 /**
+ * Holds if `call` sets a header on a response, a header map or a header layer: `insert`, `append`
+ * and `header` style methods, and functions such as `Header::new` and `warp::reply::with::header`.
+ * A call that only receives a header name and a value, such as a comparison helper, does not.
+ */
+private predicate isHeaderWriter(Expr call) {
+  call.(MethodCallExpr).getIdentifier().getText() =
+    ["insert", "append", "header", "insert_header", "append_header", "add_header", "set_header"]
+  or
+  call.(CallExpr).getFunction().(PathExpr).getPath().getText() =
+    ["header", "with_header", "overriding", "if_not_present", "appending"]
+  or
+  isPathCall(call, "Header", "new")
+}
+
+/**
  * Holds if `name` and `value` are an adjacent header name/value pair, either
- * consecutive arguments of a call (for example `headers.insert(name, value)`
- * or `with_header(reply, name, value)`) or a 2-tuple `(name, value)`.
+ * consecutive arguments of a call that sets a header (for example
+ * `headers.insert(name, value)` or `with_header(reply, name, value)`) or a
+ * 2-tuple `(name, value)`.
  */
 private predicate isHeaderPair(Expr pair, Expr name, Expr value) {
+  isHeaderWriter(pair) and
   exists(ArgList args, int i |
     args = pair.(MethodCallExpr).getArgList() or args = pair.(CallExpr).getArgList()
   |

@@ -243,10 +243,27 @@ mod tower_http_cors {
         value.map_or(false, |v| v == expected)
     }
 
+    fn has_header(headers: &HeaderMap, name: &str, expected: &str) -> bool {
+        headers.get(name).map_or(false, |v| v == expected)
+    }
+
     // Reading (rather than setting) the header must not be reported.
     pub fn good_read_header(headers: &HeaderMap) {
         assert_eq!(headers.get(header::ACCESS_CONTROL_ALLOW_ORIGIN).unwrap(), "*");
         assert!(check(headers.get(header::ACCESS_CONTROL_ALLOW_ORIGIN), "*"));
+    }
+
+    // A helper that is given a header name and a value, and only compares them, does not set a header.
+    pub fn good_header_comparison_helper(headers: &HeaderMap) -> bool {
+        has_header(headers, "Access-Control-Allow-Origin", "*")
+    }
+
+    // The wildcard is only the message of `expect`: the origin itself is an exact one.
+    pub fn good_wildcard_only_in_expect_message() -> Router {
+        Router::new().route("/json", get(json)).layer(
+            CorsLayer::new()
+                .allow_origin("https://trusted.example.com".parse::<HeaderValue>().expect("*")),
+        )
     }
 }
 
