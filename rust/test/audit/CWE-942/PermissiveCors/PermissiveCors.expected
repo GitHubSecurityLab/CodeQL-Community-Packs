@@ -16,7 +16,7 @@
 | main.rs:216:9:219:9 | headers.insert(...) | This Access-Control-Allow-Origin header allows any origin. Review whether the responses of this service contain sensitive or credentialed data. |
 | main.rs:225:9:228:9 | headers.insert(...) | This Access-Control-Allow-Origin header allows any origin. Review whether the responses of this service contain sensitive or credentialed data. |
 | main.rs:235:9:238:9 | headers.insert(...) | This Access-Control-Allow-Origin header allows any origin. Review whether the responses of this service contain sensitive or credentialed data. |
-| main.rs:280:28:280:63 | TupleExpr | This Access-Control-Allow-Origin header allows any origin. Review whether the responses of this service contain sensitive or credentialed data. |
-| main.rs:293:23:293:56 | ... .allow_any_origin() | This CORS policy allows any origin. Review whether the responses of this service contain sensitive or credentialed data. |
-| main.rs:294:34:294:51 | ...::permissive(...) | This CORS policy allows any origin. Review whether the responses of this service contain sensitive or credentialed data. |
-| main.rs:318:30:318:50 | ...::all(...) | This CORS policy allows any origin. Review whether the responses of this service contain sensitive or credentialed data. |
+| main.rs:301:28:301:63 | TupleExpr | This Access-Control-Allow-Origin header allows any origin. Review whether the responses of this service contain sensitive or credentialed data. |
+| main.rs:314:23:314:56 | ... .allow_any_origin() | This CORS policy allows any origin. Review whether the responses of this service contain sensitive or credentialed data. |
+| main.rs:315:34:315:51 | ...::permissive(...) | This CORS policy allows any origin. Review whether the responses of this service contain sensitive or credentialed data. |
+| main.rs:339:30:339:50 | ...::all(...) | This CORS policy allows any origin. Review whether the responses of this service contain sensitive or credentialed data. |

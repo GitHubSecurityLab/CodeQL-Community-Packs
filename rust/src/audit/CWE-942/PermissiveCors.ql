@@ -36,16 +36,31 @@ private predicate isHeaderValueConstructor(CallExpr c) {
 }
 
 /**
- * Gets an expression that the value of `e` is taken from: the receiver of a method call, the
- * argument of a constructor of a header value, a referenced or `?`-operand expression, or a reaching
- * assignment to a local variable read by `e`.
+ * Holds if the method `name` returns its receiver, or a conversion of it, without changing the value:
+ * parsing, unwrapping and conversions. A method that changes the value, such as `replace`, is not
+ * listed.
+ */
+private predicate isValuePreservingMethod(string name) {
+  name =
+    [
+      "parse", "unwrap", "expect", "to_string", "to_owned", "into", "try_into", "clone", "as_str",
+      "as_ref", "as_bytes", "to_vec", "ok", "map_err"
+    ]
+}
+
+/**
+ * Gets an expression that the value of `e` is taken from: the receiver of a value-preserving method
+ * call, the argument of a constructor of a header value, a referenced or `?`-operand expression, or a
+ * reaching assignment to a local variable read by `e`.
  *
  * This handles wrappers such as `"*".parse::<HeaderValue>().unwrap()`,
  * `HeaderValue::from_static("*")` and `let origin = "*"; ... origin`. Other arguments are not
- * followed: in `origin.parse::<HeaderValue>().expect("*")` the `"*"` is only a message.
+ * followed: in `origin.parse::<HeaderValue>().expect("*")` the `"*"` is only a message. Other methods
+ * are not followed either: `"*".replace("*", "https://trusted.example.com")` is not a wildcard.
  */
 private Expr getAnInnerExpr(Expr e) {
-  result = e.(MethodCallExpr).getReceiver()
+  result = e.(MethodCallExpr).getReceiver() and
+  isValuePreservingMethod(e.(MethodCallExpr).getIdentifier().getText())
   or
   isHeaderValueConstructor(e) and result = e.(CallExpr).getArgList().getAnArg()
   or

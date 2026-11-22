@@ -265,6 +265,27 @@ mod tower_http_cors {
                 .allow_origin("https://trusted.example.com".parse::<HeaderValue>().expect("*")),
         )
     }
+
+    // The wildcard is replaced by an exact origin before it is used.
+    pub fn good_wildcard_replaced_by_exact_origin() -> Router {
+        Router::new().route("/json", get(json)).layer(
+            CorsLayer::new().allow_origin(
+                "*".replace("*", "https://trusted.example.com")
+                    .parse::<HeaderValue>()
+                    .unwrap(),
+            ),
+        )
+    }
+
+    // A raw header whose value is a wildcard that is replaced by an exact origin is not a wildcard.
+    pub async fn good_raw_header_wildcard_replaced() -> impl IntoResponse {
+        let mut headers = HeaderMap::new();
+        headers.insert(
+            header::ACCESS_CONTROL_ALLOW_ORIGIN,
+            HeaderValue::from_str(&"*".replace("*", "https://trusted.example.com")).unwrap(),
+        );
+        (headers, "Hello")
+    }
 }
 
 mod actix_cors_example {
