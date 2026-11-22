@@ -14,6 +14,7 @@
  */
 
 private import rust
+private import codeql.rust.controlflow.ControlFlowGraph
 private import codeql.rust.dataflow.DataFlow
 private import codeql.rust.dataflow.Ssa
 private import codeql.rust.dataflow.TaintTracking
@@ -67,21 +68,77 @@ class FixedHostFormatBarrier extends RequestForgery::Barrier {
 }
 
 /**
+ * Holds if the variable `v` is read in an `async` block that does not declare it.
+ */
+private predicate isCapturedByAsyncBlock(Variable v) {
+  exists(BlockExpr b, VariableReadAccess read |
+    b.isAsync() and
+    read = v.getAnAccess() and
+    read.getParentNode+() = b and
+    not v.getPat().getParentNode+() = b
+  )
+}
+
+/** Holds if the control flow node `n` assigns to the variable `v`. */
+private predicate assignsTo(CfgNode n, Variable v) {
+  exists(VariableWriteAccess write | write.getVariable() = v |
+    n.getAstNode() = write or n.getAstNode() = write.getAssignmentExpr()
+  )
+}
+
+/**
+ * Holds if the value that `source` gives to the variable `v` can still be its value at the control
+ * flow node `n`. The `source` is the pattern that declares `v`, or an assignment to `v`, and no
+ * other assignment to `v` lies on the path from it to `n`.
+ */
+private predicate valueLiveAt(Variable v, AstNode source, CfgNode n) {
+  isCapturedByAsyncBlock(v) and
+  (
+    source = v.getPat()
+    or
+    source = any(VariableWriteAccess write | write.getVariable() = v).getAssignmentExpr()
+  ) and
+  n.getAstNode() = source
+  or
+  exists(CfgNode pred |
+    valueLiveAt(v, source, pred) and
+    n = pred.getASuccessor() and
+    not assignsTo(n, v)
+  )
+}
+
+/**
  * Holds if a captured value from `node1` reaches a read by `node2` in an
  * `async` block, for example a closure parameter used in `async move { ... }`
  * (as with `warp` `Filter::then`), without being overwritten first.
+ *
+ * The captured value is the one that the variable has when the block is created: the pattern that
+ * declares it, or the right-hand side of an assignment that is not overwritten before the block. When
+ * the block is created in a closure that is nested in the scope of the variable, the pattern is used.
  */
 private predicate asyncBlockCaptureStep(DataFlow::Node node1, DataFlow::Node node2) {
-  exists(Variable v, VariableAccess va, BlockExpr b, Ssa::Definition def |
+  exists(Variable v, VariableReadAccess va, BlockExpr b, Ssa::Definition def |
     b.isAsync() and
-    node1.asPat() = v.getPat() and
     va = v.getAnAccess() and
-    va instanceof VariableReadAccess and
     node2.asExpr() = va and
     def.getARead() = va and
     def.getAnUltimateDefinition() instanceof Ssa::CapturedEntryDefinition and
     va.getParentNode+() = b and
-    not v.getPat().getParentNode+() = b
+    not v.getPat().getParentNode+() = b and
+    (
+      exists(CfgNode creation, AstNode source |
+        creation.getAstNode() = b and
+        valueLiveAt(v, source, creation) and
+        (
+          node1.asPat() = source
+          or
+          node1.asExpr() = source.(AssignmentExpr).getRhs()
+        )
+      )
+      or
+      b.getEnclosingCfgScope() != v.getEnclosingCfgScope() and
+      node1.asPat() = v.getPat()
+    )
   )
 }
 

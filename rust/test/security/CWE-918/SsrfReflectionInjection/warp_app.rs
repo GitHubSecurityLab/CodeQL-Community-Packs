@@ -35,6 +35,25 @@ pub async fn bad_nested_fixed_host_template() {
     warp::serve(routes).run(([127, 0, 0, 1], 3032)).await;
 }
 
+// BAD: a nested `std::format!` with a fixed host does not make the outer template safe either.
+pub async fn bad_nested_qualified_fixed_host_template() {
+    let routes = warp::path::param().then(|tainted_param: String| async move {
+        let response = reqwest::Client::new()
+            .post(format!(
+                "https://{}/{}",
+                tainted_param,
+                std::format!("https://my.app/{}", "constant")
+            )) // $ Alert
+            .send()
+            .await
+            .expect("send");
+
+        format!("{}", response.status())
+    }); // $ Source
+
+    warp::serve(routes).run(([127, 0, 0, 1], 3035)).await;
+}
+
 // GOOD: the path parameter is only used in the path of a request to a fixed host.
 pub async fn good_fixed_host() {
     let routes = warp::path::param().then(|tainted_param: String| async move {
@@ -82,4 +101,42 @@ pub async fn good_fixed_host_reassignment() {
     });
 
     warp::serve(routes).run(([127, 0, 0, 1], 3034)).await;
+}
+
+// GOOD: a fixed URL that is assigned before the `async` block is created replaces the parameter.
+pub async fn good_overwrite_before_capture() {
+    let routes = warp::path::param().then(|mut tainted_param: String| {
+        tainted_param = "https://my.app/".to_owned();
+
+        async move {
+            let response = reqwest::Client::new()
+                .post(tainted_param)
+                .send()
+                .await
+                .expect("send");
+
+            format!("{}", response.status())
+        }
+    });
+
+    warp::serve(routes).run(([127, 0, 0, 1], 3036)).await;
+}
+
+// BAD: a value that is derived from the parameter before the `async` block is created is still tainted.
+pub async fn bad_derived_before_capture() {
+    let routes = warp::path::param().then(|mut tainted_param: String| {
+        tainted_param = format!("https://{}", tainted_param);
+
+        async move {
+            let response = reqwest::Client::new()
+                .post(tainted_param) // $ Alert
+                .send()
+                .await
+                .expect("send");
+
+            format!("{}", response.status())
+        }
+    }); // $ Source
+
+    warp::serve(routes).run(([127, 0, 0, 1], 3037)).await;
 }
