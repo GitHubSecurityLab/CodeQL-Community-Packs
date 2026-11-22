@@ -56,11 +56,11 @@ class FixedHostFormatBarrier extends RequestForgery::Barrier {
       this.asExpr() = me and
       me.getMacroCall().getPath().getText() = "format" and
       fa.getParentNode+() = me and
-      not exists(MacroExpr nested |
-        nested != me and
-        nested.getMacroCall().getPath().getText() = "format" and
-        fa.getParentNode+() = nested and
-        nested.getParentNode+() = me
+      // the template of this `format!` call, not the template of a macro call in its arguments
+      not exists(FormatArgsExpr outer |
+        outer != fa and
+        outer.getParentNode+() = me and
+        fa.getParentNode+() = outer
       ) and
       isFixedHostTemplate(fa.getTemplate().(LiteralExpr).getTextValue())
     )
@@ -108,16 +108,30 @@ private predicate valueLiveAt(Variable v, AstNode source, CfgNode n) {
 }
 
 /**
+ * Gets the expression that creates, in the scope of the variable `v`, the closure or `async` block
+ * that contains `b`: `b` itself, or an enclosing closure or `async` block that is created directly in
+ * the scope of `v`.
+ */
+private Expr getCaptureSite(Variable v, BlockExpr b) {
+  (result = b or result = b.getParentNode+()) and
+  (result instanceof ClosureExpr or result.(BlockExpr).isAsync()) and
+  result.getEnclosingCfgScope() = v.getEnclosingCfgScope()
+}
+
+/**
  * Holds if a captured value from `node1` reaches a read by `node2` in an
  * `async` block, for example a closure parameter used in `async move { ... }`
  * (as with `warp` `Filter::then`), without being overwritten first.
  *
- * The captured value is the one that the variable has when the block is created: the pattern that
- * declares it, or the right-hand side of an assignment that is not overwritten before the block. When
- * the block is created in a closure that is nested in the scope of the variable, the pattern is used.
+ * The captured value is the one that the variable has when the closure or `async` block is created in
+ * its scope: the pattern that declares it, or the right-hand side of an assignment that is not
+ * overwritten before that point.
  */
 private predicate asyncBlockCaptureStep(DataFlow::Node node1, DataFlow::Node node2) {
-  exists(Variable v, VariableReadAccess va, BlockExpr b, Ssa::Definition def |
+  exists(
+    Variable v, VariableReadAccess va, BlockExpr b, Ssa::Definition def, CfgNode creation,
+    AstNode source
+  |
     b.isAsync() and
     va = v.getAnAccess() and
     node2.asExpr() = va and
@@ -125,19 +139,12 @@ private predicate asyncBlockCaptureStep(DataFlow::Node node1, DataFlow::Node nod
     def.getAnUltimateDefinition() instanceof Ssa::CapturedEntryDefinition and
     va.getParentNode+() = b and
     not v.getPat().getParentNode+() = b and
+    creation.getAstNode() = getCaptureSite(v, b) and
+    valueLiveAt(v, source, creation) and
     (
-      exists(CfgNode creation, AstNode source |
-        creation.getAstNode() = b and
-        valueLiveAt(v, source, creation) and
-        (
-          node1.asPat() = source
-          or
-          node1.asExpr() = source.(AssignmentExpr).getRhs()
-        )
-      )
+      node1.asPat() = source
       or
-      b.getEnclosingCfgScope() != v.getEnclosingCfgScope() and
-      node1.asPat() = v.getPat()
+      node1.asExpr() = source.(AssignmentExpr).getRhs()
     )
   )
 }
