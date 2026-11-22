@@ -26,3 +26,8 @@ pub fn test_orion_pwhash_bad() {
     let password = pwhash::Password::from_slice(b"hunter2").unwrap(); // $ Alert[rust/hardcoded-cryptographic-key]
     let _ = pwhash::hash_password(&password, 3, 1 << 16);
 }
+
+// the module names of the hazardous API contain digits
+pub fn test_orion_hazardous_stream_bad() {
+    let _key = orion::hazardous::stream::chacha20::SecretKey::from_slice(&[7u8; 32]).unwrap(); // $ Alert[rust/hardcoded-cryptographic-key]
+}

@@ -35,11 +35,11 @@ class AdditionalCryptographicKeySink extends DataFlow::Node {
       kind = "password"
       or
       // orion: secret keys and passwords constructed from raw bytes
-      callTo(call, "<orion::[a-z_:]+::SecretKey>::from_slice") and
+      callTo(call, "<orion::[a-z0-9_:]+::SecretKey>::from_slice") and
       i = 0 and
       kind = "key"
       or
-      callTo(call, "<orion::[a-z_:]+::Password>::from_slice") and
+      callTo(call, "<orion::[a-z0-9_:]+::Password>::from_slice") and
       i = 0 and
       kind = "password"
       or

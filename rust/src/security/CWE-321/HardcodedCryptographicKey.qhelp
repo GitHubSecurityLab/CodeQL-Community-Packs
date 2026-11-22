@@ -20,9 +20,12 @@ recognizing additional APIs from the <code>age</code>, <code>orion</code> and
 Results that the standard query already reports are not repeated.
 </p>
 <p>
-A buffer that starts out as a constant but is then filled in place, for example by
+A buffer that starts out as a constant but is also filled in place, for example by
 passing it to a function through a mutable reference or by copying a slice into it,
-is not reported, because the constant is overwritten before the buffer is used.
+is not reported, because the constant is assumed to be overwritten. The query does not
+check the order of the statements or what the buffer is filled with, so a buffer that is
+used before it is filled, only partly filled, or filled with another constant (for
+example with <code>fill(0)</code>) is not reported either.
 </p>
 </overview>
 

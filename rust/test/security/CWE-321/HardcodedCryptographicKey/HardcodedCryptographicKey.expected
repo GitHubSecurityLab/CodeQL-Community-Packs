@@ -44,6 +44,7 @@ edges
 | test_orion.rs:4:9:4:17 | key_bytes | test_orion.rs:5:50:5:58 | key_bytes | provenance |  |
 | test_orion.rs:4:21:4:27 | [3; 32] | test_orion.rs:4:9:4:17 | key_bytes | provenance |  |
 | test_orion.rs:5:50:5:58 | key_bytes | test_orion.rs:5:49:5:58 | &key_bytes | provenance |  |
+| test_orion.rs:32:75:32:83 | [7u8; 32] | test_orion.rs:32:74:32:83 | &... | provenance |  |
 | test_rand.rs:17:9:17:11 | key | test_rand.rs:20:44:20:46 | key | provenance |  |
 | test_rand.rs:17:15:17:23 | [7u8; 32] | test_rand.rs:17:9:17:11 | key | provenance |  |
 | test_rand.rs:20:44:20:46 | key | test_rand.rs:20:43:20:46 | &key | provenance |  |
@@ -114,6 +115,8 @@ nodes
 | test_orion.rs:5:50:5:58 | key_bytes | semmle.label | key_bytes |
 | test_orion.rs:13:43:13:77 | b"Hardcoded insecure secret!!!... | semmle.label | b"Hardcoded insecure secret!!!... |
 | test_orion.rs:26:49:26:58 | b"hunter2" | semmle.label | b"hunter2" |
+| test_orion.rs:32:74:32:83 | &... | semmle.label | &... |
+| test_orion.rs:32:75:32:83 | [7u8; 32] | semmle.label | [7u8; 32] |
 | test_rand.rs:17:9:17:11 | key | semmle.label | key |
 | test_rand.rs:17:15:17:23 | [7u8; 32] | semmle.label | [7u8; 32] |
 | test_rand.rs:20:43:20:46 | &key | semmle.label | &key |
@@ -145,6 +148,7 @@ subpaths
 | test_orion.rs:4:21:4:27 | [3; 32] | test_orion.rs:4:21:4:27 | [3; 32] | test_orion.rs:5:49:5:58 | &key_bytes | This hard-coded value is used as $@. | test_orion.rs:5:49:5:58 | &key_bytes | a key |
 | test_orion.rs:13:43:13:77 | b"Hardcoded insecure secret!!!... | test_orion.rs:13:43:13:77 | b"Hardcoded insecure secret!!!... | test_orion.rs:13:43:13:77 | b"Hardcoded insecure secret!!!... | This hard-coded value is used as $@. | test_orion.rs:13:43:13:77 | b"Hardcoded insecure secret!!!... | a key |
 | test_orion.rs:26:49:26:58 | b"hunter2" | test_orion.rs:26:49:26:58 | b"hunter2" | test_orion.rs:26:49:26:58 | b"hunter2" | This hard-coded value is used as $@. | test_orion.rs:26:49:26:58 | b"hunter2" | a password |
+| test_orion.rs:32:75:32:83 | [7u8; 32] | test_orion.rs:32:75:32:83 | [7u8; 32] | test_orion.rs:32:74:32:83 | &... | This hard-coded value is used as $@. | test_orion.rs:32:74:32:83 | &... | a key |
 | test_rand.rs:17:15:17:23 | [7u8; 32] | test_rand.rs:17:15:17:23 | [7u8; 32] | test_rand.rs:20:43:20:46 | &key | This hard-coded value is used as $@. | test_rand.rs:20:43:20:46 | &key | a key |
 | test_rand.rs:24:15:24:23 | [7u8; 32] | test_rand.rs:24:15:24:23 | [7u8; 32] | test_rand.rs:27:43:27:46 | &key | This hard-coded value is used as $@. | test_rand.rs:27:43:27:46 | &key | a key |
 | test_rand.rs:37:15:37:23 | [7u8; 32] | test_rand.rs:37:15:37:23 | [7u8; 32] | test_rand.rs:40:43:40:46 | &key | This hard-coded value is used as $@. | test_rand.rs:40:43:40:46 | &key | a key |
