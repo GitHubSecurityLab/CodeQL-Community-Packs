@@ -1,0 +1,158 @@
+edges
+| test_aes.rs:5:9:5:11 | key | test_aes.rs:7:31:7:33 | key | provenance |  |
+| test_aes.rs:5:15:5:88 | ...::from(...) | test_aes.rs:5:9:5:11 | key | provenance |  |
+| test_aes.rs:5:34:5:87 | [...] | test_aes.rs:5:15:5:88 | ...::from(...) | provenance | Config |
+| test_aes.rs:7:30:7:33 | &key [&ref] | test_aes.rs:7:30:7:33 | &key | provenance | Sink:MaD:302 |
+| test_aes.rs:7:31:7:33 | key | test_aes.rs:7:30:7:33 | &key [&ref] | provenance |  |
+| test_aes.rs:12:9:12:11 | key | test_aes.rs:14:31:14:33 | key | provenance |  |
+| test_aes.rs:12:15:12:43 | ...::from(...) | test_aes.rs:12:9:12:11 | key | provenance |  |
+| test_aes.rs:12:34:12:42 | [4u8; 16] | test_aes.rs:12:15:12:43 | ...::from(...) | provenance | Config |
+| test_aes.rs:14:30:14:33 | &key [&ref] | test_aes.rs:14:30:14:33 | &key | provenance | Sink:MaD:302 |
+| test_aes.rs:14:31:14:33 | key | test_aes.rs:14:30:14:33 | &key [&ref] | provenance |  |
+| test_aes.rs:20:9:20:11 | key | test_aes.rs:22:48:22:50 | key | provenance |  |
+| test_aes.rs:20:15:20:100 | [...] | test_aes.rs:20:9:20:11 | key | provenance |  |
+| test_aes.rs:22:47:22:50 | &key [&ref] | test_aes.rs:22:47:22:50 | &key | provenance | Sink:MaD:304 |
+| test_aes.rs:22:48:22:50 | key | test_aes.rs:22:47:22:50 | &key [&ref] | provenance |  |
+| test_age.rs:5:30:5:45 | ...: ... | test_age.rs:6:70:6:79 | passphrase | provenance |  |
+| test_age.rs:6:70:6:79 | passphrase | test_age.rs:6:70:6:90 | passphrase.to_owned() | provenance | MaD:394 |
+| test_age.rs:6:70:6:90 | passphrase.to_owned() | test_age.rs:6:58:6:91 | ...::new(...) | provenance | Config |
+| test_age.rs:14:33:14:48 | ...: ... | test_age.rs:20:53:20:62 | passphrase | provenance |  |
+| test_age.rs:20:41:20:74 | ...::new(...) | test_age.rs:20:40:20:74 | &... | provenance |  |
+| test_age.rs:20:53:20:62 | passphrase | test_age.rs:20:53:20:73 | passphrase.to_owned() | provenance | MaD:394 |
+| test_age.rs:20:53:20:73 | passphrase.to_owned() | test_age.rs:20:41:20:74 | ...::new(...) | provenance | Config |
+| test_age.rs:26:9:26:18 | passphrase | test_age.rs:27:47:27:56 | passphrase | provenance |  |
+| test_age.rs:26:9:26:18 | passphrase | test_age.rs:28:33:28:42 | passphrase | provenance |  |
+| test_age.rs:26:22:26:52 | "this is not a good passphrase... | test_age.rs:26:9:26:18 | passphrase | provenance |  |
+| test_age.rs:27:47:27:56 | passphrase | test_age.rs:5:30:5:45 | ...: ... | provenance |  |
+| test_age.rs:28:33:28:42 | passphrase | test_age.rs:14:33:14:48 | ...: ... | provenance |  |
+| test_age.rs:33:70:33:100 | "this is not a good passphrase... | test_age.rs:33:70:33:111 | "this is not a good passphrase....to_owned() | provenance | MaD:394 |
+| test_age.rs:33:70:33:111 | "this is not a good passphrase....to_owned() | test_age.rs:33:58:33:112 | ...::new(...) | provenance | Config |
+| test_age.rs:44:41:44:96 | ...::new(...) | test_age.rs:44:40:44:96 | &... | provenance |  |
+| test_age.rs:44:53:44:83 | "this is not a good passphrase... | test_age.rs:44:53:44:95 | "this is not a good passphrase....to_string() | provenance | MaD:389 |
+| test_age.rs:44:53:44:95 | "this is not a good passphrase....to_string() | test_age.rs:44:41:44:96 | ...::new(...) | provenance | Config |
+| test_camellia.rs:6:9:6:11 | key | test_camellia.rs:8:36:8:38 | key | provenance |  |
+| test_camellia.rs:6:15:6:44 | ...::from(...) | test_camellia.rs:6:9:6:11 | key | provenance |  |
+| test_camellia.rs:6:34:6:43 | [0_u8; 16] | test_camellia.rs:6:15:6:44 | ...::from(...) | provenance | Config |
+| test_camellia.rs:8:35:8:38 | &key [&ref] | test_camellia.rs:8:35:8:38 | &key | provenance | Sink:MaD:302 |
+| test_camellia.rs:8:36:8:38 | key | test_camellia.rs:8:35:8:38 | &key [&ref] | provenance |  |
+| test_filled.rs:24:9:24:11 | key | test_filled.rs:25:44:25:46 | key | provenance |  |
+| test_filled.rs:24:15:24:23 | [0u8; 32] | test_filled.rs:24:9:24:11 | key | provenance |  |
+| test_filled.rs:25:44:25:46 | key | test_filled.rs:25:43:25:46 | &key | provenance |  |
+| test_filled.rs:31:9:31:11 | key | test_filled.rs:34:44:34:46 | key | provenance |  |
+| test_filled.rs:31:15:31:23 | [7u8; 32] | test_filled.rs:31:9:31:11 | key | provenance |  |
+| test_filled.rs:34:44:34:46 | key | test_filled.rs:34:43:34:46 | &key | provenance |  |
+| test_orion.rs:4:9:4:17 | key_bytes | test_orion.rs:5:50:5:58 | key_bytes | provenance |  |
+| test_orion.rs:4:21:4:27 | [3; 32] | test_orion.rs:4:9:4:17 | key_bytes | provenance |  |
+| test_orion.rs:5:50:5:58 | key_bytes | test_orion.rs:5:49:5:58 | &key_bytes | provenance |  |
+| test_orion.rs:32:75:32:83 | [7u8; 32] | test_orion.rs:32:74:32:83 | &... | provenance |  |
+| test_rand.rs:17:9:17:11 | key | test_rand.rs:20:44:20:46 | key | provenance |  |
+| test_rand.rs:17:15:17:23 | [7u8; 32] | test_rand.rs:17:9:17:11 | key | provenance |  |
+| test_rand.rs:20:44:20:46 | key | test_rand.rs:20:43:20:46 | &key | provenance |  |
+| test_rand.rs:24:9:24:11 | key | test_rand.rs:27:44:27:46 | key | provenance |  |
+| test_rand.rs:24:15:24:23 | [7u8; 32] | test_rand.rs:24:9:24:11 | key | provenance |  |
+| test_rand.rs:27:44:27:46 | key | test_rand.rs:27:43:27:46 | &key | provenance |  |
+| test_rand.rs:37:9:37:11 | key | test_rand.rs:40:44:40:46 | key | provenance |  |
+| test_rand.rs:37:15:37:23 | [7u8; 32] | test_rand.rs:37:9:37:11 | key | provenance |  |
+| test_rand.rs:40:44:40:46 | key | test_rand.rs:40:43:40:46 | &key | provenance |  |
+| test_ring.rs:15:9:15:17 | key_bytes | test_ring.rs:16:44:16:52 | key_bytes | provenance |  |
+| test_ring.rs:15:21:15:29 | [7u8; 32] | test_ring.rs:15:9:15:17 | key_bytes | provenance |  |
+| test_ring.rs:16:44:16:52 | key_bytes | test_ring.rs:16:43:16:52 | &key_bytes | provenance |  |
+nodes
+| test_aes.rs:5:9:5:11 | key | semmle.label | key |
+| test_aes.rs:5:15:5:88 | ...::from(...) | semmle.label | ...::from(...) |
+| test_aes.rs:5:34:5:87 | [...] | semmle.label | [...] |
+| test_aes.rs:7:30:7:33 | &key | semmle.label | &key |
+| test_aes.rs:7:30:7:33 | &key [&ref] | semmle.label | &key [&ref] |
+| test_aes.rs:7:31:7:33 | key | semmle.label | key |
+| test_aes.rs:12:9:12:11 | key | semmle.label | key |
+| test_aes.rs:12:15:12:43 | ...::from(...) | semmle.label | ...::from(...) |
+| test_aes.rs:12:34:12:42 | [4u8; 16] | semmle.label | [4u8; 16] |
+| test_aes.rs:14:30:14:33 | &key | semmle.label | &key |
+| test_aes.rs:14:30:14:33 | &key [&ref] | semmle.label | &key [&ref] |
+| test_aes.rs:14:31:14:33 | key | semmle.label | key |
+| test_aes.rs:20:9:20:11 | key | semmle.label | key |
+| test_aes.rs:20:15:20:100 | [...] | semmle.label | [...] |
+| test_aes.rs:22:47:22:50 | &key | semmle.label | &key |
+| test_aes.rs:22:47:22:50 | &key [&ref] | semmle.label | &key [&ref] |
+| test_aes.rs:22:48:22:50 | key | semmle.label | key |
+| test_age.rs:5:30:5:45 | ...: ... | semmle.label | ...: ... |
+| test_age.rs:6:58:6:91 | ...::new(...) | semmle.label | ...::new(...) |
+| test_age.rs:6:70:6:79 | passphrase | semmle.label | passphrase |
+| test_age.rs:6:70:6:90 | passphrase.to_owned() | semmle.label | passphrase.to_owned() |
+| test_age.rs:14:33:14:48 | ...: ... | semmle.label | ...: ... |
+| test_age.rs:20:40:20:74 | &... | semmle.label | &... |
+| test_age.rs:20:41:20:74 | ...::new(...) | semmle.label | ...::new(...) |
+| test_age.rs:20:53:20:62 | passphrase | semmle.label | passphrase |
+| test_age.rs:20:53:20:73 | passphrase.to_owned() | semmle.label | passphrase.to_owned() |
+| test_age.rs:26:9:26:18 | passphrase | semmle.label | passphrase |
+| test_age.rs:26:22:26:52 | "this is not a good passphrase... | semmle.label | "this is not a good passphrase... |
+| test_age.rs:27:47:27:56 | passphrase | semmle.label | passphrase |
+| test_age.rs:28:33:28:42 | passphrase | semmle.label | passphrase |
+| test_age.rs:33:58:33:112 | ...::new(...) | semmle.label | ...::new(...) |
+| test_age.rs:33:70:33:100 | "this is not a good passphrase... | semmle.label | "this is not a good passphrase... |
+| test_age.rs:33:70:33:111 | "this is not a good passphrase....to_owned() | semmle.label | "this is not a good passphrase....to_owned() |
+| test_age.rs:44:40:44:96 | &... | semmle.label | &... |
+| test_age.rs:44:41:44:96 | ...::new(...) | semmle.label | ...::new(...) |
+| test_age.rs:44:53:44:83 | "this is not a good passphrase... | semmle.label | "this is not a good passphrase... |
+| test_age.rs:44:53:44:95 | "this is not a good passphrase....to_string() | semmle.label | "this is not a good passphrase....to_string() |
+| test_camellia.rs:6:9:6:11 | key | semmle.label | key |
+| test_camellia.rs:6:15:6:44 | ...::from(...) | semmle.label | ...::from(...) |
+| test_camellia.rs:6:34:6:43 | [0_u8; 16] | semmle.label | [0_u8; 16] |
+| test_camellia.rs:8:35:8:38 | &key | semmle.label | &key |
+| test_camellia.rs:8:35:8:38 | &key [&ref] | semmle.label | &key [&ref] |
+| test_camellia.rs:8:36:8:38 | key | semmle.label | key |
+| test_filled.rs:24:9:24:11 | key | semmle.label | key |
+| test_filled.rs:24:15:24:23 | [0u8; 32] | semmle.label | [0u8; 32] |
+| test_filled.rs:25:43:25:46 | &key | semmle.label | &key |
+| test_filled.rs:25:44:25:46 | key | semmle.label | key |
+| test_filled.rs:31:9:31:11 | key | semmle.label | key |
+| test_filled.rs:31:15:31:23 | [7u8; 32] | semmle.label | [7u8; 32] |
+| test_filled.rs:34:43:34:46 | &key | semmle.label | &key |
+| test_filled.rs:34:44:34:46 | key | semmle.label | key |
+| test_orion.rs:4:9:4:17 | key_bytes | semmle.label | key_bytes |
+| test_orion.rs:4:21:4:27 | [3; 32] | semmle.label | [3; 32] |
+| test_orion.rs:5:49:5:58 | &key_bytes | semmle.label | &key_bytes |
+| test_orion.rs:5:50:5:58 | key_bytes | semmle.label | key_bytes |
+| test_orion.rs:13:43:13:77 | b"Hardcoded insecure secret!!!... | semmle.label | b"Hardcoded insecure secret!!!... |
+| test_orion.rs:26:49:26:58 | b"hunter2" | semmle.label | b"hunter2" |
+| test_orion.rs:32:74:32:83 | &... | semmle.label | &... |
+| test_orion.rs:32:75:32:83 | [7u8; 32] | semmle.label | [7u8; 32] |
+| test_rand.rs:17:9:17:11 | key | semmle.label | key |
+| test_rand.rs:17:15:17:23 | [7u8; 32] | semmle.label | [7u8; 32] |
+| test_rand.rs:20:43:20:46 | &key | semmle.label | &key |
+| test_rand.rs:20:44:20:46 | key | semmle.label | key |
+| test_rand.rs:24:9:24:11 | key | semmle.label | key |
+| test_rand.rs:24:15:24:23 | [7u8; 32] | semmle.label | [7u8; 32] |
+| test_rand.rs:27:43:27:46 | &key | semmle.label | &key |
+| test_rand.rs:27:44:27:46 | key | semmle.label | key |
+| test_rand.rs:37:9:37:11 | key | semmle.label | key |
+| test_rand.rs:37:15:37:23 | [7u8; 32] | semmle.label | [7u8; 32] |
+| test_rand.rs:40:43:40:46 | &key | semmle.label | &key |
+| test_rand.rs:40:44:40:46 | key | semmle.label | key |
+| test_ring.rs:15:9:15:17 | key_bytes | semmle.label | key_bytes |
+| test_ring.rs:15:21:15:29 | [7u8; 32] | semmle.label | [7u8; 32] |
+| test_ring.rs:16:43:16:52 | &key_bytes | semmle.label | &key_bytes |
+| test_ring.rs:16:44:16:52 | key_bytes | semmle.label | key_bytes |
+| test_ring.rs:20:49:20:76 | b"shared authentication key" | semmle.label | b"shared authentication key" |
+| test_ring.rs:30:61:30:91 | b"shared input keying material... | semmle.label | b"shared input keying material... |
+subpaths
+#select
+| test_aes.rs:5:34:5:87 | [...] | test_aes.rs:5:34:5:87 | [...] | test_aes.rs:7:30:7:33 | &key | This hard-coded value is used as $@. | test_aes.rs:7:30:7:33 | &key | a key |
+| test_aes.rs:12:34:12:42 | [4u8; 16] | test_aes.rs:12:34:12:42 | [4u8; 16] | test_aes.rs:14:30:14:33 | &key | This hard-coded value is used as $@. | test_aes.rs:14:30:14:33 | &key | a key |
+| test_age.rs:26:22:26:52 | "this is not a good passphrase... | test_age.rs:26:22:26:52 | "this is not a good passphrase... | test_age.rs:6:58:6:91 | ...::new(...) | This hard-coded value is used as $@. | test_age.rs:6:58:6:91 | ...::new(...) | a password |
+| test_age.rs:26:22:26:52 | "this is not a good passphrase... | test_age.rs:26:22:26:52 | "this is not a good passphrase... | test_age.rs:20:40:20:74 | &... | This hard-coded value is used as $@. | test_age.rs:20:40:20:74 | &... | a password |
+| test_age.rs:33:70:33:100 | "this is not a good passphrase... | test_age.rs:33:70:33:100 | "this is not a good passphrase... | test_age.rs:33:58:33:112 | ...::new(...) | This hard-coded value is used as $@. | test_age.rs:33:58:33:112 | ...::new(...) | a password |
+| test_age.rs:44:53:44:83 | "this is not a good passphrase... | test_age.rs:44:53:44:83 | "this is not a good passphrase... | test_age.rs:44:40:44:96 | &... | This hard-coded value is used as $@. | test_age.rs:44:40:44:96 | &... | a password |
+| test_camellia.rs:6:34:6:43 | [0_u8; 16] | test_camellia.rs:6:34:6:43 | [0_u8; 16] | test_camellia.rs:8:35:8:38 | &key | This hard-coded value is used as $@. | test_camellia.rs:8:35:8:38 | &key | a key |
+| test_filled.rs:24:15:24:23 | [0u8; 32] | test_filled.rs:24:15:24:23 | [0u8; 32] | test_filled.rs:25:43:25:46 | &key | This hard-coded value is used as $@. | test_filled.rs:25:43:25:46 | &key | a key |
+| test_filled.rs:31:15:31:23 | [7u8; 32] | test_filled.rs:31:15:31:23 | [7u8; 32] | test_filled.rs:34:43:34:46 | &key | This hard-coded value is used as $@. | test_filled.rs:34:43:34:46 | &key | a key |
+| test_orion.rs:4:21:4:27 | [3; 32] | test_orion.rs:4:21:4:27 | [3; 32] | test_orion.rs:5:49:5:58 | &key_bytes | This hard-coded value is used as $@. | test_orion.rs:5:49:5:58 | &key_bytes | a key |
+| test_orion.rs:13:43:13:77 | b"Hardcoded insecure secret!!!... | test_orion.rs:13:43:13:77 | b"Hardcoded insecure secret!!!... | test_orion.rs:13:43:13:77 | b"Hardcoded insecure secret!!!... | This hard-coded value is used as $@. | test_orion.rs:13:43:13:77 | b"Hardcoded insecure secret!!!... | a key |
+| test_orion.rs:26:49:26:58 | b"hunter2" | test_orion.rs:26:49:26:58 | b"hunter2" | test_orion.rs:26:49:26:58 | b"hunter2" | This hard-coded value is used as $@. | test_orion.rs:26:49:26:58 | b"hunter2" | a password |
+| test_orion.rs:32:75:32:83 | [7u8; 32] | test_orion.rs:32:75:32:83 | [7u8; 32] | test_orion.rs:32:74:32:83 | &... | This hard-coded value is used as $@. | test_orion.rs:32:74:32:83 | &... | a key |
+| test_rand.rs:17:15:17:23 | [7u8; 32] | test_rand.rs:17:15:17:23 | [7u8; 32] | test_rand.rs:20:43:20:46 | &key | This hard-coded value is used as $@. | test_rand.rs:20:43:20:46 | &key | a key |
+| test_rand.rs:24:15:24:23 | [7u8; 32] | test_rand.rs:24:15:24:23 | [7u8; 32] | test_rand.rs:27:43:27:46 | &key | This hard-coded value is used as $@. | test_rand.rs:27:43:27:46 | &key | a key |
+| test_rand.rs:37:15:37:23 | [7u8; 32] | test_rand.rs:37:15:37:23 | [7u8; 32] | test_rand.rs:40:43:40:46 | &key | This hard-coded value is used as $@. | test_rand.rs:40:43:40:46 | &key | a key |
+| test_ring.rs:15:21:15:29 | [7u8; 32] | test_ring.rs:15:21:15:29 | [7u8; 32] | test_ring.rs:16:43:16:52 | &key_bytes | This hard-coded value is used as $@. | test_ring.rs:16:43:16:52 | &key_bytes | a key |
+| test_ring.rs:20:49:20:76 | b"shared authentication key" | test_ring.rs:20:49:20:76 | b"shared authentication key" | test_ring.rs:20:49:20:76 | b"shared authentication key" | This hard-coded value is used as $@. | test_ring.rs:20:49:20:76 | b"shared authentication key" | a key |
+| test_ring.rs:30:61:30:91 | b"shared input keying material... | test_ring.rs:30:61:30:91 | b"shared input keying material... | test_ring.rs:30:61:30:91 | b"shared input keying material... | This hard-coded value is used as $@. | test_ring.rs:30:61:30:91 | b"shared input keying material... | a key |
