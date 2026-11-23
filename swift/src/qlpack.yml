@@ -1,6 +1,6 @@
 library: false
 name: githubsecuritylab/codeql-swift-queries
-version: 0.9.1
+version: 0.9.2
 license: MIT
 suites: suites
 defaultSuiteFile: suites/swift.qls
