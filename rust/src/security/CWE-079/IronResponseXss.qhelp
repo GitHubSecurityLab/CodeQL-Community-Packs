@@ -51,6 +51,11 @@ recognized only when none of them names HTML or XML. Iron applies the modifiers 
 <code>text/html</code> modifier after a <code>text/plain</code> one replaces it, and the query does
 not try to tell which of two content types wins.
 </p>
+<p>
+The sinks are the expressions that a modifier tuple is built from, so a tuple that is changed after it
+is built, for example by assigning a body to one of its fields (<code>modifiers.1 = body;</code>), is
+not tracked.
+</p>
 </section>
 
 <references>

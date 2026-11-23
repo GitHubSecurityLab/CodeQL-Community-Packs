@@ -133,4 +133,15 @@ fn main() {
     Iron::new(bad_overriding_mime_handler).http("localhost:3011").unwrap();
     Iron::new(good_nested_plain_text_handler).http("localhost:3012").unwrap();
     Iron::new(bad_nested_named_tuple_handler).http("localhost:3013").unwrap();
+    Iron::new(missed_field_assigned_later_handler).http("localhost:3014").unwrap();
+}
+
+fn missed_field_assigned_later_handler(req: &mut Request) -> IronResult<Response> {
+    let res = req.url.path();
+    let response = format!("<h1>Assessing resource, {:?}!</h1>", res);
+    // MISSED (known limitation): the body is assigned to a tuple field after the tuple is built, so the
+    // sink is the original `String::new()` expression and not the assigned value.
+    let mut modifiers = (status::Ok, String::new());
+    modifiers.1 = response;
+    Ok(Response::with(modifiers))
 }
