@@ -50,6 +50,20 @@ edges
 | warp_app.rs:186:33:186:59 | MacroExpr | warp_app.rs:186:33:186:59 | ...::format(...) | provenance | MaD:371 |
 | warp_app.rs:186:33:186:59 | { ... } | warp_app.rs:186:33:186:59 | ...::must_use(...) | provenance | MaD:13380 |
 | warp_app.rs:190:23:190:35 | tainted_param | warp_app.rs:190:23:190:35 | tainted_param | provenance | Sink:MaD:5328 |
+| warp_app.rs:229:43:244:5 | \|...\| ... | warp_app.rs:229:44:229:68 | ...: String | provenance | Src:MaD:824  |
+| warp_app.rs:229:44:229:60 | mut tainted_param | warp_app.rs:233:27:233:39 | tainted_param | provenance | Config |
+| warp_app.rs:229:44:229:68 | ...: String | warp_app.rs:229:44:229:60 | mut tainted_param | provenance |  |
+| warp_app.rs:233:27:233:39 | tainted_param | warp_app.rs:233:27:233:39 | tainted_param | provenance | Sink:MaD:5328 |
+| warp_app.rs:252:43:267:5 | \|...\| ... | warp_app.rs:252:44:252:68 | ...: String | provenance | Src:MaD:824  |
+| warp_app.rs:252:44:252:68 | ...: String | warp_app.rs:266:9:266:15 | request [captured tainted_param] | provenance |  |
+| warp_app.rs:254:29:254:64 | MacroExpr | warp_app.rs:258:27:258:39 | tainted_param | provenance | Config |
+| warp_app.rs:254:37:254:63 | ...::format(...) | warp_app.rs:254:37:254:63 | { ... } | provenance |  |
+| warp_app.rs:254:37:254:63 | ...::must_use(...) | warp_app.rs:254:29:254:64 | MacroExpr | provenance |  |
+| warp_app.rs:254:37:254:63 | MacroExpr | warp_app.rs:254:37:254:63 | ...::format(...) | provenance | MaD:371 |
+| warp_app.rs:254:37:254:63 | { ... } | warp_app.rs:254:37:254:63 | ...::must_use(...) | provenance | MaD:13380 |
+| warp_app.rs:254:51:254:63 | tainted_param | warp_app.rs:254:37:254:63 | MacroExpr | provenance |  |
+| warp_app.rs:258:27:258:39 | tainted_param | warp_app.rs:258:27:258:39 | tainted_param | provenance | Sink:MaD:5328 |
+| warp_app.rs:266:9:266:15 | request [captured tainted_param] | warp_app.rs:254:51:254:63 | tainted_param | provenance |  |
 nodes
 | iron_app.rs:9:13:9:23 | request_url | semmle.label | request_url |
 | iron_app.rs:9:27:9:33 | req.url | semmle.label | req.url |
@@ -109,6 +123,22 @@ nodes
 | warp_app.rs:186:33:186:59 | { ... } | semmle.label | { ... } |
 | warp_app.rs:190:23:190:35 | tainted_param | semmle.label | tainted_param |
 | warp_app.rs:190:23:190:35 | tainted_param | semmle.label | tainted_param |
+| warp_app.rs:229:43:244:5 | \|...\| ... | semmle.label | \|...\| ... |
+| warp_app.rs:229:44:229:60 | mut tainted_param | semmle.label | mut tainted_param |
+| warp_app.rs:229:44:229:68 | ...: String | semmle.label | ...: String |
+| warp_app.rs:233:27:233:39 | tainted_param | semmle.label | tainted_param |
+| warp_app.rs:233:27:233:39 | tainted_param | semmle.label | tainted_param |
+| warp_app.rs:252:43:267:5 | \|...\| ... | semmle.label | \|...\| ... |
+| warp_app.rs:252:44:252:68 | ...: String | semmle.label | ...: String |
+| warp_app.rs:254:29:254:64 | MacroExpr | semmle.label | MacroExpr |
+| warp_app.rs:254:37:254:63 | ...::format(...) | semmle.label | ...::format(...) |
+| warp_app.rs:254:37:254:63 | ...::must_use(...) | semmle.label | ...::must_use(...) |
+| warp_app.rs:254:37:254:63 | MacroExpr | semmle.label | MacroExpr |
+| warp_app.rs:254:37:254:63 | { ... } | semmle.label | { ... } |
+| warp_app.rs:254:51:254:63 | tainted_param | semmle.label | tainted_param |
+| warp_app.rs:258:27:258:39 | tainted_param | semmle.label | tainted_param |
+| warp_app.rs:258:27:258:39 | tainted_param | semmle.label | tainted_param |
+| warp_app.rs:266:9:266:15 | request [captured tainted_param] | semmle.label | request [captured tainted_param] |
 subpaths
 #select
 | iron_app.rs:11:43:11:53 | request_url | iron_app.rs:9:27:9:33 | req.url | iron_app.rs:11:43:11:53 | request_url | The URL of this request depends on a $@. | iron_app.rs:9:27:9:33 | req.url | user-provided value |
@@ -118,3 +148,5 @@ subpaths
 | warp_app.rs:61:19:65:13 | MacroExpr | warp_app.rs:59:43:71:5 | \|...\| ... | warp_app.rs:61:19:65:13 | MacroExpr | The URL of this request depends on a $@. | warp_app.rs:59:43:71:5 | \|...\| ... | user-provided value |
 | warp_app.rs:151:23:151:35 | tainted_param | warp_app.rs:146:43:158:5 | \|...\| ... | warp_app.rs:151:23:151:35 | tainted_param | The URL of this request depends on a $@. | warp_app.rs:146:43:158:5 | \|...\| ... | user-provided value |
 | warp_app.rs:190:23:190:35 | tainted_param | warp_app.rs:185:43:198:5 | \|...\| ... | warp_app.rs:190:23:190:35 | tainted_param | The URL of this request depends on a $@. | warp_app.rs:185:43:198:5 | \|...\| ... | user-provided value |
+| warp_app.rs:233:27:233:39 | tainted_param | warp_app.rs:229:43:244:5 | \|...\| ... | warp_app.rs:233:27:233:39 | tainted_param | The URL of this request depends on a $@. | warp_app.rs:229:43:244:5 | \|...\| ... | user-provided value |
+| warp_app.rs:258:27:258:39 | tainted_param | warp_app.rs:252:43:267:5 | \|...\| ... | warp_app.rs:258:27:258:39 | tainted_param | The URL of this request depends on a $@. | warp_app.rs:252:43:267:5 | \|...\| ... | user-provided value |

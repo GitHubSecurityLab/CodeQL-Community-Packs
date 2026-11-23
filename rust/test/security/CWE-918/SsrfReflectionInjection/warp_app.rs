@@ -199,3 +199,72 @@ pub async fn bad_derived_before_nested_closure() {
 
     warp::serve(routes).run(([127, 0, 0, 1], 3040)).await;
 }
+
+// GOOD: a fixed URL that is assigned inside the closure, before it creates the `async` block, replaces the
+// parameter.
+pub async fn good_overwrite_inside_nested_closure() {
+    let routes = warp::path::param().then(|mut tainted_param: String| {
+        let request = move || {
+            tainted_param = "https://my.app/".to_owned();
+
+            async move {
+                let response = reqwest::Client::new()
+                    .post(tainted_param)
+                    .send()
+                    .await
+                    .expect("send");
+
+                format!("{}", response.status())
+            }
+        };
+        request()
+    });
+
+    warp::serve(routes).run(([127, 0, 0, 1], 3041)).await;
+}
+
+// BAD: a fixed URL that is assigned inside the closure after the `async` block is created does not change the
+// value that the block captured.
+pub async fn bad_overwrite_after_capture_inside_nested_closure() {
+    let routes = warp::path::param().then(|mut tainted_param: String| {
+        let request = move || {
+            let future = async move {
+                let response = reqwest::Client::new()
+                    .post(tainted_param) // $ Alert
+                    .send()
+                    .await
+                    .expect("send");
+
+                format!("{}", response.status())
+            };
+            tainted_param = "https://my.app/".to_owned();
+            future
+        };
+        request()
+    }); // $ Source
+
+    warp::serve(routes).run(([127, 0, 0, 1], 3042)).await;
+}
+
+// BAD: a value that is derived from the parameter inside the closure, before it creates the `async` block, is
+// still tainted.
+pub async fn bad_derived_inside_nested_closure() {
+    let routes = warp::path::param().then(|mut tainted_param: String| {
+        let request = move || {
+            tainted_param = format!("https://{}", tainted_param);
+
+            async move {
+                let response = reqwest::Client::new()
+                    .post(tainted_param) // $ Alert
+                    .send()
+                    .await
+                    .expect("send");
+
+                format!("{}", response.status())
+            }
+        };
+        request()
+    }); // $ Source
+
+    warp::serve(routes).run(([127, 0, 0, 1], 3043)).await;
+}
