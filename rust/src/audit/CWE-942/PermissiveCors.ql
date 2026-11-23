@@ -49,6 +49,21 @@ private predicate isValuePreservingMethod(string name) {
 }
 
 /**
+ * Gets an expression whose value the read `e` of a local variable can have: the initializer or the
+ * right-hand side of an assignment that reaches `e`. A later assignment replaces the earlier one, so
+ * only the one that is live at `e` is followed.
+ */
+private Expr getAReachingValue(Expr e) {
+  exists(Variable v, DataFlow::ExprNode source, DataFlow::ExprNode target |
+    e = v.getAnAccess() and
+    target.asExpr() = e and
+    source.asExpr() = result and
+    source.asExpr() != e and
+    DataFlow::localFlow(source, target)
+  )
+}
+
+/**
  * Gets an expression that the value of `e` is taken from: the receiver of a value-preserving method
  * call, the argument of a constructor of a header value, a referenced or `?`-operand expression, or a
  * reaching assignment to a local variable read by `e`.
@@ -68,13 +83,7 @@ private Expr getAnInnerExpr(Expr e) {
   or
   result = e.(TryExpr).getExpr()
   or
-  exists(Variable v, DataFlow::ExprNode source, DataFlow::ExprNode target |
-    e = v.getAnAccess() and
-    target.asExpr() = e and
-    source.asExpr() = result and
-    source.asExpr() != e and
-    DataFlow::localFlow(source, target)
-  )
+  result = getAReachingValue(e)
 }
 
 /** Holds if `p` is a path whose final segment is `name` (for example `Any` or `cors::Any`). */
@@ -111,8 +120,9 @@ private predicate isWildcardOriginValue(Expr e) {
 }
 
 /**
- * Holds if `e` names the `Access-Control-Allow-Origin` header, either directly
- * or via a header-name constructor such as `HeaderName::from_static(...)`.
+ * Holds if `e` names the `Access-Control-Allow-Origin` header, either directly,
+ * via a header-name constructor such as `HeaderName::from_static(...)`, or through a
+ * local variable that holds such a name (`let name = ACCESS_CONTROL_ALLOW_ORIGIN;`).
  */
 private predicate isAllowOriginHeaderName(Expr e) {
   e.(StringLiteralExpr).getTextValue().toLowerCase() = "\"access-control-allow-origin\""
@@ -120,6 +130,8 @@ private predicate isAllowOriginHeaderName(Expr e) {
   pathEndsWith(e.(PathExpr).getPath(), "ACCESS_CONTROL_ALLOW_ORIGIN")
   or
   isAllowOriginHeaderName(e.(RefExpr).getExpr())
+  or
+  isAllowOriginHeaderName(getAReachingValue(e))
   or
   exists(CallExpr c | c = e |
     isPathCall(c, "HeaderName", ["from_static", "from_lowercase", "from_bytes", "from_str"]) and

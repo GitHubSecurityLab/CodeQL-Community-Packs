@@ -286,6 +286,31 @@ mod tower_http_cors {
         );
         (headers, "Hello")
     }
+
+    // A header name that is held in a local binding is still the CORS header.
+    pub async fn bad_raw_header_name_alias() -> impl IntoResponse {
+        let name = header::ACCESS_CONTROL_ALLOW_ORIGIN;
+        let mut headers = HeaderMap::new();
+        headers.insert(name, HeaderValue::from_static("*")); // $ Alert
+        (headers, "Hello")
+    }
+
+    // The same, for a name that is built from a string literal.
+    pub async fn bad_raw_header_name_constructor_alias() -> impl IntoResponse {
+        let name = header::HeaderName::from_static("access-control-allow-origin");
+        let mut headers = HeaderMap::new();
+        headers.insert(name, HeaderValue::from_static("*")); // $ Alert
+        (headers, "Hello")
+    }
+
+    // The name is replaced by another header before it is used.
+    pub async fn good_raw_header_name_alias_reassigned() -> impl IntoResponse {
+        let mut name = header::ACCESS_CONTROL_ALLOW_ORIGIN;
+        name = header::ACCESS_CONTROL_ALLOW_METHODS;
+        let mut headers = HeaderMap::new();
+        headers.insert(name, HeaderValue::from_static("*"));
+        (headers, "Hello")
+    }
 }
 
 mod actix_cors_example {
