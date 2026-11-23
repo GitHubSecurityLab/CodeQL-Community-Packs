@@ -106,3 +106,38 @@ pub fn test_independent_explicit_return_wrapper_results() {
     let request_id = explicitly_returned_random_bytes();
     println!("request id = {}", hex::encode(request_id));
 }
+
+fn fill_random(out: &mut [u8]) {
+    SystemRandom::new().fill(out).unwrap();
+}
+
+pub fn test_independent_fill_helper_results() {
+    let mut key = [0u8; 32];
+    fill_random(&mut key);
+    let _ = UnboundKey::new(&AES_256_GCM, &key);
+    let mut request_id = [0u8; 16];
+    fill_random(&mut request_id);
+    // This is a different generated value, not the key above.
+    println!("request id = {}", hex::encode(request_id));
+}
+
+pub fn test_logged_fill_helper_key() {
+    let mut key = [0u8; 32];
+    fill_random(&mut key); // $ Source[rust/cleartext-logging-key-material]
+    println!("key = {}", hex::encode(key)); // $ Alert[rust/cleartext-logging-key-material]
+    let _ = UnboundKey::new(&AES_256_GCM, &key);
+}
+
+fn nested_fill_random(out: &mut [u8]) {
+    fill_random(out);
+}
+
+pub fn test_independent_nested_fill_helper_results() {
+    let mut key = [0u8; 32];
+    nested_fill_random(&mut key);
+    let _ = UnboundKey::new(&AES_256_GCM, &key);
+    let mut request_id = [0u8; 16];
+    nested_fill_random(&mut request_id);
+    // Independent outer calls must not share the inner fill_random() source.
+    println!("request id = {}", hex::encode(request_id));
+}

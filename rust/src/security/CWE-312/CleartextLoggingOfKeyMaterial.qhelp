@@ -55,14 +55,16 @@ can prevent some combinations from being correlated. The query does not infer th
 relationship from variable names or use of the same helper.
 </p>
 <p>
-Helpers are recognized only when the filled buffer flows locally to a return
-value, including explicit <code>return</code> expressions. Each call to such a
-helper is a separate source unless its result is itself locally returned by
-another wrapper. Those shared inner-call sources are suppressed to avoid
-correlating independent outer calls. Nested returning wrappers are not promoted
-to sources, so even logging and key use of the same outer-call result can be
-missed. Logging inside a helper that returns the filled buffer is also not covered
-by this call-site model.
+Helpers are recognized when the filled buffer flows locally to a return value, including
+explicit <code>return</code> expressions, or when the helper fills one of its parameters in
+place, as in <code>fn fill_random(out: &amp;mut [u8])</code>. A fill of only a part of a parameter, such
+as <code>&amp;mut out[..16]</code>, keeps its source in the helper. Each call to such a helper is a
+separate source, unless its result is itself locally returned by another wrapper, or the call
+passes on a parameter of the function that contains it. Those shared inner-call sources are
+suppressed to avoid correlating independent outer calls. Nested wrappers are not promoted to
+sources, so even logging and key use of the same outer-call result can be missed. Logging inside
+a helper that returns the filled buffer or fills a parameter is also not covered by this
+call-site model.
 </p>
 </section>
 
