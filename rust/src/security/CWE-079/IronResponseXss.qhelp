@@ -1,0 +1,65 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+<p>
+The Iron web framework builds a response from a tuple of modifiers, for example
+<code>Response::with((status::Ok, body))</code>. A body that is added this way is sent without a
+<code>Content-Type</code> header unless one of the modifiers sets it, and browsers then guess the
+content type from the body. If the body contains user-controlled data, an attacker can make the
+browser render it as HTML and run a script in the context of the application.
+</p>
+<p>
+This query finds user-controlled data that is part of a modifier tuple passed to
+<code>Response::with</code>, including the elements of tuples that are nested in it. A response
+whose modifiers include a content type parsed from a string literal that does not name HTML or
+XML, such as <code>"text/plain".parse::&lt;Mime&gt;().unwrap()</code>, and none that does, is not
+reported.
+</p>
+</overview>
+
+<recommendation>
+<p>
+Set an explicit content type that is not HTML when the body is not markup, or encode the
+user-controlled data for HTML before it is added to the body.
+</p>
+</recommendation>
+
+<example>
+<p>
+In the following example, the path of the request is written into the body of the response without
+a content type, so a path that contains markup is rendered as HTML:
+</p>
+<sample src="IronResponseXssBad.rs" />
+<p>
+In the following corrected example, the response declares that its body is plain text:
+</p>
+<sample src="IronResponseXssGood.rs" />
+</example>
+
+<section title="Known limitations">
+<p>
+A content type that is set by another kind of modifier, such as <code>Header(ContentType::json())</code>,
+is not recognized, so the body of such a response is still reported. A content type is recognized
+only when it is parsed directly from a string literal and flows to the tuple through local
+variables, <code>unwrap</code>, <code>expect</code> or <code>?</code>. The type that the literal is
+parsed into is not checked. If several parsed literals can reach the content types of a response, for
+example one on each branch of an <code>if</code>, or one in each of two modifiers, the response is
+recognized only when none of them names HTML or XML. Iron applies the modifiers in order, so a
+<code>text/html</code> modifier after a <code>text/plain</code> one replaces it, and the query does
+not try to tell which of two content types wins.
+</p>
+<p>
+The sinks are the expressions that a modifier tuple is built from, so a tuple that is changed after it
+is built, for example by assigning a body to one of its fields (<code>modifiers.1 = body;</code>), is
+not tracked.
+</p>
+</section>
+
+<references>
+<li>OWASP: <a href="https://owasp.org/www-community/attacks/xss/">Cross Site Scripting (XSS)</a>.</li>
+<li>Common Weakness Enumeration: <a href="https://cwe.mitre.org/data/definitions/79.html">CWE-79</a>.</li>
+</references>
+</qhelp>

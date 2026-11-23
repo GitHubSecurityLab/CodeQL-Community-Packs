@@ -1,0 +1,24 @@
+edges
+| main.rs:12:26:12:42 | ...: ... | main.rs:13:15:13:21 | req.url | provenance |  |
+| main.rs:13:9:13:11 | res | main.rs:16:31:16:48 | MacroExpr | provenance |  |
+| main.rs:13:15:13:21 | req.url | main.rs:13:15:13:28 | ... .path() | provenance | MaD:17587 |
+| main.rs:13:15:13:28 | ... .path() | main.rs:13:9:13:11 | res | provenance |  |
+| main.rs:16:31:16:48 | ...::format(...) | main.rs:16:31:16:48 | { ... } | provenance |  |
+| main.rs:16:31:16:48 | ...::must_use(...) | main.rs:16:23:16:49 | MacroExpr | provenance | Sink:MaD:17586 |
+| main.rs:16:31:16:48 | MacroExpr | main.rs:16:31:16:48 | ...::format(...) | provenance | MaD:371 |
+| main.rs:16:31:16:48 | { ... } | main.rs:16:31:16:48 | ...::must_use(...) | provenance | MaD:13380 |
+| main.rs:123:26:123:46 | bad_body_only_handler | main.rs:12:26:12:42 | ...: ... | provenance | Src:MaD:17585  |
+nodes
+| main.rs:12:26:12:42 | ...: ... | semmle.label | ...: ... |
+| main.rs:13:9:13:11 | res | semmle.label | res |
+| main.rs:13:15:13:21 | req.url | semmle.label | req.url |
+| main.rs:13:15:13:28 | ... .path() | semmle.label | ... .path() |
+| main.rs:16:23:16:49 | MacroExpr | semmle.label | MacroExpr |
+| main.rs:16:31:16:48 | ...::format(...) | semmle.label | ...::format(...) |
+| main.rs:16:31:16:48 | ...::must_use(...) | semmle.label | ...::must_use(...) |
+| main.rs:16:31:16:48 | MacroExpr | semmle.label | MacroExpr |
+| main.rs:16:31:16:48 | { ... } | semmle.label | { ... } |
+| main.rs:123:26:123:46 | bad_body_only_handler | semmle.label | bad_body_only_handler |
+subpaths
+#select
+| main.rs:16:23:16:49 | MacroExpr | main.rs:123:26:123:46 | bad_body_only_handler | main.rs:16:23:16:49 | MacroExpr | Cross-site scripting vulnerability due to a $@. | main.rs:123:26:123:46 | bad_body_only_handler | user-provided value |
