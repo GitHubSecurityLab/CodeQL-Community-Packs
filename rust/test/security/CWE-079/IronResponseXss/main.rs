@@ -86,6 +86,38 @@ fn bad_mixed_mime_handler(req: &mut Request) -> IronResult<Response> {
     Ok(Response::with((status::Ok, mime, response)))
 }
 
+fn bad_nested_tuple_handler(req: &mut Request) -> IronResult<Response> {
+    let res = req.url.path();
+    let response = format!("<h1>Assessing resource, {:?}!</h1>", res);
+    // BAD: modifier tuples nest, and the body is in the inner tuple.
+    Ok(Response::with((status::Ok, (status::Ok, response))))
+}
+
+fn bad_nested_named_tuple_handler(req: &mut Request) -> IronResult<Response> {
+    let res = req.url.path();
+    let response = format!("<h1>Assessing resource, {:?}!</h1>", res);
+    // BAD: the inner tuple is built first and nested later.
+    let inner = (status::Ok, response);
+    Ok(Response::with((status::Ok, inner)))
+}
+
+fn bad_overriding_mime_handler(req: &mut Request) -> IronResult<Response> {
+    let res = req.url.path();
+    let response = format!("<h1>Assessing resource, {:?}!</h1>", res);
+    // BAD: the `text/html` modifier is applied after the `text/plain` one, so the body is served as HTML.
+    let plain: Mime = "text/plain".parse().unwrap();
+    let html: Mime = "text/html".parse().unwrap();
+    Ok(Response::with((status::Ok, plain, html, response)))
+}
+
+fn good_nested_plain_text_handler(req: &mut Request) -> IronResult<Response> {
+    let res = req.url.path();
+    let response = format!("<h1>Assessing resource, {:?}!</h1>", res);
+    // GOOD: the `text/plain` content type is in the inner tuple and applies to the whole response.
+    let plain: Mime = "text/plain".parse().unwrap();
+    Ok(Response::with((status::Ok, (plain, response))))
+}
+
 fn main() {
     Iron::new(bad_handler).http("localhost:3000").unwrap();
     Iron::new(Chain::new(bad_body_only_handler)).http("localhost:3001").unwrap();
@@ -97,4 +129,8 @@ fn main() {
     Iron::new(bad_html_mime_handler).http("localhost:3007").unwrap();
     Iron::new(bad_parsed_literal_in_body_handler).http("localhost:3008").unwrap();
     Iron::new(bad_mixed_mime_handler).http("localhost:3009").unwrap();
+    Iron::new(bad_nested_tuple_handler).http("localhost:3010").unwrap();
+    Iron::new(bad_overriding_mime_handler).http("localhost:3011").unwrap();
+    Iron::new(good_nested_plain_text_handler).http("localhost:3012").unwrap();
+    Iron::new(bad_nested_named_tuple_handler).http("localhost:3013").unwrap();
 }

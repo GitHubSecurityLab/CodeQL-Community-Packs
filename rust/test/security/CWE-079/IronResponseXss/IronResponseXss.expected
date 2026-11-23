@@ -53,12 +53,42 @@ edges
 | main.rs:78:28:78:68 | ...::must_use(...) | main.rs:78:9:78:16 | response | provenance |  |
 | main.rs:78:28:78:68 | MacroExpr | main.rs:78:28:78:68 | ...::format(...) | provenance | MaD:371 |
 | main.rs:78:28:78:68 | { ... } | main.rs:78:28:78:68 | ...::must_use(...) | provenance | MaD:13380 |
-| main.rs:90:15:90:25 | bad_handler | main.rs:5:16:5:32 | ...: ... | provenance | Src:MaD:17584  |
-| main.rs:95:15:95:36 | ...::handler | main.rs:44:20:44:36 | ...: ... | provenance | Src:MaD:17584  |
-| main.rs:96:15:96:37 | bad_named_tuple_handler | main.rs:52:28:52:44 | ...: ... | provenance | Src:MaD:17584  |
-| main.rs:97:15:97:35 | bad_html_mime_handler | main.rs:60:26:60:42 | ...: ... | provenance | Src:MaD:17584  |
-| main.rs:98:15:98:48 | bad_parsed_literal_in_body_handler | main.rs:68:39:68:55 | ...: ... | provenance | Src:MaD:17584  |
-| main.rs:99:15:99:36 | bad_mixed_mime_handler | main.rs:76:27:76:43 | ...: ... | provenance | Src:MaD:17584  |
+| main.rs:89:29:89:45 | ...: ... | main.rs:90:15:90:21 | req.url | provenance |  |
+| main.rs:90:9:90:11 | res | main.rs:91:28:91:68 | MacroExpr | provenance |  |
+| main.rs:90:15:90:21 | req.url | main.rs:90:15:90:28 | ... .path() | provenance | MaD:17587 |
+| main.rs:90:15:90:28 | ... .path() | main.rs:90:9:90:11 | res | provenance |  |
+| main.rs:91:9:91:16 | response | main.rs:93:49:93:56 | response | provenance |  |
+| main.rs:91:28:91:68 | ...::format(...) | main.rs:91:28:91:68 | { ... } | provenance |  |
+| main.rs:91:28:91:68 | ...::must_use(...) | main.rs:91:9:91:16 | response | provenance |  |
+| main.rs:91:28:91:68 | MacroExpr | main.rs:91:28:91:68 | ...::format(...) | provenance | MaD:371 |
+| main.rs:91:28:91:68 | { ... } | main.rs:91:28:91:68 | ...::must_use(...) | provenance | MaD:13380 |
+| main.rs:96:35:96:51 | ...: ... | main.rs:97:15:97:21 | req.url | provenance |  |
+| main.rs:97:9:97:11 | res | main.rs:98:28:98:68 | MacroExpr | provenance |  |
+| main.rs:97:15:97:21 | req.url | main.rs:97:15:97:28 | ... .path() | provenance | MaD:17587 |
+| main.rs:97:15:97:28 | ... .path() | main.rs:97:9:97:11 | res | provenance |  |
+| main.rs:98:9:98:16 | response | main.rs:100:30:100:37 | response | provenance |  |
+| main.rs:98:28:98:68 | ...::format(...) | main.rs:98:28:98:68 | { ... } | provenance |  |
+| main.rs:98:28:98:68 | ...::must_use(...) | main.rs:98:9:98:16 | response | provenance |  |
+| main.rs:98:28:98:68 | MacroExpr | main.rs:98:28:98:68 | ...::format(...) | provenance | MaD:371 |
+| main.rs:98:28:98:68 | { ... } | main.rs:98:28:98:68 | ...::must_use(...) | provenance | MaD:13380 |
+| main.rs:104:32:104:48 | ...: ... | main.rs:105:15:105:21 | req.url | provenance |  |
+| main.rs:105:9:105:11 | res | main.rs:106:28:106:68 | MacroExpr | provenance |  |
+| main.rs:105:15:105:21 | req.url | main.rs:105:15:105:28 | ... .path() | provenance | MaD:17587 |
+| main.rs:105:15:105:28 | ... .path() | main.rs:105:9:105:11 | res | provenance |  |
+| main.rs:106:9:106:16 | response | main.rs:110:49:110:56 | response | provenance |  |
+| main.rs:106:28:106:68 | ...::format(...) | main.rs:106:28:106:68 | { ... } | provenance |  |
+| main.rs:106:28:106:68 | ...::must_use(...) | main.rs:106:9:106:16 | response | provenance |  |
+| main.rs:106:28:106:68 | MacroExpr | main.rs:106:28:106:68 | ...::format(...) | provenance | MaD:371 |
+| main.rs:106:28:106:68 | { ... } | main.rs:106:28:106:68 | ...::must_use(...) | provenance | MaD:13380 |
+| main.rs:122:15:122:25 | bad_handler | main.rs:5:16:5:32 | ...: ... | provenance | Src:MaD:17584  |
+| main.rs:127:15:127:36 | ...::handler | main.rs:44:20:44:36 | ...: ... | provenance | Src:MaD:17584  |
+| main.rs:128:15:128:37 | bad_named_tuple_handler | main.rs:52:28:52:44 | ...: ... | provenance | Src:MaD:17584  |
+| main.rs:129:15:129:35 | bad_html_mime_handler | main.rs:60:26:60:42 | ...: ... | provenance | Src:MaD:17584  |
+| main.rs:130:15:130:48 | bad_parsed_literal_in_body_handler | main.rs:68:39:68:55 | ...: ... | provenance | Src:MaD:17584  |
+| main.rs:131:15:131:36 | bad_mixed_mime_handler | main.rs:76:27:76:43 | ...: ... | provenance | Src:MaD:17584  |
+| main.rs:132:15:132:38 | bad_nested_tuple_handler | main.rs:89:29:89:45 | ...: ... | provenance | Src:MaD:17584  |
+| main.rs:133:15:133:41 | bad_overriding_mime_handler | main.rs:104:32:104:48 | ...: ... | provenance | Src:MaD:17584  |
+| main.rs:135:15:135:44 | bad_nested_named_tuple_handler | main.rs:96:35:96:51 | ...: ... | provenance | Src:MaD:17584  |
 nodes
 | main.rs:5:16:5:32 | ...: ... | semmle.label | ...: ... |
 | main.rs:6:9:6:11 | res | semmle.label | res |
@@ -120,17 +150,53 @@ nodes
 | main.rs:78:28:78:68 | MacroExpr | semmle.label | MacroExpr |
 | main.rs:78:28:78:68 | { ... } | semmle.label | { ... } |
 | main.rs:86:42:86:49 | response | semmle.label | response |
-| main.rs:90:15:90:25 | bad_handler | semmle.label | bad_handler |
-| main.rs:95:15:95:36 | ...::handler | semmle.label | ...::handler |
-| main.rs:96:15:96:37 | bad_named_tuple_handler | semmle.label | bad_named_tuple_handler |
-| main.rs:97:15:97:35 | bad_html_mime_handler | semmle.label | bad_html_mime_handler |
-| main.rs:98:15:98:48 | bad_parsed_literal_in_body_handler | semmle.label | bad_parsed_literal_in_body_handler |
-| main.rs:99:15:99:36 | bad_mixed_mime_handler | semmle.label | bad_mixed_mime_handler |
+| main.rs:89:29:89:45 | ...: ... | semmle.label | ...: ... |
+| main.rs:90:9:90:11 | res | semmle.label | res |
+| main.rs:90:15:90:21 | req.url | semmle.label | req.url |
+| main.rs:90:15:90:28 | ... .path() | semmle.label | ... .path() |
+| main.rs:91:9:91:16 | response | semmle.label | response |
+| main.rs:91:28:91:68 | ...::format(...) | semmle.label | ...::format(...) |
+| main.rs:91:28:91:68 | ...::must_use(...) | semmle.label | ...::must_use(...) |
+| main.rs:91:28:91:68 | MacroExpr | semmle.label | MacroExpr |
+| main.rs:91:28:91:68 | { ... } | semmle.label | { ... } |
+| main.rs:93:49:93:56 | response | semmle.label | response |
+| main.rs:96:35:96:51 | ...: ... | semmle.label | ...: ... |
+| main.rs:97:9:97:11 | res | semmle.label | res |
+| main.rs:97:15:97:21 | req.url | semmle.label | req.url |
+| main.rs:97:15:97:28 | ... .path() | semmle.label | ... .path() |
+| main.rs:98:9:98:16 | response | semmle.label | response |
+| main.rs:98:28:98:68 | ...::format(...) | semmle.label | ...::format(...) |
+| main.rs:98:28:98:68 | ...::must_use(...) | semmle.label | ...::must_use(...) |
+| main.rs:98:28:98:68 | MacroExpr | semmle.label | MacroExpr |
+| main.rs:98:28:98:68 | { ... } | semmle.label | { ... } |
+| main.rs:100:30:100:37 | response | semmle.label | response |
+| main.rs:104:32:104:48 | ...: ... | semmle.label | ...: ... |
+| main.rs:105:9:105:11 | res | semmle.label | res |
+| main.rs:105:15:105:21 | req.url | semmle.label | req.url |
+| main.rs:105:15:105:28 | ... .path() | semmle.label | ... .path() |
+| main.rs:106:9:106:16 | response | semmle.label | response |
+| main.rs:106:28:106:68 | ...::format(...) | semmle.label | ...::format(...) |
+| main.rs:106:28:106:68 | ...::must_use(...) | semmle.label | ...::must_use(...) |
+| main.rs:106:28:106:68 | MacroExpr | semmle.label | MacroExpr |
+| main.rs:106:28:106:68 | { ... } | semmle.label | { ... } |
+| main.rs:110:49:110:56 | response | semmle.label | response |
+| main.rs:122:15:122:25 | bad_handler | semmle.label | bad_handler |
+| main.rs:127:15:127:36 | ...::handler | semmle.label | ...::handler |
+| main.rs:128:15:128:37 | bad_named_tuple_handler | semmle.label | bad_named_tuple_handler |
+| main.rs:129:15:129:35 | bad_html_mime_handler | semmle.label | bad_html_mime_handler |
+| main.rs:130:15:130:48 | bad_parsed_literal_in_body_handler | semmle.label | bad_parsed_literal_in_body_handler |
+| main.rs:131:15:131:36 | bad_mixed_mime_handler | semmle.label | bad_mixed_mime_handler |
+| main.rs:132:15:132:38 | bad_nested_tuple_handler | semmle.label | bad_nested_tuple_handler |
+| main.rs:133:15:133:41 | bad_overriding_mime_handler | semmle.label | bad_overriding_mime_handler |
+| main.rs:135:15:135:44 | bad_nested_named_tuple_handler | semmle.label | bad_nested_named_tuple_handler |
 subpaths
 #select
-| main.rs:9:36:9:43 | response | main.rs:90:15:90:25 | bad_handler | main.rs:9:36:9:43 | response | Cross-site scripting vulnerability due to a $@. | main.rs:90:15:90:25 | bad_handler | user-provided value |
-| main.rs:48:40:48:47 | response | main.rs:95:15:95:36 | ...::handler | main.rs:48:40:48:47 | response | Cross-site scripting vulnerability due to a $@. | main.rs:95:15:95:36 | ...::handler | user-provided value |
-| main.rs:56:34:56:41 | response | main.rs:96:15:96:37 | bad_named_tuple_handler | main.rs:56:34:56:41 | response | Cross-site scripting vulnerability due to a $@. | main.rs:96:15:96:37 | bad_named_tuple_handler | user-provided value |
-| main.rs:65:42:65:49 | response | main.rs:97:15:97:35 | bad_html_mime_handler | main.rs:65:42:65:49 | response | Cross-site scripting vulnerability due to a $@. | main.rs:97:15:97:35 | bad_html_mime_handler | user-provided value |
-| main.rs:73:36:73:43 | response | main.rs:98:15:98:48 | bad_parsed_literal_in_body_handler | main.rs:73:36:73:43 | response | Cross-site scripting vulnerability due to a $@. | main.rs:98:15:98:48 | bad_parsed_literal_in_body_handler | user-provided value |
-| main.rs:86:42:86:49 | response | main.rs:99:15:99:36 | bad_mixed_mime_handler | main.rs:86:42:86:49 | response | Cross-site scripting vulnerability due to a $@. | main.rs:99:15:99:36 | bad_mixed_mime_handler | user-provided value |
+| main.rs:9:36:9:43 | response | main.rs:122:15:122:25 | bad_handler | main.rs:9:36:9:43 | response | Cross-site scripting vulnerability due to a $@. | main.rs:122:15:122:25 | bad_handler | user-provided value |
+| main.rs:48:40:48:47 | response | main.rs:127:15:127:36 | ...::handler | main.rs:48:40:48:47 | response | Cross-site scripting vulnerability due to a $@. | main.rs:127:15:127:36 | ...::handler | user-provided value |
+| main.rs:56:34:56:41 | response | main.rs:128:15:128:37 | bad_named_tuple_handler | main.rs:56:34:56:41 | response | Cross-site scripting vulnerability due to a $@. | main.rs:128:15:128:37 | bad_named_tuple_handler | user-provided value |
+| main.rs:65:42:65:49 | response | main.rs:129:15:129:35 | bad_html_mime_handler | main.rs:65:42:65:49 | response | Cross-site scripting vulnerability due to a $@. | main.rs:129:15:129:35 | bad_html_mime_handler | user-provided value |
+| main.rs:73:36:73:43 | response | main.rs:130:15:130:48 | bad_parsed_literal_in_body_handler | main.rs:73:36:73:43 | response | Cross-site scripting vulnerability due to a $@. | main.rs:130:15:130:48 | bad_parsed_literal_in_body_handler | user-provided value |
+| main.rs:86:42:86:49 | response | main.rs:131:15:131:36 | bad_mixed_mime_handler | main.rs:86:42:86:49 | response | Cross-site scripting vulnerability due to a $@. | main.rs:131:15:131:36 | bad_mixed_mime_handler | user-provided value |
+| main.rs:93:49:93:56 | response | main.rs:132:15:132:38 | bad_nested_tuple_handler | main.rs:93:49:93:56 | response | Cross-site scripting vulnerability due to a $@. | main.rs:132:15:132:38 | bad_nested_tuple_handler | user-provided value |
+| main.rs:100:30:100:37 | response | main.rs:135:15:135:44 | bad_nested_named_tuple_handler | main.rs:100:30:100:37 | response | Cross-site scripting vulnerability due to a $@. | main.rs:135:15:135:44 | bad_nested_named_tuple_handler | user-provided value |
+| main.rs:110:49:110:56 | response | main.rs:133:15:133:41 | bad_overriding_mime_handler | main.rs:110:49:110:56 | response | Cross-site scripting vulnerability due to a $@. | main.rs:133:15:133:41 | bad_overriding_mime_handler | user-provided value |

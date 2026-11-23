@@ -13,9 +13,10 @@ browser render it as HTML and run a script in the context of the application.
 </p>
 <p>
 This query finds user-controlled data that is part of a modifier tuple passed to
-<code>Response::with</code>. A tuple that also contains a content type parsed from a string literal
-that does not name HTML or XML, such as <code>"text/plain".parse::&lt;Mime&gt;().unwrap()</code>, is
-not reported.
+<code>Response::with</code>, including the elements of tuples that are nested in it. A response
+whose modifiers include a content type parsed from a string literal that does not name HTML or
+XML, such as <code>"text/plain".parse::&lt;Mime&gt;().unwrap()</code>, and none that does, is not
+reported.
 </p>
 </overview>
 
@@ -44,8 +45,11 @@ A content type that is set by another kind of modifier, such as <code>Header(Con
 is not recognized, so the body of such a response is still reported. A content type is recognized
 only when it is parsed directly from a string literal and flows to the tuple through local
 variables, <code>unwrap</code>, <code>expect</code> or <code>?</code>. The type that the literal is
-parsed into is not checked. If several parsed literals can reach the content type, for example one on
-each branch of an <code>if</code>, it is recognized only when none of them names HTML or XML.
+parsed into is not checked. If several parsed literals can reach the content types of a response, for
+example one on each branch of an <code>if</code>, or one in each of two modifiers, the response is
+recognized only when none of them names HTML or XML. Iron applies the modifiers in order, so a
+<code>text/html</code> modifier after a <code>text/plain</code> one replaces it, and the query does
+not try to tell which of two content types wins.
 </p>
 </section>
 

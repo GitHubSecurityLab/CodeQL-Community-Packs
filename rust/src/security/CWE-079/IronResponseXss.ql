@@ -61,43 +61,64 @@ private predicate isParsedFrom(Expr e, ParsedStringLiteral literal) {
 }
 
 /**
- * Holds if `modifier` is a content type that is parsed from string literals, and every parsed literal
- * that reaches it names a content type that is not markup. A content type that can also be HTML or XML,
- * for example on one branch of an `if`, is not safe.
+ * Holds if `tuple` is a tuple expression whose value the expression `e` holds: `e` is the tuple, or a
+ * local variable or expression that the tuple flows to.
  */
-private predicate isSafeContentType(Expr modifier) {
+private predicate holdsTuple(Expr e, TupleExpr tuple) {
+  exists(DataFlow::ExprNode tupleNode, DataFlow::ExprNode eNode |
+    tupleNode.asExpr() = tuple and
+    eNode.asExpr() = e and
+    DataFlow::localFlow(tupleNode, eNode)
+  )
+}
+
+/**
+ * Gets a modifier of the response that is built from `e`, the argument of `Response::with`: an element
+ * of the tuple that `e` holds, or of a tuple that is nested in it. Iron applies the modifiers of a
+ * nested tuple to the same response.
+ */
+private Expr getAModifier(Expr e) {
+  exists(TupleExpr tuple, Expr element | holdsTuple(e, tuple) and element = tuple.getAField() |
+    result = element and not holdsTuple(element, _)
+    or
+    result = getAModifier(element)
+  )
+}
+
+/**
+ * Holds if the response that is built from `argument` has an explicit content type that is not markup:
+ * a modifier is parsed from a string literal that does not name HTML or XML, and no modifier of the
+ * response is parsed from a literal that does. Iron applies the modifiers in order, so a `text/html`
+ * modifier after a `text/plain` one replaces it, and a response whose content type can be markup is
+ * not safe. This also covers a content type that is parsed from different literals on different
+ * branches of an `if`.
+ */
+private predicate hasSafeContentType(Expr argument) {
   exists(ParsedStringLiteral safe |
-    isParsedFrom(modifier, safe) and
+    isParsedFrom(getAModifier(argument), safe) and
     not isMarkupContentType(safe)
   ) and
   not exists(ParsedStringLiteral markup |
-    isParsedFrom(modifier, markup) and
+    isParsedFrom(getAModifier(argument), markup) and
     isMarkupContentType(markup)
   )
 }
 
 /**
  * An element of a modifier tuple passed to `iron::Response::with`, such as `body` in
- * `Response::with((status::Ok, body))`.
+ * `Response::with((status::Ok, body))`, or of a tuple that is nested in it.
  *
- * Tuples that contain a content type modifier parsed from a string literal that does not name
- * HTML or XML set an explicit, safe `Content-Type` and are not considered sinks.
+ * A response whose modifiers include a content type that is parsed from a string literal that does not
+ * name HTML or XML, and none that does, has an explicit, safe `Content-Type` and is not considered a
+ * sink.
  */
 class IronResponseModifierTupleElement extends DataFlow::Node {
   IronResponseModifierTupleElement() {
-    exists(Call call, TupleExpr modifiers, Expr argument |
+    exists(Call call, Expr argument |
       call.getStaticTarget().getCanonicalPath() = "<iron::response::Response>::with" and
       argument = call.getPositionalArgument(0) and
-      exists(DataFlow::ExprNode tupleNode, DataFlow::ExprNode argumentNode |
-        tupleNode.asExpr() = modifiers and
-        argumentNode.asExpr() = argument and
-        DataFlow::localFlow(tupleNode, argumentNode)
-      ) and
-      this.asExpr() = modifiers.getAField() and
-      not exists(Expr modifier |
-        modifier = modifiers.getAField() and
-        isSafeContentType(modifier)
-      )
+      this.asExpr() = getAModifier(argument) and
+      not hasSafeContentType(argument)
     )
   }
 }
