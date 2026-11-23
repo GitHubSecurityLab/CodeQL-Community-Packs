@@ -134,6 +134,7 @@ nodes
 | test_ring.rs:16:43:16:52 | &key_bytes | semmle.label | &key_bytes |
 | test_ring.rs:16:44:16:52 | key_bytes | semmle.label | key_bytes |
 | test_ring.rs:20:49:20:76 | b"shared authentication key" | semmle.label | b"shared authentication key" |
+| test_ring.rs:30:61:30:91 | b"shared input keying material... | semmle.label | b"shared input keying material... |
 subpaths
 #select
 | test_aes.rs:5:34:5:87 | [...] | test_aes.rs:5:34:5:87 | [...] | test_aes.rs:7:30:7:33 | &key | This hard-coded value is used as $@. | test_aes.rs:7:30:7:33 | &key | a key |
@@ -154,3 +155,4 @@ subpaths
 | test_rand.rs:37:15:37:23 | [7u8; 32] | test_rand.rs:37:15:37:23 | [7u8; 32] | test_rand.rs:40:43:40:46 | &key | This hard-coded value is used as $@. | test_rand.rs:40:43:40:46 | &key | a key |
 | test_ring.rs:15:21:15:29 | [7u8; 32] | test_ring.rs:15:21:15:29 | [7u8; 32] | test_ring.rs:16:43:16:52 | &key_bytes | This hard-coded value is used as $@. | test_ring.rs:16:43:16:52 | &key_bytes | a key |
 | test_ring.rs:20:49:20:76 | b"shared authentication key" | test_ring.rs:20:49:20:76 | b"shared authentication key" | test_ring.rs:20:49:20:76 | b"shared authentication key" | This hard-coded value is used as $@. | test_ring.rs:20:49:20:76 | b"shared authentication key" | a key |
+| test_ring.rs:30:61:30:91 | b"shared input keying material... | test_ring.rs:30:61:30:91 | b"shared input keying material... | test_ring.rs:30:61:30:91 | b"shared input keying material... | This hard-coded value is used as $@. | test_ring.rs:30:61:30:91 | b"shared input keying material... | a key |

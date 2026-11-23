@@ -141,3 +141,10 @@ pub fn test_independent_nested_fill_helper_results() {
     // Independent outer calls must not share the inner fill_random() source.
     println!("request id = {}", hex::encode(request_id));
 }
+
+pub fn test_logged_hkdf_key() {
+    let mut key = [0u8; 32];
+    SystemRandom::new().fill(&mut key).unwrap(); // $ Source[rust/cleartext-logging-key-material]
+    println!("key = {}", hex::encode(key)); // $ Alert[rust/cleartext-logging-key-material]
+    let _ = ring::hkdf::Prk::new_less_safe(ring::hkdf::HKDF_SHA256, &key);
+}

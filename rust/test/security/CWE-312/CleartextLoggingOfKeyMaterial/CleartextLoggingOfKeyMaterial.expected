@@ -115,6 +115,12 @@ edges
 | test_ring.rs:127:38:127:40 | key | test_ring.rs:128:44:128:46 | key | provenance |  |
 | test_ring.rs:128:44:128:46 | key | test_ring.rs:128:43:128:46 | &key | provenance |  |
 | test_ring.rs:128:44:128:46 | key | test_ring.rs:128:43:128:46 | &key | provenance | Config |
+| test_ring.rs:147:35:147:37 | [post] key | test_ring.rs:148:38:148:40 | key | provenance |  |
+| test_ring.rs:148:26:148:41 | ...::encode(...) | test_ring.rs:148:14:148:41 | MacroExpr | provenance | Sink:MaD:141 |
+| test_ring.rs:148:38:148:40 | key | test_ring.rs:148:26:148:41 | ...::encode(...) | provenance | Config |
+| test_ring.rs:148:38:148:40 | key | test_ring.rs:149:70:149:72 | key | provenance |  |
+| test_ring.rs:149:70:149:72 | key | test_ring.rs:149:69:149:72 | &key | provenance |  |
+| test_ring.rs:149:70:149:72 | key | test_ring.rs:149:69:149:72 | &key | provenance | Config |
 nodes
 | test_aes.rs:7:31:7:39 | [post] key_bytes | semmle.label | [post] key_bytes |
 | test_aes.rs:8:11:8:42 | MacroExpr | semmle.label | MacroExpr |
@@ -239,6 +245,12 @@ nodes
 | test_ring.rs:127:38:127:40 | key | semmle.label | key |
 | test_ring.rs:128:43:128:46 | &key | semmle.label | &key |
 | test_ring.rs:128:44:128:46 | key | semmle.label | key |
+| test_ring.rs:147:35:147:37 | [post] key | semmle.label | [post] key |
+| test_ring.rs:148:14:148:41 | MacroExpr | semmle.label | MacroExpr |
+| test_ring.rs:148:26:148:41 | ...::encode(...) | semmle.label | ...::encode(...) |
+| test_ring.rs:148:38:148:40 | key | semmle.label | key |
+| test_ring.rs:149:69:149:72 | &key | semmle.label | &key |
+| test_ring.rs:149:70:149:72 | key | semmle.label | key |
 subpaths
 #select
 | test_aes.rs:8:11:8:42 | MacroExpr | test_aes.rs:7:31:7:39 | [post] key_bytes | test_aes.rs:8:11:8:42 | MacroExpr | This operation writes $@ to a log. | test_aes.rs:7:31:7:39 | [post] key_bytes | generated cryptographic key material |
@@ -252,3 +264,4 @@ subpaths
 | test_ring.rs:69:14:69:41 | MacroExpr | test_ring.rs:68:15:68:28 | random_bytes(...) | test_ring.rs:69:14:69:41 | MacroExpr | This operation writes $@ to a log. | test_ring.rs:68:15:68:28 | random_bytes(...) | generated cryptographic key material |
 | test_ring.rs:99:14:99:41 | MacroExpr | test_ring.rs:98:15:98:48 | explicitly_returned_random_bytes(...) | test_ring.rs:99:14:99:41 | MacroExpr | This operation writes $@ to a log. | test_ring.rs:98:15:98:48 | explicitly_returned_random_bytes(...) | generated cryptographic key material |
 | test_ring.rs:127:14:127:41 | MacroExpr | test_ring.rs:126:22:126:24 | [post] key | test_ring.rs:127:14:127:41 | MacroExpr | This operation writes $@ to a log. | test_ring.rs:126:22:126:24 | [post] key | generated cryptographic key material |
+| test_ring.rs:148:14:148:41 | MacroExpr | test_ring.rs:147:35:147:37 | [post] key | test_ring.rs:148:14:148:41 | MacroExpr | This operation writes $@ to a log. | test_ring.rs:147:35:147:37 | [post] key | generated cryptographic key material |

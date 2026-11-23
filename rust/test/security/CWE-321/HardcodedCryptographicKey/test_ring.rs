@@ -25,3 +25,11 @@ pub fn test_ring_hmac_good(key_value: &[u8], msg: &[u8]) -> hmac::Tag {
     let key = hmac::Key::new(hmac::HMAC_SHA256, key_value);
     hmac::sign(&key, msg)
 }
+
+pub fn test_ring_hkdf_bad() -> ring::hkdf::Prk {
+    ring::hkdf::Prk::new_less_safe(ring::hkdf::HKDF_SHA256, b"shared input keying material") // $ Alert[rust/hardcoded-cryptographic-key]
+}
+
+pub fn test_ring_hkdf_good(key_value: &[u8]) -> ring::hkdf::Prk {
+    ring::hkdf::Prk::new_less_safe(ring::hkdf::HKDF_SHA256, key_value)
+}
