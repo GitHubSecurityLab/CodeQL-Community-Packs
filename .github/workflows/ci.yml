@@ -155,8 +155,11 @@ jobs:
               slices = [(1, 1, [str(p) for p in targeted_qlrefs])]
             else:
               print(f"Executing tests found (recursively) in the directory '{test_root}'")
-              # Runners have 4 cores, so split the tests into 4 "slices", and run one per thread
-              num_slices = 4
+              # Runners have 4 cores, so split the tests into 4 "slices", and run one per thread. The Rust extractor
+              # installs the toolchain that it needs with rustup on demand, so slices that start together download it
+              # into the same ~/.rustup at once and one of them fails at extraction. Rust runs a single slice, which
+              # extracts its test directories one after the other.
+              num_slices = 1 if language == "rust" else 4
               slices = [(n, num_slices, [f"--slice={n}/{num_slices}", str(test_root)]) for n in range(1, num_slices+1)]
 
             procs = []
