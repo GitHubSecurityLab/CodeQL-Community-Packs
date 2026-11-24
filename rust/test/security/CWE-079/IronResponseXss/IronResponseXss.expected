@@ -1,4 +1,76 @@
 edges
+| glob_prelude.rs:9:16:9:32 | ...: ... | glob_prelude.rs:10:15:10:17 | req | provenance |  |
+| glob_prelude.rs:10:9:10:11 | res | glob_prelude.rs:11:28:11:55 | MacroExpr | provenance |  |
+| glob_prelude.rs:10:15:10:17 | req | glob_prelude.rs:10:15:10:21 | req.url | provenance | Config |
+| glob_prelude.rs:10:15:10:21 | req.url | glob_prelude.rs:10:15:10:28 | ... .path() | provenance | Config |
+| glob_prelude.rs:10:15:10:28 | ... .path() | glob_prelude.rs:10:9:10:11 | res | provenance |  |
+| glob_prelude.rs:11:9:11:16 | response | glob_prelude.rs:13:36:13:43 | response | provenance |  |
+| glob_prelude.rs:11:28:11:55 | ...::format(...) | glob_prelude.rs:11:28:11:55 | { ... } | provenance |  |
+| glob_prelude.rs:11:28:11:55 | ...::must_use(...) | glob_prelude.rs:11:9:11:16 | response | provenance |  |
+| glob_prelude.rs:11:28:11:55 | MacroExpr | glob_prelude.rs:11:28:11:55 | ...::format(...) | provenance | MaD:371 |
+| glob_prelude.rs:11:28:11:55 | { ... } | glob_prelude.rs:11:28:11:55 | ...::must_use(...) | provenance | MaD:13380 |
+| glob_prelude.rs:16:26:16:42 | ...: ... | glob_prelude.rs:17:15:17:17 | req | provenance |  |
+| glob_prelude.rs:17:9:17:11 | res | glob_prelude.rs:19:31:19:48 | MacroExpr | provenance |  |
+| glob_prelude.rs:17:15:17:17 | req | glob_prelude.rs:17:15:17:21 | req.url | provenance | Config |
+| glob_prelude.rs:17:15:17:21 | req.url | glob_prelude.rs:17:15:17:28 | ... .path() | provenance | Config |
+| glob_prelude.rs:17:15:17:28 | ... .path() | glob_prelude.rs:17:9:17:11 | res | provenance |  |
+| glob_prelude.rs:19:31:19:48 | ...::format(...) | glob_prelude.rs:19:31:19:48 | { ... } | provenance |  |
+| glob_prelude.rs:19:31:19:48 | ...::must_use(...) | glob_prelude.rs:19:23:19:49 | MacroExpr | provenance |  |
+| glob_prelude.rs:19:31:19:48 | MacroExpr | glob_prelude.rs:19:31:19:48 | ...::format(...) | provenance | MaD:371 |
+| glob_prelude.rs:19:31:19:48 | { ... } | glob_prelude.rs:19:31:19:48 | ...::must_use(...) | provenance | MaD:13380 |
+| glob_prelude.rs:22:28:22:44 | ...: ... | glob_prelude.rs:23:15:23:17 | req | provenance |  |
+| glob_prelude.rs:23:9:23:11 | res | glob_prelude.rs:24:28:24:47 | MacroExpr | provenance |  |
+| glob_prelude.rs:23:15:23:17 | req | glob_prelude.rs:23:15:23:21 | req.url | provenance | Config |
+| glob_prelude.rs:23:15:23:21 | req.url | glob_prelude.rs:23:15:23:28 | ... .path() | provenance | Config |
+| glob_prelude.rs:23:15:23:28 | ... .path() | glob_prelude.rs:23:9:23:11 | res | provenance |  |
+| glob_prelude.rs:24:9:24:16 | response | glob_prelude.rs:26:34:26:41 | response | provenance |  |
+| glob_prelude.rs:24:28:24:47 | ...::format(...) | glob_prelude.rs:24:28:24:47 | { ... } | provenance |  |
+| glob_prelude.rs:24:28:24:47 | ...::must_use(...) | glob_prelude.rs:24:9:24:16 | response | provenance |  |
+| glob_prelude.rs:24:28:24:47 | MacroExpr | glob_prelude.rs:24:28:24:47 | ...::format(...) | provenance | MaD:371 |
+| glob_prelude.rs:24:28:24:47 | { ... } | glob_prelude.rs:24:28:24:47 | ...::must_use(...) | provenance | MaD:13380 |
+| glob_prelude.rs:30:29:30:45 | ...: ... | glob_prelude.rs:31:15:31:17 | req | provenance |  |
+| glob_prelude.rs:31:9:31:11 | res | glob_prelude.rs:32:28:32:47 | MacroExpr | provenance |  |
+| glob_prelude.rs:31:15:31:17 | req | glob_prelude.rs:31:15:31:21 | req.url | provenance | Config |
+| glob_prelude.rs:31:15:31:21 | req.url | glob_prelude.rs:31:15:31:28 | ... .path() | provenance | Config |
+| glob_prelude.rs:31:15:31:28 | ... .path() | glob_prelude.rs:31:9:31:11 | res | provenance |  |
+| glob_prelude.rs:32:9:32:16 | response | glob_prelude.rs:34:49:34:56 | response | provenance |  |
+| glob_prelude.rs:32:28:32:47 | ...::format(...) | glob_prelude.rs:32:28:32:47 | { ... } | provenance |  |
+| glob_prelude.rs:32:28:32:47 | ...::must_use(...) | glob_prelude.rs:32:9:32:16 | response | provenance |  |
+| glob_prelude.rs:32:28:32:47 | MacroExpr | glob_prelude.rs:32:28:32:47 | ...::format(...) | provenance | MaD:371 |
+| glob_prelude.rs:32:28:32:47 | { ... } | glob_prelude.rs:32:28:32:47 | ...::must_use(...) | provenance | MaD:13380 |
+| glob_prelude.rs:37:22:37:38 | ...: ... | glob_prelude.rs:38:17:38:19 | req | provenance |  |
+| glob_prelude.rs:38:9:38:13 | query | glob_prelude.rs:39:28:39:45 | MacroExpr | provenance |  |
+| glob_prelude.rs:38:17:38:19 | req | glob_prelude.rs:38:17:38:23 | req.url | provenance | Config |
+| glob_prelude.rs:38:17:38:23 | req.url | glob_prelude.rs:38:17:38:31 | ... .query() | provenance | Config |
+| glob_prelude.rs:38:17:38:31 | ... .query() | glob_prelude.rs:38:17:38:45 | ... .unwrap_or(...) | provenance | Config |
+| glob_prelude.rs:38:17:38:45 | ... .unwrap_or(...) | glob_prelude.rs:38:9:38:13 | query | provenance |  |
+| glob_prelude.rs:39:9:39:16 | response | glob_prelude.rs:41:36:41:43 | response | provenance |  |
+| glob_prelude.rs:39:28:39:45 | ...::format(...) | glob_prelude.rs:39:28:39:45 | { ... } | provenance |  |
+| glob_prelude.rs:39:28:39:45 | ...::must_use(...) | glob_prelude.rs:39:9:39:16 | response | provenance |  |
+| glob_prelude.rs:39:28:39:45 | MacroExpr | glob_prelude.rs:39:28:39:45 | ...::format(...) | provenance | MaD:371 |
+| glob_prelude.rs:39:28:39:45 | { ... } | glob_prelude.rs:39:28:39:45 | ...::must_use(...) | provenance | MaD:13380 |
+| glob_prelude.rs:44:25:44:41 | ...: ... | glob_prelude.rs:45:16:45:18 | req | provenance |  |
+| glob_prelude.rs:45:9:45:12 | path | glob_prelude.rs:46:16:46:19 | path | provenance |  |
+| glob_prelude.rs:45:16:45:18 | req | glob_prelude.rs:45:16:45:22 | req.url | provenance | Config |
+| glob_prelude.rs:45:16:45:22 | req.url | glob_prelude.rs:45:16:45:29 | ... .path() | provenance | Config |
+| glob_prelude.rs:45:16:45:29 | ... .path() | glob_prelude.rs:45:9:45:12 | path | provenance |  |
+| glob_prelude.rs:46:9:46:12 | path | glob_prelude.rs:47:28:47:46 | MacroExpr | provenance |  |
+| glob_prelude.rs:46:16:46:19 | path | glob_prelude.rs:46:16:46:29 | path.join(...) | provenance | Config |
+| glob_prelude.rs:46:16:46:29 | path.join(...) | glob_prelude.rs:46:9:46:12 | path | provenance |  |
+| glob_prelude.rs:47:9:47:16 | response | glob_prelude.rs:49:36:49:43 | response | provenance |  |
+| glob_prelude.rs:47:28:47:46 | ...::format(...) | glob_prelude.rs:47:28:47:46 | { ... } | provenance |  |
+| glob_prelude.rs:47:28:47:46 | ...::must_use(...) | glob_prelude.rs:47:9:47:16 | response | provenance |  |
+| glob_prelude.rs:47:28:47:46 | MacroExpr | glob_prelude.rs:47:28:47:46 | ...::format(...) | provenance | MaD:371 |
+| glob_prelude.rs:47:28:47:46 | { ... } | glob_prelude.rs:47:28:47:46 | ...::must_use(...) | provenance | MaD:13380 |
+| glob_prelude.rs:109:16:109:32 | ...: ... | glob_prelude.rs:111:20:111:22 | req | provenance |  |
+| glob_prelude.rs:111:13:111:16 | name | glob_prelude.rs:112:48:112:68 | MacroExpr | provenance |  |
+| glob_prelude.rs:111:20:111:22 | req | glob_prelude.rs:111:20:111:26 | req.url | provenance | Config |
+| glob_prelude.rs:111:20:111:26 | req.url | glob_prelude.rs:111:20:111:33 | ... .path() | provenance | Config |
+| glob_prelude.rs:111:20:111:33 | ... .path() | glob_prelude.rs:111:13:111:16 | name | provenance |  |
+| glob_prelude.rs:112:48:112:68 | ...::format(...) | glob_prelude.rs:112:48:112:68 | { ... } | provenance |  |
+| glob_prelude.rs:112:48:112:68 | ...::must_use(...) | glob_prelude.rs:112:40:112:69 | MacroExpr | provenance |  |
+| glob_prelude.rs:112:48:112:68 | MacroExpr | glob_prelude.rs:112:48:112:68 | ...::format(...) | provenance | MaD:371 |
+| glob_prelude.rs:112:48:112:68 | { ... } | glob_prelude.rs:112:48:112:68 | ...::must_use(...) | provenance | MaD:13380 |
 | main.rs:5:16:5:32 | ...: ... | main.rs:6:15:6:21 | req.url | provenance |  |
 | main.rs:6:9:6:11 | res | main.rs:8:28:8:68 | MacroExpr | provenance |  |
 | main.rs:6:15:6:21 | req.url | main.rs:6:15:6:28 | ... .path() | provenance | MaD:17587 |
@@ -89,7 +161,95 @@ edges
 | main.rs:132:15:132:38 | bad_nested_tuple_handler | main.rs:89:29:89:45 | ...: ... | provenance | Src:MaD:17584  |
 | main.rs:133:15:133:41 | bad_overriding_mime_handler | main.rs:104:32:104:48 | ...: ... | provenance | Src:MaD:17584  |
 | main.rs:135:15:135:44 | bad_nested_named_tuple_handler | main.rs:96:35:96:51 | ...: ... | provenance | Src:MaD:17584  |
+| main.rs:149:29:149:45 | ...: ... | main.rs:150:15:150:21 | req.url | provenance |  |
+| main.rs:150:9:150:11 | res | main.rs:151:28:151:55 | MacroExpr | provenance |  |
+| main.rs:150:15:150:21 | req.url | main.rs:150:15:150:28 | ... .path() | provenance | MaD:17587 |
+| main.rs:150:15:150:28 | ... .path() | main.rs:150:9:150:11 | res | provenance |  |
+| main.rs:151:9:151:16 | response | main.rs:154:36:154:43 | response | provenance |  |
+| main.rs:151:28:151:55 | ...::format(...) | main.rs:151:28:151:55 | { ... } | provenance |  |
+| main.rs:151:28:151:55 | ...::must_use(...) | main.rs:151:9:151:16 | response | provenance |  |
+| main.rs:151:28:151:55 | MacroExpr | main.rs:151:28:151:55 | ...::format(...) | provenance | MaD:371 |
+| main.rs:151:28:151:55 | { ... } | main.rs:151:28:151:55 | ...::must_use(...) | provenance | MaD:13380 |
 nodes
+| glob_prelude.rs:9:16:9:32 | ...: ... | semmle.label | ...: ... |
+| glob_prelude.rs:10:9:10:11 | res | semmle.label | res |
+| glob_prelude.rs:10:15:10:17 | req | semmle.label | req |
+| glob_prelude.rs:10:15:10:21 | req.url | semmle.label | req.url |
+| glob_prelude.rs:10:15:10:28 | ... .path() | semmle.label | ... .path() |
+| glob_prelude.rs:11:9:11:16 | response | semmle.label | response |
+| glob_prelude.rs:11:28:11:55 | ...::format(...) | semmle.label | ...::format(...) |
+| glob_prelude.rs:11:28:11:55 | ...::must_use(...) | semmle.label | ...::must_use(...) |
+| glob_prelude.rs:11:28:11:55 | MacroExpr | semmle.label | MacroExpr |
+| glob_prelude.rs:11:28:11:55 | { ... } | semmle.label | { ... } |
+| glob_prelude.rs:13:36:13:43 | response | semmle.label | response |
+| glob_prelude.rs:16:26:16:42 | ...: ... | semmle.label | ...: ... |
+| glob_prelude.rs:17:9:17:11 | res | semmle.label | res |
+| glob_prelude.rs:17:15:17:17 | req | semmle.label | req |
+| glob_prelude.rs:17:15:17:21 | req.url | semmle.label | req.url |
+| glob_prelude.rs:17:15:17:28 | ... .path() | semmle.label | ... .path() |
+| glob_prelude.rs:19:23:19:49 | MacroExpr | semmle.label | MacroExpr |
+| glob_prelude.rs:19:31:19:48 | ...::format(...) | semmle.label | ...::format(...) |
+| glob_prelude.rs:19:31:19:48 | ...::must_use(...) | semmle.label | ...::must_use(...) |
+| glob_prelude.rs:19:31:19:48 | MacroExpr | semmle.label | MacroExpr |
+| glob_prelude.rs:19:31:19:48 | { ... } | semmle.label | { ... } |
+| glob_prelude.rs:22:28:22:44 | ...: ... | semmle.label | ...: ... |
+| glob_prelude.rs:23:9:23:11 | res | semmle.label | res |
+| glob_prelude.rs:23:15:23:17 | req | semmle.label | req |
+| glob_prelude.rs:23:15:23:21 | req.url | semmle.label | req.url |
+| glob_prelude.rs:23:15:23:28 | ... .path() | semmle.label | ... .path() |
+| glob_prelude.rs:24:9:24:16 | response | semmle.label | response |
+| glob_prelude.rs:24:28:24:47 | ...::format(...) | semmle.label | ...::format(...) |
+| glob_prelude.rs:24:28:24:47 | ...::must_use(...) | semmle.label | ...::must_use(...) |
+| glob_prelude.rs:24:28:24:47 | MacroExpr | semmle.label | MacroExpr |
+| glob_prelude.rs:24:28:24:47 | { ... } | semmle.label | { ... } |
+| glob_prelude.rs:26:34:26:41 | response | semmle.label | response |
+| glob_prelude.rs:30:29:30:45 | ...: ... | semmle.label | ...: ... |
+| glob_prelude.rs:31:9:31:11 | res | semmle.label | res |
+| glob_prelude.rs:31:15:31:17 | req | semmle.label | req |
+| glob_prelude.rs:31:15:31:21 | req.url | semmle.label | req.url |
+| glob_prelude.rs:31:15:31:28 | ... .path() | semmle.label | ... .path() |
+| glob_prelude.rs:32:9:32:16 | response | semmle.label | response |
+| glob_prelude.rs:32:28:32:47 | ...::format(...) | semmle.label | ...::format(...) |
+| glob_prelude.rs:32:28:32:47 | ...::must_use(...) | semmle.label | ...::must_use(...) |
+| glob_prelude.rs:32:28:32:47 | MacroExpr | semmle.label | MacroExpr |
+| glob_prelude.rs:32:28:32:47 | { ... } | semmle.label | { ... } |
+| glob_prelude.rs:34:49:34:56 | response | semmle.label | response |
+| glob_prelude.rs:37:22:37:38 | ...: ... | semmle.label | ...: ... |
+| glob_prelude.rs:38:9:38:13 | query | semmle.label | query |
+| glob_prelude.rs:38:17:38:19 | req | semmle.label | req |
+| glob_prelude.rs:38:17:38:23 | req.url | semmle.label | req.url |
+| glob_prelude.rs:38:17:38:31 | ... .query() | semmle.label | ... .query() |
+| glob_prelude.rs:38:17:38:45 | ... .unwrap_or(...) | semmle.label | ... .unwrap_or(...) |
+| glob_prelude.rs:39:9:39:16 | response | semmle.label | response |
+| glob_prelude.rs:39:28:39:45 | ...::format(...) | semmle.label | ...::format(...) |
+| glob_prelude.rs:39:28:39:45 | ...::must_use(...) | semmle.label | ...::must_use(...) |
+| glob_prelude.rs:39:28:39:45 | MacroExpr | semmle.label | MacroExpr |
+| glob_prelude.rs:39:28:39:45 | { ... } | semmle.label | { ... } |
+| glob_prelude.rs:41:36:41:43 | response | semmle.label | response |
+| glob_prelude.rs:44:25:44:41 | ...: ... | semmle.label | ...: ... |
+| glob_prelude.rs:45:9:45:12 | path | semmle.label | path |
+| glob_prelude.rs:45:16:45:18 | req | semmle.label | req |
+| glob_prelude.rs:45:16:45:22 | req.url | semmle.label | req.url |
+| glob_prelude.rs:45:16:45:29 | ... .path() | semmle.label | ... .path() |
+| glob_prelude.rs:46:9:46:12 | path | semmle.label | path |
+| glob_prelude.rs:46:16:46:19 | path | semmle.label | path |
+| glob_prelude.rs:46:16:46:29 | path.join(...) | semmle.label | path.join(...) |
+| glob_prelude.rs:47:9:47:16 | response | semmle.label | response |
+| glob_prelude.rs:47:28:47:46 | ...::format(...) | semmle.label | ...::format(...) |
+| glob_prelude.rs:47:28:47:46 | ...::must_use(...) | semmle.label | ...::must_use(...) |
+| glob_prelude.rs:47:28:47:46 | MacroExpr | semmle.label | MacroExpr |
+| glob_prelude.rs:47:28:47:46 | { ... } | semmle.label | { ... } |
+| glob_prelude.rs:49:36:49:43 | response | semmle.label | response |
+| glob_prelude.rs:109:16:109:32 | ...: ... | semmle.label | ...: ... |
+| glob_prelude.rs:111:13:111:16 | name | semmle.label | name |
+| glob_prelude.rs:111:20:111:22 | req | semmle.label | req |
+| glob_prelude.rs:111:20:111:26 | req.url | semmle.label | req.url |
+| glob_prelude.rs:111:20:111:33 | ... .path() | semmle.label | ... .path() |
+| glob_prelude.rs:112:40:112:69 | MacroExpr | semmle.label | MacroExpr |
+| glob_prelude.rs:112:48:112:68 | ...::format(...) | semmle.label | ...::format(...) |
+| glob_prelude.rs:112:48:112:68 | ...::must_use(...) | semmle.label | ...::must_use(...) |
+| glob_prelude.rs:112:48:112:68 | MacroExpr | semmle.label | MacroExpr |
+| glob_prelude.rs:112:48:112:68 | { ... } | semmle.label | { ... } |
 | main.rs:5:16:5:32 | ...: ... | semmle.label | ...: ... |
 | main.rs:6:9:6:11 | res | semmle.label | res |
 | main.rs:6:15:6:21 | req.url | semmle.label | req.url |
@@ -189,8 +349,25 @@ nodes
 | main.rs:132:15:132:38 | bad_nested_tuple_handler | semmle.label | bad_nested_tuple_handler |
 | main.rs:133:15:133:41 | bad_overriding_mime_handler | semmle.label | bad_overriding_mime_handler |
 | main.rs:135:15:135:44 | bad_nested_named_tuple_handler | semmle.label | bad_nested_named_tuple_handler |
+| main.rs:149:29:149:45 | ...: ... | semmle.label | ...: ... |
+| main.rs:150:9:150:11 | res | semmle.label | res |
+| main.rs:150:15:150:21 | req.url | semmle.label | req.url |
+| main.rs:150:15:150:28 | ... .path() | semmle.label | ... .path() |
+| main.rs:151:9:151:16 | response | semmle.label | response |
+| main.rs:151:28:151:55 | ...::format(...) | semmle.label | ...::format(...) |
+| main.rs:151:28:151:55 | ...::must_use(...) | semmle.label | ...::must_use(...) |
+| main.rs:151:28:151:55 | MacroExpr | semmle.label | MacroExpr |
+| main.rs:151:28:151:55 | { ... } | semmle.label | { ... } |
+| main.rs:154:36:154:43 | response | semmle.label | response |
 subpaths
 #select
+| glob_prelude.rs:13:36:13:43 | response | glob_prelude.rs:9:16:9:32 | ...: ... | glob_prelude.rs:13:36:13:43 | response | Cross-site scripting vulnerability due to a $@. | glob_prelude.rs:9:16:9:32 | ...: ... | user-provided value |
+| glob_prelude.rs:19:23:19:49 | MacroExpr | glob_prelude.rs:16:26:16:42 | ...: ... | glob_prelude.rs:19:23:19:49 | MacroExpr | Cross-site scripting vulnerability due to a $@. | glob_prelude.rs:16:26:16:42 | ...: ... | user-provided value |
+| glob_prelude.rs:26:34:26:41 | response | glob_prelude.rs:22:28:22:44 | ...: ... | glob_prelude.rs:26:34:26:41 | response | Cross-site scripting vulnerability due to a $@. | glob_prelude.rs:22:28:22:44 | ...: ... | user-provided value |
+| glob_prelude.rs:34:49:34:56 | response | glob_prelude.rs:30:29:30:45 | ...: ... | glob_prelude.rs:34:49:34:56 | response | Cross-site scripting vulnerability due to a $@. | glob_prelude.rs:30:29:30:45 | ...: ... | user-provided value |
+| glob_prelude.rs:41:36:41:43 | response | glob_prelude.rs:37:22:37:38 | ...: ... | glob_prelude.rs:41:36:41:43 | response | Cross-site scripting vulnerability due to a $@. | glob_prelude.rs:37:22:37:38 | ...: ... | user-provided value |
+| glob_prelude.rs:49:36:49:43 | response | glob_prelude.rs:44:25:44:41 | ...: ... | glob_prelude.rs:49:36:49:43 | response | Cross-site scripting vulnerability due to a $@. | glob_prelude.rs:44:25:44:41 | ...: ... | user-provided value |
+| glob_prelude.rs:112:40:112:69 | MacroExpr | glob_prelude.rs:109:16:109:32 | ...: ... | glob_prelude.rs:112:40:112:69 | MacroExpr | Cross-site scripting vulnerability due to a $@. | glob_prelude.rs:109:16:109:32 | ...: ... | user-provided value |
 | main.rs:9:36:9:43 | response | main.rs:122:15:122:25 | bad_handler | main.rs:9:36:9:43 | response | Cross-site scripting vulnerability due to a $@. | main.rs:122:15:122:25 | bad_handler | user-provided value |
 | main.rs:48:40:48:47 | response | main.rs:127:15:127:36 | ...::handler | main.rs:48:40:48:47 | response | Cross-site scripting vulnerability due to a $@. | main.rs:127:15:127:36 | ...::handler | user-provided value |
 | main.rs:56:34:56:41 | response | main.rs:128:15:128:37 | bad_named_tuple_handler | main.rs:56:34:56:41 | response | Cross-site scripting vulnerability due to a $@. | main.rs:128:15:128:37 | bad_named_tuple_handler | user-provided value |
@@ -200,3 +377,4 @@ subpaths
 | main.rs:93:49:93:56 | response | main.rs:132:15:132:38 | bad_nested_tuple_handler | main.rs:93:49:93:56 | response | Cross-site scripting vulnerability due to a $@. | main.rs:132:15:132:38 | bad_nested_tuple_handler | user-provided value |
 | main.rs:100:30:100:37 | response | main.rs:135:15:135:44 | bad_nested_named_tuple_handler | main.rs:100:30:100:37 | response | Cross-site scripting vulnerability due to a $@. | main.rs:135:15:135:44 | bad_nested_named_tuple_handler | user-provided value |
 | main.rs:110:49:110:56 | response | main.rs:133:15:133:41 | bad_overriding_mime_handler | main.rs:110:49:110:56 | response | Cross-site scripting vulnerability due to a $@. | main.rs:133:15:133:41 | bad_overriding_mime_handler | user-provided value |
+| main.rs:154:36:154:43 | response | main.rs:149:29:149:45 | ...: ... | main.rs:154:36:154:43 | response | Cross-site scripting vulnerability due to a $@. | main.rs:149:29:149:45 | ...: ... | user-provided value |

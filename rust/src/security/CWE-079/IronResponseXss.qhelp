@@ -18,6 +18,17 @@ whose modifiers include a content type parsed from a string literal that does no
 XML, such as <code>"text/plain".parse::&lt;Mime&gt;().unwrap()</code>, and none that does, is not
 reported.
 </p>
+<p>
+A database that is built without compiling the code can leave the calls into Iron without a target,
+when the names come from a glob import such as <code>use iron::prelude::*</code>. In a file that
+uses <code>iron</code>, the query also recognizes these calls by name. A function or closure with a
+parameter of type <code>Request</code>, <code>&amp;Request</code> or <code>&amp;mut Request</code> is
+a source, the <code>url</code>, <code>headers</code>, <code>body</code> and <code>extensions</code>
+fields of the request and the methods that are called on it are followed, and a call of
+<code>Response::with</code> that has no target is a sink. For such a call, a body that is passed on its
+own, as in <code>Response::with(body)</code>, is a sink as well, because a body that is set on its own
+has no content type.
+</p>
 </overview>
 
 <recommendation>
@@ -55,6 +66,15 @@ not try to tell which of two content types wins.
 The sinks are the expressions that a modifier tuple is built from, so a tuple that is changed after it
 is built, for example by assigning a body to one of its fields (<code>modifiers.1 = body;</code>), is
 not tracked.
+</p>
+<p>
+When the calls have no target, the query goes by names and only looks at files that use
+<code>iron</code>. It follows the result of every method that is called on the request and has no
+target, except for a few that only tell a property of the value, such as <code>len</code> and
+<code>is_empty</code>, and for names that contain <code>escape</code> or <code>encode</code>, which are
+taken to encode the value. A method that encodes the value under another name is not recognized as a
+barrier. A parameter is recognized by the name of its type, so it can be a type of another crate that
+has the same name.
 </p>
 </section>
 

@@ -19,6 +19,7 @@ import rust
 import codeql.rust.dataflow.DataFlow
 import codeql.rust.dataflow.TaintTracking
 import codeql.rust.security.XssExtensions
+import common.IronFallback
 
 /**
  * A string literal that is parsed, such as the `"text/plain"` of
@@ -108,6 +109,9 @@ private predicate hasSafeContentType(Expr argument) {
  * An element of a modifier tuple passed to `iron::Response::with`, such as `body` in
  * `Response::with((status::Ok, body))`, or of a tuple that is nested in it.
  *
+ * A call of `Response::with` that cannot be resolved is matched by its name in a file that uses `iron`
+ * (see `common.IronFallback`).
+ *
  * A response whose modifiers include a content type that is parsed from a string literal that does not
  * name HTML or XML, and none that does, has an explicit, safe `Content-Type` and is not considered a
  * sink.
@@ -115,7 +119,11 @@ private predicate hasSafeContentType(Expr argument) {
 class IronResponseModifierTupleElement extends DataFlow::Node {
   IronResponseModifierTupleElement() {
     exists(Call call, Expr argument |
-      call.getStaticTarget().getCanonicalPath() = "<iron::response::Response>::with" and
+      (
+        call.getStaticTarget().getCanonicalPath() = "<iron::response::Response>::with"
+        or
+        isUnresolvedIronResponseWith(call)
+      ) and
       argument = call.getPositionalArgument(0) and
       this.asExpr() = getAModifier(argument) and
       not hasSafeContentType(argument)
@@ -123,12 +131,37 @@ class IronResponseModifierTupleElement extends DataFlow::Node {
   }
 }
 
-module IronResponseXssConfig implements DataFlow::ConfigSig {
-  predicate isSource(DataFlow::Node node) { node instanceof Xss::Source }
+/**
+ * The argument of a call of `Response::with` that has no target, when it is a body on its own and not a
+ * tuple of modifiers. A call that can be resolved is covered by the data extension row for the same
+ * function, which the standard cross-site scripting query uses, and a body that is set on its own has no
+ * content type.
+ */
+class IronUnresolvedResponseBody extends DataFlow::Node {
+  IronUnresolvedResponseBody() {
+    exists(Call call, Expr argument |
+      isUnresolvedIronResponseWith(call) and
+      argument = call.getPositionalArgument(0) and
+      not holdsTuple(argument, _) and
+      this.asExpr() = argument
+    )
+  }
+}
 
-  predicate isSink(DataFlow::Node node) { node instanceof IronResponseModifierTupleElement }
+module IronResponseXssConfig implements DataFlow::ConfigSig {
+  predicate isSource(DataFlow::Node node) {
+    node instanceof Xss::Source or node instanceof IronRequestParameter
+  }
+
+  predicate isSink(DataFlow::Node node) {
+    node instanceof IronResponseModifierTupleElement or node instanceof IronUnresolvedResponseBody
+  }
 
   predicate isBarrier(DataFlow::Node barrier) { barrier instanceof Xss::Barrier }
+
+  predicate isAdditionalFlowStep(DataFlow::Node pred, DataFlow::Node succ) {
+    ironUnresolvedStep(pred, succ)
+  }
 
   predicate observeDiffInformedIncrementalMode() { any() }
 }
@@ -138,6 +171,16 @@ module IronResponseXssFlow = TaintTracking::Global<IronResponseXssConfig>;
 import IronResponseXssFlow::PathGraph
 
 from IronResponseXssFlow::PathNode sourceNode, IronResponseXssFlow::PathNode sinkNode
-where IronResponseXssFlow::flowPath(sourceNode, sinkNode)
+where
+  IronResponseXssFlow::flowPath(sourceNode, sinkNode) and
+  // A handler that the data extension rows already make a source is reported through that source.
+  not (
+    sourceNode.getNode() instanceof IronRequestParameter and
+    not sourceNode.getNode() instanceof Xss::Source and
+    exists(IronResponseXssFlow::PathNode modelled |
+      IronResponseXssFlow::flowPath(modelled, sinkNode) and
+      modelled.getNode() instanceof Xss::Source
+    )
+  )
 select sinkNode.getNode(), sourceNode, sinkNode, "Cross-site scripting vulnerability due to a $@.",
   sourceNode.getNode(), "user-provided value"
