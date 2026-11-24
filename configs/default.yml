@@ -15,6 +15,8 @@ packs:
   - githubsecuritylab/codeql-javascript-queries
   # Python
   - githubsecuritylab/codeql-python-queries
+  # Rust
+  - githubsecuritylab/codeql-rust-queries
   # Ruby
   - githubsecuritylab/codeql-ruby-queries
 
@@ -25,3 +27,4 @@ packs:
   # Data extensions via Community Packs https://github.com/GitHubSecurityLab/CodeQL-Community-Packs
   - githubsecuritylab/codeql-csharp-extensions
   - githubsecuritylab/codeql-java-extensions
+  - githubsecuritylab/codeql-rust-extensions
