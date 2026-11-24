@@ -19,6 +19,7 @@ packs:
     - codeql/java-queries:.
     - codeql/javascript-queries:.
     - codeql/python-queries:.
+    - codeql/rust-queries:.
     - codeql/ruby-queries:.
     - codeql/swift-queries:.
 
@@ -33,6 +34,7 @@ packs:
     - githubsecuritylab/codeql-java-queries
     - githubsecuritylab/codeql-javascript-queries
     - githubsecuritylab/codeql-python-queries
+    - githubsecuritylab/codeql-rust-queries
     - githubsecuritylab/codeql-ruby-queries
 
     # Queries via Community Packs that use local sources https://github.com/GitHubSecurityLab/CodeQL-Community-Packs
@@ -48,6 +50,7 @@ packs:
     - githubsecuritylab/codeql-go-extensions
     - githubsecuritylab/codeql-java-extensions
     - githubsecuritylab/codeql-python-extensions
+    - githubsecuritylab/codeql-rust-extensions
 
     ### Trail of Bits ###
     # Queris via packs: https://github.com/trailofbits/codeql-queries  (default suites include security + crypto

@@ -1,0 +1,13 @@
+- description: "GitHub Security Lab's Rust Audit Suite"
+
+- queries: '.'
+  from: githubsecuritylab/codeql-rust-queries
+
+- include:
+    kind:
+      - problem
+      - path-problem
+      - metric
+      - diagnostic
+    tags contain:
+      - audit

@@ -19,11 +19,11 @@ The `audit.yml` configuration is used primarily to conduct a security assessment
 These are based on the suite in each language suites folder called `{LANG}-audit.qls`
 
 > [!NOTE]
-> Ruby, Actions, Rust, and Swift do not currently have audit suites in this configuration.
+> Ruby, Actions, and Swift do not currently have audit suites in this configuration.
 
 ## [Hardcoded credentials](hardcoded-credentials.yml)
 
-Adds 12 built-in and 12 community credential/password queries across seven languages
+Adds 12 built-in and 13 community credential/password queries across eight languages
 to the standard code-scanning scan. Packs are downloaded automatically, and explicit
 query paths avoid running entire community default suites. No global query filters
 restrict the standard scan.

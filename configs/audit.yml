@@ -17,6 +17,9 @@ packs:
   - githubsecuritylab/codeql-javascript-queries:suites/javascript-audit.qls
   # Python
   - githubsecuritylab/codeql-python-queries:suites/python-audit.qls
+  # Rust
+  - githubsecuritylab/codeql-rust-queries:suites/rust-audit.qls
+  - githubsecuritylab/codeql-rust-extensions
   # Ruby
   # - githubsecuritylab/codeql-ruby-queries:suites/ruby-audit.qls
 
