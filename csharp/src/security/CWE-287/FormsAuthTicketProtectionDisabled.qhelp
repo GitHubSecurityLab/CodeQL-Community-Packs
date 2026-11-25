@@ -1,0 +1,85 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+<p>
+ASP.NET forms authentication keeps the identity of the signed-in user in an authentication ticket,
+which is sent to the browser in a cookie. The <code>protection</code> attribute of the
+<code>&lt;forms&gt;</code> element in <code>Web.config</code> controls how the ticket is protected.
+The value <code>None</code> turns off both encryption and validation, so anyone who can set the
+cookie can create or change a ticket and act as any user, including an administrator.
+</p>
+</overview>
+
+<recommendation>
+<p>
+Use <code>protection="All"</code>, or remove the <code>protection</code> attribute because
+<code>All</code> is the default. It encrypts the ticket and validates it with a message
+authentication code.
+</p>
+</recommendation>
+
+<example>
+<p>
+The following configuration turns off the protection of the forms authentication ticket:
+</p>
+<sample language="xml"><![CDATA[<configuration>
+  <system.web>
+    <authentication mode="Forms">
+      <forms loginUrl="~/Account/Login" protection="None" />
+    </authentication>
+  </system.web>
+</configuration>]]></sample>
+
+<p>
+The following configuration encrypts and validates the ticket:
+</p>
+<sample language="xml"><![CDATA[<configuration>
+  <system.web>
+    <authentication mode="Forms">
+      <forms loginUrl="~/Account/Login" protection="All" />
+    </authentication>
+  </system.web>
+</configuration>]]></sample>
+</example>
+
+<section title="Known limitations">
+<ul>
+<li>
+Only <code>Web.config</code> files and <code>Web.&lt;name&gt;.config</code> transformation files are
+examined. A copy under another name, and an application configuration file such as
+<code>Program.exe.config</code>, are not used for the settings of a web application and are not
+reported.
+</li>
+<li>
+A <code>&lt;forms&gt;</code> element is reported only when the <code>mode</code> of its
+<code>&lt;authentication&gt;</code> element is <code>Forms</code>. The default mode is
+<code>Windows</code>, and ASP.NET does not use forms authentication in the other modes. A mode that
+a parent configuration sets is not considered.
+</li>
+<li>
+The runtime accepts only the exact spelling <code>None</code>. Other spellings, such as
+<code>none</code>, make the configuration invalid, so they are not reported.
+</li>
+<li>
+Configuration inheritance and transformations are not evaluated. A value that a transformation file,
+such as <code>Web.Release.config</code>, overrides at publish time is still reported in the base
+configuration file, and a transformation file that sets the value is reported on its own.
+</li>
+<li>
+The documentation of the <code>protection</code> attribute allows <code>None</code> for sites that
+use cookies only for personalization and have less stringent security requirements. Such a site is
+reported too.
+</li>
+</ul>
+</section>
+
+<references>
+<li>Microsoft Learn: <a href="https://learn.microsoft.com/en-us/previous-versions/dotnet/netframework-4.0/1d3t3c61(v=vs.100)">forms Element for authentication (ASP.NET Settings Schema)</a>.</li>
+<li>Microsoft Learn: <a href="https://learn.microsoft.com/en-us/previous-versions/dotnet/netframework-4.0/532aee0e(v=vs.100)">authentication Element (ASP.NET Settings Schema)</a>.</li>
+<li>Microsoft Learn: <a href="https://learn.microsoft.com/en-us/dotnet/api/system.web.configuration.formsprotectionenum">FormsProtectionEnum Enum</a>.</li>
+</references>
+
+</qhelp>
