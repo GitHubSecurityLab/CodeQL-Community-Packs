@@ -75,11 +75,17 @@ fn good_other_request_handler(request: &str) -> IronResult<Response> {
     Ok(Response::with((status::Ok, response)))
 }
 
-fn good_encoded_handler(req: &mut Request) -> IronResult<Response> {
+fn bad_escape_default_handler(req: &mut Request) -> IronResult<Response> {
     let res = req.url.path().join("/").escape_default().to_string();
     let response = format!("<h1>{}</h1>", res);
-    // GOOD: the value goes through a method with `escape` in its name, which is taken to encode it, the
-    // way the standard queries take a call of a function with such a name.
+    // BAD: `escape_default` keeps `<` and `>`, so it does not make the value safe for HTML.
+    Ok(Response::with((status::Ok, response)))
+}
+
+fn good_html_escaped_handler(req: &mut Request) -> IronResult<Response> {
+    let res = req.url.path().join("/").escape_html();
+    let response = format!("<h1>{}</h1>", res);
+    // GOOD: the method says that it escapes for HTML, and it is taken to do so.
     Ok(Response::with((status::Ok, response)))
 }
 
@@ -104,7 +110,8 @@ pub fn main() {
     Iron::new(good_constant_handler).http("localhost:3006").unwrap();
     Iron::new(good_length_handler).http("localhost:3007").unwrap();
     Iron::new(good_plain_text_handler).http("localhost:3008").unwrap();
-    Iron::new(good_encoded_handler).http("localhost:3010").unwrap();
+    Iron::new(bad_escape_default_handler).http("localhost:3010").unwrap();
+    Iron::new(good_html_escaped_handler).http("localhost:3012").unwrap();
     Iron::new(good_sanitized_handler).http("localhost:3011").unwrap();
     Iron::new(|req: &mut Request| {
         // BAD: a closure handler, with the request in its parameter.

@@ -30,3 +30,4 @@
 | main.rs:136:15:136:49 | missed_field_assigned_later_handler | remote source |
 | main.rs:146:23:146:31 | modifiers | html-injection sink |
 | main.rs:154:23:154:44 | TupleExpr | html-injection sink |
+| main.rs:162:23:162:30 | response | html-injection sink |

@@ -148,13 +148,32 @@ class IronUnresolvedResponseBody extends DataFlow::Node {
   }
 }
 
+/**
+ * The argument of a call of `Response::with` that resolves, when it is a body on its own and not a tuple
+ * of modifiers. The data extension row for the function makes it a sink of the standard cross-site
+ * scripting query, but only the handlers that the rows make a source reach it there. This query reports
+ * the other handlers, whose request parameter is a source of this query only (see the `where` clause).
+ */
+class IronResolvedResponseBody extends DataFlow::Node {
+  IronResolvedResponseBody() {
+    exists(Call call, Expr argument |
+      call.getStaticTarget().getCanonicalPath() = "<iron::response::Response>::with" and
+      argument = call.getPositionalArgument(0) and
+      not holdsTuple(argument, _) and
+      this.asExpr() = argument
+    )
+  }
+}
+
 module IronResponseXssConfig implements DataFlow::ConfigSig {
   predicate isSource(DataFlow::Node node) {
     node instanceof Xss::Source or node instanceof IronRequestParameter
   }
 
   predicate isSink(DataFlow::Node node) {
-    node instanceof IronResponseModifierTupleElement or node instanceof IronUnresolvedResponseBody
+    node instanceof IronResponseModifierTupleElement or
+    node instanceof IronUnresolvedResponseBody or
+    node instanceof IronResolvedResponseBody
   }
 
   predicate isBarrier(DataFlow::Node barrier) { barrier instanceof Xss::Barrier }
@@ -181,6 +200,12 @@ where
       IronResponseXssFlow::flowPath(modelled, sinkNode) and
       modelled.getNode() instanceof Xss::Source
     )
+  ) and
+  // A body on its own that goes to a call that resolves is reported by the standard query, from the
+  // sources that the data extension rows make. This query leaves those flows to it.
+  not (
+    sinkNode.getNode() instanceof IronResolvedResponseBody and
+    sourceNode.getNode() instanceof Xss::Source
   )
 select sinkNode.getNode(), sourceNode, sinkNode, "Cross-site scripting vulnerability due to a $@.",
   sourceNode.getNode(), "user-provided value"

@@ -67,11 +67,21 @@ private predicate isNonRevealingMethod(string name) {
 }
 
 /**
+ * Holds if the method called `name` says that it escapes or encodes for HTML, such as `escape_html` or
+ * `html_escape`. A name that only says `escape_default` or `encode`, or that undoes the encoding
+ * (`unescape_html`), does not make a value safe for HTML.
+ */
+bindingset[name]
+private predicate isHtmlEncodingMethod(string name) {
+  name.toLowerCase().regexpMatch("(escape|encode)_?html\\w*|html_?(escape|encode)\\w*")
+}
+
+/**
  * Holds if the flow goes from `pred` to `succ` in a file that uses `iron`, where the data flow library
  * cannot know it because the type of `pred` is not known: `succ` is the read of a field of the
  * request that does not resolve to a field, or the result of a method that has no target, called on
- * `pred`. A method with `escape` or `encode` in its name is taken to encode the value, the way the
- * standard queries take a call of a function with such a name, so it does not pass the value on.
+ * `pred`. A method that says that it encodes for HTML (`escape_html`) is taken to do so, so it does not
+ * pass the value on.
  */
 predicate ironUnresolvedStep(DataFlow::Node pred, DataFlow::Node succ) {
   exists(FieldExpr field |
@@ -86,7 +96,7 @@ predicate ironUnresolvedStep(DataFlow::Node pred, DataFlow::Node succ) {
     isIronFile(call.getLocation().getFile()) and
     not exists(call.getStaticTarget()) and
     not isNonRevealingMethod(call.getIdentifier().getText()) and
-    not call.getIdentifier().getText().regexpMatch(".*(escape|encode).*") and
+    not isHtmlEncodingMethod(call.getIdentifier().getText()) and
     pred.asExpr() = call.getReceiver() and
     succ.asExpr() = call
   )

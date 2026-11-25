@@ -153,3 +153,11 @@ fn bad_unregistered_handler(req: &mut Request) -> IronResult<Response> {
     // example, registers it), and a function that takes a request is a handler all the same.
     Ok(Response::with((status::Ok, response)))
 }
+
+fn bad_unregistered_body_only_handler(req: &mut Request) -> IronResult<Response> {
+    let res = req.url.path();
+    let response = format!("<h1>Hello, {:?}!</h1>", res);
+    // BAD: a body on its own, from a handler that nothing registers in this file. The call resolves, but
+    // the standard query has no source for the handler, so this query reports it.
+    Ok(Response::with(response))
+}
