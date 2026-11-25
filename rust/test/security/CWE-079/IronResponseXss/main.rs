@@ -161,3 +161,18 @@ fn bad_unregistered_body_only_handler(req: &mut Request) -> IronResult<Response>
     // the standard query has no source for the handler, so this query reports it.
     Ok(Response::with(response))
 }
+
+fn bad_registered_unresolved_step_handler(req: &mut Request) -> IronResult<Response> {
+    let res = req.url.path();
+    // The method does not exist for the type, so the call has no target and the standard analysis does
+    // not follow the value through it.
+    let loud = res.shout();
+    // BAD: a body on its own, from a handler that is registered below, to a call that resolves. The data
+    // extension rows make it a flow, but the standard query cannot see it across the call that has no
+    // target, so this query has to report it.
+    Ok(Response::with(loud))
+}
+
+fn register_more() {
+    Iron::new(bad_registered_unresolved_step_handler).http("localhost:3015").unwrap();
+}
