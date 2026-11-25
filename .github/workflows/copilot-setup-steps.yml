@@ -81,3 +81,34 @@ jobs:
           # resolve, so `codeql test run` can actually compile the test snippets.
           # `--depth=1`: we only need the tree at that branch tip, not its history.
           gh repo clone github/codeql -- -b "codeql-cli-${CODEQL_CLI_VERSION}" --depth=1
+
+      # The CodeQL Development MCP server (`ql-mcp`), which the query contributor
+      # agent (.github/agents/query-contributor.agent.md) starts for its sessions
+      # and points at the pinned CLI installed above. Its own tool queries (PrintAST,
+      # PrintCFG, call graphs) are packs of their own, with lock files that pin the
+      # library versions of the server's release. Pin the newest server release
+      # that is not newer than .codeqlversion, so that those versions are never
+      # newer than the ones this repository's lock files pin. These steps also run
+      # before every Copilot code review, which cannot use the server: none of its
+      # tools is marked read-only.
+      - name: Setup Node.js for the CodeQL MCP server
+        uses: actions/setup-node@v7
+        with:
+          node-version: "26" # the server needs Node.js ^24.15.0 or >=26.0.0 and npm >=11.6.2
+
+      - name: Install the CodeQL MCP server
+        run: |
+          npm install --global codeql-development-mcp-server@2.27.4
+          # Installs the dependencies of the server's tool query packs into the
+          # package cache, next to the versions this repository's packs use. It
+          # writes nothing into this checkout.
+          codeql-development-mcp-server-setup-packs
+
+      - name: Verify the CodeQL MCP server
+        run: |
+          command -v codeql
+          codeql version
+          command -v codeql-development-mcp-server
+          # The installs must leave the checkout unchanged (no rewritten lock file),
+          # so that a session starts from a clean tree. This prints nothing then.
+          git status --short
