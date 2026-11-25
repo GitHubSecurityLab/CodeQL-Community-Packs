@@ -1,0 +1,4 @@
+| Unprotected/Web.config:5:7:5:74 | protection=None | The forms authentication ticket is neither encrypted nor validated because 'protection' is set to 'None'. |
+| UnprotectedInLocation/Web.config:6:9:6:53 | protection=None | The forms authentication ticket is neither encrypted nor validated because 'protection' is set to 'None'. |
+| UnprotectedNamespaced/Web.config:5:7:5:61 | protection=None | The forms authentication ticket is neither encrypted nor validated because 'protection' is set to 'None'. |
+| UnprotectedTransform/Web.Release.config:5:7:5:61 | protection=None | The forms authentication ticket is neither encrypted nor validated because 'protection' is set to 'None'. |
