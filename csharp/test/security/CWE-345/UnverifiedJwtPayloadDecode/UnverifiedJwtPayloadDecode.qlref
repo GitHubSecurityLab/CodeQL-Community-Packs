@@ -1,0 +1,4 @@
+query: security/CWE-345/UnverifiedJwtPayloadDecode.ql
+postprocess:
+  - TestUtilities/PrettyPrintModels.ql
+  - TestUtilities/InlineExpectationsTestQuery.ql

@@ -1,0 +1,5 @@
+semmle-extractor-options: /nostdlib /noconfig
+semmle-extractor-options: --load-sources-from-project:${testdir}/../../../../../codeql/csharp/ql/test/resources/stubs/_frameworks/Microsoft.NETCore.App/Microsoft.NETCore.App.csproj
+semmle-extractor-options: --load-sources-from-project:${testdir}/../../../../../codeql/csharp/ql/test/resources/stubs/_frameworks/Microsoft.AspNetCore.App/Microsoft.AspNetCore.App.csproj
+semmle-extractor-options: --load-sources-from-project:${testdir}/../../../../../codeql/csharp/ql/test/resources/stubs/System.IdentityModel.Tokens.Jwt/7.7.1/System.IdentityModel.Tokens.Jwt.csproj
+semmle-extractor-options: --load-sources-from-project:${testdir}/../../../../../codeql/csharp/ql/test/resources/stubs/Newtonsoft.Json/13.0.4/Newtonsoft.Json.csproj
