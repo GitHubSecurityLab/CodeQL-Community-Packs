@@ -1,0 +1,76 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+<p>
+A JSON Web Token (JWT) has three base64url-encoded segments separated by <code>.</code>: a header, a payload
+with the claims, and a signature. The claims can only be trusted after the signature has been checked against
+a trusted key. Anyone can create a token with any payload, for example one that claims an administrator role.
+</p>
+<p>
+This query reports code that splits a token on <code>.</code> and base64-decodes the payload segment
+(index <code>1</code>) without evidence that the signature has been verified. Claims that are decoded without
+being authenticated can be forged.
+</p>
+</overview>
+
+<recommendation>
+<p>
+Do not parse JWT claims by hand. Use a JWT library such as
+<code>System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken</code> or
+<code>Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenAsync</code>, with
+<code>TokenValidationParameters</code> that require a valid signature, and read the claims from the validated result.
+</p>
+<p>
+If the token was already validated somewhere else, for example by a remote authentication service, read the
+claims from that validated result, not from the raw token string.
+</p>
+</recommendation>
+
+<example>
+<p>
+In the following example, the payload is decoded and the <code>roles</code> claim is trusted without checking the
+signature. An attacker can send a forged token with <code>"roles": ["ADMIN"]</code>:
+</p>
+
+<sample src="UnverifiedJwtPayloadDecodeBad.cs" />
+
+<p>
+The following example validates the token signature before it reads any claims:
+</p>
+
+<sample src="UnverifiedJwtPayloadDecodeGood.cs" />
+</example>
+
+<section title="Known limitations">
+<ul>
+<li>
+A read of the signature segment (index <code>2</code>) of the same <code>Split</code> result counts as evidence of
+verification only when it, or its base64-decoded value, reaches a comparison or an argument of a method whose name
+contains <code>verify</code> or <code>equals</code>. The query does not check that the result of that comparison
+is used, or that the comparison is a correct cryptographic check. Logging the segment does not count.
+</li>
+<li>
+Validation by a library is recognized when a call to <code>JwtSecurityTokenHandler.ValidateToken</code> on the same
+token dominates the decode, and the <code>TokenValidationParameters</code> object initializer passed to it enables
+<code>ValidateIssuerSigningKey</code> and sets <code>IssuerSigningKey</code>. For
+<code>JsonWebTokenHandler.ValidateTokenAsync</code>, the decode must also be dominated by an
+<code>if (!result.IsValid)</code> check whose branch throws.
+</li>
+<li>
+Code that has the token validated elsewhere before it decodes the payload, for example by a remote service, by
+middleware, by a custom helper, or with parameters that are configured indirectly, is still reported.
+</li>
+</ul>
+</section>
+
+<references>
+<li>CWE: <a href="https://cwe.mitre.org/data/definitions/345.html">CWE-345: Insufficient Verification of Data Authenticity</a>.</li>
+<li>CWE: <a href="https://cwe.mitre.org/data/definitions/347.html">CWE-347: Improper Verification of Cryptographic Signature</a>.</li>
+<li>IETF: <a href="https://www.rfc-editor.org/rfc/rfc7519">RFC 7519: JSON Web Token (JWT)</a>.</li>
+<li>OWASP: <a href="https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html">JSON Web Token Cheat Sheet</a>.</li>
+</references>
+
+</qhelp>
