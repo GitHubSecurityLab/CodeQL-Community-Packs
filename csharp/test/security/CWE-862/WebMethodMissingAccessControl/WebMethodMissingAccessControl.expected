@@ -1,0 +1,9 @@
+| AccountService.asmx.cs:13:23:13:37 | TransferBalance | This web method is missing an authorization check. |
+| AccountService.asmx.cs:22:21:22:33 | DeleteAccount | This web method is missing an authorization check. |
+| AccountService.asmx.cs:29:21:29:31 | UpdateEmail | This web method is missing an authorization check. |
+| AccountService.asmx.cs:64:23:64:47 | TransferBalanceAuthorized | This web method is missing an authorization check. |
+| AccountService.asmx.cs:74:21:74:30 | DepositAll | This web method is missing an authorization check. |
+| AccountService.asmx.cs:116:21:116:30 | DeleteUser | This web method is missing an authorization check. |
+| AccountService.asmx.cs:137:28:137:40 | TransferFunds | This web method is missing an authorization check. |
+| App_Code/WebService.cs:46:31:46:45 | TransferBalance | This web method is missing an authorization check. |
+| WebConfig/UnconfiguredService.asmx.cs:9:21:9:33 | TransferFunds | This web method is missing an authorization check. |
