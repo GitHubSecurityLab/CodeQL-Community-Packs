@@ -14,64 +14,8 @@ mcp-servers:
       # The checkout, against which the server resolves relative paths. Without it
       # the server uses its own working directory.
       CODEQL_MCP_WORKSPACE: /home/runner/work/CodeQL-Community-Packs/CodeQL-Community-Packs
-    # Every default tool of the server except: codeql_database_create (it runs any
-    # build command, and the processes an MCP server starts are outside the agent
-    # firewall), codeql_pack_install (it downloads outside the firewall and can
-    # rewrite lock files, and the setup steps install every dependency),
-    # create_codeql_query (its layout is not this repository's), and the tools for
-    # variant analysis results, git history, annotations and audit notes, which
-    # query work here does not use.
-    tools:
-      - codeql_bqrs_decode
-      - codeql_bqrs_info
-      - codeql_bqrs_interpret
-      - codeql_database_analyze
-      - codeql_generate_log-summary
-      - codeql_generate_query-help
-      - codeql_lsp_completion
-      - codeql_lsp_definition
-      - codeql_lsp_diagnostics
-      - codeql_lsp_document_symbols
-      - codeql_lsp_references
-      - codeql_pack_ls
-      - codeql_query_compile
-      - codeql_query_format
-      - codeql_query_run
-      - codeql_resolve_database
-      - codeql_resolve_files
-      - codeql_resolve_languages
-      - codeql_resolve_library-path
-      - codeql_resolve_metadata
-      - codeql_resolve_packs
-      - codeql_resolve_qlref
-      - codeql_resolve_queries
-      - codeql_resolve_tests
-      - codeql_test_accept
-      - codeql_test_extract
-      - codeql_test_run
-      - find_class_position
-      - find_codeql_query_files
-      - find_predicate_position
-      - list_codeql_databases
-      - list_query_run_results
-      - profile_codeql_query
-      - profile_codeql_query_from_logs
-      - query_results_cache_clear
-      - query_results_cache_compare
-      - query_results_cache_lookup
-      - query_results_cache_retrieve
-      - quick_evaluate
-      - read_database_source
-      - register_database
-      - sarif_compare_alerts
-      - sarif_deduplicate_rules
-      - sarif_diff_runs
-      - sarif_extract_rule
-      - sarif_list_rules
-      - sarif_rule_to_markdown
-      - sarif_store
-      - search_ql_code
-      - validate_codeql_query
+      CODEQL_MCP_SCAN_EXCLUDE_DIRS: codeql_home
+    tools: ["*"]
 ---
 
 # Query contributor
@@ -119,7 +63,8 @@ runs. Use `ql-mcp` to explore and debug:
   `graphtext`. `CallGraphFrom` with `sourceFunction`, or `CallGraphTo` with
   `targetFunction` (comma-separated function names), lists the calls from or to a
   function. They are problem queries, so use `format` `sarif-latest`. Get a database
-  from `codeql test run --keep-databases` or `codeql test extract`.
+  from `codeql test run --keep-databases`, `codeql test extract`, or
+  `codeql_database_create` for a source tree.
 - `find_predicate_position` or `find_class_position`, then `quick_evaluate`, evaluate one
   predicate or class.
 - `codeql_lsp_definition`, `codeql_lsp_references` and `codeql_lsp_diagnostics` navigate
@@ -131,9 +76,6 @@ runs. Use `ql-mcp` to explore and debug:
   (`~/.codeql/packages/codeql/csharp-all/<version>`). Never the repository root:
   `codeql/` holds the whole upstream repository, and the tool stops after 10,000 files.
 - Pass absolute paths to the `ql-mcp` tools.
-
-`ql-mcp` offers no database creation and no pack installation. Use the CLI in the shell
-for a database.
 
 ## Decide what the change is
 
