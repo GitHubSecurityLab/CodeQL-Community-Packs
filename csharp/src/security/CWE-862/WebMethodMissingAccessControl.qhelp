@@ -1,0 +1,95 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+<p>
+A method marked with <code>[System.Web.Services.WebMethod]</code> is an ASMX web service operation
+or, when it is a static method of a page, an ASP.NET page method. Any client that can reach the
+service can call it. A web method that changes data, such as one that transfers, withdraws,
+deposits, updates, removes, edits or deletes something, or that performs an administrative action,
+should check that the caller is allowed to do so.
+</p>
+<p>
+This query reports such a web method when it has no authorization check in its code, no
+authorization attribute that applies to it, and no <code>&lt;location&gt;</code> rule in a
+<code>Web.config</code> file that denies access to it. The standard query
+<code>cs/web/missing-function-level-access-control</code> does not consider web methods.
+</p>
+<p>
+The MVC and Web API <code>Authorize</code> attributes (<code>System.Web.Mvc.AuthorizeAttribute</code>
+and <code>System.Web.Http.AuthorizeAttribute</code>) are filters of their own pipelines. They do
+not run for a web method, so they do not protect it.
+</p>
+
+</overview>
+<recommendation>
+
+<p>
+Check that the caller is authenticated and authorized before changing data, for example with
+<code>Context.User.Identity.IsAuthenticated</code> or <code>Context.User.IsInRole(...)</code>. Alternatively,
+deny access to unauthorized users with an <code>authorization</code> element in a
+<code>&lt;location&gt;</code> element of <code>Web.config</code> that covers the service.
+</p>
+
+</recommendation>
+<example>
+
+<p>
+In the following example, any caller can transfer funds between arbitrary accounts:
+</p>
+
+<sample language="csharp"><![CDATA[
+[WebMethod]
+public string TransferBalance(long from, long to, double amount)
+{
+    Withdraw(from, amount);
+    Deposit(to, amount);
+    return "OK";
+}
+]]></sample>
+
+<p>
+The method is fixed by checking that the caller is authenticated (and, ideally, owns the debited
+account):
+</p>
+
+<sample language="csharp"><![CDATA[
+[WebMethod]
+public string TransferBalance(long from, long to, double amount)
+{
+    if (!Context.User.Identity.IsAuthenticated)
+        return "Unauthorized";
+    Withdraw(from, amount);
+    Deposit(to, amount);
+    return "OK";
+}
+]]></sample>
+
+<p>
+The following <code>Web.config</code> file denies anonymous users access to the service:
+</p>
+
+<sample language="xml"><![CDATA[
+<configuration>
+  <location path="AccountService.asmx">
+    <system.web>
+      <authorization>
+        <deny users="?" />
+      </authorization>
+    </system.web>
+  </location>
+</configuration>
+]]></sample>
+
+</example>
+<references>
+<li>OWASP: <a href="https://owasp.org/Top10/A01_2021-Broken_Access_Control/">Broken Access Control</a>.</li>
+<li>Microsoft Learn: <a href="https://learn.microsoft.com/en-us/dotnet/api/system.web.services.webmethodattribute">WebMethodAttribute Class</a>.</li>
+<li>Microsoft Learn: <a href="https://learn.microsoft.com/en-us/troubleshoot/developer/webapps/aspnet/www-authentication-authorization/authorization-permissions">Control authorization permissions in an ASP.NET application</a>.</li>
+<li>Common Weakness Enumeration: <a href="https://cwe.mitre.org/data/definitions/285.html">CWE-285</a>.</li>
+<li>Common Weakness Enumeration: <a href="https://cwe.mitre.org/data/definitions/284.html">CWE-284</a>.</li>
+<li>Common Weakness Enumeration: <a href="https://cwe.mitre.org/data/definitions/862.html">CWE-862</a>.</li>
+</references>
+</qhelp>
