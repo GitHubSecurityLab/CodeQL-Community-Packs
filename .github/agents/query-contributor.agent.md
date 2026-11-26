@@ -139,18 +139,22 @@ Before you write code:
    search the `@id` and `@name` lines under `<lang>/src`, and the standard queries in
    `codeql/<lang>/ql/src`. If one does, say so, and propose the smallest change instead (a
    data extension row, a fix to that query).
-3. Decide whether it is a security query or an audit query.
+3. Decide whether it is a security query or an audit query. A security query finds a
+   weakness by itself: data an attacker controls that reaches a dangerous sink, or a
+   setting or an API use that is insecure on its own, such as a cookie without
+   `HttpOnly` (`csharp/src/security/CWE-1004/CookieWithoutHttpOnly.ql`). An audit query
+   finds a construct to review, where the query cannot tell whether it is a weakness.
 
-   | Question                                        | Security query                | Audit query             |
-   | ----------------------------------------------- | ----------------------------- | ----------------------- |
-   | Needs data an attacker controls to reach a sink | Yes                           | No                      |
-   | Runs in the default suite                       | Yes                           | No                      |
-   | `@precision`                                    | very-high to low, as assessed | very-low                |
-   | The alert says                                  | "This is exploitable"         | "Review this construct" |
+   | Question                    | Security query                | Audit query             |
+   | --------------------------- | ----------------------------- | ----------------------- |
+   | Shows the weakness itself   | Yes                           | No                      |
+   | Runs in the default suite   | Yes                           | No                      |
+   | `@precision`                | very-high to low, as assessed | very-low                |
+   | The alert says              | "This is a weakness"          | "Review this construct" |
 
-   A query that cannot prove reachability is a legitimate audit query: do not lower the
-   precision of a security query instead. An audit query is not where a slow security
-   query goes.
+   For a weakness that needs data an attacker controls, a query that cannot show the flow
+   is a legitimate audit query: do not lower the precision of a security query instead.
+   An audit query is not where a slow security query goes.
 4. When the task bundles unrelated checks, write one query per weakness, and say in the
    pull request which parts you did and which you left.
 
@@ -165,7 +169,7 @@ Before you write code:
 | Query help                   | `<Name>.qhelp` next to the query                                                                         |
 | Query test                   | `<lang>/test/security/CWE-NNN/<Name>/` (or `audit/`) with `<Name>.qlref`, `<Name>.expected` and fixtures |
 | Library for several queries  | `<lang>/lib/` when the language has a `lib` pack, otherwise a `.qll` under `<lang>/src/`                 |
-| Data extension (model rows)  | `<lang>/ext/manual/<library>.model.yml`                                                                  |
+| Data extension (model rows)  | `<lang>/ext/manual/<library>.model.yml`, or `<lang>/ext-library-sources/` for a new remote source model in `csharp` or `java` (see Data extensions) |
 
 A `.qlref` names the query relative to the `src` pack: `query: security/CWE-NNN/<Name>.ql`.
 Do not copy the paths of `github/codeql` (`<lang>/ql/...`).
@@ -197,9 +201,10 @@ Do not copy the paths of `github/codeql` (`<lang>/ql/...`).
   `csharp/src/suites/csharp-audit.qls`, and say in the pull request that
   `configs/audit.yml` can name it only after the next release.
 - Never change what an existing suite selects in a query pull request.
-- A query runs only when a config under `configs/` names its pack. Every existing query
-  pack is named there. A new query pack needs lines in `configs/default.yml` and
-  `configs/synthetics.yml`.
+- The shared configs under `configs/` (`default.yml`, `synthetics.yml`, `audit.yml`) name
+  the packs that their users get, and not every pack is in every config. Read a config's
+  list before you say who gets a query. A pack also runs for anyone who names it directly.
+  A new query pack needs lines in `configs/default.yml` and `configs/synthetics.yml`.
 
 Check the selection:
 
@@ -216,8 +221,9 @@ codeql resolve queries --additional-packs <lang> <lang>/src/suites/<lang>-audit.
 2. Run the test before the change and show that it fails for the right reason: the
    missing row, or the extra one.
 3. Make the change, run the test with `--learn`, and read the whole diff of every
-   `.expected` file before you commit. A row that disappears from an unchanged fixture is a
-   regression. Never edit an `.expected` file by hand.
+   `.expected` file before you commit. Explain every row that goes away: a false positive
+   that your fix removes from a safe case is the point of the fix, but a row that goes away
+   from a vulnerable case is a regression. Never edit an `.expected` file by hand.
 4. A `--learn` run of a query that does not compile writes the error into the `.expected`
    file. Compile first, and look for `ERROR` in the file.
 5. Fixtures look like the real code they stand for: the same imports, `using` directives
@@ -247,11 +253,15 @@ and your own runs are the only evidence: put them in the pull request.
 
 ## Data extensions
 
-- Rows go in `<lang>/ext/manual/<library>.model.yml`. Only `cpp`, `csharp`, `go`, `java`,
+- Sink models, summary models and source models for a specific framework go in
+  `<lang>/ext/manual/<library>.model.yml`. Only `cpp`, `csharp`, `go`, `java`,
   `javascript`, `python`, `ruby` and `rust` have an `ext` pack. For `actions` and `swift`,
   model the API in QL inside the query, or ask the maintainers.
-- Do not change an `ext` pack's `qlpack.yml`, never run `codeql pack install` on it, and
-  never add a lock file to it.
+- A genuinely new remote source (a `sourceModel` row, almost always of kind `remote`) for
+  `csharp` or `java` goes in `<lang>/ext-library-sources/` instead, because such a source
+  feeds every security query. Follow "Adding a data extension" in `CONTRIBUTING.md`.
+- Do not change the `qlpack.yml` of an `ext` or `ext-library-sources` pack, never run
+  `codeql pack install` on one, and never add a lock file to it.
 - Every row matches a real signature of the library.
 - Prove each row with a test: a test `.ql` that imports the standard flow module and
   selects the sources, sinks or flows that the rows add, one expected result per row, and a
@@ -276,8 +286,11 @@ real code before it leaves draft, so flag what you are unsure about.
 
 ## Never
 
-- Change any `version:` in a `qlpack.yml`, or `.codeqlversion`, `.release.yml` or a
-  workflow. A release sets every version.
+- Change any `version:` in a `qlpack.yml`, a version pin of a pack of this repository,
+  `.codeqlversion`, `.release.yml` or a workflow. The checklist in `CONTRIBUTING.md` asks a
+  contributor to bump the changed pack's version and the pins that depend on it. For this
+  agent the maintainer does that when cutting a release, which sets every version, so list
+  it under Follow-ups instead.
 - Commit a changed `codeql-pack.lock.yml`. If one changed, restore it with
   `git checkout -- <file>`.
 - Commit `codeql/`, `codeql_home/`, `*.actual`, `*.testproj/`, databases, logs or scratch
@@ -306,6 +319,7 @@ real code before it leaves draft, so flag what you are unsure about.
      above.
   6. **Known limitations**.
   7. **Real project true positive**: `To be added by the maintainer.`
-  8. **Follow-ups**: what has to wait, for example a config line until the next release.
+  8. **Follow-ups**: what has to wait for the maintainer or a release, for example the
+     version bump, or a config line that names a suite the release adds.
 - Answer every review comment with the commit that addresses it, or the reason it needs no
   change.
