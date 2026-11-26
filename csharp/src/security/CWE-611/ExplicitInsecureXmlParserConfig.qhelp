@@ -1,0 +1,82 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+<p>
+An XML parser that processes Document Type Definitions (DTDs) and also has an unrestricted
+<code>XmlResolver</code> resolves external entities declared in the document. If any part of the XML can be
+influenced by an attacker, an entity such as <code>&lt;!ENTITY xxe SYSTEM "file:///etc/passwd"&gt;</code> can
+disclose local files or make the server issue requests to arbitrary hosts (XML External Entity, XXE).
+</p>
+<p>
+On modern .NET, <code>XmlReader.Create</code> prohibits DTDs by default and <code>XmlTextReader</code> does not
+resolve external entities unless a resolver is assigned. This query therefore only reports parsers where the code
+explicitly opts in to both behaviors:
+</p>
+<ul>
+<li><code>XmlReader.Create</code> called with <code>XmlReaderSettings</code> that set
+<code>DtdProcessing = DtdProcessing.Parse</code> (or <code>ProhibitDtd = false</code>) and assign a resolver that
+is neither <code>null</code> nor an <code>XmlSecureResolver</code>, such as <code>XmlUrlResolver</code>.</li>
+<li><code>XmlTextReader</code> with such a resolver assigned and DTD processing not disabled
+(<code>XmlTextReader</code> parses DTDs by default).</li>
+</ul>
+<p>
+Unlike <code>cs/xml/insecure-dtd-handling</code>, this query does not require the XML to come from a known remote
+source, because the configuration is unsafe for any input that is not fully trusted.
+</p>
+</overview>
+
+<recommendation>
+<p>
+For <code>XmlReaderSettings</code>, leave <code>DtdProcessing</code> at its default of <code>Prohibit</code> (or set
+it to <code>Ignore</code>), and do not assign an <code>XmlResolver</code>, or set it to <code>null</code>.
+<code>XmlTextReader</code> parses DTDs by default, so set its <code>DtdProcessing</code> to <code>Prohibit</code> or
+<code>Ignore</code> explicitly, and do not assign an <code>XmlResolver</code>, or set it to <code>null</code>. If DTD
+processing is genuinely needed, set <code>XmlResolver = null</code> so that external entities are not fetched.
+</p>
+</recommendation>
+
+<example>
+<p>
+The following reader resolves external entities because both DTD processing and an <code>XmlUrlResolver</code>
+are enabled:
+</p>
+<sample language="csharp">
+var settings = new XmlReaderSettings();
+settings.DtdProcessing = DtdProcessing.Parse;
+settings.XmlResolver = new XmlUrlResolver();
+XmlReader reader = XmlReader.Create(stream, settings); // BAD
+</sample>
+<p>
+The fix is to keep DTD processing disabled and not assign a resolver:
+</p>
+<sample language="csharp">
+var settings = new XmlReaderSettings();
+settings.DtdProcessing = DtdProcessing.Prohibit;
+XmlReader reader = XmlReader.Create(stream, settings); // GOOD
+</sample>
+</example>
+
+<section title="Known limitations">
+<p>
+The query uses the last assignment of each property before the parser is created or used, when the assignments are
+ordered in control flow. It does not tell apart assignments on branches that exclude each other. An
+<code>XmlTextReader</code> is only reported when its <code>Read</code> or <code>ReadAsync</code> method is called
+in the method that creates it.
+</p>
+<p>
+When <code>XmlReaderSettings</code> are created in one method and passed to <code>XmlReader.Create</code> in another,
+the query only looks at the settings where a <code>return</code> statement returns them, and ignores changes that
+the caller makes afterwards. Settings stored in a field, returned by an expression-bodied member or passed as an
+argument are not reported.
+</p>
+</section>
+
+<references>
+<li>OWASP: <a href="https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html">XML External Entity Prevention Cheat Sheet</a>.</li>
+<li>Microsoft Learn: <a href="https://learn.microsoft.com/en-us/dotnet/api/system.xml.xmlreadersettings.dtdprocessing">XmlReaderSettings.DtdProcessing</a>.</li>
+</references>
+
+</qhelp>
