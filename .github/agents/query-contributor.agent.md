@@ -11,6 +11,9 @@ mcp-servers:
       # the CodeQL distribution of the VS Code extension before the PATH. This is the
       # checkout of a GitHub-hosted runner, where sessions run the setup steps.
       CODEQL_PATH: /home/runner/work/CodeQL-Community-Packs/CodeQL-Community-Packs/codeql_home/codeql/codeql
+      # The checkout, against which the server resolves relative paths. Without it
+      # the server uses its own working directory.
+      CODEQL_MCP_WORKSPACE: /home/runner/work/CodeQL-Community-Packs/CodeQL-Community-Packs
     # Every default tool of the server except: codeql_database_create (it runs any
     # build command, and the processes an MCP server starts are outside the agent
     # firewall), codeql_pack_install (it downloads outside the firewall and can
@@ -110,10 +113,13 @@ repository, fetch it with git, for example
 Run the gates with the commands in this file, in the shell: they are the commands CI
 runs. Use `ql-mcp` to explore and debug:
 
-- `codeql_query_run` with `queryName` `PrintAST` (and `queryLanguage`, `database`,
-  `sourceFiles`) shows how CodeQL sees a fixture. `PrintCFG`, `CallGraphFrom` and
-  `CallGraphTo` work the same way. Get a database from `codeql test run --keep-databases`
-  or `codeql test extract`.
+- `codeql_query_run` with `queryName` and `queryLanguage` runs the server's tool queries
+  on a `database`. `PrintAST` with `sourceFiles` (comma-separated file names) shows how
+  CodeQL sees a fixture, and `PrintCFG` shows the control flow graph, both with `format`
+  `graphtext`. `CallGraphFrom` with `sourceFunction`, or `CallGraphTo` with
+  `targetFunction` (comma-separated function names), lists the calls from or to a
+  function. They are problem queries, so use `format` `sarif-latest`. Get a database
+  from `codeql test run --keep-databases` or `codeql test extract`.
 - `find_predicate_position` or `find_class_position`, then `quick_evaluate`, evaluate one
   predicate or class.
 - `codeql_lsp_definition`, `codeql_lsp_references` and `codeql_lsp_diagnostics` navigate
