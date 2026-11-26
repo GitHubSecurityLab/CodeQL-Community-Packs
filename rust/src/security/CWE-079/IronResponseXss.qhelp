@@ -76,9 +76,10 @@ target, except for a few that only tell a property of the value, such as <code>l
 (or only partly, as <code>escape_default</code> does) is not recognized as a barrier. A parameter is
 recognized by the name of its type, so it can be a type of another crate that has the same name. A
 function that takes a request is a source whether or not a call of <code>Iron::new</code> or
-<code>Chain::new</code> registers it. For a handler that nothing registers in the file, a body that is
-passed on its own to a call of <code>Response::with</code> that resolves is reported by this query, as
-the standard query has no source for it.
+<code>Chain::new</code> registers it. A body that is passed on its own to a call of
+<code>Response::with</code> that resolves is reported by this query only when the standard query does
+not report it: the handler is not registered in the file, or a call that has no target lies between the
+request and the body.
 </p>
 </section>
 

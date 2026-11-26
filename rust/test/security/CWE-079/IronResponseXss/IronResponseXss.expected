@@ -201,6 +201,14 @@ edges
 | main.rs:159:28:159:55 | ...::must_use(...) | main.rs:159:9:159:16 | response | provenance |  |
 | main.rs:159:28:159:55 | MacroExpr | main.rs:159:28:159:55 | ...::format(...) | provenance | MaD:371 |
 | main.rs:159:28:159:55 | { ... } | main.rs:159:28:159:55 | ...::must_use(...) | provenance | MaD:13380 |
+| main.rs:165:43:165:59 | ...: ... | main.rs:166:15:166:21 | req.url | provenance |  |
+| main.rs:166:9:166:11 | res | main.rs:169:16:169:18 | res | provenance |  |
+| main.rs:166:15:166:21 | req.url | main.rs:166:15:166:28 | ... .path() | provenance | MaD:17587 |
+| main.rs:166:15:166:28 | ... .path() | main.rs:166:9:166:11 | res | provenance |  |
+| main.rs:169:9:169:12 | loud | main.rs:173:23:173:26 | loud | provenance |  |
+| main.rs:169:16:169:18 | res | main.rs:169:16:169:26 | res.shout() | provenance | Config |
+| main.rs:169:16:169:26 | res.shout() | main.rs:169:9:169:12 | loud | provenance |  |
+| main.rs:177:15:177:52 | bad_registered_unresolved_step_handler | main.rs:165:43:165:59 | ...: ... | provenance | Src:MaD:17584  |
 nodes
 | glob_prelude.rs:9:16:9:32 | ...: ... | semmle.label | ...: ... |
 | glob_prelude.rs:10:9:10:11 | res | semmle.label | res |
@@ -424,6 +432,15 @@ nodes
 | main.rs:159:28:159:55 | MacroExpr | semmle.label | MacroExpr |
 | main.rs:159:28:159:55 | { ... } | semmle.label | { ... } |
 | main.rs:162:23:162:30 | response | semmle.label | response |
+| main.rs:165:43:165:59 | ...: ... | semmle.label | ...: ... |
+| main.rs:166:9:166:11 | res | semmle.label | res |
+| main.rs:166:15:166:21 | req.url | semmle.label | req.url |
+| main.rs:166:15:166:28 | ... .path() | semmle.label | ... .path() |
+| main.rs:169:9:169:12 | loud | semmle.label | loud |
+| main.rs:169:16:169:18 | res | semmle.label | res |
+| main.rs:169:16:169:26 | res.shout() | semmle.label | res.shout() |
+| main.rs:173:23:173:26 | loud | semmle.label | loud |
+| main.rs:177:15:177:52 | bad_registered_unresolved_step_handler | semmle.label | bad_registered_unresolved_step_handler |
 subpaths
 #select
 | glob_prelude.rs:13:36:13:43 | response | glob_prelude.rs:9:16:9:32 | ...: ... | glob_prelude.rs:13:36:13:43 | response | Cross-site scripting vulnerability due to a $@. | glob_prelude.rs:9:16:9:32 | ...: ... | user-provided value |
@@ -445,3 +462,4 @@ subpaths
 | main.rs:110:49:110:56 | response | main.rs:133:15:133:41 | bad_overriding_mime_handler | main.rs:110:49:110:56 | response | Cross-site scripting vulnerability due to a $@. | main.rs:133:15:133:41 | bad_overriding_mime_handler | user-provided value |
 | main.rs:154:36:154:43 | response | main.rs:149:29:149:45 | ...: ... | main.rs:154:36:154:43 | response | Cross-site scripting vulnerability due to a $@. | main.rs:149:29:149:45 | ...: ... | user-provided value |
 | main.rs:162:23:162:30 | response | main.rs:157:39:157:55 | ...: ... | main.rs:162:23:162:30 | response | Cross-site scripting vulnerability due to a $@. | main.rs:157:39:157:55 | ...: ... | user-provided value |
+| main.rs:173:23:173:26 | loud | main.rs:177:15:177:52 | bad_registered_unresolved_step_handler | main.rs:173:23:173:26 | loud | Cross-site scripting vulnerability due to a $@. | main.rs:177:15:177:52 | bad_registered_unresolved_step_handler | user-provided value |

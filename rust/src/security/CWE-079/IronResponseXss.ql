@@ -151,8 +151,9 @@ class IronUnresolvedResponseBody extends DataFlow::Node {
 /**
  * The argument of a call of `Response::with` that resolves, when it is a body on its own and not a tuple
  * of modifiers. The data extension row for the function makes it a sink of the standard cross-site
- * scripting query, but only the handlers that the rows make a source reach it there. This query reports
- * the other handlers, whose request parameter is a source of this query only (see the `where` clause).
+ * scripting query. This query reports a flow into it only when the standard query does not (see the
+ * `where` clause): when the handler is not registered, so that the row has no source for it, or when a
+ * call that has no target lies between the request and the body.
  */
 class IronResolvedResponseBody extends DataFlow::Node {
   IronResolvedResponseBody() {
@@ -187,6 +188,21 @@ module IronResponseXssConfig implements DataFlow::ConfigSig {
 
 module IronResponseXssFlow = TaintTracking::Global<IronResponseXssConfig>;
 
+/**
+ * The configuration of the standard cross-site scripting query (`rust/xss`), copied from it. It has none
+ * of the steps of this query for calls that have no target, so a flow that it finds is a flow that the
+ * standard query reports.
+ */
+module StandardXssConfig implements DataFlow::ConfigSig {
+  predicate isSource(DataFlow::Node node) { node instanceof Xss::Source }
+
+  predicate isSink(DataFlow::Node node) { node instanceof Xss::Sink }
+
+  predicate isBarrier(DataFlow::Node barrier) { barrier instanceof Xss::Barrier }
+}
+
+module StandardXssFlow = TaintTracking::Global<StandardXssConfig>;
+
 import IronResponseXssFlow::PathGraph
 
 from IronResponseXssFlow::PathNode sourceNode, IronResponseXssFlow::PathNode sinkNode
@@ -201,11 +217,15 @@ where
       modelled.getNode() instanceof Xss::Source
     )
   ) and
-  // A body on its own that goes to a call that resolves is reported by the standard query, from the
-  // sources that the data extension rows make. This query leaves those flows to it.
+  // A body on its own that goes to a call that resolves is left to the standard query when its analysis
+  // reaches the body from the same source. When a call that has no target lies in between, it does not,
+  // and this query reports the flow.
   not (
     sinkNode.getNode() instanceof IronResolvedResponseBody and
-    sourceNode.getNode() instanceof Xss::Source
+    exists(DataFlow::Node standardSink |
+      StandardXssFlow::flow(sourceNode.getNode(), standardSink) and
+      standardSink.getLocation() = sinkNode.getNode().getLocation()
+    )
   )
 select sinkNode.getNode(), sourceNode, sinkNode, "Cross-site scripting vulnerability due to a $@.",
   sourceNode.getNode(), "user-provided value"

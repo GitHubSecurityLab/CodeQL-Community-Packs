@@ -31,3 +31,5 @@
 | main.rs:146:23:146:31 | modifiers | html-injection sink |
 | main.rs:154:23:154:44 | TupleExpr | html-injection sink |
 | main.rs:162:23:162:30 | response | html-injection sink |
+| main.rs:173:23:173:26 | loud | html-injection sink |
+| main.rs:177:15:177:52 | bad_registered_unresolved_step_handler | remote source |
