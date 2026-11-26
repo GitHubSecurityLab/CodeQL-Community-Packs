@@ -1,0 +1,67 @@
+#select
+| ReverseDnsAccessControl.cs:13:13:13:49 | call to method Equals | ReverseDnsAccessControl.cs:12:32:12:53 | call to method GetHostEntry : IPHostEntry | ReverseDnsAccessControl.cs:13:13:13:49 | call to method Equals | This condition guards a sensitive $@, but a $@ controls it. | ReverseDnsAccessControl.cs:15:13:15:33 | call to method Login | action | ReverseDnsAccessControl.cs:12:32:12:53 | call to method GetHostEntry | reverse DNS host name |
+| ReverseDnsAccessControl.cs:24:13:24:29 | access to property HostName | ReverseDnsAccessControl.cs:23:32:23:53 | call to method GetHostEntry : IPHostEntry | ReverseDnsAccessControl.cs:24:13:24:29 | access to property HostName | This condition guards a sensitive $@, but a $@ controls it. | ReverseDnsAccessControl.cs:26:13:26:33 | call to method Login | action | ReverseDnsAccessControl.cs:23:32:23:53 | call to method GetHostEntry | reverse DNS host name |
+| ReverseDnsAccessControl.cs:34:13:34:44 | ... == ... | ReverseDnsAccessControl.cs:33:38:33:64 | call to method GetHostEntryAsync : Task<IPHostEntry> | ReverseDnsAccessControl.cs:34:13:34:44 | ... == ... | This condition guards a sensitive $@, but a $@ controls it. | ReverseDnsAccessControl.cs:36:13:36:33 | call to method Login | action | ReverseDnsAccessControl.cs:33:38:33:64 | call to method GetHostEntryAsync | reverse DNS host name |
+| ReverseDnsAccessControl.cs:46:13:46:44 | ... == ... | ReverseDnsAccessControl.cs:44:32:44:57 | call to method GetHostByAddress : IPHostEntry | ReverseDnsAccessControl.cs:46:13:46:44 | ... == ... | This condition guards a sensitive $@, but a $@ controls it. | ReverseDnsAccessControl.cs:48:13:48:33 | call to method Login | action | ReverseDnsAccessControl.cs:44:32:44:57 | call to method GetHostByAddress | reverse DNS host name |
+| ReverseDnsAccessControl.cs:56:13:56:47 | ... == ... | ReverseDnsAccessControl.cs:55:32:55:53 | call to method GetHostEntry : IPHostEntry | ReverseDnsAccessControl.cs:56:13:56:47 | ... == ... | This condition guards a sensitive $@, but a $@ controls it. | ReverseDnsAccessControl.cs:58:13:58:33 | call to method Login | action | ReverseDnsAccessControl.cs:55:32:55:53 | call to method GetHostEntry | reverse DNS host name |
+| ReverseDnsLocalComparison.cs:27:13:27:52 | call to method Equals | ReverseDnsLocalComparison.cs:26:32:26:62 | call to method GetHostEntry : IPHostEntry | ReverseDnsLocalComparison.cs:27:13:27:52 | call to method Equals | This condition guards a sensitive $@, but a $@ controls it. | ReverseDnsLocalComparison.cs:29:13:29:31 | call to method AuthorizeUser | action | ReverseDnsLocalComparison.cs:26:32:26:62 | call to method GetHostEntry | reverse DNS host name |
+edges
+| ReverseDnsAccessControl.cs:12:21:12:28 | access to local variable hostInfo : IPHostEntry | ReverseDnsAccessControl.cs:13:13:13:20 | access to local variable hostInfo : IPHostEntry | provenance |  |
+| ReverseDnsAccessControl.cs:12:32:12:53 | call to method GetHostEntry : IPHostEntry | ReverseDnsAccessControl.cs:12:21:12:28 | access to local variable hostInfo : IPHostEntry | provenance |  |
+| ReverseDnsAccessControl.cs:13:13:13:20 | access to local variable hostInfo : IPHostEntry | ReverseDnsAccessControl.cs:13:13:13:29 | access to property HostName : String | provenance | MaD:1 |
+| ReverseDnsAccessControl.cs:13:13:13:29 | access to property HostName : String | ReverseDnsAccessControl.cs:13:13:13:49 | call to method Equals | provenance |  |
+| ReverseDnsAccessControl.cs:13:13:13:29 | access to property HostName : String | ReverseDnsAccessControl.cs:13:13:13:49 | call to method Equals | provenance | Config |
+| ReverseDnsAccessControl.cs:23:21:23:28 | access to local variable hostInfo : IPHostEntry | ReverseDnsAccessControl.cs:24:13:24:20 | access to local variable hostInfo : IPHostEntry | provenance |  |
+| ReverseDnsAccessControl.cs:23:32:23:53 | call to method GetHostEntry : IPHostEntry | ReverseDnsAccessControl.cs:23:21:23:28 | access to local variable hostInfo : IPHostEntry | provenance |  |
+| ReverseDnsAccessControl.cs:24:13:24:20 | access to local variable hostInfo : IPHostEntry | ReverseDnsAccessControl.cs:24:13:24:29 | access to property HostName | provenance | MaD:1 |
+| ReverseDnsAccessControl.cs:33:21:33:28 | access to local variable hostInfo : IPHostEntry | ReverseDnsAccessControl.cs:34:13:34:20 | access to local variable hostInfo : IPHostEntry | provenance |  |
+| ReverseDnsAccessControl.cs:33:38:33:64 | call to method GetHostEntryAsync : Task<IPHostEntry> | ReverseDnsAccessControl.cs:33:21:33:28 | access to local variable hostInfo : IPHostEntry | provenance |  |
+| ReverseDnsAccessControl.cs:34:13:34:20 | access to local variable hostInfo : IPHostEntry | ReverseDnsAccessControl.cs:34:13:34:29 | access to property HostName : String | provenance | MaD:1 |
+| ReverseDnsAccessControl.cs:34:13:34:29 | access to property HostName : String | ReverseDnsAccessControl.cs:34:13:34:44 | ... == ... | provenance |  |
+| ReverseDnsAccessControl.cs:34:13:34:29 | access to property HostName : String | ReverseDnsAccessControl.cs:34:13:34:44 | ... == ... | provenance | Config |
+| ReverseDnsAccessControl.cs:44:21:44:28 | access to local variable hostInfo : IPHostEntry | ReverseDnsAccessControl.cs:46:13:46:20 | access to local variable hostInfo : IPHostEntry | provenance |  |
+| ReverseDnsAccessControl.cs:44:32:44:57 | call to method GetHostByAddress : IPHostEntry | ReverseDnsAccessControl.cs:44:21:44:28 | access to local variable hostInfo : IPHostEntry | provenance |  |
+| ReverseDnsAccessControl.cs:46:13:46:20 | access to local variable hostInfo : IPHostEntry | ReverseDnsAccessControl.cs:46:13:46:29 | access to property HostName : String | provenance | MaD:1 |
+| ReverseDnsAccessControl.cs:46:13:46:29 | access to property HostName : String | ReverseDnsAccessControl.cs:46:13:46:44 | ... == ... | provenance |  |
+| ReverseDnsAccessControl.cs:46:13:46:29 | access to property HostName : String | ReverseDnsAccessControl.cs:46:13:46:44 | ... == ... | provenance | Config |
+| ReverseDnsAccessControl.cs:55:21:55:28 | access to local variable hostInfo : IPHostEntry | ReverseDnsAccessControl.cs:56:13:56:20 | access to local variable hostInfo : IPHostEntry | provenance |  |
+| ReverseDnsAccessControl.cs:55:32:55:53 | call to method GetHostEntry : IPHostEntry | ReverseDnsAccessControl.cs:55:21:55:28 | access to local variable hostInfo : IPHostEntry | provenance |  |
+| ReverseDnsAccessControl.cs:56:13:56:20 | access to local variable hostInfo : IPHostEntry | ReverseDnsAccessControl.cs:56:13:56:29 | access to property HostName : String | provenance | MaD:1 |
+| ReverseDnsAccessControl.cs:56:13:56:29 | access to property HostName : String | ReverseDnsAccessControl.cs:56:13:56:47 | ... == ... | provenance | Config |
+| ReverseDnsLocalComparison.cs:26:21:26:28 | access to local variable hostInfo : IPHostEntry | ReverseDnsLocalComparison.cs:27:13:27:20 | access to local variable hostInfo : IPHostEntry | provenance |  |
+| ReverseDnsLocalComparison.cs:26:32:26:62 | call to method GetHostEntry : IPHostEntry | ReverseDnsLocalComparison.cs:26:21:26:28 | access to local variable hostInfo : IPHostEntry | provenance |  |
+| ReverseDnsLocalComparison.cs:27:13:27:20 | access to local variable hostInfo : IPHostEntry | ReverseDnsLocalComparison.cs:27:13:27:29 | access to property HostName : String | provenance | MaD:1 |
+| ReverseDnsLocalComparison.cs:27:13:27:29 | access to property HostName : String | ReverseDnsLocalComparison.cs:27:13:27:52 | call to method Equals | provenance | Config |
+models
+| 1 | Summary: System.Net; IPHostEntry; false; get_HostName; (); ; Argument[this]; ReturnValue; taint; manual |
+nodes
+| ReverseDnsAccessControl.cs:12:21:12:28 | access to local variable hostInfo : IPHostEntry | semmle.label | access to local variable hostInfo : IPHostEntry |
+| ReverseDnsAccessControl.cs:12:32:12:53 | call to method GetHostEntry : IPHostEntry | semmle.label | call to method GetHostEntry : IPHostEntry |
+| ReverseDnsAccessControl.cs:13:13:13:20 | access to local variable hostInfo : IPHostEntry | semmle.label | access to local variable hostInfo : IPHostEntry |
+| ReverseDnsAccessControl.cs:13:13:13:29 | access to property HostName : String | semmle.label | access to property HostName : String |
+| ReverseDnsAccessControl.cs:13:13:13:49 | call to method Equals | semmle.label | call to method Equals |
+| ReverseDnsAccessControl.cs:23:21:23:28 | access to local variable hostInfo : IPHostEntry | semmle.label | access to local variable hostInfo : IPHostEntry |
+| ReverseDnsAccessControl.cs:23:32:23:53 | call to method GetHostEntry : IPHostEntry | semmle.label | call to method GetHostEntry : IPHostEntry |
+| ReverseDnsAccessControl.cs:24:13:24:20 | access to local variable hostInfo : IPHostEntry | semmle.label | access to local variable hostInfo : IPHostEntry |
+| ReverseDnsAccessControl.cs:24:13:24:29 | access to property HostName | semmle.label | access to property HostName |
+| ReverseDnsAccessControl.cs:33:21:33:28 | access to local variable hostInfo : IPHostEntry | semmle.label | access to local variable hostInfo : IPHostEntry |
+| ReverseDnsAccessControl.cs:33:38:33:64 | call to method GetHostEntryAsync : Task<IPHostEntry> | semmle.label | call to method GetHostEntryAsync : Task<IPHostEntry> |
+| ReverseDnsAccessControl.cs:34:13:34:20 | access to local variable hostInfo : IPHostEntry | semmle.label | access to local variable hostInfo : IPHostEntry |
+| ReverseDnsAccessControl.cs:34:13:34:29 | access to property HostName : String | semmle.label | access to property HostName : String |
+| ReverseDnsAccessControl.cs:34:13:34:44 | ... == ... | semmle.label | ... == ... |
+| ReverseDnsAccessControl.cs:44:21:44:28 | access to local variable hostInfo : IPHostEntry | semmle.label | access to local variable hostInfo : IPHostEntry |
+| ReverseDnsAccessControl.cs:44:32:44:57 | call to method GetHostByAddress : IPHostEntry | semmle.label | call to method GetHostByAddress : IPHostEntry |
+| ReverseDnsAccessControl.cs:46:13:46:20 | access to local variable hostInfo : IPHostEntry | semmle.label | access to local variable hostInfo : IPHostEntry |
+| ReverseDnsAccessControl.cs:46:13:46:29 | access to property HostName : String | semmle.label | access to property HostName : String |
+| ReverseDnsAccessControl.cs:46:13:46:44 | ... == ... | semmle.label | ... == ... |
+| ReverseDnsAccessControl.cs:55:21:55:28 | access to local variable hostInfo : IPHostEntry | semmle.label | access to local variable hostInfo : IPHostEntry |
+| ReverseDnsAccessControl.cs:55:32:55:53 | call to method GetHostEntry : IPHostEntry | semmle.label | call to method GetHostEntry : IPHostEntry |
+| ReverseDnsAccessControl.cs:56:13:56:20 | access to local variable hostInfo : IPHostEntry | semmle.label | access to local variable hostInfo : IPHostEntry |
+| ReverseDnsAccessControl.cs:56:13:56:29 | access to property HostName : String | semmle.label | access to property HostName : String |
+| ReverseDnsAccessControl.cs:56:13:56:47 | ... == ... | semmle.label | ... == ... |
+| ReverseDnsLocalComparison.cs:26:21:26:28 | access to local variable hostInfo : IPHostEntry | semmle.label | access to local variable hostInfo : IPHostEntry |
+| ReverseDnsLocalComparison.cs:26:32:26:62 | call to method GetHostEntry : IPHostEntry | semmle.label | call to method GetHostEntry : IPHostEntry |
+| ReverseDnsLocalComparison.cs:27:13:27:20 | access to local variable hostInfo : IPHostEntry | semmle.label | access to local variable hostInfo : IPHostEntry |
+| ReverseDnsLocalComparison.cs:27:13:27:29 | access to property HostName : String | semmle.label | access to property HostName : String |
+| ReverseDnsLocalComparison.cs:27:13:27:52 | call to method Equals | semmle.label | call to method Equals |
+subpaths
