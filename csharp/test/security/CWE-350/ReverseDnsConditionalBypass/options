@@ -1,0 +1,1 @@
+semmle-extractor-options: /r:System.Net.Primitives.dll /r:System.Net.NameResolution.dll /r:System.Runtime.Extensions.dll
